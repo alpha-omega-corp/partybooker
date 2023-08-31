@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16" width="10" height="16">
+	<defs>
+		<image width="10" height="16" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAQCAYAAAAvf+5AAAAAxklEQVQoU82RMQtBYRSGn3NJymg0+RmymBQGq8FmUlI2g/8gJaVY/YVLBpkumz8g2dnEdO9RNzefe6Xu5tvO+z3fec/7HSF8HHsA9IHM+0rH8sE5dhcYRR7DPAxegGwEFKZh0AWsF3hFpYmlNx7pQxj0gEDbUqiUgu7CfpXHdeu+IDI0bI+ojv1aEwvBsWdA60sAI7T24oDLCWj7Z0eRjrDZJEndcz5oWScjzA7Pa/h6sXaOkdr0dOwf3/M3oLFrXVOoloPJnjMTTzPZPG6TAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="Група 1">
+		<use id="facebook-logo copy" href="#img1" x="0" y="0" />
+	</g>
+</svg>

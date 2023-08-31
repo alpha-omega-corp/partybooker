@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 11" width="16" height="11">
+	<defs>
+		<image width="16" height="11" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAYAAAB24g05AAAAuElEQVQoU6WSPQ4BYRCGn5kvewWtZgu04gC4CTcQoVURiQMJLbVrED+NFYX4RmxC1ja+zU43P8+bNzMj5MIWVP1TNl6sH41Y5fv5XLIFm1LzTnbAXSOLZcAlWMBmNL3KBkjUWV2GnP7B737qwGa0vMoWuOjdYpmQhMCpwGNOV5FlCjtrA7dQmISjPOdyACrB0O/gPuvgrM46hR2U3sHHUeYKV3XWKHSFr0iZP/iKfD4R60Vj1v+W+wJ68E6MRTw9MQAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="single post">
+		<g id="1">
+			<g id="back">
+				<use id="right-arrow copy" href="#img1" x="0" y="0" />
+			</g>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,9 @@
+<h4>{{__('service.for')}} {{__('categories.cat5')}}</h4>
+<h6>{{strtoupper(__('service.general'))}}</h6>
+<p><span>{{__('partner.geographical_limit')}}:</span> {{$details->geo ?? "" }}</p>
+<p><span>{{__('partner.complimentary_services')}}:</span> {{$details->complim_services ?? "" }}</p>
+<p><span>{{__('partner.proposed_equipment')}}:</span> {{$details->proposed ?? "" }}</p>
+<p><span>{{__('partner.references')}}:</span> {{$details->references ?? "" }}</p>
+
+<h6>{{__('partner.comment')}}</h6>
+<p>{{$details->comment ?? ''}}</p>

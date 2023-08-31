@@ -1,0 +1,4 @@
+Database:	lionwood_partybooker
+Host:	localhost
+Username:	lionwood_partybooker
+Password:	Cy3xVZyvfi
