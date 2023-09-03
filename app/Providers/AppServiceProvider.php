@@ -14,7 +14,7 @@ use App\Services\PaymentTransactionService;
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
-use Schema; 
+use Schema;
 use DB;
 class AppServiceProvider extends ServiceProvider
 {
@@ -41,12 +41,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength(191); 
-		
-		$settings = DB::select('select * from settings');
-		view()->share('settings', $settings);
+        Schema::defaultStringLength(191);
 
-	    view()->share('footerCategories', $this->getFooterCategories());
+		//$settings = DB::select('select * from settings');
+		//view()->share('settings', $settings);
+
+	    //view()->share('footerCategories', $this->getFooterCategories());
     }
 
     private function getFooterCategories(){
