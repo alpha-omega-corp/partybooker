@@ -27,5 +27,26 @@ class DatabaseSeeder extends Seeder
             'user_terms_fr' => 'Terms fr',
             'service_terms_fr' => 'Services fr',
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'Nicholas',
+            'email' => 'bleyo@alphomega.org',
+            'email_verification' => 1,
+            'password' => bcrypt('password'),
+            'type' => 'admin',
+            'provider' => null,
+            'provider_id' => null,
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Paul',
+            'email' => 'paul@alphomega.org',
+            'email_verification' => 1,
+            'password' => bcrypt('password'),
+            'provider' => null,
+            'provider_id' => null,
+        ]);
+
+
     }
 }

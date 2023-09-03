@@ -16,25 +16,39 @@ class PartnersInfo extends Migration
 			$table->string('id_partner', 30);
 
 			//COMPANY NAME:
-			$table->string('company_name', 30)->unique();
+			$table->string('en_company_name', 100)->unique();
 
-			//PLAN
-			$table->string('plan', 30);
+            $table->string('fr_company_name', 100)->unique();
 
-            $table->string('budget', 100);
             $table->string('slug', 100);
 
+            $table->integer('average_rate');
+
+			$table->string('plan', 30);
+
+            $table->integer('plan_option')->nullable();
+
+
+
+            $table->string('company_phone', 30)->unique();
+
+            $table->string('budget', 100);
+
 			//PAYED
-			$table->dateTime('payed');
+			$table->dateTime('payed')->nullable();
 
             $table->boolean('payment_status');
             $table->boolean('public');
+
+            $table->string('lat', 190)->nullable();
+            $table->string('lon', 190)->nullable();
+
 
 			//EXPIRATION DATE
 			$table->dateTime('expiration_date');
 
 			//LOCATION:
-			$table->string('location', 10);
+			$table->string('location_code', 10);
 
 			//ADDRESS, POSTCODE
 			$table->string('address', 100);
@@ -48,27 +62,33 @@ class PartnersInfo extends Migration
 			//LOGO
 			$table->string('logo')->nullable();
 
-			//SLOGAN
-			$table->string('slogan',250)->nullable();
+			$table->integer('price');
 
-			//SHORT DESCRIPTION
-			$table->string('short_descr',350);
+            $table->string('en_slogan', 300);
+            $table->string('en_short_descr', 350);
+            $table->string('en_full_descr', 350);
 
-            $table->string('fr_short_descr',350);
-            $table->string('en_short_descr',350);
+            $table->string('fr_slogan', 300);
+            $table->string('fr_short_descr', 350);
+            $table->string('fr_full_descr', 350);
 
             $table->text('images');
-
-
-
-			//FULL DESCRIPTION
-			$table->string('full_descr',3000);
 
 			//LANGUAGE
 			$table->string('language');
 
+            //OTHER LANG
+            $table->string('other_lang');
+
 			//CATEGORY
-			$table->string('category');
+			$table->string('category_1');
+            $table->string('category_2');
+			$table->string('category_3');
+
+            $table->string('subcat_1');
+            $table->string('subcat_2');
+			$table->string('subcat_3');
+
 
 			//WWW - website
 			$table->string('www')->nullable()->unique();
@@ -90,6 +110,8 @@ class PartnersInfo extends Migration
 
 			//WWW - vimeo
 			$table->string('vimeo')->nullable();
+
+            $table->string('main_img', 100)->nullable();
 
 		});
     }

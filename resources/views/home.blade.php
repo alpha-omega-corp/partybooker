@@ -26,7 +26,6 @@
                 alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
         </div>
 
-
         <div class="container">
             <h1>{{ __('main.title_home_h1') }}</h1>
             <h2>{{ __('main.title_home_h2') }}</h2>
