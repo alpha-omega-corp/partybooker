@@ -27,6 +27,9 @@ class PartnersInfo extends Migration
 			//PAYED
 			$table->dateTime('payed');
 
+            $table->boolean('payment_status');
+            $table->boolean('public');
+
 			//EXPIRATION DATE
 			$table->dateTime('expiration_date');
 

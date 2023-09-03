@@ -43,10 +43,11 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-		//$settings = DB::select('select * from settings');
-		//view()->share('settings', $settings);
+		$settings = DB::select('select * from settings');
 
-	    //view()->share('footerCategories', $this->getFooterCategories());
+		view()->share('settings', $settings);
+
+	    view()->share('footerCategories', $this->getFooterCategories());
     }
 
     private function getFooterCategories(){

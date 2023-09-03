@@ -23,7 +23,7 @@ class AddFormNamesToCategories extends Migration
 	public function up()
 	{
 		Schema::table('categories', function (Blueprint $table) {
-			$table->string('form_name');
+			$table->string('form_name')->nullable();
 		});
 
 		$categ = Category::whereNull('parent_id')->with(['subCategories'])->get();

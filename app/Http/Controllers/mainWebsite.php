@@ -32,6 +32,7 @@ class mainWebsite extends Controller
 	}
 
 	public function home() {
+        $this->categories =
 		$services = Cache::get(App()->getLocale() . '_home_page_services');
 		if(!$services) {
 			$services = PartnersInfo::where('payment_status', 1)->where('public', 1)
@@ -73,10 +74,18 @@ class mainWebsite extends Controller
 
 		$swisswins = SwisswinDirectory::all();
 
-		$menuCategories = $this->categories;
-
-
-		return view('home', ['top'=>$top, 'services'=>$services, 'category'=>$category, 'place'=>$place, 'budget'=>$budget, 'name'=>$name, 'swisswins' => $swisswins, 'categories' => $this->categories, 'menuCats' => $menuCategories]);
+		$menuCategories = Category::with(['subcategories','lang','subcategories.lang'])->whereNull('parent_id')->get();
+		return view('home', [
+            'top'=>$top,
+             'services'=>$services,
+             'category'=>$category,
+             'place'=>$place,
+             'budget'=>$budget,
+             'name'=>$name,
+             'swisswins' => $swisswins,
+             'categories' => $this->categories,
+             'menuCats' => $menuCategories
+        ]);
     }
 
 	private function getPlanOptions($options){
