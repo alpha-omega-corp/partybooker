@@ -1,7 +1,7 @@
 <?php
 
 return [
-	
+
 	//GENERAL
 	'login'						=> "S'identifier",
     'register'					=> "Inscription",
@@ -25,7 +25,7 @@ return [
 	'delete'					=> "Annuler",
 	'save'						=> "Enregistrer",
 	'name'                      => 'Nom',
-	
+
 	//MAIN WEBSITE
 	//Common
 	//navigation
@@ -36,22 +36,22 @@ return [
 	'faqs_page' 				=> "FAQs",
 	'blog_page' 				=> "Blog",
 	'contact_page' 				=> "Contact",
-	
+
 	//subscribe form
 	'subscribe_offers'			=> "OFFRES SPECIALES",
 	'subscribe_text'			=> "Inscrivez-vous et recevez les offres de nos partenaires.",
 	'subscribe_email'			=> "Votre E-mail",
-	
+
 	//top services
-	'top_services'				=> "TOP SERVICES", 
-	
+	'top_services'				=> "TOP SERVICES",
+
 	//Homepage
 	'title_home_h1'				=> "ORGANISEZ VOTRE ÉVÉNEMENT EN QUELQUES CLICS!",
 	'title_home_h2'				=> "BIENVENUE SUR PARTYBOOKER",
 	'category'                  => 'Catégorie',
 	'place'                     => 'Lieu',
 	'budget'                    => 'Budget',
-	
+
 	//Contact us page
 	'our_contacts'				=> "NOS COORDONNEES",
 	'write_us'					=> "ECRIVEZ-NOUS UN MESSAGE",
@@ -78,8 +78,8 @@ return [
 
 	'event-types' => 'Types d\'événements',
 	'select_all' => 'Tous',
-    'left-info-block'=>"Notre sélection rassemble les meilleurs idées d'événements, lieux, activités et services à faire en Suisse romande. Originaux et excceptionnels, ces idées d'événements donneront une autre dimension à vos sorties entre amis, vos séminaires d'entreprises,
-famille ou même à vos mariages.",
-    'right-info-block'=>"Nous sélectionnons avec parcimonie les meilleurs événements et activités à faire dans la région romande, à Genève, Lausanne ainsi que tout l'arc lémanique. Nous proposons des activités pour tous les budgets et pour toutes les
-envies afin de garantir une sortie originale et des souvenirs inoubliables."
+
+    'info-block-1' => 'La destination ultime pour les particuliers et les organisations qui souhaitent organiser des événements inoubliables, empreints d\'une qualité et d\'une créativité exceptionnelles. Basé dans le cœur pittoresque de la Suisse Romande, PartyBooker est votre partenaire de confiance, réunissant des prestataires de services innovants et des personnes passionnées par la création d\'expériences uniques. Chez PartyBooker, nous pensons que chaque événement a le potentiel de devenir une expérience inoubliable.',
+    'info-block-2' => 'Notre mission est de vous permettre de transformer vos rêves d\'événements en réalité en vous mettant en contact avec une sélection de fournisseurs de services de premier plan qui partagent votre désir d\'excellence. Nous comprenons que votre événement est le reflet de votre vision unique et nous nous engageons à vous fournir les outils et les ressources nécessaires pour en faire un succès retentissant.',
+    'info-block-3' => 'Pour les prestataires de services événementiels, Partybooker est une plate-forme dédiée qui vous permet de présenter vos installations et vos services à un large public de particuliers et d\'organisations. Chez Partybooker, nous comprenons l\'importance de faire une impression durable et de veiller à ce que vos offres se distinguent sur un marché concurrentiel.',
 ];

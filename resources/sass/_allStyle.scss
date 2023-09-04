@@ -4723,15 +4723,23 @@ input[type="number"]::-webkit-outer-spin-button {
     border-color: #b1d236f2;
 }
 
-.left-info-block {
-    padding-left: 94px;
+.info-block {
+    background-color: rgba(13, 12, 11, 0.4);
+    border: 1px;
+    border-radius: 10px;
+    padding: 20px;
     color: #e2e2e2;
 }
 
-.right-info-block {
-    padding-right: 94px;
+.info-block-lower {
+    margin-top: 40px;
+    background-color: rgba(13, 12, 11, 0.4);
+    border: 1px;
+    border-radius: 10px;
+    padding: 20px;
     color: #e2e2e2;
 }
+
 
 
 /* /////////////////////////////////////////// */

@@ -32,9 +32,13 @@
             <h2>{{ __('main.title_home_h2') }}</h2>
 
             <br>
-            <div class="row justify-content-center">
-                <div class="col-md-6 text-justify left-info-block">{{ __('main.left-info-block') }}</div>
-                <div class="col-md-6 text-justify right-info-block">{{ __('main.right-info-block') }}</div>
+            <div class="row justify-content-center info-block">
+                <div class="col-md-6 text-justify">{{ __('main.info-block-1') }}</div>
+                <div class="col-md-6 text-justify">{{ __('main.info-block-2') }}</div>
+            </div>
+
+            <div class="row justify-content-center info-block-lower">
+                <div class="col-md-6 text-justify">{{ __('main.info-block-3') }}</div>
             </div>
         </div>
 
