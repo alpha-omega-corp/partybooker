@@ -47,12 +47,30 @@ class DatabaseSeeder extends Seeder
             'provider_id' => null,
         ]);
 
+        $this->newPartner('dynam-event', 1);
+        $this->newPartner('chillfood', 2);
+        $this->newPartner('la-cave-geneve-vieille-ville', 3);
+        $this->newPartner('moulin-du-creux-vich', 4);
+        $this->newPartner('chateau-de-coppet', 5);
+        $this->newPartner('twist-events-carouge-geneve', 6);
+        $this->newPartner('domaine-la-capitaine', 7);
+        $this->newPartner('domaine-des-esserts', 8);
+        $this->newPartner('la-caravane-passe-geneve', 9);
+        $this->newPartner('headphone-music--silent-disco', 10);
 
+
+
+
+
+    }
+
+
+    private function newPartner(string $slug, $r) {
         DB::table('partners_info')->insert([
-            'id_partner' => '120036190814-0432',
-            'en_company_name' => '"DYNAM", votre partenaire pour un team building mémorable',
-            'fr_company_name' => 'DYNAM',
-            'slug' => 'dynam-event',
+            'id_partner' => '120036190814-044' . $r,
+            'en_company_name' => $slug,
+            'fr_company_name' => $slug,
+            'slug' => $slug,
             'average_rate' => 3,
             'plans_id' => 2,
             'plan_option_group' => 2,
@@ -64,8 +82,8 @@ class DatabaseSeeder extends Seeder
             'address' => 'Rue de la Gare 19, Montreux, Suisse',
             'lat' => '46.4364302',
             'lon' => '6.911386499999935',
-            'phone' => '+41219898890',
-            'company_phone' => '+41219898890',
+            'phone' => '+4121989889' .$r,
+            'company_phone' => '+4121939889'.$r,
             'language' => '["french","english","german","italian"]',
             'price' => true,
             'budget' => true,
@@ -79,7 +97,5 @@ class DatabaseSeeder extends Seeder
             'fr_full_descr' => 'Plein',
             'other_lang' => null,
         ]);
-
-
     }
 }
