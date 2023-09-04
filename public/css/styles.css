@@ -11241,13 +11241,14 @@ header .overlay {
   position: fixed;
   z-index: 10;
   top: 0;
-  left: 0;
+  right: 0;
   background-color: #ec7f00;
   overflow-x: hidden;
   transition: all 0.4s ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 30%;
 }
 
 header .overlay .overlay-content {
@@ -11321,12 +11322,13 @@ header .overlay .close-btn {
 }
 
 .header .head-nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   display: flex;
   align-items: center;
   padding: 11px 30px;
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 1;
 }
 
@@ -11344,6 +11346,11 @@ header .overlay .close-btn {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
   border-color: #fff;
+}
+
+.header .head-nav img {
+  max-width: 70px;
+  max-height: 70px;
 }
 
 .header .head-nav .lg {

@@ -18,6 +18,7 @@
     @endif
 @endsection
 
+
 @section('content')
     <section class="header">
         @include('common.header-nav')
