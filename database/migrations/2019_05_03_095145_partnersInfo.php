@@ -78,16 +78,16 @@ class PartnersInfo extends Migration
 			$table->string('language');
 
             //OTHER LANG
-            $table->string('other_lang');
+            $table->string('other_lang')->nullable();
 
 			//CATEGORY
-			$table->string('category_1');
-            $table->string('category_2');
-			$table->string('category_3');
+			$table->string('category_1')->nullable();
+            $table->string('category_2')->nullable();
+			$table->string('category_3')->nullable();
 
-            $table->string('subcat_1');
-            $table->string('subcat_2');
-			$table->string('subcat_3');
+            $table->string('subcat_1')->nullable();
+            $table->string('subcat_2')->nullable();
+			$table->string('subcat_3')->nullable();
 
 
 			//WWW - website

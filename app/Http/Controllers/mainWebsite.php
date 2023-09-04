@@ -32,7 +32,6 @@ class mainWebsite extends Controller
 	}
 
 	public function home() {
-        $this->categories =
 		$services = Cache::get(App()->getLocale() . '_home_page_services');
 		if(!$services) {
 			$services = PartnersInfo::where('payment_status', 1)->where('public', 1)
@@ -64,6 +63,7 @@ class mainWebsite extends Controller
 			'h2h',
 			'wtfunk',
 		])->get();
+
 		$top = collect($top);
 
 		$category = 'null';
@@ -74,7 +74,8 @@ class mainWebsite extends Controller
 
 		$swisswins = SwisswinDirectory::all();
 
-		$menuCategories = Category::with(['subcategories','lang','subcategories.lang'])->whereNull('parent_id')->get();
+		$menuCategories = $this->categories;
+
 		return view('home', [
             'top'=>$top,
              'services'=>$services,

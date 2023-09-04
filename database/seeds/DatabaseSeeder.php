@@ -48,5 +48,38 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        DB::table('partners_info')->insert([
+            'id_partner' => '120036190814-0432',
+            'en_company_name' => '"DYNAM", votre partenaire pour un team building mémorable',
+            'fr_company_name' => 'DYNAM',
+            'slug' => 'dynam-event',
+            'average_rate' => 3,
+            'plans_id' => 2,
+            'plan_option_group' => 2,
+            'payment_status' => true,
+            'public' => true,
+            'payed' => '2020-09-18',
+            'expiration_date' => '2024-09-18',
+            'location_code' => 'VD',
+            'address' => 'Rue de la Gare 19, Montreux, Suisse',
+            'lat' => '46.4364302',
+            'lon' => '6.911386499999935',
+            'phone' => '+41219898890',
+            'company_phone' => '+41219898890',
+            'language' => '["french","english","german","italian"]',
+            'price' => true,
+            'budget' => true,
+            'priority' => 1,
+            'plan' => 'exclusif',
+            'en_slogan' => 'SLogna',
+            'fr_slogan' => 'SLogna',
+            'en_short_descr' => 'Dynamn short decr',
+            'fr_short_descr' => 'Dynac court descr',
+            'en_full_descr' => 'Full',
+            'fr_full_descr' => 'Plein',
+            'other_lang' => null,
+        ]);
+
+
     }
 }
