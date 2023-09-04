@@ -40,9 +40,7 @@
         @include('common.social')
     </section>
 
-    <section>
-        @include('common.top-services')
-    </section>
+    @include('common.top-services')
 
     <section class="categories-cards">
         <label class="ctg-card card-one">
