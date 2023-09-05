@@ -1,4 +1,4 @@
-<div class="head-nav">
+<div class="head-nav" style="z-index: 150">
     <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}" class="mr-auto">
         <img src="/images/logoPB.png" alt="logo">
     </a>
