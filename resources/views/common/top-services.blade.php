@@ -15,7 +15,7 @@
                             {{ $service->fr_company_name }}
                         @endif
                     </h6>
-
+                    <p>{{ strtoupper(__('cantons.' . strtolower($service->location_code) . '_loc')) }}</p>
                 </a>
             @endforeach
         </div>

@@ -18,7 +18,6 @@
     @endif
 @endsection
 
-
 @section('content')
     <section class="header">
         @include('common.header-nav')
@@ -32,13 +31,17 @@
             <h2>{{ __('main.title_home_h2') }}</h2>
 
             <br>
+
             <div class="row justify-content-center info-block">
                 <div class="col-md-6 text-justify">{{ __('main.info-block-1') }}</div>
                 <div class="col-md-6 text-justify">{{ __('main.info-block-2') }}</div>
             </div>
 
             <div class="row justify-content-center info-block-lower">
-                <div class="col-md-6 text-justify">{{ __('main.info-block-3') }}</div>
+                <a class="become-partner"
+                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
+                    {{ strtoupper(__('main.become_partner_page')) }}
+                </a>
             </div>
         </div>
 
