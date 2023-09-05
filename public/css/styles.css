@@ -11664,6 +11664,10 @@ header .overlay .close-btn {
   grid-row: 30/45;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 .services {
   position: relative;
   box-shadow: 0.523px 9.986px 16px rgba(19, 19, 19, 0.08);
