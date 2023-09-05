@@ -1,7 +1,6 @@
 @if (count($top))
     <section class="services">
         <h4>{{ __('main.top_services') }}</h4>
-
         <div class="owl-carousel header_carousel">
             @foreach ($top as $service)
                 <a class="item"
@@ -19,6 +18,5 @@
                 </a>
             @endforeach
         </div>
-
     </section>
 @endif

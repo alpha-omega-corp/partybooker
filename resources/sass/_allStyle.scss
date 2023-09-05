@@ -540,6 +540,8 @@ header {
         text-align: center;
     }
 
+
+
     .header_carousel {
         margin-top: 30px;
         padding: 0 15px;
@@ -548,6 +550,7 @@ header {
             display: block;
             color: $grey-33;
             padding: 0 15px;
+            cursor: pointer;
 
             &:hover {
                 transform: scale(1.03);

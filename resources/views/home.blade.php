@@ -34,7 +34,7 @@
 
             <div class="row justify-content-center info-block">
                 <div class="col-md-6 text-justify">{{ __('main.info-block-1') }}</div>
-                <div class="col-md-6 text-justify">{{ __('main.info-block-2') }}</div>
+                <div class="col-md-6 text-justify lower">{{ __('main.info-block-2') }}</div>
             </div>
 
             <div class="row justify-content-center info-block-lower">
@@ -48,7 +48,9 @@
         @include('common.social')
     </section>
 
-    @include('common.top-services')
+    <section>
+        @include('common.top-services')
+    </section>
 
     <section class="categories-cards">
         <label class="ctg-card card-one">
