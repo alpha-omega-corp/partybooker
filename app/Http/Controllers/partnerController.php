@@ -111,7 +111,8 @@ class partnerController extends Controller
 			'email' => 'unique:users',
 			'phone' => 'unique:partners_info',
 			'company_phone' => 'unique:partners_info',
-			'www' => 'nullable|unique:partners_info,www'
+			'www' => 'nullable|unique:partners_info,www',
+            'map' => 'required'
 		]);
 
 		if ($validator->fails()) {
@@ -173,23 +174,15 @@ class partnerController extends Controller
 				$slug = str_replace([' ', '.', ',', '"', '--'], '-', strtolower($fr_company_name));
 			}
 
-			$location = $request->input('location');
-			$address = $request->input('address');
+//			$location = $request->input('location');
+			//$address = $request->input('address');
 			$map = $request->get('map');
 
-			if ($map['lat'] && $map['lon']) {
-				$lat = $map['lat'];
-				$lon = $map['lon'];
-			} else {
-				$response = \Geocode::make()->address($address);
-				if ($response) {
-					$lat = $response->latitude();
-					$lon = $response->longitude();
-				} else {
-					$lat = null;
-					$lon = null;
-				}
-			}
+            $lat = $map['lat'];
+            $lon = $map['lon'];
+            dd($map);
+
+
 
 			$company_phone = $request->input('company_phone');
 			$company_fax = $request->input('company_fax');
@@ -226,10 +219,10 @@ class partnerController extends Controller
 					'slug' => \App\Helpers\SlugSanitizer::sanitize($slug),
 					'en_company_name' => $en_company_name,
 					'fr_company_name' => $fr_company_name,
-					'location_code' => $location,
-					'address' => $address,
-					'lat' => $lat,
-					'lon' => $lon,
+					'location_code' => $map['state'],
+					'address' => $map['address'],
+					'lat' => $map['lat'],
+					'lon' => $map['lon'],
 					'phone' => $phone,
 					'company_phone' => $company_phone,
 					'fax' => $company_fax,
