@@ -29,24 +29,23 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('title')
     @stack('header')
-    <!-- Styles -->
+    <script src="{{ asset('dist/app.js') }}" defer></script>
     <link href="{{ asset('dist/app.css') }}" rel="stylesheet">
 </head>
 
 <body class="body">
-    @include('common.header')
-    @yield('content')
-    @include('common.footer')
-    @include('common.cookies')
+    @include('common.header-nav')
+
+    <div style="margin-left: 4.75rem">
+
+        @yield('content')
+
+        @include('common.footer')
+        @include('common.cookies')
+    </div>
+
 </body>
-<!-- Scripts -->
-<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-<script src="{{ asset('js/popper.js') }}"></script>
-<script src="{{ asset('js/bootstrap4.js') }}"></script>
-<script src="{{ asset('js/owl.carousel.js') }}"></script>
-<script src="{{ asset('js/script.js') }}"></script>
-<script src="{{ asset('js/jquery.mask.js') }}"></script>
-{{--		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDpzw9SH97G5L9Af-dR5TeixK8OEPqocY&callback=initMap" type="text/javascript"></script> --}}
+
 @stack('footer')
 
 </html>

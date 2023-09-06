@@ -3,14 +3,12 @@ const out = './dist';
 
 mix.webpackConfig({
     stats: {
-        children: false,
+        children: true,
     },
 });
 
-mix
-    .js('resources/js/app.js', out)
+mix.js('resources/js/app.js', out)
     .sass('resources/sass/app.scss', out)
-    .options({ autoprefixer: false })
 
 
 

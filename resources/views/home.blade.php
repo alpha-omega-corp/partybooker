@@ -19,34 +19,17 @@
 @endsection
 
 @section('content')
-    <section class="header">
-        @include('common.header-nav')
-        <div class="cover abs">
-            <img src="/images/home-header-bg.jpg" class="bg abs"
-                alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
-        </div>
-
-        <div class="container">
-            <h1>{{ __('main.title_home_h1') }}</h1>
-            <h2>{{ __('main.title_home_h2') }}</h2>
-
-            <br>
-
-            <div class="row justify-content-center info-block">
-                <div class="col-md-6 text-justify">{{ __('main.info-block-1') }}</div>
-                <div class="col-md-6 text-justify lower">{{ __('main.info-block-2') }}</div>
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="1000">
+                <img src="/images/home-header-bg.jpg" class="d-block w-100" alt="...">
             </div>
-
-            <div class="row justify-content-center info-block-lower">
-                <a class="become-partner"
-                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
-                    {{ strtoupper(__('main.become_partner_page')) }}
-                </a>
+            <div class="carousel-item" data-bs-interval="1000">
+                <img src="/images/home-header-bg.jpg" class="d-block w-100" alt="...">
             </div>
         </div>
+    </div>
 
-        @include('common.social')
-    </section>
 
     <section>
         @include('common.top-services')
