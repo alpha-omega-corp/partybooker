@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-const out = './dist';
+const out = 'dist';
 
 mix.webpackConfig({
     stats: {
@@ -10,5 +10,5 @@ mix.webpackConfig({
 mix.js('resources/js/app.js', out)
     .sass('resources/sass/app.scss', out)
 
-
+mix.copyDirectory('resources/images', 'public/images');
 

@@ -1,3 +1,50 @@
+.accordion-button-register.collapsed {
+    color: #ffffff;
+    background-color: $orange-300;
+}
+
+.welcome {
+    margin-top: 100px;
+
+    h1 {
+        margin-bottom: 25px;
+    }
+
+    img {
+        margin-top: 60px;
+        width: 100px;
+    }
+
+    .card-group {
+
+        border-top: 1px solid;
+        border-right: 1px solid;
+        border-color: $gray-400;
+        border-radius: 10px;
+
+        .card {
+            border: 0;
+
+
+            .accordion-body {
+                text-align: justify;
+            }
+
+            .accordion-button {
+                font-weight: bold;
+            }
+
+            .register {
+                color: #ffffff;
+                margin-top: 20px;
+                width: 100%;
+                text-align: left;
+            }
+        }
+    }
+}
+
+
 .carousel-inner {
     width: 640px;
 

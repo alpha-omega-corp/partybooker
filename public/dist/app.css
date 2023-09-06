@@ -22906,6 +22906,43 @@ textarea.form-control-lg {
   transform-style: preserve-3d;
 }
 
+.accordion-button-register.collapsed {
+  color: #ffffff;
+  background-color: #feb272;
+}
+
+.welcome {
+  margin-top: 100px;
+}
+.welcome h1, .welcome .h1 {
+  margin-bottom: 25px;
+}
+.welcome img {
+  margin-top: 60px;
+  width: 100px;
+}
+.welcome .card-group {
+  border-top: 1px solid;
+  border-right: 1px solid;
+  border-color: #ced4da;
+  border-radius: 10px;
+}
+.welcome .card-group .card {
+  border: 0;
+}
+.welcome .card-group .card .accordion-body {
+  text-align: justify;
+}
+.welcome .card-group .card .accordion-button {
+  font-weight: bold;
+}
+.welcome .card-group .card .register {
+  color: #ffffff;
+  margin-top: 20px;
+  width: 100%;
+  text-align: left;
+}
+
 .carousel-inner {
   width: 640px;
 }

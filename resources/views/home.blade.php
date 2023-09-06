@@ -19,16 +19,118 @@
 @endsection
 
 @section('content')
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="1000">
-                <img src="/images/home-header-bg.jpg" class="d-block w-100" alt="...">
+    <div class="welcome" style="margin-bottom: 1200px;">
+        <div class="container">
+            <div class="row">
+                <!-- Welcome -->
+                <div class="col-sm-8">
+                    <h1 class="text-primary fw-bold">{{ __('main.title_home_h1') }}</h1>
+
+                </div>
+                <!-- Carousel -->
+                <div class="col-sm-4">
+
+                </div>
             </div>
-            <div class="carousel-item" data-bs-interval="1000">
-                <img src="/images/home-header-bg.jpg" class="d-block w-100" alt="...">
+
+            <div class="accordion" id="accordionExample">
+                <div class="card-group">
+
+                    <div class="card">
+                        <img src="{{ asset('images/ape.svg') }}" class="card-img-top rounded mx-auto d-block py-4"
+                            alt="...">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button text-uppercase" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
+                                            aria-controls="collapseOne">
+                                            {{ __('main.info-block-title-1') }}
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            {{ __('main.info-block-1') }}
+
+                                            <br>
+                                            <hr>
+                                            {{ __('main.info-block-1-1') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="{{ asset('images/party-popper.svg') }}" class="card-img-top rounded mx-auto d-block py-4"
+                            alt="...">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button text-uppercase" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                            aria-controls="collapseTwo">
+                                            {{ __('main.info-block-title-2') }}
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            {{ __('main.info-block-2') }}
+                                            <b>{{ __('main.info-block-2-1') }}</b>
+                                            {{ __('main.info-block-2-2') }}
+
+                                            <br>
+                                            <hr>
+                                            {{ __('main.info-block-2-3') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-focus">
+                        <img src="{{ asset('images/work-team.svg') }}" class="card-img-top rounded mx-auto d-block py-4"
+                            alt="...">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button accordion-button-register collapsed text-uppercase"
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree">
+
+                                            <span>{{ __('main.info-block-title-3') }}</span>
+                                        </button>
+                                    </h2>
+
+                                    <div id="collapseThree" class="accordion-collapse collapse show"
+                                        aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body p-3">
+                                            <span>{{ __('main.info-block-at') }}</span>
+                                            <b>{{ __('main.info-block-pb') }}</b>
+                                            <span>{{ __('main.info-block-3') }}</span>
+
+                                            <br>
+                                            <hr>
+                                            <i>{{ __('main.info-block-3-1') }}</i>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-primary register">
+                                        <i class="bi bi-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 
 
     <section>

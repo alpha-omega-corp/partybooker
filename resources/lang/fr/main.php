@@ -79,6 +79,19 @@ return [
 	'event-types' => 'Types d\'événements',
 	'select_all' => 'Tous',
 
-    'info-block-1' => 'La destination ultime pour les particuliers et les organisations qui souhaitent organiser des événements inoubliables, empreints d\'une qualité et d\'une créativité exceptionnelles. Basé dans le cœur pittoresque de la Suisse Romande, PartyBooker est votre partenaire de confiance, réunissant des prestataires de services innovants et des personnes passionnées par la création d\'expériences uniques. Chez PartyBooker, nous pensons que chaque événement a le potentiel de devenir une expérience inoubliable.',
-    'info-block-2' => 'Notre mission est de vous permettre de transformer vos rêves d\'événements en réalité en vous mettant en contact avec une sélection de fournisseurs de services de premier plan qui partagent votre désir d\'excellence. Nous comprenons que votre événement est le reflet de votre vision unique et nous nous engageons à vous fournir les outils et les ressources nécessaires pour en faire un succès retentissant. Alors qu\'attendez-vous, contactez Partybooker dès aujourd\'hui et commençons la fête.',
+    'info-block-1' => 'La destination ultime pour les particuliers et les organisations qui souhaitent organiser des événements inoubliables empreints d\'une qualité et d\'une créativité exceptionnelles',
+    'info-block-1-1' => 'Basé dans le cœur pittoresque de la Suisse Romande, PartyBooker est votre partenaire de confiance, réunissant des prestataires de services innovants et des personnes passionnées par la création d\'expériences uniques.',
+    'info-block-2' => 'Notre mission est de vous permettre de',
+    'info-block-2-1' => 'transformer vos rêves d\'événements en réalité',
+    'info-block-2-2' => 'en vous mettant en contact avec une sélection de fournisseurs de services de premier plan qui partagent votre désir d\'excellence',
+    'info-block-2-3' => 'Nous comprenons que votre événement est le reflet de votre vision unique et nous nous engageons à vous fournir les outils et les ressources nécessaires pour en faire un succès retentissant.',
+    'info-block-3' => 'nous pensons que chaque événement a le potentiel de devenir une expérience inoubliable.',
+    'info-block-3-1' => 'Alors qu\'attendez-vous, contactez Partybooker dès aujourd\'hui et commençons la fête.',
+    'info-block-title-1' => 'Qui sommes nous?',
+    'info-block-title-2' => 'Notre mission',
+    'info-block-title-3' => 'Devenez partenaire!',
+    'info-block-register' => 'Devenir partenaire',
+    'info-block-pb' => 'PartyBooker',
+    'info-block-at' => 'Chez',
+
 ];
