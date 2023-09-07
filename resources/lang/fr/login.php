@@ -1,6 +1,6 @@
 <?php
 return [
-	'email' => 'Courriel Utilisateur',
+	'email' => 'Courriel',
 	'password' => 'Mot de Passe',
 	'remember' => 'Se souvenir de moi',
 	'log'=>'Ou connectez-vous avec',

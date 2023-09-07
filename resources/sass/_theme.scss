@@ -8,3 +8,10 @@ $theme-colors: (
     "light": $light,
     "dark": $dark
 );
+
+.tippy-box[data-theme~='navigation'] {
+    background-color: $orange-300;
+    padding: 8px;
+    border-radius: 0px 10px 0px 10px;
+    color: #ffffff;
+}

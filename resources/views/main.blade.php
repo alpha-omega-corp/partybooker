@@ -29,6 +29,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('title')
     @stack('header')
+
     <script src="{{ asset('dist/app.js') }}" defer></script>
     <link href="{{ asset('dist/app.css') }}" rel="stylesheet">
 </head>
@@ -38,7 +39,23 @@
 
     <div style="margin-left: 4.75rem">
 
+        @if (Auth::user() == null)
+            <div class="auth">
+                <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+                    {{ __('main.login') }}
+                </a>
+            </div>
+        @endif
+
         @yield('content')
+
+
+
+
+        <section>
+            @include('auth.login')
+            @include('auth.register')
+        </section>
 
         @include('common.footer')
         @include('common.cookies')

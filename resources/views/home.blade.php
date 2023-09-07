@@ -21,17 +21,8 @@
 @section('content')
     <div class="welcome" style="margin-bottom: 1200px;">
         <div class="container">
-            <div class="row">
-                <!-- Welcome -->
-                <div class="col-sm-8">
-                    <h1 class="text-primary fw-bold">{{ __('main.title_home_h1') }}</h1>
+            <h1 class="text-primary display-1 fw-bold">{{ __('main.title_home_h1') }}</h1>
 
-                </div>
-                <!-- Carousel -->
-                <div class="col-sm-4">
-
-                </div>
-            </div>
 
             <div class="accordion" id="accordionExample">
                 <div class="card-group">
@@ -119,9 +110,12 @@
                                             <i>{{ __('main.info-block-3-1') }}</i>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-primary register">
-                                        <i class="bi bi-arrow-right"></i>
-                                    </button>
+                                    <a
+                                        href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
+                                        <button type="button" class="btn btn-primary register">
+                                            <i class="bi bi-arrow-right"></i>
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -130,8 +124,6 @@
             </div>
         </div>
     </div>
-
-
 
     <section>
         @include('common.top-services')

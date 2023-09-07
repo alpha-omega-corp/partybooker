@@ -25,14 +25,16 @@ return [
 	'delete'					=> "Delete",
 	'save'						=> "Save",
 	'name'                      => 'Name',
+    'close'                     => "Close",
+
 
 	//MAIN WEBSITE
 	//Common
 	//navigation
-	'home_page' 				=> "Home page",
+	'home_page' 				=> "Home",
 	'listing_page' 				=> "Listing",
-	'become_partner_page'		=> "Become a partner",
-	'aboutus_page' 				=> "About us",
+	'become_partner_page'		=> "Partnership",
+	'aboutus_page' 				=> "About",
 	'faqs_page' 				=> "FAQs",
 	'blog_page' 				=> "Blog",
 	'contact_page' 				=> "Contact",

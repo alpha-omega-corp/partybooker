@@ -87,9 +87,6 @@
                     </a>
                 </div>
             </div>
-
         </div>
     </div>
 </footer>
-@include('common.login')
-@include('common.register')

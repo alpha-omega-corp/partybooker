@@ -14,6 +14,7 @@ use App\Services\PaymentTransactionService;
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 use Schema;
 use DB;
 class AppServiceProvider extends ServiceProvider
@@ -39,9 +40,10 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         Schema::defaultStringLength(191);
+
+
 
 		$settings = DB::select('select * from settings');
 
