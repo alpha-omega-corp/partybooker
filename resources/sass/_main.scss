@@ -7,16 +7,20 @@
     color: #ffffff;
 }
 
+.btn-info {
+    color: #ffffff;
+}
+
 .btn-primary:hover {
     color: #ffffff;
-    text-decoration: underline;
 }
 
 .auth {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
 }
+
 
 .welcome {
     margin-top: 100px;
@@ -60,11 +64,37 @@
     }
 }
 
-
-.carousel-inner {
-    width: 640px;
-
-    img {
-        height: 360px;
+@media (max-width: 767px) {
+    .carousel-inner .carousel-item>div {
+        display: none;
     }
+
+    .carousel-inner .carousel-item>div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(25%);
+    }
+
+    .carousel-inner .carousel-item-start.active,
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-25%);
+    }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start {
+    transform: translateX(0);
 }

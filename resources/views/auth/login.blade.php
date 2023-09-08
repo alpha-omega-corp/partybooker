@@ -1,9 +1,9 @@
-<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+<div class="modal fade" id="loginModalToggle" aria-hidden="true" aria-labelledby="login" tabindex="-1">
     <form method="POST" action="{{ route('login') }}">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-uppercase" id="exampleModalToggleLabel">
+                    <h1 class="modal-title fs-5 text-uppercase fw-bold text-primary" id="login">
                         {{ __('main.login') }}
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -34,42 +34,45 @@
                         @endif
                     </div>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                            {{ old('remember') ? 'checked' : '' }}>
+                    @if (Route::has('password.request'))
+                        <div class="text-end">
+                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                {{ __('login.forgot') }}
+                            </a>
+                        </div>
+                    @endif
 
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" name="remember" id="remember"
+                            checked hidden>
                         <label class="form-check-label" for="remember">
-                            {{ __('login.remember') }}
+
                         </label>
                     </div>
 
-                    <div class="form-group row">
-                        <div class="col-md-6 offset-md-4">
 
-                        </div>
-                    </div>
-                    <div class="form-group row mb-0">
-                        <div class="col-md-8 offset-md-4">
-                            <button type="submit" class="button">
-                                {{ 'Login' }}
-                            </button>
-                            @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('login.forgot') }}
-                                </a>
-                            @endif
-                        </div>
-                    </div>
 
                 </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
-                        Register
-                    </button>
+                <div class="modal-footer hstack">
+                    <div>
+                        <button type="submit" class="btn btn-primary text-white">
+                            {{ __('main.login') }}
+                        </button>
 
-                    <button type="button" class="btn btn-secondary"
-                        data-bs-dismiss="modal">{{ __('main.close') }}</button>
-                    <button type="submit" class="btn btn-primary text-white">{{ __('main.login') }}</button>
+
+
+                    </div>
+                    <div class="ms-auto">
+                        <button type="button" class="btn btn-info" data-bs-target="#registerModalToggle"
+                            data-bs-toggle="modal">
+                            {{ __('main.register') }}
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            {{ __('main.close') }}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

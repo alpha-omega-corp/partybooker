@@ -1,14 +1,16 @@
-<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
-    tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
+<div class="modal fade" id="registerModalToggle" aria-hidden="true" aria-labelledby="register" tabindex="-1">
+    <form method="POST" action="{{ route('register') }}">
 
-                <form method="POST" action="{{ route('register') }}">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 text-uppercase" id="register">
+                        {{ __('main.register') }}
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
                     @csrf
                     <div class="form-group row">
                         <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -43,7 +45,8 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        <label for="password"
+                            class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                         <div class="col-md-6">
                             <input id="password" type="password"
@@ -70,21 +73,17 @@
                         </div>
                     </div>
 
-                    <div class="form-group row mb-0">
-                        <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="button">
-                                {{ __('Register') }}
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#loginModalToggle" data-bs-toggle="modal">
+                        Login
+                    </button>
 
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-                    Login
-                </button>
+                    <button type="submit" class="btn btn-primary">
+                        {{ __('main.register') }}
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>

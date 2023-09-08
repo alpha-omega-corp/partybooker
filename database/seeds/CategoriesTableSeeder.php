@@ -85,8 +85,8 @@ class CategoriesTableSeeder extends Seeder
         });
 
 
-        $this->newLocale(1, 'en', 'reception-venue', 'Reception Venue', 'Reception venue - wedding - Partybooker', 'Discover the most beautiful rooms for rent in...');
-        $this->newLocale(1, 'fr', 'salle-de-reception', 'Location salle - bons plans - Partybooker', '....');
+        $this->newLocale(1, 'en', 'reception-venue', 'Reception Venue');
+        $this->newLocale(1, 'fr', 'salle-de-reception', 'Location Salle');
 
         $this->newLocale(2, 'en', 'authentic', 'Authentic');
         $this->newLocale(2, 'fr', 'authentique', 'Authentique');
@@ -137,7 +137,7 @@ class CategoriesTableSeeder extends Seeder
         $this->newLocale(17, 'fr', 'traiteur', 'Traiteur');
 
         $this->newLocale(18, 'en', 'local-artisan', 'Local Artisan');
-        $this->newLocale(18, 'fr', 'artisan-local', '');
+        $this->newLocale(18, 'fr', 'artisan-local', 'Artisan locale');
 
         $this->newLocale(19, 'en', 'vogue', 'Vogue');
         $this->newLocale(19, 'fr', 'en-vogue', 'En Vogue');

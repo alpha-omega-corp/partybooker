@@ -19,103 +19,114 @@
 @endsection
 
 @section('content')
-    <div class="welcome" style="margin-bottom: 1200px;">
-        <div class="container">
-            <h1 class="text-primary display-1 fw-bold">{{ __('main.title_home_h1') }}</h1>
+    <section>
+        <div class="welcome">
+            <div class="container">
+                <h1 class="text-primary display-1 fw-bold">
+                    {{ __('main.title_home_h1') }}
+                </h1>
 
+                <div class="accordion" id="accordionExample">
+                    <div class="card-group">
+                        <div class="card">
+                            <img src="{{ asset('images/ape.svg') }}" class="card-img-top rounded mx-auto d-block py-4"
+                                alt="...">
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingTwo">
+                                            <button class="accordion-button text-uppercase" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                aria-expanded="false" aria-controls="collapseOne">
+                                                {{ __('main.info-block-title-1') }}
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse"
+                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <p>
+                                                    <span>{{ __('main.info-block-1') }}</span>
 
-            <div class="accordion" id="accordionExample">
-                <div class="card-group">
-
-                    <div class="card">
-                        <img src="{{ asset('images/ape.svg') }}" class="card-img-top rounded mx-auto d-block py-4"
-                            alt="...">
-                        <div class="card-body">
-                            <div class="card-text">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button text-uppercase" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
-                                            aria-controls="collapseOne">
-                                            {{ __('main.info-block-title-1') }}
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            {{ __('main.info-block-1') }}
-
-                                            <br>
-                                            <hr>
-                                            {{ __('main.info-block-1-1') }}
+                                                    <br>
+                                                    <hr>
+                                                    <span>{{ __('main.info-block-1-1') }}</span>
+                                                <p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img src="{{ asset('images/party-popper.svg') }}" class="card-img-top rounded mx-auto d-block py-4"
-                            alt="...">
-                        <div class="card-body">
-                            <div class="card-text">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button text-uppercase" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
-                                            aria-controls="collapseTwo">
-                                            {{ __('main.info-block-title-2') }}
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            {{ __('main.info-block-2') }}
-                                            <b>{{ __('main.info-block-2-1') }}</b>
-                                            {{ __('main.info-block-2-2') }}
 
-                                            <br>
-                                            <hr>
-                                            {{ __('main.info-block-2-3') }}
+                        <div class="card">
+                            <img src="{{ asset('images/party-popper.svg') }}"
+                                class="card-img-top rounded mx-auto d-block py-4" alt="...">
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingTwo">
+                                            <button class="accordion-button text-uppercase" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                aria-expanded="false" aria-controls="collapseTwo">
+                                                {{ __('main.info-block-title-2') }}
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse"
+                                            aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <p>
+                                                    <span>{{ __('main.info-block-2') }}</span>
+                                                    <b>{{ __('main.info-block-2-1') }}</b>
+                                                    <span>{{ __('main.info-block-2-2') }}</span>
+
+                                                    <br>
+                                                    <hr>
+                                                    <span>{{ __('main.info-block-2-3') }}</span>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card card-focus">
-                        <img src="{{ asset('images/work-team.svg') }}" class="card-img-top rounded mx-auto d-block py-4"
-                            alt="...">
-                        <div class="card-body">
-                            <div class="card-text">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button accordion-button-register collapsed text-uppercase"
-                                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                            aria-expanded="false" aria-controls="collapseThree">
 
-                                            <span>{{ __('main.info-block-title-3') }}</span>
-                                        </button>
-                                    </h2>
+                        <div class="card card-focus">
+                            <img src="{{ asset('images/work-team.svg') }}"
+                                class="card-img-top rounded mx-auto d-block py-4" alt="...">
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button
+                                                class="accordion-button accordion-button-register collapsed text-uppercase"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                aria-expanded="false" aria-controls="collapseThree">
 
-                                    <div id="collapseThree" class="accordion-collapse collapse show"
-                                        aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body p-3">
-                                            <span>{{ __('main.info-block-at') }}</span>
-                                            <b>{{ __('main.info-block-pb') }}</b>
-                                            <span>{{ __('main.info-block-3') }}</span>
+                                                <span>{{ __('main.info-block-title-3') }}</span>
+                                            </button>
+                                        </h2>
 
-                                            <br>
-                                            <hr>
-                                            <i>{{ __('main.info-block-3-1') }}</i>
+                                        <div id="collapseThree" class="accordion-collapse collapse show"
+                                            aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body p-3">
+                                                <p>
+                                                    <span>{{ __('main.info-block-at') }}</span>
+                                                    <b>{{ __('main.info-block-pb') }}</b>
+                                                    <span>{{ __('main.info-block-3') }}</span>
+
+                                                    <br>
+                                                    <hr>
+                                                    <i>{{ __('main.info-block-3-1') }}</i>
+                                                </p>
+                                            </div>
                                         </div>
+                                        <a
+                                            href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
+                                            <button type="button" class="btn btn-primary register">
+                                                <i class="bi bi-arrow-right"></i>
+                                            </button>
+                                        </a>
                                     </div>
-                                    <a
-                                        href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
-                                        <button type="button" class="btn btn-primary register">
-                                            <i class="bi bi-arrow-right"></i>
-                                        </button>
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -123,163 +134,47 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <hr>
 
     <section>
         @include('common.top-services')
     </section>
 
-    <section class="categories-cards">
-        <label class="ctg-card card-one">
-            <input type="checkbox">
-            <div class="flip-card">
-                <img src="/images/flip1.jpg"
-                    alt="Les meilleures salles de réception pour mariage séléctionnées par Partybooker">
-                <div class="front-flip">
-                    <h5>{{ $menuCats[0]->lang->name }}</h5>
-                </div>
-                <div class="back-flip">
-                    <ul>
-                        @foreach ($menuCats[0]->subcategories as $sub)
-                            <li>
-                                <a
-                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $menuCats[0]->lang->slug . '/' . $sub->lang->slug) }}">{{ $sub->lang->name }}</a>
-                            </li>
-                        @endforeach
-                        <li>
-                            <a
-                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $menuCats[0]->lang->slug) }}">{{ __('main.view_all') }}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </label>
+    <section>
+        @foreach ($menuCats as $category)
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="{{ '#category-' . $category->id }}" aria-controls="offcanvasScrolling">
+                {{ $category->lang->name }}
+            </button>
 
-        <label class="ctg-card card-two">
-            <input type="checkbox">
-            <div class="flip-card">
-                <img src="/images/flip2.jpg"
-                    alt="Les meilleurs Team Building de la région romande pour vous et vos collaborateurs.">
-                <div class="front-flip">
-                    <h5>{{ $menuCats[1]->lang->name }}</h5>
+            <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1"
+                id="{{ 'category-' . $category->id }}" aria-labelledby="{{ $category->lang->name }}">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-uppercase" id="offcanvasScrollingLabel">
+                        {{ $category->lang->name }}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div class="back-flip">
-                    <ul>
-                        @foreach ($menuCats[1]->subcategories as $sub)
-                            <li>
-                                <a
-                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $menuCats[1]->lang->slug . '/' . $sub->lang->slug) }}">{{ $sub->lang->name }}</a>
-                            </li>
-                        @endforeach
+                <div class="offcanvas-body">
+                    @foreach ($category->subCategories as $subCategory)
                         <li>
                             <a
-                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $menuCats[1]->lang->slug) }}">{{ __('main.view_all') }}</a>
+                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $category->lang->slug . '/' . $subCategory->lang->slug) }}">
+                                {{ $subCategory->lang->name }}
+                            </a>
                         </li>
-                    </ul>
-                </div>
-            </div>
-        </label>
+                    @endforeach
 
-        <label class="ctg-card card-three">
-            <input type="checkbox">
-            <div class="flip-card">
-                <img src="/images/flip3.jpg"
-                    alt="Annuaire des meilleurs traiteurs de Suisse romande pour tous vos événements">
-                <div class="front-flip">
-                    <h5>{{ $menuCats[2]->lang->name }}</h5>
-                </div>
-                <div class="back-flip">
-                    <ul>
-                        @foreach ($menuCats[2]->subcategories as $sub)
-                            <li>
-                                <a
-                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $menuCats[2]->lang->slug . '/' . $sub->lang->slug) }}">{{ $sub->lang->name }}</a>
-                            </li>
-                        @endforeach
-                        <li>
-                            <a
-                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $menuCats[2]->lang->slug) }}">{{ __('main.view_all') }}</a>
-                        </li>
-                    </ul>
                 </div>
             </div>
-        </label>
-
-        <label class="ctg-card card-four">
-            <input type="checkbox">
-            <div class="flip-card">
-                <img src="/images/flip4.jpg"
-                    alt="Des caves ouvertes, foires au vin ou encore dégustation pour les amoureux du vin">
-                <div class="front-flip">
-                    <h5>{{ $menuCats[3]->lang->name }}</h5>
-                </div>
-                <div class="back-flip">
-                    <ul>
-                        @foreach ($menuCats[3]->subcategories as $sub)
-                            <li>
-                                <a
-                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $menuCats[3]->lang->slug . '/' . $sub->lang->slug) }}">{{ $sub->lang->name }}</a>
-                            </li>
-                        @endforeach
-                        <li>
-                            <a
-                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $menuCats[3]->lang->slug) }}">{{ __('main.view_all') }}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </label>
-
-        <label class="ctg-card card-five">
-            <input type="checkbox">
-            <div class="flip-card">
-                <img src="/images/flip5.jpg"
-                    alt="Les lieux pour trouver des décorations et équipements pour tous types d'événements">
-                <div class="front-flip">
-                    <h5>{{ $menuCats[4]->lang->name }}</h5>
-                </div>
-                <div class="back-flip">
-                    <ul>
-                        @foreach ($menuCats[4]->subcategories as $sub)
-                            <li>
-                                <a
-                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $menuCats[4]->lang->slug . '/' . $sub->lang->slug) }}">{{ $sub->lang->name }}</a>
-                            </li>
-                        @endforeach
-                        <li>
-                            <a
-                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $menuCats[4]->lang->slug) }}">{{ __('main.view_all') }}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </label>
-
-        <label class="ctg-card card-six">
-            <input type="checkbox">
-            <div class="flip-card">
-                <img src="/images/flip6.jpg"
-                    alt="Le top des activités originales ou d'une animations entre amis ou en entreprise">
-                <div class="front-flip">
-                    <h5>{{ $menuCats[5]->lang->name }}</h5>
-                </div>
-                <div class="back-flip">
-                    <ul>
-                        @foreach ($menuCats[5]->subcategories as $sub)
-                            <li>
-                                <a
-                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $menuCats[5]->lang->slug . '/' . $sub->lang->slug) }}">{{ $sub->lang->name }}</a>
-                            </li>
-                        @endforeach
-                        <li>
-                            <a
-                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $menuCats[5]->lang->slug) }}">{{ __('main.view_all') }}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </label>
+        @endforeach
     </section>
+
+
+    <br>
+
     <section class="location">
         <div id="map" class="abs"></div>
         <div class="container">
@@ -298,6 +193,24 @@
     </section>
 
     @include('common.swisswin')
+
+    <script>
+        let items = document.querySelectorAll('.carousel .carousel-item')
+
+        items.forEach((el) => {
+            const minPerSlide = 5
+            let next = el.nextElementSibling
+            for (var i = 1; i < minPerSlide; i++) {
+                if (!next) {
+                    // wrap carousel by using first child
+                    next = items[0]
+                }
+                let cloneChild = next.cloneNode(true)
+                el.appendChild(cloneChild.children[0])
+                next = next.nextElementSibling
+            }
+        })
+    </script>
 @endsection
 
 @push('footer')

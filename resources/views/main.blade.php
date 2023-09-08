@@ -41,7 +41,7 @@
 
         @if (Auth::user() == null)
             <div class="auth">
-                <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">
+                <a class="btn btn-primary" data-bs-toggle="modal" href="#loginModalToggle" role="button">
                     {{ __('main.login') }}
                 </a>
             </div>
