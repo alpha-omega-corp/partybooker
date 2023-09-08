@@ -1,10 +1,10 @@
 @if (count($top))
-    <div class="container text-center my-3">
+    <div class="my-3">
+
         <h2 class="font-weight-light">
-            {{ __('main.top_services') }}
         </h2>
         <div class="row mx-auto my-auto justify-content-center">
-            <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div id="partnersCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     @foreach ($top as $key => $service)
                         <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
@@ -12,27 +12,30 @@
                                 <a class="item"
                                     href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listing') . '/' . $service->slug) }}">
                                     <div class="card">
-                                        <div class="card-img">
-                                            @if ($service->main_img)
-                                                <img src="{{ asset('storage/images/thumbnails/' . $service->main_img) }}"
-                                                    alt="{{ $service->main_img }}"
-                                                    class="object-fit-cover border rounded">
-                                            @else
-                                                <img src="//via.placeholder.com/700x800/fc0?text=6"
-                                                    class="object-fit-cover border rounded">
-                                            @endif
+                                        @if ($service->main_img)
+                                            <img src="{{ asset('storage/images/thumbnails/' . $service->main_img) }}"
+                                                alt="{{ $service->main_img }}" class="card-img-top">
+                                        @else
+                                            <img src="//via.placeholder.com/700x1000/fc0?text=6" class="card-img-top"
+                                                alt="...">
+                                        @endif
 
-                                        </div>
-                                        <div class="card-img-overlay">
-                                            <h6 style="color:#fe8a02 !important;">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-start text-uppercase text-truncate">
                                                 @if (app()->getLocale() == 'en')
                                                     {{ $service->en_company_name }}
                                                 @else
                                                     {{ $service->fr_company_name }}
                                                 @endif
-                                            </h6>
-                                            <p class="text-uppercase">
-                                                {{ __('cantons.' . strtolower($service->location_code) . '_loc') }}</p>
+                                            </h5>
+                                            <p class="card-text text-uppercase text-start location">
+                                                {{ __('cantons.' . strtolower($service->location_code) . '_loc') }}
+                                            </p>
+                                        </div>
+                                        <div class="card-footer text-muted">
+                                            <blockquote class="blockquote">
+                                                <p>A well-known quote, contained in a blockquote element.</p>
+                                            </blockquote>
                                         </div>
                                     </div>
                                 </a>
@@ -40,11 +43,11 @@
                         </div>
                     @endforeach
                 </div>
-                <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button"
+                <a class="carousel-control-prev bg-transparent w-auto" href="#partnersCarousel" role="button"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 </a>
-                <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button"
+                <a class="carousel-control-next bg-transparent w-auto" href="#partnersCarousel" role="button"
                     data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 </a>

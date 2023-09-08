@@ -136,9 +136,7 @@
         </div>
     </section>
 
-    <hr>
-
-    <section>
+    <section class="top-services">
         @include('common.top-services')
     </section>
 
