@@ -13,8 +13,13 @@
                                     href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listing') . '/' . $service->slug) }}">
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="{{ asset('storage/images/thumbnails/' . $service->main_img) }}"
-                                                alt="{{ $service->main_img }}" class="img-fluid">
+                                            @if ($service->main_img)
+                                                <img src="{{ asset('storage/images/thumbnails/' . $service->main_img) }}"
+                                                    alt="{{ $service->main_img }}" class="img-fluid">
+                                            @else
+                                                <img src="//via.placeholder.com/500x400/fc0?text=6" class="img-fluid">
+                                            @endif
+
                                         </div>
                                         <div class="card-img-overlay">
                                             <h6 style="color:#fe8a02 !important;">

@@ -64,6 +64,14 @@
     }
 }
 
+.carousel-inner {
+
+    img {
+        max-width: 500px;
+        max-height: 400px;
+    }
+}
+
 @media (max-width: 767px) {
     .carousel-inner .carousel-item>div {
         display: none;
