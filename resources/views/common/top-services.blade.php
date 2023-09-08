@@ -15,9 +15,11 @@
                                         <div class="card-img">
                                             @if ($service->main_img)
                                                 <img src="{{ asset('storage/images/thumbnails/' . $service->main_img) }}"
-                                                    alt="{{ $service->main_img }}" class="img-fluid">
+                                                    alt="{{ $service->main_img }}"
+                                                    class="object-fit-cover border rounded">
                                             @else
-                                                <img src="//via.placeholder.com/500x400/fc0?text=6" class="img-fluid">
+                                                <img src="//via.placeholder.com/700x800/fc0?text=6"
+                                                    class="object-fit-cover border rounded">
                                             @endif
 
                                         </div>
