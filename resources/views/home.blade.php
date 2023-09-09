@@ -140,55 +140,81 @@
         @include('common.top-services')
     </section>
 
-    <section>
-        @foreach ($menuCats as $category)
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="{{ '#category-' . $category->id }}" aria-controls="offcanvasScrolling">
-                {{ $category->lang->name }}
-            </button>
 
-            <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1"
-                id="{{ 'category-' . $category->id }}" aria-labelledby="{{ $category->lang->name }}">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title text-uppercase" id="offcanvasScrollingLabel">
-                        {{ $category->lang->name }}
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    @foreach ($category->subCategories as $subCategory)
-                        <li>
-                            <a
-                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $category->lang->slug . '/' . $subCategory->lang->slug) }}">
-                                {{ $subCategory->lang->name }}
-                            </a>
-                        </li>
+
+    <section class="categories">
+        <div class="row">
+            <div class="col-6">
+                <div class="list-group" id="list-tab" role="tablist">
+                    @foreach ($menuCats as $key => $category)
+                        @php
+                            $listKey = 'list-category-' . $key;
+                            $listId = $listKey . '-list';
+                        @endphp
+
+                        <a class="list-group-item list-group-item-action fw-bold text-uppercase display-3 {{ $key === 0 ? 'active' : '' }}"
+                            id="{{ $listId }}" data-bs-toggle="list" href="{{ '#' . $listKey }}" role="tab"
+                            aria-controls="{{ $listKey }}">
+                            {{ $category->lang->name }}
+                        </a>
                     @endforeach
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="tab-content" id="nav-tabContent">
+
+
+                    @foreach ($menuCats as $key => $category)
+                        @php
+                            $listKey = 'list-category-' . $key;
+                            $listId = $listKey . '-list';
+                        @endphp
+
+                        <div class="tab-pane fade show {{ $key === 0 ? 'active' : '' }}" id="{{ $listKey }}"
+                            role="tabpanel" aria-labelledby="{{ $listId }}">
+
+                            Content :{{ $listId }}
+
+                        </div>
+                    @endforeach
+
+
+
+                    <div class="tab-pane fade" id="list-category-1" role="tabpanel"
+                        aria-labelledby="list-category-1-list">
+                        Even
+                    </div>
+
+                    <div class="tab-pane fade" id="list-category-2" role="tabpanel"
+                        aria-labelledby="list-category-2-list">
+                        Traiteur
+                    </div>
+
+                    <div class="tab-pane fade" id="list-category-3" role="tabpanel"
+                        aria-labelledby="list-category-3-list">
+                        Amoureux
+                    </div>
+
+                    <div class="tab-pane fade" id="list-category-4" role="tabpanel"
+                        aria-labelledby="list-category-4-list">
+                        MatDeco
+                    </div>
+
+                    <div class="tab-pane fade" id="list-category-5" role="tabpanel"
+                        aria-labelledby="list-category-5-list">
+                        Anim
+                    </div>
 
                 </div>
             </div>
-        @endforeach
+        </div>
+
     </section>
 
 
     <br>
 
-    <section class="location">
-        <div id="map" class="abs"></div>
-        <div class="container">
-            <ul>
-                @foreach ($menuCats as $cat)
-                    <li>
-                        <a
-                            href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $cat->lang->slug) }}">{{ $cat->lang->name }}</a>
-                    </li>
-                @endforeach
-                <li><a href="#">{{ __('categories.agency') }}</a></li>
-                <li><a href="#">{{ __('main.all') }}</a></li>
-            </ul>
-        </div>
 
-    </section>
 
     @include('common.swisswin')
 

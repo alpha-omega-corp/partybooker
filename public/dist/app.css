@@ -23551,19 +23551,29 @@ textarea.form-control-lg {
 /* ---- reset ---- */
 body {
   margin: 0;
+  top: 0;
 }
 
 canvas {
   display: block;
-  vertical-align: bottom;
 }
 
 #tsparticles {
   position: absolute;
-  width: 100%;
+  top: 0;
   height: 100%;
-  background-color: #323031;
-  background-image: url("");
+  background-image: url(/images/rose-petals.svg?d53b0306549671ac6d3c4555f0a0b820);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax {
+  height: 100%;
+  background-image: url(/images/rose-petals.svg?d53b0306549671ac6d3c4555f0a0b820);
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -23597,12 +23607,39 @@ canvas {
   right: 20px;
 }
 
+.categories {
+  margin-top: 250px;
+  margin-bottom: 200px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.categories .col-6 {
+  padding: 0;
+}
+.categories .list-group {
+  border-top: dashed red;
+  border-radius: 0px;
+}
+.categories .list-group .active {
+  background-color: #feb272;
+}
+.categories .list-group a {
+  border: 0;
+}
+.categories .tab-content {
+  border-top: dashed red;
+}
+.categories .tab-content .tab-pane {
+  padding: 20px;
+}
+
 .welcome {
   margin-top: 100px;
   height: 770px;
 }
 .welcome h1, .welcome .h1 {
   margin-bottom: 25px;
+  z-index: 10;
 }
 .welcome .accordion {
   background-color: transparent;
@@ -23631,6 +23668,9 @@ canvas {
   margin-top: 20px;
   width: 100%;
   text-align: left;
+}
+.welcome .accordion .card-group .card .card-footer {
+  background-color: transparent;
 }
 
 .top-services {
