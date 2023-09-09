@@ -26,6 +26,8 @@ return [
 	'save'						=> "Save",
 	'name'                      => 'Name',
     'close'                     => "Close",
+    'see-all'                   => 'See all',
+    'see-items'                 => 'Sub categories',
 
 
 	//MAIN WEBSITE

@@ -26,7 +26,8 @@ return [
 	'save'						=> "Enregistrer",
 	'name'                      => 'Nom',
     'close'                     => "Fermer",
-
+    'see-all'                   => 'Voir tout',
+    'see-items'                 => 'Sous catégories',
 
 	//MAIN WEBSITE
 	//Common

@@ -163,58 +163,111 @@
             <div class="col-6">
                 <div class="tab-content" id="nav-tabContent">
 
-
+                    <!-- Tabs -->
                     @foreach ($menuCats as $key => $category)
                         @php
                             $listKey = 'list-category-' . $key;
                             $listId = $listKey . '-list';
                         @endphp
 
-                        <div class="tab-pane fade show {{ $key === 0 ? 'active' : '' }}" id="{{ $listKey }}"
+                        <!-- Content -->
+                        <div class="tab-pane fade show  {{ $key === 0 ? 'active' : '' }}" id="{{ $listKey }}"
                             role="tabpanel" aria-labelledby="{{ $listId }}">
 
-                            Content :{{ $listId }}
+                            @switch($listKey)
+                                @case('list-category-1')
+                                    <img src="{{ asset('images/flip2.jpg') }}" class="img-showcase rounded mx-auto d-block"
+                                        alt="...">
+                                @break
 
+                                @case('list-category-2')
+                                    <img src="{{ asset('images/flip3.jpg') }}" class="img-showcase rounded mx-auto d-block"
+                                        alt="...">
+                                @break
+
+                                @case('list-category-3')
+                                    <img src="{{ asset('images/flip4.jpg') }}" class="img-showcase rounded mx-auto d-block"
+                                        alt="...">
+                                @break
+
+                                @case('list-category-4')
+                                    <img src="{{ asset('images/flip5.jpg') }}" class="img-showcase rounded mx-auto d-block"
+                                        alt="...">
+                                @break
+
+                                @case('list-category-5')
+                                    <img src="{{ asset('images/flip6.jpg') }}" class="img-showcase rounded mx-auto d-block"
+                                        alt="...">
+                                @break
+
+                                @default
+                                    <img src="{{ asset('images/flip1.jpg') }}" class="img-showcase rounded mx-auto d-block"
+                                        alt="...">
+                            @endswitch
+
+
+                            <p class="category-description">
+                                @if ($category->lang->description)
+                                    {{ $category->lang->description }}
+                                @else
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis dolor ligula,
+                                    quis commodo arcu sollicitudin eu. Phasellus feugiat nisl non ex iaculis dictum. Aliquam
+                                    ultricies ultrices placerat. Sed augue nunc, malesuada id orci vitae, aliquet sodales
+                                    ipsum. Integer congue, purus feugiat varius scelerisque, dolor diam eleifend ante, ut
+                                    cursus urna sem vitae velit. Suspendisse potenti.
+                                @endif
+                            </p>
+
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+
+                                <button type="button" class="btn btn-labeled btn-secondary text-uppercase"
+                                    data-bs-toggle="offcanvas" data-bs-target="{{ '#category-' . $category->id }}"
+                                    aria-controls="offcanvasScrolling">
+                                    <span class="btn-label">
+                                        <i class="bi bi-door-open"></i>
+                                    </span>
+                                    {{ __('main.see-items') }}
+                                </button>
+                                <button type="button" class="btn btn-labeled btn-secondary text-uppercase">
+                                    <span class="btn-label">
+                                        <i class="bi bi-eye"></i>
+                                    </span>
+                                    {{ __('main.see-all') }}
+                                </button>
+
+                            </div>
+
+                            <!-- Offcanvas -->
+                            <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true"
+                                tabindex="-1" id="{{ 'category-' . $category->id }}"
+                                aria-labelledby="{{ $category->lang->name }}">
+
+                                <img class="py-4 mx-auto d-block" src="{{ asset('images/logoPB.png') }}" alt="logo">
+                                <h5 class="offcanvas-title text-uppercase text-center fs-2 p-2 lh-1 text-white bg-secondary"
+                                    id="offcanvasScrollingLabel">
+                                    {{ $category->lang->name }}
+                                </h5>
+                                <div class="offcanvas-body">
+                                    <ul class="list-group list-group-flush">
+                                        @foreach ($category->subCategories as $subCategory)
+                                            <li class="list-group-item">
+                                                <a
+                                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $category->lang->slug . '/' . $subCategory->lang->slug) }}">
+                                                    {{ $subCategory->lang->name }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     @endforeach
-
-
-
-                    <div class="tab-pane fade" id="list-category-1" role="tabpanel"
-                        aria-labelledby="list-category-1-list">
-                        Even
-                    </div>
-
-                    <div class="tab-pane fade" id="list-category-2" role="tabpanel"
-                        aria-labelledby="list-category-2-list">
-                        Traiteur
-                    </div>
-
-                    <div class="tab-pane fade" id="list-category-3" role="tabpanel"
-                        aria-labelledby="list-category-3-list">
-                        Amoureux
-                    </div>
-
-                    <div class="tab-pane fade" id="list-category-4" role="tabpanel"
-                        aria-labelledby="list-category-4-list">
-                        MatDeco
-                    </div>
-
-                    <div class="tab-pane fade" id="list-category-5" role="tabpanel"
-                        aria-labelledby="list-category-5-list">
-                        Anim
-                    </div>
-
                 </div>
             </div>
         </div>
-
     </section>
 
-
     <br>
-
-
 
     @include('common.swisswin')
 

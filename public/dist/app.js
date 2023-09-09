@@ -6288,6 +6288,12 @@ alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
   inertia: true,
   theme: 'navigation'
 });
+(0,tippy_js__WEBPACK_IMPORTED_MODULE_2__["default"])('.open-offcanvas', {
+  placement: 'top',
+  animation: 'scale',
+  inertia: true,
+  theme: 'category-door'
+});
 tippy_js__WEBPACK_IMPORTED_MODULE_2__["default"].setDefaultProps({
   delay: 50,
   plugins: [tippy_js__WEBPACK_IMPORTED_MODULE_2__.animateFill]

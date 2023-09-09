@@ -1,6 +1,6 @@
 $theme-colors: (
     "primary": $orange-300,
-    "secondary": $secondary,
+    "secondary": $purple-400,
     "success": $success,
     "info": $info,
     "warning": $warning,
@@ -11,6 +11,13 @@ $theme-colors: (
 
 .tippy-box[data-theme~='navigation'] {
     background-color: $orange-300;
+    padding: 8px;
+    border-radius: 0px 10px 0px 10px;
+    color: #ffffff;
+}
+
+.tippy-box[data-theme~='category-door'] {
+    background-color: $purple-300;
     padding: 8px;
     border-radius: 0px 10px 0px 10px;
     color: #ffffff;
