@@ -30,15 +30,18 @@
     @yield('title')
     @stack('header')
 
+
     <script src="{{ asset('dist/app.js') }}" defer></script>
     <link href="{{ asset('dist/app.css') }}" rel="stylesheet">
 </head>
 
 <body class="body">
+    <div id="tsparticles"></div>
+
     @include('common.header-nav')
+    <input type="hidden" id="particlesConfig" value="{{ asset('assets/particles.json') }}" />
 
     <div style="margin-left: 4.75rem">
-
         @if (Auth::user() == null)
             <div class="auth">
                 <a class="btn btn-primary" data-bs-toggle="modal" href="#loginModalToggle" role="button">
@@ -46,20 +49,18 @@
                 </a>
             </div>
         @endif
-
-        @yield('content')
-
-
-
-
-        <section>
-            @include('auth.login')
-            @include('auth.register')
-        </section>
-
-        @include('common.footer')
-        @include('common.cookies')
     </div>
+
+    @yield('content')
+
+    <section>
+        @include('auth.login')
+        @include('auth.register')
+    </section>
+
+    @include('common.footer')
+    @include('common.cookies')
+
 
 </body>
 
