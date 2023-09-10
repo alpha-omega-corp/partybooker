@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-shrink-0 bg-light h-full fixed-top" style="width: 4.75rem;height:100%;">
+<div class="d-flex flex-column flex-shrink-0 h-full fixed-top bg-secondary" style="width: 4.75rem;height:100%;">
     <img class="p-3" src="/images/logoPB.png" alt="logo">
 
     <ul class="nav nav-flush flex-column mb-auto text-center">

@@ -21,7 +21,7 @@
                                         @endif
 
                                         <div class="card-body">
-                                            <h5 class="card-title text-start text-uppercase text-truncate">
+                                            <h5 class="card-title text-start text-uppercase text-truncate fw-bold">
                                                 @if (app()->getLocale() == 'en')
                                                     {{ $service->en_company_name }}
                                                 @else

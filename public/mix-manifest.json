@@ -1,5 +1,6 @@
 {
     "/dist/app.js": "/dist/app.js",
+    "/dist/app.css": "/dist/app.css",
     "/images/404.svg": "/images/404.svg",
     "/images/Caro_photo_2019.jpeg": "/images/Caro_photo_2019.jpeg",
     "/images/Pin.png": "/images/Pin.png",
@@ -64,12 +65,15 @@
     "/images/group.svg": "/images/group.svg",
     "/images/home-header-bg.jpg": "/images/home-header-bg.jpg",
     "/images/jay-wennington-2065-unsplash.jpg": "/images/jay-wennington-2065-unsplash.jpg",
+    "/images/layered-steps-haikei.svg": "/images/layered-steps-haikei.svg",
+    "/images/layered-steps-inverted-haiki.svg": "/images/layered-steps-inverted-haiki.svg",
     "/images/layered-waves-haikei.svg": "/images/layered-waves-haikei.svg",
     "/images/layered-waves.svg": "/images/layered-waves.svg",
     "/images/location.png": "/images/location.png",
     "/images/logo-footer.png": "/images/logo-footer.png",
     "/images/logo1.png": "/images/logo1.png",
     "/images/logoPB.png": "/images/logoPB.png",
+    "/images/low-poly-grid-haikei.svg": "/images/low-poly-grid-haikei.svg",
     "/images/map-marker.png": "/images/map-marker.png",
     "/images/map-pointer.png": "/images/map-pointer.png",
     "/images/mitchell-orr-179532-unsplash.jpg": "/images/mitchell-orr-179532-unsplash.jpg",
@@ -113,8 +117,6 @@
     "/images/water.png": "/images/water.png",
     "/images/wave-haikei.svg": "/images/wave-haikei.svg",
     "/images/work-team.svg": "/images/work-team.svg",
-    "/dist/app.css": "/dist/app.css",
-    "/images/layered-steps-haikei.svg": "/images/layered-steps-haikei.svg",
-    "/images/low-poly-grid-haikei.svg": "/images/low-poly-grid-haikei.svg",
-    "/images/layered-steps-inverted-haiki.svg": "/images/layered-steps-inverted-haiki.svg"
+    "/images/maps-and-flags.svg": "/images/maps-and-flags.svg",
+    "/images/map.svg": "/images/map.svg"
 }

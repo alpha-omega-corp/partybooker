@@ -296,7 +296,6 @@
         </section>
     </div>
 
-    <br>
 
     @include('common.swisswin')
 

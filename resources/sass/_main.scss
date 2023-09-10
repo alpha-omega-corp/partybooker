@@ -43,7 +43,9 @@ canvas {
     max-height: 50vh;
 }
 
-
+.nav {
+    background-color: $purple-400;
+}
 
 .accordion-button-register.collapsed {
     color: #ffffff;
@@ -125,7 +127,7 @@ canvas {
     height: 770px;
 
     h1 {
-        margin-top: 25px;
+        margin-top: 100px;
         z-index: 10;
     }
 
@@ -238,6 +240,20 @@ canvas {
         margin-right: 80px;
     }
 
+    .carousel-item {
+
+        .card {
+            background-color: transparent;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            transition: 0.1s;
+            padding: 10px;
+
+        }
+    }
+
     .carousel-control-prev {
         margin-left: -40px;
     }
@@ -262,21 +278,28 @@ canvas {
         .card {
             margin: 10px;
             border: 0;
-
-            h5 {
-                color: $orange-300;
-                font-weight: bold;
-            }
+            border-radius: 0;
+            color: #ffffff;
 
             .location::before {
-                content: url(../images/map-marker.png);
+                content: url('../images/map.svg');
                 position: absolute;
+                width: 20px;
+                height: 20px;
                 left: 15px;
             }
 
             .location {
                 font-size: small;
-                margin-left: 15px;
+                margin-left: 30px;
+            }
+
+            .card-footer {
+                background-color: rgba(0, 0, 0, .125);
+            }
+
+            blockquote {
+                color: #ffffff;
             }
         }
     }
