@@ -19,253 +19,282 @@
 @endsection
 
 @section('content')
-    <section>
-        <div class="welcome">
-            <div class="container">
-                <h1 class="text-primary display-1 fw-bold">
-                    {{ __('main.title_home_h1') }}
-                </h1>
+    <div class="wrapper">
+        <div class="parallax__group hero-container hero">
+            <div class="parallax__layer blob"></div>
 
-                <div class="accordion" id="accordionExample">
-                    <div class="card-group">
-                        <div class="card">
-                            <img src="{{ asset('images/ape.svg') }}" class="card-img-top rounded mx-auto d-block py-4"
-                                alt="...">
-                            <div class="card-body">
-                                <div class="card-text">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingTwo">
-                                            <button class="accordion-button text-uppercase" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                                                aria-expanded="false" aria-controls="collapseOne">
-                                                {{ __('main.info-block-title-1') }}
-                                            </button>
-                                        </h2>
-                                        <div id="collapseOne" class="accordion-collapse collapse"
-                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <p>
-                                                    <span>{{ __('main.info-block-1') }}</span>
+            <div class="parallax__layer hero-text">
+                <section>
+                    <div class="welcome">
+                        <div class="container">
+                            <h1 class="text-white display-1 fw-bold">
+                                {{ __('main.title_home_h1') }}
+                            </h1>
 
-                                                    <br>
-                                                    <hr>
-                                                    <span>{{ __('main.info-block-1-1') }}</span>
-                                                <p>
+                            <div class="accordion" id="welcomeAccordion">
+                                <div class="card-group">
+
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-text">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header text-uppercase fw-bold" id="headingTwo">
+                                                        {{ __('main.info-block-title-1') }}
+                                                    </h2>
+                                                    <button class="accordion-button text-uppercase" id="controlOne"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapseOne" aria-expanded="false"
+                                                        aria-controls="collapseOne">
+
+                                                        <img src="{{ asset('images/ape.svg') }}"
+                                                            class="rounded-circle mx-auto my-auto d-block" alt="...">
+
+                                                    </button>
+
+                                                    <div id="collapseOne" class="accordion-collapse collapse"
+                                                        aria-labelledby="headingOne" data-bs-parent="#welcomeAccordion">
+                                                        <div class="accordion-body body-one">
+                                                            <p>
+                                                                <span>{{ __('main.info-block-1') }}</span>
+
+                                                                <br>
+                                                                <hr>
+                                                                <span>{{ __('main.info-block-1-1') }}</span>
+                                                            <p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="card">
-                            <img src="{{ asset('images/party-popper.svg') }}"
-                                class="card-img-top rounded mx-auto d-block py-4" alt="...">
-                            <div class="card-body">
-                                <div class="card-text">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingTwo">
-                                            <button class="accordion-button text-uppercase" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                                aria-expanded="false" aria-controls="collapseTwo">
-                                                {{ __('main.info-block-title-2') }}
-                                            </button>
-                                        </h2>
-                                        <div id="collapseTwo" class="accordion-collapse collapse"
-                                            aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <p>
-                                                    <span>{{ __('main.info-block-2') }}</span>
-                                                    <b>{{ __('main.info-block-2-1') }}</b>
-                                                    <span>{{ __('main.info-block-2-2') }}</span>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-text">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header text-uppercase fw-bold" id="headingTwo">
+                                                        {{ __('main.info-block-title-2') }}
+                                                    </h2>
+                                                    <button class="accordion-button text-uppercase" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                        aria-expanded="false" aria-controls="collapseTwo">
+                                                        <img src="{{ asset('images/party-popper.svg') }}"
+                                                            class="rounded-circle mx-auto my-auto d-block" alt="...">
 
-                                                    <br>
-                                                    <hr>
-                                                    <span>{{ __('main.info-block-2-3') }}</span>
-                                                </p>
+                                                    </button>
+
+                                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                                        aria-labelledby="headingTwo" data-bs-parent="#welcomeAccordion">
+                                                        <div class="accordion-body">
+                                                            <p>
+                                                                <span>{{ __('main.info-block-2') }}</span>
+                                                                <b>{{ __('main.info-block-2-1') }}</b>
+                                                                <span>{{ __('main.info-block-2-2') }}</span>
+
+                                                                <br>
+                                                                <hr>
+                                                                <span>{{ __('main.info-block-2-3') }}</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="card card-focus">
-                            <img src="{{ asset('images/work-team.svg') }}"
-                                class="card-img-top rounded mx-auto d-block py-4" alt="...">
-                            <div class="card-body">
-                                <div class="card-text">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingOne">
-                                            <button
-                                                class="accordion-button accordion-button-register collapsed text-uppercase"
-                                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                                aria-expanded="false" aria-controls="collapseThree">
+                                    <div class="card card-focus">
 
-                                                <span>{{ __('main.info-block-title-3') }}</span>
-                                            </button>
-                                        </h2>
+                                        <div class="card-body">
+                                            <div class="card-text">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header text-uppercase fw-bold" id="headingThree">
+                                                        {{ __('main.info-block-title-3') }}
+                                                    </h2>
+                                                    <button
+                                                        class="accordion-button accordion-button-register collapsed text-uppercase"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                                        aria-controls="collapseThree">
 
-                                        <div id="collapseThree" class="accordion-collapse collapse show"
-                                            aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body p-3">
-                                                <p>
-                                                    <span>{{ __('main.info-block-at') }}</span>
-                                                    <b>{{ __('main.info-block-pb') }}</b>
-                                                    <span>{{ __('main.info-block-3') }}</span>
+                                                        <img src="{{ asset('images/work-team.svg') }}"
+                                                            class="rounded-circle mx-auto my-auto d-block" alt="...">
+                                                    </button>
 
-                                                    <br>
-                                                    <hr>
-                                                    <i>{{ __('main.info-block-3-1') }}</i>
-                                                </p>
+                                                    <div id="collapseThree" class="accordion-collapse collapse show"
+                                                        aria-labelledby="headingThree" data-bs-parent="#welcomeAccordion">
+                                                        <div class="accordion-body p-3">
+                                                            <p>
+                                                                <span>{{ __('main.info-block-at') }}</span>
+                                                                <b>{{ __('main.info-block-pb') }}</b>
+                                                                <span>{{ __('main.info-block-3') }}</span>
+
+                                                                <br>
+                                                                <hr>
+                                                                <i>{{ __('main.info-block-3-1') }}</i>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <a
+                                                        href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
+                                                        <button type="button" class="btn btn-primary register">
+                                                            <i class="bi bi-arrow-right"></i>
+                                                        </button>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
-                                        <a
-                                            href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
-                                            <button type="button" class="btn btn-primary register">
-                                                <i class="bi bi-arrow-right"></i>
-                                            </button>
-                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
-    </section>
-
-    <section class="top-services">
-        @include('common.top-services')
-    </section>
 
 
+        <div class="parallax__group hero-container hero">
+            <div class="parallax__layer grid"></div>
+            <div class="parallax__layer box-top"></div>
+            <div class="parallax__layer box"></div>
 
-    <section class="categories">
-        <div class="row">
-            <div class="col-6">
-                <div class="list-group" id="list-tab" role="tablist">
-                    @foreach ($menuCats as $key => $category)
-                        @php
-                            $listKey = 'list-category-' . $key;
-                            $listId = $listKey . '-list';
-                        @endphp
-
-                        <a class="list-group-item list-group-item-action fw-bold text-uppercase display-3 {{ $key === 0 ? 'active' : '' }}"
-                            id="{{ $listId }}" data-bs-toggle="list" href="{{ '#' . $listKey }}" role="tab"
-                            aria-controls="{{ $listKey }}">
-                            {{ $category->lang->name }}
-                        </a>
-                    @endforeach
-                </div>
+            <div class="parallax__layer hero-text-two">
+                <section class="top-services">
+                    @include('common.top-services')
+                </section>
             </div>
-            <div class="col-6">
-                <div class="tab-content" id="nav-tabContent">
+        </div>
 
-                    <!-- Tabs -->
-                    @foreach ($menuCats as $key => $category)
-                        @php
-                            $listKey = 'list-category-' . $key;
-                            $listId = $listKey . '-list';
-                        @endphp
+        <section class="categories">
+            <div class="row">
+                <div class="col-6">
+                    <div class="list-group" id="list-tab" role="tablist">
+                        @foreach ($menuCats as $key => $category)
+                            @php
+                                $listKey = 'list-category-' . $key;
+                                $listId = $listKey . '-list';
+                            @endphp
 
-                        <!-- Content -->
-                        <div class="tab-pane fade show  {{ $key === 0 ? 'active' : '' }}" id="{{ $listKey }}"
-                            role="tabpanel" aria-labelledby="{{ $listId }}">
+                            <a class="list-group-item list-group-item-action fw-bold text-uppercase display-3 {{ $key === 0 ? 'active' : '' }}"
+                                id="{{ $listId }}" data-bs-toggle="list" href="{{ '#' . $listKey }}" role="tab"
+                                aria-controls="{{ $listKey }}">
+                                {{ $category->lang->name }}
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="tab-content" id="nav-tabContent">
 
-                            @switch($listKey)
-                                @case('list-category-1')
-                                    <img src="{{ asset('images/flip2.jpg') }}" class="img-showcase rounded mx-auto d-block"
-                                        alt="...">
-                                @break
+                        <!-- Tabs -->
+                        @foreach ($menuCats as $key => $category)
+                            @php
+                                $listKey = 'list-category-' . $key;
+                                $listId = $listKey . '-list';
+                            @endphp
 
-                                @case('list-category-2')
-                                    <img src="{{ asset('images/flip3.jpg') }}" class="img-showcase rounded mx-auto d-block"
-                                        alt="...">
-                                @break
+                            <!-- Content -->
+                            <div class="tab-pane fade show  {{ $key === 0 ? 'active' : '' }}" id="{{ $listKey }}"
+                                role="tabpanel" aria-labelledby="{{ $listId }}">
 
-                                @case('list-category-3')
-                                    <img src="{{ asset('images/flip4.jpg') }}" class="img-showcase rounded mx-auto d-block"
-                                        alt="...">
-                                @break
+                                @switch($listKey)
+                                    @case('list-category-1')
+                                        <img src="{{ asset('images/flip2.jpg') }}" class="img-showcase mx-auto d-block"
+                                            alt="...">
+                                    @break
 
-                                @case('list-category-4')
-                                    <img src="{{ asset('images/flip5.jpg') }}" class="img-showcase rounded mx-auto d-block"
-                                        alt="...">
-                                @break
+                                    @case('list-category-2')
+                                        <img src="{{ asset('images/flip3.jpg') }}" class="img-showcase mx-auto d-block"
+                                            alt="...">
+                                    @break
 
-                                @case('list-category-5')
-                                    <img src="{{ asset('images/flip6.jpg') }}" class="img-showcase rounded mx-auto d-block"
-                                        alt="...">
-                                @break
+                                    @case('list-category-3')
+                                        <img src="{{ asset('images/flip4.jpg') }}" class="img-showcase mx-auto d-block"
+                                            alt="...">
+                                    @break
 
-                                @default
-                                    <img src="{{ asset('images/flip1.jpg') }}" class="img-showcase rounded mx-auto d-block"
-                                        alt="...">
-                            @endswitch
+                                    @case('list-category-4')
+                                        <img src="{{ asset('images/flip5.jpg') }}" class="img-showcase mx-auto d-block"
+                                            alt="...">
+                                    @break
+
+                                    @case('list-category-5')
+                                        <img src="{{ asset('images/flip6.jpg') }}" class="img-showcase mx-auto d-block"
+                                            alt="...">
+                                    @break
+
+                                    @default
+                                        <img src="{{ asset('images/flip1.jpg') }}" class="img-showcase mx-auto d-block"
+                                            alt="...">
+                                @endswitch
 
 
-                            <p class="category-description">
-                                @if ($category->lang->description)
-                                    {{ $category->lang->description }}
-                                @else
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis dolor ligula,
-                                    quis commodo arcu sollicitudin eu. Phasellus feugiat nisl non ex iaculis dictum. Aliquam
-                                    ultricies ultrices placerat. Sed augue nunc, malesuada id orci vitae, aliquet sodales
-                                    ipsum. Integer congue, purus feugiat varius scelerisque, dolor diam eleifend ante, ut
-                                    cursus urna sem vitae velit. Suspendisse potenti.
-                                @endif
-                            </p>
+                                <p class="category-description">
+                                    @if ($category->lang->description)
+                                        {{ $category->lang->description }}
+                                    @else
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis
+                                        dolor ligula,
+                                        quis commodo arcu sollicitudin eu. Phasellus feugiat nisl non ex iaculis
+                                        dictum. Aliquam
+                                        ultricies ultrices placerat. Sed augue nunc, malesuada id orci vitae,
+                                        aliquet sodales
+                                        ipsum. Integer congue, purus feugiat varius scelerisque, dolor diam eleifend
+                                        ante, ut
+                                        cursus urna sem vitae velit. Suspendisse potenti.
+                                    @endif
+                                </p>
 
-                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <div class="btn-group" role="group" aria-label="Basic outlined example">
 
-                                <button type="button" class="btn btn-labeled btn-secondary text-uppercase"
-                                    data-bs-toggle="offcanvas" data-bs-target="{{ '#category-' . $category->id }}"
-                                    aria-controls="offcanvasScrolling">
-                                    <span class="btn-label">
-                                        <i class="bi bi-door-open"></i>
-                                    </span>
-                                    {{ __('main.see-items') }}
-                                </button>
-                                <button type="button" class="btn btn-labeled btn-secondary text-uppercase">
-                                    <span class="btn-label">
-                                        <i class="bi bi-eye"></i>
-                                    </span>
-                                    {{ __('main.see-all') }}
-                                </button>
+                                    <button type="button" class="btn btn-labeled btn-secondary text-uppercase"
+                                        data-bs-toggle="offcanvas" data-bs-target="{{ '#category-' . $category->id }}"
+                                        aria-controls="offcanvasScrolling">
+                                        <span class="btn-label">
+                                            <i class="bi bi-door-open"></i>
+                                        </span>
+                                        {{ __('main.see-items') }}
+                                    </button>
+                                    <button type="button" class="btn btn-labeled btn-secondary text-uppercase">
+                                        <span class="btn-label">
+                                            <i class="bi bi-eye"></i>
+                                        </span>
+                                        {{ __('main.see-all') }}
+                                    </button>
 
-                            </div>
+                                </div>
 
-                            <!-- Offcanvas -->
-                            <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true"
-                                tabindex="-1" id="{{ 'category-' . $category->id }}"
-                                aria-labelledby="{{ $category->lang->name }}">
+                                <!-- Offcanvas -->
+                                <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true"
+                                    tabindex="-1" id="{{ 'category-' . $category->id }}"
+                                    aria-labelledby="{{ $category->lang->name }}">
 
-                                <img class="py-4 mx-auto d-block" src="{{ asset('images/logoPB.png') }}" alt="logo">
-                                <h5 class="offcanvas-title text-uppercase text-center fs-2 p-2 lh-1 text-white bg-secondary"
-                                    id="offcanvasScrollingLabel">
-                                    {{ $category->lang->name }}
-                                </h5>
-                                <div class="offcanvas-body">
-                                    <ul class="list-group list-group-flush">
-                                        @foreach ($category->subCategories as $subCategory)
-                                            <li class="list-group-item">
-                                                <a
-                                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $category->lang->slug . '/' . $subCategory->lang->slug) }}">
-                                                    {{ $subCategory->lang->name }}
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
+                                    <img class="py-4 mx-auto d-block" src="{{ asset('images/logoPB.png') }}"
+                                        alt="logo">
+                                    <h5 class="offcanvas-title text-uppercase text-center fs-2 p-2 lh-1 text-white bg-secondary"
+                                        id="offcanvasScrollingLabel">
+                                        {{ $category->lang->name }}
+                                    </h5>
+                                    <div class="offcanvas-body">
+                                        <ul class="list-group list-group-flush">
+                                            @foreach ($category->subCategories as $subCategory)
+                                                <li class="list-group-item">
+                                                    <a
+                                                        href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $category->lang->slug . '/' . $subCategory->lang->slug) }}">
+                                                        {{ $subCategory->lang->name }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <br>
 

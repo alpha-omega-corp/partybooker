@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap);
 /*!
  * Bootstrap Icons v1.10.5 (https://icons.getbootstrap.com/)
  * Copyright 2019-2023 The Bootstrap Authors
@@ -23594,15 +23595,6 @@ canvas {
   background-size: cover;
 }
 
-.parallax {
-  height: 100%;
-  background-image: url(/images/rose-petals.svg?d53b0306549671ac6d3c4555f0a0b820);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .collapse,
 .collapsing {
   overflow: auto;
@@ -23636,11 +23628,8 @@ canvas {
   right: 20px;
 }
 
-.categories {
-  margin-top: 250px;
-  margin-bottom: 200px;
-  margin-left: 10%;
-  margin-right: 10%;
+.categories .col-6 {
+  padding: 0;
 }
 .categories .list-group {
   border-radius: 0px;
@@ -23654,10 +23643,9 @@ canvas {
 }
 .categories .tab-content .tab-pane .img-showcase {
   width: 100%;
-  height: 15vh;
+  height: 25vh;
   -o-object-fit: cover;
      object-fit: cover;
-  border: solid #feb272;
 }
 .categories .tab-content .tab-pane button:hover {
   color: #ffffff;
@@ -23671,34 +23659,71 @@ canvas {
 }
 
 .welcome {
-  margin-top: 100px;
   height: 770px;
 }
 .welcome h1, .welcome .h1 {
-  margin-bottom: 25px;
+  margin-top: 25px;
   z-index: 10;
 }
 .welcome .accordion {
   background-color: transparent;
+  --bs-accordion-border-width: 0;
 }
 .welcome .accordion .card-group {
   background-color: transparent;
   border-color: #ced4da;
   border-radius: 10px;
+  margin-top: 150px;
 }
 .welcome .accordion .card-group img {
   margin-top: 60px;
-  width: 100px;
+  width: 200px;
+  height: 200px;
+}
+.welcome .accordion .card-group img:hover {
+  background-color: #a98eda;
+  transition: 0.3s;
 }
 .welcome .accordion .card-group .card {
   border: 0;
   background-color: transparent;
+  margin-top: 100px;
+}
+.welcome .accordion .card-group .card h2, .welcome .accordion .card-group .card .h2 {
+  color: #fff;
+}
+.welcome .accordion .card-group .card .accordion-collapse {
+  border: 0;
+}
+.welcome .accordion .card-group .card .accordion-button::after {
+  transform: none !important;
+  transition: none !important;
+  display: none;
+}
+.welcome .accordion .card-group .card .accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, 0.125);
+}
+.welcome .accordion .card-group .card .accordion-item {
+  background-color: transparent;
+  border: 0;
+}
+.welcome .accordion .card-group .card .accordion-item .accordion-button {
+  border: 0;
 }
 .welcome .accordion .card-group .card .accordion-body {
   text-align: justify;
+  color: #ffffff;
+  border: 0;
+  padding: 0;
 }
 .welcome .accordion .card-group .card .accordion-button {
   font-weight: bold;
+  background-color: transparent;
+  border: 0;
+}
+.welcome .accordion .card-group .card .accordion-header {
+  text-align: center;
 }
 .welcome .accordion .card-group .card .register {
   color: #ffffff;
@@ -23711,7 +23736,7 @@ canvas {
 }
 
 .top-services {
-  margin-top: 5%;
+  margin-top: 450px;
   margin-left: 10%;
   margin-right: 10%;
   /* medium and up screens */
@@ -23785,4 +23810,82 @@ canvas {
 .top-services .carousel-inner .carousel-item-end,
 .top-services .carousel-inner .carousel-item-start {
   transform: translateX(0);
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 300px;
+}
+
+.parallax__group {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  transform-style: preserve-3d;
+}
+
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.blob {
+  background: url(/images/blob-scene.svg?1afa397dd435bda563d915c09d4ee499) no-repeat center;
+  background-size: cover;
+  transform: translateZ(-600px) scale(3);
+  z-index: 1;
+}
+
+.grid {
+  background: url(/images/low-poly-grid-haikei.svg?9720e89b23c75fb2d032821ef150211b) no-repeat center;
+  background-size: cover;
+  transform: translateZ(-600px) scale(3);
+  z-index: -1;
+}
+
+.box-top {
+  background: url(/images/layered-steps-inverted-haiki.svg?21b1faf1a88193f0deed0a351c921df7) no-repeat center;
+  background-size: cover;
+  transform: translateY(-300px) scale(1);
+  z-index: 1;
+}
+
+.box {
+  background: url(/images/layered-steps-haikei.svg?cfd581f72a86516336b3afd7b829a676) no-repeat center;
+  background-size: cover;
+  transform: translateY(300px) scale(1);
+  z-index: 1;
+}
+
+.hero-text {
+  background: linear-gradient(rgba(105, 211, 252, 0.25) 0%, rgba(255, 116, 161, 0.25) 86%, rgba(1, 0, 0, 0.25) 100%);
+  background-size: cover;
+  transform: translateZ(0) scale(1);
+  z-index: 7;
+}
+
+.hero-text-two {
+  background-size: cover;
+  transform: translateZ(0) scale(1);
+  z-index: 7;
+}
+
+.hero {
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
