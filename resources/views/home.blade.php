@@ -46,8 +46,8 @@
                                                         data-bs-target="#collapseOne" aria-expanded="false"
                                                         aria-controls="collapseOne">
 
-                                                        <img src="{{ asset('images/ape.svg') }}"
-                                                            class="rounded-circle mx-auto my-auto d-block" alt="...">
+                                                        <img src="{{ asset('images/ape.svg') }}" class="my-auto d-block"
+                                                            alt="...">
 
                                                     </button>
 
@@ -79,7 +79,7 @@
                                                         data-bs-toggle="collapse" data-bs-target="#collapseTwo"
                                                         aria-expanded="false" aria-controls="collapseTwo">
                                                         <img src="{{ asset('images/party-popper.svg') }}"
-                                                            class="rounded-circle mx-auto my-auto d-block" alt="...">
+                                                            class="my-auto d-block" alt="...">
 
                                                     </button>
 
@@ -103,26 +103,25 @@
                                     </div>
 
                                     <div class="card card-focus">
-
                                         <div class="card-body">
                                             <div class="card-text">
                                                 <div class="accordion-item">
                                                     <h2 class="accordion-header text-uppercase fw-bold" id="headingThree">
                                                         {{ __('main.info-block-title-3') }}
                                                     </h2>
+
                                                     <button
                                                         class="accordion-button accordion-button-register collapsed text-uppercase"
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapseThree" aria-expanded="false"
                                                         aria-controls="collapseThree">
-
-                                                        <img src="{{ asset('images/work-team.svg') }}"
-                                                            class="rounded-circle mx-auto my-auto d-block" alt="...">
+                                                        <img src="{{ asset('images/heart.svg') }}" class="my-auto d-block"
+                                                            alt="...">
                                                     </button>
 
                                                     <div id="collapseThree" class="accordion-collapse collapse show"
                                                         aria-labelledby="headingThree" data-bs-parent="#welcomeAccordion">
-                                                        <div class="accordion-body p-3">
+                                                        <div class="accordion-body">
                                                             <p>
                                                                 <span>{{ __('main.info-block-at') }}</span>
                                                                 <b>{{ __('main.info-block-pb') }}</b>
@@ -265,7 +264,7 @@
                                 </div>
 
                                 <!-- Offcanvas -->
-                                <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true"
+                                <div class="offcanvas offcanvas-end h-100" data-bs-scroll="true" data-bs-backdrop="true"
                                     tabindex="-1" id="{{ 'category-' . $category->id }}"
                                     aria-labelledby="{{ $category->lang->name }}">
 

@@ -4,7 +4,7 @@
     <ul class="nav nav-flush flex-column mb-auto text-center">
         <li class="nav-item" data-tippy-content="{{ __('main.home_page') }}">
             <a page="home" href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}"
-                class="nav-link bg-primary text-white py-3 border-bottom" aria-current="home" @mouseover="open = true">
+                class="nav-link bg-primary text-white py-3 border-top" aria-current="home" @mouseover="open = true">
                 <i class="bi bi-house"></i>
             </a>
         </li>
@@ -12,7 +12,7 @@
         <li class="nav-item" data-tippy-content="{{ __('main.listing_page') }}">
             <a page="listing"
                 href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings')) }}"
-                class="nav-link bg-primary text-white py-3 border-bottom" aria-current="page">
+                class="nav-link bg-primary text-white py-3 border-top" aria-current="page">
                 <i class="bi bi-list-columns-reverse"></i>
             </a>
         </li>
@@ -20,7 +20,7 @@
         <li class="nav-item" data-tippy-content="{{ __('main.become_partner_page') }}">
             <a page="partner"
                 href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}"
-                class="nav-link bg-primary text-white py-3 border-bottom" aria-current="page">
+                class="nav-link bg-primary text-white py-3 border-top" aria-current="page">
                 <i class="bi bi-person-plus"></i>
             </a>
         </li>
@@ -28,21 +28,21 @@
         <li class="nav-item" data-tippy-content="{{ __('main.aboutus_page') }}">
             <a page="aboutus"
                 href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus')) }}"
-                class="nav-link bg-primary text-white py-3 border-bottom" aria-current="page">
+                class="nav-link bg-primary text-white py-3 border-top" aria-current="page">
                 <i class="bi bi-person-vcard"></i>
             </a>
         </li>
 
         <li class="nav-item" data-tippy-content="{{ __('main.faqs_page') }}">
             <a page="faqs" href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/faq') }}"
-                class="nav-link bg-primary text-white py-3 border-bottom" aria-current="page">
+                class="nav-link bg-primary text-white py-3 border-top" aria-current="page">
                 <i class="bi bi-patch-question"></i>
             </a>
         </li>
 
         <li class="nav-item" data-tippy-content="{{ __('main.blog_page') }}">
             <a page="blog" href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/blog') }}"
-                class="nav-link bg-primary text-white py-3 border-bottom" aria-current="page">
+                class="nav-link bg-primary text-white py-3 border-top" aria-current="page">
                 <i class="bi bi-journal-bookmark"></i>
             </a>
         </li>
