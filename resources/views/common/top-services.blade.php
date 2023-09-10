@@ -28,9 +28,12 @@
                                                     {{ $service->fr_company_name }}
                                                 @endif
                                             </h5>
-                                            <p class="card-text text-uppercase text-start location">
-                                                {{ __('cantons.' . strtolower($service->location_code) . '_loc') }}
-                                            </p>
+                                            <div class="d-flex location">
+                                                <img src="{{ asset('images/map.svg') }}" />
+                                                <p class="card-text text-uppercase text-start">
+                                                    {{ __('cantons.' . strtolower($service->location_code) . '_loc') }}
+                                                </p>
+                                            </div>
                                         </div>
                                         <div class="card-footer text-muted">
                                             <blockquote class="blockquote">

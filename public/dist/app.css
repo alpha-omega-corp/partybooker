@@ -23785,16 +23785,13 @@ canvas {
   border-radius: 0;
   color: #ffffff;
 }
-.top-services .carousel-inner .card .location::before {
-  content: url(/images/map.svg?8ffe5ab169d78b8ed161a71a3beee73e);
-  position: absolute;
+.top-services .carousel-inner .card .location {
   width: 20px;
   height: 20px;
-  left: 15px;
 }
-.top-services .carousel-inner .card .location {
-  font-size: small;
-  margin-left: 30px;
+.top-services .carousel-inner .card .location p {
+  padding-left: 10px;
+  text-decoration: underline;
 }
 .top-services .carousel-inner .card .card-footer {
   background-color: rgba(0, 0, 0, 0.125);

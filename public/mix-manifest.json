@@ -76,6 +76,8 @@
     "/images/low-poly-grid-haikei.svg": "/images/low-poly-grid-haikei.svg",
     "/images/map-marker.png": "/images/map-marker.png",
     "/images/map-pointer.png": "/images/map-pointer.png",
+    "/images/map.svg": "/images/map.svg",
+    "/images/maps-and-flags.svg": "/images/maps-and-flags.svg",
     "/images/mitchell-orr-179532-unsplash.jpg": "/images/mitchell-orr-179532-unsplash.jpg",
     "/images/orangeLeft.png": "/images/orangeLeft.png",
     "/images/orangeMiniLine.svg": "/images/orangeMiniLine.svg",
@@ -116,7 +118,5 @@
     "/images/upload.png": "/images/upload.png",
     "/images/water.png": "/images/water.png",
     "/images/wave-haikei.svg": "/images/wave-haikei.svg",
-    "/images/work-team.svg": "/images/work-team.svg",
-    "/images/maps-and-flags.svg": "/images/maps-and-flags.svg",
-    "/images/map.svg": "/images/map.svg"
+    "/images/work-team.svg": "/images/work-team.svg"
 }
