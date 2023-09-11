@@ -23867,10 +23867,11 @@ canvas {
 }
 .listing .card {
   max-height: 226px;
+  border: 0;
 }
 .listing .card .cover {
   width: 100%;
-  height: 225px;
+  height: 224px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -23881,7 +23882,17 @@ canvas {
 .listing .card .description {
   text-align: justify;
   padding-right: 20px;
-  margin-bottom: 55px;
+  max-height: 72px;
+}
+.listing .card .description p {
+  line-height: 20px;
+  font-size: 14px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .listing .card .location-box {
   border-top: solid 1px;

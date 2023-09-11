@@ -23,7 +23,7 @@
                                     {{ $partner->fr_company_name }}
                                 @endif
                             </h5>
-                            <div class="card-text description row-2 text-truncate">
+                            <div class="card-text description">
                                 @if (app()->getLocale() == 'en')
                                     {!! $partner->en_short_descr !!}
                                 @else
