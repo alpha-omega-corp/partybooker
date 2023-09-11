@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap');
+
 $theme-colors: (
     "primary": $purple-500,
     "secondary": $gray-900,
-    "success": $success,
+    "accent": $gray-700,
     "info": $info,
     "warning": $warning,
     "danger": $danger,

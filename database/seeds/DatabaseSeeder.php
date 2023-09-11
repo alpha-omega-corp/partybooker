@@ -91,10 +91,10 @@ class DatabaseSeeder extends Seeder
             'plan' => 'exclusif',
             'en_slogan' => 'SLogna',
             'fr_slogan' => 'SLogna',
-            'en_short_descr' => 'Dynamn short decr',
-            'fr_short_descr' => 'Dynac court descr',
-            'en_full_descr' => 'Full',
-            'fr_full_descr' => 'Plein',
+            'en_short_descr' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis dolor ligula, quis commodo arcu sollicitudin eu. Phasellus feugiat nisl non ex iaculis dictum. Aliquam',
+            'fr_short_descr' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis dolor ligula, quis commodo arcu sollicitudin eu. Phasellus feugiat nisl non ex iaculis dictum. Aliquam',
+            'en_full_descr' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis dolor ligula, quis commodo arcu sollicitudin eu. Phasellus feugiat nisl non ex iaculis dictum. Aliquam',
+            'fr_full_descr' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis dolor ligula, quis commodo arcu sollicitudin eu. Phasellus feugiat nisl non ex iaculis dictum. Aliquam',
             'other_lang' => null,
         ]);
     }

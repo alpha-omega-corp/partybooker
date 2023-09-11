@@ -1,5 +1,10 @@
 <div class="d-flex flex-column flex-shrink-0 h-full fixed-top bg-secondary" style="width: 4.75rem;height:100%;">
-    <img class="p-3" src="/images/logoPB.png" alt="logo">
+
+    <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}" class="nav-logo">
+        <img src="/images/logoPB.png" class="mx-auto"
+            alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
+    </a>
+
 
     <ul class="nav nav-flush flex-column mb-auto text-center">
         <li class="nav-item" data-tippy-content="{{ __('main.home_page') }}">

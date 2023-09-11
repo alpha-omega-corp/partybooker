@@ -49,21 +49,15 @@
 
                         </label>
                     </div>
-
-
-
                 </div>
                 <div class="modal-footer hstack">
                     <div>
                         <button type="submit" class="btn btn-primary text-white">
                             {{ __('main.login') }}
                         </button>
-
-
-
                     </div>
                     <div class="ms-auto">
-                        <button type="button" class="btn btn-info" data-bs-target="#registerModalToggle"
+                        <button type="button" class="btn btn-secondary" data-bs-target="#registerModalToggle"
                             data-bs-toggle="modal">
                             {{ __('main.register') }}
                         </button>

@@ -52,7 +52,7 @@ return [
 	//Homepage
 	'title_home_h1'				=> "ORGANISE YOUR EVENT IN A FEW CLICKS!",
 	'title_home_h2'				=> "WELCOME TO PARTYBOOKER",
-	'category'                  => 'Category',
+	'category'                  => 'Categories',
 	'place'                     => 'Place',
 	'budget'                    => 'Budget',
 

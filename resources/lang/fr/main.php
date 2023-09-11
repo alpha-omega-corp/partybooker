@@ -4,7 +4,7 @@ return [
 
 	//GENERAL
 	'login'						=> "S'identifier",
-    'register'					=> "Inscription",
+    'register'					=> "S'inscrire",
 	'search'					=> "Chercher",
 	'view_all'					=> "Voir tout",
 	'view'						=> "Voir",
@@ -51,7 +51,7 @@ return [
 	//Homepage
 	'title_home_h1'				=> "ORGANISEZ VOTRE ÉVÉNEMENT EN QUELQUES CLICS!",
 	'title_home_h2'				=> "BIENVENUE SUR PARTYBOOKER",
-	'category'                  => 'Catégorie',
+	'category'                  => 'Catégories',
 	'place'                     => 'Lieu',
 	'budget'                    => 'Budget',
 

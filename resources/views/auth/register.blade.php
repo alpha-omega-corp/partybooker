@@ -4,7 +4,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-uppercase" id="register">
+                    <h1 class="modal-title fs-5 text-uppercase fw-bold text-primary" id="register">
                         {{ __('main.register') }}
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -12,76 +12,79 @@
                 <div class="modal-body">
 
                     @csrf
-                    <div class="form-group row">
-                        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-                        <div class="col-md-6">
-                            <input id="name" type="text"
-                                class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name"
-                                value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                            @if ($errors->has('name'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('name') }}</strong>
-                                </span>
-                            @endif
-                        </div>
+                    @csrf
+
+                    <div class="form-floating mb-3">
+                        <input type="text" name="name"
+                            class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="email"
+                            value="{{ old('name') }}" required autofocus>
+                        <label for="name">
+                            Username
+                        </label>
+                        @if ($errors->has('name'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                        @endif
                     </div>
 
-                    <div class="form-group row">
-                        <label for="email"
-                            class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="email" type="email"
-                                class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
-                                value="{{ old('email') }}" required autocomplete="email">
-
-                            @if ($errors->has('email'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('email') }}</strong>
-                                </span>
-                            @endif
-                        </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" name="email"
+                            class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="email"
+                            value="{{ old('name') }}" required>
+                        <label for="name">
+                            Username
+                        </label>
+                        @if ($errors->has('name'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                        @endif
                     </div>
 
-                    <div class="form-group row">
-                        <label for="password"
-                            class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="password" type="password"
-                                class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
-                                required autocomplete="new-password">
-
-                            @if ($errors->has('password'))
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $errors->first('password') }}</strong>
-                                </span>
-                            @endif
-                        </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}"
+                            id="password" name="password" required>
+                        <label for="password">Password</label>
+                        @if ($errors->has('password'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                        @endif
                     </div>
 
-                    <div class="form-group row">
-                        <label for="password-confirm"
-                            class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="password-confirm" type="password" class="form-control"
-                                name="password_confirmation" required autocomplete="new-password">
-
-                            <input id="type" type="text" name="type" value="" hidden>
-                        </div>
+                    <div class="form-floating">
+                        <input type="password"
+                            class="form-control {{ $errors->has('password_repeat') ? ' is-invalid' : '' }}"
+                            id="password-repeat" name="password_repeat" required>
+                        <label for="password-repeat">
+                            Password Confirmation
+                        </label>
+                        @if ($errors->has('password_repeat'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('password_repeat') }}</strong>
+                            </span>
+                        @endif
                     </div>
-
                 </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#loginModalToggle" data-bs-toggle="modal">
-                        Login
-                    </button>
 
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('main.register') }}
-                    </button>
+                <div class="modal-footer hstack">
+                    <div>
+                        <button type="submit" class="btn btn-primary text-white">
+                            {{ __('main.register') }}
+                        </button>
+                    </div>
+                    <div class="ms-auto">
+                        <button class="btn btn-secondary" data-bs-target="#loginModalToggle" data-bs-toggle="modal">
+                            {{ __('main.login') }}
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            {{ __('main.close') }}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

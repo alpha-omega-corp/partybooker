@@ -174,7 +174,7 @@
                                 $listId = $listKey . '-list';
                             @endphp
 
-                            <a class="list-group-item list-group-item-action fw-bold text-uppercase display-3 {{ $key === 0 ? 'active' : '' }}"
+                            <a class="list-group-item list-group-item-action fw-bold text-uppercase display-5 {{ $key === 0 ? 'active' : '' }}"
                                 id="{{ $listId }}" data-bs-toggle="list" href="{{ '#' . $listKey }}" role="tab"
                                 aria-controls="{{ $listKey }}">
                                 {{ $category->lang->name }}
@@ -193,7 +193,7 @@
                             @endphp
 
                             <!-- Content -->
-                            <div class="tab-pane fade show  {{ $key === 0 ? 'active' : '' }}" id="{{ $listKey }}"
+                            <div class="tab-pane show  {{ $key === 0 ? 'active' : '' }}" id="{{ $listKey }}"
                                 role="tabpanel" aria-labelledby="{{ $listId }}">
 
                                 @switch($listKey)
@@ -260,7 +260,6 @@
                                         </span>
                                         {{ __('main.see-all') }}
                                     </button>
-
                                 </div>
 
                                 <!-- Offcanvas -->

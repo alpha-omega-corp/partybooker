@@ -16,6 +16,7 @@ a {
     overflow-x: hidden;
     overflow-y: auto;
     perspective: 300px;
+    background-color: $gray-900;
 }
 
 .parallax__group {
@@ -40,10 +41,8 @@ a {
     z-index: 1;
 }
 
-
-
 .grid {
-    background: url('../images/low-poly-grid-haikei.svg') no-repeat center;
+    background: url('../images/low-poly-grid-red.svg') no-repeat center;
     background-size: cover;
     transform: translateZ(-600px) scale(3);
     z-index: -1;
