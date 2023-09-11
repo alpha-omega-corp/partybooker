@@ -20,7 +20,8 @@ class Statistics extends Migration
 			$table->integer('email');
 			$table->integer('website');
 			$table->integer('address');
-		});	
+            $table->integer('view')->default(0);
+		});
     }
 
     /**

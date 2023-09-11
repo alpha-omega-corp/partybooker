@@ -23558,6 +23558,10 @@ textarea.form-control-lg {
   font-style: normal;
 }
 /* ---- reset ---- */
+[x-cloak] {
+  display: none;
+}
+
 body {
   margin: 0;
   top: 0;
@@ -23874,6 +23878,7 @@ canvas {
   height: 224px;
   -o-object-fit: cover;
      object-fit: cover;
+  border: dashed 2px #6f42c1;
 }
 .listing .card h5, .listing .card .h5 {
   margin-bottom: 20px;
@@ -23883,6 +23888,7 @@ canvas {
   text-align: justify;
   padding-right: 20px;
   max-height: 72px;
+  overflow: hidden;
 }
 .listing .card .description p {
   line-height: 20px;
@@ -23981,6 +23987,24 @@ canvas {
 .list-group-item-child {
   margin-left: 20px;
 }
+.list-group-item-child .link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+  background-size: 0 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.1s ease-in-out;
+}
+.list-group-item-child .link-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%;
+}
+.list-group-item-child .link-underline-primary {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#6f42c1, #6f42c1);
+}
+.list-group-item-child a {
+  color: #343a40;
+}
 
 .list-group-item-parent {
   background-color: #6f42c1;
@@ -23996,6 +24020,20 @@ canvas {
   margin-right: 8px;
 }
 
+.event-types-filter {
+  position: fixed;
+}
+
+.listing-page {
+  margin: 100px;
+  margin-top: 200px;
+}
+
+@media (max-width: 768px) {
+  .event-types-large {
+    display: none;
+  }
+}
 html,
 body {
   width: 100%;

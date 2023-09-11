@@ -1,4 +1,9 @@
 /* ---- reset ---- */
+
+[x-cloak] {
+    display: none;
+}
+
 body {
     margin: 0;
     top: 0;
@@ -387,6 +392,7 @@ canvas {
             width: 100%;
             height: 224px;
             object-fit: cover;
+            border: dashed 2px $purple-500;
         }
 
         h5 {
@@ -398,6 +404,7 @@ canvas {
             text-align: justify;
             padding-right: 20px;
             max-height: 72px;
+            overflow: hidden;
 
 
             p {
@@ -519,6 +526,28 @@ canvas {
 
 .list-group-item-child {
     margin-left: 20px;
+
+    .link-underline {
+        border-bottom-width: 0;
+        background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+        background-size: 0 2px;
+        background-position: 0 100%;
+        background-repeat: no-repeat;
+        transition: background-size .1s ease-in-out;
+    }
+
+    .link-underline:hover {
+        background-size: 100% 3px;
+        background-position: 0 100%
+    }
+
+    .link-underline-primary {
+        background-image: linear-gradient(transparent, transparent), linear-gradient($purple-500, $purple-500)
+    }
+
+    a {
+        color: $gray-800;
+    }
 }
 
 .list-group-item-parent {
@@ -535,4 +564,19 @@ canvas {
     height: 20px;
 
     margin-right: 8px;
+}
+
+.event-types-filter {
+    position: fixed;
+}
+
+.listing-page {
+    margin: 100px;
+    margin-top: 200px;
+}
+
+@media (max-width: 768px) {
+    .event-types-large {
+        display: none;
+    }
 }

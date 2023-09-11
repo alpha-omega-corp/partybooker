@@ -1,33 +1,56 @@
-<h6>{{__('main.event-types')}}:</h6>
-<ul class="filters-list">
-	<form id="event-sub" action="{{$partners->url(1)}}">
-		@foreach($eventTypes as $et)
-			<li>
-				<input class="mce-group" @if(\Request::has('event_types') && in_array($et['slug'], \Request::get('event_types'))) checked @endif type="checkbox"  name="event_types[]" value="{{$et['slug']}}" /> 
-				<label class="ls-select" style="color: black; " for="mce-group">{{$et['name']}}</label>
-			</li>
-		@endforeach
-		<li>
-			<input id="selectAll" @if(\Request::has('event_types') && count(\Request::get('event_types')) == count($eventTypes)) checked @endif type="checkbox">&nbsp;&nbsp;<label style="color: black" class="ls-select" for='selectAll'>{{__('main.select_all')}}</label></li>
-	</form>
-</ul>
-@push('footer')
-	<script>
-		$('.ls-select').click(function () {
-			$(this).closest('input.mce-group').prop('checked', $(this).prop('checked'));
-			$(this).closest('input').click();
-		});
+<div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle p-fixed text-uppercase" data-bs-toggle="dropdown"
+        data-bs-display="static" aria-expanded="false">
+        {{ __('main.event-types') }}
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+        <form action="{{ $partners->url(1) }}">
+            @foreach ($eventTypes as $key => $et)
+                <li>
+                    <div class="form-check form-switch dropdown-item"
+                        @click.debounce.100ms="document.getElementById('etSubmit').click()">
+                        <input class="form-check-input" type="checkbox" role="switch" id="{{ 'eventType-' . $key }}"
+                            @if (\Request::has('event_types') && in_array($et['slug'], \Request::get('event_types'))) checked @endif name="event_types[]"
+                            value="{{ $et['slug'] }}" />
+                        <label class="form-check-label" for="{{ 'eventType-' . $key }}" x-data=""
+                            @click.debounce.100ms="document.getElementById('etSubmit').click()">
+                            {{ $et['name'] }}
+                        </label>
+                    </div>
+                </li>
+            @endforeach
 
-		$('.mce-group').click(function () {
-			$('form#event-sub').submit();
-		});
+            <a href="{{ request()->url() }}">Clear Filters</a>
+            <button id="etSubmit" type="submit" x-cloak></button>
+        </form>
 
-		$("#selectAll").click(function() {
-			if($(this).prop('checked')){
-				$("input[type=checkbox].mce-group").removeProp('checked');
-			}
-			$("input[type=checkbox].mce-group").prop('checked', $(this).prop('checked'));
-			$('form#event-sub').submit();
-		});
-	</script>
-@endpush
+    </ul>
+</div>
+
+
+<div class="event-types-large">
+    <h6 class="text-uppercase text-center fw-bold fs-2 filter-title">
+        {{ __('main.event-types') }}
+    </h6>
+    <ul>
+        <form action="{{ $partners->url(1) }}">
+            @foreach ($eventTypes as $key => $et)
+                <div class="form-check form-switch" @click.debounce.100ms="document.getElementById('etSubmit').click()">
+                    <input class="form-check-input" type="checkbox" role="switch" id="{{ 'eventType-' . $key }}"
+                        @if (\Request::has('event_types') && in_array($et['slug'], \Request::get('event_types'))) checked @endif name="event_types[]"
+                        value="{{ $et['slug'] }}" />
+                    <label class="form-check-label" for="{{ 'eventType-' . $key }}" x-data=""
+                        @click.debounce.100ms="document.getElementById('etSubmit').click()">
+                        {{ $et['name'] }}
+                    </label>
+                </div>
+            @endforeach
+
+            <a href="{{ request()->url() }}">Clear Filters</a>
+
+            <button id="etSubmit" type="submit" x-cloak></button>
+
+
+        </form>
+    </ul>
+</div>

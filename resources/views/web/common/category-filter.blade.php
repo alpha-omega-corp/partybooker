@@ -57,8 +57,11 @@
                         href="{{ url(\App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $c->lang->slug) }}">{{ $c->lang->name }}</a>
                     <ul class="dropdown-filters-list">
                         @foreach ($c->subcategories as $sub)
-                            <li data-catfil="{{ $sub->code }}"><a class="check-href subcat-a"
-                                    href="#">{{ $sub->lang->name }}</a></li>
+                            <li data-catfil="{{ $sub->code }}">
+                                <a class="check-href subcat-a " href="#">
+                                    {{ $sub->lang->name }}
+                                </a>
+                            </li>
                         @endforeach
                     </ul>
                 </li>
@@ -81,8 +84,8 @@
             </li>
 
             @foreach ($c->subcategories as $sub)
-                <li data-catfil="{{ $sub->code }}" class="list-group-item list-group-item-child">
-                    <a
+                <li data-catfil="{{ $sub->code }}" class="list-group-item list-group-item-child ">
+                    <a class="link-underline link-underline-primary text-truncate"
                         href="{{ url(\App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $c->lang->slug . '/' . $sub->lang->slug) }}">
                         {{ $sub->lang->name }}
                     </a>

@@ -14,52 +14,59 @@
     </section>
 
     <section class="listing">
-        <div class="container p-relative">
-            <h1 class="display-1 fw-bold text-uppercase">
-                @if (isset($current))
-                    {{ __('categories.' . $current->code) }}
-                @else
-                    {{ __('service.listings') }}
-                @endif
-            </h1>
-
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    @if (!isset($current))
-                        <li class="breadcrumb-item">
-                            <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}">
-                                <i class="bi bi-house"></i>
-                            </a>
-                        </li>
-                        <li class="breadcrumb-item active text-uppercase" aria-current="page">
-                            <a href="#">{{ __('service.listings') }}</a>
-                        </li>
+        <div class="p-relative">
+            <div class="container">
+                <h1 class="display-1 fw-bold text-uppercase">
+                    @if (isset($current))
+                        {{ __('categories.' . $current->code) }}
+                    @else
+                        {{ __('service.listings') }}
                     @endif
-                </ol>
-            </nav>
+                </h1>
 
-            <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    {{ __('listing.sort_by') }}
-                </button>
-                @include('web.listings.partial.sort-by')
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        @if (!isset($current))
+                            <li class="breadcrumb-item">
+                                <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}">
+                                    <i class="bi bi-house"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item active text-uppercase" aria-current="page">
+                                <a href="#">{{ __('service.listings') }}</a>
+                            </li>
+                        @endif
+                    </ol>
+                </nav>
             </div>
 
-            <div class="row justify-content-center">
-                <div class="col-lg-3 col-sm-6 filters">
-                    @include('web.common.category-filter')
 
-                    <h6>{{ __('partner.budget') }}:</h6>
-                    {{--					@include('web.listings.partial.price-range') --}}
-                    @include('web.listings.partial.budget-filter')
 
-                    @include('web.common.event-types-filter')
+
+
+
+
+
+
+
+
+
+            <section class="listing-page">
+                <div class="row justify-content-center">
+                    <div class="col-lg-2 col-md-3 filters">
+                        @include('web.common.category-filter')
+                    </div>
+                    <div class="col-lg-7 col-md-9">
+                        @include('web.listings.partial.partial-list')
+                    </div>
+                    <div class="col-lg-3 col-md-0">
+                        <section class="event-types-filter">
+                            @include('web.listings.partial.budget-filter')
+                            @include('web.common.event-types-filter')
+                        </section>
+                    </div>
                 </div>
-                <div class="col-lg-9 col-md-12">
-                    @include('web.listings.partial.partial-list')
-                </div>
-            </div>
+            </section>
         </div>
     </section>
 @endsection

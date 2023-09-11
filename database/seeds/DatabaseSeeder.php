@@ -97,5 +97,16 @@ class DatabaseSeeder extends Seeder
             'fr_full_descr' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis dolor ligula, quis commodo arcu sollicitudin eu. Phasellus feugiat nisl non ex iaculis dictum. Aliquam',
             'other_lang' => null,
         ]);
+
+        DB::table('users')->insert([
+            'name' => $slug,
+            'email' => $slug . '@alphomega.org',
+            'id_partner' => '120036190814-044' . $r,
+            'email_verification' => 1,
+            'password' => bcrypt('password'),
+            'type' => 'admin',
+            'provider' => null,
+            'provider_id' => null,
+        ]);
     }
 }

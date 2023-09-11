@@ -22,7 +22,7 @@ use MetaTag;
 
 class ListingController extends Controller
 {
-    
+
 	protected $categories;
 
 	protected $eventTypes = [];
@@ -63,7 +63,6 @@ class ListingController extends Controller
 
 	public function index(Request $request)
 	{
-
 		$query_params = [];
 		$query = PartnersInfo::where('public', 1)->where('payment_status', 1);
 
@@ -171,7 +170,7 @@ class ListingController extends Controller
                 if(!empty($locale->meta_keywords)){
                     MetaTag::set('keywords', $locale->meta_keywords);
                 }
-                
+
 
 		return view('web.listings.category', [
 			'partners' => $query->paginate(20)->appends($query_params),
@@ -249,14 +248,14 @@ class ListingController extends Controller
 		$query = $query->orderBy('priority', 'asc');
 
                 MetaTag::set('title', $locale->meta_title??$locale->name .' | Partybooker');
-                
+
                 if(!empty($locale->meta_description)){
                     MetaTag::set('description', $locale->meta_description);
                 }
                 if(!empty($locale->meta_keywords)){
                     MetaTag::set('keywords', $locale->meta_keywords);
                 }
-                
+
 		return view('web.listings.sub-category', [
 			'partners' => $query->paginate(20)->appends($query_params),
 			'categories' => $this->categories,
@@ -356,7 +355,7 @@ class ListingController extends Controller
 
 	public function service(Request $request, $slug)
 	{
-                
+
 		$partner = PartnersInfo::where('slug', $slug)->with(['currentPlan', 'user', 'categories', 'categories.primaryCategory'])->with(['services' => function ($query) {
 			$query->where('status', Advert::STATUS_ACTIVE);
 		}])->first();
@@ -372,15 +371,15 @@ class ListingController extends Controller
 		$images = ServiceImage::where('id_partner', $partner->id_partner)->get();
 		$subCategoriesId = AdvertCategory::where('partners_info_id', $partner->id)->pluck('sub_category_id')->toArray();
 		$subCategories = Category::whereIn('id', $subCategoriesId)->pluck('code')->toArray();
-                
+
                 $locale = app()->getLocale();
                 $locale_title = $locale.'_company_name';
                 $locale_desc = $locale.'_full_descr';
-                
+
                 $locale_seo_title = $locale.'_seo_title';
                 $locale_seo_desc = $locale.'_seo_desc';
                 $locale_seo_keywords = $locale.'_seo_keywords';
-                
+
                 MetaTag::set('title', $partner->{$locale_seo_title}??$partner->{$locale_title});
                 MetaTag::set('description', $partner->{$locale_seo_desc}??$partner->{$locale_desc});
 

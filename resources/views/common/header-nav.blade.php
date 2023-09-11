@@ -9,7 +9,7 @@
     <ul class="nav nav-flush flex-column mb-auto text-center">
         <li class="nav-item" data-tippy-content="{{ __('main.home_page') }}">
             <a page="home" href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}"
-                class="nav-link bg-primary text-white py-3 border-top" aria-current="home" @mouseover="open = true">
+                class="nav-link bg-primary text-white py-3 border-top" aria-current="home">
                 <i class="bi bi-house"></i>
             </a>
         </li>

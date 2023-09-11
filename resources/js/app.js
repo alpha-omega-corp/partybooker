@@ -16,14 +16,6 @@ tippy('.nav-item', {
     theme: 'navigation'
 });
 
-tippy('.open-offcanvas', {
-    placement: 'top',
-    animation: 'scale',
-    inertia: true,
-    theme: 'category-door'
-
-});
-
 tippy.setDefaultProps({
     delay: 50,
     plugins: [
