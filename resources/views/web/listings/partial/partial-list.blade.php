@@ -23,15 +23,13 @@
                                     {{ $partner->fr_company_name }}
                                 @endif
                             </h5>
-                            <p class="card-text description row-2 text-truncate">
+                            <div class="card-text description row-2 text-truncate">
                                 @if (app()->getLocale() == 'en')
                                     {!! $partner->en_short_descr !!}
                                 @else
                                     {!! $partner->fr_short_descr !!}
                                 @endif
-
-
-                            </p>
+                            </div>
 
                             <div class="d-flex location-box">
                                 <div class="location">

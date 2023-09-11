@@ -402,6 +402,8 @@ canvas {
         .location-box {
             border-top: solid 1px;
             color: $gray-700;
+            position: absolute;
+            bottom: 2px;
 
             p {
                 padding-top: 4px;
