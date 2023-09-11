@@ -5,8 +5,14 @@
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{{ asset('storage/images/thumbnails/' . $partner->main_img) }}"
-                            alt="{{ $partner->main_img }}" class="cover img-fluid rounded-start">
+                        @if ($partner->main_img)
+                            <img src="{{ asset('storage/images/thumbnails/' . $partner->main_img) }}"
+                                alt="{{ $partner->main_img }}" class="cover img-fluid rounded-start">
+                        @else
+                            <img src="//via.placeholder.com/700x1000/fc0?text=6" class="cover img-fluid rounded-start"
+                                alt="...">
+                        @endif
+
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -17,7 +23,7 @@
                                     {{ $partner->fr_company_name }}
                                 @endif
                             </h5>
-                            <p class="card-text description">
+                            <p class="card-text description row-2 text-truncate text-wrap">
                                 @if (app()->getLocale() == 'en')
                                     {!! $partner->en_short_descr !!}
                                 @else
@@ -27,12 +33,12 @@
 
                             </p>
 
-                            <div class="d-flex">
+                            <div class="d-flex location-box">
                                 <div class="location">
                                     <img src="{{ asset('images/map.svg') }}" />
                                 </div>
 
-                                <p class="w-full p-1">
+                                <p class="w-full">
                                     {{ __('cantons.' . strtolower($partner->location_code) . '_loc') }},
                                     {{ $partner->address }}
                                 </p>
