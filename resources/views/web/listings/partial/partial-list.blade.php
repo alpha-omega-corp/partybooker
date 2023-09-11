@@ -6,7 +6,7 @@
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img src="{{ asset('storage/images/thumbnails/' . $partner->main_img) }}"
-                            alt="{{ $partner->main_img }}" class="img-fluid rounded-start">
+                            alt="{{ $partner->main_img }}" class="cover img-fluid rounded-start">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
