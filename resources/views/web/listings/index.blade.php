@@ -40,17 +40,6 @@
                 </nav>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
             <section class="listing-page">
                 <div class="row justify-content-center">
                     <div class="col-lg-2 col-md-3 filters">

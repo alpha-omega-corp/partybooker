@@ -11,38 +11,58 @@
 @endsection
 
 
-@push('header')
-    <style>
-        .list-section h1 {
-
-            text-align: center !important;
-            margin-bottom: 40px !important;
-
-        }
-
-        .list-section p.content-description {
-            color: black;
-        }
-
-        h1 {
-            font-size: 30px !important;
-            letter-spacing: 1px !important;
-            line-height: 45px !important;
-            color: #fe8a02 !important;
-            font-family: "Montserrat" !important;
-            font-weight: 700 !important;
-            text-transform: uppercase !important;
-        }
-    </style>
-@endpush
 @section('content')
-    <section class="header not-full">
-        @include('web.common.header-nav')
-        <div class="cover abs">
-            <img src="/images/home-header-bg.jpg" class="bg abs"
-                alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
-        </div>
+    <section>
         @include('web.common.social')
+    </section>
+
+    <section class="listing">
+        <div class="p-relative">
+            <div class="container">
+                <h1 class="display-1 fw-bold text-uppercase">
+                    @if (isset($current))
+                        {{ __('categories.' . $current->code) }}
+                    @else
+                        {{ __('service.listings') }}
+                    @endif
+                </h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}">
+                                <i class="bi bi-house"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item text-uppercase" aria-current="page">
+                            <a
+                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings')) }}">
+                                {{ __('service.listings') }}
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item text-uppercase active" aria-current="page">
+                            <a href="#">{{ $current->lang->name }}</a>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+
+            <section class="listing-page">
+                <div class="row justify-content-center">
+                    <div class="col-lg-2 col-md-3 filters">
+                        @include('web.common.category-filter')
+                    </div>
+                    <div class="col-lg-7 col-md-9">
+                        @include('web.listings.partial.partial-list')
+                    </div>
+                    <div class="col-lg-3 col-md-0">
+                        <section class="event-types-filter">
+                            @include('web.listings.partial.budget-filter')
+                            @include('web.common.event-types-filter')
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
     </section>
 
     <section class="list-section">
@@ -168,7 +188,6 @@
                     @include('web.common.category-filter', ['listType' => 'category'])
 
                     <h6>{{ __('partner.budget') }}:</h6>
-                    {{--					@include('web.listings.partial.price-range') --}}
                     @include('web.listings.partial.budget-filter')
 
                     @include('web.common.event-types-filter')
