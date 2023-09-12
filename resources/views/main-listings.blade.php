@@ -31,16 +31,50 @@
     {!! MetaTag::tag('description') !!}
     {!! MetaTag::tag('keywords') !!}
     @stack('header')
+
     <!-- Styles -->
+    <script src="{{ asset('dist/app.js') }}" defer></script>
     <link href="{{ asset('dist/app.css') }}" rel="stylesheet">
 </head>
 
 <body class="body">
-    @include('common.header')
-    @yield('content')
-    @include('common.footer')
-    @include('common.cookies')
+    <div id="tsparticles"></div>
+
+    @include('common.header-nav')
+    <input type="hidden" id="particlesConfig" value="{{ asset('assets/particles.json') }}" />
+
+    <div style="margin-left: 4.75rem">
+
+        @if (Auth::user() == null)
+            <div class="text-center py-8 color-white language">
+                <a href="<?= route('setlocale', ['lang' => 'fr']) ?>" lan="fr">
+                    <img src="{{ asset('images/switzerland.svg') }}" alt="..." />
+                </a>
+                <a href="<?= route('setlocale', ['lang' => 'en']) ?>" lan="en">
+                    <img src="{{ asset('images/united-kingdom.svg') }}" alt="..." />
+                </a>
+            </div>
+
+
+            <div class="auth">
+                <a class="btn btn-primary" data-bs-toggle="modal" href="#loginModalToggle" role="button">
+                    {{ __('main.login') }}
+                </a>
+            </div>
+        @endif
+        @yield('content')
+    </div>
+
+    <section>
+        @include('auth.login')
+        @include('auth.register')
+    </section>
+
+    <section>
+        @include('common.cookies')
+    </section>
 </body>
+
 <!-- Scripts -->
 <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
 <script src="{{ asset('js/popper.js') }}"></script>

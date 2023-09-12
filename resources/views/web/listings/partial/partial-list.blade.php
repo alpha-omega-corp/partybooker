@@ -1,4 +1,6 @@
-<div class="service-listing">
+<section class="service-listing">
+
+
     @foreach ($partners->items() as $partner)
         <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listing') . '/' . $partner->slug) }}"
             class="list-item @if (strtolower($partner->currentPlan->name) == 'exclusif') top @endif">
@@ -47,4 +49,4 @@
             </div>
         </a>
     @endforeach
-</div>
+</section>

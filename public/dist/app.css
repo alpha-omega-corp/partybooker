@@ -24174,6 +24174,15 @@ canvas {
 .filters button::before {
   display: none;
 }
+.filters ul {
+  background-color: #343a40;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.filters ul .dropdown-item {
+  background: transparent;
+  color: #fff;
+}
 .filters .dropdown-menu {
   max-height: 20vh;
   padding: 20px;
@@ -24206,6 +24215,10 @@ canvas {
 }
 .filters {
   right: 0;
+}
+
+.partner h1, .partner .h1 {
+  color: #6f42c1;
 }
 
 html,

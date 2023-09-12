@@ -42,7 +42,6 @@
     <input type="hidden" id="particlesConfig" value="{{ asset('assets/particles.json') }}" />
 
     <div style="margin-left: 4.75rem">
-
         @if (Auth::user() == null)
             <div class="text-center py-8 color-white language">
                 <a href="<?= route('setlocale', ['lang' => 'fr']) ?>" lan="fr">
@@ -60,15 +59,17 @@
                 </a>
             </div>
         @endif
+
         @yield('content')
     </div>
-
-
-
 
     <section>
         @include('auth.login')
         @include('auth.register')
+    </section>
+
+    <section>
+        @include('common.cookies')
     </section>
 
 </body>
