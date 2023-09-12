@@ -29,6 +29,8 @@ return [
     'see-all'                   => 'Voir tout',
     'see-items'                 => 'Sous catégories',
 
+    'clear-filters'             => 'Réinitialiser filtres',
+
 	//MAIN WEBSITE
 	//Common
 	//navigation

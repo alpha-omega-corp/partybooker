@@ -41,11 +41,6 @@
                                     {{ $partner->address }}
                                 </p>
                             </div>
-
-
-
-
-
                         </div>
                     </div>
                 </div>
@@ -53,22 +48,3 @@
         </a>
     @endforeach
 </div>
-
-@if ($partners->lastPage() > 1)
-    <ul class="pagination" style="color: black">
-        <li class="page-item navigation">
-            <a href="{{ $partners->url(1) }}">Previous</a>
-        </li>
-        @for ($i = 1; $i <= $partners->lastPage(); $i++)
-            <li class="page-item {{ $partners->currentPage() == $i ? ' active' : '' }}">
-                <a href="{{ $partners->url($i) }}">{{ $i }}</a>
-            </li>
-        @endfor
-        @if ($partners->currentPage() != $partners->lastPage())
-            <li
-                class="page-item navigation {{ $partners->currentPage() == $partners->lastPage() ? ' disabled' : '' }}">
-                <a href="{{ $partners->url($partners->currentPage() + 1) }}">Next</a>
-            </li>
-        @endif
-    </ul>
-@endif

@@ -65,14 +65,15 @@
 
             <section class="listing-page">
                 <div class="row justify-content-center">
-                    <div class="col-lg-2 col-md-3 filters">
+                    <div class="col-lg-2 col-md-12">
                         @include('web.common.category-filter')
                     </div>
-                    <div class="col-lg-7 col-md-9">
+                    <div class="col-lg-6 col-md-12">
                         @include('web.listings.partial.partial-list')
                     </div>
-                    <div class="col-lg-3 col-md-0">
-                        <section class="event-types-filter">
+                    <div class="col-lg-3 col-md-12">
+                        <section class="filters">
+                            @include('web.listings.partial.pagination')
                             @include('web.listings.partial.budget-filter')
                             @include('web.common.event-types-filter')
                         </section>

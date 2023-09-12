@@ -29,6 +29,8 @@ return [
     'see-all'                   => 'See all',
     'see-items'                 => 'Sub categories',
 
+    'clear-filters'             => 'Clear filters',
+
 
 	//MAIN WEBSITE
 	//Common
