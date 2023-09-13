@@ -16,7 +16,8 @@ a {
     overflow-x: hidden;
     overflow-y: auto;
     perspective: 300px;
-    background-color: $gray-900;
+    background-color: $green-500;
+    background-image: linear-gradient($gray-300, $purple-800);
 }
 
 .parallax__group {
@@ -42,9 +43,9 @@ a {
 }
 
 .grid {
-    background: url('../images/low-poly-grid-red.svg') no-repeat center;
+    background: url('../images/layered-peaks-haikei.svg') no-repeat center;
     background-size: cover;
-    transform: translateZ(-600px) scale(3);
+    transform: translateZ(-600px) translateY(100px) scale(3);
     z-index: -1;
 }
 
@@ -61,7 +62,6 @@ a {
     transform: translateY(300px) scale(1);
     z-index: 1;
 }
-
 
 .hero-text {
     background: linear-gradient(rgba(105, 211, 252, 0.25) 0%,

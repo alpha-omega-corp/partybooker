@@ -36,23 +36,21 @@
 </head>
 
 <body class="body">
-    <div id="tsparticles"></div>
-
     @include('common.header-nav')
     <input type="hidden" id="particlesConfig" value="{{ asset('assets/particles.json') }}" />
 
     <div style="margin-left: 4.75rem">
+
+        <div class="text-center py-8 color-white language">
+            <a href="<?= route('setlocale', ['lang' => 'fr']) ?>" lan="fr">
+                <img src="{{ asset('images/switzerland.svg') }}" alt="..." />
+            </a>
+            <a href="<?= route('setlocale', ['lang' => 'en']) ?>" lan="en">
+                <img src="{{ asset('images/united-kingdom.svg') }}" alt="..." />
+            </a>
+        </div>
+
         @if (Auth::user() == null)
-            <div class="text-center py-8 color-white language">
-                <a href="<?= route('setlocale', ['lang' => 'fr']) ?>" lan="fr">
-                    <img src="{{ asset('images/switzerland.svg') }}" alt="..." />
-                </a>
-                <a href="<?= route('setlocale', ['lang' => 'en']) ?>" lan="en">
-                    <img src="{{ asset('images/united-kingdom.svg') }}" alt="..." />
-                </a>
-            </div>
-
-
             <div class="auth">
                 <a class="btn btn-primary" data-bs-toggle="modal" href="#loginModalToggle" role="button">
                     {{ __('main.login') }}

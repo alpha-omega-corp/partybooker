@@ -10,7 +10,7 @@
 
 @section('content')
     <div class="p-relative listing">
-        <div class="container">
+        <div class="">
             <h1 class="display-1 fw-bold text-uppercase">
                 @if (isset($current))
                     {{ __('categories.' . $current->code) }}

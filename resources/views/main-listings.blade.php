@@ -38,7 +38,6 @@
 </head>
 
 <body class="body">
-    <div id="tsparticles"></div>
 
     @include('common.header-nav')
     <input type="hidden" id="particlesConfig" value="{{ asset('assets/particles.json') }}" />

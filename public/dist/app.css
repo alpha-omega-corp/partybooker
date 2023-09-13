@@ -23895,17 +23895,6 @@ canvas {
   margin-left: 80px;
   margin-right: 80px;
 }
-.top-services .carousel-item .card {
-  background-color: transparent;
-}
-.top-services .carousel-item .card .card-body {
-  background-size: cover;
-}
-.top-services .carousel-item .card:hover {
-  transform: scale(1.1);
-  transition: 0.1s;
-  padding: 10px;
-}
 .top-services .carousel-control-prev {
   margin-left: -40px;
 }
@@ -23925,14 +23914,19 @@ canvas {
 .top-services .carousel-inner .card {
   margin: 10px;
   border: 0;
-  border-radius: 0;
-  color: #ffffff;
 }
-.top-services .carousel-inner .card .card-footer {
-  background-color: rgba(0, 0, 0, 0.125);
+.top-services .carousel-inner .card .card-image-container {
+  position: relative;
 }
-.top-services .carousel-inner .card blockquote {
-  color: #ffffff;
+.top-services .carousel-inner .card .card-image-container .logo-carousel-item {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #212529;
+}
+.top-services .carousel-inner .card .card-image-container .logo-carousel-item img {
+  width: 40px;
 }
 @media (max-width: 767px) {
   .top-services .carousel-inner .carousel-item > div {
@@ -24236,7 +24230,8 @@ a {
   overflow-x: hidden;
   overflow-y: auto;
   perspective: 300px;
-  background-color: #212529;
+  background-color: #198754;
+  background-image: linear-gradient(#dee2e6, #2c1a4d);
 }
 
 .parallax__group {
@@ -24262,9 +24257,9 @@ a {
 }
 
 .grid {
-  background: url(/images/low-poly-grid-red.svg?52a17ea8af98912c631d17e186b9882a) no-repeat center;
+  background: url(/images/layered-peaks-haikei.svg?cad0fb0a639ec843f93d9caa9da09b76) no-repeat center;
   background-size: cover;
-  transform: translateZ(-600px) scale(3);
+  transform: translateZ(-600px) translateY(100px) scale(3);
   z-index: -1;
 }
 

@@ -235,23 +235,6 @@ canvas {
         margin-right: 80px;
     }
 
-    .carousel-item {
-
-        .card {
-            background-color: transparent;
-
-            .card-body {
-                background-size: cover;
-            }
-        }
-
-        .card:hover {
-            transform: scale(1.1);
-            transition: 0.1s;
-            padding: 10px;
-        }
-    }
-
     .carousel-control-prev {
         margin-left: -40px;
     }
@@ -276,16 +259,24 @@ canvas {
         .card {
             margin: 10px;
             border: 0;
-            border-radius: 0;
-            color: #ffffff;
 
-            .card-footer {
-                background-color: rgba(0, 0, 0, .125);
+            .card-image-container {
+                position: relative;
+
+                .logo-carousel-item {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    padding: 10px;
+                    background-color: $gray-900;
+
+                    img {
+                        width: 40px;
+                    }
+                }
             }
 
-            blockquote {
-                color: #ffffff;
-            }
+
         }
     }
 
