@@ -8302,7 +8302,7 @@ textarea.form-control-lg {
 }
 .offcanvas, .offcanvas-xxl, .offcanvas-xl, .offcanvas-lg, .offcanvas-md, .offcanvas-sm {
   --bs-offcanvas-zindex: 1045;
-  --bs-offcanvas-width: 400px;
+  --bs-offcanvas-width: auto;
   --bs-offcanvas-height: 30vh;
   --bs-offcanvas-padding-x: 1rem;
   --bs-offcanvas-padding-y: 1rem;
@@ -17909,7 +17909,7 @@ textarea.form-control-lg {
 
 .offcanvas-sm, .offcanvas-md, .offcanvas-lg, .offcanvas-xl, .offcanvas-xxl, .offcanvas {
   --bs-offcanvas-zindex: 1045;
-  --bs-offcanvas-width: 400px;
+  --bs-offcanvas-width: auto;
   --bs-offcanvas-height: 30vh;
   --bs-offcanvas-padding-x: 1rem;
   --bs-offcanvas-padding-y: 1rem;
@@ -23983,6 +23983,7 @@ canvas {
 }
 .listing .card {
   max-height: 226px;
+  z-index: 1;
   border: 0;
 }
 .listing .card .cover {
@@ -23993,11 +23994,15 @@ canvas {
   border: dashed 2px #6f42c1;
 }
 .listing .card h5, .listing .card .h5 {
+  position: absolute;
+  top: 10px;
   margin-bottom: 20px;
-  color: #fd7e14;
+  color: #6f42c1;
 }
 .listing .card .description {
+  position: absolute;
   text-align: justify;
+  top: 40px;
   padding-right: 20px;
   max-height: 72px;
   overflow: hidden;
@@ -24026,9 +24031,13 @@ canvas {
   margin-bottom: 20px;
 }
 
+.offcanvas {
+  border: 0;
+  background-color: transparent;
+}
+
 .breadcrumb {
   padding: 12px;
-  margin-bottom: 100px;
   --bs-breadcrumb-divider-color: #fff;
 }
 .breadcrumb a {
@@ -24052,10 +24061,9 @@ canvas {
 
 .language {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 20px;
   z-index: 100;
-  padding: 20px;
 }
 .language a {
   color: #fff;
@@ -24063,7 +24071,7 @@ canvas {
 .language a img {
   width: 30px;
   height: 30px;
-  margin: 10px;
+  margin: 2px;
 }
 .language img:hover {
   transform: scale(1.1);
@@ -24140,10 +24148,9 @@ canvas {
 
 .filters {
   position: fixed;
+  right: 0;
+  top: 20%;
   z-index: 10;
-}
-.filters button::before {
-  display: none;
 }
 .filters ul {
   background-color: #343a40;
@@ -24167,16 +24174,13 @@ canvas {
   margin-top: 20px;
 }
 
-.partner-listing {
-  margin-top: 100px;
-}
-
-.filters {
-  right: 0;
-}
-
 .partner h1, .partner .h1 {
   color: #6f42c1;
+}
+
+.navigation {
+  width: 4.75rem;
+  height: 100%;
 }
 
 @media only screen and (max-width: 1800px) {
@@ -24185,21 +24189,51 @@ canvas {
   }
 }
 @media only screen and (max-width: 1200px) {
-  .filters .btn-text {
-    display: none;
+  .navigation {
+    width: 100%;
+    height: 100%;
   }
   .list-group-item-child {
     font-size: small;
   }
 }
-@media only screen and (max-width: 1200px) {
-  .filters .btn-text {
-    display: none;
-  }
-}
 @media only screen and (min-width: 992px) {
   .btn-category-filter {
     display: none;
+  }
+  .partner-listing {
+    margin-top: 100px;
+  }
+  .breadcrumb {
+    margin-bottom: 100px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .listing .card {
+    max-height: 400px;
+    height: 400px;
+  }
+  .listing .card h5, .listing .card .h5 {
+    padding: 10px;
+    background-color: #212529;
+    color: #a98eda;
+    border-bottom-right-radius: 10px 10px;
+    top: 0;
+    left: 0;
+  }
+  .listing .card .cover {
+    filter: brightness(80%);
+  }
+  .listing .card .description {
+    top: 240px;
+  }
+  .listing .card .location-box {
+    bottom: 0;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .filters ul {
+    text-align: end;
   }
 }
 html,

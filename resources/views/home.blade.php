@@ -183,7 +183,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-content bg-white" id="nav-tabContent">
 
                         <!-- Tabs -->
                         @foreach ($menuCats as $key => $category)
@@ -193,7 +193,7 @@
                             @endphp
 
                             <!-- Content -->
-                            <div class="tab-pane show  {{ $key === 0 ? 'active' : '' }}" id="{{ $listKey }}"
+                            <div class="tab-pane  show  {{ $key === 0 ? 'active' : '' }}" id="{{ $listKey }}"
                                 role="tabpanel" aria-labelledby="{{ $listId }}">
 
                                 @switch($listKey)

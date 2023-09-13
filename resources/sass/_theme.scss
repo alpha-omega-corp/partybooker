@@ -12,6 +12,8 @@ $theme-colors: (
     "dark": $dark
 );
 
+$offcanvas-horizontal-width: auto;
+
 .tippy-box[data-theme~='navigation'] {
     background-color: $orange-500;
     padding: 8px;

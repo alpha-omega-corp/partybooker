@@ -27,37 +27,34 @@
             </ul>
         </div>
 
-        <div class="col-lg-8 col-md-12">
+        <div class="col-lg-8 col-xs-12">
             <section class="partner-listing">
                 @include('web.listings.partial.partial-list')
+                @include('web.listings.partial.pagination')
             </section>
         </div>
-
-        <div class="filters">
-            <div class="d-flex justify-content-end">
-                @include('web.common.category-filter')
-            </div>
-
-            <div class="d-flex justify-content-end">
-                @include('web.common.event-types-filter')
-            </div>
-
-            <div class="d-flex justify-content-end">
-                @include('web.listings.partial.budget-filter')
-            </div>
-
-            <div class="d-flex justify-content-end">
-                <a href="{{ request()->url() }}" class="btn btn-labeled btn-danger text-uppercase reset-filters">
-                    <span class="btn-label">
-                        <i class="bi bi-recycle"></i>
-                    </span>
-                </a>
-            </div>
-        </div>
-
-        <div class="container">
-            @include('web.listings.partial.pagination')
-        </div>
-
     </div>
+</section>
+
+<section class="filters d-flex flex-column flex-shrink-0">
+    <div class="d-flex justify-content-end ">
+        @include('web.common.category-filter')
+    </div>
+
+    <div class="d-flex justify-content-end">
+        @include('web.common.event-types-filter')
+    </div>
+
+    <div class="d-flex justify-content-end">
+        @include('web.listings.partial.budget-filter')
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <a href="{{ request()->url() }}" class="btn btn-labeled btn-danger text-uppercase reset-filters">
+            <span class="btn-label">
+                <i class="bi bi-recycle"></i>
+            </span>
+        </a>
+    </div>
+
 </section>

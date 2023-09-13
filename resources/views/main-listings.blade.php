@@ -39,30 +39,31 @@
 
 <body class="body">
 
+
     @include('common.header-nav')
-    <input type="hidden" id="particlesConfig" value="{{ asset('assets/particles.json') }}" />
 
-    <div style="margin-left: 4.75rem">
+    @if (Auth::user() == null)
+        <div class="text-center py-8 color-white language">
+            <a href="<?= route('setlocale', ['lang' => 'fr']) ?>" lan="fr">
+                <img src="{{ asset('images/switzerland.svg') }}" alt="..." />
+            </a>
+            <a href="<?= route('setlocale', ['lang' => 'en']) ?>" lan="en">
+                <img src="{{ asset('images/united-kingdom.svg') }}" alt="..." />
+            </a>
+        </div>
 
-        @if (Auth::user() == null)
-            <div class="text-center py-8 color-white language">
-                <a href="<?= route('setlocale', ['lang' => 'fr']) ?>" lan="fr">
-                    <img src="{{ asset('images/switzerland.svg') }}" alt="..." />
-                </a>
-                <a href="<?= route('setlocale', ['lang' => 'en']) ?>" lan="en">
-                    <img src="{{ asset('images/united-kingdom.svg') }}" alt="..." />
-                </a>
-            </div>
+        <div class="auth">
+            <a class="btn btn-primary" data-bs-toggle="modal" href="#loginModalToggle" role="button">
+                {{ __('main.login') }}
+            </a>
+        </div>
+    @endif
+    @yield('content')
 
 
-            <div class="auth">
-                <a class="btn btn-primary" data-bs-toggle="modal" href="#loginModalToggle" role="button">
-                    {{ __('main.login') }}
-                </a>
-            </div>
-        @endif
-        @yield('content')
-    </div>
+
+
+
 
     <section>
         @include('auth.login')
@@ -73,15 +74,6 @@
         @include('common.cookies')
     </section>
 </body>
-
-<!-- Scripts -->
-<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-<script src="{{ asset('js/popper.js') }}"></script>
-<script src="{{ asset('js/bootstrap4.js') }}"></script>
-<script src="{{ asset('js/owl.carousel.js') }}"></script>
-<script src="{{ asset('js/script.js') }}"></script>
-<script src="{{ asset('js/jquery.mask.js') }}"></script>
-{{--		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDpzw9SH97G5L9Af-dR5TeixK8OEPqocY&callback=initMap" type="text/javascript"></script> --}}
 @stack('footer')
 
 </html>
