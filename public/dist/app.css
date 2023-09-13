@@ -24170,17 +24170,17 @@ canvas {
   margin-top: 100px;
 }
 
-@media (max-width: 1700px) {
+@media screen and (max-width: 1700px) {
   .hide-filters-lg-breakpoint .btn .btn-text {
     display: none;
   }
 }
-@media (max-width: 1400px) {
+@media screen and (max-width: 1400px) {
   .category-filters a {
     font-size: small;
   }
 }
-@media (min-width: 992px) {
+@media screen and (min-width: 992px) {
   .hide-not-medium {
     display: none;
   }
