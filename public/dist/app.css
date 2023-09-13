@@ -24185,7 +24185,7 @@ canvas {
     display: none;
   }
 }
-@media (max-width: 992px) {
+@media screen and (max-width: 992px) {
   .hide-medium {
     display: none;
   }
