@@ -82,7 +82,7 @@ canvas {
 
 .accordion-button-register.collapsed {
     color: #ffffff;
-    background-color: $orange-300;
+    background-color: $warning;
 }
 
 .welcome {
@@ -99,7 +99,7 @@ canvas {
 
         .card-group {
             background-color: transparent;
-            border-color: $gray-400;
+            border-color: $secondary;
             border-radius: 10px;
             margin-top: 300px;
 
@@ -162,7 +162,7 @@ canvas {
                 }
 
                 .accordion-header {
-                    color: $gray-300;
+                    color: $secondary;
                     margin-bottom: 30px;
 
                 }
@@ -234,6 +234,7 @@ canvas {
         .card {
             margin: 10px;
             border: 0;
+            background-color: transparent;
 
             .card-image-container {
                 position: relative;
@@ -243,13 +244,18 @@ canvas {
                     top: 0;
                     right: 0;
                     padding: 10px;
-                    background-color: $gray-900;
+                    background-color: $primary;
 
                     img {
                         width: 40px;
                     }
                 }
             }
+
+            .card-title {
+                color: $primary;
+            }
+
 
 
         }
@@ -294,7 +300,7 @@ canvas {
 
 .categories {
 
-    border-top: solid 2px $orange-700;
+    border-top: solid 2px $warning;
 
     .col-6 {
         padding: 0;
@@ -304,16 +310,16 @@ canvas {
         border-radius: 0px;
 
         .list-group-item {
-            background-color: $gray-900;
-            color: $gray-400;
+            background-color: $secondary;
+            color: $secondary;
         }
 
         .list-group-item:hover {
-            color: $gray-100;
+            color: $secondary;
         }
 
         .active {
-            background-color: $purple-500;
+            background-color: $primary;
         }
 
         a {
@@ -368,14 +374,13 @@ canvas {
             width: 100%;
             height: 224px;
             object-fit: cover;
-            border: dashed 2px $purple-500;
         }
 
         h5 {
             position: absolute;
             top: 10px;
             margin-bottom: 20px;
-            color: $purple-500;
+            color: $primary;
         }
 
         .description {
@@ -401,7 +406,7 @@ canvas {
 
         .location-box {
             border-top: solid 1px;
-            color: $gray-700;
+            color: $secondary;
             position: absolute;
             bottom: 2px;
 
@@ -486,7 +491,7 @@ canvas {
     top: 40%;
     display: flex;
     flex-direction: column;
-    background: $purple-500;
+    background: $primary;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     z-index: 5;
@@ -498,10 +503,10 @@ canvas {
 
     a {
         padding: 7px 10px;
-        color: $gray-700;
+        color: $secondary;
 
         &:hover {
-            color: $gray-100;
+            color: $secondary;
         }
     }
 }
@@ -527,21 +532,27 @@ canvas {
     }
 
     .link-underline-primary {
-        background-image: linear-gradient(transparent, transparent), linear-gradient($purple-500, $purple-500)
+        background-image: linear-gradient(transparent, transparent), linear-gradient($primary, $primary)
     }
 
     a {
-        color: $gray-800;
+        color: $secondary;
     }
 }
 
 .list-group-item-parent {
-    background-color: $purple-500;
     border: 0;
+    background-color: $primary;
 
     a {
         color: #fff;
     }
+}
+
+.list-group-item-parent:hover {
+    background-color: $purple-600;
+    transition: .1s;
+    transform: scaleX(1.04);
 }
 
 .location {
@@ -552,7 +563,7 @@ canvas {
 
 .pagination {
     .page-link {
-        background-color: $purple-500;
+        background-color: $primary;
         color: #fff;
     }
 }
@@ -566,7 +577,7 @@ canvas {
 
 
     ul {
-        background-color: $gray-800;
+        background-color: $secondary;
         font-weight: bold;
         text-transform: uppercase;
 
@@ -595,7 +606,7 @@ canvas {
 
 .partner {
     h1 {
-        color: $purple-500;
+        color: $primary;
     }
 }
 
@@ -603,6 +614,16 @@ canvas {
     width: 4.75rem;
     height: 100%;
 }
+
+.offcanvas {
+    -webkit-transition: 0s ease all;
+    -o-transition: 0s ease all;
+    transition: 0s ease all;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
 
 @media only screen and (max-width : 1800px) {
     .filters {
@@ -618,11 +639,46 @@ canvas {
     .navigation {
         width: 100%;
         height: 100%;
+
+
+
     }
 
     .list-group-item-child {
         font-size: small;
     }
+}
+
+// Applies After Medium
+@media only screen and (min-width : 1200px) {
+
+    .navigation {
+        .container {
+            margin: 0;
+
+            .nav-sm-text {
+                display: none;
+            }
+        }
+    }
+
+}
+
+// Applies Before Medium
+@media only screen and (max-width : 1200px) {
+
+    .navigation {
+        .container {
+            padding-top: 10px;
+
+
+            .nav-sm-text {
+                margin-left: 25px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
 }
 
 // Applies Not Small
@@ -639,20 +695,27 @@ canvas {
     .breadcrumb {
         margin-bottom: 100px;
     }
+
+
 }
 
 // Applies Small
 @media only screen and (max-width : 767px) {
 
     .listing {
+
+        .breadcrumb {
+            font-size: smaller;
+        }
+
         .card {
             max-height: 400px;
             height: 400px;
 
             h5 {
                 padding: 10px;
-                background-color: $gray-900;
-                color: $purple-300;
+                background-color: $secondary;
+                color: $primary;
                 border-bottom-right-radius: 10px 10px;
                 top: 0;
                 left: 0;

@@ -1,13 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap');
 
+// Keep seperated : https://stackoverflow.com/a/68860725
+
+$primary: $purple-500;
+$secondary: $gray-900;
+$accent: $gray-700;
+
+$warning: $orange-700;
+$danger: $red-500;
+$success: $green-400;
+
 $theme-colors: (
-    "primary": $purple-500,
-    "secondary": $gray-900,
-    "accent": $gray-700,
+    "primary": $primary,
+    "secondary": $secondary,
+    "accent": $accent,
     "info": $info,
-    "warning": $orange-700,
-    "danger": $red-500,
-    "success": $green-400,
+    "warning": $warning,
+    "danger": $danger,
+    "success": $success,
     "light": $light,
     "dark": $dark
 );

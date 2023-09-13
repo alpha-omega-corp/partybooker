@@ -27,50 +27,113 @@
 
 
                     <ul class="nav nav-flush flex-column mb-auto text-center">
+
                         <li class="nav-item" data-tippy-content="{{ __('main.home_page') }}">
                             <a page="home" href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}"
-                                class="nav-link bg-primary text-white py-3 border-top" aria-current="home">
-                                <i class="bi bi-house"></i>
+                                class="nav-link bg-primary text-white  border-top " aria-current="home">
+
+                                <div class="container">
+                                    <div class="justify-content-start d-flex">
+                                        <div><i class="bi bi-house"></i></div>
+                                        <div>
+                                            <p class="nav-sm-text">{{ __('main.home_page') }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </a>
                         </li>
 
                         <li class="nav-item" data-tippy-content="{{ __('main.listing_page') }}">
                             <a page="listing"
                                 href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings')) }}"
-                                class="nav-link bg-primary text-white py-3 border-top" aria-current="page">
-                                <i class="bi bi-list-columns-reverse"></i>
+                                class="nav-link bg-primary text-white border-top" aria-current="page">
+
+                                <div class="container">
+                                    <div class="justify-content-start d-flex">
+                                        <div>
+                                            <i class="bi bi-list-columns-reverse"></i>
+                                        </div>
+                                        <div>
+                                            <p class="nav-sm-text">{{ __('main.listing_page') }}</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </a>
                         </li>
 
                         <li class="nav-item" data-tippy-content="{{ __('main.become_partner_page') }}">
                             <a page="partner"
                                 href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}"
-                                class="nav-link bg-primary text-white py-3 border-top" aria-current="page">
-                                <i class="bi bi-person-plus"></i>
+                                class="nav-link bg-primary text-white border-top" aria-current="page">
+                                <div class="container">
+                                    <div class="justify-content-start d-flex">
+                                        <div>
+                                            <i class="bi bi-person-plus"></i>
+                                        </div>
+                                        <div>
+                                            <p class="nav-sm-text">{{ __('main.become_partner_page') }}</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </a>
                         </li>
 
                         <li class="nav-item" data-tippy-content="{{ __('main.aboutus_page') }}">
                             <a page="aboutus"
                                 href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus')) }}"
-                                class="nav-link bg-primary text-white py-3 border-top" aria-current="page">
-                                <i class="bi bi-person-vcard"></i>
+                                class="nav-link bg-primary text-white border-top" aria-current="page">
+
+                                <div class="container">
+                                    <div class="justify-content-start d-flex">
+                                        <div>
+                                            <i class="bi bi-person-vcard"></i>
+                                        </div>
+                                        <div>
+                                            <p class="nav-sm-text">{{ __('main.aboutus_page') }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </a>
                         </li>
 
                         <li class="nav-item" data-tippy-content="{{ __('main.faqs_page') }}">
                             <a page="faqs"
                                 href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/faq') }}"
-                                class="nav-link bg-primary text-white py-3 border-top" aria-current="page">
-                                <i class="bi bi-patch-question"></i>
+                                class="nav-link bg-primary text-white border-top" aria-current="page">
+
+                                <div class="container">
+                                    <div class="justify-content-start d-flex">
+                                        <div>
+                                            <i class="bi bi-patch-question"></i>
+                                        </div>
+                                        <div>
+                                            <p class="nav-sm-text">{{ __('main.faqs_page') }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </a>
                         </li>
 
                         <li class="nav-item" data-tippy-content="{{ __('main.blog_page') }}">
                             <a page="blog"
                                 href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/blog') }}"
-                                class="nav-link bg-primary text-white py-3 border-top" aria-current="page">
-                                <i class="bi bi-journal-bookmark"></i>
+                                class="nav-link bg-primary text-white border-top" aria-current="page">
+
+                                <div class="container">
+                                    <div class="justify-content-start d-flex">
+                                        <div>
+                                            <i class="bi bi-journal-bookmark"></i>
+                                        </div>
+                                        <div>
+                                            <p class="nav-sm-text">{{ __('main.blog_page') }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </a>
                         </li>
                     </ul>
