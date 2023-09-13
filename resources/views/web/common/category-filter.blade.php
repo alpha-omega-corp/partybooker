@@ -1,4 +1,4 @@
-<div class="category-filters">
+<div class="btn-category-filter">
     <div class="btn-group dropstart">
         <button type="button" class="btn btn-labeled btn-primary text-uppercase" data-bs-toggle="dropdown"
             data-bs-display="static" aria-expanded="false">

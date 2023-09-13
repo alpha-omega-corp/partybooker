@@ -501,6 +501,7 @@ canvas {
 
 .list-group-item-child {
     margin-left: 20px;
+    z-index: 20;
 
     .link-underline {
         border-bottom-width: 0;
@@ -590,39 +591,7 @@ canvas {
 
 
 
-@media screen and (max-width: 1700px) {
-    .hide-filters-lg-breakpoint {
-        .btn {
-            .btn-text {
-                display: none;
-            }
-        }
-    }
-}
 
-
-
-@media screen and (max-width: 1400px) {
-    .category-filters {
-        a {
-            font-size: small;
-        }
-    }
-}
-
-@media screen and (min-width: 992px) {
-    .hide-not-medium {
-        display: none;
-    }
-
-
-}
-
-@media screen and (max-width: 992px) {
-    .hide-medium {
-        display: none;
-    }
-}
 
 .filters {
     right: 0;
@@ -632,5 +601,49 @@ canvas {
 
     h1 {
         color: $purple-500;
+    }
+}
+
+
+
+
+
+
+@media only screen and (max-width : 1800px) {
+    .filters {
+
+        .btn-text {
+            display: none;
+        }
+    }
+}
+
+
+@media only screen and (max-width : 1200px) {
+    .filters {
+        .btn-text {
+            display: none;
+        }
+    }
+
+    .list-group-item-child {
+        font-size: small;
+    }
+}
+
+
+// Applies Medium
+@media only screen and (max-width : 1200px) {
+    .filters {
+        .btn-text {
+            display: none;
+        }
+    }
+}
+
+// Applies Not Small
+@media only screen and (min-width : 992px) {
+    .btn-category-filter {
+        display: none;
     }
 }
