@@ -13,7 +13,7 @@
             <form action="{{ $partners->url(1) }}">
                 @foreach ($eventTypes as $key => $et)
                     <li>
-                        <div class="form-check form-switch dropdown-item"
+                        <div class="form-check form-switch dropdown-item" x-data=""
                             @click.debounce.100ms="document.getElementById('etSubmit').click()">
                             <input class="form-check-input" type="checkbox" role="switch"
                                 id="{{ 'eventType-' . $key }}" @if (\Request::has('event_types') && in_array($et['slug'], \Request::get('event_types'))) checked @endif

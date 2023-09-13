@@ -10,7 +10,7 @@
 
 @section('content')
     <div class="p-relative listing">
-        <div class="">
+        <div class="container">
             <h1 class="display-1 fw-bold text-uppercase">
                 @if (isset($current))
                     {{ __('categories.' . $current->code) }}
@@ -36,5 +36,6 @@
 
             @include('web.listings.partial.listing-content')
         </div>
+
     </div>
 @endsection

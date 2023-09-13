@@ -85,31 +85,6 @@ canvas {
     background-color: $orange-300;
 }
 
-.btn-primary {
-    color: #ffffff;
-}
-
-.btn-secondary {
-    color: #ffffff;
-}
-
-.btn-success:hover {
-    color: #ffffff;
-}
-
-.btn-info {
-    color: #ffffff;
-}
-
-.btn-primary:hover {
-    color: #ffffff;
-}
-
-.btn:hover {
-    color: #fff;
-}
-
-
 .welcome {
     height: 770px;
 
@@ -589,6 +564,10 @@ canvas {
         .dropdown-item {
             background: transparent;
             color: #fff;
+
+            a {
+                color: #fff;
+            }
         }
     }
 
@@ -605,6 +584,9 @@ canvas {
 
 }
 
+.partner-listing {
+    margin-top: 100px;
+}
 
 
 

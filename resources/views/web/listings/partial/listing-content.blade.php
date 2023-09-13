@@ -1,8 +1,4 @@
 <section>
-    @include('web.common.social')
-</section>
-
-<section>
     <div class="row justify-content-center">
         <div class="col-lg-4 col-md-0">
             <div class="hide-medium">

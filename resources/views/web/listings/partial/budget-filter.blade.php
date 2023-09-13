@@ -1,5 +1,5 @@
 <div class="btn-group dropstart" data-url="{{ $partners->url($partners->currentPage()) }}">
-    <button type="button" class="btn btn-labeled btn-success text-uppercase" data-bs-toggle="dropdown"
+    <button type="button" class="btn btn-labeled btn-primary text-uppercase" data-bs-toggle="dropdown"
         data-bs-display="static" aria-expanded="false">
         <span class="btn-label">
             <i class="bi bi-cash-coin"></i>
@@ -13,7 +13,6 @@
         </span>
     </button>
     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
-        <a class="dropdown-item" data-value="0" href="{{ $partners->url(1) . '&budget=0' }}">&nbsp;</a>
         @foreach (\App\Helpers\BudgetsHelper::$_budgets as $k => $v)
             <li>
                 <a class="dropdown-item" data-value="{{ $k }}"

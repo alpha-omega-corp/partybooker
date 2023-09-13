@@ -23770,30 +23770,6 @@ canvas {
   background-color: #feb272;
 }
 
-.btn-primary {
-  color: #ffffff;
-}
-
-.btn-secondary {
-  color: #ffffff;
-}
-
-.btn-success:hover {
-  color: #ffffff;
-}
-
-.btn-info {
-  color: #ffffff;
-}
-
-.btn-primary:hover {
-  color: #ffffff;
-}
-
-.btn:hover {
-  color: #fff;
-}
-
 .welcome {
   height: 770px;
 }
@@ -24177,6 +24153,9 @@ canvas {
   background: transparent;
   color: #fff;
 }
+.filters ul .dropdown-item a {
+  color: #fff;
+}
 .filters .dropdown-menu {
   max-height: 20vh;
   padding: 20px;
@@ -24185,6 +24164,10 @@ canvas {
 }
 .filters .reset-filters {
   margin-top: 20px;
+}
+
+.partner-listing {
+  margin-top: 100px;
 }
 
 @media (max-width: 1700px) {

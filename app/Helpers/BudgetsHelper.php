@@ -11,7 +11,6 @@ class BudgetsHelper
 	public const BUDGET_RATE_4 = 4;
 	public const BUDGET_RATE_5 = 5;
 	public const BUDGET_RATE_6 = 6;
-        public const BUDGET_RATE_7 = 7;
 
 	public static $_budgets = [
 		self::BUDGET_RATE_1 => '0 - 1000 CHF',
@@ -19,8 +18,7 @@ class BudgetsHelper
 		self::BUDGET_RATE_3 => '2000 - 5000 CHF',
 		self::BUDGET_RATE_4 => '5000 - 8000 CHF',
 		self::BUDGET_RATE_5 => '8000 - 10000 CHF',
-		self::BUDGET_RATE_6 => '> 10000 CHF',
-                self::BUDGET_RATE_7 => 'partner.price_demand'
+		self::BUDGET_RATE_6 => '10000 CHF ->',
 	];
 
 
