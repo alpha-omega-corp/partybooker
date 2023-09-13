@@ -20,12 +20,22 @@
             <div class="offcanvas-body">
                 <div class="navigation d-flex flex-column flex-shrink-0 h-full fixed-top bg-secondary">
 
-                    <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}" class="nav-logo">
-                        <img src="/images/logoPB.png" class="mx-auto"
-                            alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
-                    </a>
+                    <div class="position-relative">
+
+                        <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}" class="nav-logo">
+                            <img src="/images/logoPB.png" class="mx-auto"
+                                alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
 
 
+                        </a>
+
+                        <div class="position-absolute top-0 end-0 nav-sm-close">
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+
+
+                    </div>
                     <ul class="nav nav-flush flex-column mb-auto text-center">
 
                         <li class="nav-item" data-tippy-content="{{ __('main.home_page') }}">
@@ -143,8 +153,8 @@
                             <a href="#"
                                 class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
                                 id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{ asset('images/ape.svg') }}" alt="mdo" width="24" height="24"
-                                    class="rounded-circle mr-2">
+                                <img src="{{ asset('images/ape.svg') }}" alt="mdo" width="24"
+                                    height="24" class="rounded-circle mr-2">
                             </a>
                             <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
                                 <li><a class="dropdown-item" href="#">Settings</a></li>

@@ -24218,6 +24218,9 @@ canvas {
   .navigation .container .nav-sm-text {
     display: none;
   }
+  .navigation .nav-sm-close {
+    display: none;
+  }
 }
 @media only screen and (max-width: 1200px) {
   .navigation .container {
