@@ -34,7 +34,7 @@
                             class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="email"
                             value="{{ old('name') }}" required>
                         <label for="name">
-                            Username
+                            Email
                         </label>
                         @if ($errors->has('name'))
                             <span class="invalid-feedback" role="alert">

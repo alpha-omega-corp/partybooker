@@ -42,21 +42,22 @@
                                                 <div class="card-body">
                                                     <div class="card-text">
                                                         <div class="accordion-item">
-                                                            <h2 class="accordion-header text-uppercase fw-bold"
-                                                                id="headingTwo">
-                                                                {{ __('main.info-block-title-1') }}
-                                                            </h2>
-                                                            <button class="accordion-button text-uppercase" id="controlOne"
-                                                                type="button" data-bs-toggle="collapse"
-                                                                data-bs-target="#collapseOne" aria-expanded="false"
-                                                                aria-controls="collapseOne">
+                                                            <div class="d-flex">
+                                                                <button class=" accordion-button text-uppercase"
+                                                                    id="controlOne" type="button" data-bs-toggle="collapse"
+                                                                    data-bs-target="#collapseOne" aria-expanded="false"
+                                                                    aria-controls="collapseOne">
 
-                                                                <img src="{{ asset('images/ape.svg') }}" class="d-block"
-                                                                    alt="...">
+                                                                    <img src="{{ asset('images/ape.svg') }}" class="d-block"
+                                                                        alt="...">
+                                                                </button>
+                                                                <h2 class="accordion-header text-uppercase fw-bold"
+                                                                    id="headingOne">
+                                                                    {{ __('main.info-block-title-1') }}
+                                                                </h2>
+                                                            </div>
 
-                                                            </button>
-
-                                                            <div id="collapseOne" class="accordion-collapse collapse"
+                                                            <div id="collapseOne" class="accordion-collapse collapse show"
                                                                 aria-labelledby="headingOne"
                                                                 data-bs-parent="#welcomeAccordion">
                                                                 <div class="accordion-body body-one">
@@ -81,17 +82,25 @@
                                                 <div class="card-body">
                                                     <div class="card-text">
                                                         <div class="accordion-item">
-                                                            <h2 class="accordion-header text-uppercase fw-bold"
-                                                                id="headingTwo">
-                                                                {{ __('main.info-block-title-2') }}
-                                                            </h2>
-                                                            <button class="accordion-button text-uppercase" type="button"
-                                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                                                aria-expanded="false" aria-controls="collapseTwo">
-                                                                <img src="{{ asset('images/party-popper.svg') }}"
-                                                                    class="my-auto d-block" alt="...">
 
-                                                            </button>
+
+                                                            <div class="d-flex">
+
+                                                                <button class="accordion-button text-uppercase"
+                                                                    type="button" data-bs-toggle="collapse"
+                                                                    data-bs-target="#collapseTwo" aria-expanded="false"
+                                                                    aria-controls="collapseTwo">
+                                                                    <img src="{{ asset('images/party-popper.svg') }}"
+                                                                        class="my-auto d-block" alt="...">
+
+                                                                </button>
+                                                                <h2 class="accordion-header text-uppercase fw-bold "
+                                                                    id="headingTwo">
+                                                                    {{ __('main.info-block-title-2') }}
+                                                                </h2>
+                                                            </div>
+
+
 
                                                             <div id="collapseTwo" class="accordion-collapse collapse"
                                                                 aria-labelledby="headingTwo"
@@ -120,21 +129,29 @@
                                                 <div class="card-body">
                                                     <div class="card-text">
                                                         <div class="accordion-item">
-                                                            <h2 class="accordion-header text-uppercase fw-bold"
-                                                                id="headingThree">
-                                                                {{ __('main.info-block-title-3') }}
-                                                            </h2>
 
-                                                            <button
-                                                                class="accordion-button accordion-button-register collapsed text-uppercase"
-                                                                type="button" data-bs-toggle="collapse"
-                                                                data-bs-target="#collapseThree" aria-expanded="false"
-                                                                aria-controls="collapseThree">
-                                                                <img src="{{ asset('images/heart.svg') }}"
-                                                                    class="my-auto d-block" alt="...">
-                                                            </button>
+                                                            <div class="d-flex">
 
-                                                            <div id="collapseThree" class="accordion-collapse collapse show"
+                                                                <button
+                                                                    class="accordion-button accordion-button-register collapsed text-uppercase"
+                                                                    type="button" data-bs-toggle="collapse"
+                                                                    data-bs-target="#collapseThree" aria-expanded="false"
+                                                                    aria-controls="collapseThree">
+                                                                    <img src="{{ asset('images/heart.svg') }}"
+                                                                        class="my-auto d-block" alt="...">
+                                                                </button>
+
+                                                                <h2 class="accordion-header text-uppercase fw-bold "
+                                                                    id="headingThree">
+                                                                    {{ __('main.info-block-title-3') }}
+                                                                </h2>
+                                                            </div>
+
+
+
+
+
+                                                            <div id="collapseThree" class="accordion-collapse collapse"
                                                                 aria-labelledby="headingThree"
                                                                 data-bs-parent="#welcomeAccordion">
                                                                 <div class="accordion-body">
@@ -147,14 +164,17 @@
                                                                         <hr>
                                                                         <i>{{ __('main.info-block-3-1') }}</i>
                                                                     </p>
+
+                                                                    <a
+                                                                        href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
+                                                                        <button type="button"
+                                                                            class="btn btn-primary register">
+                                                                            <i class="bi bi-arrow-right"></i>
+                                                                        </button>
+                                                                    </a>
                                                                 </div>
                                                             </div>
-                                                            <a
-                                                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
-                                                                <button type="button" class="btn btn-primary register">
-                                                                    <i class="bi bi-arrow-right"></i>
-                                                                </button>
-                                                            </a>
+
                                                         </div>
                                                     </div>
                                                 </div>
