@@ -1,5 +1,5 @@
 <div class="social-links fixed">
-    @if ($settings)
+    @if (isset($settings))
         @if ($settings[0]->facebook)
             <a href="{{ $settings[0]->facebook }}" target="_blank"><i class="icon-facebook"></i></a>
         @endif

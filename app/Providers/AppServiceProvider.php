@@ -15,8 +15,10 @@ use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
-use Schema;
-use DB;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -30,9 +32,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IPartnerPlanOptionService::class, PartnerPlanOptionService::class);
         $this->app->bind(IImageService::class, ImageService::class);
 
-	    if ($this->app->environment() !== 'production') {
-		    $this->app->register(IdeHelperServiceProvider::class);
-	    }
+        if ($this->app->environment() !== 'production') {
+            $this->app->register(IdeHelperServiceProvider::class);
+        }
     }
 
     /**
@@ -40,26 +42,20 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot() {
+    public function boot()
+    {
         Schema::defaultStringLength(191);
-
-
-
-		$settings = DB::select('select * from settings');
-
-		view()->share('settings', $settings);
-
-	    view()->share('footerCategories', $this->getFooterCategories());
     }
 
-    private function getFooterCategories(){
+    private function getFooterCategories()
+    {
 
-    	$lang = LocaleMiddleware::getLocale() ? 'en' : 'fr';
-	    $categories = $value = Cache::get($lang . '_footer_categories');
-	    if(!$categories){
-		    $categories = Category::with(['lang'])->whereNull('parent_id')->get();
-		    Cache::put($lang . '_footer_categories', $categories, 60000);
-	    }
-	    return $categories;
+        $lang = LocaleMiddleware::getLocale() ? 'en' : 'fr';
+        $categories = $value = Cache::get($lang . '_footer_categories');
+        if (!$categories) {
+            $categories = Category::with(['lang'])->whereNull('parent_id')->get();
+            Cache::put($lang . '_footer_categories', $categories, 60000);
+        }
+        return $categories;
     }
 }

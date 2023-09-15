@@ -67,7 +67,6 @@ canvas {
     position: absolute;
     top: 0;
     height: 100%;
-    background-image: url("../images/rose-petals.svg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -253,7 +252,11 @@ canvas {
             }
 
             .card-title {
-                color: $primary;
+                color: $orange-500;
+            }
+
+            p {
+                color: #fff;
             }
 
 
@@ -610,6 +613,10 @@ canvas {
     }
 }
 
+.nav-logo-container {
+    padding-top: 20px;
+}
+
 .navigation {
     width: 4.75rem;
     height: 100%;
@@ -640,9 +647,20 @@ canvas {
         width: 100%;
         height: 100%;
 
+        .close-container {
+            right: 20px;
+            top: 15px;
+        }
 
-
+        i {
+            padding: 10px;
+        }
     }
+
+    .nav-logo-container {
+        padding-bottom: 20px;
+    }
+
 
     .list-group-item-child {
         font-size: small;
@@ -653,16 +671,17 @@ canvas {
 @media only screen and (min-width : 1200px) {
 
     .navigation {
-        .container {
-            margin: 0;
 
-            .nav-sm-text {
-                display: none;
-            }
+        .nav-sm-text {
+            display: none;
         }
 
         .nav-sm-close {
             display: none;
+        }
+
+        .nav-link {
+            justify-content: center;
         }
     }
 
@@ -677,8 +696,25 @@ canvas {
 
 
             .nav-sm-text {
-                margin-left: 25px;
+                margin-bottom: 0px !important;
                 text-transform: uppercase;
+            }
+
+            .nav-sm-close {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+
+            .nav-link {
+                i {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+
+            .nav {
+                margin-top: 20px;
             }
         }
     }
@@ -718,19 +754,20 @@ canvas {
 
             h5 {
                 padding: 10px;
-                background-color: $secondary;
+                font-size: medium;
                 color: $primary;
                 border-bottom-right-radius: 10px 10px;
-                top: 0;
+                top: 240px;
                 left: 0;
             }
 
             .cover {
                 filter: brightness(80%);
+                border: solid 4px #fff;
             }
 
             .description {
-                top: 240px;
+                top: 280px;
             }
 
             .location-box {
