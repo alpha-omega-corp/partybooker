@@ -91,7 +91,7 @@
                                                                     data-bs-target="#collapseTwo" aria-expanded="false"
                                                                     aria-controls="collapseTwo">
                                                                     <img src="{{ asset('images/party-popper.svg') }}"
-                                                                        class="my-auto d-block" alt="...">
+                                                                        class="d-block" alt="...">
 
                                                                 </button>
                                                                 <h2 class="accordion-header text-uppercase fw-bold "
@@ -138,7 +138,7 @@
                                                                     data-bs-target="#collapseThree" aria-expanded="false"
                                                                     aria-controls="collapseThree">
                                                                     <img src="{{ asset('images/heart.svg') }}"
-                                                                        class="my-auto d-block" alt="...">
+                                                                        class="d-block" alt="...">
                                                                 </button>
 
                                                                 <h2 class="accordion-header text-uppercase fw-bold "

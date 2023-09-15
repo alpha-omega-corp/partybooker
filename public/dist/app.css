@@ -24324,11 +24324,12 @@ canvas {
     animation: tilt-n-move-shaking 2s infinite;
     display: block;
     margin-left: 90px;
+    margin-top: 20px;
     width: 50px;
   }
   .welcome .accordion .card-group .card h2, .welcome .accordion .card-group .card .h2 {
     color: #fff;
-    font-size: medium;
+    font-size: small;
     width: 100%;
   }
   .welcome .accordion .card-group .card .accordion-collapse {
@@ -24425,7 +24426,7 @@ a {
 
 @media only screen and (max-width: 767px) {
   .parallax__group_welcome {
-    height: 1100px;
+    height: 900px;
   }
   .parallax__group_services {
     height: 700px;
