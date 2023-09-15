@@ -5,6 +5,14 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        @if (Auth::user() == null)
+            <div class="auth">
+                <a class="btn btn-primary" data-bs-toggle="modal" href="#loginModalToggle" role="button">
+                    {{ __('main.login') }}
+                </a>
+            </div>
+        @endif
+
         <div class="language">
             <a href="<?= route('setlocale', ['lang' => 'fr']) ?>" lan="fr">
                 <img src="{{ asset('images/switzerland.svg') }}" alt="..." />
@@ -167,3 +175,8 @@
         </div>
     </div>
 </nav>
+
+<section>
+    @include('auth.login')
+    @include('auth.register')
+</section>

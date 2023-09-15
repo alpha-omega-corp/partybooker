@@ -39,23 +39,7 @@
 <body class="body">
     @include('common.header-nav')
 
-
-
-    @if (Auth::user() == null)
-        <div class="auth">
-            <a class="btn btn-primary" data-bs-toggle="modal" href="#loginModalToggle" role="button">
-                {{ __('main.login') }}
-            </a>
-        </div>
-    @endif
-
     @yield('content')
-
-
-    <section>
-        @include('auth.login')
-        @include('auth.register')
-    </section>
 
     <section>
         @include('common.cookies')

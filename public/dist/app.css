@@ -23769,91 +23769,6 @@ canvas {
   background-color: #984c0c;
 }
 
-.welcome {
-  height: 770px;
-}
-.welcome h1, .welcome .h1 {
-  margin-top: 100px;
-  z-index: 10;
-}
-.welcome .accordion {
-  background-color: transparent;
-  --bs-accordion-border-width: 0;
-}
-.welcome .accordion .card-group {
-  background-color: transparent;
-  border-color: #212529;
-  border-radius: 10px;
-  margin-top: 300px;
-}
-.welcome .accordion .card-group .card {
-  border: 0;
-  background-color: transparent;
-}
-.welcome .accordion .card-group .card img {
-  animation: tilt-n-move-shaking 2s infinite;
-  width: 200px;
-  height: 200px;
-}
-.welcome .accordion .card-group .card img:hover {
-  transform: scale(1.5);
-  transition: 0.2s ease-in-out;
-  padding: 20px;
-}
-.welcome .accordion .card-group .card h2, .welcome .accordion .card-group .card .h2 {
-  color: #fff;
-}
-.welcome .accordion .card-group .card .accordion-collapse {
-  border: 0;
-}
-.welcome .accordion .card-group .card .accordion-button::after {
-  transform: none !important;
-  transition: none !important;
-  display: none;
-}
-.welcome .accordion .card-group .card .accordion-button:focus {
-  box-shadow: none;
-  border-color: rgba(0, 0, 0, 0.125);
-}
-.welcome .accordion .card-group .card .accordion-item {
-  background-color: transparent;
-  border: 0;
-}
-.welcome .accordion .card-group .card .accordion-item .accordion-button {
-  border: 0;
-}
-.welcome .accordion .card-group .card .accordion-body {
-  text-align: justify;
-  color: #ffffff;
-  border: 0;
-  padding: 0;
-}
-.welcome .accordion .card-group .card .accordion-button {
-  font-weight: bold;
-  background-color: transparent;
-  border: 0;
-}
-.welcome .accordion .card-group .card .accordion-header {
-  color: #212529;
-  margin-bottom: 30px;
-}
-.welcome .accordion .card-group .card .accordion-header::after {
-  content: url(/images/right-arrow.svg?a4b127758b53d464c46ec54d4ac71305);
-  position: absolute;
-  right: 20px;
-  width: 30px;
-  height: 30px;
-}
-.welcome .accordion .card-group .card .register {
-  color: #ffffff;
-  margin-top: 20px;
-  width: 100%;
-  text-align: left;
-}
-.welcome .accordion .card-group .card .card-footer {
-  background-color: transparent;
-}
-
 .top-services {
   margin-top: 450px;
   margin-left: 10%;
@@ -23899,7 +23814,7 @@ canvas {
   top: 0;
   right: 0;
   padding: 10px;
-  background-color: #6f42c1;
+  background-color: #212529;
 }
 .top-services .carousel-inner .card .card-image-container .logo-carousel-item img {
   width: 40px;
@@ -24023,7 +23938,6 @@ canvas {
   -webkit-box-orient: vertical;
 }
 .listing .card .location-box {
-  border-top: solid 1px;
   color: #212529;
   position: absolute;
   bottom: 2px;
@@ -24056,7 +23970,7 @@ canvas {
   position: fixed;
   top: 0;
   left: 6rem;
-  z-index: 100;
+  z-index: 300;
 }
 .auth .btn {
   border-radius: 0;
@@ -24203,6 +24117,93 @@ canvas {
   backface-visibility: hidden;
 }
 
+@media only screen and (min-width: 767px) {
+  .welcome h1, .welcome .h1 {
+    margin-top: 100px;
+    margin-bottom: 200px;
+    z-index: 10;
+  }
+  .welcome .accordion {
+    background-color: transparent;
+    --bs-accordion-border-width: 0;
+  }
+  .welcome .accordion .card-group {
+    background-color: transparent;
+    border-color: #212529;
+    border-radius: 10px;
+  }
+  .welcome .accordion .card-group .card {
+    border: 0;
+    background-color: transparent;
+  }
+  .welcome .accordion .card-group .card img {
+    animation: tilt-n-move-shaking 2s infinite;
+    width: 100px;
+    height: 100px;
+    margin-left: 70px;
+  }
+  .welcome .accordion .card-group .card img:hover {
+    transform: scale(1.5);
+    transition: 0.2s ease-in-out;
+    padding: 20px;
+  }
+  .welcome .accordion .card-group .card h2, .welcome .accordion .card-group .card .h2 {
+    color: #fff;
+  }
+  .welcome .accordion .card-group .card .accordion-collapse {
+    border: 0;
+  }
+  .welcome .accordion .card-group .card .accordion-button::after {
+    transform: none !important;
+    transition: none !important;
+    display: none;
+  }
+  .welcome .accordion .card-group .card .accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0, 0, 0, 0.125);
+  }
+  .welcome .accordion .card-group .card .accordion-item {
+    background-color: transparent;
+    border: 0;
+  }
+  .welcome .accordion .card-group .card .accordion-item .accordion-button {
+    border: 0;
+  }
+  .welcome .accordion .card-group .card .accordion-body {
+    text-align: justify;
+    color: #ffffff;
+    border: 0;
+    padding: 0;
+    margin-top: 50px;
+  }
+  .welcome .accordion .card-group .card .accordion-button {
+    font-weight: bold;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+  }
+  .welcome .accordion .card-group .card .accordion-header {
+    color: #fff;
+    margin-bottom: 30px;
+  }
+  .welcome .accordion .card-group .card .accordion-header::before {
+    content: url(/images/right-arrow.svg?a4b127758b53d464c46ec54d4ac71305);
+    position: absolute;
+    left: 20px;
+    top: 100px;
+    width: 30px;
+    height: 30px;
+  }
+  .welcome .accordion .card-group .card .register {
+    color: #ffffff;
+    margin-top: 20px;
+    width: 100%;
+    text-align: left;
+  }
+  .welcome .accordion .card-group .card .card-footer {
+    background-color: transparent;
+  }
+}
 @media only screen and (max-width: 1800px) {
   .filters .btn-text {
     display: none;
@@ -24271,6 +24272,9 @@ canvas {
   }
 }
 @media only screen and (max-width: 767px) {
+  .top-services {
+    margin-top: 50%;
+  }
   .listing .breadcrumb {
     font-size: smaller;
   }
@@ -24284,17 +24288,103 @@ canvas {
     color: #6f42c1;
     border-bottom-right-radius: 10px 10px;
     top: 240px;
-    left: 0;
+    left: 8px;
   }
   .listing .card .cover {
     filter: brightness(80%);
     border: solid 4px #fff;
+    border-radius: 10px;
   }
   .listing .card .description {
-    top: 280px;
+    top: 300px;
   }
   .listing .card .location-box {
-    bottom: 0;
+    top: 10px;
+    color: #fff;
+  }
+  .welcome h1, .welcome .h1 {
+    margin-top: 70px;
+    margin-bottom: 50px;
+    z-index: 10;
+    font-size: xx-large;
+  }
+  .welcome .accordion {
+    background-color: transparent;
+    --bs-accordion-border-width: 0;
+  }
+  .welcome .accordion .card-group {
+    background-color: transparent;
+    border-color: #212529;
+    border-radius: 10px;
+  }
+  .welcome .accordion .card-group .card {
+    border: 0;
+    background-color: transparent;
+  }
+  .welcome .accordion .card-group .card img {
+    animation: tilt-n-move-shaking 2s infinite;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+  }
+  .welcome .accordion .card-group .card h2, .welcome .accordion .card-group .card .h2 {
+    color: #fff;
+    font-size: large;
+  }
+  .welcome .accordion .card-group .card .accordion-collapse {
+    border: 0;
+  }
+  .welcome .accordion .card-group .card .accordion-button::after {
+    transform: none !important;
+    transition: none !important;
+    display: none;
+  }
+  .welcome .accordion .card-group .card .accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0, 0, 0, 0.125);
+  }
+  .welcome .accordion .card-group .card .accordion-item {
+    background-color: transparent;
+    border: 0;
+  }
+  .welcome .accordion .card-group .card .accordion-item .accordion-button {
+    border: 0;
+  }
+  .welcome .accordion .card-group .card .accordion-body {
+    text-align: justify;
+    color: #ffffff;
+    border: 0;
+    padding: 0;
+    margin-top: 50px;
+  }
+  .welcome .accordion .card-group .card .accordion-button {
+    font-weight: bold;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+  }
+  .welcome .accordion .card-group .card .accordion-header {
+    color: #fff;
+    margin-top: 50px;
+    text-align: center;
+  }
+  .welcome .accordion .card-group .card .accordion-header::before {
+    content: url(/images/right-arrow.svg?a4b127758b53d464c46ec54d4ac71305);
+    position: absolute;
+    left: 20px;
+    top: 60px;
+    width: 30px;
+    height: 30px;
+  }
+  .welcome .accordion .card-group .card .register {
+    color: #ffffff;
+    margin-top: 20px;
+    width: 100%;
+    text-align: left;
+  }
+  .welcome .accordion .card-group .card .card-footer {
+    background-color: transparent;
   }
 }
 @media only screen and (max-width: 576px) {
@@ -24313,7 +24403,7 @@ a {
 }
 
 .wrapper {
-  height: 100vh;
+  height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   perspective: 300px;
@@ -24321,13 +24411,28 @@ a {
   background-image: linear-gradient(#dee2e6, #2c1a4d);
 }
 
-.parallax__group {
+.parallax__group_welcome {
   position: relative;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   transform-style: preserve-3d;
 }
 
+.parallax__group_services {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+}
+
+@media only screen and (max-width: 767px) {
+  .parallax__group_welcome {
+    height: 1100px;
+  }
+  .parallax__group_services {
+    height: 700px;
+  }
+}
 .parallax__layer {
   position: absolute;
   top: 0;

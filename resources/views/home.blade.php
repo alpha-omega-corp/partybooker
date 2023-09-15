@@ -20,13 +20,13 @@
 
 @section('content')
     <div class="wrapper">
-        <div class="parallax__group hero-container hero">
+        <div class="parallax__group_welcome hero-container hero">
             <div class="parallax__layer blob"></div>
 
             <div class="parallax__layer hero-text">
                 <section>
                     <div class="welcome">
-                        <div class="container">
+                        <div class="container my-auto">
                             <h1 class="text-white display-1 fw-bold">
                                 {{ __('main.title_home_h1') }}
                             </h1>
@@ -34,111 +34,129 @@
                             <div class="accordion" id="welcomeAccordion">
                                 <div class="card-group">
 
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="card-text">
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header text-uppercase fw-bold" id="headingTwo">
-                                                        {{ __('main.info-block-title-1') }}
-                                                    </h2>
-                                                    <button class="accordion-button text-uppercase" id="controlOne"
-                                                        type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#collapseOne" aria-expanded="false"
-                                                        aria-controls="collapseOne">
 
-                                                        <img src="{{ asset('images/ape.svg') }}" class="my-auto d-block"
-                                                            alt="...">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-12">
 
-                                                    </button>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="card-text">
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header text-uppercase fw-bold"
+                                                                id="headingTwo">
+                                                                {{ __('main.info-block-title-1') }}
+                                                            </h2>
+                                                            <button class="accordion-button text-uppercase" id="controlOne"
+                                                                type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="#collapseOne" aria-expanded="false"
+                                                                aria-controls="collapseOne">
 
-                                                    <div id="collapseOne" class="accordion-collapse collapse"
-                                                        aria-labelledby="headingOne" data-bs-parent="#welcomeAccordion">
-                                                        <div class="accordion-body body-one">
-                                                            <p>
-                                                                <span>{{ __('main.info-block-1') }}</span>
+                                                                <img src="{{ asset('images/ape.svg') }}" class="d-block"
+                                                                    alt="...">
 
-                                                                <br>
-                                                                <hr>
-                                                                <span>{{ __('main.info-block-1-1') }}</span>
-                                                            <p>
+                                                            </button>
+
+                                                            <div id="collapseOne" class="accordion-collapse collapse"
+                                                                aria-labelledby="headingOne"
+                                                                data-bs-parent="#welcomeAccordion">
+                                                                <div class="accordion-body body-one">
+                                                                    <p>
+                                                                        <span>{{ __('main.info-block-1') }}</span>
+
+                                                                        <br>
+                                                                        <hr>
+                                                                        <span>{{ __('main.info-block-1-1') }}</span>
+                                                                    <p>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
-                                    </div>
+                                        <div class="col-md-4 col-xs-12">
 
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="card-text">
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header text-uppercase fw-bold" id="headingTwo">
-                                                        {{ __('main.info-block-title-2') }}
-                                                    </h2>
-                                                    <button class="accordion-button text-uppercase" type="button"
-                                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                                        aria-expanded="false" aria-controls="collapseTwo">
-                                                        <img src="{{ asset('images/party-popper.svg') }}"
-                                                            class="my-auto d-block" alt="...">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="card-text">
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header text-uppercase fw-bold"
+                                                                id="headingTwo">
+                                                                {{ __('main.info-block-title-2') }}
+                                                            </h2>
+                                                            <button class="accordion-button text-uppercase" type="button"
+                                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                                aria-expanded="false" aria-controls="collapseTwo">
+                                                                <img src="{{ asset('images/party-popper.svg') }}"
+                                                                    class="my-auto d-block" alt="...">
 
-                                                    </button>
+                                                            </button>
 
-                                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                                        aria-labelledby="headingTwo" data-bs-parent="#welcomeAccordion">
-                                                        <div class="accordion-body">
-                                                            <p>
-                                                                <span>{{ __('main.info-block-2') }}</span>
-                                                                <b>{{ __('main.info-block-2-1') }}</b>
-                                                                <span>{{ __('main.info-block-2-2') }}</span>
+                                                            <div id="collapseTwo" class="accordion-collapse collapse"
+                                                                aria-labelledby="headingTwo"
+                                                                data-bs-parent="#welcomeAccordion">
+                                                                <div class="accordion-body">
+                                                                    <p>
+                                                                        <span>{{ __('main.info-block-2') }}</span>
+                                                                        <b>{{ __('main.info-block-2-1') }}</b>
+                                                                        <span>{{ __('main.info-block-2-2') }}</span>
 
-                                                                <br>
-                                                                <hr>
-                                                                <span>{{ __('main.info-block-2-3') }}</span>
-                                                            </p>
+                                                                        <br>
+                                                                        <hr>
+                                                                        <span>{{ __('main.info-block-2-3') }}</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
-                                    </div>
+                                        <div class="col-md-4 col-xs-12">
 
-                                    <div class="card card-focus">
-                                        <div class="card-body">
-                                            <div class="card-text">
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header text-uppercase fw-bold" id="headingThree">
-                                                        {{ __('main.info-block-title-3') }}
-                                                    </h2>
+                                            <div class="card card-focus">
+                                                <div class="card-body">
+                                                    <div class="card-text">
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header text-uppercase fw-bold"
+                                                                id="headingThree">
+                                                                {{ __('main.info-block-title-3') }}
+                                                            </h2>
 
-                                                    <button
-                                                        class="accordion-button accordion-button-register collapsed text-uppercase"
-                                                        type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#collapseThree" aria-expanded="false"
-                                                        aria-controls="collapseThree">
-                                                        <img src="{{ asset('images/heart.svg') }}" class="my-auto d-block"
-                                                            alt="...">
-                                                    </button>
+                                                            <button
+                                                                class="accordion-button accordion-button-register collapsed text-uppercase"
+                                                                type="button" data-bs-toggle="collapse"
+                                                                data-bs-target="#collapseThree" aria-expanded="false"
+                                                                aria-controls="collapseThree">
+                                                                <img src="{{ asset('images/heart.svg') }}"
+                                                                    class="my-auto d-block" alt="...">
+                                                            </button>
 
-                                                    <div id="collapseThree" class="accordion-collapse collapse show"
-                                                        aria-labelledby="headingThree" data-bs-parent="#welcomeAccordion">
-                                                        <div class="accordion-body">
-                                                            <p>
-                                                                <span>{{ __('main.info-block-at') }}</span>
-                                                                <b>{{ __('main.info-block-pb') }}</b>
-                                                                <span>{{ __('main.info-block-3') }}</span>
+                                                            <div id="collapseThree" class="accordion-collapse collapse show"
+                                                                aria-labelledby="headingThree"
+                                                                data-bs-parent="#welcomeAccordion">
+                                                                <div class="accordion-body">
+                                                                    <p>
+                                                                        <span>{{ __('main.info-block-at') }}</span>
+                                                                        <b>{{ __('main.info-block-pb') }}</b>
+                                                                        <span>{{ __('main.info-block-3') }}</span>
 
-                                                                <br>
-                                                                <hr>
-                                                                <i>{{ __('main.info-block-3-1') }}</i>
-                                                            </p>
+                                                                        <br>
+                                                                        <hr>
+                                                                        <i>{{ __('main.info-block-3-1') }}</i>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <a
+                                                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
+                                                                <button type="button" class="btn btn-primary register">
+                                                                    <i class="bi bi-arrow-right"></i>
+                                                                </button>
+                                                            </a>
                                                         </div>
                                                     </div>
-                                                    <a
-                                                        href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
-                                                        <button type="button" class="btn btn-primary register">
-                                                            <i class="bi bi-arrow-right"></i>
-                                                        </button>
-                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -152,7 +170,7 @@
         </div>
 
 
-        <div class="parallax__group hero-container hero">
+        <div class="parallax__group_services hero-container hero">
             <div class="parallax__layer grid"></div>
             <div class="parallax__layer box-top"></div>
             <div class="parallax__layer box"></div>
@@ -175,8 +193,8 @@
                             @endphp
 
                             <a class="list-group-item list-group-item-action fw-bold text-uppercase display-5 {{ $key === 0 ? 'active' : '' }}"
-                                id="{{ $listId }}" data-bs-toggle="list" href="{{ '#' . $listKey }}" role="tab"
-                                aria-controls="{{ $listKey }}">
+                                id="{{ $listId }}" data-bs-toggle="list" href="{{ '#' . $listKey }}"
+                                role="tab" aria-controls="{{ $listKey }}">
                                 {{ $category->lang->name }}
                             </a>
                         @endforeach

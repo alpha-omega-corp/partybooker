@@ -12,7 +12,7 @@ a {
 }
 
 .wrapper {
-    height: 100vh;
+    height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
     perspective: 300px;
@@ -20,11 +20,30 @@ a {
     background-image: linear-gradient($gray-300, $purple-800);
 }
 
-.parallax__group {
+.parallax__group_welcome {
     position: relative;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     transform-style: preserve-3d;
+}
+
+.parallax__group_services {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+}
+
+// Applies Small
+@media only screen and (max-width : 767px) {
+    .parallax__group_welcome {
+        height: 1100px;
+    }
+
+    .parallax__group_services {
+        height: 700px;
+    }
+
 }
 
 .parallax__layer {
