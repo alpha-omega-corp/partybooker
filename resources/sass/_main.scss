@@ -85,44 +85,43 @@ canvas {
 }
 
 .top-services {
+    .carousel-inner {
 
-    @media only screen and (min-width : 1200px) {
-        margin-top: 150px;
-        padding: 50px;
+        @media (min-width: 768px) {
 
+            .carousel-item-end.active,
+            .carousel-item-next {
+                transform: translateX(25%);
+            }
 
-        .carousel {
-            margin-top: 100px;
+            .carousel-item-start.active,
+            .carousel-item-prev {
+                transform: translateX(-25%);
+            }
         }
 
+        .carousel-item.active,
+        .carousel-item-next,
+        .carousel-item-prev {
+            display: flex;
+        }
 
         .carousel-control-prev {
-            margin-left: -40px;
-
-            z-index: 10;
+            margin-left: -45px;
         }
 
         .carousel-control-next {
-            margin-right: -40px;
-            z-index: 10;
+            margin-right: -45px;
         }
-    }
 
-    a {
-        text-decoration: none;
-    }
+        a {
+            text-decoration: none;
+        }
 
-    #topCarousel {
-        margin-left: 80px;
-        margin-right: 80px;
-    }
-
-    .carousel-control-next,
-    .carousel-control-prev {
-        filter: invert(100%);
-    }
-
-    .carousel-inner {
+        #topCarousel {
+            margin-left: 80px;
+            margin-right: 80px;
+        }
 
         .card-img-top {
             width: 100%;
@@ -133,22 +132,20 @@ canvas {
         }
 
         .card {
-            margin: 10px;
             border: 0;
 
             .card-image-container {
-                position: relative;
 
                 .logo-carousel-item {
                     position: absolute;
                     top: 0;
                     right: 0;
-                    padding-left: 20px;
-                    padding-bottom: 20px;
-                    padding-right: 15px;
-                    padding-top: 15px;
+                    padding-left: 15px;
+                    padding-bottom: 15px;
+                    padding-right: 5px;
+                    padding-top: 5px;
                     background-color: $secondary;
-                    border-bottom-left-radius: 40%;
+                    border-bottom-left-radius: 50%;
 
                     img {
                         width: 40px;
@@ -156,56 +153,30 @@ canvas {
                 }
             }
 
+            .card-body {
+                height: 200px;
+                background-color: $white;
+
+                .description {
+                    position: absolute;
+                    text-align: justify;
+                    top: 250px;
+                    padding-right: 20px;
+                    max-height: 72px;
+                    overflow: hidden;
+                }
+            }
+
+            .card-footer {
+                height: 100px;
+                background-color: #fff;
+            }
+
             .card-title {
                 color: $primary;
             }
-
         }
     }
-
-    @media (max-width: 767px) {
-        .carousel-inner .carousel-item>div {
-            display: none;
-        }
-
-        .carousel-inner .carousel-item>div:first-child {
-            display: block;
-        }
-    }
-
-    .carousel-inner .carousel-item.active,
-    .carousel-inner .carousel-item-next,
-    .carousel-inner .carousel-item-prev {
-        display: flex;
-    }
-
-    /* medium and up screens */
-    @media (min-width: 768px) {
-
-        .carousel-control-prev {
-            margin-left: -40px;
-        }
-
-        .carousel-control-next {
-            margin-right: -40px;
-        }
-
-        .carousel-inner .carousel-item-end.active,
-        .carousel-inner .carousel-item-next {
-            transform: translateX(25%);
-        }
-
-        .carousel-inner .carousel-item-start.active,
-        .carousel-inner .carousel-item-prev {
-            transform: translateX(-25%);
-        }
-    }
-
-    .carousel-inner .carousel-item-end,
-    .carousel-inner .carousel-item-start {
-        transform: translateX(0);
-    }
-
 }
 
 .categories {
@@ -870,35 +841,7 @@ canvas {
         }
     }
 
-    .top-services {
-        h2 {
-            z-index: 10;
-            font-size: xx-large;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            margin-bottom: 40px;
-        }
 
-        .card-body {
-            height: 200px;
-            background-color: $white;
-
-            .description {
-                position: absolute;
-                text-align: justify;
-                top: 250px;
-                padding-right: 20px;
-                max-height: 72px;
-                overflow: hidden;
-            }
-        }
-
-        .card-footer {
-            height: 100px;
-            background-color: #fff;
-        }
-    }
 
     .welcome {
 
