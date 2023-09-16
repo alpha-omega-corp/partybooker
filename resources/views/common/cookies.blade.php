@@ -1,22 +1,53 @@
-@if(!isset($_COOKIE['cookies-policy']))
-	<div id="cookies-block">
-		<div style="height: 70px;"></div>
-		<nav id="cookies-window" class="navbar">
-			<div class="container center">
-				<p class="text-center">
-					{{__('main.cookies_text')}}&nbsp;&nbsp;&nbsp;<button id="accept-cookies" class="btn btn-sm btn-success">{{__('main.cookies_accept')}}</button>&nbsp;&nbsp;&nbsp;<a href="{{url(\App\Http\Middleware\LocaleMiddleware::getLocale() . '/user-terms')}}" class="btn btn-sm btn-info">{{__('main.cookies_info')}}</a>
-				</p>
-			</div>
-		</nav>
-	</div>
+<div class="cookies-container">
+    <div x-data="cookies" x-show="open" class="cookies">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-2 my-auto mx-auto">
+                    <img src="{{ asset('images/cookie.svg') }}" alt="Accept cookies" class="my-auto" />
+                </div>
+                <div class="col-10">
+                    <p class="text-start">
+                        {{ __('main.cookies_text') }}
+                    </p>
+                    <div class="d-flex gap-2" aria-label="Cookies">
+                        <button @click="accept" class="btn btn-primary">
+                            {{ __('main.cookies_accept') }}
+                        </button>
 
-	@push('footer')
-		<script>
-			$('button#accept-cookies').click(function (e) {
-				e.preventDefault();
-				createCookie("cookies-policy", 1, 350);
-				$('div#cookies-block').remove();
-			});
-		</script>
-	@endpush
-@endif
+                        <a href="{{ url(\App\Http\Middleware\LocaleMiddleware::getLocale() . '/user-terms') }}">
+                            <button type="button" CLASS="btn btn-info">
+                                {{ __('main.cookies_info') }}
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('cookies', () => ({
+            open: true,
+
+            accept() {
+                this.open = false;
+                createCookie("cookies-policy", 1, 350);
+            }
+        }))
+    })
+
+    function createCookie(name, value, days) {
+        var expires;
+
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toGMTString();
+        } else {
+            expires = "";
+        }
+        document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
+    }
+</script>

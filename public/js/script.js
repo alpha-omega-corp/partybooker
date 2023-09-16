@@ -63,7 +63,7 @@ $('a.subcat-a').on('click', function (e) {
 var listNum = $('.service-listing .list-item:last').index() + 1;
 $('.filters-list a').on('click', function (e) {
     var href = $(this).attr('href');
-    if(href == '#') {
+    if (href == '#') {
         e.preventDefault();
     }
 
@@ -72,7 +72,7 @@ $('.filters-list a').on('click', function (e) {
     var filLastNum = $('.filters-list li:last').index() + 1;
 
     var categories = [];
-    $('.filters-list li.chosefil').each(function(){ categories.push($(this).data('catfil'))});
+    $('.filters-list li.chosefil').each(function () { categories.push($(this).data('catfil')) });
     var catlist = '.' + categories.join(', .');
 
     if (filNum != 0) {
@@ -104,7 +104,7 @@ $('.multirange .lower').on('change', function () {
     url.searchParams.set('min_price', lowP);
     url.searchParams.set('max_price', upperP);
 
-    window.location.href  = url.href;
+    window.location.href = url.href;
 
 });
 
@@ -120,7 +120,7 @@ $('.multirange .upper').on('change', function () {
     url.searchParams.set('min_price', lowP);
     url.searchParams.set('max_price', upperP);
 
-    window.location.href  = url.href;
+    window.location.href = url.href;
 });
 
 //LISTING PAGINATION
@@ -207,7 +207,7 @@ $('.filter-btn').on('click', function () {
     var lang = $('html').attr('lang');
     var name = $('[name=filter_name]').val();
     var category = $('[name=filter_category]').val();
-  //  var category = $('.custom-dropdown>.value-dropdown').val();
+    //  var category = $('.custom-dropdown>.value-dropdown').val();
     var place = $('[name=filter_place]').val();
     var budget = $('[name=filter_budget]').val();
     if (lang == 'en') {
@@ -275,18 +275,18 @@ $('.click-details li span').on('click', function () {
 });
 
 $('.click-details li a.social-network').on('click', function () {
-	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-	var click = $(this).parent().attr('class');
-	var id = $('.service-section').data('id');
-	$.ajax({
-		url: '/stat',
-		type: 'POST',
-		data: {
-			_token: CSRF_TOKEN,
-			id_partner: id,
-			click: click
-		}
-	})
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    var click = $(this).parent().attr('class');
+    var id = $('.service-section').data('id');
+    $.ajax({
+        url: '/stat',
+        type: 'POST',
+        data: {
+            _token: CSRF_TOKEN,
+            id_partner: id,
+            click: click
+        }
+    })
 });
 
 
@@ -313,7 +313,7 @@ $('.rating').on('click', function () {
             lang: lang
         },
         success: function (data) {
-            $('.rating').replaceWith('<span class="rating" style="text-decoration: none; cursor: auto"> '+ data.msg + '</span>');
+            $('.rating').replaceWith('<span class="rating" style="text-decoration: none; cursor: auto"> ' + data.msg + '</span>');
             var rate = data.rate;
             $('.rating-stars ul li').removeClass('selected');
             for (var i = 1; i <= rate; i++) {
@@ -345,7 +345,7 @@ $('.li.files .del').on('click', function (e) {
             id: id,
             fileDel: file,
         },
-        success: function(data){
+        success: function (data) {
             $(this).parent().fadeOut();
         },
         error: function (r) {
@@ -422,8 +422,8 @@ $('.partnerdetails .other-field').on('click', function () {
     var checkBox = $(this).attr('field');
     var addInput = '<textarea type="text" name="other' + checkBox + '" maxlength="100" class="add-input-' + checkBox + '" required/></textarea>';
     $(this).toggleClass('additional');
-    ($(this).hasClass('additional')) ? $('.for-' + checkBox + '').append(addInput): $('.add-input-' + checkBox + '').remove();
-    ($(this).hasClass('additional')) ? $('.for-' + checkBox + '').addClass('visible'): $('.for-' + checkBox + '').removeClass('visible');
+    ($(this).hasClass('additional')) ? $('.for-' + checkBox + '').append(addInput) : $('.add-input-' + checkBox + '').remove();
+    ($(this).hasClass('additional')) ? $('.for-' + checkBox + '').addClass('visible') : $('.for-' + checkBox + '').removeClass('visible');
 });
 
 //additional field for radio buttons
@@ -609,7 +609,7 @@ $('.notifications .del').on('click', function () {
 $('.profile-info li:first-child').on('click', function () {
     $(this).toggleClass('openBlock');
     var block = $(this).attr('block');
-    ($(this).hasClass('openBlock')) ? $('.' + block + ' .li').fadeIn(): $('.' + block + ' .li').hide();
+    ($(this).hasClass('openBlock')) ? $('.' + block + ' .li').fadeIn() : $('.' + block + ' .li').hide();
 });
 //Lang tabs
 $('.info-en').show();
@@ -900,8 +900,8 @@ $('input[type=file]').on('dragleave', function () {
 var addInput = '<input type="text" name="other" maxlength="35" class="add-input" required/>';
 $('.other').on('click', function () {
     $(this).toggleClass('additional');
-    ($(this).hasClass('additional')) ? $('.additional-field').append(addInput): $('.add-input').remove();
-    ($(this).hasClass('additional')) ? $('.additional-field').addClass('visible'): $('.additional-field').removeClass('visible');
+    ($(this).hasClass('additional')) ? $('.additional-field').append(addInput) : $('.add-input').remove();
+    ($(this).hasClass('additional')) ? $('.additional-field').addClass('visible') : $('.additional-field').removeClass('visible');
 });
 
 //show register form
@@ -1171,7 +1171,7 @@ $(".header_carousel").owlCarousel({
     }
 });
 
-$( ".filters-list li:has(ul)" ).addClass( "dropdown-btn" );
+$(".filters-list li:has(ul)").addClass("dropdown-btn");
 
 
 //          MAP
@@ -1248,69 +1248,69 @@ function initMap() {
         center: sc,
         disableDefaultUI: true,
         styles: [{
-                "featureType": "administrative",
-                "elementType": "labels.text.fill",
-                "stylers": [{
-                    "color": "#444444"
-                }]
+            "featureType": "administrative",
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "color": "#444444"
+            }]
+        },
+        {
+            "featureType": "landscape",
+            "elementType": "all",
+            "stylers": [{
+                "color": "#f2f2f2"
+            }]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "all",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "road",
+            "elementType": "all",
+            "stylers": [{
+                "saturation": -100
             },
             {
-                "featureType": "landscape",
-                "elementType": "all",
-                "stylers": [{
-                    "color": "#f2f2f2"
-                }]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "all",
-                "stylers": [{
-                    "visibility": "off"
-                }]
-            },
-            {
-                "featureType": "road",
-                "elementType": "all",
-                "stylers": [{
-                        "saturation": -100
-                    },
-                    {
-                        "lightness": 45
-                    }
-                ]
-            },
-            {
-                "featureType": "road.highway",
-                "elementType": "all",
-                "stylers": [{
-                    "visibility": "simplified"
-                }]
-            },
-            {
-                "featureType": "road.arterial",
-                "elementType": "labels.icon",
-                "stylers": [{
-                    "visibility": "off"
-                }]
-            },
-            {
-                "featureType": "transit",
-                "elementType": "all",
-                "stylers": [{
-                    "visibility": "off"
-                }]
-            },
-            {
-                "featureType": "water",
-                "elementType": "all",
-                "stylers": [{
-                        "color": "#f39200"
-                    },
-                    {
-                        "visibility": "on"
-                    }
-                ]
+                "lightness": 45
             }
+            ]
+        },
+        {
+            "featureType": "road.highway",
+            "elementType": "all",
+            "stylers": [{
+                "visibility": "simplified"
+            }]
+        },
+        {
+            "featureType": "road.arterial",
+            "elementType": "labels.icon",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "transit",
+            "elementType": "all",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        },
+        {
+            "featureType": "water",
+            "elementType": "all",
+            "stylers": [{
+                "color": "#f39200"
+            },
+            {
+                "visibility": "on"
+            }
+            ]
+        }
         ]
     });
 
@@ -1416,7 +1416,7 @@ $(document).ready(function () {
 //	BANER DROPDOWN
 $('.custom-dropdown .dropdown-menu li span').on('click', function () {
     var choice = $(this).text();
-    var code =$(this).parent('li').data('code');
+    var code = $(this).parent('li').data('code');
     $('.custom-dropdown>.value-dropdown').val(choice);
     $('[name=filter_category]').val(code);
 });
@@ -1424,22 +1424,9 @@ $('.custom-dropdown .dropdown-menu li span').on('click', function () {
 
 //	FILTER DROPDOWN
 $('.filters-list li a').on('click', function (e) {
-	if($(this).attr('href') != '#'){
-		return true;
-	}
+    if ($(this).attr('href') != '#') {
+        return true;
+    }
     $(this).siblings().toggle('slow');
 });
 
-
-function createCookie(name, value, days) {
-    var expires;
-
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toGMTString();
-    } else {
-        expires = "";
-    }
-    document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
-}

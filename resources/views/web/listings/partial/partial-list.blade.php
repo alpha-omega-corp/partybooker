@@ -9,10 +9,9 @@
                     <div class="col-md-4">
                         @if ($partner->main_img)
                             <img src="{{ asset('storage/images/thumbnails/' . $partner->main_img) }}"
-                                alt="{{ $partner->main_img }}" class="cover img-fluid rounded-start">
+                                alt="{{ $partner->main_img }}" class="cover rounded">
                         @else
-                            <img src="//via.placeholder.com/700x1000/fc0?text=6" class="cover img-fluid rounded-start"
-                                alt="...">
+                            <img src="//via.placeholder.com/700x1000/fc0?text=6" class="cover rounded" alt="...">
                         @endif
 
                     </div>

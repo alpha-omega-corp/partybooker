@@ -38,7 +38,6 @@
 
 <body class="body">
     @include('common.header-nav')
-
     @yield('content')
 
     <section>

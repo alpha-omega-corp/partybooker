@@ -38,37 +38,8 @@
 </head>
 
 <body class="body">
-
-
     @include('common.header-nav')
-
-    @if (Auth::user() == null)
-        <div class="text-center py-8 color-white language">
-            <a href="<?= route('setlocale', ['lang' => 'fr']) ?>" lan="fr">
-                <img src="{{ asset('images/switzerland.svg') }}" alt="..." />
-            </a>
-            <a href="<?= route('setlocale', ['lang' => 'en']) ?>" lan="en">
-                <img src="{{ asset('images/united-kingdom.svg') }}" alt="..." />
-            </a>
-        </div>
-
-        <div class="auth">
-            <a class="btn btn-primary" data-bs-toggle="modal" href="#loginModalToggle" role="button">
-                {{ __('main.login') }}
-            </a>
-        </div>
-    @endif
     @yield('content')
-
-
-
-
-
-
-    <section>
-        @include('auth.login')
-        @include('auth.register')
-    </section>
 
     <section>
         @include('common.cookies')

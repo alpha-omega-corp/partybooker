@@ -672,7 +672,12 @@ canvas {
     .list-group-item-child {
         font-size: small;
     }
+
+
+
 }
+
+
 
 // Applies After Medium
 @media only screen and (min-width : 1200px) {
@@ -689,6 +694,39 @@ canvas {
 
         .nav-link {
             justify-content: center;
+        }
+    }
+
+    .cookies {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        padding: 20px;
+        background-color: $secondary;
+        z-index: 400;
+        color: #fff;
+
+        img {
+            width: 80px;
+        }
+
+        .btn-group {
+            padding: 30px 20px 0px 30px;
+
+            button {
+                border-radius: 10px;
+            }
+        }
+
+        p {
+            font-size: small;
+        }
+
+        h2 {
+            text-align: start;
+            text-transform: uppercase;
         }
     }
 
@@ -723,6 +761,38 @@ canvas {
             .nav {
                 margin-top: 20px;
             }
+        }
+    }
+
+
+    .cookies {
+        position: fixed;
+        bottom: 0;
+        padding: 20px;
+        background-color: $secondary;
+        z-index: 400;
+        color: #fff;
+        width: 100%;
+
+        img {
+            width: 40px;
+        }
+
+        .btn-group {
+            padding: 30px 20px 0px 30px;
+
+            button {
+                border-radius: 10px;
+            }
+        }
+
+        p {
+            font-size: small;
+        }
+
+        h2 {
+            text-align: start;
+            text-transform: uppercase;
         }
     }
 
@@ -767,18 +837,19 @@ canvas {
                 font-size: medium;
                 color: $primary;
                 border-bottom-right-radius: 10px 10px;
-                top: 240px;
-                left: 8px;
+                top: 230px;
+                left: 6px;
             }
 
             .cover {
                 filter: brightness(80%);
-                border: solid 4px #fff;
+                border-radius: 0px;
+
                 border-radius: 10px;
             }
 
             .description {
-                top: 300px;
+                top: 270px;
             }
 
             .location-box {
