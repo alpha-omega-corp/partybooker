@@ -196,7 +196,9 @@
 
             <div class="parallax__layer hero-text-two">
                 <section class="top-services">
-                    @include('common.top-services')
+                    <div class="bg-danger">
+                        Memory leak
+                    </div>
                 </section>
             </div>
         </div>
