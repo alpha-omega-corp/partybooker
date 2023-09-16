@@ -192,8 +192,7 @@
 
         <div class="parallax__group_services hero-container hero">
             <div class="parallax__layer grid"></div>
-            <div class="parallax__layer box-top"></div>
-            <div class="parallax__layer box"></div>
+
 
             <div class="parallax__layer hero-text-two">
                 <section class="top-services">
@@ -339,7 +338,7 @@
         let items = document.querySelectorAll('.carousel .carousel-item')
 
         items.forEach((el) => {
-            const minPerSlide = 5
+            const minPerSlide = 4
             let next = el.nextElementSibling
             for (var i = 1; i < minPerSlide; i++) {
                 if (!next) {

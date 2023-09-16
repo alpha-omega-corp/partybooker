@@ -85,31 +85,36 @@ canvas {
 }
 
 .top-services {
-    margin-top: 450px;
-    margin-left: 10%;
-    margin-right: 10%;
 
-    h2 {
-        margin-bottom: 50px;
+    @media only screen and (min-width : 1200px) {
+        margin-top: 150px;
+        padding: 50px;
+
+
+        .carousel {
+            margin-top: 100px;
+        }
+
+
+        .carousel-control-prev {
+            margin-left: -40px;
+
+            z-index: 10;
+        }
+
+        .carousel-control-next {
+            margin-right: -40px;
+            z-index: 10;
+        }
     }
 
     a {
         text-decoration: none;
     }
 
-
-
     #topCarousel {
         margin-left: 80px;
         margin-right: 80px;
-    }
-
-    .carousel-control-prev {
-        margin-left: -40px;
-    }
-
-    .carousel-control-next {
-        margin-right: -40px;
     }
 
     .carousel-control-next,
@@ -121,14 +126,15 @@ canvas {
 
         .card-img-top {
             width: 100%;
-            height: 15vh;
+            height: 200px;
             object-fit: cover;
+            filter: brightness(80%);
+
         }
 
         .card {
             margin: 10px;
             border: 0;
-            background-color: transparent;
 
             .card-image-container {
                 position: relative;
@@ -137,8 +143,12 @@ canvas {
                     position: absolute;
                     top: 0;
                     right: 0;
-                    padding: 10px;
+                    padding-left: 20px;
+                    padding-bottom: 20px;
+                    padding-right: 15px;
+                    padding-top: 15px;
                     background-color: $secondary;
+                    border-bottom-left-radius: 40%;
 
                     img {
                         width: 40px;
@@ -147,14 +157,8 @@ canvas {
             }
 
             .card-title {
-                color: $orange-500;
+                color: $primary;
             }
-
-            p {
-                color: #fff;
-            }
-
-
 
         }
     }
@@ -177,6 +181,14 @@ canvas {
 
     /* medium and up screens */
     @media (min-width: 768px) {
+
+        .carousel-control-prev {
+            margin-left: -40px;
+        }
+
+        .carousel-control-next {
+            margin-right: -40px;
+        }
 
         .carousel-inner .carousel-item-end.active,
         .carousel-inner .carousel-item-next {
@@ -529,7 +541,6 @@ canvas {
 @media only screen and (min-width : 767px) {
 
     .welcome {
-
         h1 {
             margin-top: 100px;
             margin-bottom: 200px;
@@ -564,8 +575,13 @@ canvas {
                     }
 
 
+
+
                     h2 {
                         color: #fff;
+                        width: 100%;
+                        font-size: large;
+                        align-items: center;
                     }
 
                     .accordion-collapse {
@@ -818,12 +834,7 @@ canvas {
 // Applies Small
 @media only screen and (max-width : 767px) {
 
-    .top-services {
-        margin-top: 50%;
-    }
-
     .listing {
-
         .breadcrumb {
             font-size: smaller;
         }
@@ -856,6 +867,36 @@ canvas {
                 top: 10px;
                 color: #fff;
             }
+        }
+    }
+
+    .top-services {
+        h2 {
+            z-index: 10;
+            font-size: xx-large;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .card-body {
+            height: 200px;
+            background-color: $white;
+
+            .description {
+                position: absolute;
+                text-align: justify;
+                top: 250px;
+                padding-right: 20px;
+                max-height: 72px;
+                overflow: hidden;
+            }
+        }
+
+        .card-footer {
+            height: 100px;
+            background-color: #fff;
         }
     }
 
