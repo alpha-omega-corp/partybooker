@@ -1,63 +1,37 @@
 <div>
-    <input type="text" maxlength="128" id="map_address" name="map[address]"
-        placeholder="{{ __('become_partner.location') }}" value="A" autocomplete="off" />
-    <input type="hidden" id="map_lat" name="map[lat]" />
-    <input type="hidden" id="map_lon" name="map[lon]" />
-    <input type="hidden" id="map_city" name="map[city]" />
-    <input type="hidden" id="map_country" name="map[country]" />
-    <input type="hidden" id="map_state" name="map[state]" />
-    <input type="hidden" id="map_zip" name="map[zip]" placeholder="zip code" />
+    <input type="text" maxlength="128" id="pac-input" name="map" />
 </div>
+
+
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPleD5xW_3gBLeUfgdw-QIwP--2VzWSt8&libraries=places&callback=initMap">
+</script>
+
+<script async>
+    async function initMap() {
+        const center = {
+            lat: 50.064192,
+            lng: -130.605469
+        };
+        // Create a bounding box with sides ~10km away from the center point
+        const defaultBounds = {
+            north: center.lat + 0.1,
+            south: center.lat - 0.1,
+            east: center.lng + 0.1,
+            west: center.lng - 0.1,
+        };
+        const input = document.getElementById("pac-input");
+        const options = {
+            bounds: defaultBounds,
+            componentRestrictions: {
+                country: "us"
+            },
+            fields: ["address_components", "geometry", "icon", "name"],
+            strictBounds: false,
+        };
+        const autocomplete = new google.maps.places.Autocomplete(input, options);
+
+    }
+</script>
+
 <div id="map" style="width: 100%; height: 400px;"></div>
-
-@push('footer')
-    <script
-        src="https:///maps.google.com/maps/api/js?libraries=places&language=en&key=AIzaSyCDpzw9SH97G5L9Af-dR5TeixK8OEPqocY&language={{ App\Http\Middleware\LocaleMiddleware::getLocale() }}">
-    </script>
-    <script src="/js/locationpicker.jquery.js"></script>
-    <script type="text/javascript">
-        function updateControls(addressComponents, location) {
-            $("#map_city").val(addressComponents.city);
-            $("#map_street").val(addressComponents.streetName);
-            $("#map_zip").val(addressComponents.postalCode);
-            $("#map_country").val(addressComponents.country);
-            $("#map_state").val(addressComponents.stateOrProvince);
-            $("#map_building").val(addressComponents.streetNumber);
-            //$("#address_full").val(location.formattedAddress);
-            $("#location").val(addressComponents.stateOrProvince);
-            console.log(addressComponents)
-        }
-
-        $("#map").locationpicker({
-
-            location: {
-                latitude: 46.80940691277643,
-                longitude: 7.9247161203607845
-            },
-            radius: 0,
-            zoom: 8,
-            scrollwheel: true,
-            inputBinding: {
-                latitudeInput: $("#map_lat"),
-                longitudeInput: $("#map_lon"),
-                locationNameInput: $("#map_address")
-            },
-            enableAutocomplete: true,
-            enableAutocompleteBlur: false,
-            onchanged: function(currentLocation, radius, isMarkerDropped) {
-                //	var mapContext = $(this).locationpicker("map");
-                //	mapContext.map.setZoom(14);
-
-                var location = $(this).locationpicker("map").location;
-                var addressComponents = location.addressComponents;
-
-                updateControls(addressComponents, location);
-            },
-            oninitialized: function(component) {
-                var location = $(component).locationpicker("map").location;
-                var addressComponents = location.addressComponents;
-                updateControls(addressComponents, location);
-            }
-        });
-    </script>
-@endpush

@@ -7,7 +7,7 @@
 
         @if (Auth::user() == null)
             <div class="auth">
-                <a class="btn btn-primary" data-bs-toggle="modal" href="#loginModalToggle" role="button">
+                <a class="btn btn-accent" data-bs-toggle="modal" href="#loginModalToggle" role="button">
                     {{ __('main.login') }}
                 </a>
             </div>
@@ -27,16 +27,10 @@
 
             <div class="offcanvas-body">
                 <div class="navigation d-flex flex-column flex-shrink-0 h-full fixed-top bg-secondary">
-
-
-
-
                     <div class="nav-logo-container position-relative">
-
                         <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}" class="nav-logo">
                             <img src="/images/logoPB.png" class="mx-auto"
                                 alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
-
 
                         </a>
                         <div class="position-absolute close-container">
@@ -132,45 +126,55 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="dropdown border-top bg-white">
-
+                    <div class="dropdown border-top bg-primary">
                         @if (Auth::user())
-                            <a href="#"
-                                class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
-                                id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{ asset('images/ape.svg') }}" alt="mdo" width="24" height="24"
-                                    class="rounded-circle mr-2">
-                            </a>
-                            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-                                <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        Sign out
-                                    </a>
-                                </li>
-                            </ul>
+                            <div class="btn-group dropup">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="{{ asset('images/ape.svg') }}" alt="mdo" width="24"
+                                        height="24" class="rounded-circle mr-2">
+                                </button>
+                                <ul class="dropdown-menu">
 
+                                    @if (Auth::user()->id_partner)
+                                        <li>
+                                            <a class="dropdown-item"
+                                                href="{{ route('profile', Auth::user()->id_partner) }}">
+                                                Profile
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <a class="dropdown-item"
+                                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
+                                                {{ __('main.become_partner_page') }}
+                                            </a>
+                                        </li>
+                                    @endif
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Sign out
+                                        </a>
+                                    </li>
+                                </ul>
 
-                            <a href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                            </a>
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                style="display: none;">
-                                @csrf
-                            </form>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
                         @endif
-
-
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

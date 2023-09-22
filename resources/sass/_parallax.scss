@@ -43,8 +43,14 @@ a {
     .parallax__group_services {
         height: 800px;
     }
-
 }
+
+@media only screen and (max-height : 901px) {
+    .parallax__group_welcome {
+        height: 1050px;
+    }
+}
+
 
 .parallax__layer {
     position: absolute;
@@ -61,25 +67,10 @@ a {
     z-index: 1;
 }
 
-.grid {
+.peaks {
     background: url('../images/layered-peaks-haikei.svg') no-repeat center;
     background-size: cover;
-    transform: translateZ(-600px) translateY(100px) scale(3);
-    z-index: -1;
-}
-
-.box-top {
-    background: url('../images/layered-steps-inverted-haiki.svg') no-repeat center;
-    background-size: cover;
-    transform: translateY(-400px) scale(1);
-    z-index: 1;
-}
-
-.box {
-    background: url('../images/layered-steps-haikei.svg') no-repeat center;
-    background-size: cover;
-    transform: translateY(300px) scale(1);
-    z-index: 1;
+    transform: translateZ(-600px) translateY(50px) scale(3);
 }
 
 .hero-text {

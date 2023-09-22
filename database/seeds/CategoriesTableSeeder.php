@@ -5,15 +5,10 @@ use Illuminate\Support\Facades\DB;
 
 class CategoriesTableSeeder extends Seeder
 {
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
+    public function run()
+    {
         // 1
-		$this->newCategory('cat1', 'reception-venue', 'event-place', function() {
+        $this->newCategory('cat1', 'reception-venue', 'event-place', function () {
             return [
                 'authentic',
                 'estate-wine-cellar',
@@ -26,7 +21,7 @@ class CategoriesTableSeeder extends Seeder
         });
 
         // 2
-        $this->newCategory('cat2', 'business-event', 'event-place', function() {
+        $this->newCategory('cat2', 'business-event', 'event-place', function () {
             return [
                 'training',
                 'seminar-medium',
@@ -39,7 +34,7 @@ class CategoriesTableSeeder extends Seeder
         });
 
         // 3
-        $this->newCategory('cat3', 'catering', 'caterer', function() {
+        $this->newCategory('cat3', 'catering', 'caterer', function () {
             return [
                 'local-artisan',
                 'vogue',
@@ -51,7 +46,7 @@ class CategoriesTableSeeder extends Seeder
         });
 
         // 4
-        $this->newCategory('cat4', 'wine-lovers', 'wine', function() {
+        $this->newCategory('cat4', 'wine-lovers', 'wine', function () {
             return [
                 'wine-tasting',
                 'activities',
@@ -73,8 +68,8 @@ class CategoriesTableSeeder extends Seeder
             ];
         });
 
-         // 6
-         $this->newCategory('cat6', 'entertainment', 'entertainment', function () {
+        // 6
+        $this->newCategory('cat6', 'entertainment', 'entertainment', function () {
             return [
                 'animation',
                 'dj-musiciens',
@@ -212,7 +207,8 @@ class CategoriesTableSeeder extends Seeder
         $this->newLocale(42, 'fr', 'activites', 'Activités');
     }
 
-    private function newCategory(string $code, string $slug, string $form_name, \Closure $cb) {
+    private function newCategory(string $code, string $slug, string $form_name, \Closure $cb)
+    {
         $id = DB::table('categories')->insertGetId([
             'code' => $code,
             'slug' => $slug,
@@ -232,8 +228,8 @@ class CategoriesTableSeeder extends Seeder
         }
     }
 
-
-    private function newLocale(int $id, string $locale, string $slug, string $name, ?string $title = null, ?string $md = null, ?string $keywords = null, ?string $description = null) {
+    private function newLocale(int $id, string $locale, string $slug, string $name, ?string $title = null, ?string $md = null, ?string $keywords = null, ?string $description = null)
+    {
         DB::table('category_locales')->insert([
             'categories_id' => $id,
             'lang' => $locale,

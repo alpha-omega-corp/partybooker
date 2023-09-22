@@ -1,19 +1,82 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
         $this->call([
-            CategoriesTableSeeder::class
+            CategoriesTableSeeder::class,
         ]);
+
+        $this->newPartner('dynam-event', 1);
+        $this->newPartner('chillfood', 2);
+        $this->newPartner('la-cave-geneve-vieille-ville', 3);
+        $this->newPartner('moulin-du-creux-vich', 4);
+        $this->newPartner('chateau-de-coppet', 5);
+        $this->newPartner('twist-events-carouge-geneve', 6);
+        $this->newPartner('domaine-la-capitaine', 7);
+        $this->newPartner('domaine-des-esserts', 8);
+        $this->newPartner('la-caravane-passe-geneve', 9);
+        $this->newPartner('headphone-music--silent-disco', 10);
+
+        $this->newPlan(
+            'Standard',
+            '1',
+            '0',
+            '5',
+            '1',
+            '1',
+            '300',
+            '365'
+        );
+
+        $this->newPlan(
+            'Premium',
+            '1',
+            '0',
+            '10',
+            '0',
+            '1',
+            '500',
+            '365'
+        );
+
+        $this->newPlan(
+            'Exclusif',
+            '3',
+            '0',
+            '15',
+            '0',
+            '1',
+            '950',
+            '365'
+        );
+
+        $this->newPlan(
+            'Basic',
+            '10',
+            '0',
+            '1',
+            '0',
+            '1',
+            '0',
+            '365'
+        );
+
+
+        $this->newPlan(
+            'Commission',
+            '10',
+            '0',
+            '1',
+            '0',
+            '0',
+            '0',
+            '365'
+        );
 
         DB::table('settings')->insert([
             'address' => '1296 Coppet, Suisse',
@@ -46,26 +109,40 @@ class DatabaseSeeder extends Seeder
             'provider' => null,
             'provider_id' => null,
         ]);
-
-        $this->newPartner('dynam-event', 1);
-        $this->newPartner('chillfood', 2);
-        $this->newPartner('la-cave-geneve-vieille-ville', 3);
-        $this->newPartner('moulin-du-creux-vich', 4);
-        $this->newPartner('chateau-de-coppet', 5);
-        $this->newPartner('twist-events-carouge-geneve', 6);
-        $this->newPartner('domaine-la-capitaine', 7);
-        $this->newPartner('domaine-des-esserts', 8);
-        $this->newPartner('la-caravane-passe-geneve', 9);
-        $this->newPartner('headphone-music--silent-disco', 10);
-
-
-
-
-
     }
 
+    private function newPlan(
+        string $name,
+        int $positon,
+        bool $listing,
+        int $photos,
+        int $videos,
+        int $requests,
+        int $price,
+        int $duration
+    ) {
+        $id = DB::table('plans')->insertGetId([
+            'name' => $name,
+            'plan_created' => now(),
+            'position' => $positon,
+            'listing' => $listing,
+            'photos_num' => $photos,
+            'video' => $videos,
+            'direct_request' => $requests,
+            'price' => $price,
+            'days_period' => $duration,
+        ]);
 
-    private function newPartner(string $slug, $r) {
+        DB::table('plan_options')->insert([
+            'plans_id' => $id,
+            'categories_count' => 1,
+            'sub_categories_count' => 1,
+            'group' => 1
+        ]);
+    }
+
+    private function newPartner(string $slug, $r)
+    {
         DB::table('partners_info')->insert([
             'id_partner' => '120036190814-044' . $r,
             'en_company_name' => $slug,
@@ -82,8 +159,8 @@ class DatabaseSeeder extends Seeder
             'address' => 'Rue de la Gare 19, Montreux, Suisse',
             'lat' => '46.4364302',
             'lon' => '6.911386499999935',
-            'phone' => '+4121989889' .$r,
-            'company_phone' => '+4121939889'.$r,
+            'phone' => '+4121989889' . $r,
+            'company_phone' => '+4121939889' . $r,
             'language' => '["french","english","german","italian"]',
             'price' => true,
             'budget' => true,

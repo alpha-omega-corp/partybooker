@@ -43,7 +43,7 @@
                                                     <div class="card-text">
                                                         <div class="accordion-item">
                                                             <div class="d-flex">
-                                                                <button class=" accordion-button text-uppercase"
+                                                                <button class="accordion-button text-uppercase"
                                                                     id="controlOne" type="button" data-bs-toggle="collapse"
                                                                     data-bs-target="#collapseOne" aria-expanded="false"
                                                                     aria-controls="collapseOne">
@@ -52,6 +52,7 @@
                                                                         alt="...">
                                                                 </button>
                                                                 <h2 class="accordion-header text-uppercase fw-bold"
+                                                                    x-data="{ c: 'controlOne' }" @click="open(c)"
                                                                     id="headingOne">
                                                                     {{ __('main.info-block-title-1') }}
                                                                 </h2>
@@ -87,14 +88,15 @@
                                                             <div class="d-flex">
 
                                                                 <button class="accordion-button text-uppercase"
-                                                                    type="button" data-bs-toggle="collapse"
+                                                                    type="button" data-bs-toggle="collapse" id="controlTwo"
                                                                     data-bs-target="#collapseTwo" aria-expanded="false"
                                                                     aria-controls="collapseTwo">
                                                                     <img src="{{ asset('images/party-popper.svg') }}"
                                                                         class="d-block" alt="...">
 
                                                                 </button>
-                                                                <h2 class="accordion-header text-uppercase fw-bold "
+                                                                <h2 class="accordion-header text-uppercase fw-bold"
+                                                                    x-data="{ c: 'controlTwo' }" @click="open(c)"
                                                                     id="headingTwo">
                                                                     {{ __('main.info-block-title-2') }}
                                                                 </h2>
@@ -135,21 +137,18 @@
                                                                 <button
                                                                     class="accordion-button accordion-button-register collapsed text-uppercase"
                                                                     type="button" data-bs-toggle="collapse"
-                                                                    data-bs-target="#collapseThree" aria-expanded="false"
-                                                                    aria-controls="collapseThree">
+                                                                    id="controlThree" data-bs-target="#collapseThree"
+                                                                    aria-expanded="false" aria-controls="collapseThree">
                                                                     <img src="{{ asset('images/heart.svg') }}"
                                                                         class="d-block" alt="...">
                                                                 </button>
 
                                                                 <h2 class="accordion-header text-uppercase fw-bold "
+                                                                    x-data="{ c: 'controlThree' }" @click="open(c)"
                                                                     id="headingThree">
                                                                     {{ __('main.info-block-title-3') }}
                                                                 </h2>
                                                             </div>
-
-
-
-
 
                                                             <div id="collapseThree" class="accordion-collapse collapse"
                                                                 aria-labelledby="headingThree"
@@ -191,7 +190,7 @@
 
 
         <div class="parallax__group_services hero-container hero">
-            <div class="parallax__layer grid"></div>
+            <div class="parallax__layer peaks"></div>
 
 
             <div class="parallax__layer hero-text-two">
@@ -214,7 +213,8 @@
                                 $listId = $listKey . '-list';
                             @endphp
 
-                            <a class="list-group-item list-group-item-action fw-bold text-uppercase display-5 {{ $key === 0 ? 'active' : '' }}"
+
+                            <a class="link-underline link-underline-primarytext-uppercase display-5 {{ $key === 0 ? 'active' : '' }}"
                                 id="{{ $listId }}" data-bs-toggle="list" href="{{ '#' . $listKey }}"
                                 role="tab" aria-controls="{{ $listKey }}">
                                 {{ $category->lang->name }}
@@ -234,8 +234,8 @@
                             @endphp
 
                             <!-- Content -->
-                            <div class="tab-pane  show  {{ $key === 0 ? 'active' : '' }}" id="{{ $listKey }}"
-                                role="tabpanel" aria-labelledby="{{ $listId }}">
+                            <div class="tab-pane show position-relative {{ $key === 0 ? 'active' : '' }}"
+                                id="{{ $listKey }}" role="tabpanel" aria-labelledby="{{ $listId }}">
 
                                 @switch($listKey)
                                     @case('list-category-1')
@@ -286,7 +286,6 @@
                                 </p>
 
                                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-
                                     <button type="button" class="btn btn-labeled btn-secondary text-uppercase"
                                         data-bs-toggle="offcanvas" data-bs-target="{{ '#category-' . $category->id }}"
                                         aria-controls="offcanvasScrolling">
@@ -295,192 +294,54 @@
                                         </span>
                                         {{ __('main.see-items') }}
                                     </button>
-                                    <button type="button" class="btn btn-labeled btn-secondary text-uppercase">
-                                        <span class="btn-label">
-                                            <i class="bi bi-eye"></i>
-                                        </span>
-                                        {{ __('main.see-all') }}
-                                    </button>
-                                </div>
-
-                                <!-- Offcanvas -->
-                                <div class="offcanvas offcanvas-end h-100" data-bs-scroll="true" data-bs-backdrop="true"
-                                    tabindex="-1" id="{{ 'category-' . $category->id }}"
-                                    aria-labelledby="{{ $category->lang->name }}">
-
-                                    <img class="py-4 mx-auto d-block" src="{{ asset('images/logoPB.png') }}"
-                                        alt="logo">
-                                    <h5 class="offcanvas-title text-uppercase text-center fs-2 p-2 lh-1 text-white bg-secondary"
-                                        id="offcanvasScrollingLabel">
-                                        {{ $category->lang->name }}
-                                    </h5>
-                                    <div class="offcanvas-body">
-                                        <ul class="list-group list-group-flush">
-                                            @foreach ($category->subCategories as $subCategory)
-                                                <li class="list-group-item">
-                                                    <a
-                                                        href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $category->lang->slug . '/' . $subCategory->lang->slug) }}">
-                                                        {{ $subCategory->lang->name }}
-                                                    </a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
+                                    <a
+                                        href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $category->lang->slug) }}">
+                                        <button type="button" class="btn btn-labeled btn-secondary text-uppercase">
+                                            <span class="btn-label">
+                                                <i class="bi bi-eye"></i>
+                                            </span>
+                                            {{ __('main.see-all') }}
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         @endforeach
                     </div>
                 </div>
             </div>
-
         </section>
     </div>
 
+    <!-- Offcanvas -->
+    @foreach ($menuCats as $key => $category)
+        <div class="offcanvas offcanvas-end sub-categories-offcanvas" tabindex="-1"
+            id="{{ 'category-' . $category->id }}" aria-labelledby="{{ $category->lang->name }}">
+            <div class="offcanvas-body">
 
-    @include('common.swisswin')
+                <div class="mx-auto">
+                    <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}" class="nav-logo">
+                        <img src="/images/logoPB.png" class="mx-auto"
+                            alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
+                    </a>
+
+                </div>
+                <ul class="sub-categories-list">
+                    @foreach ($category->subCategories as $subCategory)
+                        <li>
+                            <a
+                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $category->lang->slug . '/' . $subCategory->lang->slug) }}">
+                                {{ $subCategory->lang->name }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    @endforeach
 @endsection
 
-@push('footer')
-    <script>
-        function initMapMainPage() {
-            if (place.length > 0) {
-                places = place;
-                sc = {
-                    lat: places[0].position.lat,
-                    lng: places[0].position.lng
-                }
-
-                console.log(sc);
-            } else {
-                places = {};
-                sc = {
-                    lat: 46.9615801,
-                    lng: 7.4726237
-                };
-            }
-
-            const position = {
-                lat: 46.452978,
-                lng: 6.552458
-            };
-            var map = new google.maps.Map(document.getElementById('map'), {
-                disableDefaultUI: true,
-                center: position,
-                zoom: 20,
-                styles: [{
-                        "featureType": "administrative",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                            "color": "#444444"
-                        }]
-                    },
-                    {
-                        "featureType": "landscape",
-                        "elementType": "all",
-                        "stylers": [{
-                            "color": "#f2f2f2"
-                        }]
-                    },
-                    {
-                        "featureType": "poi",
-                        "elementType": "all",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    },
-                    {
-                        "featureType": "road",
-                        "elementType": "all",
-                        "stylers": [{
-                                "saturation": -100
-                            },
-                            {
-                                "lightness": 45
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.highway",
-                        "elementType": "all",
-                        "stylers": [{
-                            "visibility": "simplified"
-                        }]
-                    },
-                    {
-                        "featureType": "road.arterial",
-                        "elementType": "labels.icon",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    },
-                    {
-                        "featureType": "transit",
-                        "elementType": "all",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    },
-                    {
-                        "featureType": "water",
-                        "elementType": "all",
-                        "stylers": [{
-                                "color": "#f39200"
-                            },
-                            {
-                                "visibility": "on"
-                            }
-                        ]
-                    }
-                ]
-            });
-
-            var InfoWindows = new google.maps.InfoWindow({});
-            bounds = new google.maps.LatLngBounds()
-            places.forEach(function(location) {
-
-                var position = location.position;
-                if (position.lat == '' || position.lng == '') {
-                    return;
-                }
-                var marker = new google.maps.Marker({
-                    position: {
-                        lat: location.position.lat,
-                        lng: location.position.lng
-                    },
-                    map: map,
-                    icon: icons[location.icon].icon,
-                    title: location.title
-                });
-
-                bounds.extend(marker.position)
-
-                marker.addListener('mouseover', function() {
-                    InfoWindows.open(map, this);
-                    InfoWindows.setContent(location.content);
-                });
-            });
-
-            map.fitBounds(bounds);
-        }
-    </script>
-    <script>
-        var place = [
-            @foreach ($services as $item)
-                @if (!$item->lat || !$item->lon)
-                    @continue
-                @endif {
-                    title: '{{ $item->categories->first() && $item->categories->first()->primaryCategory ? $item->categories->first()->primaryCategory->lang->name : 'cat1' }}',
-                    position: {
-                        lat: {{ $item->lat }},
-                        lng: {{ $item->lon }}
-                    },
-                    icon: '{{ $item->categories->first() && $item->categories->first()->primaryCategory ? $item->categories->first()->primaryCategory->code : 'cat1' }}',
-                    content: '<div class="pin"><img src="{{ asset('storage/images/' . $item->main_img) }}" alt=""><h6>@if (app()->getLocale() == 'en') {{ $item->en_company_name }} @else {{ $item->fr_company_name }}    @endif</h6><p class="place">{{ __('cantons.' . strtolower($item->location_code) . '_loc') }}, {{ $item->address }}</p></div>'
-                },
-            @endforeach
-        ]
-    </script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDpzw9SH97G5L9Af-dR5TeixK8OEPqocY&callback=initMapMainPage&language={{ app()->getLocale() }}"
-        type="text/javascript"></script>
-@endpush
+<script>
+    function open(i) {
+        document.getElementById(i).click();
+    }
+</script>

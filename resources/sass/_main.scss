@@ -7,11 +7,109 @@
 body {
     margin: 0;
     top: 0;
+    background-color: $secondary;
 }
 
 canvas {
     display: block;
 }
+
+.become-partner {
+    background: url('../images/blob-scene.svg') no-repeat center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #fff;
+
+    .benefits {
+        padding-top: 80px;
+
+        img {
+            width: 70%;
+            border-radius: 100px;
+            padding: 20px;
+        }
+
+        ul {
+            padding: 0;
+
+            li {
+                list-style-type: none;
+
+                h3 {
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    color: $info;
+                    border-bottom-left-radius: 40px;
+                    border-top-right-radius: 40px;
+                    font-size: 14px;
+                    margin-top: 40px;
+                }
+
+
+                p {
+                    text-align: justify;
+                }
+            }
+        }
+    }
+
+    .packages {
+        margin-top: 200px;
+
+        .heading {
+            margin-bottom: 100px;
+        }
+
+        .package {
+            background-color: $secondary;
+            color: #fff;
+            height: 400px;
+            margin-bottom: 10px;
+
+            ul {
+                margin-top: 20px;
+                padding-right: 2rem;
+            }
+
+            li {
+                list-style-type: none;
+                border-bottom: 1px solid;
+                padding: 10px;
+                font-size: small;
+
+                img {
+                    width: 10px;
+                    margin-right: 10px;
+                }
+            }
+
+            .title {
+                padding: 10px;
+                color: #fff;
+            }
+
+            .pricing {
+                position: absolute;
+                bottom: 0;
+                padding: 20px;
+                font-weight: bold;
+
+                .amount {
+                    font-size: 22px;
+                    color: $primary;
+                }
+            }
+        }
+
+        .package:hover {
+            transform: scale(1.1);
+            margin: 5px;
+            transition: 0.2s;
+        }
+    }
+}
+
+
 
 
 @keyframes tilt-n-move-shaking {
@@ -51,7 +149,6 @@ canvas {
 }
 
 .btn {
-    margin-bottom: 10px;
     color: #fff;
 }
 
@@ -181,38 +278,29 @@ canvas {
 
 .categories {
 
-    border-top: solid 2px $warning;
-
     .col-6 {
         padding: 0;
     }
 
     .list-group {
         border-radius: 0px;
-
-        .list-group-item {
-            background-color: $secondary;
-            color: $secondary;
-        }
-
-        .list-group-item:hover {
-            color: $secondary;
-        }
+        text-transform: uppercase;
 
         .active {
             background-color: $primary;
         }
 
         a {
-            border: 0;
-            padding: 20px;
+            color: #fff;
             font-family: 'IBM Plex Sans', sans-serif;
-            margin-left: 10px;
+            text-align: center;
+            padding: 20px;
         }
     }
 
     .tab-content {
         .tab-pane {
+            height: 100%;
 
             .img-showcase {
                 width: 100%;
@@ -224,6 +312,15 @@ canvas {
                 text-align: justify;
                 padding: 40px;
             }
+
+            .btn-group {
+                position: absolute;
+                bottom: 0;
+
+                .btn {
+                    border-radius: 0;
+                }
+            }
         }
     }
 
@@ -231,6 +328,16 @@ canvas {
         img {
             width: 80px;
         }
+    }
+}
+
+.sub-categories-offcanvas {
+    background-color: $secondary;
+}
+
+.sub-categories-list {
+    li {
+        text-decoration: none;
     }
 }
 
@@ -302,10 +409,7 @@ canvas {
     }
 }
 
-.offcanvas {
-    border: 0;
-    background-color: transparent;
-}
+
 
 
 .breadcrumb {
@@ -497,6 +601,24 @@ canvas {
 .navigation {
     width: 4.75rem;
     height: 100%;
+
+    .offcanvas {
+        border: 0;
+        background-color: transparent;
+    }
+
+    .dropdown {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+
+        .btn-group {
+            width: 100%;
+            color: #fff;
+        }
+    }
+
+
 }
 
 .offcanvas {
@@ -513,8 +635,8 @@ canvas {
 
     .welcome {
         h1 {
-            margin-top: 100px;
-            margin-bottom: 200px;
+            margin-top: 80px;
+            margin-bottom: 80px;
             z-index: 10;
         }
 
@@ -545,9 +667,6 @@ canvas {
                         padding: 20px;
                     }
 
-
-
-
                     h2 {
                         color: #fff;
                         width: 100%;
@@ -574,6 +693,7 @@ canvas {
                         background-color: transparent;
                         border: 0;
 
+
                         .accordion-button {
                             border: 0;
                         }
@@ -597,6 +717,8 @@ canvas {
                     .accordion-header {
                         color: #fff;
                         margin-bottom: 30px;
+                        cursor: pointer;
+                        text-align: end;
                     }
 
                     .accordion-header::before {
@@ -844,7 +966,6 @@ canvas {
 
 
     .welcome {
-
         h1 {
             margin-top: 70px;
             z-index: 10;

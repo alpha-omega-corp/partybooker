@@ -9,6 +9,7 @@ mix.webpackConfig({
 
 mix.js('resources/js/app.js', out)
     .sass('resources/sass/app.scss', out)
+    .sass('resources/sass/legacy.scss', out)
 
 
 mix.copyDirectory('resources/images', 'public/images');

@@ -3,7 +3,7 @@ db_create:
 	docker-compose up -d
 
 db_fresh:
-    php artisan --env dev migrate:fresh --path database/migrations/done/ && php artisan --env dev migrate && php artisan db:seed
+    php artisan --env dev migrate:fresh --path database/migrations/done/ && php artisan --env dev migrate && php artisan --env dev db:seed
 
 run:
 	php artisan --env dev serve

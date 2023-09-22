@@ -1,6 +1,7 @@
 {
     "/dist/app.js": "/dist/app.js",
     "/dist/app.css": "/dist/app.css",
+    "/dist/legacy.css": "/dist/legacy.css",
     "/images/404.svg": "/images/404.svg",
     "/images/Caro_photo_2019.jpeg": "/images/Caro_photo_2019.jpeg",
     "/images/Pin.png": "/images/Pin.png",
@@ -85,6 +86,8 @@
     "/images/map.svg": "/images/map.svg",
     "/images/maps-and-flags.svg": "/images/maps-and-flags.svg",
     "/images/mitchell-orr-179532-unsplash.jpg": "/images/mitchell-orr-179532-unsplash.jpg",
+    "/images/network.svg": "/images/network.svg",
+    "/images/options.svg": "/images/options.svg",
     "/images/orangeLeft.png": "/images/orangeLeft.png",
     "/images/orangeMiniLine.svg": "/images/orangeMiniLine.svg",
     "/images/orangeRight.png": "/images/orangeRight.png",
@@ -102,6 +105,7 @@
     "/images/people2.png": "/images/people2.png",
     "/images/people3.png": "/images/people3.png",
     "/images/petr-sevcovic-594807-unsplash.jpg": "/images/petr-sevcovic-594807-unsplash.jpg",
+    "/images/picture.svg": "/images/picture.svg",
     "/images/pin.svg": "/images/pin.svg",
     "/images/purple-bg.png": "/images/purple-bg.png",
     "/images/purple-big-bg.png": "/images/purple-big-bg.png",
@@ -125,6 +129,7 @@
     "/images/traiteur.png": "/images/traiteur.png",
     "/images/united-kingdom.svg": "/images/united-kingdom.svg",
     "/images/upload.png": "/images/upload.png",
+    "/images/video-player.svg": "/images/video-player.svg",
     "/images/water.png": "/images/water.png",
     "/images/wave-haikei.svg": "/images/wave-haikei.svg",
     "/images/work-team.svg": "/images/work-team.svg"

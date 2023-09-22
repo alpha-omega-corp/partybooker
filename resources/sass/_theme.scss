@@ -3,12 +3,16 @@
 // Keep seperated : https://stackoverflow.com/a/68860725
 
 $primary: $purple-500;
-$info: $cyan-700;
+$info: $cyan-500;
 $secondary: $gray-900;
-$accent: $gray-700;
+$accent: $orange-400;
 $warning: $orange-700;
 $danger: $red-500;
 $success: $green-400;
+
+$standard: $green-500;
+$premium: $orange-500;
+$exclusif: $red-500;
 
 $theme-colors: (
     "primary": $primary,
@@ -19,7 +23,10 @@ $theme-colors: (
     "danger": $danger,
     "success": $success,
     "light": $light,
-    "dark": $dark
+    "dark": $dark,
+    "standard": $standard,
+    "premium": $premium,
+    "exclusif": $exclusif,
 );
 
 $offcanvas-horizontal-width: auto;

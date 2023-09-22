@@ -2,8 +2,7 @@
 require('./bootstrap');
 import Alpine from 'alpinejs';
 import tippy, { animateFill } from 'tippy.js';
-import { tsParticles } from "tsparticles-engine";
-import { loadFull } from "tsparticles";
+import { Loader } from "@googlemaps/js-api-loader"
 import 'tippy.js/animations/scale.css';
 
 window.Alpine = Alpine;
@@ -22,7 +21,3 @@ tippy.setDefaultProps({
         animateFill
     ]
 });
-
-
-
-
