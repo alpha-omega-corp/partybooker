@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'standard' => 'Standard',
+    'standart' => 'Standard',
     'basic' => 'Basic',
     'vip' => 'VIP',
     'premium' => 'PREMIUM',
