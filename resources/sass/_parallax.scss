@@ -50,6 +50,12 @@ a {
     }
 }
 
+@media only screen and (max-height : 1200px) {
+    .parallax__group_services {
+        height: 1200px;
+    }
+}
+
 
 .parallax__layer {
     position: absolute;

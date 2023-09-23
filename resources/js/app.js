@@ -16,6 +16,13 @@ tippy('.nav-item', {
     theme: 'navigation'
 });
 
+tippy('.glide__bullet', {
+    placement: 'top',
+    animation: 'scale',
+    inertia: true,
+    theme: 'top-services'
+});
+
 tippy.setDefaultProps({
     delay: 50,
     plugins: [

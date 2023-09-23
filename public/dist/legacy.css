@@ -1990,8 +1990,8 @@ url(/fonts/vendor/bootstrap-icons/bootstrap-icons.woff?4753c5ba57962b4d7bf8248a6
   color: #ffffff;
 }
 
-.tippy-box[data-theme~=category-door] {
-  background-color: #a98eda;
+.tippy-box[data-theme~=top-services] {
+  background-color: #479f76;
   padding: 8px;
   border-radius: 0px 10px 0px 10px;
   color: #ffffff;
