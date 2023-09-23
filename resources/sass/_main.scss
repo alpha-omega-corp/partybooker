@@ -92,6 +92,7 @@ canvas {
             .title {
                 padding: 10px;
                 color: #fff;
+
             }
 
             .pricing {
@@ -192,35 +193,38 @@ canvas {
 }
 
 .top-services {
-    margin-top: 100px;
-
-
     .glide__track {
-        margin: 20px;
-    }
+        margin: 40px;
 
-    .title {
-        .title-img {
-            padding: 20px;
-
-            img {
-                width: 80px;
-            }
-        }
-
-        h2 {
-            color: #fff;
-            margin-bottom: 100px;
-        }
 
     }
 
+    h2 {
+        color: #fff;
+        background-color: $orange-300;
+        margin-bottom: 120px;
+        border-bottom-left-radius: 30%;
+        border-bottom-right-radius: 30%;
+        padding: 20px;
+        padding-bottom: 40px;
+
+    }
+
+    .glide__slide:hover {
+        transform: scale(1.1);
+        transition: 0.2s;
+        margin: 10px;
+        overflow: hidden;
+    }
 
     .glide__slide {
+        padding: 20px;
+
         .card {
             color: #fff;
             border: 0;
-            background-color: rgba(0, 0, 0, .125);
+            background-color: rgba(0, 0, 0, .4);
+            overflow: hidden;
 
             .card-title {
                 color: $purple-300;
@@ -259,7 +263,7 @@ canvas {
                 padding: 20px;
 
                 .card-text {
-                    max-height: 82px;
+                    max-height: 72px;
                     text-align: justify;
                     overflow: hidden;
 
@@ -310,9 +314,14 @@ canvas {
         }
     }
 
+    .bullets {
+        position: absolute;
+        top: 50px;
+    }
+
     .glide__bullets {
 
-        margin-top: 100px;
+        margin-top: 20px;
         background-color: rgba(0, 0, 0, .125);
         border-radius: 20px;
 
@@ -334,6 +343,7 @@ canvas {
     .glide__bullet:hover {
         background-color: $primary;
         color: #fff;
+        cursor: pointer;
     }
 
 

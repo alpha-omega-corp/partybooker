@@ -21,7 +21,7 @@ a {
 
 .parallax__group_welcome {
     position: relative;
-    height: 100%;
+    height: 1100px;
     width: 100%;
     transform-style: preserve-3d;
 }
@@ -36,7 +36,7 @@ a {
 // Applies Small
 @media only screen and (max-width : 767px) {
     .parallax__group_welcome {
-        height: 900px;
+        height: 750px;
     }
 
     .parallax__group_services {
@@ -46,7 +46,7 @@ a {
 
 @media only screen and (max-height : 901px) {
     .parallax__group_welcome {
-        height: 1050px;
+        height: 900px;
     }
 }
 
@@ -68,7 +68,7 @@ a {
 .blob {
     background: url('../images/blob-scene.svg') no-repeat center;
     background-size: cover;
-    transform: translateZ(-600px) scale(3);
+    transform: translateZ(-400px) scale(3);
     z-index: 1;
 }
 
