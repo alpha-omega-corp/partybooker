@@ -25,6 +25,7 @@
         "webpack-cli": "^5.1.4"
     },
     "dependencies": {
+        "@glidejs/glide": "^3.6.0",
         "@googlemaps/js-api-loader": "^1.16.2",
         "gulp": "^4.0.2",
         "tsparticles": "^2.12.0",

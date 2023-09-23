@@ -14,6 +14,8 @@ $standard: $green-500;
 $premium: $orange-500;
 $exclusif: $red-500;
 
+$transparent: rgba(0, 0, 0, 0.4);
+
 $theme-colors: (
     "primary": $primary,
     "secondary": $secondary,
@@ -27,6 +29,7 @@ $theme-colors: (
     "standard": $standard,
     "premium": $premium,
     "exclusif": $exclusif,
+    "opaque": $transparent,
 );
 
 $offcanvas-horizontal-width: auto;

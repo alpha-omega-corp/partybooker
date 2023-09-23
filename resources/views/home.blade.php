@@ -33,8 +33,6 @@
 
                             <div class="accordion" id="welcomeAccordion">
                                 <div class="card-group">
-
-
                                     <div class="row">
                                         <div class="col-md-4 col-xs-12">
 
@@ -195,9 +193,7 @@
 
             <div class="parallax__layer hero-text-two">
                 <section class="top-services">
-                    <div class="bg-danger">
-                        Memory leak
-                    </div>
+                    @include('common.top-services')
                 </section>
             </div>
         </div>

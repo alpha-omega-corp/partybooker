@@ -35,6 +35,7 @@
 
     <script src="{{ asset('dist/app.js') }}" defer></script>
     <link href="{{ asset('dist/app.css') }}" rel="stylesheet">
+
 </head>
 
 <body class="body">

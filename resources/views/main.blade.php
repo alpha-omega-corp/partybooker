@@ -33,6 +33,8 @@
 
     <script src="{{ asset('dist/app.js') }}" defer></script>
     <link href="{{ asset('dist/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('dist/glide.core.min.css') }}" rel="stylesheet">
+
 </head>
 
 <body class="body">
