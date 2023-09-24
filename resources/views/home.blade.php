@@ -190,150 +190,46 @@
         <div class="parallax__group_services hero-container hero">
             <div class="parallax__layer peaks"></div>
 
-
-            <div class="parallax__layer hero-text-two">
+            <div class="parallax__layer hero-text-two shadow-lg">
                 <section class="top-services">
                     @include('common.top-services')
                 </section>
             </div>
         </div>
 
-        <section class="categories">
-            <div class="row">
+        <section class="categories d-flex justify-content-center">
+            <div class="row d-flex justify-content-center">
+                @foreach ($menuCats as $key => $category)
+                    @php
+                        $listKey = 'list-category-' . $key;
+                        $listId = $listKey . '-list';
 
-                <div class="col-6">
-                    <div class="list-group" id="list-tab" role="tablist">
-                        @foreach ($menuCats as $key => $category)
-                            @php
-                                $listKey = 'list-category-' . $key;
-                                $listId = $listKey . '-list';
-                            @endphp
+                    @endphp
 
-
-                            <a class="link-underline link-underline-primarytext-uppercase display-5 {{ $key === 0 ? 'active' : '' }}"
-                                id="{{ $listId }}" data-bs-toggle="list" href="{{ '#' . $listKey }}"
-                                role="tab" aria-controls="{{ $listKey }}">
+                    <div class="scene scene--card ">
+                        <div class="card shadow-lg">
+                            <div class="card__face card__face--front">
                                 {{ $category->lang->name }}
-                            </a>
-                        @endforeach
-                    </div>
-                </div>
-
-                <div class="col-6">
-                    <div class="tab-content bg-white" id="nav-tabContent">
-
-                        <!-- Tabs -->
-                        @foreach ($menuCats as $key => $category)
-                            @php
-                                $listKey = 'list-category-' . $key;
-                                $listId = $listKey . '-list';
-                            @endphp
-
-                            <!-- Content -->
-                            <div class="tab-pane show position-relative {{ $key === 0 ? 'active' : '' }}"
-                                id="{{ $listKey }}" role="tabpanel" aria-labelledby="{{ $listId }}">
-
-                                @switch($listKey)
-                                    @case('list-category-1')
-                                        <img src="{{ asset('images/flip2.jpg') }}" class="img-showcase mx-auto d-block"
-                                            alt="...">
-                                    @break
-
-                                    @case('list-category-2')
-                                        <img src="{{ asset('images/flip3.jpg') }}" class="img-showcase mx-auto d-block"
-                                            alt="...">
-                                    @break
-
-                                    @case('list-category-3')
-                                        <img src="{{ asset('images/flip4.jpg') }}" class="img-showcase mx-auto d-block"
-                                            alt="...">
-                                    @break
-
-                                    @case('list-category-4')
-                                        <img src="{{ asset('images/flip5.jpg') }}" class="img-showcase mx-auto d-block"
-                                            alt="...">
-                                    @break
-
-                                    @case('list-category-5')
-                                        <img src="{{ asset('images/flip6.jpg') }}" class="img-showcase mx-auto d-block"
-                                            alt="...">
-                                    @break
-
-                                    @default
-                                        <img src="{{ asset('images/flip1.jpg') }}" class="img-showcase mx-auto d-block"
-                                            alt="...">
-                                @endswitch
-
-
-                                <p class="category-description">
-                                    @if ($category->lang->description)
-                                        {{ $category->lang->description }}
-                                    @else
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis
-                                        dolor ligula,
-                                        quis commodo arcu sollicitudin eu. Phasellus feugiat nisl non ex iaculis
-                                        dictum. Aliquam
-                                        ultricies ultrices placerat. Sed augue nunc, malesuada id orci vitae,
-                                        aliquet sodales
-                                        ipsum. Integer congue, purus feugiat varius scelerisque, dolor diam eleifend
-                                        ante, ut
-                                        cursus urna sem vitae velit. Suspendisse potenti.
-                                    @endif
-                                </p>
-
-                                <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                    <button type="button" class="btn btn-labeled btn-secondary text-uppercase"
-                                        data-bs-toggle="offcanvas" data-bs-target="{{ '#category-' . $category->id }}"
-                                        aria-controls="offcanvasScrolling">
-                                        <span class="btn-label">
-                                            <i class="bi bi-door-open"></i>
-                                        </span>
-                                        {{ __('main.see-items') }}
-                                    </button>
-                                    <a
-                                        href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $category->lang->slug) }}">
-                                        <button type="button" class="btn btn-labeled btn-secondary text-uppercase">
-                                            <span class="btn-label">
-                                                <i class="bi bi-eye"></i>
-                                            </span>
-                                            {{ __('main.see-all') }}
-                                        </button>
-                                    </a>
-                                </div>
                             </div>
-                        @endforeach
+                            <div class="card__face card__face--back">
+                                <ul>
+                                    @foreach ($category->subCategories as $subCategory)
+                                        <li>
+                                            <a
+                                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $category->lang->slug . '/' . $subCategory->lang->slug) }}">
+                                                {{ $subCategory->lang->name }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
+
         </section>
     </div>
-
-    <!-- Offcanvas -->
-    @foreach ($menuCats as $key => $category)
-        <div class="offcanvas offcanvas-end sub-categories-offcanvas" tabindex="-1"
-            id="{{ 'category-' . $category->id }}" aria-labelledby="{{ $category->lang->name }}">
-            <div class="offcanvas-body">
-
-                <div class="mx-auto">
-                    <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}" class="nav-logo">
-                        <img src="/images/logoPB.png" class="mx-auto"
-                            alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
-                    </a>
-
-                </div>
-                <ul class="sub-categories-list">
-                    @foreach ($category->subCategories as $subCategory)
-                        <li>
-                            <a
-                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $category->lang->slug . '/' . $subCategory->lang->slug) }}">
-                                {{ $subCategory->lang->name }}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    @endforeach
 @endsection
 
 <script>

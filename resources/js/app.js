@@ -33,10 +33,25 @@ tippy.setDefaultProps({
 new Glide('.glide', {
     perView: 4,
     breakpoints: {
-        640: {
+        1500: {
+            perView: 3,
+        },
+
+        1200: {
+            perView: 2,
+        },
+        767: {
             perView: 1,
         },
     },
+
 }).mount({ Controls, Breakpoints })
 
 
+var cards = document.querySelectorAll('.card');
+
+[...cards].forEach((card) => {
+    card.addEventListener('click', function () {
+        card.classList.toggle('is-flipped');
+    });
+});

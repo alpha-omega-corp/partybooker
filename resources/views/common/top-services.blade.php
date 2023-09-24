@@ -1,15 +1,15 @@
 @if (count($top))
 
 
-    <h2 class="display-1 fw-bold text-center">
+    <h2 class="display-3 fw-bold text-center shadow-lg">
         {{ __('main.top_services') }}
     </h2>
 
 
 
-    <div x-ref="glide" class="glide block relative px-12">
+    <div x-ref="glide" class="glide">
 
-        <div>
+        <div class="glide__">
 
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides">
@@ -97,25 +97,27 @@
 
         </div>
         <!-- Bullets -->
-        <div class="d-flex justify-content-center">
-            <div class="glide__bullets d-flex justify-content-center" data-glide-el="controls[nav]">
+        <div class="d-none d-md-block">
+            <div class="d-flex justify-content-center">
+                <div class="glide__bullets p-2" data-glide-el="controls[nav]">
 
 
-                @foreach ($top as $key => $service)
-                    <img src="{{ asset('images/star.svg') }}"
-                        class="glide__bullet text-uppercase transition-colors col-1"
-                        data-glide-dir="{{ '=' . $key }}" data-tippy-content="{{ $service->fr_company_name }}"
-                        alt="{{ $service->fr_company_name }}" />
-                @endforeach
+                    @foreach ($top as $key => $service)
+                        <img src="{{ asset('images/star.svg') }}"
+                            class="glide__bullet text-uppercase transition-colors col-1 mx-auto"
+                            data-glide-dir="{{ '=' . $key }}" data-tippy-content="{{ $service->fr_company_name }}"
+                            alt="{{ $service->fr_company_name }}" />
+                    @endforeach
+
+
+                </div>
 
 
             </div>
-
-
         </div>
-    </div>
 
     </div>
+
 
 
 @endif

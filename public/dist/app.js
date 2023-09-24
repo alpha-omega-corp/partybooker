@@ -6683,6 +6683,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _googlemaps_js_api_loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @googlemaps/js-api-loader */ "./node_modules/@googlemaps/js-api-loader/dist/index.esm.js");
 /* harmony import */ var tippy_js_animations_scale_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tippy.js/animations/scale.css */ "./node_modules/tippy.js/animations/scale.css");
 /* harmony import */ var _glidejs_glide_dist_glide_modular_esm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @glidejs/glide/dist/glide.modular.esm */ "./node_modules/@glidejs/glide/dist/glide.modular.esm.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -6710,13 +6716,25 @@ tippy_js__WEBPACK_IMPORTED_MODULE_4__["default"].setDefaultProps({
 new _glidejs_glide_dist_glide_modular_esm__WEBPACK_IMPORTED_MODULE_3__["default"]('.glide', {
   perView: 4,
   breakpoints: {
-    640: {
+    1500: {
+      perView: 3
+    },
+    1200: {
+      perView: 2
+    },
+    767: {
       perView: 1
     }
   }
 }).mount({
   Controls: _glidejs_glide_dist_glide_modular_esm__WEBPACK_IMPORTED_MODULE_3__.Controls,
   Breakpoints: _glidejs_glide_dist_glide_modular_esm__WEBPACK_IMPORTED_MODULE_3__.Breakpoints
+});
+var cards = document.querySelectorAll('.card');
+_toConsumableArray(cards).forEach(function (card) {
+  card.addEventListener('click', function () {
+    card.classList.toggle('is-flipped');
+  });
 });
 
 /***/ }),

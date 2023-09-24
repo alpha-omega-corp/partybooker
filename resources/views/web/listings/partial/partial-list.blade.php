@@ -9,7 +9,7 @@
                     <div class="col-md-4">
                         @if ($partner->main_img)
                             <img src="{{ asset('storage/images/thumbnails/' . $partner->main_img) }}"
-                                alt="{{ $partner->main_img }}" class="cover rounded">
+                                alt="{{ $partner->main_img }}" class="cover">
                         @else
                             <img src="//via.placeholder.com/700x1000/fc0?text=6" class="cover rounded" alt="...">
                         @endif
@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title text-uppercase">
+                            <h5 class="card-title text-uppercase fw-bold">
                                 @if (app()->getLocale() == 'en')
                                     {{ $partner->en_company_name }}
                                 @else
