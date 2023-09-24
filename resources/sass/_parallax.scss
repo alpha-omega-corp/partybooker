@@ -7,10 +7,6 @@ body {
     height: 100%;
 }
 
-a {
-    text-decoration: none;
-}
-
 .wrapper {
     height: 100%;
     overflow-x: hidden;
@@ -91,7 +87,7 @@ a {
     background: url('../images/blob-scene.svg') no-repeat center;
     background-size: cover;
     background-position: bottom;
-    transform: translateZ(-400px) scale(3);
+    transform: translateZ(-600px) translateY(-260px) scale(3);
     z-index: 1;
 }
 

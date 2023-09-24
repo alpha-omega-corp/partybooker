@@ -74,7 +74,7 @@
                         <div class="col-md-3">
                             <div class="package position-relative">
                                 <div class="text-uppercase fw-bold text-center title {{ 'bg-' . $plan->name }}">
-                                    {{ __('plan.' . strtolower($plan->name)) }}
+                                    <h3>{{ __('plan.' . strtolower($plan->name)) }}</h3>
                                 </div>
                                 <ul>
                                     <li>

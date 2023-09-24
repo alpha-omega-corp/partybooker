@@ -197,36 +197,50 @@
             </div>
         </div>
 
-        <section class="categories d-flex justify-content-center">
-            <div class="row d-flex justify-content-center">
-                @foreach ($menuCats as $key => $category)
-                    @php
-                        $listKey = 'list-category-' . $key;
-                        $listId = $listKey . '-list';
+        <section class="categories">
+            <div class="container">
 
-                    @endphp
+                <div class="row d-flex justify-content-center">
+                    @foreach ($menuCats as $key => $category)
+                        @php
+                            $listKey = 'list-category-' . $key;
+                            $listId = $listKey . '-list';
 
-                    <div class="scene scene--card ">
-                        <div class="card shadow-lg">
-                            <div class="card__face card__face--front">
-                                {{ $category->lang->name }}
-                            </div>
-                            <div class="card__face card__face--back">
-                                <ul>
-                                    @foreach ($category->subCategories as $subCategory)
-                                        <li>
-                                            <a
-                                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $category->lang->slug . '/' . $subCategory->lang->slug) }}">
-                                                {{ $subCategory->lang->name }}
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
+                        @endphp
+
+                        <div class="scene scene--card ">
+                            <div class="card shadow-lg">
+                                <div class="card__face card__face--front bg-shiny">
+
+
+                                    <h3 class="text-uppercase m-4 display-5 fw-bolder text-white">
+                                        {{ $category->lang->name }}
+                                    </h3>
+
+
+                                </div>
+                                <div class="card__face card__face--back">
+
+
+                                    <div class="sub-categories">
+                                        <ul>
+                                            @foreach ($category->subCategories as $subCategory)
+                                                <li>
+                                                    <a class="fs-6"
+                                                        href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $category->lang->slug . '/' . $subCategory->lang->slug) }}">
+                                                        {{ $subCategory->lang->name }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
+
 
         </section>
     </div>
