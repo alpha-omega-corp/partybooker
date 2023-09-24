@@ -354,12 +354,12 @@ a {
 }
 
 .categories {
-    padding-top: 100px;
     height: 100%;
-    background: linear-gradient(rgba(28, 168, 193, 0.452) 0%,
-            rgba(14, 127, 219, 0.491) 33%,
-            rgba(245, 238, 43, 0.701) 100%);
 
+    .items {
+        background-image: linear-gradient($primary, $secondary);
+
+    }
 
     .scene {
         display: inline-block;
