@@ -24569,6 +24569,7 @@ a {
 }
 .categories .scene .card h3, .categories .scene .card .h3 {
   margin-bottom: 0;
+  padding: 10px;
 }
 .categories .scene .card:hover {
   transform: scale();

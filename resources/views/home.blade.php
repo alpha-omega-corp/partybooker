@@ -213,7 +213,7 @@
                                 <div class="card__face card__face--front bg-shiny">
 
 
-                                    <h3 class="text-uppercase m-4 display-5 fw-bolder text-white">
+                                    <h3 class="text-uppercase display-6 fw-bolder text-white">
                                         {{ $category->lang->name }}
                                     </h3>
 
