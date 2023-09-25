@@ -1,4 +1,5 @@
-<div class="social-links fixed">
+<div class="socials bg-primary">
+
     @if (isset($settings))
         @if ($settings[0]->facebook)
             <a href="{{ $settings[0]->facebook }}" target="_blank"><i class="icon-facebook"></i></a>
@@ -16,4 +17,5 @@
             <a href="{{ $settings[0]->twitter }}" target="_blank"><i class="icon-twitter "></i></a>
         @endif
     @endif
+
 </div>

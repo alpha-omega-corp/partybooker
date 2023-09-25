@@ -9,49 +9,64 @@
 @endsection
 
 @section('content')
+    <div class="wrap">
+        <button class="button">Submit</button>
+    </div>
     <div class="become-partner">
         <section class="benefits">
-            <div class="row container">
-                <div class="col-md-6">
-                    <div class="d-flex flex-column text-center justify-content-center">
 
-                        <div>
-                            <img src="/images/benefits1.jpg"
-                                alt="Devenir partenaire pour rendre votre présence web plus impactante. Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande." />
 
-                        </div>
-                        <div class="w-100">
-                            @if (Auth::user() == null)
-                                <a class="btn btn-primary text-uppercase fw-bold" data-bs-toggle="modal"
-                                    href="#loginModalToggle" role="button">
-                                    {{ __('become_partner.title') }}
-                                </a>
-                            @else
-                                <a class="btn btn-primary text-uppercase fw-bold" data-bs-toggle="modal"
-                                    href="#partnershipModalToggle" role="button">
-                                    {{ __('become_partner.title') }}
-                                </a>
-                            @endif
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="d-flex flex-column text-center justify-content-center">
+
+
+                            <!-- Devenir partenaire pour rendre votre présence web plus impactante. Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.-->
+
+
+                            <div class="w-100">
+                                @if (Auth::user() == null)
+                                    <a class="btn btn-primary text-uppercase fw-bold" data-bs-toggle="modal"
+                                        href="#loginModalToggle" role="button">
+                                        {{ __('become_partner.title') }}
+                                    </a>
+                                @else
+                                    <a class="btn btn-primary text-uppercase fw-bold" data-bs-toggle="modal"
+                                        href="#partnershipModalToggle" role="button">
+                                        {{ __('become_partner.title') }}
+                                    </a>
+                                @endif
+
+
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <h1 class="display-4 fw-bold text-uppercase">{{ __('become_partner.benefits_title') }}</h1>
-                    <ul>
-                        <li>
-                            <h3>{{ __('become_partner.b1') }}</h3>
-                            <p>{{ __('become_partner.b1_text') }}</p>
-                        <li>
-                            <h3> {{ __('become_partner.b2') }}</h3>
-                            <p>{{ __('become_partner.b2_text') }}</p>
+                    <div class="col-md-6">
+                        <h1 class="display-4 fw-bold text-uppercase">{{ __('become_partner.benefits_title') }}</h1>
+                        <ul>
+                            <li>
+                                <div class="d-flex">
+                                    <img src="{{ asset('images/shuttle.svg') }}" alt="advantages" width="24"
+                                        class="mt-4">
+                                    <h3>{{ __('become_partner.b1') }}</h3>
+                                </div>
+                                <p>{{ __('become_partner.b1_text') }}</p>
+                            <li>
+                                <h3> {{ __('become_partner.b2') }}</h3>
+                                <p>{{ __('become_partner.b2_text') }}</p>
 
-                        </li>
+                            </li>
 
-                        <li>
-                            <h3> {{ __('become_partner.b3') }}</h3>
-                            <p>{{ __('become_partner.b3_text') }}</p>
-                        </li>
-                    </ul>
+                            <li>
+                                <h3> {{ __('become_partner.b3') }}</h3>
+                                <p>{{ __('become_partner.b3_text') }}</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -90,7 +105,8 @@
                                     <li>
                                         <img src="{{ asset('images/picture.svg') }}" alt="picture" />
 
-                                        <span>{{ $plan->photos_num }} {{ __('become_partner.photos') }}</span>
+                                        <span>{{ $plan->photos_num }}
+                                            {{ __('become_partner.photos') }}</span>
                                     </li>
                                     @if ($plan->video == 1)
                                         <li>
@@ -116,7 +132,8 @@
 
                     <div class="col-md-3">
                         <div class="package position-relative">
-                            <div class="text-uppercase fw-bold text-center title bg-primary">VIP</div>
+                            <div class="text-uppercase fw-bold text-center title bg-primary">VIP
+                            </div>
                             <ul>
                                 <li>{{ __('partner.vip_info1') }}</li>
                                 <li>{{ __('partner.vip_info2') }}</li>

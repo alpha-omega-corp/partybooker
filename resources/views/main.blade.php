@@ -39,7 +39,12 @@
 
 <body class="body">
     @include('common.header-nav')
-    @yield('content')
+
+    <!-- Content -->
+    <div class="position-relative">
+        @yield('content')
+        @include('common.social');
+    </div>
 
     <section>
         @include('common.cookies')
