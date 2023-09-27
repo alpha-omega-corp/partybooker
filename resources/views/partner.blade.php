@@ -9,12 +9,8 @@
 @endsection
 
 @section('content')
-    <div class="wrap">
-        <button class="button">Submit</button>
-    </div>
     <div class="become-partner">
         <section class="benefits">
-
 
 
             <div class="container">

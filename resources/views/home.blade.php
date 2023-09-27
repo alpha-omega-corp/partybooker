@@ -18,6 +18,14 @@
     @endif
 @endsection
 
+@push('header')
+    <script>
+        function open(i) {
+            document.getElementById(i).click();
+        }
+    </script>
+@endpush
+
 @section('content')
     <div class="wrapper">
         <div class="parallax__group_welcome hero-container hero">
@@ -247,9 +255,3 @@
         </section>
     </div>
 @endsection
-
-<script>
-    function open(i) {
-        document.getElementById(i).click();
-    }
-</script>

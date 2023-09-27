@@ -33,8 +33,7 @@
     {!! MetaTag::tag('keywords') !!}
     @stack('header')
 
-    <script src="{{ asset('dist/app.js') }}" defer></script>
-    <link href="{{ asset('dist/app.css') }}" rel="stylesheet">
+    @vite(['resources/js/app.js'])
 
 </head>
 

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 13" width="17" height="13">
+	<defs>
+		<image width="17" height="13" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAANCAYAAABPeYUaAAABIElEQVQ4T63TQUuUcRDH8c88YQhCvQDPe+oUCOHi2cBziHgQyWMSkZiXjl7WSDrsUUUIRMSzomfZNd9AB8+9gAIhjJ6JVTcedWHZaE7DzG++M8P8/6FjrYOXRO3KH8jyXH1qK5we1+TvbdQHqr8Wt8SD+dA+3MAYvmJmANAunuCsC1nAN2FHWu4LCh+kWYxiswrp1H4XuSqjgaIHrBS5IuM9Ht/k70E68Z/CkvQJQxXQL+GN9BHDlXhPSCd/qSyfKYoTjOBCWU4oii94eGfCnpBSWhMWhRXphbAvNaSm8O7Oqvcgl9L6LWE4kp7fdO82eFuZ6Bbkh/RZeNX3OrJJzOFR9TqTaGO6P+CvYg/jOA6tg6cimv/4Yk9kvo7/8Xf+AET1Zkz/L5djAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="Група 1">
+		<use id="close-envelope copy" href="#img1" x="0" y="0" />
+	</g>
+</svg>

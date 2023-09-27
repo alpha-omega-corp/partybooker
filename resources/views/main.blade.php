@@ -31,9 +31,7 @@
     @yield('title')
     @stack('header')
 
-    <script src="{{ asset('dist/app.js') }}" defer></script>
-    <link href="{{ asset('dist/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('dist/glide.core.min.css') }}" rel="stylesheet">
+    @vite(['resources/js/app.js'])
 
 </head>
 
@@ -43,7 +41,6 @@
     <!-- Content -->
     <div class="position-relative">
         @yield('content')
-        @include('common.social');
     </div>
 
     <section>
