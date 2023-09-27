@@ -1,12 +1,4 @@
 {
-  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
-    "file": "assets/bootstrap-icons-4d4572ef.woff",
-    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
-  },
-  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2": {
-    "file": "assets/bootstrap-icons-bacd70af.woff2",
-    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
-  },
   "resources/images/404.svg": {
     "file": "assets/404-e4ef3bdc.svg",
     "src": "resources/images/404.svg"
@@ -564,21 +556,19 @@
     "src": "resources/images/world-humanitarian-day.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-485c471c.css",
+    "file": "assets/app-1d8fb9cd.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "assets": [
-      "assets/bootstrap-icons-bacd70af.woff2",
-      "assets/bootstrap-icons-4d4572ef.woff",
       "assets/layered-peaks-haikei-d4164089.svg",
       "assets/blob-scene-4863cbac.svg",
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-485c471c.css"
+      "assets/app-1d8fb9cd.css"
     ],
-    "file": "assets/app-c060e3e3.js",
+    "file": "assets/app-a019901b.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

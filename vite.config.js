@@ -1,6 +1,5 @@
 import {defineConfig} from 'vite';
 import laravel from 'laravel-vite-plugin';
-import path from 'path';
 
 export default defineConfig({
     plugins: [
@@ -11,7 +10,13 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    alias: {
-        '~modules': path.resolve(__dirname, './nodes_modules'),
-    }
+    css: {
+        preprocessorOptions: {
+          scss: {
+             // example : additionalData: `@import "./src/design/styles/variables";`
+             // dont need include file extend .scss
+             additionalData: `@import "./resources/sass/bootstrap";`,
+         },
+        },
+      },
 });
