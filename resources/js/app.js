@@ -9,6 +9,7 @@ import Glide, { Controls, Breakpoints } from '@glidejs/glide/dist/glide.modular.
 
 import.meta.glob([
     '../images/**',
+    '../../public/storage/**',
 ]);
 
 window.Alpine = Alpine;
@@ -35,14 +36,12 @@ tippy.setDefaultProps({
     ]
 });
 
-
 new Glide('.glide', {
     perView: 4,
     breakpoints: {
         1200: {
             perView: 3,
         },
-
         1200: {
             perView: 2,
         },
@@ -50,7 +49,6 @@ new Glide('.glide', {
             perView: 1,
         },
     },
-
 }).mount({ Controls, Breakpoints })
 
 var cards = document.querySelectorAll('.card');
