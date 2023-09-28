@@ -556,19 +556,18 @@
     "src": "resources/images/world-humanitarian-day.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-a5533545.css",
+    "file": "assets/app-9df58277.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "assets": [
-      "assets/layered-peaks-haikei-d4164089.svg",
       "assets/blob-scene-4863cbac.svg",
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-a5533545.css"
+      "assets/app-9df58277.css"
     ],
-    "file": "assets/app-74255d40.js",
+    "file": "assets/app-0f071f3f.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
