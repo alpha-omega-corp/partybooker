@@ -2,12 +2,12 @@
     <button type="button" class="btn btn-labeled btn-primary text-uppercase" data-bs-toggle="dropdown"
         data-bs-display="static" aria-expanded="false">
         <span class="btn-label">
-            <i class="bi bi-archive"></i>
+            @svg('heroicon-o-archive-box')
         </span>
         <span class="btn-text"> {{ __('main.category') }}</span>
     </button>
 
-    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+    <ul class="dropdown-menu">
 
         @foreach ($categories as $c)
             <div class="dropdown-item">

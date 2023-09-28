@@ -9,13 +9,12 @@
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides">
                     <!-- Carousel Item -->
-
                     @foreach ($top as $key => $service)
                         <li class="glide__slide">
                             <a class="glide__partner_link"
                                 href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listing') . '/' . $service->slug) }}">
 
-                                <div class="d-flex flex-column align-items-center">
+                                <div class="d-flex align-items-center">
                                     <div class="card">
 
                                         <div class="card-img">
@@ -89,7 +88,7 @@
         <!-- Bullets -->
         <div class="d-none d-md-block">
             <div class="d-flex justify-content-center">
-                <div class="glide__bullets p-2" data-glide-el="controls[nav]">
+                <div class="glide__bullets" data-glide-el="controls[nav]">
                     @foreach ($top as $key => $service)
                         <img src="{{ Vite::image('star.svg') }}"
                             class="glide__bullet text-uppercase transition-colors col-1 mx-auto"

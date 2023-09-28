@@ -2,7 +2,7 @@
     <button type="button" class="btn btn-labeled btn-primary text-uppercase" data-bs-toggle="dropdown"
         data-bs-display="static" aria-expanded="false">
         <span class="btn-label">
-            <i class="bi bi-cash-coin"></i>
+            @svg('heroicon-o-banknotes')
         </span>
         <span class="btn-text">
             @if (\Request::get('budget'))
@@ -12,11 +12,10 @@
             @endif
         </span>
     </button>
-    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+    <ul class="dropdown-menu">
         @foreach (\App\Helpers\BudgetsHelper::$_budgets as $k => $v)
-            <li>
-                <a class="dropdown-item" data-value="{{ $k }}"
-                    href="{{ $partners->url(1) . '&budget=' . $k }}">
+            <li class="dropdown-item p-2">
+                <a data-value="{{ $k }}" href="{{ $partners->url(1) . '&budget=' . $k }}">
                     {{ $v }}
                 </a>
             </li>

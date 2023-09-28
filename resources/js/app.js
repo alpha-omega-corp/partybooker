@@ -39,7 +39,7 @@ tippy.setDefaultProps({
 new Glide('.glide', {
     perView: 4,
     breakpoints: {
-        1500: {
+        1200: {
             perView: 3,
         },
 

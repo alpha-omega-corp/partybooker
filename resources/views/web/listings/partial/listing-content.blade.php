@@ -50,9 +50,10 @@
     </div>
 
     <div class="d-flex justify-content-end">
-        <a href="{{ request()->url() }}" class="btn btn-labeled btn-danger text-uppercase reset-filters">
+        <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings')) }}"
+            class="btn btn-labeled btn-danger text-uppercase reset-filters">
             <span class="btn-label">
-                <i class="bi bi-recycle"></i>
+                @svg('heroicon-o-archive-box-x-mark')
             </span>
         </a>
     </div>

@@ -48,7 +48,7 @@
                                 class="nav-link bg-primary text-white border-top align-items-center d-flex"
                                 aria-current="home">
 
-                                <i class="bi bi-house"></i>
+                                @svg('heroicon-o-home')
                                 <span class="nav-sm-text">
                                     {{ __('main.home_page') }}
                                 </span>
@@ -62,7 +62,7 @@
                                 class="nav-link bg-primary text-white border-top align-items-center d-flex"
                                 aria-current="page">
 
-                                <i class="bi bi-list-columns-reverse"></i>
+                                @svg('heroicon-o-queue-list')
                                 <span class="nav-sm-text">
                                     {{ __('main.listing_page') }}
                                 </span>
@@ -76,7 +76,7 @@
                                 class="nav-link bg-primary text-white border-top align-items-center d-flex"
                                 aria-current="page">
 
-                                <i class="bi bi-person-plus"></i>
+                                @svg('heroicon-o-identification')
                                 <span class="nav-sm-text">
                                     {{ __('main.become_partner_page') }}
                                 </span>
@@ -90,7 +90,7 @@
                                 class="nav-link bg-primary text-white border-top align-items-center d-flex"
                                 aria-current="page">
 
-                                <i class="bi bi-person-vcard"></i>
+                                @svg('heroicon-o-information-circle')
                                 <span class="nav-sm-text">
                                     {{ __('main.aboutus_page') }}
                                 </span>
@@ -104,7 +104,7 @@
                                 class="nav-link bg-primary text-white border-top align-items-center d-flex"
                                 aria-current="page">
 
-                                <i class="bi bi-patch-question"></i>
+                                @svg('heroicon-o-question-mark-circle')
                                 <span class="nav-sm-text">
                                     {{ __('main.faqs_page') }}
                                 </span>
@@ -118,11 +118,11 @@
                                 class="nav-link bg-primary text-white border-top align-items-center d-flex"
                                 aria-current="page">
 
-                                <i class="bi bi-journal-bookmark"></i>
+                                @svg('heroicon-o-book-open')
+
                                 <span class="nav-sm-text">
                                     {{ __('main.blog_page') }}
                                 </span>
-
                             </a>
                         </li>
                     </ul>

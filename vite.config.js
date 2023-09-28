@@ -2,6 +2,16 @@ import {defineConfig} from 'vite';
 import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
+    css: {
+        preprocessorOptions: {
+          scss: {
+             additionalData: `
+             @import "./resources/sass/bootstrap";
+             @import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+             `,
+         },
+        },
+    },
     plugins: [
         laravel({
             input: [
@@ -10,13 +20,4 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    css: {
-        preprocessorOptions: {
-          scss: {
-             // example : additionalData: `@import "./src/design/styles/variables";`
-             // dont need include file extend .scss
-             additionalData: `@import "./resources/sass/bootstrap";`,
-         },
-        },
-      },
 });
