@@ -34,7 +34,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Vite::macro('image', fn (string $img) => $this->asset("resources/images/{$img}"));
-        Vite::macro('storage', fn (string $path) => $this->asset("public/storage/{$path}"));
 
         Schema::defaultStringLength(191);
     }
