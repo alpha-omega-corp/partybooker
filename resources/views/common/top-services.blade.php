@@ -18,7 +18,7 @@
                                     <div class="card">
 
                                         <div class="card-img">
-                                            <img src="/images/logoPB.png" class="card-img-logo"
+                                            <img src="{{ Vite::image('logoPB.png') }}" class="card-img-logo"
                                                 alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
 
                                             @if ($service->main_img)

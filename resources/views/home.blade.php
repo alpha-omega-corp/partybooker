@@ -54,7 +54,7 @@
                                                                     data-bs-target="#collapseOne" aria-expanded="false"
                                                                     aria-controls="collapseOne">
 
-                                                                    <img src="{{ asset('images/ape.svg') }}" class="d-block"
+                                                                    <img src="{{ Vite::image('ape.svg') }}" class="d-block"
                                                                         alt="...">
                                                                 </button>
                                                                 <h2 class="accordion-header text-uppercase fw-bold"
@@ -97,7 +97,7 @@
                                                                     type="button" data-bs-toggle="collapse" id="controlTwo"
                                                                     data-bs-target="#collapseTwo" aria-expanded="false"
                                                                     aria-controls="collapseTwo">
-                                                                    <img src="{{ asset('images/party-popper.svg') }}"
+                                                                    <img src="{{ Vite::image('party-popper.svg') }}"
                                                                         class="d-block" alt="...">
 
                                                                 </button>
@@ -145,7 +145,7 @@
                                                                     type="button" data-bs-toggle="collapse"
                                                                     id="controlThree" data-bs-target="#collapseThree"
                                                                     aria-expanded="false" aria-controls="collapseThree">
-                                                                    <img src="{{ asset('images/heart.svg') }}"
+                                                                    <img src="{{ Vite::image('heart.svg') }}"
                                                                         class="d-block" alt="...">
                                                                 </button>
 

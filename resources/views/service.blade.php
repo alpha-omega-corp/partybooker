@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <img src="/images/map.svg" style="width: 10px;" alt="Rejoindre notre sélection pour augmenter votre chiffre d'affaire">
 
     <section class="partner" data-id="{{ $partner->id_partner }}">
@@ -176,11 +175,6 @@
                     @endif
                 </div>
             </div>
-
-
-
-
-
         </div>
 
 

@@ -36,21 +36,6 @@ tippy.setDefaultProps({
     ]
 });
 
-new Glide('.glide', {
-    perView: 4,
-    breakpoints: {
-        1200: {
-            perView: 3,
-        },
-        1200: {
-            perView: 2,
-        },
-        767: {
-            perView: 1,
-        },
-    },
-}).mount({ Controls, Breakpoints })
-
 var cards = document.querySelectorAll('.card');
 
 [...cards].forEach((card) => {
@@ -58,3 +43,25 @@ var cards = document.querySelectorAll('.card');
         card.classList.toggle('is-flipped');
     });
 });
+
+
+new Glide('.glide', {
+
+}).mount({ Controls, Breakpoints })
+
+if (document.getElementsByClassName('glide').length > 0) {
+    new Glide('.glide', {
+        perView: 4,
+        breakpoints: {
+            1200: {
+                perView: 3,
+            },
+            1200: {
+                perView: 2,
+            },
+            767: {
+                perView: 1,
+            },
+        },
+    }).mount({ Controls, Breakpoints });
+}

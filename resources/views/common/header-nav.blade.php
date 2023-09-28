@@ -15,10 +15,10 @@
 
         <div class="language">
             <a href="<?= route('setlocale', ['lang' => 'fr']) ?>" lan="fr">
-                <img src="{{ asset('images/switzerland.svg') }}" alt="..." />
+                <img src="{{ Vite::image('switzerland.svg') }}" alt="Partybooker French" />
             </a>
             <a href="<?= route('setlocale', ['lang' => 'en']) ?>" lan="en">
-                <img src="{{ asset('images/united-kingdom.svg') }}" alt="..." />
+                <img src="{{ Vite::image('united-kingdom.svg') }}" alt="Partybooker English" />
             </a>
         </div>
 
@@ -29,7 +29,7 @@
                 <div class="navigation d-flex flex-column flex-shrink-0 h-full fixed-top bg-secondary">
                     <div class="nav-logo-container position-relative">
                         <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}" class="nav-logo">
-                            <img src="/images/logoPB.png" class="mx-auto"
+                            <img src="{{ Vite::image('logoPB.png') }}" class="mx-auto"
                                 alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
 
                         </a>
