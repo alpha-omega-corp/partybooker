@@ -9,3 +9,4 @@ yarn-error.log
 .phpstorm.meta.php
 /public/storage
 /storage
+vendor

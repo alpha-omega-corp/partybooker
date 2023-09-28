@@ -22,7 +22,7 @@
                                                 alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
 
                                             @if ($service->main_img)
-                                                <img src="{{ Vite::asset('storage/images/thumbnails/' . $service->main_img) }}"
+                                                <img src="{{ Vite::image('thumbnails/' . $service->main_img) }}"
                                                     alt="{{ $service->main_img }}" class="card-img-top">
                                             @else
                                                 <img src="//via.placeholder.com/700x1000/fc0?text=6" width="500"
