@@ -556,7 +556,7 @@
     "src": "resources/images/world-humanitarian-day.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-9df58277.css",
+    "file": "assets/app-b3b9e94b.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -565,9 +565,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-9df58277.css"
+      "assets/app-b3b9e94b.css"
     ],
-    "file": "assets/app-0f071f3f.js",
+    "file": "assets/app-cace6a83.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

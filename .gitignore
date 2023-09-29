@@ -9,4 +9,5 @@ yarn-error.log
 .phpstorm.meta.php
 /public/storage
 /storage
-vendor
+/vendor
+/node_modules
