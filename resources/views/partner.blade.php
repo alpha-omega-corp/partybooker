@@ -11,34 +11,25 @@
 @section('content')
     <div class="become-partner">
         <section class="benefits">
-
-
             <div class="container">
-
                 <div class="row">
                     <div class="col-6">
-                        <div class="d-flex flex-column text-center justify-content-center">
-
-
-                            <!-- Devenir partenaire pour rendre votre présence web plus impactante. Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.-->
-
-
-                            <div class="w-100">
-                                @if (Auth::user() == null)
-                                    <a class="btn btn-primary text-uppercase fw-bold" data-bs-toggle="modal"
-                                        href="#loginModalToggle" role="button">
-                                        {{ __('become_partner.title') }}
-                                    </a>
-                                @else
-                                    <a class="btn btn-primary text-uppercase fw-bold" data-bs-toggle="modal"
-                                        href="#partnershipModalToggle" role="button">
-                                        {{ __('become_partner.title') }}
-                                    </a>
-                                @endif
+                        <div class="d-flex flex-column text-center p-4 h-100 btn-container">
+                            <img src="{{ Vite::image('benefits1.jpg') }}" class="become-partner-img" alt="Devenir partenaire pour rendre votre présence web plus impactante. Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande." width="100">
 
 
 
-                            </div>
+                                    @if (Auth::user() == null)
+                                        <a class="rainbow p-4 text-uppercase fw-bold fs-3" data-bs-toggle="modal"
+                                           href="#loginModalToggle" role="button">
+                                            {{ __('become_partner.title') }}
+                                        </a>
+                                    @else
+                                        <a class="rainbow p-4 text-uppercase fw-bold" data-bs-toggle="modal"
+                                           href="#partnershipModalToggle" role="button">
+                                            {{ __('become_partner.title') }}
+                                        </a>
+                                    @endif
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -52,13 +43,22 @@
                                 </div>
                                 <p>{{ __('become_partner.b1_text') }}</p>
                             <li>
+
+                                <div class="d-flex">
+                                    <img src="{{ Vite::image('shuttle.svg') }}" alt="advantages" width="24"
+                                         class="mt-4">
                                 <h3> {{ __('become_partner.b2') }}</h3>
+                                </div>
                                 <p>{{ __('become_partner.b2_text') }}</p>
 
                             </li>
 
                             <li>
+                                <div class="d-flex">
+                                    <img src="{{ Vite::image('shuttle.svg') }}" alt="advantages" width="24"
+                                         class="mt-4">
                                 <h3> {{ __('become_partner.b3') }}</h3>
+                                </div>
                                 <p>{{ __('become_partner.b3_text') }}</p>
                             </li>
                         </ul>
@@ -84,8 +84,8 @@
 
                         <div class="col-md-3">
                             <div class="package position-relative">
-                                <div class="text-uppercase fw-bold text-center title {{ 'bg-' . $plan->name }}">
-                                    <h3>{{ __('plan.' . strtolower($plan->name)) }}</h3>
+                                <div class="text-uppercase text-center {{ 'bg-' . $plan->name }}">
+                                    <h3 class="fw-bold p-2">{{ __('plan.' . strtolower($plan->name)) }}</h3>
                                 </div>
                                 <ul>
                                     <li>
@@ -128,7 +128,8 @@
 
                     <div class="col-md-3">
                         <div class="package position-relative">
-                            <div class="text-uppercase fw-bold text-center title bg-primary">VIP
+                            <div class="text-uppercase text-center bg-primary">
+                                <h3 class="fw-bold p-2">VIP</h3>
                             </div>
                             <ul>
                                 <li>{{ __('partner.vip_info1') }}</li>
@@ -147,49 +148,82 @@
         </section>
         <section class="contactus">
             <div class="container">
-                <span class="">{{ __('become_partner.any_questions') }}</span>
-                <button class="button" id="contactUs">{{ __('become_partner.contact') }}</button>
+                <p class="display-6 fw-bold">{{ __('become_partner.any_questions') }}</p>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary d-flex w-100 text-uppercase" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    {{ __('become_partner.contact') }}
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+
+                        <form class="login" action="" method="POST">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5 text-primary fw-bold" id="exampleModalLabel">
+                                        PHONE NUMBER
+                                    </h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="close"></div>
+                                    <div class="form">
+                                        <input type="tel" name="phone" placeholder="+00 000"
+                                               class="form-control {{ $errors->has('phone') ? ' is-invalid' : '' }}" id="phone"
+                                               value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                        <label for="phone">
+                                            Leave your phone
+
+                                        </label>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="terms">
+                    <span>{{ __('become_partner.provider_service') }}</span>
+                    <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner-terms')) }}"
+                       target="_blank">{{ __('become_partner.view') }}</a>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section class="terms">
+            <div class="container">
+                <div class="row justify-content-center">
+
+                </div>
             </div>
         </section>
 
-
-
-        <section class="register">
+        <section class="usp">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 offset-lg-1">
-                        <h3>{{ __('become_partner.become_info_title') }}</h3>
-                        @if (app()->getLocale() == 'en')
-                            {!! __('become_partner.become_info_eng') !!}
-                        @else
-                            {!! __('become_partner.become_info') !!}
-                        @endif
-                        <button class="button register-btn">{{ __('become_partner.register') }}</button>
+                <div class="container text-center">
+                    <div class="row">
+                    @for ($i = 0; $i < 7; $i++)
+
+                            <div class="col-lg-6">
+                                <h4 class="text-uppercase text-start">{{__('usp.title-' . $i + 1) }}</h4>
+                                <p>{{__('usp.text-' . $i + 1) }}</p>
+                            </div>
+
+                    @endfor
                     </div>
                 </div>
             </div>
         </section>
-        <section class="photos">
-            <img src="/images/jay-wennington-2065-unsplash.jpg"
-                alt="Partybooker augmente la visibilité de votre entreprise" />
-            <img src="/images/petr-sevcovic-594807-unsplash.jpg"
-                alt="Partybooker améliore votre référencement sur les moteurs de recherche" />
-            <img src="/images/mitchell-orr-179532-unsplash.jpg"
-                alt="Augmentation du taux de conversions des partenaires de Partybooker" />
-            <img src="/images/aneta-pawlik-651610-unsplash.jpg"
-                alt="Obtenez des clients directement grâces à Partybooker" />
-        </section>
-        <section class="terms">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <span>{{ __('become_partner.provider_service') }}</span>
-                    <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner-terms')) }}"
-                        class="button" target="_blank">{{ __('become_partner.view') }}</a>
-                </div>
-            </div>
-        </section>
-        @include('common.partner-phone')
-    </div>
 
-    @include('common.partner-register')
+
+    </div>
 @endsection

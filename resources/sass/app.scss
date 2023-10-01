@@ -11,8 +11,13 @@
 
 .parallax__group_services {
     position: relative;
-    height: 800px;
+    height: 900px;
     transform-style: preserve-3d;
+    background: linear-gradient(
+            rgba(244, 39, 39, 0.59) 2%,
+            rgba(233, 134, 49, 0.89) 86%
+    );
+    background-size: cover;    color: #fff;
 
 }
 
@@ -23,6 +28,7 @@
     }
 
     .parallax__group_services {
+
         height: 700px;
     }
 }
@@ -32,13 +38,6 @@
         height: 900px;
     }
 }
-
-@media only screen and (min-height : 1200px) {
-    .parallax__group_services {
-        height: 1200px;
-    }
-}
-
 
 .parallax__layer {
     position: absolute;
@@ -98,7 +97,105 @@ a {
     color: #ffffff;
 }
 
+.usp {
+    margin-top: 150px;
+    padding-top: 100px;
+    background: rgba(0, 0, 0, 0.4);
+
+    h4 {
+        font-weight: bold;
+    }
+
+    p {
+        text-align: justify;
+    }
+}
+
+.contactus {
+    margin-top: 100px;
+
+}
+
+.terms {
+    padding: 20px;
+    font-size: smaller;
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    a {
+        color: $premium;
+    }
+}
+
 .become-partner {
+
+
+    @keyframes rotate {
+        100% {
+            transform: rotate(1turn);
+        }
+    }
+
+    .rainbow:hover {
+        transform: scale(1.1);
+        transition: .3s;
+    }
+
+    .rainbow {
+        position: relative;
+        z-index: 0;
+        height: 200px;
+        overflow: hidden;
+        padding: 2rem;
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: -20;
+            left: -50%;
+            top: -50%;
+            width: 200%;
+            height: 200%;
+            background-color: #399953;
+            background-repeat: no-repeat;
+            background-size: 50% 50%, 50% 50%;
+            background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+            background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
+            animation: rotate 4s linear infinite;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            left: 6px;
+            top: 6px;
+            width: calc(100% - 12px);
+            height: calc(100% - 12px);
+            background: linear-gradient($primary, $secondary);
+            border-radius: 5px;
+        }
+    }
+
+    @keyframes opacityChange {
+        50% {
+            opacity:1;
+        }
+        100% {
+            opacity: .5;
+        }
+    }
+
+    .become-partner-img {
+        object-fit: cover;
+        width: 100%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        filter: brightness(80%);
+    }
+
     background: url('../images/blob-scene.svg') no-repeat center;
     background-attachment: fixed;
     background-size: cover;
@@ -139,11 +236,13 @@ a {
         }
     }
 
+
+
     .packages {
-        margin-top: 200px;
+        margin-top: 250px;
 
         .heading {
-            margin-bottom: 100px;
+            margin-bottom: 20px;
         }
 
         .package {
@@ -167,12 +266,6 @@ a {
                     width: 10px;
                     margin-right: 10px;
                 }
-            }
-
-            .title {
-                padding: 10px;
-                color: #fff;
-
             }
 
             .pricing {
@@ -270,6 +363,7 @@ a {
 }
 
 .top-services {
+    height: 800px;
 
     .glide__track {
         margin: 10px;
@@ -285,13 +379,12 @@ a {
         border-bottom: 10px solid $purple-700;
         border-bottom-left-radius: 30%;
         border-bottom-right-radius: 30%;
-        padding: 20px;
-        padding-bottom: 40px;
+        padding: 20px 20px 40px;
         margin-bottom: 80px;
     }
 
     .glide__slide:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
         transition: 0.2s;
         margin: 10px;
         overflow: hidden;
@@ -416,13 +509,13 @@ a {
     }
 
     .glide__bullet--active {
-        background: $info;
+        border: 1px solid $info;
         opacity: 80;
         color: #fff;
     }
 
     .glide__bullet:hover {
-        background-color: $primary;
+        border-bottom: 2px solid $info;
         color: #fff;
         cursor: pointer;
     }
@@ -431,17 +524,7 @@ a {
 }
 
 .categories {
-    height: 100%;
-
-    h2 {
-        color: #fff;
-        text-align: start;
-        font-weight: bolder;
-        padding: 50px;
-    }
-
     .items {
-        padding-top: 80px;
         background-image: linear-gradient($primary, $secondary);
 
     }

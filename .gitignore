@@ -8,6 +8,5 @@ yarn-error.log
 .env
 .phpstorm.meta.php
 /public/storage
-/storage
 /vendor
 /node_modules

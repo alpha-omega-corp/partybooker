@@ -25,7 +25,7 @@ return [
     'option_2' => '3 categories (1 subcategory in each) or 2 categories (2 subcategories in 1st., 1 subcat. in 2nd) or 3 categories (1 subcategory in each)',
     'per_year' => '/ year',
     'any_questions' => 'FOR QUESTIONS - LEAVE YOUR TELEPHONE NUMBER AND WE WILL CONTACT YOU',
-    'contact' => 'Contact us',
+    'contact' => 'Get in contact',
     'become_info_title' => 'PARTYBOOKER USP',
     'become_info' => "
 		<p><b>1. A professional image</b></p>

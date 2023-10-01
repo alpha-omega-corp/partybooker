@@ -25,7 +25,7 @@ return [
     'option_2' => '3 catégories (1 sous-catégorie dans chaque catégorie) ou 2 catégories (2 sous-catégories, plus une sous-catégorie) or 1 categories (3 sous-catégories)',
     'per_year' => '/ année',
     'any_questions' => 'POUR TOUTES QUESTIONS - VEUILLEZ INDIQUER VOTRE NUMERO DE TELELPHONE ET NOUS VOUS CONTACTERONS.',
-    'contact' => 'Contactez nous',
+    'contact' => 'Prendre contact',
     'become_info_title' => "L’USP DE PARTYBOOKER",
     'become_info' => "<p><b>1. Une meilleure image professionnelle</b></p>
 		<p>Lorsqu’un internaute recherche à organiser un événement sur le Web, un agrégateur d’offres est la meilleure plateforme pour capter son attention en quelques secondes, lui donner une vision d’ensemble et stimuler la curiosité. Il est alors déterminant positionner les avantages uniques de chaque partenaire (Catering, Animation, Hôtel…).

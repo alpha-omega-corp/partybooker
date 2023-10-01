@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class UpdateEntertainmentTable extends Migration
@@ -11,7 +10,7 @@ class UpdateEntertainmentTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
 	    Schema::table('entertainment', function ($table) {
 		    $table->string('price_for', 1000)->change();
@@ -32,7 +31,7 @@ class UpdateEntertainmentTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
 	    Schema::table('entertainment', function ($table) {
 		    $table->string('price_for', 100)->change();

@@ -1,4 +1,5 @@
 <?php
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->newPartner('headphone-music--silent-disco', 10);
 
         $this->newPlan(
-            'Standard',
+            'Standart',
             '1',
             '0',
             '5',
