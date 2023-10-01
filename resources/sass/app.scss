@@ -28,8 +28,7 @@
     }
 
     .parallax__group_services {
-
-        height: 700px;
+        height: 750px;
     }
 }
 
@@ -130,11 +129,36 @@ a {
 }
 
 
+.logoUpload {
+    cursor: pointer;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}
+
+.partner-register {
+    h4 {
+        border-bottom: 1px solid $primary;
+        padding: 10px;
+    }
+}
 .become-partner {
 
-   .map {
-       z-index: 100;
-   }
+
+    .form-check {
+        padding: 20px;
+    }
+    .uploadLogo {
+        margin-top: 30px;
+    }
+
+    .become-partner-img {
+        width: 100%;
+        border-radius: 20px;
+        filter: brightness(80%);
+        margin-bottom: 10px;
+    }
+
     @keyframes rotate {
         100% {
             transform: rotate(1turn);
@@ -149,7 +173,7 @@ a {
     .rainbow {
         position: relative;
         z-index: 0;
-        height: 200px;
+        height: 100px;
         overflow: hidden;
         padding: 2rem;
 
@@ -191,13 +215,6 @@ a {
         }
     }
 
-    .become-partner-img {
-        object-fit: cover;
-        width: 100%;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        filter: brightness(80%);
-    }
 
     background: url('../images/blob-scene.svg') no-repeat center;
     background-attachment: fixed;

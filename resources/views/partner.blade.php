@@ -13,26 +13,29 @@
         <section class="benefits">
             <div class="container">
                 <div class="row">
-                    <div class="col-6">
-                        <div class="d-flex flex-column text-center p-4 h-100 btn-container">
+                    <div class="col-md-6">
+                        <div class="d-flex flex-column text-center p-4 h-100">
+
                             <img src="{{ Vite::image('benefits1.jpg') }}" class="become-partner-img" alt="Devenir partenaire pour rendre votre présence web plus impactante. Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande." width="100">
 
 
 
-                                    @if (Auth::user() == null)
-                                        <a class="rainbow p-4 text-uppercase fw-bold fs-3" data-bs-toggle="modal"
-                                           href="#loginModalToggle" role="button">
-                                            {{ __('become_partner.title') }}
-                                        </a>
-                                    @else
-                                        <a class="rainbow p-4 text-uppercase fw-bold" data-bs-toggle="modal"
-                                           href="#partnershipModalToggle" role="button">
-                                            {{ __('become_partner.title') }}
-                                        </a>
-                                    @endif
+                            @if (Auth::user() == null)
+                                <a class="rainbow p-4 text-uppercase fw-bold fs-3" data-bs-toggle="modal"
+                                   href="#loginModalToggle" role="button">
+                                    {{ __('become_partner.title') }}
+                                </a>
+                            @else
+                                <a class="rainbow p-4 text-uppercase fw-bold" data-bs-toggle="modal"
+                                   href="#partnershipModalToggle" role="button">
+                                    {{ __('become_partner.title') }}
+                                </a>
+                            @endif
+                            <br>
+
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 ps-4">
                         <h1 class="display-4 fw-bold text-uppercase">{{ __('become_partner.benefits_title') }}</h1>
                         <ul>
                             <li>

@@ -34,6 +34,9 @@ $theme-colors: (
 
 $offcanvas-horizontal-width: auto;
 
+$modal-content-bg: $secondary;
+$modal-content-color: $white;
+
 .tippy-box[data-theme~='navigation'] {
     background-color: $orange-500;
     padding: 8px;
