@@ -129,9 +129,12 @@ a {
     }
 }
 
+
 .become-partner {
 
-
+   .map {
+       z-index: 100;
+   }
     @keyframes rotate {
         100% {
             transform: rotate(1turn);

@@ -9,7 +9,7 @@
                     <div class="col-md-4">
                         @if ($partner->main_img)
                             <img src="{{ asset('storage/images/thumbnails/' . $partner->main_img) }}"
-                                alt="{{ $partner->main_img }}" class="cover">
+                                alt="{{ $partner->main_img }}" class="cover rounded">
                         @else
                             <img src="//via.placeholder.com/700x1000/fc0?text=6" class="cover rounded" alt="...">
                         @endif
@@ -34,7 +34,7 @@
 
                             <div class="d-flex location-box">
                                 <div class="location">
-                                    <img src="{{ asset('images/map.svg') }}" />
+                                    <img src="{{ Vite::image('map.svg') }}" />
                                 </div>
 
                                 <p class="w-full">

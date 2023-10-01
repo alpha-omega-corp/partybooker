@@ -217,7 +217,11 @@
                     <?php for($i = 0; $i < 7; $i++): ?>
 
                             <div class="col-lg-6">
-                                <h4 class="text-uppercase text-start"><?php echo e(__('usp.title-' . $i + 1)); ?></h4>
+                                <h4 class="text-uppercase text-start">
+                                    <span class="text-info fw-bold"><?php echo e($i + 1); ?>.</span>
+                                    <?php echo e(__('usp.title-' . $i + 1)); ?>
+
+                                </h4>
                                 <p><?php echo e(__('usp.text-' . $i + 1)); ?></p>
                             </div>
 
@@ -226,9 +230,9 @@
                 </div>
             </div>
         </section>
-
-
     </div>
+
+    <?php echo $__env->make('common.partner-register', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/nanstis/PhpstormProjects/pb-live/resources/views/partner.blade.php ENDPATH**/ ?>

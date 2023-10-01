@@ -5,6 +5,31 @@ import tippy, { animateFill } from 'tippy.js';
 import 'tippy.js/animations/scale.css';
 import Glide, { Controls, Breakpoints } from '@glidejs/glide/dist/glide.modular.esm'
 
+import { Loader } from "@googlemaps/js-api-loader"
+
+
+const loader = new Loader({
+    apiKey: "AIzaSyBPleD5xW_3gBLeUfgdw-QIwP--2VzWSt8",
+    version: "weekly",
+    libraries: ["maps", "places"],
+});
+
+const center = { lat: 46.8131873, lng:  8.22421 };
+const mapOptions = {
+    center: center,
+    zoom: 7,
+};
+
+
+loader
+    .importLibrary('maps')
+    .then(({Map}) => {
+        return new Map(document.getElementById("map"), mapOptions);
+    })
+    .catch((e) => {
+        console.warn('map not loaded', e);
+    });
+
 
 
 import.meta.glob([
@@ -36,18 +61,13 @@ tippy.setDefaultProps({
     ]
 });
 
-var cards = document.querySelectorAll('.card');
-
+let cards = document.querySelectorAll('.card');
 [...cards].forEach((card) => {
     card.addEventListener('click', function () {
         card.classList.toggle('is-flipped');
     });
 });
 
-
-new Glide('.glide', {
-
-}).mount({ Controls, Breakpoints })
 
 if (document.getElementsByClassName('glide').length > 0) {
     new Glide('.glide', {
@@ -57,9 +77,6 @@ if (document.getElementsByClassName('glide').length > 0) {
         breakpoints: {
             1200: {
                 perView: 3,
-            },
-            1200: {
-                perView: 2,
             },
             767: {
                 perView: 1,

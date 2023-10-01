@@ -1,0 +1,27 @@
+<option value="<?php echo e(__('cantons.ag')); ?>"><?php echo e(__('cantons.ag_loc')); ?></option>
+<option value="<?php echo e(__('cantons.ai')); ?>"><?php echo e(__('cantons.ai_loc')); ?></option>
+<option value="<?php echo e(__('cantons.ar')); ?>"><?php echo e(__('cantons.ar_loc')); ?></option>
+<option value="<?php echo e(__('cantons.bs')); ?>"><?php echo e(__('cantons.bs_loc')); ?></option>
+<option value="<?php echo e(__('cantons.bl')); ?>"><?php echo e(__('cantons.bl_loc')); ?></option>
+<option value="<?php echo e(__('cantons.be')); ?>"><?php echo e(__('cantons.be_loc')); ?></option>
+<option value="<?php echo e(__('cantons.fr')); ?>"><?php echo e(__('cantons.fr_loc')); ?></option>
+<option value="<?php echo e(__('cantons.ge')); ?>"><?php echo e(__('cantons.ge_loc')); ?></option>
+<option value="<?php echo e(__('cantons.gl')); ?>"><?php echo e(__('cantons.gl_loc')); ?></option>
+<option value="<?php echo e(__('cantons.gr')); ?>"><?php echo e(__('cantons.gr_loc')); ?></option>
+<option value="<?php echo e(__('cantons.ju')); ?>"><?php echo e(__('cantons.ju_loc')); ?></option>
+<option value="<?php echo e(__('cantons.lu')); ?>"><?php echo e(__('cantons.lu_loc')); ?></option>
+<option value="<?php echo e(__('cantons.ne')); ?>"><?php echo e(__('cantons.ne_loc')); ?></option>
+<option value="<?php echo e(__('cantons.nw')); ?>"><?php echo e(__('cantons.nw_loc')); ?></option>
+<option value="<?php echo e(__('cantons.ow')); ?>"><?php echo e(__('cantons.ow_loc')); ?></option>
+<option value="<?php echo e(__('cantons.sh')); ?>"><?php echo e(__('cantons.sh_loc')); ?></option>
+<option value="<?php echo e(__('cantons.sz')); ?>"><?php echo e(__('cantons.sz_loc')); ?></option>
+<option value="<?php echo e(__('cantons.so')); ?>"><?php echo e(__('cantons.so_loc')); ?></option>
+<option value="<?php echo e(__('cantons.sg')); ?>"><?php echo e(__('cantons.sg_loc')); ?></option>
+<option value="<?php echo e(__('cantons.tg')); ?>"><?php echo e(__('cantons.tg_loc')); ?></option>
+<option value="<?php echo e(__('cantons.ti')); ?>"><?php echo e(__('cantons.ti_loc')); ?></option>
+<option value="<?php echo e(__('cantons.ur')); ?>"><?php echo e(__('cantons.ur_loc')); ?></option>
+<option value="<?php echo e(__('cantons.vs')); ?>"><?php echo e(__('cantons.vs_loc')); ?></option>
+<option value="<?php echo e(__('cantons.vd')); ?>"><?php echo e(__('cantons.vd_loc')); ?></option>
+<option value="<?php echo e(__('cantons.zg')); ?>"><?php echo e(__('cantons.zg_loc')); ?></option>
+<option value="<?php echo e(__('cantons.zh')); ?>"><?php echo e(__('cantons.zh_loc')); ?></option>
+<?php /**PATH /home/nanstis/PhpstormProjects/pb-live/resources/views/common/cantons.blade.php ENDPATH**/ ?>

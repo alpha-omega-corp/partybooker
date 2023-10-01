@@ -176,7 +176,7 @@
                                                                         href="<?php echo e(url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner'))); ?>">
                                                                         <button type="button"
                                                                             class="btn btn-primary register">
-                                                                            <i class="bi bi-arrow-right"></i>
+                                                                            <?php echo e(svg('heroicon-m-arrow-long-right')); ?>
                                                                         </button>
                                                                     </a>
                                                                 </div>

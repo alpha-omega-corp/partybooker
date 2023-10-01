@@ -9,7 +9,7 @@
                     <div class="col-md-4">
                         <?php if($partner->main_img): ?>
                             <img src="<?php echo e(asset('storage/images/thumbnails/' . $partner->main_img)); ?>"
-                                alt="<?php echo e($partner->main_img); ?>" class="cover">
+                                alt="<?php echo e($partner->main_img); ?>" class="cover rounded">
                         <?php else: ?>
                             <img src="//via.placeholder.com/700x1000/fc0?text=6" class="cover rounded" alt="...">
                         <?php endif; ?>
@@ -38,7 +38,7 @@
 
                             <div class="d-flex location-box">
                                 <div class="location">
-                                    <img src="<?php echo e(asset('images/map.svg')); ?>" />
+                                    <img src="<?php echo e(Vite::image('map.svg')); ?>" />
                                 </div>
 
                                 <p class="w-full">

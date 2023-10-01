@@ -214,7 +214,10 @@
                     @for ($i = 0; $i < 7; $i++)
 
                             <div class="col-lg-6">
-                                <h4 class="text-uppercase text-start">{{__('usp.title-' . $i + 1) }}</h4>
+                                <h4 class="text-uppercase text-start">
+                                    <span class="text-info fw-bold">{{ $i + 1 }}.</span>
+                                    {{__('usp.title-' . $i + 1) }}
+                                </h4>
                                 <p>{{__('usp.text-' . $i + 1) }}</p>
                             </div>
 
@@ -223,7 +226,7 @@
                 </div>
             </div>
         </section>
-
-
     </div>
+
+    @include('common.partner-register')
 @endsection
