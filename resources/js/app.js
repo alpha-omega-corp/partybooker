@@ -51,6 +51,8 @@ new Glide('.glide', {
 
 if (document.getElementsByClassName('glide').length > 0) {
     new Glide('.glide', {
+        type: 'carousel',
+        keyboard: true,
         perView: 4,
         breakpoints: {
             1200: {

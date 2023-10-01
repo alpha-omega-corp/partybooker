@@ -206,8 +206,8 @@
         </div>
 
         <section class="categories">
-            <div class="items">
 
+            <div class="items">
                 <div class="container">
                     <div class="row d-flex justify-content-center">
                         @foreach ($menuCats as $key => $category)
@@ -220,7 +220,6 @@
                             <div class="scene scene--card ">
                                 <div class="card shadow-lg">
                                     <div class="card__face card__face--front bg-shiny">
-
 
                                         <h3 class="text-uppercase display-6 fw-bolder text-white">
                                             {{ $category->lang->name }}

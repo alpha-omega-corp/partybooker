@@ -11,7 +11,7 @@
 
 .parallax__group_services {
     position: relative;
-    height: 1000px;
+    height: 800px;
     transform-style: preserve-3d;
 
 }
@@ -23,7 +23,7 @@
     }
 
     .parallax__group_services {
-        height: 850px;
+        height: 700px;
     }
 }
 
@@ -59,7 +59,7 @@
 .hero-text-two {
     background-size: cover;
     transform: translateZ(0) scale(1);
-    border-bottom: 10px solid $premium;
+    border-bottom: 10px solid $secondary;
 }
 
 [x-cloak] {
@@ -272,7 +272,7 @@ a {
 .top-services {
 
     .glide__track {
-        margin: 40px;
+        margin: 10px;
     }
 
     .glide__ {
@@ -287,6 +287,7 @@ a {
         border-bottom-right-radius: 30%;
         padding: 20px;
         padding-bottom: 40px;
+        margin-bottom: 80px;
     }
 
     .glide__slide:hover {
@@ -297,7 +298,7 @@ a {
     }
 
     .glide__slide {
-        padding: 20px;
+        padding: 5px;
 
         .card {
             color: #fff;
@@ -368,7 +369,7 @@ a {
             position: absolute;
 
             img {
-                width: 50px;
+                width: 20px;
             }
 
             .sr-only {
@@ -402,7 +403,6 @@ a {
     .glide__bullets {
 
         margin-top: 20px;
-        background-color: rgba(0, 0, 0, .125);
         border-radius: 20px;
 
         img {
@@ -416,7 +416,8 @@ a {
     }
 
     .glide__bullet--active {
-        background: $primary;
+        background: $info;
+        opacity: 80;
         color: #fff;
     }
 
@@ -432,7 +433,15 @@ a {
 .categories {
     height: 100%;
 
+    h2 {
+        color: #fff;
+        text-align: start;
+        font-weight: bolder;
+        padding: 50px;
+    }
+
     .items {
+        padding-top: 80px;
         background-image: linear-gradient($primary, $secondary);
 
     }
@@ -440,9 +449,9 @@ a {
     .scene {
         display: inline-block;
         width: 400px;
-        height: 300px;
+        height: 200px;
         /*   border: 1px solid #CCC; */
-        margin: 40px 0;
+        margin: 12px 0;
         perspective: 600px;
 
         img {
@@ -458,15 +467,13 @@ a {
             transform-style: preserve-3d;
             transform-origin: center right;
             transition: transform .4s;
+            background-color: transparent;
+
 
             h3 {
                 margin-bottom: 0;
                 padding: 10px;
             }
-        }
-
-        .card:hover {
-            transform: scale();
         }
 
         .card.is-flipped {
@@ -484,6 +491,7 @@ a {
 
         .card__face--front {
             position: relative;
+            overflow-y: hidden;
 
             .title {
                 margin-bottom: 20px;
@@ -493,11 +501,12 @@ a {
         .card__face--back {
             background-color: $secondary;
             transform: rotateY(180deg);
-            border-bottom: 2px solid $premium;
+            overflow: scroll;
 
             .sub-categories {
 
                 ul {
+                    background-color: $secondary;
                     color: $info;
                     list-style-type: decimal-leading-zero;
 
@@ -1132,12 +1141,6 @@ a {
 
 // Applies Small
 @media only screen and (max-width : 767px) {
-    .top-services {
-        h2 {
-            margin-bottom: 80px;
-        }
-    }
-
     .listing {
         .breadcrumb {
             font-size: smaller;
@@ -1288,7 +1291,7 @@ a {
     align-items: center;
     justify-content: center;
     background-size: 300% 300%;
-    background-image: linear-gradient(-45deg, rgb(0, 134, 217) 0%, rgb(108, 0, 174) 25%, rgb(197, 105, 0) 51%, #ff357f 100%);
+    background-image: linear-gradient(-45deg, $secondary 0%, $primary 25%, $accent 51%, #ff357f 100%);
     -webkit-animation: AnimateBG 3s ease infinite;
     animation: AnimateBG 3s ease infinite;
 }

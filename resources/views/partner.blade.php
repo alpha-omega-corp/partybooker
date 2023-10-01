@@ -46,7 +46,7 @@
                         <ul>
                             <li>
                                 <div class="d-flex">
-                                    <img src="{{ asset('images/shuttle.svg') }}" alt="advantages" width="24"
+                                    <img src="{{ Vite::image('shuttle.svg') }}" alt="advantages" width="24"
                                         class="mt-4">
                                     <h3>{{ __('become_partner.b1') }}</h3>
                                 </div>
@@ -89,7 +89,7 @@
                                 </div>
                                 <ul>
                                     <li>
-                                        <img src="{{ asset('images/options.svg') }}" alt="category" />
+                                        <img src="{{ Vite::image('options.svg') }}" alt="category" />
                                         @foreach ($plan->options as $option)
                                             <span> {{ $option['name'] }} </span>
                                             @if (!$loop->last)
@@ -99,20 +99,20 @@
                                     </li>
 
                                     <li>
-                                        <img src="{{ asset('images/picture.svg') }}" alt="picture" />
+                                        <img src="{{ Vite::image('picture.svg') }}" alt="picture" />
 
                                         <span>{{ $plan->photos_num }}
                                             {{ __('become_partner.photos') }}</span>
                                     </li>
                                     @if ($plan->video == 1)
                                         <li>
-                                            <img src="{{ asset('images/video-player.svg') }}" alt="video" />
+                                            <img src="{{ Vite::image('video-player.svg') }}" alt="video" />
                                             <span>{{ __('become_partner.video') }}</span>
                                         </li>
                                     @endif
                                     @if ($plan->direct_request == 1)
                                         <li>
-                                            <img src="{{ asset('images/network.svg') }}" alt="network" />
+                                            <img src="{{ Vite::image('network.svg') }}" alt="network" />
 
                                             <span>{{ __('become_partner.direct_request') }}</span>
                                         </li>
