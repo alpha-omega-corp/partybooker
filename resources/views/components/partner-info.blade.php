@@ -7,28 +7,27 @@
 
 
 
-<div x-data="{show: false}" class="position-relative partner-info-tippy" data-tippy-content="{{$tooltip}}">
+<div x-data="{show: false}" class="partner-info-tippy m-2" data-tippy-content="{{$tooltip}}">
+    <div class="info-element">
+        <div class="d-flex">
 
-    <div class="details-info rounded-circle">
-        <div x-show="!show" @click="show = true" class="icon">
-            @svg($icon)
-        </div>
-
-        <div class="position-relative">
-            <div x-show="show" class="bg-secondary element">
-                <div @click="show = false" class="element-back bg-primary d-flex justify-content-center align-items-center" style="height: 40px" >
-                    @svg('heroicon-o-arrow-up-left')
-                </div>
+            <div @click="show = !show">
+                <span class="icon">
+                    @svg($icon)
+                </span>
             </div>
 
-
+            <div x-show="show" class="w-100">
+                <a class="text-nowrap m-2 text-lowercase" href="{{ $type . ':' . $content }}">
+                    {{ $content }}
+                </a>
+            </div>
         </div>
     </div>
-
-    <div x-show="show" class="position-absolute top-50">
-        <a class="text-center" href="{{ $type . ':' . $content }}">
-            {{ $content }}
-        </a>
-    </div>
-
 </div>
+
+
+
+
+
+

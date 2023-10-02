@@ -19,6 +19,8 @@
                     @endif
                 </h1>
 
+
+
                 <div class="partner-logo">
                     @if ($partner->logo)
                         <img src="{{ '/storage/logos/' . $partner->logo }}" alt="Rejoindre notre sélection pour augmenter votre chiffre d'affaire" class="logo"/>
@@ -28,6 +30,15 @@
                 </div>
             </div>
 
+            <div class="d-flex stars">
+                @for ($i = 1; $i <= 5; $i++)
+                    @if ($i <= $partner->average_rate)
+                        <img src="{{Vite::image('star.svg')}}" alt="star" width="24" height="24" class="star-img">
+                    @else
+                        @include('common.star')
+                    @endif
+                @endfor
+            </div>
 
 
             <hr>
@@ -38,8 +49,7 @@
                        class="btn btn-orange">{{ __('service.contact') }}</a>
                 </div>
             @else
-                <div>
-
+                <div class="d-flex">
                     <x-partner-info
                         icon="heroicon-o-phone"
                         tooltip="Company Phone"
@@ -64,6 +74,8 @@
                         content="{{$partner->address}}"
                         type="loc"/>
 
+
+
                     <?php $networks = ['Facebook', 'Twitter', 'Instagram', 'Linkedin', 'Vimeo', 'Youtube']; ?>
                     @foreach ($networks as $network)
                         <?php $lc = strtolower($network); ?>
@@ -79,18 +91,110 @@
                     @endforeach
                @endif
 
+        </div>
+
+        <x-tab.index :tabs="[
+            __('service.description'),
+            __('service.general_info'),
+            __('service.schedule'),
+            __('service.rates'),
+            __('service.video'),
+        ]">
+            <!-- Description -->
+            <x-tab.item :title="$partner->slogan">
+
+                <div class="tab" id="description">
+                    <span class="slogan">
+                        @if (app()->getLocale() == 'en')
+                            “ {{ $partner->en_slogan }} ”
+                        @else
+                            “ {{ $partner->fr_slogan }} ”
+                        @endif
+                    </span>
+                    <p>
+                        @if (app()->getLocale() == 'en')
+                            {!! $partner->en_full_descr !!} ”
+                        @else
+                            {!! $partner->fr_full_descr !!} ”
+                        @endif
+                    </p>
+
+                    <p>
+                        @php
+                            $languages = [];
+                            if ($partner->language) {
+                                foreach (json_decode($partner->language) ?? [] as $lang) {
+                                    if ($lang == 'other') {
+                                        continue;
+                                    }
+                                    $languages[] = __('partybooker-cp.' . trim($lang));
+                                }
+                            }
+                        @endphp
+                        <span>{{ __('become_partner.languages') }}:</span>
+                        {{ implode(', ', $languages) }}{{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
+                    </p>
                 </div>
 
+            </x-tab.item>
 
-        <ul class="stars service-page">
-            @for ($i = 1; $i <= 5; $i++)
-                @if ($i <= $partner->average_rate)
-                    @include('common.star-selected')
-                @else
-                    @include('common.star')
-                @endif
-            @endfor
-        </ul>
+            <!-- Information -->
+            <x-tab.item>
+
+                <div class="tab" id="general">
+                    @foreach ($partner->services as $advert)
+                        @include('service-tabs.' . $advert->view_name . '.general', [
+                            'details' => $advert->service,
+                        ])
+                    @endforeach
+                </div>
+
+            </x-tab.item>
+
+            <!-- Schedules -->
+            <x-tab.item>
+                <div class="tab" id="schedule">
+                    @foreach ($partner->services as $advert)
+                        @include('service-tabs.' . $advert->view_name . '.schedule', [
+                            'details' => $advert->service,
+                        ])
+                    @endforeach
+
+                </div>
+            </x-tab.item>
+
+            <!-- Rates -->
+            <x-tab.item>
+                <div class="tab" id="rates">
+                    @foreach ($partner->services as $advert)
+                        @include('service-tabs.' . $advert->view_name . '.rates', [
+                            'details' => $advert->service,
+                        ])
+                    @endforeach
+                </div>
+            </x-tab.item>
+
+            <!-- Video -->
+            <x-tab.item>
+                <div class="tab" id="video">
+                    @if ($partner->youtube)
+                            <?php
+                            $youtube = preg_replace('/watch\?v=/', 'embed/', $partner->youtube);
+                            $youtube = str_replace('https://youtu.be/', 'https://www.youtube.com/embed/', $youtube);
+                            ?>
+                        <iframe width="420" height="315" src="{{ $youtube }}" frameborder="0"
+                                allowfullscreen></iframe>
+                    @endif
+                    @if ($partner->vimeo)
+                        <iframe width="420" height="315"
+                                src="{{ str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/', $partner->vimeo) }}"
+                                frameborder="0" allow="fullscreen"/>
+                    @endif
+                </div>
+            </x-tab.item>
+        </x-tab.index>
+
+
 
         @if (Auth::user() && Auth::user()->type != 'partner')
             <span class="rating" data-service="{{ $partner->id_partner }}" data-user="{{ Auth::user()->email }}">
@@ -110,89 +214,17 @@
 
         <div class="tab-nav">
             <ul>
-                <li class="active" tab="description">{{ __('service.description') }}</li>
-                @if (!in_array(strtolower($partner->currentPlan->name), ['basic', 'commission']))
-                    <li tab="general">{{ __('service.general_info') }}</li>
-                    <li tab="schedule">{{ __('service.schedule') }}</li>
-                    <li tab="rates">{{ __('service.rates') }}</li>
-                    @if ($partner->vimeo || $partner->youtube)
-                        <li tab="video">{{ __('service.video') }}</li>
-                    @endif
-                @endif
+
             </ul>
         </div>
         <div class="tabs">
-            <div class="tab" id="description">
-                    <span class="slogan">
-                        @if (app()->getLocale() == 'en')
-                            “ {{ $partner->en_slogan }} ”
-                        @else
-                            “ {{ $partner->fr_slogan }} ”
-                        @endif
-                    </span>
-                <p>
-                    @if (app()->getLocale() == 'en')
-                        {!! $partner->en_full_descr !!} ”
-                    @else
-                        {!! $partner->fr_full_descr !!} ”
-                    @endif
-                </p>
 
-                <p>
-                    @php
-                        $languages = [];
-                        if ($partner->language) {
-                            foreach (json_decode($partner->language) ?? [] as $lang) {
-                                if ($lang == 'other') {
-                                    continue;
-                                }
-                                $languages[] = __('partybooker-cp.' . trim($lang));
-                            }
-                        }
-                    @endphp
-                    <span>{{ __('become_partner.languages') }}:</span>
-                    {{ implode(', ', $languages) }}{{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
-                </p>
-            </div>
 
-            <div class="tab" id="general">
-                @foreach ($partner->services as $advert)
-                    @include('service-tabs.' . $advert->view_name . '.general', [
-                        'details' => $advert->service,
-                    ])
-                @endforeach
-            </div>
-            <div class="tab" id="schedule">
-                @foreach ($partner->services as $advert)
-                    @include('service-tabs.' . $advert->view_name . '.schedule', [
-                        'details' => $advert->service,
-                    ])
-                @endforeach
 
-            </div>
-            <div class="tab" id="rates">
-                @foreach ($partner->services as $advert)
-                    @include('service-tabs.' . $advert->view_name . '.rates', [
-                        'details' => $advert->service,
-                    ])
-                @endforeach
-            </div>
 
-            <div class="tab" id="video">
-                @if ($partner->youtube)
-                        <?php
-                        $youtube = preg_replace('/watch\?v=/', 'embed/', $partner->youtube);
-                        $youtube = str_replace('https://youtu.be/', 'https://www.youtube.com/embed/', $youtube);
-                        ?>
-                    <iframe width="420" height="315" src="{{ $youtube }}" frameborder="0"
-                            allowfullscreen></iframe>
-                @endif
-                @if ($partner->vimeo)
-                    <iframe width="420" height="315"
-                            src="{{ str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/', $partner->vimeo) }}"
-                            frameborder="0" allow="fullscreen"></iframe>
-                @endif
-            </div>
+
+
+
         </div>
         </div>
 

@@ -98,53 +98,76 @@ a {
         margin-left: 20px;
     }
 
-    .details-info:hover {
-        transition: .2s;
-        transform: scale(1.1);
+    ul {
+        padding: 0;
     }
 
-    .details-info {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        justify-content: center;
-        align-items: center;
-        width: 150px;
-        height: 150px;
-        cursor: pointer;
-        margin: 20px;
-        font-weight: bold;
-        text-align: center;
-        overflow: hidden;
+    .tab-menu {
+        margin-top: 100px;
 
-
-        .element {
-            height: 100%;
-            width: 100%;
+        .active-tab {
+            background-color: $primary;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            padding-top: 20px;
         }
 
-        .element-back:hover {
-            border-bottom: 1px solid;
-        }
+        .partner-ad-menu:hover {
+            background-color: $secondary;
 
-
-        .icon {
-            svg {
-                width: 150px;
-                height: 150px;
-                background: linear-gradient($primary, $info);
-                padding: 25px;
+            .tab {
+                color: $info;
+                padding-top: 20px;
+                transition: .2s;
             }
         }
 
+        .partner-ad-menu {
+            list-style-type: none;
+            border: 1px solid $white;
+            border-bottom: 0;
+        }
+
+        .tab-list {
+            border-bottom: 2px solid $white;
+        }
+
+        .tab-btn {
+            border-radius: 0;
+        }
+
+        .tab-content {
+            border-left: 1px solid $white;
+        }
+    }
+
+    .info-element {
+        cursor: pointer;
+        padding-bottom: 10px;
 
         a {
             color: $info;
             font-weight: bold;
+            margin-top: 10px;
+            margin-right: 10px;
         }
-
-
     }
 
+    .icon {
+        cursor: pointer;
+        margin: 20px;
+        border-bottom: 2px solid $premium;
+        padding-bottom: 20px;
+
+        svg {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+
 }
+
 
 .usp {
     margin-top: 150px;

@@ -1,1 +1,0 @@
-<?php /**PATH /home/nanstis/PhpstormProjects/pb-live/resources/views/common/partner-phone.blade.php ENDPATH**/ ?>
