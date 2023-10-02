@@ -169,6 +169,15 @@ class DatabaseSeeder extends Seeder
             'plan' => 'exclusif',
             'en_slogan' => 'SLogna',
             'fr_slogan' => 'SLogna',
+
+            'www' => 'https://www.' . $slug . '.ch',
+            'facebook' => 'https://www.facebook.com/' . $slug,
+            'instagram' => 'https://www.instagram.com/' . $slug,
+            'linkedin' => 'https://www.linkedin.com/company/' . $slug,
+            'youtube' => 'https://www.youtube.com/' . $slug,
+            'twitter' => 'https://www.twitter.com/' . $slug,
+            'vimeo' => 'https://www.vimeo.com/' . $slug,
+
             'en_short_descr' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis dolor ligula, quis commodo arcu sollicitudin eu. Phasellus feugiat nisl non ex iaculis dictum. Aliquam',
             'fr_short_descr' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis dolor ligula, quis commodo arcu sollicitudin eu. Phasellus feugiat nisl non ex iaculis dictum. Aliquam',
             'en_full_descr' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis dolor ligula, quis commodo arcu sollicitudin eu. Phasellus feugiat nisl non ex iaculis dictum. Aliquam',

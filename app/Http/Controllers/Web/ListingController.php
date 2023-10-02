@@ -101,6 +101,7 @@ class ListingController extends Controller
 
         $query = $query->orderBy('priority');
 
+
         return view('web.listings.index', ['partners' => $query->paginate(20)->appends($query_params), 'categories' => $this->categories, 'eventTypes' => $this->eventTypes]);
     }
 
@@ -391,7 +392,13 @@ class ListingController extends Controller
             'partner' => $partner,
             'email' => $partner->user->email,
             'images' => $images,
-            'subCategories' => $subCategories
+            'subCategories' => $subCategories,
+            'adverts' => PartnersInfo::where('public', 1)
+                ->where('payment_status', 1)
+                ->orderBy('priority')
+                ->orderBy('average_rate', 'desc')
+                ->get()
+                ->all()
         ]);
     }
 }

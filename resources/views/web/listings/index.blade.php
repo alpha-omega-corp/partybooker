@@ -34,7 +34,7 @@
                 </ol>
             </nav>
 
-            @include('web.listings.partial.listing-content')
+            @include('web.listings.partial.partial-list')
         </div>
 
     </div>

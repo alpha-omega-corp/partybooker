@@ -5,105 +5,135 @@
 @endsection
 
 @section('content')
-    <section class="partner" data-id="{{ $partner->id_partner }}">
+    <div class="partner">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="container">
 
-        <div class="container">
-            @include('web.partial.back')
+                    @include('web.partial.back')
+                    <hr>
+                    <h3 class="text-uppercase fw-bold">Annonces similaire</h3>
 
-            <div class="d-flex">
-                <h1 class="display-1 fw-bold text-uppercase">
-                    @if (app()->getLocale() == 'en')
-                        {{ $partner->en_company_name }}
-                    @else
-                        {{ $partner->fr_company_name }}
-                    @endif
-                </h1>
+                    <div class="adverts">
+                        @foreach($adverts as $partner)
+                                <x-partner-adverts :partner="$partner"/>
+                        @endforeach
+                    </div>
 
-
-
-                <div class="partner-logo">
-                    @if ($partner->logo)
-                        <img src="{{ '/storage/logos/' . $partner->logo }}" alt="Rejoindre notre sélection pour augmenter votre chiffre d'affaire" class="logo"/>
-                    @else
-                        <img src="{{Vite::image('logoPB.png')}}" alt="logo" class="logo"/>
-                    @endif
                 </div>
             </div>
-
-            <div class="d-flex stars">
-                @for ($i = 1; $i <= 5; $i++)
-                    @if ($i <= $partner->average_rate)
-                        <img src="{{Vite::image('star.svg')}}" alt="star" width="24" height="24" class="star-img">
-                    @else
-                        @include('common.star')
-                    @endif
-                @endfor
-            </div>
-
-
-            <hr>
-
-            @if ($partner->is_commission)
-                <div class="details">
-                    <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/contacts') }}"
-                       class="btn btn-orange">{{ __('service.contact') }}</a>
-                </div>
-            @else
-                <div class="d-flex">
-                    <x-partner-info
-                        icon="heroicon-o-phone"
-                        tooltip="Company Phone"
-                        content="{{$partner->company_phone}}"
-                        type="tel"/>
-
-                    <x-partner-info
-                        icon="heroicon-o-envelope"
-                        tooltip="Company Email"
-                        content="{{$partner->user->email}}"
-                        type="email"/>
-
-                    <x-partner-info
-                        icon="heroicon-o-globe-alt"
-                        tooltip="Company Website"
-                        content="{{$partner->fr_company_name}}"
-                        type="web"/>
-
-                    <x-partner-info
-                        icon="heroicon-o-map-pin"
-                        tooltip="Company Location"
-                        content="{{$partner->address}}"
-                        type="loc"/>
-
-
-
-                    <?php $networks = ['Facebook', 'Twitter', 'Instagram', 'Linkedin', 'Vimeo', 'Youtube']; ?>
-                    @foreach ($networks as $network)
-                        <?php $lc = strtolower($network); ?>
-                        @if ($partner->$lc)
-                            <li class="{{ $lc }}">
-                                <a class="social-network"
-                                   style="text-decoration: underline; cursor: pointer; color:#007bc2; display: block"
-                                   href="{{ $partner->$lc }}" target="_blank">
-                                    {{ $network }}
-                                </a>
-                            </li>
+            <div class="col-md-8">
+                <section data-id="{{ $partner->id_partner }}">
+                    <div class="partner-logo">
+                        @if ($partner->logo)
+                            <img src="{{ '/storage/logos/' . $partner->logo }}"
+                                 alt="Rejoindre notre sélection pour augmenter votre chiffre d'affaire"
+                                 class="logo"/>
+                        @else
+                            <img src="{{Vite::image('logoPB.png')}}" alt="logo" class="logo"/>
                         @endif
-                    @endforeach
-               @endif
+                    </div>
+                    <div class="d-flex">
+                        <h1 class="display-3 fw-bold text-uppercase mt-5">
+                            @if (app()->getLocale() == 'en')
+                                {{ $partner->en_company_name }}
+                            @else
+                                {{ $partner->fr_company_name }}
+                            @endif
+                        </h1>
 
-        </div>
 
-        <x-tab.index :tabs="[
+
+                    </div>
+
+                    <div class="d-flex stars">
+
+                        @if (Auth::user() && Auth::user()->type != 'partner')
+                            <span class="rating" data-service="{{ $partner->id_partner }}"
+                                  data-user="{{ Auth::user()->email }}">
+                            </span>
+                        @else
+                            <span class="rating-login">{{ __('service.leave_rating') }}</span>
+                        @endif
+
+                        @for ($i = 1; $i <= 5; $i++)
+                            @if ($i <= $partner->average_rate)
+                                <img src="{{Vite::image('star.svg')}}" alt="star" width="24" height="24"
+                                     class="star-img">
+                            @else
+                                    <img src="{{Vite::image('star-outline-yellow.svg')}}" alt="star" width="24" height="24"
+                                         class="star-img">
+                            @endif
+                        @endfor
+                    </div>
+
+
+                    <hr>
+
+                    @if ($partner->is_commission)
+                        <div class="details">
+                            <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/contacts') }}"
+                               class="btn btn-orange">{{ __('service.contact') }}</a>
+                        </div>
+                    @else
+                        <div class="d-flex">
+                            <x-partner-info
+                                icon="heroicon-o-phone"
+                                tooltip="Company Phone"
+                                content="{{$partner->company_phone}}"
+                                type="tel"/>
+
+                            <x-partner-info
+                                icon="heroicon-o-envelope"
+                                tooltip="Company Email"
+                                content="{{$partner->user->email}}"
+                                type="email"/>
+
+                            <x-partner-info
+                                icon="heroicon-o-globe-alt"
+                                tooltip="Company Website"
+                                content="{{$partner->fr_company_name}}"
+                                type="web"/>
+
+                            <x-partner-info
+                                icon="heroicon-o-map-pin"
+                                tooltip="Company Location"
+                                content="{{$partner->address}}"
+                                type="loc"/>
+
+
+                            <div class="d-flex justify-content-end w-100">
+                                    <?php $networks = ['Facebook', 'Twitter', 'Instagram', 'Linkedin', 'Vimeo', 'Youtube']; ?>
+                                @foreach ($networks as $network)
+                                        <?php $lc = strtolower($network); ?>
+                                    @if ($partner->$lc)
+                                        <a class="m-2"
+                                           style="text-decoration: underline; cursor: pointer; color:#007bc2; display: block"
+                                           href="{{ $partner->$lc }}" target="_blank">
+                                            <img src="{{Vite::image(strtolower($network) . '.svg')}}"
+                                                 alt="{{ $network }}"
+                                                 width="24" height="24" class="star-img">
+                                        </a>
+                                    @endif
+                                @endforeach
+                            </div>
+                            @endif
+                        </div>
+
+
+
+
+                        <x-tab.index :tabs="[
             __('service.description'),
             __('service.general_info'),
             __('service.schedule'),
             __('service.rates'),
             __('service.video'),
         ]">
-            <!-- Description -->
-            <x-tab.item :title="$partner->slogan">
+                            <!-- Description -->
+                            <x-tab.item :title="$partner->slogan">
 
-                <div class="tab" id="description">
+                                <div class="tab" id="description">
                     <span class="slogan">
                         @if (app()->getLocale() == 'en')
                             “ {{ $partner->en_slogan }} ”
@@ -111,198 +141,170 @@
                             “ {{ $partner->fr_slogan }} ”
                         @endif
                     </span>
-                    <p>
-                        @if (app()->getLocale() == 'en')
-                            {!! $partner->en_full_descr !!} ”
-                        @else
-                            {!! $partner->fr_full_descr !!} ”
-                        @endif
-                    </p>
+                                    <p>
+                                        @if (app()->getLocale() == 'en')
+                                            {!! $partner->en_full_descr !!} ”
+                                        @else
+                                            {!! $partner->fr_full_descr !!} ”
+                                        @endif
+                                    </p>
 
-                    <p>
-                        @php
-                            $languages = [];
-                            if ($partner->language) {
-                                foreach (json_decode($partner->language) ?? [] as $lang) {
-                                    if ($lang == 'other') {
-                                        continue;
-                                    }
-                                    $languages[] = __('partybooker-cp.' . trim($lang));
-                                }
-                            }
-                        @endphp
-                        <span>{{ __('become_partner.languages') }}:</span>
-                        {{ implode(', ', $languages) }}{{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
-                    </p>
-                </div>
+                                    <p>
+                                        @php
+                                            $languages = [];
+                                            if ($partner->language) {
+                                                foreach (json_decode($partner->language) ?? [] as $lang) {
+                                                    if ($lang == 'other') {
+                                                        continue;
+                                                    }
+                                                    $languages[] = __('partybooker-cp.' . trim($lang));
+                                                }
+                                            }
+                                        @endphp
+                                        <span>{{ __('become_partner.languages') }}:</span>
+                                        {{ implode(', ', $languages) }}{{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
+                                    </p>
+                                </div>
 
-            </x-tab.item>
+                            </x-tab.item>
 
-            <!-- Information -->
-            <x-tab.item>
+                            <!-- Information -->
+                            <x-tab.item>
 
-                <div class="tab" id="general">
-                    @foreach ($partner->services as $advert)
-                        @include('service-tabs.' . $advert->view_name . '.general', [
-                            'details' => $advert->service,
-                        ])
-                    @endforeach
-                </div>
+                                <div class="tab" id="general">
+                                    @foreach ($partner->services as $advert)
+                                        @include('service-tabs.' . $advert->view_name . '.general', [
+                                            'details' => $advert->service,
+                                        ])
+                                    @endforeach
+                                </div>
 
-            </x-tab.item>
+                            </x-tab.item>
 
-            <!-- Schedules -->
-            <x-tab.item>
-                <div class="tab" id="schedule">
-                    @foreach ($partner->services as $advert)
-                        @include('service-tabs.' . $advert->view_name . '.schedule', [
-                            'details' => $advert->service,
-                        ])
-                    @endforeach
+                            <!-- Schedules -->
+                            <x-tab.item>
+                                <div class="tab" id="schedule">
+                                    @foreach ($partner->services as $advert)
+                                        @include('service-tabs.' . $advert->view_name . '.schedule', [
+                                            'details' => $advert->service,
+                                        ])
+                                    @endforeach
 
-                </div>
-            </x-tab.item>
+                                </div>
+                            </x-tab.item>
 
-            <!-- Rates -->
-            <x-tab.item>
-                <div class="tab" id="rates">
-                    @foreach ($partner->services as $advert)
-                        @include('service-tabs.' . $advert->view_name . '.rates', [
-                            'details' => $advert->service,
-                        ])
-                    @endforeach
-                </div>
-            </x-tab.item>
+                            <!-- Rates -->
+                            <x-tab.item>
+                                <div class="tab" id="rates">
+                                    @foreach ($partner->services as $advert)
+                                        @include('service-tabs.' . $advert->view_name . '.rates', [
+                                            'details' => $advert->service,
+                                        ])
+                                    @endforeach
+                                </div>
+                            </x-tab.item>
 
-            <!-- Video -->
-            <x-tab.item>
-                <div class="tab" id="video">
-                    @if ($partner->youtube)
-                            <?php
-                            $youtube = preg_replace('/watch\?v=/', 'embed/', $partner->youtube);
-                            $youtube = str_replace('https://youtu.be/', 'https://www.youtube.com/embed/', $youtube);
-                            ?>
-                        <iframe width="420" height="315" src="{{ $youtube }}" frameborder="0"
-                                allowfullscreen></iframe>
-                    @endif
-                    @if ($partner->vimeo)
-                        <iframe width="420" height="315"
-                                src="{{ str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/', $partner->vimeo) }}"
-                                frameborder="0" allow="fullscreen"/>
-                    @endif
-                </div>
-            </x-tab.item>
-        </x-tab.index>
-
-
-
-        @if (Auth::user() && Auth::user()->type != 'partner')
-            <span class="rating" data-service="{{ $partner->id_partner }}" data-user="{{ Auth::user()->email }}">
-                    Leave a Rating
-                </span>
-        @else
-            <span class="rating-login">{{ __('service.leave_rating') }}</span>
-        @endif
-
-        <a href="#request-form" class="btn btn-md btn-success js-scroll-to float-right">{{ __('service.book_now') }}</a>
-
-
-        <div class="title">
-
-        </div>
-
-
-        <div class="tab-nav">
-            <ul>
-
-            </ul>
-        </div>
-        <div class="tabs">
-
-
-
-
-
-
-
-        </div>
-        </div>
-
-
-        <div class="row justify-content-center mt-30">
-            <div class="col-md-3">
-                <div class="contact-block">
-
-
-                </div>
+                            <!-- Video -->
+                            <x-tab.item>
+                                <div class="tab" id="video">
+                                    @if ($partner->youtube)
+                                            <?php
+                                            $youtube = preg_replace('/watch\?v=/', 'embed/', $partner->youtube);
+                                            $youtube = str_replace('https://youtu.be/', 'https://www.youtube.com/embed/', $youtube);
+                                            ?>
+                                        <iframe width="420" height="315" src="{{ $youtube }}" frameborder="0"
+                                                allowfullscreen></iframe>
+                                    @endif
+                                    @if ($partner->vimeo)
+                                        <iframe width="420" height="315"
+                                                src="{{ str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/', $partner->vimeo) }}"
+                                                frameborder="0" allow="fullscreen"/>
+                                    @endif
+                                </div>
+                            </x-tab.item>
+                        </x-tab.index>
+                </section>
             </div>
 
-            <div class="col-md-9">
+
+            <div class="row justify-content-center mt-30">
+                <div class="col-md-3">
+                    <div class="contact-block">
 
 
-                @if (strtolower($partner->currentPlan->name) == 'basic')
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button>
-                            <strong>{{ $message }}</strong>
-                        </div>
-                    @endif
-
-                    <!-- Button trigger modal -->
-                    <div class="d-flex">
-                        <button type="button" data-type="claim" class="button claim-request btn-orange mr-2"
-                                data-toggle="modal" data-target="#claim">
-                            {{ __('service.claim') }}
-                        </button>
-
-                        <button type="button" data-type="delete" class="button claim-request btn-orange"
-                                data-toggle="modal" data-target="#claim">{{ __('service.delete') }}</button>
                     </div>
+                </div>
 
-                    <!-- Modal -->
-                    <div class="standart-modal modal fade" id="claim" tabindex="-1" role="dialog"
-                         aria-labelledby="claimLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
+                <div class="col-md-9">
 
 
-                                <div class="modal-body">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <form id="claim-request-form" method="post"
-                                          action="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/contacts/claim-requests') }}">
-                                        @csrf
-                                        <h3>{{ __('service.claim_account') }}</h3>
-                                        <p>{{ __('service.claim_account_expl') }}</p>
-                                        <input type="hidden" id="request-type" name="request_type">
-                                        <input type="hidden" name="partner_id" value="{{ $partner->id }}">
-                                        <input type="email" name="email" placeholder="{{ __('service.email') }}">
-                                        <input type="text" name="phone" placeholder="{{ __('service.phone') }}">
-                                        <button type="submit" id="fs"
-                                                class="button btn-orange">{{ __('service.submit_request') }}</button>
-                                        <div style="color: black;" class="messages-list">
-                                        </div>
-                                    </form>
+                    @if (strtolower($partner->currentPlan->name) == 'basic')
+                        @if ($message = Session::get('success'))
+                            <div class="alert alert-success alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @endif
+
+                        <!-- Button trigger modal -->
+                        <div class="d-flex">
+                            <button type="button" data-type="claim" class="button claim-request btn-orange mr-2"
+                                    data-toggle="modal" data-target="#claim">
+                                {{ __('service.claim') }}
+                            </button>
+
+                            <button type="button" data-type="delete" class="button claim-request btn-orange"
+                                    data-toggle="modal" data-target="#claim">{{ __('service.delete') }}</button>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="standart-modal modal fade" id="claim" tabindex="-1" role="dialog"
+                             aria-labelledby="claimLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+
+
+                                    <div class="modal-body">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <form id="claim-request-form" method="post"
+                                              action="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/contacts/claim-requests') }}">
+                                            @csrf
+                                            <h3>{{ __('service.claim_account') }}</h3>
+                                            <p>{{ __('service.claim_account_expl') }}</p>
+                                            <input type="hidden" id="request-type" name="request_type">
+                                            <input type="hidden" name="partner_id" value="{{ $partner->id }}">
+                                            <input type="email" name="email" placeholder="{{ __('service.email') }}">
+                                            <input type="text" name="phone" placeholder="{{ __('service.phone') }}">
+                                            <button type="submit" id="fs"
+                                                    class="button btn-orange">{{ __('service.submit_request') }}</button>
+                                            <div style="color: black;" class="messages-list">
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endif
+                    @endif
+                </div>
             </div>
-        </div>
-        <div class="row mt-30">
-            <div class="col-12 gallery">
-                <?php $locale = app()->getLocale(); ?>
-                @foreach ($images as $img)
-                    <div class="gal-img">
-                        <img src="{{ asset('storage/images/thumbnails/' . $img->image_name) }}"
-                             alt="{{ $img['image_alt_' . $locale] }}" img-id="{{ $img->id }}"/>
-                    </div>
-                @endforeach
+            <div class="row mt-30">
+                <div class="col-12 gallery">
+                    <?php $locale = app()->getLocale(); ?>
+                    @foreach ($images as $img)
+                        <div class="gal-img">
+                            <img src="{{ asset('storage/images/thumbnails/' . $img->image_name) }}"
+                                 alt="{{ $img['image_alt_' . $locale] }}" img-id="{{ $img->id }}"/>
+                        </div>
+                    @endforeach
+                </div>
             </div>
+            </section>
         </div>
-    </section>
+
+    </div>
+    </div>
 
     <section id="service" class="location location-form-block">
         <div class="container">
