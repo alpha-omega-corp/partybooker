@@ -138,7 +138,7 @@
                             <div class="btn-group dropup">
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    <img src="<?php echo e(asset('images/ape.svg')); ?>" alt="mdo" width="24"
+                                    <img src="<?php echo e(Vite::image('ape.svg')); ?>" alt="mdo" width="24"
                                         height="24" class="rounded-circle mr-2">
                                 </button>
                                 <ul class="dropdown-menu">

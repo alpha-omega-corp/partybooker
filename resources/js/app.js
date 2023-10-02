@@ -7,7 +7,6 @@ import Glide, { Controls, Breakpoints } from '@glidejs/glide/dist/glide.modular.
 
 import { Loader } from "@googlemaps/js-api-loader"
 
-
 const loader = new Loader({
     apiKey: "AIzaSyBPleD5xW_3gBLeUfgdw-QIwP--2VzWSt8",
     version: "weekly",
@@ -52,6 +51,13 @@ tippy('.glide__bullet', {
     animation: 'scale',
     inertia: true,
     theme: 'top-services'
+});
+
+tippy('.partner-info-tippy', {
+    placement: 'left-start',
+    animation: 'scale',
+    inertia: true,
+    theme: 'partner-info-tippy'
 });
 
 tippy.setDefaultProps({

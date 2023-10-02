@@ -74,7 +74,6 @@ body {
 }
 
 a {
-    color: #fff;
     text-decoration: none;
 }
 
@@ -94,6 +93,57 @@ a {
 // Service Page
 .partner {
     color: #ffffff;
+
+    .partner-logo  {
+        margin-left: 20px;
+    }
+
+    .details-info:hover {
+        transition: .2s;
+        transform: scale(1.1);
+    }
+
+    .details-info {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        justify-content: center;
+        align-items: center;
+        width: 150px;
+        height: 150px;
+        cursor: pointer;
+        margin: 20px;
+        font-weight: bold;
+        text-align: center;
+        overflow: hidden;
+
+
+        .element {
+            height: 100%;
+            width: 100%;
+        }
+
+        .element-back:hover {
+            border-bottom: 1px solid;
+        }
+
+
+        .icon {
+            svg {
+                width: 150px;
+                height: 150px;
+                background: linear-gradient($primary, $info);
+                padding: 25px;
+            }
+        }
+
+
+        a {
+            color: $info;
+            font-weight: bold;
+        }
+
+
+    }
+
 }
 
 .usp {
