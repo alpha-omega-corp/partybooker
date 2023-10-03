@@ -14,36 +14,29 @@
         @endif
 
         <div class="card-img-overlay">
-            <h5 class="card-title text-uppercase text-primary fw-bolder">
+            <h5 class="card-title text-uppercase fw-bolder">
                 @if (app()->getLocale() == 'en')
                     {{ $partner->en_company_name }}
                 @else
                     {{ $partner->fr_company_name }}
                 @endif
             </h5>
-
-            <div class="text-truncate">
-                <p>
-                    <small>
-                        {{ __('cantons.' . strtolower($partner->location_code) . '_loc') }},
-                        {{ $partner->address }}
-                    </small>
-                </p>
-                <p class="card-text">
-
-                    <span class="loc">
-                        @if (app()->getLocale() == 'en')
-                            {!! $partner->en_slogan !!}
-                        @else
-                            {!! $partner->fr_slogan !!}
-                        @endif
-                    </span>
-
-
-                </p>
-            </div>
-
         </div>
 
+        <div class="text-truncate card-text">
+
+
+                    @if (app()->getLocale() == 'en')
+                        {!! $partner->en_slogan !!}
+                    @else
+                        {!! $partner->fr_slogan !!}
+                    @endif
+
+                <br>
+                <small class="font-monospace">
+                    {{ __('cantons.' . strtolower($partner->location_code) . '_loc') }},
+                    {{ $partner->address }}
+                </small>
+        </div>
     </div>
 </a>

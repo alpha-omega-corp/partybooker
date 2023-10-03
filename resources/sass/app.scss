@@ -99,6 +99,7 @@ a {
     .partner-details {
         background-color: rgba(0, 0, 0, 0.4);
         padding: 80px;
+        border-radius: 30px;
 
     }
     .partner-socials {
@@ -134,17 +135,38 @@ a {
         height: 80vh;
         overflow: scroll;
 
+        .card:hover {
+            border-left: $primary 2px solid;
+            transition: .1s;
 
+        }
 
         .card {
-            height: 180px;
+            height: 300px;
             margin: 20px;
             overflow: hidden;
             color: #fff;
             font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.4);
+
+
+            .card-title {
+                color: $purple-400;
+                border-bottom: 1px solid;
+                padding-bottom: 5px;
+            }
+
+            .card-text {
+                position: absolute;
+                bottom: 0;
+                padding: 20px;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.4);
+            }
 
             img {
-                filter: brightness(60%);
+                filter: brightness(90%);
+                object-fit: cover;
             }
         }
     }
