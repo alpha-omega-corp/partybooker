@@ -58,6 +58,11 @@ $modal-content-color: $white;
     font-weight: bold;
 }
 
+.tippy-box[data-theme~='back-page'] {
+    color: $info;
+    text-transform: uppercase;
+}
+
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/bootstrap/scss/maps";

@@ -9,41 +9,47 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="container">
+                        <div class="d-flex align-items-center">
+                            <x-back-page :tooltip="__('service.back') . ' ' . __('service.listings')"/>
 
-                    @include('web.partial.back')
-                    <hr>
-                    <h3 class="text-uppercase fw-bold">Annonces similaire</h3>
+                            <div class="justify-content-end p-4">
+                                <h3 class="text-uppercase fw-bold text-nowrap">
+                                    Annonces similaire
+                                </h3>
+                            </div>
+                        </div>
 
-                    <div class="adverts">
-                        @foreach($adverts as $partner)
-                                <x-partner-adverts :partner="$partner"/>
-                        @endforeach
-                    </div>
+                        <hr>
 
-                </div>
+                        <div class="adverts">
+                            @foreach($adverts as $ad)
+                                <x-partner-adverts :partner="$ad"/>
+                            @endforeach
+                        </div>
+
+               </div>
             </div>
             <div class="col-md-8">
-                <section data-id="{{ $partner->id_partner }}">
-                    <div class="partner-logo">
-                        @if ($partner->logo)
-                            <img src="{{ '/storage/logos/' . $partner->logo }}"
-                                 alt="Rejoindre notre sélection pour augmenter votre chiffre d'affaire"
-                                 class="logo"/>
-                        @else
-                            <img src="{{Vite::image('logoPB.png')}}" alt="logo" class="logo"/>
-                        @endif
-                    </div>
-                    <div class="d-flex">
-                        <h1 class="display-3 fw-bold text-uppercase mt-5">
-                            @if (app()->getLocale() == 'en')
-                                {{ $partner->en_company_name }}
+                <section data-id="{{ $partner->id_partner }}" class="partner-details">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <h1 class="display-3 fw-bold text-uppercase mt-5">
+                                @if (app()->getLocale() == 'en')
+                                    {{ $partner->en_company_name }}
+                                @else
+                                    {{ $partner->fr_company_name }}
+                                @endif
+                            </h1>
+                        </div>
+                        <div class="partner-logo">
+                            @if ($partner->logo)
+                                <img src="{{ '/storage/logos/' . $partner->logo }}"
+                                     alt="Rejoindre notre sélection pour augmenter votre chiffre d'affaire"
+                                     class="logo"/>
                             @else
-                                {{ $partner->fr_company_name }}
+                                <img src="{{Vite::image('logoPB.png')}}" alt="logo" class="logo"/>
                             @endif
-                        </h1>
-
-
-
+                        </div>
                     </div>
 
                     <div class="d-flex stars">
@@ -53,7 +59,7 @@
                                   data-user="{{ Auth::user()->email }}">
                             </span>
                         @else
-                            <span class="rating-login">{{ __('service.leave_rating') }}</span>
+                            <!-- <span class="rating-login">{{ __('service.leave_rating') }}</span>-->
                         @endif
 
                         @for ($i = 1; $i <= 5; $i++)
@@ -70,77 +76,79 @@
 
                     <hr>
 
-                    @if ($partner->is_commission)
-                        <div class="details">
-                            <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/contacts') }}"
-                               class="btn btn-orange">{{ __('service.contact') }}</a>
-                        </div>
-                    @else
-                        <div class="d-flex">
-                            <x-partner-info
-                                icon="heroicon-o-phone"
-                                tooltip="Company Phone"
-                                content="{{$partner->company_phone}}"
-                                type="tel"/>
-
-                            <x-partner-info
-                                icon="heroicon-o-envelope"
-                                tooltip="Company Email"
-                                content="{{$partner->user->email}}"
-                                type="email"/>
-
-                            <x-partner-info
-                                icon="heroicon-o-globe-alt"
-                                tooltip="Company Website"
-                                content="{{$partner->fr_company_name}}"
-                                type="web"/>
-
-                            <x-partner-info
-                                icon="heroicon-o-map-pin"
-                                tooltip="Company Location"
-                                content="{{$partner->address}}"
-                                type="loc"/>
+                    <div class="d-flex">
 
 
-                            <div class="d-flex justify-content-end w-100">
-                                    <?php $networks = ['Facebook', 'Twitter', 'Instagram', 'Linkedin', 'Vimeo', 'Youtube']; ?>
-                                @foreach ($networks as $network)
-                                        <?php $lc = strtolower($network); ?>
-                                    @if ($partner->$lc)
-                                        <a class="m-2"
-                                           style="text-decoration: underline; cursor: pointer; color:#007bc2; display: block"
-                                           href="{{ $partner->$lc }}" target="_blank">
-                                            <img src="{{Vite::image(strtolower($network) . '.svg')}}"
-                                                 alt="{{ $network }}"
-                                                 width="24" height="24" class="star-img">
-                                        </a>
-                                    @endif
-                                @endforeach
-                            </div>
+                        <div>
+                            @if ($partner->is_commission)
+                                <div class="details">
+                                    <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/contacts') }}"
+                                       class="btn btn-orange">{{ __('service.contact') }}</a>
+                                </div>
+                            @else
+                                <div class="d-flex">
+                                    <x-partner-info
+                                        icon="heroicon-o-phone"
+                                        tooltip="Company Phone"
+                                        content="{{$partner->company_phone}}"
+                                        type="tel"/>
+
+                                    <x-partner-info
+                                        icon="heroicon-o-envelope"
+                                        tooltip="Company Email"
+                                        content="{{$partner->user->email}}"
+                                        type="email"/>
+
+                                    <x-partner-info
+                                        icon="heroicon-o-globe-alt"
+                                        tooltip="Company Website"
+                                        content="{{$partner->fr_company_name}}"
+                                        type="web"/>
+
+                                    <x-partner-info
+                                        icon="heroicon-o-map-pin"
+                                        tooltip="Company Location"
+                                        content="{{$partner->address}}"
+                                        type="loc"/>
+
+                                </div>
                             @endif
                         </div>
 
-
-
+                        <div class="d-flex justify-content-start">
+                            <?php $networks = ['Facebook', 'Twitter', 'Instagram', 'Linkedin', 'Vimeo', 'Youtube']; ?>
+                            @foreach ($networks as $network)
+                                    <?php $lc = strtolower($network); ?>
+                                @if ($partner->$lc)
+                                    <a class="m-2"
+                                       style="text-decoration: underline; cursor: pointer; color:#007bc2; display: block"
+                                       href="{{ $partner->$lc }}" target="_blank">
+                                        <img src="{{Vite::image(strtolower($network) . '.svg')}}"
+                                             alt="{{ $network }}"
+                                             width="24" height="24" class="star-img">
+                                    </a>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
 
                         <x-tab.index :tabs="[
-            __('service.description'),
-            __('service.general_info'),
-            __('service.schedule'),
-            __('service.rates'),
-            __('service.video'),
-        ]">
+                            __('service.description'),
+                            __('service.general_info'),
+                            __('service.schedule'),
+                            __('service.rates'),
+                            __('service.video'),
+                        ]">
                             <!-- Description -->
                             <x-tab.item :title="$partner->slogan">
-
                                 <div class="tab" id="description">
-                    <span class="slogan">
-                        @if (app()->getLocale() == 'en')
-                            “ {{ $partner->en_slogan }} ”
-                        @else
-                            “ {{ $partner->fr_slogan }} ”
-                        @endif
-                    </span>
+                                    <span class="slogan">
+                                        @if (app()->getLocale() == 'en')
+                                            “ {{ $partner->en_slogan }} ”
+                                        @else
+                                            “ {{ $partner->fr_slogan }} ”
+                                        @endif
+                                    </span>
                                     <p>
                                         @if (app()->getLocale() == 'en')
                                             {!! $partner->en_full_descr !!} ”
@@ -165,12 +173,10 @@
                                         {{ implode(', ', $languages) }}{{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
                                     </p>
                                 </div>
-
                             </x-tab.item>
 
                             <!-- Information -->
                             <x-tab.item>
-
                                 <div class="tab" id="general">
                                     @foreach ($partner->services as $advert)
                                         @include('service-tabs.' . $advert->view_name . '.general', [

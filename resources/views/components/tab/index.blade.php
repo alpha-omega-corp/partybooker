@@ -33,27 +33,31 @@
             @keydown.page-down.prevent.stop="$focus.last()"
             role="tablist"
             class="d-flex tab-list">
+
             @foreach($tabs as $tab)
-                <li class="partner-ad-menu">
+                <li class="partner-ad-menu d-flex">
                     <button
                         :id="$id('tab', whichChild($el.parentElement, $refs.tablist))"
                         @click="select($el.id)"
                         @mousedown.prevent
                         @focus="select($el.id)"
                         type="button"
-                        :tabindex="isSelected($el.id) ? 0 : -1"
+                        :tabindex="isSelected($el.id) ? 0 : 1"
                         :aria-selected="isSelected($el.id)"
-                        :class="isSelected($el.id) ? 'active-tab' : 'tab'"
-                        class="btn tab-btn"
+                        ::class="isSelected($el.id) ? 'active-tab' : 'tab'"
+                        class="btn tab-btn d-flex flex-grow-1 justify-content-center align-items-center fw-bold text-uppercase"
                         role="tab">
-                    <span class="text-uppercase fw-bold">
                         {{$tab}}
-                    </span>
                     </button>
+
                 </li>
             @endforeach
+
         </ul>
+        {{$slot}}
+
+
     </div>
 
-    {{$slot}}
+
 </div>

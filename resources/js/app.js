@@ -4,6 +4,7 @@ import Alpine from 'alpinejs';
 import tippy, { animateFill } from 'tippy.js';
 import 'tippy.js/animations/scale.css';
 import Glide, { Controls, Breakpoints } from '@glidejs/glide/dist/glide.modular.esm'
+import focus from '@alpinejs/focus';
 
 import { Loader } from "@googlemaps/js-api-loader"
 
@@ -37,6 +38,7 @@ import.meta.glob([
 ]);
 
 window.Alpine = Alpine;
+Alpine.plugin(focus);
 Alpine.start();
 
 tippy('.nav-item', {
@@ -59,6 +61,15 @@ tippy('.partner-info-tippy', {
     inertia: true,
     theme: 'partner-info-tippy'
 });
+
+tippy('.back-page', {
+    placement: 'top-start',
+    animation: 'scale',
+    inertia: true,
+    theme: 'back-page'
+});
+
+
 
 tippy.setDefaultProps({
     delay: 50,
