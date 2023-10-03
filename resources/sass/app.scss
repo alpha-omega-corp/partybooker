@@ -106,15 +106,14 @@ a {
     }
 
     .advert-container {
-        margin-top: 350px;
+        margin-top: 50px;
     }
 
     .partner-logo {
-        height: 100px;
-        overflow: hidden;
 
         img {
-            object-fit: contain;
+            height: 100px;
+
         }
     }
 
@@ -237,7 +236,10 @@ a {
                 color: $info;
                 background-color: $secondary;
                 padding: 10px;
-                border-radius: 10px;
+            }
+
+            .card-img-overlay {
+                padding: 0;
             }
 
             .card-text {

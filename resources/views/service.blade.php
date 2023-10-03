@@ -108,27 +108,8 @@
                     <hr>
 
                     <div class="row">
-                        <div class="col-4">
-                            <div class="row d-flex gallery">
-                                <?php $locale = app()->getLocale(); ?>
-                                @if(config('app.url') == 'http://localhost')
-                                    @for ($i = 1; $i <= 20; $i++)
-                                        <div class="col-4 mb-4 gallery-image gal-img">
-                                            <img src="//via.placeholder.com/100x200/fc0?text=6" class="card-img" alt="...">
-                                        </div>
-                                    @endfor
-                                @else
-                                    @foreach ($images as $img)
-                                    <div class="col-6 mb-4 gallery-image gal-img">
-                                        <img src="{{ '/storage/images/thumbnails/' . $img->image_name }}"
-                                             alt="{{ $img['image_alt_' . $locale] }}" img-id="{{ $img->id }}"/>
-                                    </div>
-                                    @endforeach
-                                @endif
-                            </div>
-                        </div>
 
-                        <div class="col-8">
+                        <div class="col-7">
 
                             <div>
                                 <x-tab.index :tabs="[
@@ -137,7 +118,7 @@
                             __('service.schedule'),
                             __('service.rates'),
                             __('service.video'),
-                        ]">
+                            ]">
                                     <!-- Description -->
                                     <x-tab.item>
                                         <h5 class="fw-bold text-uppercase">
@@ -220,6 +201,27 @@
                                     </x-tab.item>
                                 </x-tab.index>
                             </div>
+
+                            <div class="col-5">
+                                <div class="row d-flex gallery">
+                                    <?php $locale = app()->getLocale(); ?>
+                                    @if(config('app.url') == 'http://localhost')
+                                        @for ($i = 1; $i <= 20; $i++)
+                                            <div class="col-4 mb-4 gallery-image gal-img">
+                                                <img src="//via.placeholder.com/100x200/fc0?text=6" class="card-img" alt="...">
+                                            </div>
+                                        @endfor
+                                    @else
+                                        @foreach ($images as $img)
+                                            <div class="col-6 mb-4 gallery-image gal-img">
+                                                <img src="{{ '/storage/images/thumbnails/' . $img->image_name }}"
+                                                     alt="{{ $img['image_alt_' . $locale] }}" img-id="{{ $img->id }}"/>
+                                            </div>
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </div>
+
 
                         </div>
                     </div>
