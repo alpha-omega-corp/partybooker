@@ -5,6 +5,7 @@
 <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listing') . '/' . $partner->slug) }}"
    class="partner-advert-card @if (strtolower($partner->currentPlan->name) == 'exclusif') top @endif">
 
+
     <div class="card">
         @if ($partner->main_img)
             <img src="{{ asset('storage/images/thumbnails/' . $partner->main_img) }}"
@@ -24,14 +25,11 @@
         </div>
 
         <div class="text-truncate card-text">
-
-
-                    @if (app()->getLocale() == 'en')
-                        {!! $partner->en_slogan !!}
-                    @else
-                        {!! $partner->fr_slogan !!}
-                    @endif
-
+                @if (app()->getLocale() == 'en')
+                    {!! $partner->en_slogan !!}
+                @else
+                    {!! $partner->fr_slogan !!}
+                @endif
                 <br>
                 <small class="font-monospace">
                     {{ __('cantons.' . strtolower($partner->location_code) . '_loc') }},

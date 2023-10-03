@@ -10,7 +10,7 @@
             <div class="col-md-4">
                 <div class="container">
                         <div class="d-flex align-items-center">
-                            <x-back-page :tooltip="__('service.back') . ' ' . __('service.listings')"/>
+                            <x-back-page :tooltip="__('service.back')"/>
 
                             <div class="justify-content-end p-4">
                                 <h3 class="text-uppercase fw-bold text-nowrap">
