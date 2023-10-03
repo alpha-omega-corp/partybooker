@@ -114,22 +114,24 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="row d-flex gallery">
-                                @for ($i = 1; $i <= 20; $i++)
-                                    <div class="col-6 mb-4 gallery-image">
-                                        <?php $locale = app()->getLocale(); ?>
-                                        @foreach ($images as $img)
-                                                <img src="{{ '/storage/images/thumbnails/' . $img->image_name }}"
-                                                     alt="{{ $img['image_alt_' . $locale] }}" id="{{ $img->id }}"/>
-
-                                        @endforeach
-
-                                        @if(count($images) == 0)
+                                <?php $locale = app()->getLocale(); ?>
+                                @if(config('app.url') == 'http://localhost')
+                                    @for ($i = 1; $i <= 20; $i++)
+                                        <div class="col-6 mb-4 gallery-image gal-img">
                                             <img src="//via.placeholder.com/100x200/fc0?text=6" class="card-img" alt="...">
-                                        @endif
+                                        </div>
+                                    @endfor
+                                @else
+                                    @foreach ($images as $img)
+                                    <div class="col-6 mb-4 gallery-image gal-img">
+                                        <img src="{{ '/storage/images/thumbnails/' . $img->image_name }}"
+                                             alt="{{ $img['image_alt_' . $locale] }}" img-id="{{ $img->id }}"/>
                                     </div>
-                                @endfor
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
+
                         <div class="col-8">
 
                             <div>
