@@ -3,7 +3,7 @@
 ])
 
 <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listing') . '/' . $partner->slug) }}"
-   class="partner-advert-card @if (strtolower($partner->currentPlan->name) == 'exclusif') top @endif">
+   class="partner-advert-card">
 
 
     <div class="card">
