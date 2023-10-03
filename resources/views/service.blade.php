@@ -31,16 +31,7 @@
             </div>
             <div class="col-md-8">
                 <section data-id="{{ $partner->id_partner }}" class="partner-details">
-                    <div class="d-flex align-items-center">
-                        <div>
-                            <h1 class="display-3 fw-bold text-uppercase mt-5">
-                                @if (app()->getLocale() == 'en')
-                                    {{ $partner->en_company_name }}
-                                @else
-                                    {{ $partner->fr_company_name }}
-                                @endif
-                            </h1>
-                        </div>
+
                         <div class="partner-logo">
                             @if ($partner->logo)
                                 <img src="{{ '/storage/logos/' . $partner->logo }}"
@@ -50,7 +41,17 @@
                                 <img src="{{Vite::image('logoPB.png')}}" alt="logo" class="logo"/>
                             @endif
                         </div>
-                    </div>
+
+                        <div>
+                            <h1 class="display-3 fw-bold text-uppercase mt-5">
+                                @if (app()->getLocale() == 'en')
+                                    {{ $partner->en_company_name }}
+                                @else
+                                    {{ $partner->fr_company_name }}
+                                @endif
+                            </h1>
+                        </div>
+
 
                     <div class="d-flex stars">
 
@@ -76,9 +77,7 @@
 
                     <hr>
 
-                    <div class="d-flex">
-
-
+                    <div class="d-flex partner-socials">
                         <div>
                             @if ($partner->is_commission)
                                 <div class="details">
