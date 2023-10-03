@@ -8,7 +8,7 @@
 
     <div class="card">
         @if ($partner->main_img)
-            <img src="{{ asset('storage/images/thumbnails/' . $partner->main_img) }}"
+            <img src="{{ '/storage/images/thumbnails/' . $partner->main_img }}"
                  alt="{{ $partner->main_img }}" class="card-img">
         @else
             <img src="//via.placeholder.com/700x1000/fc0?text=6" class="card-img" alt="...">
