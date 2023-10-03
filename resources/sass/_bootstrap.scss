@@ -63,6 +63,14 @@ $modal-content-color: $white;
     text-transform: uppercase;
 }
 
+.tippy-box[data-theme~='partner-socials'] {
+    color: $white;
+    font-size: smaller;
+
+}
+
+
+
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/bootstrap/scss/maps";

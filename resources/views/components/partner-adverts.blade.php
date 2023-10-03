@@ -15,13 +15,16 @@
         @endif
 
         <div class="card-img-overlay">
-            <h5 class="card-title text-uppercase fw-bolder">
-                @if (app()->getLocale() == 'en')
-                    {{ $partner->en_company_name }}
-                @else
-                    {{ $partner->fr_company_name }}
-                @endif
-            </h5>
+            <div class=" d-flex flex-shrink-1">
+                <h5 class="card-title text-uppercase fw-bolder">
+                    @if (app()->getLocale() == 'en')
+                        {{ $partner->en_company_name }}
+                    @else
+                        {{ $partner->fr_company_name }}
+                    @endif
+                </h5>
+            </div>
+
         </div>
 
         <div class="text-truncate card-text">

@@ -52,30 +52,24 @@
                             </h1>
                         </div>
 
+                    <div class="d-flex">
+                        <?php $networks = ['Instagram', 'Facebook', 'Linkedin', 'Youtube', 'Twitter', 'Vimeo']; ?>
+                        @foreach ($networks as $network)
+                                <?php $lc = strtolower($network); ?>
+                            @if ($partner->$lc)
+                                <div class="partner-socials" data-tippy-content="{{ucfirst($network)}}">
+                                    <a
+                                        href="{{ $partner->$lc }}" target="_blank">
 
-                    <div class="d-flex stars">
-
-                        @if (Auth::user() && Auth::user()->type != 'partner')
-                            <span class="rating" data-service="{{ $partner->id_partner }}"
-                                  data-user="{{ Auth::user()->email }}">
-                            </span>
-                        @else
-                            <!-- <span class="rating-login">{{ __('service.leave_rating') }}</span>-->
-                        @endif
-
-                        @for ($i = 1; $i <= 5; $i++)
-                            @if ($i <= $partner->average_rate)
-                                <img src="{{Vite::image('star.svg')}}" alt="star" width="24" height="24"
-                                     class="star-img">
-                            @else
-                                    <img src="{{Vite::image('star-outline-yellow.svg')}}" alt="star" width="24" height="24"
-                                         class="star-img">
+                                        <img src="{{Vite::image(strtolower($network) . '.svg')}}"
+                                             alt="{{ $network }}"
+                                             width="24" height="24" class="star-img">
+                                    </a>
+                                </div>
                             @endif
-                        @endfor
+                        @endforeach
                     </div>
-
-
-                    <hr>
+                    <br>
 
                     <div class="d-flex partner-socials">
                         <div>
@@ -114,22 +108,32 @@
                             @endif
                         </div>
 
-                        <div class="d-flex justify-content-start">
-                            <?php $networks = ['Facebook', 'Twitter', 'Instagram', 'Linkedin', 'Vimeo', 'Youtube']; ?>
-                            @foreach ($networks as $network)
-                                    <?php $lc = strtolower($network); ?>
-                                @if ($partner->$lc)
-                                    <a class="m-2"
-                                       style="text-decoration: underline; cursor: pointer; color:#007bc2; display: block"
-                                       href="{{ $partner->$lc }}" target="_blank">
-                                        <img src="{{Vite::image(strtolower($network) . '.svg')}}"
-                                             alt="{{ $network }}"
-                                             width="24" height="24" class="star-img">
-                                    </a>
-                                @endif
-                            @endforeach
-                        </div>
+
                     </div>
+                    <hr>
+
+
+                    <div class="d-flex stars">
+
+                        @if (Auth::user() && Auth::user()->type != 'partner')
+                            <span class="rating" data-service="{{ $partner->id_partner }}"
+                                  data-user="{{ Auth::user()->email }}">
+                            </span>
+                        @else
+                            <!-- <span class="rating-login">{{ __('service.leave_rating') }}</span>-->
+                        @endif
+
+                        @for ($i = 1; $i <= 5; $i++)
+                            @if ($i <= $partner->average_rate)
+                                <img src="{{Vite::image('star.svg')}}" alt="star" width="24" height="24"
+                                     class="star-img">
+                            @else
+                                <img src="{{Vite::image('star.svg')}}" alt="star" width="24" height="24"
+                                     class="star-img">
+                            @endif
+                        @endfor
+                    </div>
+                    <br>
 
                         <x-tab.index :tabs="[
                             __('service.description'),
@@ -244,7 +248,6 @@
 
                 <div class="col-md-9">
 
-
                     @if (strtolower($partner->currentPlan->name) == 'basic')
                         @if ($message = Session::get('success'))
                             <div class="alert alert-success alert-block">
@@ -307,10 +310,7 @@
                     @endforeach
                 </div>
             </div>
-            </section>
         </div>
-
-    </div>
     </div>
 
     <section id="service" class="location location-form-block">

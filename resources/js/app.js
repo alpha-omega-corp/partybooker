@@ -69,6 +69,16 @@ tippy('.back-page', {
     theme: 'back-page'
 });
 
+tippy('.partner-socials', {
+    placement: 'bottom-start',
+    animation: 'scale',
+    inertia: true,
+    theme: 'partner-socials'
+});
+
+
+
+
 
 
 tippy.setDefaultProps({
