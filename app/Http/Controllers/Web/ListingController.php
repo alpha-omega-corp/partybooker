@@ -395,7 +395,12 @@ class ListingController extends Controller
             'subCategories' => $subCategories,
             'adverts' => PartnersInfo::where('public', 1)
                 ->where('payment_status', 1)
-                ->orderBy('priority')
+                ->orWhere('category_1', $partner->category_1)
+                ->orWhere('category_2', $partner->category_2)
+                ->orWhere('category_3', $partner->category_3)
+                ->orWhere('subcat_1', $partner->subcat_1)
+                ->orWhere('subcat_2', $partner->subcat_2)
+                ->orWhere('subcat_3', $partner->subcat_3)
                 ->orderBy('average_rate', 'desc')
                 ->get()
                 ->all()

@@ -24,7 +24,7 @@
                     @if (!isset($current))
                         <li class="breadcrumb-item">
                             <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}">
-                                <i class="bi bi-house"></i>
+                                @svg('heroicon-o-home')
                             </a>
                         </li>
                         <li class="breadcrumb-item active text-uppercase" aria-current="page">
@@ -34,7 +34,7 @@
                 </ol>
             </nav>
 
-            @include('web.listings.partial.partial-list')
+            @include('web.listings.partial.listing-content')
         </div>
 
     </div>
