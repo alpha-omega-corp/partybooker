@@ -124,6 +124,20 @@ a {
             color: $info;
             transition: .2s;
         }
+
+        h4 {
+            color: $info;
+            font-weight: bolder;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        h6 {
+            color: $gray-400;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 18px;
+        }
     }
 
     li {
@@ -152,7 +166,7 @@ a {
 
             .card-title {
                 color: $gray-300;
-                background-color: $primary;
+                background-color:rgba(0,0,0,0.8);
                 padding: 5px;
                 border-radius: 4px;
             }

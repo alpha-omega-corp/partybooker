@@ -53,7 +53,7 @@
     </ul>
 
     <!-- Panels -->
-    <div role="tabpanel">
+    <div role="tabpanel" class="mt-5">
         {{$slot}}
     </div>
 </div>

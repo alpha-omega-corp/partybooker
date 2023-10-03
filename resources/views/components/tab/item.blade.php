@@ -8,6 +8,6 @@
     role="tabpanel">
     @if($title)
         <h2 class="text-xl font-bold">{{$title}}</h2>
-    @endif
+    @endif 
     {{$slot}}
 </section>

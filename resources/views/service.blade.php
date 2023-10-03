@@ -139,15 +139,17 @@
                             __('service.video'),
                         ]">
                             <!-- Description -->
-                            <x-tab.item :title="$partner->slogan">
+                            <x-tab.item>
                                 <div class="tab" id="description">
-                                    <span class="slogan">
+                                    <h5>
+                                        <span class="fw-bold text-uppercase">
                                         @if (app()->getLocale() == 'en')
-                                            “ {{ $partner->en_slogan }} ”
-                                        @else
-                                            “ {{ $partner->fr_slogan }} ”
-                                        @endif
+                                                {{ $partner->en_slogan }}
+                                            @else
+                                                {{ $partner->fr_slogan }}
+                                            @endif
                                     </span>
+                                    </h5>
                                     <p>
                                         @if (app()->getLocale() == 'en')
                                             {!! $partner->en_full_descr !!} ”
