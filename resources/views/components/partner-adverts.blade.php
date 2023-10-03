@@ -28,11 +28,13 @@
         </div>
 
         <div class="text-truncate card-text">
-                @if (app()->getLocale() == 'en')
-                    {!! $partner->en_slogan !!}
-                @else
-                    {!! $partner->fr_slogan !!}
-                @endif
+                <span class="text-uppercase">
+                    @if (app()->getLocale() == 'en')
+                        {!! $partner->en_slogan !!}
+                    @else
+                        {!! $partner->fr_slogan !!}
+                    @endif
+                </span>
                 <br>
                 <small class="font-monospace">
                     {{ __('cantons.' . strtolower($partner->location_code) . '_loc') }},

@@ -6,18 +6,15 @@
 
 @section('content')
     <div class="partner">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="container">
-                    <div class="d-flex align-items-center">
-                        <x-back-page :tooltip="__('service.back')"/>
+        <div class="row m-4">
+            <div class="col-md-2">
 
-                        <div class="justify-content-end p-4">
-                            <h3 class="text-uppercase fw-bold text-nowrap">
-                                Annonces similaire
-                            </h3>
-                        </div>
-                    </div>
+                <div class="advert-container">
+                    <x-back-page :tooltip="__('service.back')"/>
+                    <h3 class="text-uppercase text-center fw-bold text-nowrap mt-5">
+                        Annonces similaire
+                    </h3>
+
 
                     <hr>
 
@@ -26,10 +23,9 @@
                             <x-partner-adverts :partner="$ad"/>
                         @endforeach
                     </div>
-
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-10 p-4">
                 <section data-id="{{ $partner->id_partner }}" class="partner-details">
 
                     <div class="partner-logo">
@@ -117,7 +113,7 @@
                                 <?php $locale = app()->getLocale(); ?>
                                 @if(config('app.url') == 'http://localhost')
                                     @for ($i = 1; $i <= 20; $i++)
-                                        <div class="col-6 mb-4 gallery-image gal-img">
+                                        <div class="col-4 mb-4 gallery-image gal-img">
                                             <img src="//via.placeholder.com/100x200/fc0?text=6" class="card-img" alt="...">
                                         </div>
                                     @endfor
@@ -144,14 +140,12 @@
                         ]">
                                     <!-- Description -->
                                     <x-tab.item>
-                                        <h5>
-                                    <span class="fw-bold text-uppercase">
-                                        @if (app()->getLocale() == 'en')
-                                            {{ $partner->en_slogan }}
-                                        @else
-                                            {{ $partner->fr_slogan }}
-                                        @endif
-                                    </span>
+                                        <h5 class="fw-bold text-uppercase">
+                                            @if (app()->getLocale() == 'en')
+                                                {{ $partner->en_slogan }}
+                                            @else
+                                                {{ $partner->fr_slogan }}
+                                            @endif
                                         </h5>
                                         <p>
                                             @if (app()->getLocale() == 'en')

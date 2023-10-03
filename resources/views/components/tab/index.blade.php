@@ -43,7 +43,7 @@
                     type="button"
                     :tabindex="isSelected($el.id) ? 0 : -1"
                     :aria-selected="isSelected($el.id)"
-                    :class="isSelected($el.id) ? 'bg-primary rounded-0' : 'tab'"
+                    :class="isSelected($el.id) ? 'border-primary border-bottom-0 rounded-0 text-info' : 'tab'"
                     class="btn rounded-0 fw-bold text-uppercase"
                     role="tab">
                     {{$tab}}
