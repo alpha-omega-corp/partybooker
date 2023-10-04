@@ -592,19 +592,19 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-ce34f203.css",
+    "file": "assets/app-b2c61055.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "assets": [
-      "assets/ape-a4fb8659.svg",
       "assets/blob-scene-4863cbac.svg",
+      "assets/ape-a4fb8659.svg",
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-ce34f203.css"
+      "assets/app-b2c61055.css"
     ],
-    "file": "assets/app-dfce600f.js",
+    "file": "assets/app-314f3136.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
