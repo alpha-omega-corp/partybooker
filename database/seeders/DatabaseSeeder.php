@@ -12,6 +12,33 @@ class DatabaseSeeder extends Seeder
             CategoriesTableSeeder::class,
         ]);
 
+        DB::table('faq')->insert([
+            'faq_created' => now(),
+            'relation' => 1,
+            'question_en' => 'Question en',
+            'answer_en' => 'Answer en',
+            'question_fr' => 'Comment fonctionne www.partybooker.ch',
+            'answer_fr' => 'Partybooker is a free internet pe connection between customers and service providers via one site.',
+        ]);
+
+        DB::table('faq')->insert([
+            'faq_created' => now(),
+            'relation' => 1,
+            'question_en' => 'Question en',
+            'answer_en' => 'Answer en',
+            'question_fr' => 'Comment fonctionne www.partybooker.ch',
+            'answer_fr' => 'Partybooker is a free internet pe connection between customers and service providers via one site.',
+        ]);
+
+        DB::table('faq')->insert([
+            'faq_created' => now(),
+            'relation' => 1,
+            'question_en' => 'Question en',
+            'answer_en' => 'Answer en',
+            'question_fr' => 'Comment fonctionne www.partybooker.ch',
+            'answer_fr' => 'Partybooker is a free internet pe connection between customers and service providers via one site.',
+        ]);
+
         $this->newPartner('dynam-event', 1);
         $this->newPartner('chillfood', 2);
         $this->newPartner('la-cave-geneve-vieille-ville', 3);
@@ -195,5 +222,9 @@ class DatabaseSeeder extends Seeder
             'provider' => null,
             'provider_id' => null,
         ]);
+
+
     }
+
+
 }

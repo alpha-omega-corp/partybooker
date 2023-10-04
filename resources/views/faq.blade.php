@@ -9,61 +9,48 @@
 @endsection
 
 @section('content')
-    <section class="header not-full">
-        @include('common.header-nav')
-        <div class="cover abs">
-            <img src="/images/home-header-bg.jpg" class="bg abs"
-                alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
-        </div>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-10">
-                    <h1>{{ __('main.faqs_page') }}</h1>
-                </div>
-            </div>
-        </div>
-        @include('common.social')
-    </section>
+        <section class="faq">
+            <div class="container">
+                <h1 class="text-white display-1 fw-bold">
+                    {{ __('main.faqs_page') }}
+                </h1>
 
-    <section class="faq-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-10 offset-md-1">
-                    <h3 class="text-center">{{ __('main.faq_page_title') }}</h3>
-                    <div class="accordion" id="accordionExample">
-                        <?php $i = 1; ?>
-                        @foreach ($faqs as $faq)
-                            @if ($faq->relation == 0)
-                                <div class="card">
-                                    <div class="card-header" id="headingOne">
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                            data-target="#collapse<?php echo $i; ?>" aria-expanded="true"
-                                            aria-controls="collapse<?php echo $i; ?>">
-                                            @if (app()->getLocale() == 'en')
-                                                {{ $faq->question_en }}
-                                            @else
-                                                {{ $faq->question_fr }}
-                                            @endif
-                                        </button>
-                                    </div>
+                <div class="accordion" id="faqAccordion">
+                    @foreach ($faqs as $key => $faq)
+                        <div class="accordion-item">
+                            <h2 class="accordion-header text-uppercase">
+                                <button class="accordion-button"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="{{'#collapse' . $key }}"
+                                        aria-expanded="false"
+                                        aria-controls="{{'collapse' . $key }}">
 
-                                    <div id="collapse<?php echo $i; ?>" class="collapse" aria-labelledby="headingOne"
-                                        data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            @if (app()->getLocale() == 'en')
-                                                {{ $faq->answer_en }}
-                                            @else
-                                                {{ $faq->answer_fr }}
-                                            @endif
-                                        </div>
-                                    </div>
+                                    <span class="faq-question text-nowrap text-truncate">
+                                        @if (app()->getLocale() == 'en')
+                                            {{ $faq->question_en }}
+                                        @else
+                                            {{ $faq->question_fr }}
+                                        @endif
+                                    </span>
+                                </button>
+                            </h2>
+                            <div
+                                id="{{'collapse' . $key }}"
+                                class="accordion-collapse collapse {{ $key == 0 ? 'show' : '' }}"
+                                data-bs-parent="#faqAccordion">
+
+                                <div class="accordion-body">
+                                    @if (app()->getLocale() == 'en')
+                                        {{ $faq->answer_en }}
+                                    @else
+                                        {{ $faq->answer_fr }}
+                                    @endif
                                 </div>
-                                <?php $i++; ?>
-                            @endif
-                        @endforeach
-                    </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 @endsection

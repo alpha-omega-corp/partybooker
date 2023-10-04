@@ -11,21 +11,25 @@ class Faq extends Migration
     {
         Schema::create('faq', function (Blueprint $table) {
             $table->increments('id');
-			
+
 			//EVENT DATE & TIME
 			$table->dateTime('faq_created');
-			
-			//RELATION: 
-			//#1 - GENERAL (FALSE, 0), 
+
+			//RELATION:
+			//#1 - GENERAL (FALSE, 0),
 			//#2 - PARTNER (TRUE, 1)
 			$table->boolean('relation')->default(0);
-			
+
 			//QUESTION:
-			$table->string('question');
-			
+			$table->string('question_en');
+
 			//ANSWER:
-			$table->string('answer');
-			
+			$table->string('answer_en');
+
+            $table->string('question_fr');
+
+            //ANSWER:
+            $table->string('answer_fr');
         });
     }
 

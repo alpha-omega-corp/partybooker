@@ -90,6 +90,54 @@ a {
     transition: 0.2s;
 }
 
+.faq {
+    background: url('../images/blob-scene.svg') no-repeat center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #fff;
+
+    height: 100%;
+
+    h1 {
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+
+    .accordion {
+        --bs-accordion-border-width: 0;
+
+
+        .accordion-item {
+            margin: 10px;
+            background-color: $secondary;
+            border: 0;
+            color: #fff;
+
+
+            .accordion-button {
+                border: 0;
+                color: #fff;
+                background-color: $primary;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+
+            .accordion-button::after {
+                transform: none !important;
+                transition: none !important;
+                display: none
+            }
+
+            .accordion-body {
+                text-align: justify;
+                font-size: 16px;
+            }
+        }
+    }
+
+
+}
+
 // Service Page
 .partner {
     color: #ffffff;
@@ -217,12 +265,6 @@ a {
         height:100vh;
         overflow: scroll;
 
-        .card:hover {
-            border-left: $primary 2px solid;
-            transition: .1s;
-
-        }
-
         .card {
             height: 300px;
             margin: 20px;
@@ -234,7 +276,6 @@ a {
 
             .card-title {
                 color: $info;
-                background-color: $secondary;
                 padding: 10px;
             }
 
