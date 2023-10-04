@@ -19,8 +19,7 @@
         }
     }"
     x-id="['tab']"
-    class="tab"
->
+    class="tab">
     <!-- Tab List -->
     <ul
         x-ref="tablist"
@@ -31,8 +30,7 @@
         @keydown.end.prevent.stop="$focus.last()"
         @keydown.page-down.prevent.stop="$focus.last()"
         role="tablist"
-        class="d-flex"
-    >
+        class="d-flex">
         @foreach($tabs as $tab)
             <li>
                 <button

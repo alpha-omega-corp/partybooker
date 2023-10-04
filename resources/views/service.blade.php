@@ -8,13 +8,11 @@
     <div class="partner">
         <div class="row m-4">
             <div class="col-md-2">
-
-                <div class="advert-container">
+                <div class="mt-6">
                     <x-back-page :tooltip="__('service.back')"/>
-                    <h3 class="text-uppercase text-center fw-bold text-nowrap mt-5">
+                    <h3 class="text-uppercase text-center fw-bold text-nowrap mt-4">
                         Annonces similaire
                     </h3>
-
 
                     <hr>
 
@@ -108,8 +106,27 @@
                     <hr>
 
                     <div class="row">
+                        <div class="col-4">
+                            <div class="row d-flex gallery">
+                                <?php $locale = app()->getLocale(); ?>
+                                @if(config('app.url') == 'http://localhost')
+                                    @for ($i = 1; $i <= 20; $i++)
+                                        <div class="col-6 mb-4 gallery-image gal-img">
+                                            <img src="//via.placeholder.com/100x200/fc0?text=6" class="card-img" alt="...">
+                                        </div>
+                                    @endfor
+                                @else
+                                    @foreach ($images as $img)
+                                    <div class="col-6 mb-4 gallery-image gal-img">
+                                        <img src="{{ '/storage/images/thumbnails/' . $img->image_name }}"
+                                             alt="{{ $img['image_alt_' . $locale] }}" img-id="{{ $img->id }}"/>
+                                    </div>
+                                    @endforeach
+                                @endif
+                            </div>
+                        </div>
 
-                        <div class="col-7">
+                        <div class="col-8">
 
                             <div>
                                 <x-tab.index :tabs="[
@@ -118,7 +135,7 @@
                             __('service.schedule'),
                             __('service.rates'),
                             __('service.video'),
-                            ]">
+                        ]">
                                     <!-- Description -->
                                     <x-tab.item>
                                         <h5 class="fw-bold text-uppercase">
@@ -201,27 +218,6 @@
                                     </x-tab.item>
                                 </x-tab.index>
                             </div>
-
-                            <div class="col-5">
-                                <div class="row d-flex gallery">
-                                    <?php $locale = app()->getLocale(); ?>
-                                    @if(config('app.url') == 'http://localhost')
-                                        @for ($i = 1; $i <= 20; $i++)
-                                            <div class="col-4 mb-4 gallery-image gal-img">
-                                                <img src="//via.placeholder.com/100x200/fc0?text=6" class="card-img" alt="...">
-                                            </div>
-                                        @endfor
-                                    @else
-                                        @foreach ($images as $img)
-                                            <div class="col-6 mb-4 gallery-image gal-img">
-                                                <img src="{{ '/storage/images/thumbnails/' . $img->image_name }}"
-                                                     alt="{{ $img['image_alt_' . $locale] }}" img-id="{{ $img->id }}"/>
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </div>
-
 
                         </div>
                     </div>
