@@ -108,88 +108,113 @@
                         <div class="col-md-8 col-sm-12">
 
                             <div>
-                                <h5 class="fw-bold text-uppercase">
+
+
+                                <div class="partner-languages d-flex justify-content-end">
+                                    <p>
+                                        @php
+                                            $languages = [];
+                                            if ($partner->language) {
+                                                foreach (json_decode($partner->language) ?? [] as $lang) {
+                                                    if ($lang == 'other') {
+                                                        continue;
+                                                    }
+                                                    $languages[] = __('partybooker-cp.' . trim($lang));
+                                                }
+                                            }
+                                        @endphp
+
+
+                                        @foreach($languages as $language)
+                                            <img src="{{Vite::image(strtolower($language) . '.svg')}}"
+                                                 alt="{{ strtolower($language) }}"
+                                                 width="24" height="24">
+                                        @endforeach
+
+                                        {{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
+                                    </p>
+                                </div>
+
+                                <h3 class="fw-bold text-uppercase">
                                     @if (app()->getLocale() == 'en')
                                         {{ $partner->en_slogan }}
                                     @else
                                         {{ $partner->fr_slogan }}
                                     @endif
-                                </h5>
-                                <p>
+                                </h3>
+                                <p class="partner-description">
                                     @if (app()->getLocale() == 'en')
-                                        {!! $partner->en_full_descr !!} ”
+                                        {!! $partner->en_full_descr !!}
                                     @else
-                                        {!! $partner->fr_full_descr !!} ”
+                                        {!! $partner->fr_full_descr !!}
                                     @endif
                                 </p>
 
-                                <p>
-                                    @php
-                                        $languages = [];
-                                        if ($partner->language) {
-                                            foreach (json_decode($partner->language) ?? [] as $lang) {
-                                                if ($lang == 'other') {
-                                                    continue;
-                                                }
-                                                $languages[] = __('partybooker-cp.' . trim($lang));
-                                            }
-                                        }
-                                    @endphp
-                                    <span>{{ __('become_partner.languages') }}:</span>
-                                    {{ implode(', ', $languages) }}{{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
-                                </p>
+
                             </div>
 
-                            @foreach ($partner->services as $advert)
 
-                                <x-tab.index :tabs="[
+                            <div class="row">
+                                @foreach ($partner->services as $advert)
+
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="partner-advert">
+                                        <x-tab.index :tabs="[
                                 __('service.general_info'),
                                 __('service.schedule'),
                                 __('service.rates'),
                                 __('service.video')]" >
 
-                                    <!-- Information -->
-                                    <x-tab.item>
-                                        @include('service-tabs.' . $advert->view_name . '.general', [
-                                            'details' => $advert,
-                                        ])
-                                    </x-tab.item>
+                                            <!-- Information -->
+                                            <x-tab.item>
+                                                @include('service-tabs.' . $advert->view_name . '.general', [
+                                                    'details' => $advert,
+                                                ])
+                                            </x-tab.item>
 
-                                    <!-- Schedules -->
-                                    <x-tab.item>
+                                            <x-tab.item>
 
-                                        @include('service-tabs.' . $advert->view_name . '.schedule', [
-                                            'details' => $advert,
-                                        ])
+                                                @include('service-tabs.' . $advert->view_name . '.schedule', [
+                                                    'details' => $advert,
+                                                ])
 
-                                    </x-tab.item>
+                                            </x-tab.item>
 
-                                    <!-- Rates -->
-                                    <x-tab.item>
-                                        @include('service-tabs.' . $advert->view_name . '.rates', [
-                                            'details' => $advert,
-                                        ])
-                                    </x-tab.item>
+                                            <x-tab.item>
+                                                @include('service-tabs.' . $advert->view_name . '.rates', [
+                                                    'details' => $advert,
+                                                ])
+                                            </x-tab.item>
 
-                                    <!-- Video -->
-                                    <x-tab.item>
-                                        <div>
-                                            @if ($partner->youtube)
-                                                    <?php
-                                                    $youtube = preg_replace('/watch\?v=/', 'embed/', $partner->youtube);
-                                                    $youtube = str_replace('https://youtu.be/', 'https://www.youtube.com/embed/', $youtube);
-                                                    ?>
-                                                <iframe
-                                                    src="{{ $youtube }}"></iframe>
-                                            @endif
-                                            @if ($partner->vimeo)
-                                                <iframe
-                                                    src="{{ str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/', $partner->vimeo) }}"></iframe>
-                                            @endif
-                                        </div>
-                                    </x-tab.item>
-                                </x-tab.index>
-                            @endforeach
+                                            <x-tab.item>
+                                                <div>
+                                                    @if ($partner->youtube)
+                                                            <?php
+                                                            $youtube = preg_replace('/watch\?v=/', 'embed/', $partner->youtube);
+                                                            $youtube = str_replace('https://youtu.be/', 'https://www.youtube.com/embed/', $youtube);
+                                                            ?>
+                                                        <iframe
+                                                            src="{{ $youtube }}"></iframe>
+                                                    @endif
+                                                    @if ($partner->vimeo)
+                                                        <iframe
+                                                            src="{{ str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/', $partner->vimeo) }}"></iframe>
+                                                    @endif
+                                                </div>
+                                            </x-tab.item>
+
+                                        </x-tab.index>
+                                    </div>
+                                </div>
+
+                                @endforeach
+                            </div>
+
+
+
+
+
+
                         </div>
 
                         <div class="col-md-4 col-sm-12">

@@ -221,6 +221,11 @@ a {
         margin-bottom: 100px;
     }
 
+    .partner-advert {
+        height: 400px;
+        overflow: scroll;
+    }
+
     overflow: hidden;
 
     .partner-details {
@@ -233,6 +238,13 @@ a {
             padding: 10px;
         }
 
+    }
+
+    .partner-description {
+        text-align: justify;
+        margin-top: 20px;
+        padding-right: 20px;
+        margin-bottom: 100px;
     }
 
     .partner-contacts {

@@ -65,12 +65,12 @@ class PartnersInfo extends Migration
 			$table->integer('price');
 
             $table->string('en_slogan', 300);
-            $table->string('en_short_descr', 350);
-            $table->string('en_full_descr', 350);
+            $table->longText('en_short_descr');
+            $table->longText('en_full_descr');
 
-            $table->string('fr_slogan', 300);
-            $table->string('fr_short_descr', 350);
-            $table->string('fr_full_descr', 350);
+            $table->longText('fr_slogan');
+            $table->longText('fr_short_descr');
+            $table->longText('fr_full_descr');
 
             $table->text('images');
 

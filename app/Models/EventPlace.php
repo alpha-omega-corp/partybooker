@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Database\Factories\EventPlaceFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use ReflectionClass;
 
 /**
  * App\Models\EventPlace
@@ -93,12 +95,19 @@ use ReflectionClass;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\EventPlace whereWorkingDays($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\EventPlace whereYesAfCaterers($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\EventPlace whereYesFreeCaterers($value)
- * @mixin \Eloquent
+ * @mixin Eloquent
  * @property string|null $working_time
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\EventPlace whereWorkingTime($value)
  */
 class EventPlace extends Model
 {
+    use HasFactory;
+
+    protected static function newFactory(): EventPlaceFactory
+    {
+        return EventPlaceFactory::new();
+    }
+
 	public $timestamps = false;
 
 	protected $fillable = [

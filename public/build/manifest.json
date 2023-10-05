@@ -51,9 +51,17 @@
     "file": "assets/dvert-f54f6968.png",
     "src": "resources/images/dvert.png"
   },
+  "resources/images/allemande.svg": {
+    "file": "assets/allemande-e0a5a75e.svg",
+    "src": "resources/images/allemande.svg"
+  },
   "resources/images/aneta-pawlik-651610-unsplash.jpg": {
     "file": "assets/aneta-pawlik-651610-unsplash-b5afb27e.jpg",
     "src": "resources/images/aneta-pawlik-651610-unsplash.jpg"
+  },
+  "resources/images/anglaise.svg": {
+    "file": "assets/anglaise-f99f87a5.svg",
+    "src": "resources/images/anglaise.svg"
   },
   "resources/images/animation.png": {
     "file": "assets/event-a8c3ef34.png",
@@ -259,6 +267,10 @@
     "file": "assets/francGrey-c87e81bb.svg",
     "src": "resources/images/francGrey.svg"
   },
+  "resources/images/française.svg": {
+    "file": "assets/française-4d1160e9.svg",
+    "src": "resources/images/française.svg"
+  },
   "resources/images/greenLeft.png": {
     "file": "assets/greenLeft-b35d98bd.png",
     "src": "resources/images/greenLeft.png"
@@ -290,6 +302,10 @@
   "resources/images/instagram.svg": {
     "file": "assets/instagram-28358ef5.svg",
     "src": "resources/images/instagram.svg"
+  },
+  "resources/images/italienne.svg": {
+    "file": "assets/italienne-b69659f6.svg",
+    "src": "resources/images/italienne.svg"
   },
   "resources/images/jay-wennington-2065-unsplash.jpg": {
     "file": "assets/jay-wennington-2065-unsplash-54de1143.jpg",
@@ -596,7 +612,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-c19a320a.css",
+    "file": "assets/app-2a8695d1.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -606,9 +622,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-c19a320a.css"
+      "assets/app-2a8695d1.css"
     ],
-    "file": "assets/app-9a298d41.js",
+    "file": "assets/app-71d3e915.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
