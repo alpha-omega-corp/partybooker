@@ -217,17 +217,27 @@ a {
 // Service Page
 .partner {
     color: #ffffff;
-    overflow-x: hidden;
     .stars {
         margin-bottom: 100px;
+    }
+
+    @media only screen and (max-width : 767px) {
+        display: flex;
+        .partner-details {
+            flex-direction: column;
+        }
     }
 
     .partner-details {
         background-color: rgba(0, 0, 0, 0.4);
         border-radius: 30px;
         padding: 30px;
-        height: 90vh;
-        overflow: scroll;
+
+        @media only screen and (max-width : 767px) {
+            font-size: smaller;
+            padding: 10px;
+        }
+
     }
 
     .advert-container {
@@ -238,7 +248,10 @@ a {
 
         img {
             height: 100px;
-
+            @media only screen and (max-width : 767px) {
+                margin-top: 40px;
+                height: 40px;
+            }
         }
     }
 
@@ -266,9 +279,6 @@ a {
 
     .tab {
         .tab-content {
-            height: 100%;
-            padding: 20px;
-            overflow: scroll;
             text-align: justify;
 
             h4 {
@@ -308,37 +318,6 @@ a {
             color: $info;
             transition: .2s;
         }
-
-
-
-        section {
-
-            span {
-                color: $gray-400;
-                text-transform: uppercase;
-                font-weight: bold;
-                background-color: $primary;
-                padding: 8px;
-                margin-bottom: 20px;
-
-
-            }
-            p {
-                margin-top: 40px;
-                display: flex;
-                flex-direction: column;
-                font-size: 18px;
-                width: 100%;
-
-
-            }
-
-
-        }
-
-
-
-
     }
 
     li {
@@ -350,11 +329,13 @@ a {
     }
 
     .adverts {
-        height: 70vh;
+        height: 100vh;
         overflow: scroll;
 
         .card {
             height: 300px;
+
+
             margin: 20px;
             overflow: hidden;
             color: #fff;
@@ -392,28 +373,39 @@ a {
 
     ul {
         padding: 0;
+        overflow: scroll;
         border-bottom: 1px solid $primary;
 
-    }
+        @media only screen and (max-width : 767px) {
 
-    .tab-menu {
-        margin-top: 100px;
-
-        .partner-ad-menu:hover {
+            button {
+                text-align: start;
+                font-size: smaller;
+                width: 100%;
+            }
 
         }
 
         li {
             list-style-type: none;
-
         }
+    }
+
+    @media only screen and (max-width : 767px) {
+        .tab-content {
+            border-bottom: 2px solid $premium;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            height: 200px;
+            overflow: scroll;
+        }
+    }
+
+    .tab-menu {
+        margin-top: 100px;
 
         .tab-btn {
             border-radius: 0;
-        }
-
-        .tab-content {
-            border-left: 1px solid $white;
         }
     }
 
@@ -434,9 +426,17 @@ a {
         border-bottom: 2px solid $premium;
         padding-bottom: 20px;
 
+
         svg {
             width: 40px;
             height: 40px;
+
+            @media only screen and (max-width : 767px) {
+                width: 20px;
+                height: 20px;
+
+            }
+
         }
     }
 

@@ -10,7 +10,7 @@ return [
 	'show_website' => 'Voir Site',
 	'show_address' => 'Voir adresse',
 	'description' => 'Description',
-	'general_info' => 'Information Générale',
+	'general_info' => 'Information',
 	'schedule' => 'Horaires',
 	'rates' => 'Tarifs',
 	'video' => 'Vidéo',

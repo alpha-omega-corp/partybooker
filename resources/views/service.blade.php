@@ -7,7 +7,7 @@
 @section('content')
     <div class="partner">
         <div class="row m-4">
-            <div class="col-md-2">
+            <div class="col-md-2 order-md-first order-last">
                 <div class="side">
                     <x-back-page :tooltip="__('service.back')"/>
                     <h3 class="text-uppercase text-center fw-bold text-nowrap mt-4">
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-10 p-4">
+            <div class="col-md-10 col-sm-12 p-0">
                 <section data-id="{{ $partner->id_partner }}" class="partner-details">
 
                     <div class="partner-logo">
@@ -65,79 +65,54 @@
                     </div>
                     <br>
 
-                    <div class="d-flex partner-socials">
-                        <div>
-                            @if ($partner->is_commission)
-                                <div class="details">
-                                    <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/contacts') }}"
-                                       class="btn btn-orange">{{ __('service.contact') }}</a>
-                                </div>
-                            @else
-                                <div class="d-flex">
-                                    <x-partner-info
-                                        icon="heroicon-o-phone"
-                                        tooltip="Company Phone"
-                                        content="{{$partner->company_phone}}"
-                                        type="tel"/>
 
-                                    <x-partner-info
-                                        icon="heroicon-o-envelope"
-                                        tooltip="Company Email"
-                                        content="{{$partner->user->email}}"
-                                        type="email"/>
+                    <div class="d-flex flex-md-row flex-column">
+                        @if ($partner->is_commission)
+                            <div class="details">
+                                <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/contacts') }}"
+                                   class="btn btn-orange">{{ __('service.contact') }}</a>
+                            </div>
+                        @else
+                            <x-partner-info
+                                icon="heroicon-o-phone"
+                                tooltip="Company Phone"
+                                content="{{$partner->company_phone}}"
+                                type="tel"/>
 
-                                    <x-partner-info
-                                        icon="heroicon-o-globe-alt"
-                                        tooltip="Company Website"
-                                        content="{{$partner->fr_company_name}}"
-                                        type="web"/>
+                            <x-partner-info
+                                icon="heroicon-o-envelope"
+                                tooltip="Company Email"
+                                content="{{$partner->user->email}}"
+                                type="email"/>
 
-                                    <x-partner-info
-                                        icon="heroicon-o-map-pin"
-                                        tooltip="Company Location"
-                                        content="{{$partner->address}}"
-                                        type="loc"/>
+                            <x-partner-info
+                                icon="heroicon-o-globe-alt"
+                                tooltip="Company Website"
+                                content="{{$partner->fr_company_name}}"
+                                type="web"/>
 
-                                </div>
-                            @endif
-                        </div>
+                            <x-partner-info
+                                icon="heroicon-o-map-pin"
+                                tooltip="Company Location"
+                                content="{{$partner->address}}"
+                                type="loc"/>
+                        @endif
                     </div>
 
                     <hr>
 
                     <div class="row">
-                        <div class="col-4">
-                            <div class="row d-flex gallery">
-                                <?php $locale = app()->getLocale(); ?>
-                                @if(config('app.url') == 'http://localhost')
-                                    @for ($i = 1; $i <= 20; $i++)
-                                        <div class="col-6 mb-4 gallery-image gal-img">
-                                            <img src="//via.placeholder.com/100x200/fc0?text=6" class="card-img" alt="...">
-                                        </div>
-                                    @endfor
-                                @else
-                                    @foreach ($images as $img)
-                                    <div class="col-6 mb-4 gallery-image gal-img">
-                                        <img src="{{ '/storage/images/thumbnails/' . $img->image_name }}"
-                                             alt="{{ $img['image_alt_' . $locale] }}" img-id="{{ $img->id }}"/>
-                                    </div>
-                                    @endforeach
-                                @endif
-                            </div>
-                        </div>
 
-                        <div class="col-8">
-
-                            <div>
-                                <x-tab.index :tabs="[
-                            __('service.description'),
-                            __('service.general_info'),
-                            __('service.schedule'),
-                            __('service.rates'),
-                            __('service.video'),
-                        ]">
-                                    <!-- Description -->
-                                    <x-tab.item>
+                        <div class="col-md-8 col-sm-12">
+                            <x-tab.index :tabs="[
+                                __('service.description'),
+                                __('service.general_info'),
+                                __('service.schedule'),
+                                __('service.rates'),
+                                __('service.video')]">
+                                <!-- Description -->
+                                <x-tab.item>
+                                    <div>
                                         <h5 class="fw-bold text-uppercase">
                                             @if (app()->getLocale() == 'en')
                                                 {{ $partner->en_slogan }}
@@ -168,59 +143,84 @@
                                             <span>{{ __('become_partner.languages') }}:</span>
                                             {{ implode(', ', $languages) }}{{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
                                         </p>
-                                    </x-tab.item>
+                                    </div>
+                                </x-tab.item>
 
-                                    <!-- Information -->
-                                    <x-tab.item>
+                                <!-- Information -->
+                                <x-tab.item>
+                                    <div>
                                         @foreach ($partner->services as $advert)
                                             @include('service-tabs.' . $advert->view_name . '.general', [
                                                 'details' => $advert->service,
                                             ])
                                         @endforeach
-                                    </x-tab.item>
+                                    </div>
+                                </x-tab.item>
 
-                                    <!-- Schedules -->
-                                    <x-tab.item>
-                                        <div class="tab" id="schedule">
-                                            @foreach ($partner->services as $advert)
-                                                @include('service-tabs.' . $advert->view_name . '.schedule', [
-                                                    'details' => $advert->service,
-                                                ])
-                                            @endforeach
+                                <!-- Schedules -->
+                                <x-tab.item>
+                                    <div>
+                                        @foreach ($partner->services as $advert)
+                                            @include('service-tabs.' . $advert->view_name . '.schedule', [
+                                                'details' => $advert->service,
+                                            ])
+                                        @endforeach
+                                    </div>
+                                </x-tab.item>
 
-                                        </div>
-                                    </x-tab.item>
-
-                                    <!-- Rates -->
-                                    <x-tab.item>
+                                <!-- Rates -->
+                                <x-tab.item>
+                                    <div>
                                         @foreach ($partner->services as $advert)
                                             @include('service-tabs.' . $advert->view_name . '.rates', [
                                                 'details' => $advert->service,
                                             ])
                                         @endforeach
-                                    </x-tab.item>
+                                    </div>
+                                </x-tab.item>
 
-                                    <!-- Video -->
-                                    <x-tab.item>
+                                <!-- Video -->
+                                <x-tab.item>
+                                    <div>
                                         @if ($partner->youtube)
                                                 <?php
                                                 $youtube = preg_replace('/watch\?v=/', 'embed/', $partner->youtube);
                                                 $youtube = str_replace('https://youtu.be/', 'https://www.youtube.com/embed/', $youtube);
                                                 ?>
-                                            <iframe width="420" height="315" src="{{ $youtube }}" frameborder="0"
-                                                    allowfullscreen/>
+                                            <iframe
+                                                src="{{ $youtube }}"></iframe>
                                         @endif
                                         @if ($partner->vimeo)
-                                            <iframe width="420" height="315"
-                                                    src="{{ str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/', $partner->vimeo) }}"
-                                                    frameborder="0" allow="fullscreen"/>
+                                            <iframe
+                                                src="{{ str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/', $partner->vimeo) }}"></iframe>
                                         @endif
-                                    </x-tab.item>
-                                </x-tab.index>
-                            </div>
+                                    </div>
 
+                                </x-tab.item>
+                            </x-tab.index>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            <div class="row d-flex gallery">
+                                <?php $locale = app()->getLocale(); ?>
+                                @if(config('app.url') == 'http://localhost')
+                                    @for ($i = 1; $i <= 20; $i++)
+                                        <div class="col-6 mb-4 gallery-image gal-img">
+                                            <img src="//via.placeholder.com/100x200/fc0?text=6" class="card-img" alt="...">
+                                        </div>
+                                    @endfor
+                                @else
+                                    @foreach ($images as $img)
+                                        <div class="col-6 mb-4 gallery-image gal-img">
+                                            <img src="{{ '/storage/images/thumbnails/' . $img->image_name }}"
+                                                 alt="{{ $img['image_alt_' . $locale] }}" img-id="{{ $img->id }}"/>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </div>
                         </div>
                     </div>
+                </section>
 
                     <div class="d-flex stars">
                         @if (Auth::user() && Auth::user()->type != 'partner')
@@ -241,9 +241,6 @@
                             @endif
                         @endfor
                     </div>
-
-
-                </section>
             </div>
         </div>
     </div>

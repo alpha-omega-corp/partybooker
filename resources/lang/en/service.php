@@ -10,7 +10,7 @@ return [
 	'show_website' => 'Show website',
 	'show_address' => 'Show address',
 	'description' => 'Description',
-	'general_info' => 'General info',
+	'general_info' => 'Information',
 	'schedule' => 'Schedule',
 	'rates' => 'Rates',
 	'video' => 'Video',
