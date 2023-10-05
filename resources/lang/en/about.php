@@ -4,7 +4,7 @@ return [
 	'about_us' => 'about us',
 	'ABOUT_PARTYBOOKER' => 'ABOUT PARTYBOOKER',
 	'ABOUT_PARTYBOOKER_p1' => 'Partybooker, originally established in 2016, is proud to be the only online collective event reference platform in Suisse Romande. Designed in mind to provide the end user with an instant, one-stop shopping experience, where a large variety of carefully chosen providers… that are as dynamic as they are intransigent about the quality of their services… are all grouped under one roof, at the simple touch of a button.',
-	'ABOUT_PARTYBOOKER_p2' => 'To meet with ever evolving market demands, Partybooker has undergone a metamorphosis; the brand new “look and feel” of the website entices the reader to discover more… 
+	'ABOUT_PARTYBOOKER_p2' => 'To meet with ever evolving market demands, Partybooker has undergone a metamorphosis; the brand new “look and feel” of the website entices the reader to discover more…
 A valuable source of inspiration, time saving with concise yet comprehensive listings, evocative images, a site easy to navigate even for the novice, totally free for the searcher... 70+ partners with the professional expertise and skills to guide and advise, Partybooker is the ideal event solution.',
 	'CONCEPT' => 'CONCEPT',
 	'CONCEPT_expl' => '<p>Are you looking to organize an event; be it private or professional?	“Time is of the essence” and this is where Partybooker is an invaluable tool. Our mission is to enable the prospective client to discover a selection of places and services in just a few clicks; the wherewithal to create a seamless tailor made event, adapted to circumstances, style, desire and budget.</p>
@@ -30,14 +30,18 @@ A valuable source of inspiration, time saving with concise yet comprehensive lis
 
 	'partner_benefits' => 'Partner benefits',
 	'partner_benefits_expl' => 'partybooker since 2016 - 1’555’662 visitors - 388’915 average per year - swiss made',
-	'partner_benefits_1' => 'Reach potential customers',
+    'partner_benefits_expl_since' => 'PartyBooker since 2016',
+    'partner_benefits_expl_visitors' => '1’555’662 visitors',
+    'partner_benefits_expl_average' => '388’915 average per year',
+    'partner_benefits_expl_made' => 'Made in Switzerland',
+    'partner_benefits_1' => 'Reach potential customers',
 	'partner_benefits_2' => 'Generate more reservations',
 	'partner_benefits_3' => 'Raise brand equity',
 	'partner_benefits_4' => 'Heighten visibility',
 	'partner_benefits_5' => 'General & detailed listing',
 	'partner_benefits_6' => 'Track statistics',
 	'partner_benefits_7' => 'Open 24H/7',
-	'partner_benefits_8' => '<li>- Manage listings</li>',
+	'partner_benefits_8' => 'Manage listings',
 	'partner_benefits_9' => 'Direct requests',
 	'partner_benefits_10' => 'No intermediary',
 	'partner_benefits_11' => 'Competitive rates',

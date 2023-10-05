@@ -27,6 +27,12 @@ return [
 
 	'partner_benefits' => 'Avantages partenaires',
 	'partner_benefits_expl' => "partybooker depuis 2016 – 1'555'662 visiteurs – 388'915 moyenne par an – swiss made",
+
+    'partner_benefits_expl_since' => 'PartyBooker depuis 2016',
+    'partner_benefits_expl_visitors' => '1’555’662 visiteurs',
+    'partner_benefits_expl_average' => '388’915 moyenne par an',
+    'partner_benefits_expl_made' => 'Fabrication Suisse',
+
 	'partner_benefits_1' => 'Attirer des cibles de prospects premium',
 	'partner_benefits_2' => 'Augmenter le volume de demandes',
 	'partner_benefits_3' => 'Accroître la valeur de la marque en augmentant sa présence',
@@ -34,7 +40,7 @@ return [
 	'partner_benefits_5' => 'Améliorer le référencement',
 	'partner_benefits_6' => 'Accroître le taux de conversion',
 	'partner_benefits_7' => 'Susciter l’intérêt et améliorer le taux de rétention',
-	'partner_benefits_8' => '<li>- Suivi des statistiques</li><li>- Ouvert 24h/24</li>',
+	'partner_benefits_8' => 'Suivi des statistiques',
 	'partner_benefits_9' => 'Demandes direct',
 	'partner_benefits_10' => 'Sans intermédiaire',
 	'partner_benefits_11' => 'Excellent retour sur investissement',

@@ -163,6 +163,10 @@
     "file": "assets/cookie-69e1784d.svg",
     "src": "resources/images/cookie.svg"
   },
+  "resources/images/customer-satisfaction.gif": {
+    "file": "assets/customer-satisfaction-885e39e3.gif",
+    "src": "resources/images/customer-satisfaction.gif"
+  },
   "resources/images/deco.png": {
     "file": "assets/deco-18817dc8.png",
     "src": "resources/images/deco.png"
@@ -592,7 +596,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-b2c61055.css",
+    "file": "assets/app-a7b9fd89.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -602,9 +606,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-b2c61055.css"
+      "assets/app-a7b9fd89.css"
     ],
-    "file": "assets/app-314f3136.js",
+    "file": "assets/app-a44def30.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
