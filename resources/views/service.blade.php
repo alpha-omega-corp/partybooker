@@ -66,7 +66,7 @@
                     <br>
 
 
-                    <div class="d-flex flex-md-row flex-column">
+                    <div class="d-flex partner-contacts">
                         @if ($partner->is_commission)
                             <div class="details">
                                 <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/contacts') }}"

@@ -56,6 +56,10 @@ $modal-content-color: $white;
     color: $info;
     text-transform: uppercase;
     font-weight: bold;
+
+    @media only screen and (max-width : 767px) {
+        display: none;
+    }
 }
 
 .tippy-box[data-theme~='back-page'] {
