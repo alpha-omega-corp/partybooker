@@ -10,7 +10,7 @@
 	@endif
 </p>
 <li class="li"><span>{{__('partner.opening_hours')}}:</span>
-	@foreach($details->working_time as $time)
+	@foreach(\json_decode(json_encode($details->working_time) ?? []) as $time)
 		<p>{!! "<b>{$time->open} - {$time->close}</b> : {$time->description}"!!}</p>
 	@endforeach
 </li>
