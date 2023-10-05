@@ -10,9 +10,12 @@
 	@endif
 </p>
 <li class="li"><span>{{__('partner.opening_hours')}}:</span>
-	@foreach(\json_decode(json_encode($details->working_time) ?? []) as $time)
-		<p>{!! "<b>{$time->open} - {$time->close}</b> : {$time->description}"!!}</p>
-	@endforeach
+    @if($details->working_time)
+        @foreach($details->working_time) as $time)
+            <p>{!! "<b>{$time->open} - {$time->close}</b> : {$time->description}"!!}</p>
+        @endforeach
+    @endif
+
 </li>
 <p><span>{{__('partner.annual_holidays')}}:</span> {{$details ? $details->holidays : ''}}</p>
 <p>
