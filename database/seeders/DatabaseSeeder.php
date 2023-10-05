@@ -171,7 +171,7 @@ class DatabaseSeeder extends Seeder
 
     private function newPartner(string $slug, $r)
     {
-        DB::table('partners_info')->insert([
+        $partnerId = DB::table('partners_info')->insertGetId([
             'id_partner' => '120036190814-044' . $r,
             'en_company_name' => $slug,
             'fr_company_name' => $slug,
@@ -211,6 +211,16 @@ class DatabaseSeeder extends Seeder
             'fr_full_descr' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus iaculis dolor ligula, quis commodo arcu sollicitudin eu. Phasellus feugiat nisl non ex iaculis dictum. Aliquam',
             'other_lang' => null,
         ]);
+
+        DB::table('adverts')->insert([
+            'partners_info_id' => $partnerId,
+            'category_id' => 1,
+            'status' => 1,
+            'view_name' => 'wine',
+            'service_type' => 'App\Models\EventPlace',
+            'service_id' => rand(3, 35)
+        ]);
+
 
         DB::table('users')->insert([
             'name' => $slug,
