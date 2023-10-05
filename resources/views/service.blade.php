@@ -8,7 +8,7 @@
     <div class="partner">
         <div class="row m-4">
             <div class="col-md-2">
-                <div class="mt-6">
+                <div class="side">
                     <x-back-page :tooltip="__('service.back')"/>
                     <h3 class="text-uppercase text-center fw-bold text-nowrap mt-4">
                         Annonces similaire

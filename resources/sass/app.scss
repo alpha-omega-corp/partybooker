@@ -217,7 +217,7 @@ a {
 // Service Page
 .partner {
     color: #ffffff;
-
+    overflow-x: hidden;
     .stars {
         margin-bottom: 100px;
     }
@@ -225,8 +225,9 @@ a {
     .partner-details {
         background-color: rgba(0, 0, 0, 0.4);
         border-radius: 30px;
-        padding: 30px
-
+        padding: 30px;
+        height: 90vh;
+        overflow: scroll;
     }
 
     .advert-container {
@@ -253,6 +254,13 @@ a {
             height: 100%;
             border-radius: 16px;
             cursor: pointer;
+            filter: brightness(80%);
+        }
+
+        img:hover {
+            transform: scale(1.1);
+            transition: .2s;
+            filter: brightness(100%);
         }
     }
 
@@ -337,8 +345,12 @@ a {
         list-style-type: none;
     }
 
+    .side {
+        margin-top: 100px;
+    }
+
     .adverts {
-        height:100vh;
+        height: 70vh;
         overflow: scroll;
 
         .card {
