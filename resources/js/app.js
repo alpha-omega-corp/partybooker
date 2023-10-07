@@ -77,10 +77,10 @@ tippy('.partner-socials', {
 });
 
 tippy('.tab-cat-btn', {
-    placement: 'right-start',
+    placement: 'left',
     animation: 'scale',
     inertia: true,
-    theme: 'partner-socials'
+    theme: 'tab-cat-tippy'
 });
 
 

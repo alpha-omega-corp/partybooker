@@ -274,7 +274,7 @@ return [
 
 
 	//WINE
-	'cocktail_reception_capacity' => 'Cocktail reception - standing capacity',
+	'cocktail_reception_capacity' => 'Standing Capacity',
 	'cocktail_reception_capacity_expl' => 'Indicate maximum standing capacity',
 	'banquet_capacity' => 'Banquet capacity',
 	'banquet_capacity_expl' => 'Indicate maximum seating capacity.',

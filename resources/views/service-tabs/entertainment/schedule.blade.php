@@ -1,4 +1,3 @@
-<h4>{{__('service.for')}} {{__('categories.cat6')}}</h4>
 
 <p><span>{{__('partner.working_days')}}:</span>
 	@if(isset($details))

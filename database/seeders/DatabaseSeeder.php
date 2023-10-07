@@ -218,9 +218,10 @@ class DatabaseSeeder extends Seeder
             'other_lang' => null,
         ]);
 
-        EventPlace::factory([
+        $epId = EventPlace::factory([
             'id_partner' => '120036190814-044' . $r
-        ])->count(2)->create();
+        ])->create()->id;
+
 
 
         DB::table('adverts')->insert([
@@ -229,17 +230,10 @@ class DatabaseSeeder extends Seeder
             'status' => 1,
             'view_name' => 'event-place',
             'service_type' => 'App\Models\EventPlace',
-            'service_id' => 26,
+            'service_id' => $epId,
         ]);
 
-        DB::table('adverts')->insert([
-            'partners_info_id' => $partnerId,
-            'category_id' => 3,
-            'status' => 1,
-            'view_name' => 'caterer',
-            'service_type' => 'App\Models\Caterer',
-            'service_id' => 26,
-        ]);
+
 
 
         DB::table('users')->insert([

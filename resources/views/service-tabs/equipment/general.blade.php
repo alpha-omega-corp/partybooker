@@ -1,5 +1,5 @@
-<h4>{{__('service.for')}} {{__('categories.cat5')}}</h4>
-<h6>{{strtoupper(__('service.general'))}}</h6>
+<h6 class="text-uppercase">{{__('service.general')}}</h6>
+
 <p><span>{{__('partner.geographical_limit')}}:</span> {{$details->geo ?? "" }}</p>
 <p><span>{{__('partner.complimentary_services')}}:</span> {{$details->complim_services ?? "" }}</p>
 <p><span>{{__('partner.proposed_equipment')}}:</span> {{$details->proposed ?? "" }}</p>

@@ -3,12 +3,10 @@
 <p><span>{{__('partner.budget')}}:</span> {{$partner->budget ? \App\Helpers\BudgetsHelper::getDescription($partner->budget) : "" }}</p>
 <p><span>{{__('partner.booking_deposit')}}:</span> {{$details->deposit ?? ''}}</p>
 <p><span>{{__('partner.payment_methods')}}:</span>
-	@if(isset($details))
 		@foreach ( json_decode($details->paymeny) ?? [] as $payment)
 			@if (strlen($payment) > 0)
 				{{\App\Helpers\PaymentMethodsTranslatorHelper::translate($payment)}}<span class="coma">,&nbsp;</span>
 			@endif
 		@endforeach
-	@endif
 	{{$details->other_payment ?? ''}}
 </p>

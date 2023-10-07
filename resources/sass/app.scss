@@ -222,7 +222,7 @@ a {
     }
 
     .partner-advert {
-        height: 400px;
+        height: 500px;
         overflow: scroll;
     }
 
@@ -363,9 +363,26 @@ a {
 
         .tab-content {
             text-align: justify;
-            height: 400px;
+            height: 500px;
             overflow: scroll;
             width: 100%;
+
+            .list-group-item {
+                border: 0;
+                .title {
+                    width: 200px;
+                    display: flex;
+                    background-color: $secondary;
+                    color: $white;
+                    text-align: start;
+                    padding: 10px;
+
+                }
+
+                .content {
+                    padding: 8px;
+                }
+            }
 
             h4 {
                 font-weight: bolder;
@@ -380,6 +397,10 @@ a {
                 font-weight: bold;
                 text-transform: uppercase;
                 font-size: 18px;
+                display: flex;
+                background-color: $primary;
+                padding: 10px;
+                margin-top: 8px;
 
             }
 

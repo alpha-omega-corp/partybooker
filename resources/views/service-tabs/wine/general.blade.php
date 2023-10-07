@@ -1,11 +1,9 @@
-<h4>{{ __('service.for') }} {{ __('categories.cat4') }}</h4>
-<h6>{{ strtoupper(__('service.general')) }}</h6>
+<h6 class="text-uppercase">{{__('service.general')}}</h6>
+
 <p><span>{{ __('partner.service_or_activity_name') }}:</span>
 @if($details)
     @foreach ($details as $service)
-        {{dd($details)}}
-        <p>{{ __('partner.name') }}: {{ $service['name'] }}, {{ __('service.description') }}:
-            {{ $service['description'] }}
+        <p>{{ __('partner.name') }}: {{ $details->view_name }}, {{ __('service.description') }}:
         <p>
     @endforeach
 @endif

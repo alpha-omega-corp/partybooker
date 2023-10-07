@@ -1,4 +1,3 @@
-<h4>{{__('service.for')}} {{__('categories.cat4')}}</h4>
 <p><span>{{__('partner.working_days')}}:</span>
 	@foreach (json_decode($details->working_days)??[] as $day)
 		@if (strlen($day) > 0)

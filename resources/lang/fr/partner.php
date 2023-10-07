@@ -274,13 +274,13 @@ return [
 
 
 	//WINE
-	'cocktail_reception_capacity' => "Réception ou Cocktail - capacité debout",
+	'cocktail_reception_capacity' => "Capacité Debout",
 	'cocktail_reception_capacity_expl' => "Indiquez le nombre de personnes maximum que votre établissement peut accueillir pour une réception debout.",
 	'banquet_capacity' => "Capacité repas assis",
 	'banquet_capacity_expl' => "Indiquez le nombre de personnes maximum que votre établissement peut accueillir pour un repas assis.",
 	'outdoor_facility' => "Capacité espace extérieur",
 	'outdoor_facility_expl' => "Indiquez le nombre de personnes maximum que vos espaces extérieurs (cour, jardin, parc) peut accueillir.",
-	'sitting_schema' => "",
+	'sitting_schema' => "Organisation assise ",
 	'sitting_schema_expl' => "",
 	'Schema' => "",
 	'conference_room' => "Salle de conférence",

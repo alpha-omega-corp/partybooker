@@ -176,32 +176,32 @@
                                                         <!-- Information -->
                                                         <x-tab.item>
                                                             @include('service-tabs.' . $advert->view_name . '.general', [
-                                                                'details' => $advert,
+                                                                'details' => $advert->service,
                                                             ])
                                                         </x-tab.item>
 
                                                         <x-tab.item>
 
                                                             @include('service-tabs.' . $advert->view_name . '.schedule', [
-                                                                'details' => $advert,
+                                                                'details' => $advert->service,
                                                             ])
 
                                                         </x-tab.item>
 
                                                         <x-tab.item>
                                                             @include('service-tabs.' . $advert->view_name . '.rates', [
-                                                                'details' => $advert,
+                                                                'details' => $advert->service,
                                                             ])
                                                         </x-tab.item>
 
                                                         <x-tab.item>
-                                                            <div>
+                                                            <div class="d-flex w-100">
                                                                 @if ($partner->youtube)
                                                                         <?php
                                                                         $youtube = preg_replace('/watch\?v=/', 'embed/', $partner->youtube);
                                                                         $youtube = str_replace('https://youtu.be/', 'https://www.youtube.com/embed/', $youtube);
                                                                         ?>
-                                                                    <iframe
+                                                                    <iframe style="height: 100%; width: 100%"
                                                                         src="{{ $youtube }}"></iframe>
                                                                 @endif
                                                                 @if ($partner->vimeo)

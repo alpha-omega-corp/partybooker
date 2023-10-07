@@ -69,7 +69,8 @@ $modal-content-color: $white;
 
 .tippy-box[data-theme~='tab-cat-tippy'] {
     color: $white;
-    font-size: smaller;
+    background-color: $primary;
+    padding: 5px;
 }
 
 .tippy-box[data-theme~='partner-socials'] {
