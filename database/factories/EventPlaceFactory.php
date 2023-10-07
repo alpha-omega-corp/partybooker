@@ -29,7 +29,7 @@ class EventPlaceFactory extends Factory
             'coctail' => 300,
             'banquet' => 300,
             'outdoor' => 300,
-            'sitting' => '["1", "3"]',
+            'sitting' => '55',
             'room' => [
                 [
                     'name' => 'Queens Meeting Room',

@@ -50,6 +50,7 @@ return [
 	'equipment' => 'Matériel & Déco',
 	'caterer' => 'Traiteur',
 	'entertainment' => 'Animation',
+    'speaks_lang' => 'service en',
 
 	'yes' => 'YES',
 	'no' => 'NO',

@@ -14,7 +14,8 @@
     </x-service.list-item>
 
     <x-service.list-item title="{{__('partner.sitting_schema')}}">
-        {{isset($details->sitting) ? implode(', ', json_decode($details->sitting)) : ''}}
+
+        {{$details->sitting ?? ''}}
     </x-service.list-item>
 
     <x-service.list-item title="{{__('partner.conference_room')}}">

@@ -108,38 +108,17 @@
                         <div class="col-md-8 col-sm-12">
 
                             <div>
-                                <div class="partner-languages d-flex justify-content-end">
-                                    <p>
-                                        @php
-                                            $languages = [];
-                                            if ($partner->language) {
-                                                foreach (json_decode($partner->language) ?? [] as $lang) {
-                                                    if ($lang == 'other') {
-                                                        continue;
-                                                    }
-                                                    $languages[] = __('partybooker-cp.' . trim($lang));
-                                                }
-                                            }
-                                        @endphp
 
 
-                                        @foreach($languages as $language)
-                                            <img src="{{Vite::image(strtolower($language) . '.svg')}}"
-                                                 alt="{{ strtolower($language) }}"
-                                                 width="24" height="24">
-                                        @endforeach
-
-                                        {{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
-                                    </p>
-                                </div>
-
-                                <h3 class="fw-bold text-uppercase mb-3">
+                                <blockquote class="fw-bold text-uppercase mb-3 text-info">
                                     @if (app()->getLocale() == 'en')
                                         {{ $partner->en_slogan }}
                                     @else
                                         {{ $partner->fr_slogan }}
                                     @endif
-                                </h3>
+                                </blockquote>
+
+                                <h3 class="text-uppercase fw-bold">Description</h3>
 
                                 <p class="partner-description">
                                     @if (app()->getLocale() == 'en')
@@ -148,6 +127,36 @@
                                         {!! $partner->fr_full_descr !!}
                                     @endif
                                 </p>
+
+
+                                <div class="partner-languages d-flex justify-content-start">
+                                    <h3 class="text-uppercase fw-bold">Services</h3>
+                                    <p class="p-1">
+                                        @php
+                                            $languages = [];
+                                            $immutableLanguages = [];
+                                            if ($partner->language) {
+                                                foreach (json_decode($partner->language) ?? [] as $lang) {
+                                                    if ($lang == 'other') {
+                                                        continue;
+                                                    }
+                                                    $languages[] = __('partybooker-cp.' . trim($lang));
+                                                    $immutableLanguages[] = trim($lang);
+                                                }
+                                            }
+                                        @endphp
+
+
+                                        @foreach($immutableLanguages as $key => $locale)
+                                            <img src="{{Vite::image(strtolower($locale) . '.svg')}}"
+                                                 alt="{{ strtolower($locale) }}"
+                                                 width="24" height="24" class="flag"
+                                                 data-tippy-content="{{strtolower(__('service.speaks_lang') . ' ' . $languages[$key])}}">
+                                        @endforeach
+
+                                        {{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
+                                    </p>
+                                </div>
                             </div>
 
                             <div class="row">

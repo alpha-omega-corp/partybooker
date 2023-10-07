@@ -44,6 +44,7 @@ return [
 	'back' => 'Back',
 	'category' => 'Category',
 	'delete' => 'Delete',
+    'speaks_lang' => 'service in',
 
 	'event-place' => 'Event places',
 	'wine' => 'Wine lovers',

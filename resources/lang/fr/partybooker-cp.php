@@ -3,7 +3,7 @@
 return [
 	//WWW
 	'www'						=> "partybooker.ch",
-	
+
 	//HEADER NAV
 	'hello'						=> "Bonjour",
 	'main'						=> "Principale",
@@ -12,28 +12,28 @@ return [
 	'blog'						=> "Blog",
 	'faq'						=> "FAQ",
 	'settings'					=> "Réglages",
-	
+
 	//Settings submenu
 	'profile'					=> "Profil administrateur",
 	'plans'						=> "Plans Annuels",
 	'contacts'					=> "Contacts",
 	'user-terms'				=> "Conditions d'utilisation",
 	'provider-terms' 			=> "Termes et conditions du fournisseur de services",
-	
+
 	//Email veryfication
 	'not_verified'				=> "L'email n'est pas vérifié",
 	'check_email'				=> "S'il vous plaît, vérifiez votre email pour continuer.",
 	'was_sent'					=> "Le lien de vérification a été envoyé à votre adresse email.",
 	'verified'					=> "Email verifié",
 	'go_to'						=> "Aller à",
-	
+
 	//Main page
 	'add_new_partner'			=> "+ nouveau partenaire",
 	'add_new_article'			=> "+ nouvel article",
 	'add_new_faq'				=> "+ nouvelle FAQ",
 	'last_messages'				=> "Derniers messages",
 	'notifications'				=> "Les notifications",
-	
+
 	//Messages
 	'all_messages'				=> "Tous les messages",
 	'subscribe_form'			=> "Formulaire d'inscription",
@@ -51,7 +51,7 @@ return [
 	'partnerid_popup'			=> "ID partenaire",
 	'message_popup'				=> "Message:",
 	'question_popup'			=> "Question:",
-	
+
 	//Listing page
 	'choose_category'			=> "Choisissez une catégorie",
 	'choose_subcategory'		=> "Choisir une sous catégorie",
@@ -75,7 +75,7 @@ return [
 	'payment'					=> "Paiement",
 	'payment_date'				=> "Date de paiement:",
 	'payment_exp_date'			=> "Date d'expiration du paiement:",
-	
+
 	//Blog page
 	'show_all'					=> "Montre tout",
 	'show_published'			=> "Afficher publié",
@@ -92,7 +92,7 @@ return [
 	'make'						=> "Faire",
 	'draft'						=> "Brouillon",
 	'delete'					=> "EFFACER",
-	
+
 	//Faqs page
 	'all_faqs'					=> "TOUTES LES FAQ",
 	'general_faqs'				=> "FAQ générale",
@@ -106,7 +106,7 @@ return [
 	'question_faq'				=> "Question",
 	'answer_faq'				=> "Réponse",
 	'really_delete_faq'			=> "Voulez-vous vraiment supprimer cette FAQ?",
-	
+
 	//Admin Profile Page
 	'logged_in'					=> "Vous vous êtes connecté en tant que",
 	'your_email'				=> "Votre email:",
@@ -125,7 +125,7 @@ return [
 	'submit'					=> "SOUMETTRE",
 	'edit_success'				=> "Vos modifications ont été appliquées",
 	'edit_error'				=> "Quelque chose a mal tourné, essayez encore une fois",
-	
+
 	//Yearly Plans Page
 	'button_new_plan'			=> "Nouveau plan annuel",
 	't_name'					=> "Prénom",
@@ -155,7 +155,7 @@ return [
 	'radio_y'					=> "OUI",
 	'radio_n'					=> "NON",
 	'direct_request'			=> "Demande directe",
-	
+
 	//Contacts
 	'contacts_detail'			=> "Coordonnées de Partybooker",
 	'save'						=> "Sauver",
@@ -166,8 +166,8 @@ return [
 	'p_linkedin'				=> "Lien LinkedIn",
 	'p_google'					=> "Lien Google+",
 	'p_twitter'					=> "Lien Twitter",
-	'p_instagram'				=> "Lien Instagram",	
-	
+	'p_instagram'				=> "Lien Instagram",
+
 	//Create Partner Form
 	'step_1'					=> "Étape 1",
 	'general_info'				=> "Informations générales",
@@ -196,10 +196,10 @@ return [
 	'full_description'			=> "Description complète",
 	'full_description_pl'		=> "Description complète de la société/service.",
 	'languages'					=> "Langues",
-	'french'					=> "Française",
-	'english'					=> "Anglaise",
-	'german'					=> "Allemande",
-	'italian'					=> "Italienne",
+	'french'					=> "Français",
+	'english'					=> "Anglais",
+	'german'					=> "Allemand",
+	'italian'					=> "Italien",
 	'other'						=> "Autre",
 	'enter_other_languages'		=> "Entrez d'autres langues",
 	'website'					=> "Site Internet",
@@ -212,7 +212,7 @@ return [
 	'url_vimeo'					=> "Lien vers votre page Vimeo",
 	'is_commission'             => "Commission de jeu",
 	'commission_amount'         => "Montant de la commission",
-	
+
 	//FOOTER
 	'rights'					=> "Tous droits réservés",
 	'created'					=> "créé par",

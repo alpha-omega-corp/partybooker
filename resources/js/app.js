@@ -83,10 +83,12 @@ tippy('.tab-cat-btn', {
     theme: 'tab-cat-tippy'
 });
 
-
-
-
-
+tippy('.flag', {
+    placement: 'bottom',
+    animation: 'scale',
+    inertia: true,
+    theme: 'flag'
+});
 
 
 tippy.setDefaultProps({

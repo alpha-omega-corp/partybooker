@@ -73,6 +73,14 @@ $modal-content-color: $white;
     padding: 5px;
 }
 
+.tippy-box[data-theme~='flag'] {
+    background-color: $premium;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 0px 10px 0px 10px;
+    color: #fff;
+}
+
 .tippy-box[data-theme~='partner-socials'] {
     color: $white;
     font-size: smaller;
