@@ -67,11 +67,17 @@ $modal-content-color: $white;
     text-transform: uppercase;
 }
 
+.tippy-box[data-theme~='tab-cat-tippy'] {
+    color: $white;
+    font-size: smaller;
+}
+
 .tippy-box[data-theme~='partner-socials'] {
     color: $white;
     font-size: smaller;
-
 }
+
+
 
 
 

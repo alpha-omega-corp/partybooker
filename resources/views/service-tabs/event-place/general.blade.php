@@ -1,4 +1,3 @@
-<h4>{{__('service.for_event_places')}}</h4>
 
 <h6>{{strtoupper(__('service.general'))}}</h6>
 <p><span>{{__('partner.cocktail_reception_capacity')}}:</span> {{$details->coctail ?? ''}}</p>

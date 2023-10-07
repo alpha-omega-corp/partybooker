@@ -108,8 +108,6 @@
                         <div class="col-md-8 col-sm-12">
 
                             <div>
-
-
                                 <div class="partner-languages d-flex justify-content-end">
                                     <p>
                                         @php
@@ -135,13 +133,14 @@
                                     </p>
                                 </div>
 
-                                <h3 class="fw-bold text-uppercase">
+                                <h3 class="fw-bold text-uppercase mb-3">
                                     @if (app()->getLocale() == 'en')
                                         {{ $partner->en_slogan }}
                                     @else
                                         {{ $partner->fr_slogan }}
                                     @endif
                                 </h3>
+
                                 <p class="partner-description">
                                     @if (app()->getLocale() == 'en')
                                         {!! $partner->en_full_descr !!}
@@ -149,70 +148,75 @@
                                         {!! $partner->fr_full_descr !!}
                                     @endif
                                 </p>
-
-
                             </div>
-
 
                             <div class="row">
-                                @foreach ($partner->services as $advert)
+                                @php
+                                    $cats = $partner->services->map(function ($item) {
+                                        return __('service.' . $item->view_name);
+                                    });
+                                @endphp
 
-                                <div class="col-md-6 col-sm-12">
-                                    <div class="partner-advert">
-                                        <x-tab.index :tabs="[
-                                __('service.general_info'),
-                                __('service.schedule'),
-                                __('service.rates'),
-                                __('service.video')]" >
-
-                                            <!-- Information -->
+                                <div class="tab-index">
+                                    <x-partner-category-tab :tabs="$cats">
+                                        @foreach ($partner->services as $advert)
                                             <x-tab.item>
-                                                @include('service-tabs.' . $advert->view_name . '.general', [
-                                                    'details' => $advert,
-                                                ])
-                                            </x-tab.item>
+                                                <div class="partner-advert">
+                                                    <x-tab.index :tabs="[
+                                                    __('service.general_info'),
+                                                    __('service.schedule'),
+                                                    __('service.rates'),
+                                                    __('service.video')]" :icons="[
+                                                    'heroicon-o-information-circle',
+                                                    'heroicon-o-clock',
+                                                    'heroicon-o-currency-dollar',
+                                                    'heroicon-o-video-camera',
+                                                    ]">
 
-                                            <x-tab.item>
+                                                        <!-- Information -->
+                                                        <x-tab.item>
+                                                            @include('service-tabs.' . $advert->view_name . '.general', [
+                                                                'details' => $advert,
+                                                            ])
+                                                        </x-tab.item>
 
-                                                @include('service-tabs.' . $advert->view_name . '.schedule', [
-                                                    'details' => $advert,
-                                                ])
+                                                        <x-tab.item>
 
-                                            </x-tab.item>
+                                                            @include('service-tabs.' . $advert->view_name . '.schedule', [
+                                                                'details' => $advert,
+                                                            ])
 
-                                            <x-tab.item>
-                                                @include('service-tabs.' . $advert->view_name . '.rates', [
-                                                    'details' => $advert,
-                                                ])
-                                            </x-tab.item>
+                                                        </x-tab.item>
 
-                                            <x-tab.item>
-                                                <div>
-                                                    @if ($partner->youtube)
-                                                            <?php
-                                                            $youtube = preg_replace('/watch\?v=/', 'embed/', $partner->youtube);
-                                                            $youtube = str_replace('https://youtu.be/', 'https://www.youtube.com/embed/', $youtube);
-                                                            ?>
-                                                        <iframe
-                                                            src="{{ $youtube }}"></iframe>
-                                                    @endif
-                                                    @if ($partner->vimeo)
-                                                        <iframe
-                                                            src="{{ str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/', $partner->vimeo) }}"></iframe>
-                                                    @endif
+                                                        <x-tab.item>
+                                                            @include('service-tabs.' . $advert->view_name . '.rates', [
+                                                                'details' => $advert,
+                                                            ])
+                                                        </x-tab.item>
+
+                                                        <x-tab.item>
+                                                            <div>
+                                                                @if ($partner->youtube)
+                                                                        <?php
+                                                                        $youtube = preg_replace('/watch\?v=/', 'embed/', $partner->youtube);
+                                                                        $youtube = str_replace('https://youtu.be/', 'https://www.youtube.com/embed/', $youtube);
+                                                                        ?>
+                                                                    <iframe
+                                                                        src="{{ $youtube }}"></iframe>
+                                                                @endif
+                                                                @if ($partner->vimeo)
+                                                                    <iframe
+                                                                        src="{{ str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/', $partner->vimeo) }}"></iframe>
+                                                                @endif
+                                                            </div>
+                                                        </x-tab.item>
+                                                    </x-tab.index>
                                                 </div>
                                             </x-tab.item>
-
-                                        </x-tab.index>
-                                    </div>
+                                        @endforeach
+                                    </x-partner-category-tab>
                                 </div>
-
-                                @endforeach
                             </div>
-
-
-
-
 
 
                         </div>

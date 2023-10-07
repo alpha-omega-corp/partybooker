@@ -76,6 +76,14 @@ tippy('.partner-socials', {
     theme: 'partner-socials'
 });
 
+tippy('.tab-cat-btn', {
+    placement: 'right-start',
+    animation: 'scale',
+    inertia: true,
+    theme: 'partner-socials'
+});
+
+
 
 
 

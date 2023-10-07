@@ -1,6 +1,5 @@
 @props([
-    'tabs',
-    'icons'
+    'tabs'
 ])
 
 <div
@@ -20,7 +19,7 @@
         }
     }"
     x-id="['tab']"
-    class="tab d-flex">
+    class="tabcat">
     <!-- Tab List -->
     <ul
         x-ref="tablist"
@@ -31,9 +30,9 @@
         @keydown.end.prevent.stop="$focus.last()"
         @keydown.page-down.prevent.stop="$focus.last()"
         role="tablist"
-        class="d-flex flex-column">
-        @foreach($tabs as $key => $tab)
-            <li>
+        class="d-flex">
+        @foreach($tabs as $tab)
+            <li class="d-flex w-100">
                 <button
                     :id="$id('tab', whichChild($el.parentElement, $refs.tablist))"
                     @click="select($el.id)"
@@ -42,11 +41,11 @@
                     type="button"
                     :tabindex="isSelected($el.id) ? 0 : -1"
                     :aria-selected="isSelected($el.id)"
-                    :class="isSelected($el.id) ? 'tab-active' : 'tab-inactive'"
-                    class="btn rounded-0 fw-bold text-uppercase tab-cat-btn"
+                    :class="isSelected($el.id) ? 'bg-primary' : 'bg-secondary'"
+                    class="btn rounded-0 fw-bold text-uppercase w-100"
                     data-tippy-content="{{$tab}}"
                     role="tab">
-                    @svg($icons[$key])
+                    {{$tab}}
                 </button>
             </li>
         @endforeach
