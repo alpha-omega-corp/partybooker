@@ -21,10 +21,10 @@
 
         @if(isset($details->room))
             <ul>
-                @foreach(json_decode($details->room) as $room)
+                @foreach($details->room as $room)
 
-                    <li><b>Room</b> : {{$room->name}}</li>
-                    <li><b>Capacity</b> : {{$room->capacity}}</li>
+                    <li><b>Room</b> : {{$room['name']}}</li>
+                    <li><b>Capacity</b> : {{$room['capacity']}}</li>
                 @endforeach
             </ul>
 

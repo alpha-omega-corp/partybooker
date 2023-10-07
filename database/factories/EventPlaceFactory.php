@@ -30,7 +30,20 @@ class EventPlaceFactory extends Factory
             'banquet' => 300,
             'outdoor' => 300,
             'sitting' => '["1", "3"]',
-            'room' => '[{"name":"Queens Meeting Room : CHF 50,- par heure. - par heure.","capacity":"10"},{"name":"Boardroom Meeting Room : CHF 150","capacity":"30"},{"name":"Speaker Room : CHF 250,- par heure","capacity":"150"}]',
+            'room' => [
+                [
+                    'name' => 'Queens Meeting Room',
+                    'capacity' => '10',
+                ],
+                [
+                    'name' => 'Boardroom Meeting Room',
+                    'capacity' => '30',
+                ],
+                [
+                    'name' => 'Speaker Room',
+                    'capacity' => '150',
+                ],
+            ],
             'reduced_mob' => 1,
             'facilities' => '["bar","dance-floor","lighting"]',
             'oth_facilities' => 'Vue exceptionnelle sur le lac et les Alpes',
