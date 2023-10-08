@@ -23,8 +23,12 @@ class Entertainment extends Migration
 			//Working days
 			$table->string('working_days');
 
-			//Duration
-			$table->string('duration',200);
+
+            //Opening time
+            $table->time('opening');
+
+            //Closing time
+            $table->time('closing');
 
 			//Annual holidays
 			$table->string('holidays', 350)->nullable();
@@ -38,8 +42,6 @@ class Entertainment extends Migration
 			$table->string('price_for',250);
             $table->string('other_price',250);
 
-			//Budget
-			$table->string('budget',100);
 
 			//Payment methods
 			$table->string('paymeny',300);
@@ -47,36 +49,26 @@ class Entertainment extends Migration
 
 			//Deposit on booking
 			$table->string('deposit',300);
+            $table->string('delivery',300);
 
 			//Travelling expenses
-			$table->string('travelling_exp',300)->nullable();
+			$table->string('expences',300)->nullable();
 
 			//Additional expenses
-			$table->string('additional_exp',300)->nullable();
 
 			//GENERAL INFO
 			//Geografical limit
 			$table->string('geo',350);
 
 			//List of your services
-			$table->string('services',350);
+			$table->string('complim_services',350);
 
 			//Number of participants
-			$table->integer('participants');
+			$table->string('proposed');
 
 			//Equipment provided
-			$table->string('equipment',350);
+			$table->string('references',350)->nullable();
 
-			//Equipment not included
-			$table->string('eq_not_incl',350)->nullable();
-
-			//Biography
-			$table->string('biography',1000);
-
-			//Reference
-			$table->string('reference',350)->nullable();
-
-			//COMMENT
 			$table->string('comment',500)->options();
 		});
     }

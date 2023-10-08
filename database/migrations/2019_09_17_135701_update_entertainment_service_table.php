@@ -13,7 +13,7 @@ class UpdateEntertainmentServiceTable extends Migration
      */
     public function up()
     {
-	    DB::statement('ALTER TABLE entertainment MODIFY services TEXT;');
+	    DB::statement('ALTER TABLE entertainment MODIFY complim_services TEXT;');
     }
 
     /**

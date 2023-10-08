@@ -23,13 +23,8 @@ class Caterer extends Migration
 			//Annual holidays
 			$table->string('holidays', 350)->nullable();
 
-			//RATES & CONDITIONS
 			//Price
-			$table->string('price', 250);
             $table->string('price_for', 250);
-
-			//Budget
-			$table->string('budget',100);
 
 			//Payment methods
 			$table->string('paymeny',300);

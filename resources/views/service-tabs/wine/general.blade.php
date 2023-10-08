@@ -7,7 +7,7 @@
                 {{ $participant }}
             @endif
         @endforeach
-    </x-service.list-item >
+    </x-service.list-item>
 
     <x-service.list-item :title="__('partner.wine')">
         @foreach (json_decode($details->wine) as $wine)
@@ -32,6 +32,11 @@
             @endif
         @endforeach
     </x-service.list-item>
+
+    @if(isset($details->comment))
+        <h6>{{__('partner.comment')}}</h6>
+        <p class="partner-comment"> {{$details->comment}}</p>
+    @endif
 </x-service.list>
 
 

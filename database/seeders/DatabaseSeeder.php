@@ -1,6 +1,9 @@
 <?php
 namespace Database\Seeders;
 
+use App\Models\Category;
+use App\Models\Caterer;
+use App\Models\Entertainment;
 use App\Models\Equipment;
 use App\Models\EventPlace;
 use App\Models\EventPlace as EventPlaceModel;
@@ -256,6 +259,30 @@ class DatabaseSeeder extends Seeder
             'view_name' => 'equipment',
             'service_type' => 'App\Models\Equipment',
             'service_id' => $equipmentId,
+        ]);
+
+        $entertainmentId = Entertainment::factory([
+            'id_partner' => '120036190814-044' . $r
+        ])->create()->id;
+        DB::table('adverts')->insert([
+            'partners_info_id' => $partnerId,
+            'category_id' => 1,
+            'status' => 1,
+            'view_name' => 'entertainment',
+            'service_type' => 'App\Models\Entertainment',
+            'service_id' => $entertainmentId,
+        ]);
+
+        $catererId = Caterer::factory([
+            'id_partner' => '120036190814-044' . $r
+        ])->create()->id;
+        DB::table('adverts')->insert([
+            'partners_info_id' => $partnerId,
+            'category_id' => 1,
+            'status' => 1,
+            'view_name' => 'caterer',
+            'service_type' => 'App\Models\Caterer',
+            'service_id' => $catererId,
         ]);
 
         DB::table('users')->insert([

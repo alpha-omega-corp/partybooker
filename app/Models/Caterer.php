@@ -4,6 +4,9 @@
 namespace App\Models;
 
 
+use Database\Factories\CatererFactory;
+use Database\Factories\EntertainmentFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -58,8 +61,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereTableware($value)
  * @mixin \Eloquent
  */
-class Caterer extends Model
-{
+class Caterer extends Model {
+    use HasFactory;
 	public $timestamps = false;
 
 	protected $fillable = [
@@ -86,8 +89,13 @@ class Caterer extends Model
 		"comment",
 	];
 
+    protected static function newFactory(): CatererFactory
+    {
+        return CatererFactory::new();
+    }
 
-	public function advert()
+
+    public function advert()
 	{
 		return $this->morphOne(Advert::class, 'service', 'service_type', 'service_id');
 	}

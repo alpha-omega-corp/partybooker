@@ -18,7 +18,7 @@
     </x-service.list-item>
 
     <h6 class="text-uppercase">{{__('partner.comment')}}</h6>
-    <p>{{$details->comment ?? ''}}</p>
+    <p class="partner-comment"> {{$details->comment ?? ""}}</p>
 
 </x-service.list>
 

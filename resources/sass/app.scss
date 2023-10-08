@@ -17,12 +17,13 @@
             rgba(244, 39, 39, 0.59) 2%,
             rgba(233, 134, 49, 0.89) 86%
     );
-    background-size: cover;    color: #fff;
+    background-size: cover;
+    color: #fff;
 
 }
 
 // Applies Small
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width: 767px) {
     .parallax__group_welcome {
         height: 750px;
     }
@@ -32,7 +33,7 @@
     }
 }
 
-@media only screen and (max-height : 901px) {
+@media only screen and (max-height: 901px) {
     .parallax__group_welcome {
         height: 900px;
     }
@@ -48,8 +49,8 @@
 
 .hero-text {
     background: linear-gradient(rgba(0, 183, 255, 0.321) 0%,
-            rgba(203, 62, 130, 0.421) 86%,
-            rgba(255, 4, 4, 0.591) 100%);
+        rgba(203, 62, 130, 0.421) 86%,
+        rgba(255, 4, 4, 0.591) 100%);
     background-size: cover;
     z-index: 10;
 }
@@ -92,6 +93,7 @@ a {
 
 .about {
     margin-top: 100px;
+
     p {
         text-align: justify;
     }
@@ -109,7 +111,6 @@ a {
     }
 
 
-
     .stats {
         img {
             width: 50px;
@@ -124,6 +125,7 @@ a {
 
     .all-advantages {
         padding: 40px;
+
         h2 {
             margin-bottom: 20px;
         }
@@ -132,6 +134,7 @@ a {
     .team {
         margin-top: 20px;
         text-align: justify;
+
         img {
             object-fit: cover;
             width: 200px;
@@ -221,6 +224,7 @@ a {
     .card {
         height: 200px;
         overflow: scroll;
+
         h6 {
             padding-right: 10px;
             padding-top: 10px;
@@ -240,7 +244,7 @@ a {
         border-radius: 30px;
         padding: 30px;
 
-        @media only screen and (max-width : 767px) {
+        @media only screen and (max-width: 767px) {
             font-size: smaller;
             padding: 10px;
         }
@@ -270,7 +274,7 @@ a {
 
         img {
             height: 100px;
-            @media only screen and (max-width : 767px) {
+            @media only screen and (max-width: 767px) {
                 margin-top: 40px;
                 height: 40px;
             }
@@ -283,8 +287,10 @@ a {
 
     .gallery {
         margin-top: 50px;
+
         .gallery-image {
             height: 200px;
+
             img {
                 object-fit: cover;
                 width: 100%;
@@ -300,9 +306,6 @@ a {
             }
         }
     }
-
-
-
 
 
     li {
@@ -359,6 +362,21 @@ a {
         border-bottom: 1px solid $white;
         margin-top: 40px;
 
+        iframe {
+            width: 100%;
+            height: 100%;
+
+            html {
+                height: 100%;
+            }
+        }
+
+        .partner-comment {
+            background-color: $white;
+            padding: 10px;
+            color: $black;
+            margin-bottom: 10px;
+        }
 
     }
 
@@ -368,6 +386,7 @@ a {
 
             margin-right: 20px;
             height: 200px;
+
             li {
                 list-style-type: none;
 
@@ -377,11 +396,12 @@ a {
                 }
 
 
-                @media only screen and (max-width : 767px) {
+                @media only screen and (max-width: 767px) {
                     button {
                         text-align: start;
                         font-size: smaller;
                         width: 100%;
+
                         svg {
                             width: 20px;
                             height: 20px;
@@ -398,9 +418,9 @@ a {
             width: 100%;
 
 
-
             .list-group-item {
                 border: 0;
+
                 .title {
                     width: 200px;
                     display: flex;
@@ -446,7 +466,7 @@ a {
                 height: 20px;
                 margin-right: 10px;
                 overflow: visible;
-                content:"";
+                content: "";
             }
         }
     }
@@ -463,9 +483,7 @@ a {
     }
 
 
-
-
-    @media only screen and (max-width : 767px) {
+    @media only screen and (max-width: 767px) {
         .tab-content {
             padding-bottom: 10px;
             margin-bottom: 10px;
@@ -474,10 +492,10 @@ a {
     }
 
 
-
     .info-element {
         cursor: pointer;
         padding-bottom: 10px;
+
         a {
             color: $info;
             font-weight: bold;
@@ -497,7 +515,7 @@ a {
             width: 40px;
             height: 40px;
 
-            @media only screen and (max-width : 767px) {
+            @media only screen and (max-width: 767px) {
                 width: 20px;
                 height: 20px;
 
@@ -556,12 +574,14 @@ a {
         padding: 10px;
     }
 }
+
 .become-partner {
 
 
     .form-check {
         padding: 20px;
     }
+
     .uploadLogo {
         margin-top: 30px;
     }
@@ -622,7 +642,7 @@ a {
 
     @keyframes opacityChange {
         50% {
-            opacity:1;
+            opacity: 1;
         }
         100% {
             opacity: .5;
@@ -669,7 +689,6 @@ a {
             }
         }
     }
-
 
 
     .packages {
@@ -1030,9 +1049,11 @@ a {
                     li {
                         text-align: start;
                         margin: 10px;
+
                         a {
                             color: $white;
-                        };
+                        }
+                    ;
 
                         a:hover {
                             border-bottom: 2px dashed $premium;
@@ -1040,7 +1061,6 @@ a {
                     }
                 }
             }
-
 
 
         }
@@ -1127,8 +1147,6 @@ a {
         margin-bottom: 20px;
     }
 }
-
-
 
 
 .breadcrumb {
@@ -1332,7 +1350,7 @@ a {
 }
 
 
-@media only screen and (min-width : 767px) {
+@media only screen and (min-width: 767px) {
 
     .welcome {
         h1 {
@@ -1448,8 +1466,7 @@ a {
 }
 
 
-
-@media only screen and (max-width : 1800px) {
+@media only screen and (max-width: 1800px) {
     .filters {
         .btn-text {
             display: none;
@@ -1458,7 +1475,7 @@ a {
 }
 
 // Applies Up To Medium
-@media only screen and (max-width : 1200px) {
+@media only screen and (max-width: 1200px) {
 
     .navigation {
         width: 100%;
@@ -1486,9 +1503,8 @@ a {
 }
 
 
-
 // Applies After Medium
-@media only screen and (min-width : 1200px) {
+@media only screen and (min-width: 1200px) {
 
     .navigation {
 
@@ -1539,7 +1555,6 @@ a {
     }
 
 
-
     .cookies {
         position: fixed;
         top: 50%;
@@ -1576,7 +1591,7 @@ a {
 }
 
 // Applies Before Medium
-@media only screen and (max-width : 1200px) {
+@media only screen and (max-width: 1200px) {
 
     .navigation {
         .container {
@@ -1642,7 +1657,7 @@ a {
 }
 
 // Applies Not Small
-@media only screen and (min-width : 992px) {
+@media only screen and (min-width: 992px) {
     .btn-category-filter {
         display: none;
     }
@@ -1656,11 +1671,10 @@ a {
     }
 
 
-
 }
 
 // Applies Small
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width: 767px) {
     .listing {
         .breadcrumb {
             font-size: smaller;
@@ -1694,7 +1708,6 @@ a {
             }
         }
     }
-
 
 
     .welcome {

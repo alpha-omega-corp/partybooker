@@ -16,8 +16,6 @@ class UpdateEntertainmentTable extends Migration
 		    $table->string('price_for', 1000)->change();
 		    $table->string('other_price', 1000)->change();
 		    $table->string('deposit', 1000)->change();
-		    $table->string('biography', 2000)->change();
-		    $table->string('reference', 1000)->change();
 	    });
 
 	    Schema::table('partners_info', function ($table) {

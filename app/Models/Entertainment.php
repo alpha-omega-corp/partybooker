@@ -4,6 +4,9 @@
 namespace App\Models;
 
 
+use Database\Factories\EntertainmentFactory;
+use Database\Factories\WineFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -60,7 +63,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Entertainment extends Model
 {
-
+    use HasFactory;
 	public $table = 'entertainment';
 
 	public $timestamps = false;
@@ -89,6 +92,10 @@ class Entertainment extends Model
 		'comment',
 	];
 
+    protected static function newFactory(): EntertainmentFactory
+    {
+        return EntertainmentFactory::new();
+    }
 
 	public function advert()
 	{
