@@ -4,6 +4,9 @@
 namespace App\Models;
 
 
+use Database\Factories\EquipmentFactory;
+use Database\Factories\WineFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -56,6 +59,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Equipment extends Model
 {
+    use HasFactory;
+
 	public $table = 'equipment';
 	public $timestamps = false;
 
@@ -80,6 +85,11 @@ class Equipment extends Model
 		'references',
 		'comment',
 	];
+
+    protected static function newFactory(): EquipmentFactory
+    {
+        return EquipmentFactory::new();
+    }
 
 	public function advert()
 	{

@@ -8,18 +8,20 @@
     <div class="partner">
         <div class="row m-4">
             <div class="col-md-2 order-md-first order-last">
-                <div class="side">
-                    <x-back-page :tooltip="__('service.back')"/>
-                    <h3 class="text-uppercase text-center fw-bold text-nowrap mt-4">
-                        Annonces similaire
-                    </h3>
+                <div class="">
+                    <div class="side">
+                        <x-back-page :tooltip="__('service.back')"/>
+                        <h3 class="text-uppercase text-center fw-bold text-nowrap mt-4">
+                            Annonces similaire
+                        </h3>
 
-                    <hr>
+                        <hr>
 
-                    <div class="adverts">
-                        @foreach($adverts as $ad)
-                            <x-partner-adverts :partner="$ad"/>
-                        @endforeach
+                        <div class="adverts">
+                            @foreach($adverts as $ad)
+                                <x-partner-adverts :partner="$ad"/>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
@@ -101,63 +103,95 @@
 
                     <hr>
 
+                            <div class="row">
+
+                                <div class="col-md-8">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <blockquote class="fw-bold text-uppercase m-0 text-info">
+                                                    @if (app()->getLocale() == 'en')
+                                                        {{ $partner->en_slogan }}
+                                                    @else
+                                                        {{ $partner->fr_slogan }}
+                                                    @endif
+                                                </blockquote>
+                                            </h5>
+
+                                            <p class="partner-description">
+                                                @if (app()->getLocale() == 'en')
+                                                    {!! $partner->en_full_descr !!}
+                                                @else
+                                                    {!! $partner->fr_full_descr !!}
+                                                @endif
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
 
 
-                    <div class="row">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-uppercase">Details</h5>
 
-                        <div class="col-md-8 col-sm-12">
+                                            <div class="d-flex stars">
+                                                <h6 class="card-subtitle text-uppercase">Rating</h6>
+                                                @if (Auth::user() && Auth::user()->type != 'partner')
+                                                    <span class="rating" data-service="{{ $partner->id_partner }}"
+                                                          data-user="{{ Auth::user()->email }}">
+                                                    </span>
+                                                @else
 
-                            <div>
+                                                @endif
 
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $partner->average_rate)
+                                                        <img src="{{Vite::image('star.svg')}}" alt="star" width="20" height="20"
+                                                             class="star-img">
+                                                    @else
+                                                        <img src="{{Vite::image('star.svg')}}" alt="star" width="20" height="20"
+                                                             class="star-img">
+                                                    @endif
+                                                @endfor
+                                            </div>
 
-                                <blockquote class="fw-bold text-uppercase mb-3 text-info">
-                                    @if (app()->getLocale() == 'en')
-                                        {{ $partner->en_slogan }}
-                                    @else
-                                        {{ $partner->fr_slogan }}
-                                    @endif
-                                </blockquote>
-
-                                <h3 class="text-uppercase fw-bold">Description</h3>
-
-                                <p class="partner-description">
-                                    @if (app()->getLocale() == 'en')
-                                        {!! $partner->en_full_descr !!}
-                                    @else
-                                        {!! $partner->fr_full_descr !!}
-                                    @endif
-                                </p>
-
-
-                                <div class="partner-languages d-flex justify-content-start">
-                                    <h3 class="text-uppercase fw-bold">Services</h3>
-                                    <p class="p-1">
-                                        @php
-                                            $languages = [];
-                                            $immutableLanguages = [];
-                                            if ($partner->language) {
-                                                foreach (json_decode($partner->language) ?? [] as $lang) {
-                                                    if ($lang == 'other') {
-                                                        continue;
-                                                    }
-                                                    $languages[] = __('partybooker-cp.' . trim($lang));
-                                                    $immutableLanguages[] = trim($lang);
-                                                }
-                                            }
-                                        @endphp
+                                            <div class="partner-languages d-flex justify-content-start">
+                                                <h6 class="card-subtitle text-uppercase">Languages</h6>
+                                                <p class="p-1">
+                                                    @php
+                                                        $languages = [];
+                                                        $immutableLanguages = [];
+                                                        if ($partner->language) {
+                                                            foreach (json_decode($partner->language) ?? [] as $lang) {
+                                                                if ($lang == 'other') {
+                                                                    continue;
+                                                                }
+                                                                $languages[] = __('partybooker-cp.' . trim($lang));
+                                                                $immutableLanguages[] = trim($lang);
+                                                            }
+                                                        }
+                                                    @endphp
 
 
-                                        @foreach($immutableLanguages as $key => $locale)
-                                            <img src="{{Vite::image(strtolower($locale) . '.svg')}}"
-                                                 alt="{{ strtolower($locale) }}"
-                                                 width="24" height="24" class="flag"
-                                                 data-tippy-content="{{strtolower(__('service.speaks_lang') . ' ' . $languages[$key])}}">
-                                        @endforeach
+                                                    @foreach($immutableLanguages as $key => $locale)
+                                                        <img src="{{Vite::image(strtolower($locale) . '.svg')}}"
+                                                             alt="{{ strtolower($locale) }}"
+                                                             width="24" height="24" class="flag"
+                                                             data-tippy-content="{{strtolower(__('service.speaks_lang') . ' ' . $languages[$key])}}">
+                                                    @endforeach
 
-                                        {{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
-                                    </p>
+                                                    {{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
+
 
                             <div class="row">
                                 @php
@@ -227,50 +261,27 @@
                                 </div>
                             </div>
 
-
-                        </div>
-
-                        <div class="col-md-4 col-sm-12">
                             <div class="row d-flex gallery">
                                 <?php $locale = app()->getLocale(); ?>
                                 @if(config('app.url') == 'http://localhost')
-                                    @for ($i = 1; $i <= 20; $i++)
-                                        <div class="col-6 mb-4 gallery-image gal-img">
-                                            <img src="//via.placeholder.com/100x200/fc0?text=6" class="card-img" alt="...">
+                                    @for ($i = 1; $i <= 10; $i++)
+                                        <div class="col-4 mb-4 gallery-image gal-img">
+                                            <img src="//via.placeholder.com/500x500/fc0?text=6" alt="...">
                                         </div>
                                     @endfor
                                 @else
                                     @foreach ($images as $img)
-                                        <div class="col-6 mb-4 gallery-image gal-img">
+                                        <div class="col-4 mb-4 gallery-image gal-img">
                                             <img src="{{ '/storage/images/thumbnails/' . $img->image_name }}"
                                                  alt="{{ $img['image_alt_' . $locale] }}" img-id="{{ $img->id }}"/>
                                         </div>
                                     @endforeach
                                 @endif
                             </div>
-                        </div>
-                    </div>
+
                 </section>
 
-                    <div class="d-flex stars">
-                        @if (Auth::user() && Auth::user()->type != 'partner')
-                            <span class="rating" data-service="{{ $partner->id_partner }}"
-                                  data-user="{{ Auth::user()->email }}">
-                            </span>
-                        @else
 
-                        @endif
-
-                        @for ($i = 1; $i <= 5; $i++)
-                            @if ($i <= $partner->average_rate)
-                                <img src="{{Vite::image('star.svg')}}" alt="star" width="24" height="24"
-                                     class="star-img">
-                            @else
-                                <img src="{{Vite::image('star.svg')}}" alt="star" width="24" height="24"
-                                     class="star-img">
-                            @endif
-                        @endfor
-                    </div>
             </div>
         </div>
     </div>

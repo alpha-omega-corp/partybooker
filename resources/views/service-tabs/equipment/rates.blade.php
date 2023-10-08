@@ -1,15 +1,29 @@
-<h4>{{__('service.for')}} {{__('categories.cat5')}}</h4>
+<x-service.list>
+    <h6 class="text-uppercase">{{__('service.rates')}}</h6>
 
-{{--<p><span>{{__('partner.price')}}:</span> {{$partner->price}} CHF @if($details->price_for == 'other'){{$details->other_price}}@else {{__('partner.'.$details->price_for)}} @endif</p>--}}
-<p><span>{{__('partner.budget')}}:</span> {{$partner->budget ? \App\Helpers\BudgetsHelper::getDescription($partner->budget) : "" }}</p>
-<p><span>{{__('partner.booking_deposit')}}:</span> {{$details->deposit ?? ''}}</p>
-<p><span>{{__('partner.payment_methods')}}:</span>
-	@foreach ( json_decode($details->paymeny) ?? [] as $payment)
-		@if (strlen($payment) > 0)
-			{{\App\Helpers\PaymentMethodsTranslatorHelper::translate($payment)}}<span class="coma">,&nbsp;</span>
-		@endif
-	@endforeach
-	{{$details->other_payment ?? ''}}
-</p>
-<p><span>{{__('partner.delivery_charge')}}:</span> {{$details->delivery}}</p>
-<p><span>{{__('partner.additional_expenses')}}:</span> {{$details->expences}}</p>
+    <x-service.list-item :title="__('partner.budget')">
+        {{$partner->budget ? \App\Helpers\BudgetsHelper::getDescription($partner->budget) : "" }}
+    </x-service.list-item>
+
+    <x-service.list-item :title="__('partner.booking_deposit')">
+        {{$details->deposit ?? ''}}
+    </x-service.list-item>
+
+    <x-service.list-item :title="__('partner.payment_methods')">
+        @foreach ( json_decode($details->paymeny) ?? [] as $payment)
+            @if (strlen($payment) > 0)
+                {{\App\Helpers\PaymentMethodsTranslatorHelper::translate($payment)}}<span class="coma">,&nbsp;</span>
+            @endif
+        @endforeach
+        {{$details->other_payment ?? ''}}
+    </x-service.list-item>
+
+    <x-service.list-item :title="__('partner.delivery_charge')">
+        {{$details->delivery}}
+    </x-service.list-item>
+
+    <x-service.list-item :title="__('partner.additional_expenses')">
+        {{$details->expences}}
+    </x-service.list-item>
+</x-service.list>
+

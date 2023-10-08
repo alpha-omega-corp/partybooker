@@ -4,6 +4,10 @@
 namespace App\Models;
 
 
+use Database\Factories\EventPlaceFactory;
+use Database\Factories\WineFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -76,10 +80,13 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereWine($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereWorkingDays($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereYesFood($value)
- * @mixin \Eloquent
+ * @mixin Eloquent
  */
-class Wine extends Model
+class  Wine extends Model
 {
+    use HasFactory;
+
+
 	public $timestamps = false;
 
 	protected $table = 'wine';
@@ -121,6 +128,11 @@ class Wine extends Model
 	protected $casts = [
 		'service' => 'array'
 	];
+
+    protected static function newFactory(): WineFactory
+    {
+        return WineFactory::new();
+    }
 
 	public function advert()
 	{

@@ -1,58 +1,39 @@
-<h6 class="text-uppercase">{{__('service.general')}}</h6>
+<x-service.list>
+    <h6 class="text-uppercase">{{__('service.general_info')}}</h6>
 
-<p><span>{{ __('partner.service_or_activity_name') }}:</span>
-@if($details)
-    @foreach ($details as $service)
-        <p>{{ __('partner.name') }}: {{ $details->view_name }}, {{ __('service.description') }}:
-        <p>
-    @endforeach
-@endif
-
-</p>
-
-
-@if(isset($details->participant))
-    <p><span>{{ __('partner.participant_capacity') }}:</span>
+    <x-service.list-item :title="__('partner.participant_capacity')">
         @foreach (json_decode($details->participant) as $participant)
             @if (strlen($participant) > 0)
                 {{ $participant }}
             @endif
         @endforeach
-    </p>
-@endif
+    </x-service.list-item >
 
-
-@if(isset($details->wine))
-    <p><span>{{ __('partner.wine') }}:</span>
+    <x-service.list-item :title="__('partner.wine')">
         @foreach (json_decode($details->wine) as $wine)
             @if (strlen($wine) > 0)
                 {{ $wine }}
             @endif
         @endforeach
-    </p>
-@endif
+    </x-service.list-item>
 
-
-@if(isset($details->affiliation))
-    <p><span>{{ __('partner.affiliations') }}:</span>
+    <x-service.list-item :title="__('partner.affiliations')">
         @foreach (json_decode($details->affiliation) as $affiliation)
             @if (strlen($affiliation) > 0)
                 {{ $affiliation }}
             @endif
         @endforeach
-    </p>
-@endif
+    </x-service.list-item>
 
-
-@if(isset($details->reward))
-    <p><span>{{ __('partner.rewards') }}:</span>
+    <x-service.list-item :title="__('partner.rewards')">
         @foreach (json_decode($details->reward) as $reward)
             @if (strlen($reward) > 0)
                 {{ $reward }}
             @endif
         @endforeach
-    </p>
-@endif
+    </x-service.list-item>
+</x-service.list>
+
 
 
 

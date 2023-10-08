@@ -1,9 +1,12 @@
 <?php
 namespace Database\Seeders;
 
+use App\Models\Equipment;
 use App\Models\EventPlace;
 use App\Models\EventPlace as EventPlaceModel;
+use App\Models\Wine;
 use Database\Factories\EventPlaceFactory;
+use Database\Factories\WineFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -221,9 +224,6 @@ class DatabaseSeeder extends Seeder
         $epId = EventPlace::factory([
             'id_partner' => '120036190814-044' . $r
         ])->create()->id;
-
-
-
         DB::table('adverts')->insert([
             'partners_info_id' => $partnerId,
             'category_id' => 1,
@@ -234,7 +234,29 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+        $wineId = Wine::factory([
+            'id_partner' => '120036190814-044' . $r
+        ])->create()->id;
+        DB::table('adverts')->insert([
+            'partners_info_id' => $partnerId,
+            'category_id' => 1,
+            'status' => 1,
+            'view_name' => 'wine',
+            'service_type' => 'App\Models\Wine',
+            'service_id' => $wineId,
+        ]);
 
+        $equipmentId = Equipment::factory([
+            'id_partner' => '120036190814-044' . $r
+        ])->create()->id;
+        DB::table('adverts')->insert([
+            'partners_info_id' => $partnerId,
+            'category_id' => 1,
+            'status' => 1,
+            'view_name' => 'equipment',
+            'service_type' => 'App\Models\Equipment',
+            'service_id' => $equipmentId,
+        ]);
 
         DB::table('users')->insert([
             'name' => $slug,
