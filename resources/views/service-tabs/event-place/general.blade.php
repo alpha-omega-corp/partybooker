@@ -9,30 +9,32 @@
     <h6 class="text-uppercase">{{__('service.general_info')}}</h6>
 
     <x-service.list-item title="{{__('partner.cocktail_reception_capacity')}}">
-        {{$details->coctail ?? ''}}
+        <p>{{$details->coctail ?? ''}}</p>
     </x-service.list-item>
 
     <x-service.list-item title="{{__('partner.banquet_capacity')}}">
-        {{$details->banquet ?? ''}}
+        <p>{{$details->banquet ?? ''}}</p>
     </x-service.list-item>
 
     <x-service.list-item title="{{__('partner.outdoor_facility')}}">
-        {{$details->outdoor ?? ''}}
+        <p>{{$details->outdoor ?? ''}}</p>
     </x-service.list-item>
 
     <x-service.list-item title="{{__('partner.sitting_schema')}}">
-
-        {{$details->sitting ?? ''}}
+        <p>{{$details->sitting ?? ''}}</p>
     </x-service.list-item>
 
     <x-service.list-item title="{{__('partner.conference_room')}}">
 
         @if(isset($details->room))
             <ul>
-                @foreach($details->room as $room)
+                <br>
+                @foreach($details->room as $key => $room)
 
-                    <li><b>Room</b> : {{$room['name']}}</li>
-                    <li><b>Capacity</b> : {{$room['capacity']}}</li>
+                    <li>
+                        <spanc class="fw-bold"> {{$room['name']}} </spanc>
+                    </li>
+                    <li>{{ucfirst(__('service.space')) . ' ' . $room['capacity'] . ' ' . __('service.people')}}</li>
                 @endforeach
             </ul>
 
@@ -42,22 +44,22 @@
 
     @if (isset($details->oth_facilities))
         <x-service.list-item title="{{__('partner.other_services')}}">
-            {{$details->oth_facilities}}
+            <p>{{$details->oth_facilities}}</p>
         </x-service.list-item>
     @endif
 
     <x-service.list-item title="{{__('partner.reduced_mobility_access')}}">
-        {{SimpleTranslateHelper::translate($details->reduced_mob)}}
+        <p>{{SimpleTranslateHelper::translate($details->reduced_mob)}}</p>
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.car_park')">
-        {{$details->car ?? ''}}
+        <p>{{$details->car ?? ''}}</p>
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.conveniences')">
         @if(isset($details->convenience) && $details->convenience)
             @if ($details->convenience > 0)
-                {{ConveniencesTranslatorHelper::translate($details->convenience)}}<span class="coma">,&nbsp;</span>
+                <p>{{ConveniencesTranslatorHelper::translate($details->convenience)}}</p>
             @endif
         @endif
     </x-service.list-item>
@@ -65,7 +67,7 @@
     <x-service.list-item :title="__('partner.Bar_dance_floor_stage')">
         @foreach ( isset($details->facilities) ? json_decode($details->facilities) : [] as $facilities)
             @if (strlen($facilities) > 0)
-                {{BarDanceFloorTranslatorHelper::translate($facilities)}}<span class="coma">&nbsp;</span>
+                <p>{{BarDanceFloorTranslatorHelper::translate($facilities)}}</p>
             @endif
         @endforeach
     </x-service.list-item>

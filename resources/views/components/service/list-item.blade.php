@@ -2,9 +2,9 @@
     'title',
 ])
 
-<li class="list-group-item p-0 d-flex">
+<li class="list-group-item p-0">
     <div class="title">
-       {{$title}}
+        {{$title}}
     </div>
     <div class="content">
         {{$slot}}
