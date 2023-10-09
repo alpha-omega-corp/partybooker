@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="partner">
-        <div class="row m-4">
+        <div class="row m-2">
             <div class="col-md-2 order-md-first order-last">
                 <div class="">
                     <div class="side">

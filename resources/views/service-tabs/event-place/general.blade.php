@@ -103,8 +103,9 @@
         </div>
     </x-service.list-item>
 
-    <x-service.list-item :title="__('partner.works_with_affiliated_partners')">
-        @if(isset($details->yes_af_caterers))
+    @if(isset($details->yes_af_caterers))
+        <x-service.list-item :title="__('partner.works_with_affiliated_partners')">
+
             <p>
                 @foreach(json_decode($details->yes_af_caterers) as $caterer)
                     @if($caterer->name > 0)
@@ -112,9 +113,8 @@
                     @endif
                 @endforeach
             </p>
-        @endif
-
-    </x-service.list-item>
+        </x-service.list-item>
+    @endif
 
     <x-service.list-item :title="__('partner.free_choice_of_caterer')">
 
