@@ -39,13 +39,34 @@
                     </div>
 
                     <div>
+
                         <h1 class="display-3 fw-bold text-uppercase mt-5">
+                            <div>
+                                @if (Auth::user() && Auth::user()->type != 'partner')
+                                    <span class="rating" data-service="{{ $partner->id_partner }}"
+                                          data-user="{{ Auth::user()->email }}">
+                                                    </span>
+                                @else
+
+                                @endif
+
+                                @for ($i = 1; $i <= 5; $i++)
+                                    @if ($i <= $partner->average_rate)
+                                        <img src="{{Vite::image('star.svg')}}" alt="star" width="20" height="20"
+                                             class="star-img">
+                                    @else
+                                        <img src="{{Vite::image('star.svg')}}" alt="star" width="20" height="20"
+                                             class="star-img">
+                                    @endif
+                                @endfor
+                            </div>
                             @if (app()->getLocale() == 'en')
                                 {{ $partner->en_company_name }}
                             @else
                                 {{ $partner->fr_company_name }}
                             @endif
                         </h1>
+
                     </div>
 
                     <div class="d-flex">
@@ -101,25 +122,9 @@
                         @endif
                     </div>
 
+
                     <hr>
 
-                    @if (Auth::user() && Auth::user()->type != 'partner')
-                        <span class="rating" data-service="{{ $partner->id_partner }}"
-                              data-user="{{ Auth::user()->email }}">
-                                                    </span>
-                    @else
-
-                    @endif
-
-                    @for ($i = 1; $i <= 5; $i++)
-                        @if ($i <= $partner->average_rate)
-                            <img src="{{Vite::image('star.svg')}}" alt="star" width="20" height="20"
-                                 class="star-img">
-                        @else
-                            <img src="{{Vite::image('star.svg')}}" alt="star" width="20" height="20"
-                                 class="star-img">
-                        @endif
-                    @endfor
 
                     <div class="row">
 
@@ -178,7 +183,6 @@
                                     {{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
                                 </p>
                             </div>
-                            
                         </div>
                     </div>
 
