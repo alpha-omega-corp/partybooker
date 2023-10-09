@@ -15,9 +15,10 @@
                     @else
                         <x-service.list-bool :value="false"/>
                     @endif
-                    <span class="p-1">
+                    <span class="working-days">
                         {{__('days.' . substr($day, 0, 3))}}
                     </span>
+
                 </div>
             </div>
         @endforeach

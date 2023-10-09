@@ -30,7 +30,7 @@
         @keydown.end.prevent.stop="$focus.last()"
         @keydown.page-down.prevent.stop="$focus.last()"
         role="tablist"
-        class="d-flex">
+        class="tab-overflow d-flex m-0">
         @foreach($tabs as $tab)
             <li class="d-flex w-100">
                 <button

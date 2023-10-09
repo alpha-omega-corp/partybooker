@@ -103,13 +103,32 @@
 
                     <hr>
 
+                    @if (Auth::user() && Auth::user()->type != 'partner')
+                        <span class="rating" data-service="{{ $partner->id_partner }}"
+                              data-user="{{ Auth::user()->email }}">
+                                                    </span>
+                    @else
+
+                    @endif
+
+                    @for ($i = 1; $i <= 5; $i++)
+                        @if ($i <= $partner->average_rate)
+                            <img src="{{Vite::image('star.svg')}}" alt="star" width="20" height="20"
+                                 class="star-img">
+                        @else
+                            <img src="{{Vite::image('star.svg')}}" alt="star" width="20" height="20"
+                                 class="star-img">
+                        @endif
+                    @endfor
+
                     <div class="row">
+
 
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <blockquote class="fw-bold text-uppercase m-0 text-info">
+                                        <blockquote class="fw-bold text-uppercase m-0">
                                             @if (app()->getLocale() == 'en')
                                                 {{ $partner->en_slogan }}
                                             @else
@@ -132,62 +151,34 @@
 
                         <div class="col-md-4">
 
-
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title text-uppercase">Details</h5>
-
-                                    <div class="d-flex stars">
-                                        <h6 class="card-subtitle text-uppercase">Rating</h6>
-                                        @if (Auth::user() && Auth::user()->type != 'partner')
-                                            <span class="rating" data-service="{{ $partner->id_partner }}"
-                                                  data-user="{{ Auth::user()->email }}">
-                                                    </span>
-                                        @else
-
-                                        @endif
-
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            @if ($i <= $partner->average_rate)
-                                                <img src="{{Vite::image('star.svg')}}" alt="star" width="20" height="20"
-                                                     class="star-img">
-                                            @else
-                                                <img src="{{Vite::image('star.svg')}}" alt="star" width="20" height="20"
-                                                     class="star-img">
-                                            @endif
-                                        @endfor
-                                    </div>
-
-                                    <div class="partner-languages d-flex justify-content-start">
-                                        <h6 class="card-subtitle text-uppercase">Languages</h6>
-                                        <p class="p-1">
-                                            @php
-                                                $languages = [];
-                                                $immutableLanguages = [];
-                                                if ($partner->language) {
-                                                    foreach (json_decode($partner->language) ?? [] as $lang) {
-                                                        if ($lang == 'other') {
-                                                            continue;
-                                                        }
-                                                        $languages[] = __('partybooker-cp.' . trim($lang));
-                                                        $immutableLanguages[] = trim($lang);
-                                                    }
+                            <div class="partner-languages d-flex justify-content-start">
+                                <p class="p-1">
+                                    @php
+                                        $languages = [];
+                                        $immutableLanguages = [];
+                                        if ($partner->language) {
+                                            foreach (json_decode($partner->language) ?? [] as $lang) {
+                                                if ($lang == 'other') {
+                                                    continue;
                                                 }
-                                            @endphp
+                                                $languages[] = __('partybooker-cp.' . trim($lang));
+                                                $immutableLanguages[] = trim($lang);
+                                            }
+                                        }
+                                    @endphp
 
 
-                                            @foreach($immutableLanguages as $key => $locale)
-                                                <img src="{{Vite::image(strtolower($locale) . '.svg')}}"
-                                                     alt="{{ strtolower($locale) }}"
-                                                     width="24" height="24" class="flag"
-                                                     data-tippy-content="{{strtolower(__('service.speaks_lang') . ' ' . $languages[$key])}}">
-                                            @endforeach
+                                    @foreach($immutableLanguages as $key => $locale)
+                                        <img src="{{Vite::image(strtolower($locale) . '.svg')}}"
+                                             alt="{{ strtolower($locale) }}"
+                                             width="24" height="24" class="flag"
+                                             data-tippy-content="{{strtolower(__('service.speaks_lang') . ' ' . $languages[$key])}}">
+                                    @endforeach
 
-                                            {{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
-                                        </p>
-                                    </div>
-                                </div>
+                                    {{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
+                                </p>
                             </div>
+                            
                         </div>
                     </div>
 
@@ -264,13 +255,13 @@
                         <?php $locale = app()->getLocale(); ?>
                         @if(config('app.url') == 'http://localhost')
                             @for ($i = 1; $i <= 10; $i++)
-                                <div class="col-4 mb-4 gallery-image gal-img">
+                                <div class="col-md-4 col-sm-6 mb-4 gallery-image gal-img">
                                     <img src="//via.placeholder.com/500x500/fc0?text=6" alt="...">
                                 </div>
                             @endfor
                         @else
                             @foreach ($images as $img)
-                                <div class="col-4 mb-4 gallery-image gal-img">
+                                <div class="col-md-4 col-sm-6 mb-4 gallery-image gal-img">
                                     <img src="{{ '/storage/images/thumbnails/' . $img->image_name }}"
                                          alt="{{ $img['image_alt_' . $locale] }}" img-id="{{ $img->id }}"/>
                                 </div>

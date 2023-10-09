@@ -2,7 +2,7 @@
     'value'
 ])
 
-<div>
+<div class="service-bool">
 
     @if($value == 'yes' || $value == 'oui' || $value == 1)
         <p>@svg('heroicon-o-check-circle')</p>

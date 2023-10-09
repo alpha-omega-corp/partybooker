@@ -6,6 +6,7 @@
 @php use App\Helpers\SimpleTranslateHelper; @endphp
 @php use App\Helpers\OtherServicesTranslatorHelper; @endphp
 <x-service.list>
+
     <h6 class="text-uppercase">{{__('service.general_info')}}</h6>
 
     <x-service.list-item :title="__('partner.cocktail_reception_capacity')">
@@ -50,10 +51,14 @@
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.car_park')">
-        <p>
-            <img src="{{Vite::image('parking-area.svg')}}" class="parking-icon" alt="parking capacity">
-            {{$details->car}}
-        </p>
+        @if(isset($details->car))
+            <p>
+                <img src="{{Vite::image('parking-area.svg')}}" class="parking-icon" alt="parking capacity">
+                {{$details->car}}
+            </p>
+        @else
+            <x-service.list-bool :value="false"/>
+        @endif
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.conveniences')">
@@ -89,7 +94,8 @@
         </div>
     </x-service.list-item>
 
-    <h6>{{__('partner.catering-stewardship')}}</h6>
+
+    <h6 class="text-uppercase">{{__('partner.catering-stewardship')}}</h6>
 
     <x-service.list-item :title="__('partner.property_prepare_meals')">
         <div class="d-flex">
@@ -159,7 +165,7 @@
         {{$details->other_eq ?? ''}}
     </x-service.list-item>
 
-    <h6>{{__('partner.other_services')}}</h6>
+    <h6 class="text-uppercase">{{__('partner.other_services')}}</h6>
 
     <x-service.list-item :title="__('partner.staff')">
         @if(isset($details->staff))
@@ -235,8 +241,9 @@
     </x-service.list-item>
 
     @if(isset($details->comment))
-        <h6>{{__('partner.comment')}}</h6>
-        <p class="partner-comment"> {{$details->comment}}</p>
+        <x-service.list-item :title="__('partner.comment')">
+            <p class="partner-comment"> {{$details->comment}}</p>
+        </x-service.list-item>
     @endif
 
 
