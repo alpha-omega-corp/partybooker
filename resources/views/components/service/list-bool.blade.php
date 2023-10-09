@@ -1,3 +1,13 @@
+@props([
+    'value'
+])
+
 <div>
-    <!-- People find pleasure in different ways. I find it in keeping my mind clear. - Marcus Aurelius -->
+
+    @if($value == 'yes' || $value == 'oui' || $value == 1)
+        <p>@svg('heroicon-o-check-circle')</p>
+    @else
+        <p>@svg('heroicon-o-no-symbol')</p>
+    @endif
+
 </div>

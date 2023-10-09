@@ -51,6 +51,10 @@
     "file": "assets/dvert-f54f6968.png",
     "src": "resources/images/dvert.png"
   },
+  "resources/images/american.svg": {
+    "file": "assets/american-bf19bce0.svg",
+    "src": "resources/images/american.svg"
+  },
   "resources/images/aneta-pawlik-651610-unsplash.jpg": {
     "file": "assets/aneta-pawlik-651610-unsplash-b5afb27e.jpg",
     "src": "resources/images/aneta-pawlik-651610-unsplash.jpg"
@@ -110,6 +114,10 @@
   "resources/images/bushes.png": {
     "file": "assets/bushes-e61ccd3d.png",
     "src": "resources/images/bushes.png"
+  },
+  "resources/images/cash.svg": {
+    "file": "assets/cash-10032d3d.svg",
+    "src": "resources/images/cash.svg"
   },
   "resources/images/catering.svg": {
     "file": "assets/catering-9df5d720.svg",
@@ -175,9 +183,17 @@
     "file": "assets/direction-sign-62fb3994.svg",
     "src": "resources/images/direction-sign.svg"
   },
+  "resources/images/double-bed.svg": {
+    "file": "assets/double-bed-07d20026.svg",
+    "src": "resources/images/double-bed.svg"
+  },
   "resources/images/dvert.png": {
     "file": "assets/dvert-f54f6968.png",
     "src": "resources/images/dvert.png"
+  },
+  "resources/images/ec-direct.svg": {
+    "file": "assets/ec-direct-25c2df79.svg",
+    "src": "resources/images/ec-direct.svg"
   },
   "resources/images/en.png": {
     "file": "assets/en-0a322b2e.png",
@@ -302,6 +318,10 @@
   "resources/images/instagram.svg": {
     "file": "assets/instagram-28358ef5.svg",
     "src": "resources/images/instagram.svg"
+  },
+  "resources/images/invoice.svg": {
+    "file": "assets/invoice-458196d6.svg",
+    "src": "resources/images/invoice.svg"
   },
   "resources/images/italian.svg": {
     "file": "assets/italian-b69659f6.svg",
@@ -435,6 +455,10 @@
     "file": "assets/pac3-6212776f.png",
     "src": "resources/images/pac3.png"
   },
+  "resources/images/parking-area.svg": {
+    "file": "assets/parking-area-f9b92897.svg",
+    "src": "resources/images/parking-area.svg"
+  },
   "resources/images/party-popper.svg": {
     "file": "assets/party-popper-52d1dc02.svg",
     "src": "resources/images/party-popper.svg"
@@ -462,6 +486,14 @@
   "resources/images/pin.svg": {
     "file": "assets/pin-19427768.svg",
     "src": "resources/images/pin.svg"
+  },
+  "resources/images/postfinance.png": {
+    "file": "assets/postfinance-5acede29.png",
+    "src": "resources/images/postfinance.png"
+  },
+  "resources/images/postfinance.svg": {
+    "file": "assets/postfinance-db319f62.svg",
+    "src": "resources/images/postfinance.svg"
   },
   "resources/images/purple-bg.png": {
     "file": "assets/purple-bg-0a05c70e.png",
@@ -587,6 +619,10 @@
     "file": "assets/vimeo-1c2071c1.svg",
     "src": "resources/images/vimeo.svg"
   },
+  "resources/images/visa.svg": {
+    "file": "assets/visa-1d58f250.svg",
+    "src": "resources/images/visa.svg"
+  },
   "resources/images/water.png": {
     "file": "assets/water-14855d1e.png",
     "src": "resources/images/water.png"
@@ -612,19 +648,18 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-49700f8d.css",
+    "file": "assets/app-93feadd2.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "assets": [
       "assets/blob-scene-4863cbac.svg",
-      "assets/ape-a4fb8659.svg",
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-49700f8d.css"
+      "assets/app-93feadd2.css"
     ],
-    "file": "assets/app-7bcd4b4a.js",
+    "file": "assets/app-80f86489.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

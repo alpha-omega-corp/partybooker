@@ -1,11 +1,11 @@
 <?php
 
 return [
-	'mon' => 'LUN',
-	'tue' => 'MAR',
-	'wed' => 'MER',
-	'thu' => 'JEU',
-	'fri' => 'VEN',
-	'sat' => 'SAM',
-	'sun' => 'DIM'
+    'mon' => 'Lundi',
+    'tue' => 'Mardi',
+    'wed' => 'Mercredi',
+    'thu' => 'Jeudi',
+    'fri' => 'Vendredi',
+    'sat' => 'Samedi',
+    'sun' => 'Dimanche'
 ];
