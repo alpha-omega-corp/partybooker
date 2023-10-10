@@ -27,7 +27,7 @@
         </x-service.list-item>
     @endif
 
-    @if(isset($details->sitting))
+    @if(json_decode($details->sitting))
         <x-service.list-item :title="__('partner.sitting_schema')">
             <div class="d-flex">
                 @foreach(json_decode($details->sitting) as $sitting)
