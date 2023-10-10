@@ -354,10 +354,6 @@ a {
                     }
                 }
 
-                .tab-content-icon {
-                    color: $dark;
-                }
-
 
                 @media only screen and (max-width: 767px) {
                     button {
@@ -403,6 +399,12 @@ a {
 
 
             .room-icon {
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+            }
+
+            .wt-icon {
                 width: 20px;
                 height: 20px;
                 margin-right: 5px;
@@ -501,22 +503,17 @@ a {
         padding-bottom: 10px;
 
         a {
-            color: $info;
-            font-weight: bold;
-            margin-top: 10px;
-            margin-right: 10px;
+            color: $blue;
+            text-decoration: underline;
         }
     }
 
     .icon {
         cursor: pointer;
-        margin-top: 20px;
-        border-bottom: 2px solid $premium;
-        padding-bottom: 20px;
 
 
         svg {
-            width: 40px;
+            width: 20px;
             height: 40px;
 
             @media only screen and (max-width: 767px) {
@@ -614,6 +611,7 @@ a {
         height: 100px;
         overflow: hidden;
         padding: 2rem;
+        color: #fff;
 
         &::before {
             content: '';
@@ -639,7 +637,7 @@ a {
             top: 6px;
             width: calc(100% - 12px);
             height: calc(100% - 12px);
-            background: linear-gradient($primary, $secondary);
+            background: $primary;
             border-radius: 5px;
         }
     }
@@ -653,11 +651,6 @@ a {
         }
     }
 
-
-    background: url('../images/blob-scene.svg') no-repeat center;
-    background-attachment: fixed;
-    background-size: cover;
-    color: #fff;
 
     .benefits {
         padding-top: 80px;
@@ -1070,11 +1063,6 @@ a {
 }
 
 .listing {
-    background: url('../images/blob-scene.svg') no-repeat center;
-    background-attachment: fixed;
-    background-size: cover;
-    color: #fff;
-
 
     h1 {
         padding-top: 100px;
@@ -1142,10 +1130,10 @@ a {
     padding: 12px;
 
 
-    --bs-breadcrumb-divider-color: #fff;
+    --bs-breadcrumb-divider-color: $primary;
 
     a {
-        color: #fff;
+        color: $primary;
     }
 
     a:hover {
@@ -1683,7 +1671,7 @@ a {
 
             .cover {
                 filter: brightness(80%);
-                border-radius: 0px;
+                border-radius: 0;
             }
 
             .description {

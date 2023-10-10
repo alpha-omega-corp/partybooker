@@ -42,8 +42,8 @@
                     type="button"
                     :tabindex="isSelected($el.id) ? 0 : -1"
                     :aria-selected="isSelected($el.id)"
-                    :class="isSelected($el.id) ? 'text-premium' : 'tab-inactive'"
-                    class="btn rounded-0 fw-bold text-uppercase tab-cat-btn"
+                    :class="isSelected($el.id) ? 'border-bottom text-primary' : 'text-dark'"
+                    class="btn rounded-0 fw-bold  text-uppercase tab-cat-btn"
                     data-tippy-content="{{$tab}}"
                     role="tab">
                     @svg($icons[$key], 'tab-content-icon')

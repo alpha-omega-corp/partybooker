@@ -34,7 +34,7 @@ class ReceptionVenue extends Migration
             $table->string('holidays', 350)->nullable();
 
             //Extansion of basic schedule
-            $table->boolean('extansion');
+            $table->string('extansion');
             $table->string('ext_true', 150)->nullable();
 
             //RATES & CONDITIONS

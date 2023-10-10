@@ -55,7 +55,7 @@ tippy('.glide__bullet', {
 });
 
 tippy('.partner-info-tippy', {
-    placement: 'bottom-start',
+    placement: 'top',
     animation: 'scale',
     inertia: true,
     theme: 'partner-info-tippy'

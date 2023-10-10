@@ -53,9 +53,9 @@ $modal-content-color: $white;
 
 
 .tippy-box[data-theme~='partner-info-tippy'] {
-    color: $info;
-    text-transform: uppercase;
-    font-weight: bold;
+    color: $gray-700;
+    border-bottom: 2px solid $primary;
+    font-size: small;
 
     @media only screen and (max-width: 767px) {
         display: none;
@@ -71,6 +71,9 @@ $modal-content-color: $white;
     color: $white;
     background-color: $primary;
     padding: 5px;
+    @media only screen and (max-width: 767px) {
+        display: none;
+    }
 }
 
 .tippy-box[data-theme~='flag'] {

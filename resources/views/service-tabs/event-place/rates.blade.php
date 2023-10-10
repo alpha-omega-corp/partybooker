@@ -4,16 +4,17 @@
     <h6 class="text-uppercase">{{__('service.rates')}}</h6>
 
     @if(isset($partner->price))
-        <x-service.list-item :title="''">
-            <p>
-                {{$partner->price}} CHF
-                @if($details->price_for == 'other')
-                    {{$details->other_price}}
-                @else
-                    {{__('partner.'.$details->price_for)}}
-                @endif
-            </p>
-        </x-service.list-item>
+        @if($partner->price)
+            <x-service.list-item :title="''">
+                <p>
+                    @if($details->price_for == 'other')
+                        {{$details->other_price}}
+                    @else
+                        {{__('partner.'.$details->price_for)}}
+                    @endif
+                </p>
+            </x-service.list-item>
+        @endif
     @endif
 
 
@@ -36,9 +37,12 @@
     </x-service.list-item>
 
     @if(isset($partner->budget))
-        <x-service.list-item :title="__('partner.budget')">
-            <p>{{substr(BudgetsHelper::getDescription($partner->budget), 1, -1)}}F</p>
-        </x-service.list-item>
+        @if($partner->budget)
+            <x-service.list-item :title="__('partner.budget')">
+                <p>{{substr(BudgetsHelper::getDescription($partner->budget), 1, -1)}}F</p>
+            </x-service.list-item>
+        @endif
+
     @endif
 
     @if(isset($details->deposit)) @endif
