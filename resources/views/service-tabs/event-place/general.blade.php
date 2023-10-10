@@ -21,13 +21,13 @@
         </x-service.list-item>
     @endif
 
-    @if($details->outdoor)
+    @if(isset($details->outdoor))
         <x-service.list-item :title="__('partner.outdoor_facility')">
             <p>{{$details->outdoor}}</p>
         </x-service.list-item>
     @endif
 
-    @if($details->sitting)
+    @if(isset($details->sitting))
         <x-service.list-item :title="__('partner.sitting_schema')">
             <div class="d-flex">
                 @foreach(json_decode($details->sitting) as $sitting)
@@ -37,7 +37,7 @@
         </x-service.list-item>
     @endif
 
-    @if($details->room)
+    @if(isset($details->room))
         <x-service.list-item :title="__('partner.conference_room')">
             <div class="d-flex flex-column">
                 @foreach($details->room as $key => $room)
@@ -49,7 +49,6 @@
             </div>
         </x-service.list-item>
     @endif
-
 
     @if (isset($details->oth_facilities))
         <x-service.list-item title="{{__('partner.other_services')}}">
