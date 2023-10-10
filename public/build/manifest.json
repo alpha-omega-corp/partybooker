@@ -315,6 +315,10 @@
     "file": "assets/home-header-bg-99796070.jpg",
     "src": "resources/images/home-header-bg.jpg"
   },
+  "resources/images/infrastructure.svg": {
+    "file": "assets/infrastructure-1a6357fe.svg",
+    "src": "resources/images/infrastructure.svg"
+  },
   "resources/images/instagram.svg": {
     "file": "assets/instagram-28358ef5.svg",
     "src": "resources/images/instagram.svg"
@@ -648,7 +652,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-88238da6.css",
+    "file": "assets/app-2df508de.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -657,9 +661,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-88238da6.css"
+      "assets/app-2df508de.css"
     ],
-    "file": "assets/app-d55254f8.js",
+    "file": "assets/app-c20128e0.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

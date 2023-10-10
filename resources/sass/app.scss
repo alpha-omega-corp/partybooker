@@ -1,56 +1,6 @@
-.wrapper {
-    height: 100%;
-    width: 100%;
-}
-
-.parallax__group_welcome {
-    position: relative;
-    height: 1050px;
-    transform-style: preserve-3d;
-}
-
-.parallax__group_services {
-    position: relative;
-    height: 900px;
-    transform-style: preserve-3d;
-    background: linear-gradient(
-            rgba(244, 39, 39, 0.59) 2%,
-            rgba(233, 134, 49, 0.89) 86%
-    );
-    background-size: cover;
-    color: #fff;
-
-}
-
-// Applies Small
-@media only screen and (max-width: 767px) {
-    .parallax__group_welcome {
-        height: 750px;
-    }
-
-    .parallax__group_services {
-        height: 750px;
-    }
-}
-
-@media only screen and (max-height: 901px) {
-    .parallax__group_welcome {
-        height: 900px;
-    }
-}
-
-.parallax__layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
 
 .hero-text {
-    background: linear-gradient(rgba(0, 183, 255, 0.321) 0%,
-        rgba(203, 62, 130, 0.421) 86%,
-        rgba(255, 4, 4, 0.591) 100%);
+
     background-size: cover;
     z-index: 10;
 }
@@ -58,7 +8,6 @@
 .hero-text-two {
     background-size: cover;
     transform: translateZ(0) scale(1);
-    border-bottom: 10px solid $secondary;
 }
 
 [x-cloak] {
@@ -70,8 +19,6 @@ html,
 body {
     width: 100%;
     height: 100%;
-    background-color: $purple-900;
-    color: #fff;
 }
 
 a {
@@ -84,6 +31,9 @@ a {
 
 }
 
+.welcome-container {
+    height: 600px;
+}
 
 .btn-accent:hover {
     color: #fff;
@@ -219,7 +169,6 @@ a {
 
 // Service Page
 .partner {
-    color: #ffffff;
 
 
     .card {
@@ -237,12 +186,10 @@ a {
     }
 
     blockquote {
-        color: $gray-700;
     }
 
 
     .partner-details {
-        background-color: rgba(0, 0, 0, 0.4);
         border-radius: 30px;
         padding: 30px;
 
@@ -288,7 +235,6 @@ a {
     }
 
     .gallery {
-        margin-top: 50px;
 
         .gallery-image {
             height: 200px;
@@ -299,6 +245,7 @@ a {
                 height: 100%;
                 cursor: pointer;
                 filter: brightness(80%);
+                border-radius: 20px;
             }
 
             img:hover {
@@ -319,22 +266,18 @@ a {
     }
 
     .adverts {
-        height: 100vh;
         overflow: scroll;
 
         .card {
-            height: 300px;
-
-
+            height: 200px;
             margin: 20px;
             overflow: hidden;
             color: #fff;
             font-weight: bold;
-            background-color: rgba(0, 0, 0, 0.4);
 
 
             .card-title {
-                color: $info;
+                color: $primary;
                 padding: 10px;
             }
 
@@ -361,7 +304,6 @@ a {
 
     .tab-index {
         padding: 0;
-        margin-top: 40px;
 
         .tab-overflow {
             overflow: scroll;
@@ -387,18 +329,14 @@ a {
 
     .tab {
         overflow: scroll;
-        margin-top: 20px;
 
         @media only screen and (min-width: 1200px) {
             margin-right: 100px;
-            margin-left: 100px;
         }
 
 
         ul {
             padding: 0;
-            background-color: $secondary;
-            border-radius: 20px;
 
 
             li {
@@ -414,6 +352,10 @@ a {
                     svg {
                         width: 40px;
                     }
+                }
+
+                .tab-content-icon {
+                    color: $dark;
                 }
 
 
@@ -434,14 +376,14 @@ a {
         .tab-content {
             text-align: justify;
             width: 100%;
-            height: 100%;
+            overflow: scroll;
 
             section {
                 background-color: $white;
             }
 
             .list-group {
-                margin: 30px;
+                margin-left: 30px;
             }
 
             .service-bool {
@@ -525,6 +467,10 @@ a {
                 color: $gray-700;
                 padding-top: 20px;
                 padding-bottom: 20px;
+
+                @media only screen and (max-width: 767px) {
+                    font-size: large;
+                }
             }
         }
     }
@@ -885,13 +831,7 @@ a {
     }
 
     h2 {
-        color: #fff;
-        background-color: $primary;
-        border-bottom: 10px solid $purple-700;
-        border-bottom-left-radius: 30%;
-        border-bottom-right-radius: 30%;
-        padding: 20px 20px 40px;
-        margin-bottom: 80px;
+        color: $primary;
     }
 
     .glide__slide:hover {
@@ -922,7 +862,8 @@ a {
                 .card-img-logo {
                     position: absolute;
                     top: 0;
-                    background-color: $secondary;
+                    background-color: #fff;
+                    border: 1px solid $primary;
                     padding: 10px;
                     width: 60px;
                     border-bottom-right-radius: 10px;
@@ -932,7 +873,6 @@ a {
                     width: 100%;
                     height: 200px;
                     object-fit: cover;
-                    border: 1px solid $primary;
                 }
 
                 .card-logo {
@@ -1005,28 +945,21 @@ a {
     }
 
     .glide__bullets {
-
-        margin-top: 20px;
         border-radius: 20px;
 
         img {
-            margin: 20px;
-            width: 60px;
-
-            padding: 20px;
-            border-radius: 10px;
-
+            margin: 10px;
+            width: 30px;
         }
     }
 
     .glide__bullet--active {
-        border: 1px solid $info;
         opacity: 80;
-        color: #fff;
+        border-bottom: 1px solid $primary;
+        padding-bottom: 5px;
     }
 
     .glide__bullet:hover {
-        border-bottom: 2px solid $info;
         color: #fff;
         cursor: pointer;
     }
@@ -1035,10 +968,7 @@ a {
 }
 
 .categories {
-    .items {
-        background-image: linear-gradient($primary, $secondary);
 
-    }
 
     .scene {
         display: inline-block;
@@ -1086,6 +1016,8 @@ a {
         .card__face--front {
             position: relative;
             overflow-y: hidden;
+            border-radius: 20px;
+
 
             .title {
                 margin-bottom: 20px;
@@ -1093,14 +1025,13 @@ a {
         }
 
         .card__face--back {
-            background-color: $secondary;
             transform: rotateY(180deg);
             overflow: scroll;
+            border-radius: 20px;
 
             .sub-categories {
 
                 ul {
-                    background-color: $secondary;
                     color: $info;
                     list-style-type: decimal-leading-zero;
 
@@ -1109,7 +1040,7 @@ a {
                         margin: 10px;
 
                         a {
-                            color: $white;
+                            color: $gray-700;
                         }
                     ;
 
@@ -1445,7 +1376,6 @@ a {
                     }
 
                     h2 {
-                        color: #fff;
                         width: 100%;
                         font-size: large;
                         align-items: center;
@@ -1478,10 +1408,10 @@ a {
 
                     .accordion-body {
                         text-align: justify;
-                        color: #ffffff;
                         border: 0;
                         padding: 0;
                         margin-top: 50px;
+
                     }
 
                     .accordion-button {
@@ -1492,10 +1422,10 @@ a {
                     }
 
                     .accordion-header {
-                        color: #fff;
                         margin-bottom: 30px;
                         cursor: pointer;
                         text-align: end;
+                        color: $gray-700;
                     }
 
                     .accordion-header::before {
@@ -1831,7 +1761,6 @@ a {
 
                     .accordion-body {
                         text-align: justify;
-                        color: #ffffff;
                         border: 0;
                         padding: 0;
                         margin-top: 50px;
@@ -1846,8 +1775,9 @@ a {
                     }
 
                     .accordion-header {
-                        color: #fff;
                         margin-top: 50px;
+                        color: $gray-700;
+                        cursor: pointer;
                     }
 
                     .accordion-header::before {

@@ -1,12 +1,12 @@
 import './bootstrap';
 import '../sass/app.scss';
 import Alpine from 'alpinejs';
-import tippy, { animateFill } from 'tippy.js';
+import tippy, {animateFill} from 'tippy.js';
 import 'tippy.js/animations/scale.css';
-import Glide, { Controls, Breakpoints } from '@glidejs/glide/dist/glide.modular.esm'
+import Glide, {Breakpoints, Controls} from '@glidejs/glide/dist/glide.modular.esm'
 import focus from '@alpinejs/focus';
 
-import { Loader } from "@googlemaps/js-api-loader"
+import {Loader} from "@googlemaps/js-api-loader"
 
 const loader = new Loader({
     apiKey: "AIzaSyBPleD5xW_3gBLeUfgdw-QIwP--2VzWSt8",
@@ -14,7 +14,7 @@ const loader = new Loader({
     libraries: ["maps", "places"],
 });
 
-const center = { lat: 46.8131873, lng:  8.22421 };
+const center = {lat: 46.8131873, lng: 8.22421};
 const mapOptions = {
     center: center,
     zoom: 7,
@@ -29,7 +29,6 @@ loader
     .catch((e) => {
         console.warn('map not loaded', e);
     });
-
 
 
 import.meta.glob([
@@ -49,7 +48,7 @@ tippy('.nav-item', {
 });
 
 tippy('.glide__bullet', {
-    placement: 'top',
+    placement: 'bottom-start',
     animation: 'scale',
     inertia: true,
     theme: 'top-services'
@@ -119,5 +118,5 @@ if (document.getElementsByClassName('glide').length > 0) {
                 perView: 1,
             },
         },
-    }).mount({ Controls, Breakpoints });
+    }).mount({Controls, Breakpoints});
 }

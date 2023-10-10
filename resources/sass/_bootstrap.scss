@@ -2,7 +2,7 @@
 @import "../../node_modules/bootstrap/scss/variables";
 // ! Theme after default initialization !
 
-$primary: $purple-500;
+$primary: $teal-500;
 $info: $cyan-500;
 $secondary: $gray-900;
 $accent: $orange-400;
@@ -57,7 +57,7 @@ $modal-content-color: $white;
     text-transform: uppercase;
     font-weight: bold;
 
-    @media only screen and (max-width : 767px) {
+    @media only screen and (max-width: 767px) {
         display: none;
     }
 }
@@ -85,10 +85,6 @@ $modal-content-color: $white;
     color: $white;
     font-size: smaller;
 }
-
-
-
-
 
 
 @import "../../node_modules/bootstrap/scss/bootstrap";

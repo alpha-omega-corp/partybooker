@@ -35,12 +35,15 @@
         @endif
     </x-service.list-item>
 
-    <x-service.list-item :title="__('partner.budget')">
-        <p>{{substr(BudgetsHelper::getDescription($partner->budget), 1, -1)}}F</p>
-    </x-service.list-item>
+    @if(isset($partner->budget))
+        <x-service.list-item :title="__('partner.budget')">
+            <p>{{substr(BudgetsHelper::getDescription($partner->budget), 1, -1)}}F</p>
+        </x-service.list-item>
+    @endif
 
+    @if(isset($details->deposit)) @endif
     <x-service.list-item :title="__('partner.booking_deposit')">
-        <p> {{$details->deposit ?? ''}}</p>
+        <p> {{$details->deposit}}</p>
     </x-service.list-item>
 
 

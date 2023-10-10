@@ -3,27 +3,12 @@
     <h6 class="text-uppercase">{{__('service.schedule')}}</h6>
 
     <x-service.list-item :title="__('partner.working_days')">
-        @php($days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'])
-
-        <br>
-
-        @foreach($days as $day)
-            <div class="text-uppercase d-flex flex-column">
-                <div class="d-flex">
-                    @if(in_array(substr($day, 0, 3), json_decode($details->working_days)))
-                        <x-service.list-bool :value="true"/>
-                    @else
-                        <x-service.list-bool :value="false"/>
-                    @endif
-                    <span class="working-days">
-                        {{__('days.' . substr($day, 0, 3))}}
-                    </span>
-
-                </div>
-            </div>
-        @endforeach
-
-
+        <p>
+            @foreach(json_decode($details->working_days) as $day)
+                {{$day}}
+            @endforeach
+        </p>
+        
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.opening_hours')">

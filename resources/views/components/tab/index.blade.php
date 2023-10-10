@@ -46,7 +46,7 @@
                     class="btn rounded-0 fw-bold text-uppercase tab-cat-btn"
                     data-tippy-content="{{$tab}}"
                     role="tab">
-                    @svg($icons[$key])
+                    @svg($icons[$key], 'tab-content-icon')
                 </button>
             </li>
         @endforeach

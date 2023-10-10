@@ -9,36 +9,47 @@
 
     <h6 class="text-uppercase">{{__('service.general_info')}}</h6>
 
-    <x-service.list-item :title="__('partner.cocktail_reception_capacity')">
-        <p>{{$details->coctail ?? ''}}</p>
-    </x-service.list-item>
+    @if(isset($details->coctail))
+        <x-service.list-item :title="__('partner.cocktail_reception_capacity')">
+            <p>{{$details->coctail}}</p>
+        </x-service.list-item>
+    @endif
 
-    <x-service.list-item :title="__('partner.banquet_capacity')">
-        <p>{{$details->banquet ?? ''}}</p>
-    </x-service.list-item>
+    @if(isset($details->banquet))
+        <x-service.list-item :title="__('partner.banquet_capacity')">
+            <p>{{$details->banquet}}</p>
+        </x-service.list-item>
+    @endif
 
-    <x-service.list-item :title="__('partner.outdoor_facility')">
-        <p>{{$details->outdoor ?? ''}}</p>
-    </x-service.list-item>
+    @if($details->outdoor)
+        <x-service.list-item :title="__('partner.outdoor_facility')">
+            <p>{{$details->outdoor}}</p>
+        </x-service.list-item>
+    @endif
 
-    <x-service.list-item :title="__('partner.sitting_schema')">
-        <p>{{$details->sitting ?? ''}}</p>
-    </x-service.list-item>
+    @if($details->sitting)
+        <x-service.list-item :title="__('partner.sitting_schema')">
+            <div class="d-flex">
+                @foreach(json_decode($details->sitting) as $sitting)
+                    <p>{{$sitting}} @svg('heroicon-o-user-group', 'room-icon') </p>
+                @endforeach
+            </div>
+        </x-service.list-item>
+    @endif
 
-    <x-service.list-item :title="__('partner.conference_room')">
-
-        <div class="d-flex flex-column">
-            @if(isset($details->room))
+    @if($details->room)
+        <x-service.list-item :title="__('partner.conference_room')">
+            <div class="d-flex flex-column">
                 @foreach($details->room as $key => $room)
                     <div class="d-flex flex-column">
                         <div>{{$room['name']}}</div>
                         <p>@svg('heroicon-o-user-group', 'room-icon') {{strtolower($room['capacity'])}} </p>
                     </div>
                 @endforeach
-            @endif
-        </div>
+            </div>
+        </x-service.list-item>
+    @endif
 
-    </x-service.list-item>
 
     @if (isset($details->oth_facilities))
         <x-service.list-item title="{{__('partner.other_services')}}">
@@ -186,7 +197,6 @@
         @switch($details->accomodation)
             @case('not-available')
                 <x-service.list-bool :value="'no'"/>
-                <p>N/A</p>
                 @break
 
             @case('yes-nearby')
@@ -245,8 +255,6 @@
             <p class="partner-comment"> {{$details->comment}}</p>
         </x-service.list-item>
     @endif
-
-
 </x-service.list>
 
 

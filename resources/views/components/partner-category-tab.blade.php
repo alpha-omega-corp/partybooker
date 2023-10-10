@@ -32,7 +32,7 @@
         role="tablist"
         class="tab-overflow d-flex m-0">
         @foreach($tabs as $tab)
-            <li class="d-flex w-100">
+            <li>
                 <button
                     :id="$id('tab', whichChild($el.parentElement, $refs.tablist))"
                     @click="select($el.id)"
@@ -41,8 +41,8 @@
                     type="button"
                     :tabindex="isSelected($el.id) ? 0 : -1"
                     :aria-selected="isSelected($el.id)"
-                    :class="isSelected($el.id) ? 'bg-primary' : 'bg-secondary'"
-                    class="btn rounded-0 fw-bold text-uppercase w-100"
+                    :class="isSelected($el.id) ? 'border-bottom text-primary' : 'text-dark'"
+                    class="btn rounded-0 fw-bold text-uppercase"
                     data-tippy-content="{{$tab}}"
                     role="tab">
                     {{$tab}}
