@@ -1,10 +1,11 @@
+@php use App\Http\Middleware\LocaleMiddleware; @endphp
 @if (!isset($_COOKIE['cookies-policy']))
     <div class="cookies-container">
         <div x-data="cookies" x-show="open" class="cookies">
             <div class="container text-center">
                 <div class="row">
                     <div class="col-2 my-auto mx-auto">
-                        <img src="{{ asset('images/cookie.svg') }}" alt="Accept cookies" class="my-auto" />
+                        <img src="{{ Vite::image('cookie.svg') }}" alt="Accept cookies" class="my-auto"/>
                     </div>
                     <div class="col-10">
                         <p class="text-start">
@@ -15,7 +16,7 @@
                                 {{ __('main.cookies_accept') }}
                             </button>
 
-                            <a href="{{ url(\App\Http\Middleware\LocaleMiddleware::getLocale() . '/user-terms') }}">
+                            <a href="{{ url(LocaleMiddleware::getLocale() . '/user-terms') }}">
                                 <button type="button" CLASS="btn btn-info">
                                     {{ __('main.cookies_info') }}
                                 </button>

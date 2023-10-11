@@ -167,6 +167,11 @@ a {
 
 }
 
+.book-text {
+    font-size: small;
+    color: $gray-700;
+}
+
 // Service Page
 .partner {
 
@@ -500,7 +505,6 @@ a {
 
     .info-element {
         cursor: pointer;
-        padding-bottom: 10px;
 
         a {
             color: $blue;
