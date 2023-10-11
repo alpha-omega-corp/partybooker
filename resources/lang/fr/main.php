@@ -2,87 +2,87 @@
 
 return [
 
-	//GENERAL
-	'login'						=> "S'identifier",
-    'register'					=> "S'inscrire",
-	'search'					=> "Chercher",
-	'view_all'					=> "Voir tout",
-	'view'						=> "Voir",
-	'all'						=> "Tous",
-	'back'						=> "Retour",
-	'sort_by'					=> "Trier par",
-	'price'						=> "Prix",
-	'previous'					=> "Précédent",
-	'next'						=> "Suivant",
-	'top'						=> "Haut",
-	'contact_us'				=> "Contactez-nous",
-	'subscribe'					=> "S'abonner",
-	'read_more'					=> "PLUS DE DETAILS",
-	'send'						=> "Envoyer",
-	'submit'					=> "Soumettre",
-	'add'						=> "Ajouter",
-	'edit'						=> "Modifier",
-	'delete'					=> "Annuler",
-	'save'						=> "Enregistrer",
-	'name'                      => 'Nom',
-    'close'                     => "Fermer",
-    'see-all'                   => 'Voir tout',
-    'see-items'                 => 'Sous catégories',
+    //GENERAL
+    'login' => "S'identifier",
+    'register' => "S'inscrire",
+    'search' => "Chercher",
+    'view_all' => "Voir tout",
+    'view' => "Voir",
+    'all' => "Tous",
+    'back' => "Retour",
+    'sort_by' => "Trier par",
+    'price' => "Prix",
+    'previous' => "Précédent",
+    'next' => "Suivant",
+    'top' => "Haut",
+    'contact_us' => "Contactez-nous",
+    'subscribe' => "S'abonner",
+    'read_more' => "PLUS DE DETAILS",
+    'send' => "Envoyer",
+    'submit' => "Soumettre",
+    'add' => "Ajouter",
+    'edit' => "Modifier",
+    'delete' => "Annuler",
+    'save' => "Enregistrer",
+    'name' => 'Nom',
+    'close' => "Fermer",
+    'see-all' => 'Voir tout',
+    'see-items' => 'Sous catégories',
 
-    'clear-filters'             => 'Réinitialiser filtres',
+    'clear-filters' => 'Réinitialiser filtres',
 
-	//MAIN WEBSITE
-	//Common
-	//navigation
-	'home_page' 				=> "Accueil",
-	'listing_page' 				=> "Annonces",
-	'become_partner_page'		=> "Partenariat",
-	'aboutus_page' 				=> "À propos",
-	'faqs_page' 				=> "FAQs",
-	'blog_page' 				=> "Blog",
-	'contact_page' 				=> "Contact",
+    //MAIN WEBSITE
+    //Common
+    //navigation
+    'home_page' => "Accueil",
+    'listing_page' => "Annonces",
+    'become_partner_page' => "Partenariat",
+    'aboutus_page' => "À propos",
+    'faqs_page' => "FAQs",
+    'blog_page' => "Blog",
+    'contact_page' => "Contact",
 
-	//subscribe form
-	'subscribe_offers'			=> "OFFRES SPECIALES",
-	'subscribe_text'			=> "Inscrivez-vous et recevez les offres de nos partenaires.",
-	'subscribe_email'			=> "Votre E-mail",
+    //subscribe form
+    'subscribe_offers' => "OFFRES SPECIALES",
+    'subscribe_text' => "Inscrivez-vous et recevez les offres de nos partenaires.",
+    'subscribe_email' => "Email",
 
-	//top services
-	'top_services'				=> "TOP SERVICES",
+    //top services
+    'top_services' => "TOP SERVICES",
 
-	//Homepage
-	'title_home_h1'				=> "ORGANISEZ VOTRE ÉVÉNEMENT EN QUELQUES CLICS!",
-	'title_home_h2'				=> "BIENVENUE SUR PARTYBOOKER",
-	'category'                  => 'Catégories',
-	'place'                     => 'Lieu',
-	'budget'                    => 'Budget',
+    //Homepage
+    'title_home_h1' => "ORGANISEZ VOTRE ÉVÉNEMENT EN QUELQUES CLICS!",
+    'title_home_h2' => "BIENVENUE SUR PARTYBOOKER",
+    'category' => 'Catégories',
+    'place' => 'Lieu',
+    'budget' => 'Budget',
 
-	//Contact us page
-	'our_contacts'				=> "NOS COORDONNEES",
-	'write_us'					=> "ECRIVEZ-NOUS UN MESSAGE",
-	'contacts_name'				=> "Nom",
-	'contacts_phone'			=> "Numéro de téléphone",
-	'contacts_email'			=> "Courriel",
-	'contacts_message'			=> "Message",
-	'contacts_agree'			=> "J'accepte les",
-	'contacts_terms'			=> "conditions générales du fournisseur de services",
+    //Contact us page
+    'our_contacts' => "NOS COORDONNEES",
+    'write_us' => "ECRIVEZ-NOUS UN MESSAGE",
+    'contacts_name' => "Nom",
+    'contacts_phone' => "Numéro de téléphone",
+    'contacts_email' => "Courriel",
+    'contacts_message' => "Message",
+    'contacts_agree' => "J'accepte les",
+    'contacts_terms' => "conditions générales du fournisseur de services",
 
-	'other_directories'         => 'Guides & Annuaires Suisse ',
+    'other_directories' => 'Guides & Annuaires Suisse ',
 
-	'user_terms' => "Conditions d'utilisation",
-	'faq_page_title'            => 'Foire aux questions',
+    'user_terms' => "Conditions d'utilisation",
+    'faq_page_title' => 'Foire aux questions',
 
-	'sitemap' => 'Plan du site',
-	'pages' => 'Des pages',
-	'articles' => 'Des articles',
-	'partner_terms' => 'CONDITIONS GÉNÉRALES PARTENAIRES DE SERVICES',
+    'sitemap' => 'Plan du site',
+    'pages' => 'Des pages',
+    'articles' => 'Des articles',
+    'partner_terms' => 'CONDITIONS GÉNÉRALES PARTENAIRES DE SERVICES',
 
-	'cookies_text' => 'Ce site utilise des cookies pour vous fournir les meilleures fonctionnalités possibles.',
-	'cookies_accept' => 'ACCEPTER',
-	'cookies_info' => "PLUS D'INFO",
+    'cookies_text' => 'Ce site utilise des cookies pour vous fournir les meilleures fonctionnalités possibles.',
+    'cookies_accept' => 'ACCEPTER',
+    'cookies_info' => "PLUS D'INFO",
 
-	'event-types' => 'Types d\'événements',
-	'select_all' => 'Tous',
+    'event-types' => 'Types d\'événements',
+    'select_all' => 'Tous',
 
     'info-block-1' => 'La destination ultime pour les particuliers et les organisations qui souhaitent organiser des événements inoubliables empreints d\'une qualité et d\'une créativité exceptionnelles',
     'info-block-1-1' => 'Basé dans le cœur pittoresque de la Suisse Romande, PartyBooker est votre partenaire de confiance, réunissant des prestataires de services innovants et des personnes passionnées par la création d\'expériences uniques.',

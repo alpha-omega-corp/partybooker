@@ -35,23 +35,20 @@
 
 </head>
 
-<body class="body">
+<body>
 @include('common.header-nav')
 
 <div class="main-content">
     @yield('content')
+    @include('common.footer')
 </div>
 
 <section>
     @include('common.cookies')
 </section>
-
-<section>
-    @include('common.footer')
-</section>
+@stack('footer')
 
 </body>
 
-@stack('footer')
 
 </html>

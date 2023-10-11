@@ -215,11 +215,14 @@
 
         <section class="usp">
             <div class="container">
+                <h2 class="display-4 mb-5 fw-bold text-uppercase">
+                    {{ __('become_partner.become_info_title') }}
+                </h2>
                 <div class="container text-center">
                     <div class="row">
                         @for ($i = 0; $i < 7; $i++)
 
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 usp-item">
                                 <h4 class="text-uppercase text-start">
                                     <span class="text-primary fw-bold">{{ $i + 1 }}.</span>
                                     {{__('usp.title-' . $i + 1) }}

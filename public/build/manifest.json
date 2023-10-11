@@ -656,18 +656,17 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-e0fb3f7a.css",
+    "file": "assets/app-8c24fdf6.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "assets": [
-      "assets/blob-scene-4863cbac.svg",
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-e0fb3f7a.css"
+      "assets/app-8c24fdf6.css"
     ],
-    "file": "assets/app-21b0b459.js",
+    "file": "assets/app-756a5ac2.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

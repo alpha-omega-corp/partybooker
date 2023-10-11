@@ -1,15 +1,12 @@
 <?php
+
 namespace Database\Seeders;
 
-use App\Models\Category;
 use App\Models\Caterer;
 use App\Models\Entertainment;
 use App\Models\Equipment;
 use App\Models\EventPlace;
-use App\Models\EventPlace as EventPlaceModel;
 use App\Models\Wine;
-use Database\Factories\EventPlaceFactory;
-use Database\Factories\WineFactory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -58,6 +55,11 @@ class DatabaseSeeder extends Seeder
         $this->newPartner('domaine-des-esserts', 8);
         $this->newPartner('la-caravane-passe-geneve', 9);
         $this->newPartner('headphone-music--silent-disco', 10);
+
+
+        for ($i = 11; $i < 100; $i++) {
+            $this->newPartner(strtolower(fake()->company), $i);
+        }
 
         $this->newPlan(
             'Standart',
@@ -145,36 +147,6 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'provider' => null,
             'provider_id' => null,
-        ]);
-    }
-
-    private function newPlan(
-        string $name,
-        int $positon,
-        bool $listing,
-        int $photos,
-        int $videos,
-        int $requests,
-        int $price,
-        int $duration
-    ) {
-        $id = DB::table('plans')->insertGetId([
-            'name' => $name,
-            'plan_created' => now(),
-            'position' => $positon,
-            'listing' => $listing,
-            'photos_num' => $photos,
-            'video' => $videos,
-            'direct_request' => $requests,
-            'price' => $price,
-            'days_period' => $duration,
-        ]);
-
-        DB::table('plan_options')->insert([
-            'plans_id' => $id,
-            'categories_count' => 1,
-            'sub_categories_count' => 1,
-            'group' => 1
         ]);
     }
 
@@ -297,6 +269,37 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+    }
+
+    private function newPlan(
+        string $name,
+        int    $positon,
+        bool   $listing,
+        int    $photos,
+        int    $videos,
+        int    $requests,
+        int    $price,
+        int    $duration
+    )
+    {
+        $id = DB::table('plans')->insertGetId([
+            'name' => $name,
+            'plan_created' => now(),
+            'position' => $positon,
+            'listing' => $listing,
+            'photos_num' => $photos,
+            'video' => $videos,
+            'direct_request' => $requests,
+            'price' => $price,
+            'days_period' => $duration,
+        ]);
+
+        DB::table('plan_options')->insert([
+            'plans_id' => $id,
+            'categories_count' => 1,
+            'sub_categories_count' => 1,
+            'group' => 1
+        ]);
     }
 
 

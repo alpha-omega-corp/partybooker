@@ -18,22 +18,18 @@
     display: none;
 }
 
-
-html,
-body {
-    width: 100%;
+html, body {
     height: 100%;
 }
 
 footer {
-    margin-top: 140px;
+    margin-top: 120px;
 
     .footer-box {
         border: 2px solid $primary;
         border-top-left-radius: 60px;
         border-top-right-radius: 60px;
         border-bottom: 0;
-        padding-bottom: 50px;
     }
 
     ul {
@@ -53,11 +49,24 @@ footer {
         }
     }
 
-    h6 {
+    h5 {
         margin-top: 40px;
         font-size: large;
         font-weight: bold;
 
+    }
+
+    .subscribe {
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 20px;
+        margin-top: 40px;
+        border: 1px $primary;
+        border-bottom: 0;
+        color: #fff;
+
+        .input-group {
+            padding-right: 20px;
+        }
     }
 }
 
@@ -66,7 +75,8 @@ a {
 }
 
 .main-content {
-    margin-top: 200px;
+    padding-top: 200px;
+    height: 100%;
 }
 
 
@@ -89,9 +99,25 @@ a {
 .about {
     margin-top: 100px;
 
-    p {
+    .about-logo {
+        width: 60px;
+        height: 45px;
+    }
+
+    .about-stats-text {
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: small;
         text-align: justify;
     }
+
+
+    .about-main {
+        padding: 40px;
+
+
+    }
+
 
     .team-section {
         margin-top: 80px;
@@ -116,6 +142,14 @@ a {
     .description {
         text-align: justify;
         margin-top: 20px;
+        margin-bottom: 100px;
+
+        .about-stats-card {
+            border: 1px solid $primary;
+            border-radius: 20px;
+            padding: 10px;
+            padding-bottom: 40px;
+        }
     }
 
     .all-advantages {
@@ -140,24 +174,25 @@ a {
 
     .partner-advantage {
         padding: 10px;
-        height: 100%;
-        width: 100%;
+        border: 1px solid $gray-300;
+        border-radius: 20px;
         margin-bottom: 20px;
+        height: 150px;
 
 
         img {
-            width: 50px;
-            border-bottom: 2px solid $premium;
-            padding-bottom: 10px;
+            width: 30px;
+            margin: 20px;
         }
 
         ul {
-            font-weight: bold;
+            margin: 0;
+            padding: 20px;
 
             li {
                 text-align: start;
                 list-style-type: decimal;
-                font-size: 12px;
+                font-size: medium;
 
             }
         }
@@ -165,41 +200,29 @@ a {
 }
 
 .faq {
-    background: url('../images/blob-scene.svg') no-repeat center;
-    background-attachment: fixed;
-    background-size: cover;
-    color: #fff;
-
-    height: 100%;
-
-    h1 {
-        padding-top: 100px;
-        padding-bottom: 60px;
-    }
-
     .accordion {
         --bs-accordion-border-width: 0;
 
 
         .accordion-item {
             margin: 10px;
-            background-color: $secondary;
-            border: 0;
-            color: #fff;
-
+            border: 1px dashed $primary;
 
             .accordion-button {
-                border: 0;
-                color: #fff;
-                background-color: $primary;
                 text-transform: uppercase;
                 font-weight: bold;
+                background-color: transparent;
             }
 
             .accordion-button::after {
                 transform: none !important;
                 transition: none !important;
                 display: none
+            }
+
+            .accordion-button:focus {
+                box-shadow: none;
+                border-color: rgba(0, 0, 0, .125);
             }
 
             .accordion-body {
@@ -584,10 +607,15 @@ a {
 
     h4 {
         font-weight: bold;
+        color: $gray-600;
     }
 
     p {
         text-align: justify;
+    }
+
+    .usp-item {
+        margin-bottom: 50px;
     }
 }
 
@@ -1126,10 +1154,15 @@ a {
         margin-bottom: 10px;
     }
 
+    .card:hover {
+        transform: scale(1.02);
+        transition: .1s;
+    }
+
     .card {
         max-height: 226px;
         z-index: 1;
-        border: 0;
+        border: 1px solid $gray-300;
 
         .cover {
             width: 100%;
