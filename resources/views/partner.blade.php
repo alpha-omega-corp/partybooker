@@ -16,19 +16,22 @@
                     <div class="col-md-6">
                         <div class="d-flex flex-column text-center p-4 h-100">
 
-                            <img src="{{ Vite::image('benefits1.jpg') }}" class="become-partner-img" alt="Devenir partenaire pour rendre votre présence web plus impactante. Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande." width="100">
-
+                            <img src="{{ Vite::image('benefits1.jpg') }}" class="become-partner-img"
+                                 alt="Devenir partenaire pour rendre votre présence web plus impactante. Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande."
+                                 width="100">
 
 
                             @if (Auth::user() == null)
                                 <a class="rainbow p-4 text-uppercase fw-bold fs-3" data-bs-toggle="modal"
                                    href="#loginModalToggle" role="button">
-                                    {{ __('become_partner.title') }}
+                                    @svg('heroicon-m-arrow-long-right')
+
                                 </a>
                             @else
                                 <a class="rainbow p-4 text-uppercase fw-bold" data-bs-toggle="modal"
                                    href="#partnershipModalToggle" role="button">
-                                    {{ __('become_partner.title') }}
+                                    @svg('heroicon-m-arrow-long-right')
+
                                 </a>
                             @endif
                             <br>
@@ -40,17 +43,13 @@
                         <ul>
                             <li>
                                 <div class="d-flex">
-                                    <img src="{{ Vite::image('shuttle.svg') }}" alt="advantages" width="24"
-                                        class="mt-4">
                                     <h3>{{ __('become_partner.b1') }}</h3>
                                 </div>
                                 <p>{{ __('become_partner.b1_text') }}</p>
                             <li>
 
                                 <div class="d-flex">
-                                    <img src="{{ Vite::image('shuttle.svg') }}" alt="advantages" width="24"
-                                         class="mt-4">
-                                <h3> {{ __('become_partner.b2') }}</h3>
+                                    <h3> {{ __('become_partner.b2') }}</h3>
                                 </div>
                                 <p>{{ __('become_partner.b2_text') }}</p>
 
@@ -58,9 +57,7 @@
 
                             <li>
                                 <div class="d-flex">
-                                    <img src="{{ Vite::image('shuttle.svg') }}" alt="advantages" width="24"
-                                         class="mt-4">
-                                <h3> {{ __('become_partner.b3') }}</h3>
+                                    <h3> {{ __('become_partner.b3') }}</h3>
                                 </div>
                                 <p>{{ __('become_partner.b3_text') }}</p>
                             </li>
@@ -87,12 +84,13 @@
 
                         <div class="col-md-3">
                             <div class="package position-relative">
-                                <div class="text-uppercase text-center {{ 'bg-' . $plan->name }}">
-                                    <h3 class="fw-bold p-2">{{ __('plan.' . strtolower($plan->name)) }}</h3>
+                                <div class="text-uppercase text-center ">
+                                    <h3 class="fw-bold p-2 {{ 'text-' . $plan->name }}">{{ __('plan.' . strtolower($plan->name)) }}</h3>
                                 </div>
+                                <hr>
                                 <ul>
                                     <li>
-                                        <img src="{{ Vite::image('options.svg') }}" alt="category" />
+                                        <img src="{{ Vite::image('options.svg') }}" alt="category"/>
                                         @foreach ($plan->options as $option)
                                             <span> {{ $option['name'] }} </span>
                                             @if (!$loop->last)
@@ -102,20 +100,20 @@
                                     </li>
 
                                     <li>
-                                        <img src="{{ Vite::image('picture.svg') }}" alt="picture" />
+                                        <img src="{{ Vite::image('picture.svg') }}" alt="picture"/>
 
                                         <span>{{ $plan->photos_num }}
                                             {{ __('become_partner.photos') }}</span>
                                     </li>
                                     @if ($plan->video == 1)
                                         <li>
-                                            <img src="{{ Vite::image('video-player.svg') }}" alt="video" />
+                                            <img src="{{ Vite::image('video-player.svg') }}" alt="video"/>
                                             <span>{{ __('become_partner.video') }}</span>
                                         </li>
                                     @endif
                                     @if ($plan->direct_request == 1)
                                         <li>
-                                            <img src="{{ Vite::image('network.svg') }}" alt="network" />
+                                            <img src="{{ Vite::image('network.svg') }}" alt="network"/>
 
                                             <span>{{ __('become_partner.direct_request') }}</span>
                                         </li>
@@ -151,15 +149,17 @@
         </section>
         <section class="contactus">
             <div class="container">
-                <p class="display-6 fw-bold">{{ __('become_partner.any_questions') }}</p>
+                <p class="fw-bold">{{ __('become_partner.any_questions') }}</p>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary d-flex w-100 text-uppercase" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-primary d-flex w-100 text-uppercase" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
                     {{ __('become_partner.contact') }}
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
                     <div class="modal-dialog">
 
                         <form class="login" action="" method="POST">
@@ -168,14 +168,16 @@
                                     <h1 class="modal-title fs-5 text-primary fw-bold" id="exampleModalLabel">
                                         PHONE NUMBER
                                     </h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
 
                                     <div class="close"></div>
                                     <div class="form">
                                         <input type="tel" name="phone" placeholder="+00 000"
-                                               class="form-control {{ $errors->has('phone') ? ' is-invalid' : '' }}" id="phone"
+                                               class="form-control {{ $errors->has('phone') ? ' is-invalid' : '' }}"
+                                               id="phone"
                                                value="{{ old('phone') }}" required autocomplete="phone" autofocus>
                                         <label for="phone">
                                             Leave your phone
@@ -185,7 +187,8 @@
 
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                    </button>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </div>
@@ -214,17 +217,17 @@
             <div class="container">
                 <div class="container text-center">
                     <div class="row">
-                    @for ($i = 0; $i < 7; $i++)
+                        @for ($i = 0; $i < 7; $i++)
 
                             <div class="col-lg-6">
                                 <h4 class="text-uppercase text-start">
-                                    <span class="text-info fw-bold">{{ $i + 1 }}.</span>
+                                    <span class="text-primary fw-bold">{{ $i + 1 }}.</span>
                                     {{__('usp.title-' . $i + 1) }}
                                 </h4>
                                 <p>{{__('usp.text-' . $i + 1) }}</p>
                             </div>
 
-                    @endfor
+                        @endfor
                     </div>
                 </div>
             </div>

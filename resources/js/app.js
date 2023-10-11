@@ -48,7 +48,7 @@ tippy('.nav-item', {
 });
 
 tippy('.glide__bullet', {
-    placement: 'bottom-start',
+    placement: 'top',
     animation: 'scale',
     inertia: true,
     theme: 'top-services'

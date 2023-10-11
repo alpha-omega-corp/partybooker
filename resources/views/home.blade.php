@@ -31,17 +31,17 @@
     <section>
         <div class="welcome">
 
-            <h1 class="display-3 fw-bold text-center m-5 bg-primary text-white p-5 rounded">
-                {{ __('main.title_home_h1') }}
-            </h1>
 
             <div class="welcome-container">
                 <div class="container">
+                    <h1 class="display-6 fw-bold text-center">
+                        {{ __('main.title_home_h1') }}
+                    </h1>
                     <div class="accordion" id="welcomeAccordion">
                         <div class="card-group">
                             <div class="row">
                                 <div class="col-md-4 col-xs-12">
-                                    <div class="card">
+                                    <div class="card shadow-lg">
                                         <div class="card-body">
                                             <div class="card-text">
                                                 <div class="accordion-item">
@@ -85,7 +85,7 @@
 
                                 </div>
                                 <div class="col-md-4 col-xs-12">
-                                    <div class="card">
+                                    <div class="card shadow-lg">
                                         <div class="card-body">
                                             <div class="card-text">
                                                 <div class="accordion-item">
@@ -125,7 +125,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-xs-12">
-                                    <div class="card card-focus">
+                                    <div class="card shadow-lg ">
                                         <div class="card-body">
                                             <div class="card-text">
                                                 <div class="accordion-item">
@@ -192,7 +192,9 @@
     </div>
 
     <section class="categories">
-
+        <h2 class="display-6 fw-bold text-center mb-5 text-uppercase">
+            {{ __('main.category')}}
+        </h2>
         <div class="items">
             <div class="container">
                 <div class="row d-flex justify-content-center">

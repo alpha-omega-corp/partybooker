@@ -5,7 +5,7 @@
 $primary: $teal-500;
 $info: $cyan-500;
 $secondary: $gray-900;
-$accent: $orange-400;
+$accent: $purple-500;
 $warning: $orange-700;
 $danger: $red-500;
 $success: $green-400;
@@ -38,17 +38,14 @@ $modal-content-bg: $white;
 $modal-content-color: $white;
 
 .tippy-box[data-theme~='navigation'] {
-    background-color: $orange-500;
+    border: $primary;
     padding: 8px;
     border-radius: 0px 10px 0px 10px;
     color: #ffffff;
 }
 
 .tippy-box[data-theme~='top-services'] {
-    background-color: $success;
-    padding: 8px;
-    border-radius: 0px 10px 0px 10px;
-    color: #ffffff;
+    border-bottom: 1px solid $primary;
 }
 
 

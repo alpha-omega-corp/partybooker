@@ -303,6 +303,10 @@
     "file": "assets/group-12ef6361.svg",
     "src": "resources/images/group.svg"
   },
+  "resources/images/hamburger.svg": {
+    "file": "assets/hamburger-48848f7f.svg",
+    "src": "resources/images/hamburger.svg"
+  },
   "resources/images/hangout.svg": {
     "file": "assets/hangout-557e41d4.svg",
     "src": "resources/images/hangout.svg"
@@ -652,7 +656,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-4b000127.css",
+    "file": "assets/app-e0fb3f7a.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -661,9 +665,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-4b000127.css"
+      "assets/app-e0fb3f7a.css"
     ],
-    "file": "assets/app-86ea0d61.js",
+    "file": "assets/app-21b0b459.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

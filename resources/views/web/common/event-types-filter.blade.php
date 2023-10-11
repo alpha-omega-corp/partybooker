@@ -1,6 +1,6 @@
 <div class="btn-group dropstart">
-    <button class="btn btn-labeled btn-primary text-uppercase" data-bs-toggle="dropdown" data-bs-display="static"
-        aria-expanded="false">
+    <button class="btn btn-labeled btn-accent text-uppercase" data-bs-toggle="dropdown" data-bs-display="static"
+            aria-expanded="false">
         <span class="btn-label">
             @svg('heroicon-o-tag')
         </span>
@@ -13,12 +13,13 @@
             @foreach ($eventTypes as $key => $et)
                 <li class="dropdown-item">
                     <div class="form-check form-switch" x-data=""
-                        @click.debounce.100ms="document.getElementById('etSubmit').click()">
+                         @click.debounce.100ms="document.getElementById('etSubmit').click()">
                         <input class="form-check-input" type="checkbox" role="switch" id="{{ 'eventType-' . $key }}"
-                            @if (\Request::has('event_types') && in_array($et['slug'], \Request::get('event_types'))) checked @endif name="event_types[]"
-                            value="{{ $et['slug'] }}" />
+                               @if (Request::has('event_types') && in_array($et['slug'], Request::get('event_types'))) checked
+                               @endif name="event_types[]"
+                               value="{{ $et['slug'] }}"/>
                         <label class="form-check-label" for="{{ 'eventType-' . $key }}" x-data=""
-                            @click.debounce.100ms="document.getElementById('etSubmit').click()">
+                               @click.debounce.100ms="document.getElementById('etSubmit').click()">
                             {{ $et['name'] }}
                         </label>
                     </div>

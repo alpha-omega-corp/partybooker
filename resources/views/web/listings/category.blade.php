@@ -35,9 +35,10 @@
 
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
+
                     <li class="breadcrumb-item">
                         <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}">
-                            <i class="bi bi-house"></i>
+                            @svg('heroicon-o-home')
                         </a>
                     </li>
                     <li class="breadcrumb-item text-uppercase" aria-current="page">

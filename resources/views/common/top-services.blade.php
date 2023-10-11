@@ -1,26 +1,31 @@
 @if (count($top))
 
-    <h2 class="display-3 fw-bold text-center m-5 bg-primary text-white p-3 rounded">
-        {{ __('main.top_services')}}
-    </h2>
     <div class="container">
-
+        <h2 class="display-6 fw-bold text-center mb-5">
+            {{ __('main.top_services')}}
+        </h2>
         <div x-ref="glide" class="glide">
             <div class="glide__">
 
-                <!-- Bullets -->
-                <div class="d-none d-md-block">
-                    <div class="d-flex">
-                        <div class="glide__bullets" data-glide-el="controls[nav]">
-                            @foreach ($top as $key => $service)
-                                <img src="{{ Vite::image('infrastructure.svg') }}"
-                                     class="glide__bullet text-uppercase transition-colors "
-                                     data-glide-dir="{{ '=' . $key }}"
-                                     data-tippy-content="{{ $service->fr_company_name }}"
-                                     alt="{{ $service->fr_company_name }}"/>
-                            @endforeach
+                <div class="d-flex justify-content-center mb-5">
+
+                    <!-- Bullets -->
+                    <div class="d-none d-md-block">
+                        <div class="d-flex">
+                            <div class="glide__bullets" data-glide-el="controls[nav]">
+                                @foreach ($top as $key => $service)
+
+                                    <button class="glide__bullet transition-colors btn"
+                                            data-glide-dir="{{ '=' . $key }}"
+                                            data-tippy-content="{{ $service->fr_company_name }}">
+                                        @svg('heroicon-o-building-office-2')
+                                    </button>
+
+                                @endforeach
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="glide__track" data-glide-el="track">
