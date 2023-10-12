@@ -28,17 +28,19 @@
                             </div>
 
                             <div class="card-body">
-                                <div class="post-author-date">
-                                    By <span
-                                        class="text-primary fw-bold">{{ $post->author ? $post->author : 'Admin' }}</span>,
-                                    {{ date(app()->getLocale() == 'en' ? 'm/d/Y' : 'd/m/Y', strtotime($post->created)) }}
-                                </div>
-                                <div class="text-uppercase mt-1">
-                                    @if (app()->getLocale() == 'en')
-                                        <h6 class="fw-bold">{{ $post->title_en }}</h6>
-                                    @else
-                                        <h6 class="fw-bold">{{ $post->title_fr }}</h6>
-                                    @endif
+                                <div class="card-author">
+                                    <div class="post-author-date">
+                                        By <span
+                                            class="text-primary fw-bold">{{ $post->author ? $post->author : 'Admin' }}</span>,
+                                        {{ date(app()->getLocale() == 'en' ? 'm/d/Y' : 'd/m/Y', strtotime($post->created)) }}
+                                    </div>
+                                    <div class="text-uppercase mt-1 text-nowrap text-truncate">
+                                        @if (app()->getLocale() == 'en')
+                                            <h6 class="fw-bold">{{ $post->title_en }}</h6>
+                                        @else
+                                            <h6 class="fw-bold">{{ $post->title_fr }}</h6>
+                                        @endif
+                                    </div>
                                 </div>
 
                                 <hr>

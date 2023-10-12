@@ -205,8 +205,12 @@ a {
         transform: scale(1.02);
         transition: .1s;
     }
-    
+
     .card {
+
+        .card-author {
+            height: 50px;
+        }
 
         .card-img {
             height: 300px;
