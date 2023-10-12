@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
 use App\Models\Caterer;
 use App\Models\Entertainment;
 use App\Models\Equipment;
@@ -12,11 +13,13 @@ use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
         $this->call([
             CategoriesTableSeeder::class,
         ]);
+
+        Article::factory()->count(10)->create();
 
         DB::table('faq')->insert([
             'faq_created' => now(),

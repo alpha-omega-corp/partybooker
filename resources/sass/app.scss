@@ -123,7 +123,7 @@ a {
         margin-top: 80px;
 
         h3 {
-            color: $info;
+            color: $primary;
         }
     }
 
@@ -196,6 +196,13 @@ a {
 
             }
         }
+    }
+}
+
+.blog-section {
+    img {
+        object-fit: contain;
+
     }
 }
 
@@ -1672,7 +1679,7 @@ a {
         }
 
         .link-underline-primary {
-            background-image: linear-gradient(transparent, transparent), linear-gradient($primary, $primary)
+            background-image: linear-gradient(transparent, transparent), linear-gradient($accent, $accent);
         }
 
         a {
