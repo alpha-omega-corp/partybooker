@@ -200,10 +200,27 @@ a {
 }
 
 .blog-section {
-    img {
-        object-fit: contain;
 
+    .card:hover {
+        transform: scale(1.02);
+        transition: .1s;
     }
+    
+    .card {
+
+        .card-img {
+            height: 300px;
+            overflow: hidden;
+
+            img {
+                object-fit: cover;
+                height: 300px;
+                width: 100%;
+            }
+        }
+    }
+
+
 }
 
 .faq {

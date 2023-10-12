@@ -18,23 +18,30 @@
                     <div class="col-lg-4 col-sm-6 p-md-2 blog">
 
                         <div class="card">
-                            @if($post->main_img === 'null')
-                                <img src="//via.placeholder.com/500x500/fc0?text=6" alt="...">
-                            @else
-                                <img src="{{ asset('storage/posts/' . $post->main_img) }}"
-                                     alt="<?php echo $post->$locale; ?>">
-                            @endif
+                            <div class="card-img">
+                                @if($post->main_img === 'null')
+                                    <img src="//via.placeholder.com/500x500/fc0?text=6" alt="...">
+                                @else
+                                    <img src="{{ asset('storage/posts/' . $post->main_img) }}"
+                                         alt="<?php echo $post->$locale; ?>">
+                                @endif
+                            </div>
 
                             <div class="card-body">
                                 <div class="post-author-date">
-                                    By <span>{{ $post->author ? $post->author : 'Admin' }}</span>,
+                                    By <span
+                                        class="text-primary fw-bold">{{ $post->author ? $post->author : 'Admin' }}</span>,
                                     {{ date(app()->getLocale() == 'en' ? 'm/d/Y' : 'd/m/Y', strtotime($post->created)) }}
                                 </div>
-                                @if (app()->getLocale() == 'en')
-                                    <h6>{{ $post->title_en }}</h6>
-                                @else
-                                    <h6>{{ $post->title_fr }}</h6>
-                                @endif
+                                <div class="text-uppercase mt-1">
+                                    @if (app()->getLocale() == 'en')
+                                        <h6 class="fw-bold">{{ $post->title_en }}</h6>
+                                    @else
+                                        <h6 class="fw-bold">{{ $post->title_fr }}</h6>
+                                    @endif
+                                </div>
+
+                                <hr>
                                 <p>
                                     @if (app()->getLocale() == 'en')
                                         {{ $post->article_en }}
