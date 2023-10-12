@@ -1,4 +1,5 @@
-<section>
+@php use App\Http\Middleware\LocaleMiddleware; @endphp
+<section class="listing-content-section">
     <div class="row justify-content-center">
         <div class="col-lg-4 col-md-0 col-sm-0 d-none d-sm-none d-md-none d-lg-block">
 
@@ -10,7 +11,7 @@
                 @foreach ($categories as $c)
                     <li data-catfil="{{ $c->code }}" class="list-group-item list-group-item-parent">
                         <a
-                            href="{{ url(\App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $c->lang->slug) }}">
+                            href="{{ url(LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $c->lang->slug) }}">
                             {{ $c->lang->name }}
                         </a>
                     </li>
@@ -18,7 +19,7 @@
                     @foreach ($c->subcategories as $sub)
                         <li data-catfil="{{ $sub->code }}" class="list-group-item list-group-item-child ">
                             <a class="link-underline link-underline-primary text-truncate"
-                                href="{{ url(\App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $c->lang->slug . '/' . $sub->lang->slug) }}">
+                               href="{{ url(LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $c->lang->slug . '/' . $sub->lang->slug) }}">
                                 {{ $sub->lang->name }}
                             </a>
                         </li>
@@ -51,7 +52,7 @@
 
     <div class="d-flex justify-content-end">
         <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings')) }}"
-            class="btn btn-labeled btn-danger text-uppercase reset-filters">
+           class="btn btn-labeled btn-danger text-uppercase reset-filters">
             <span class="btn-label">
                 @svg('heroicon-o-archive-box-x-mark')
             </span>

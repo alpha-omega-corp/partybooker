@@ -219,7 +219,7 @@ a {
     .description {
         text-align: justify;
         margin-top: 20px;
-        margin-bottom: 100px;
+        margin-bottom: 20px;
 
         .about-stats-card {
             border: 1px solid $gray-300;
@@ -230,7 +230,10 @@ a {
     }
 
     .all-advantages {
-        padding: 40px;
+        @media only screen and (min-width: 767px) {
+            padding: 40px;
+        }
+
 
         h2 {
             margin-bottom: 20px;
@@ -288,15 +291,26 @@ a {
     }
 
     .partner-advantage-section {
-        border-top-left-radius: 80px;
-        border-top-right-radius: 80px;
-        padding: 100px;
+        border-top-left-radius: 100px;
+        border-top-right-radius: 100px;
         border: solid $primary 2px;
         border-bottom: 0;
+
+        @media only screen and (min-width: 767px) {
+            padding: 100px;
+        }
+
+        @media only screen and (max-width: 767px) {
+            padding: 80px 20px 60px;
+        }
+
+        .become-partner-btn {
+            margin-bottom: 40px;
+        }
     }
 
     .partner-advantage {
-        border: 1px solid $primary;
+        border: 1px solid $gray-300;
         border-radius: 20px;
         margin-bottom: 20px;
         height: 200px;
@@ -308,7 +322,7 @@ a {
         }
 
         .advantage-img-container {
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.2);
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
             margin-right: 40px;
@@ -338,12 +352,12 @@ a {
                     padding-bottom: 10px;
 
                     @media only screen and (max-width: 767px) {
-                        border-bottom: 2px dashed $primary;
+                        border-bottom: 2px dashed $gray-400;
                     }
                 }
 
                 li::marker {
-                    color: $accent;
+                    color: $primary;
                     font-weight: bolder;
                 }
             }
@@ -428,7 +442,6 @@ a {
 
 // Service Page
 .partner {
-
 
     .card {
         height: 200px;
@@ -963,6 +976,24 @@ a {
     .benefits {
         padding-top: 80px;
 
+        @media only screen and (max-width: 767px) {
+            h1 {
+                text-align: center;
+                margin-top: 50px;
+
+            }
+
+            h3 {
+                font-size: small;
+            }
+
+            ul {
+                padding: 0;
+                margin-top: 80px;
+                border: 1px solid $primary;
+            }
+        }
+
 
         .benefits-img {
             width: 400px;
@@ -971,7 +1002,6 @@ a {
         }
 
         ul {
-            padding: 0;
             color: $primary;
             font-weight: bold;
 
@@ -1080,18 +1110,20 @@ a {
     }
 }
 
-.btn-label {
-    position: relative;
-    left: -12px;
-    display: inline-block;
-    padding: 6px 12px;
-    background: rgba(0, 0, 0, 0.15);
-    border-radius: 3px 0 0 3px;
-}
 
 .btn-labeled {
     padding-top: 0;
     padding-bottom: 0;
+    margin-bottom: 5px;
+
+    .btn-label {
+        position: relative;
+        left: 5px;
+        top: -2px;
+        display: inline-block;
+        border-radius: 3px 0 0 3px;
+        padding: 6px 10px;
+    }
 }
 
 .btn {
@@ -1132,34 +1164,48 @@ a {
 }
 
 .top-services {
+
+
     height: 800px;
+    @media only screen and (max-width: 1000px) {
+        height: 750px;
+        margin-top: 80px;
+    }
+
+    h2 {
+        color: $gray-700;
+    }
 
     .glide__track {
         margin: 10px;
+
+        .glide__slide--active {
+            border-top: 2px solid $accent;
+
+
+        }
     }
 
     .glide__ {
         height: 500px;
     }
 
-    .glide__slide:hover {
-        transform: scale(1.05);
-        transition: 0.2s;
-        margin: 10px;
-        overflow: hidden;
-    }
 
     .glide__slide {
-        padding: 5px;
 
         .card {
             border: 1px solid $gray-300;
-            overflow: hidden;
+            border-top-right-radius: 70px;
 
             .card-title {
-                color: $purple-300;
-                border-bottom: 1px solid;
+                color: $gray-700;
+                border-bottom: 1px solid $primary;
                 padding-bottom: 5px;
+
+                @media only screen and (max-width: 1000px) {
+                    text-align: center;
+                    margin-bottom: 60px;
+                }
             }
 
             .card-img {
@@ -1167,12 +1213,15 @@ a {
 
                 .card-img-logo {
                     position: absolute;
-                    top: 0;
+                    top: -10px;
+                    left: 20px;
                     background-color: #fff;
-                    border: 2px solid $primary;
-                    padding: 10px;
-                    width: 60px;
+                    border: 2px solid $accent;
+                    width: 70px;
+                    padding: 20px 15px 20px;
                     border-bottom-right-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                    z-index: 10;
                 }
 
                 .card-img-top {
@@ -1188,9 +1237,9 @@ a {
             }
 
             .card-body {
-                height: 200px;
-
-                padding: 20px;
+                height: 250px;
+                padding: 15px;
+                margin-top: 20px;
 
                 .card-text {
                     max-height: 92px;
@@ -1211,16 +1260,18 @@ a {
 
     .glide__arrows {
         position: absolute;
-        top: 150px;
+        top: 25px;
         width: 100%;
 
         .btn-top {
-            border: 2px solid $primary;
+            border-radius: 80px;
+            background-color: rgba(0, 0, 0, .5);
+
         }
 
         .glide__arrow {
             position: absolute;
-            margin-top: 60px;
+            margin-top: 100px;
 
             img {
                 width: 20px;
@@ -1232,15 +1283,34 @@ a {
         }
 
         .glide__arrow--right {
-            right: -45px;
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
+            right: -55px;
+            height: 440px;
+
+            @media only screen and (max-width: 1000px) {
+                right: -15px;
+                height: 240px;
+                border: 1px solid $primary;
+                transform: rotate(180deg);
+                padding-left: 10px;
+            }
         }
 
         .glide__arrow--left {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
-            left: -45px;
+            left: -55px;
+            height: 440px;
+
+            @media only screen and (max-width: 1000px) {
+                left: -15px;
+                background-color: rgba(0, 0, 0, .5);
+                height: 240px;
+                border: 1px solid $primary;
+                transform: rotate(180deg);
+                padding-right: 10px;
+            }
         }
 
         .previous-arrow {
@@ -1284,6 +1354,16 @@ a {
 
 .categories {
 
+    h2 {
+        margin-bottom: 100px;
+        margin-top: 40px;
+        color: $gray-700;
+
+        @media only screen and (min-width: 1000px) {
+            margin-top: 120px;
+
+        }
+    }
 
     .scene {
         display: inline-block;
@@ -1365,13 +1445,8 @@ a {
                     }
                 }
             }
-
-
         }
-
     }
-
-
 }
 
 .sub-categories-offcanvas {
@@ -1388,6 +1463,10 @@ a {
 
     h1 {
         margin-bottom: 10px;
+    }
+
+    .listing-content-section {
+        margin-top: 80px;
     }
 
     .card:hover {
@@ -1459,7 +1538,7 @@ a {
     --bs-breadcrumb-divider-color: $accent;
 
     a {
-        color: $accent;
+        color: $gray-700;
     }
 
     a:hover {
@@ -1551,6 +1630,8 @@ a {
 }
 
 .pagination {
+    padding-left: 40px;
+
     .page-link {
         background-color: $primary;
         color: #fff;
@@ -1561,7 +1642,7 @@ a {
 .filters {
     position: fixed;
     right: 0;
-    top: 20%;
+    top: 80px;
     z-index: 10;
 
     .list-group-item-child {
@@ -1572,7 +1653,8 @@ a {
 
 
     .btn {
-        border-radius: 0;
+        border: 2px solid #fff;
+        border-radius: 20px 0 0 20px;
     }
 
     .dropdown-menu {
@@ -1707,11 +1789,9 @@ a {
 @media only screen and (min-width: 767px) {
 
     .welcome {
-        margin-top: 100px;
-        margin-bottom: 200px;
+        margin-bottom: 100px;
 
         h1 {
-            margin-top: 80px;
             margin-bottom: 80px;
             z-index: 10;
         }
@@ -2036,7 +2116,7 @@ a {
     }
 
     .breadcrumb {
-        margin-bottom: 100px;
+        margin-bottom: 10px;
     }
 
 
@@ -2045,6 +2125,12 @@ a {
 // Applies Small
 @media only screen and (max-width: 767px) {
     .listing {
+
+        h1 {
+            margin-top: 100px;
+            margin-bottom: 5px;
+        }
+
         .breadcrumb {
             font-size: smaller;
         }
@@ -2081,26 +2167,27 @@ a {
     //Small
     .welcome {
         h1 {
-            margin-top: 70px;
+            margin-top: 120px;
             z-index: 10;
             font-size: xx-large;
         }
+
 
         .accordion {
             background-color: transparent;
             --bs-accordion-border-width: 0;
 
             .card-group {
-                margin-top: 80px;
+                margin-top: 40px;
                 margin-bottom: 80px;
                 background-color: transparent;
-                border-color: $secondary;
-                border-radius: 10px;
 
 
                 .card {
-                    margin-bottom: 10px;
+                    margin: 0 40px 20px;
                     background-color: transparent;
+                    border: 2px solid $primary;
+                    border-radius: 20px;
 
 
                     img {
@@ -2161,7 +2248,7 @@ a {
                     .accordion-button {
                         font-weight: bold;
                         background-color: transparent;
-                        width: 200px;
+                        width: 170px;
                         border: 0;
                         padding: 0;
 

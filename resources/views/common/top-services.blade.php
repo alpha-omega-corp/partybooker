@@ -1,7 +1,7 @@
 @if (count($top))
 
     <div class="container">
-        <h2 class="display-6 fw-bold text-center mb-5">
+        <h2 class="display-1 fw-bold text-center mb-3">
             {{ __('main.top_services')}}
         </h2>
         <div x-ref="glide" class="glide">
@@ -52,7 +52,7 @@
                                             </div>
 
                                             <div class="card-body">
-                                                <h5 class="card-title text-uppercase text-truncate fw-bold">
+                                                <h5 class="card-title text-uppercase text-truncate fw-bold text-primary">
                                                     @if (app()->getLocale() == 'en')
                                                         {{ $service->en_company_name }}
                                                     @else

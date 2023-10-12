@@ -32,7 +32,7 @@
         <div class="container">
             <div class="welcome">
                 <div class="welcome-container">
-                    <h1 class="display-6 fw-bold text-center">
+                    <h1 class="display-1 fw-bold text-center">
                         {{ __('main.title_home_h1') }}
                     </h1>
                     <div class="accordion" id="welcomeAccordion">
@@ -201,12 +201,12 @@
     </div>
 
     <section class="categories">
-        <h2 class="display-6 fw-bold text-center mb-5 text-uppercase">
+        <h2 class="display-1 fw-bold text-center text-uppercase">
             {{ __('main.category')}}
         </h2>
         <div class="items">
             <div class="container">
-                <div class="row d-flex justify-content-center">
+                <div class="row d-flex justify-content-center mt-5">
                     @foreach ($menuCats as $key => $category)
                         @php
                             $listKey = 'list-category-' . $key;
