@@ -10,7 +10,7 @@
        class="nav-link d-flex align-items-center justify-content-center"
        aria-current="{{$page}}">
 
-        @svg($icon)
+        @svg($icon, 'nav-icon')
         <span class="nav-sm-text">
             {{ $tooltip }}
         </span>

@@ -29,11 +29,9 @@
 @section('content')
 
     <section>
-        <div class="welcome">
-
-
-            <div class="welcome-container">
-                <div class="container">
+        <div class="container">
+            <div class="welcome">
+                <div class="welcome-container">
                     <h1 class="display-6 fw-bold text-center">
                         {{ __('main.title_home_h1') }}
                     </h1>
@@ -42,10 +40,10 @@
                             <div class="row">
                                 <div class="col-md-4 col-xs-12">
                                     <div class="card shadow-lg">
-                                        <div class="card-body">
+                                        <div class="card-body" x-data="{ c: 'controlOne' }" @click="open(c)">
                                             <div class="card-text">
                                                 <div class="accordion-item">
-                                                    <div class="d-flex">
+                                                    <div class="accordion-item-flex">
                                                         <button class="accordion-button text-uppercase"
                                                                 id="controlOne" type="button"
                                                                 data-bs-toggle="collapse"
@@ -57,15 +55,19 @@
                                                                  class="d-block"
                                                                  alt="...">
                                                         </button>
-                                                        <h2 class="accordion-header text-uppercase fw-bold"
-                                                            x-data="{ c: 'controlOne' }" @click="open(c)"
-                                                            id="headingOne">
-                                                            {{ __('main.info-block-title-1') }}
-                                                        </h2>
+
+                                                        <div class="card-title-container">
+                                                            <h2
+                                                                class="accordion-header text-uppercase fw-bold"
+                                                                id="headingOne">
+                                                                {{ __('main.info-block-title-1') }}
+                                                            </h2>
+                                                        </div>
+
                                                     </div>
 
                                                     <div id="collapseOne"
-                                                         class="accordion-collapse collapse show"
+                                                         class="accordion-collapse collapse"
                                                          aria-labelledby="headingOne"
                                                          data-bs-parent="#welcomeAccordion">
                                                         <div class="accordion-body body-one">
@@ -86,10 +88,10 @@
                                 </div>
                                 <div class="col-md-4 col-xs-12">
                                     <div class="card shadow-lg">
-                                        <div class="card-body">
+                                        <div class="card-body" x-data="{ c: 'controlTwo' }" @click="open(c)">
                                             <div class="card-text">
                                                 <div class="accordion-item">
-                                                    <div class="d-flex">
+                                                    <div class="accordion-item-flex">
                                                         <button class="accordion-button text-uppercase"
                                                                 type="button" data-bs-toggle="collapse"
                                                                 id="controlTwo"
@@ -100,14 +102,18 @@
                                                                  class="d-block" alt="...">
 
                                                         </button>
-                                                        <h2 class="accordion-header text-uppercase fw-bold"
-                                                            x-data="{ c: 'controlTwo' }" @click="open(c)"
-                                                            id="headingTwo">
-                                                            {{ __('main.info-block-title-2') }}
-                                                        </h2>
+
+                                                        <div class="card-title-container">
+                                                            <h2
+                                                                class="accordion-header text-uppercase fw-bold"
+                                                                id="headingTwo">
+                                                                {{ __('main.info-block-title-2') }}
+                                                            </h2>
+                                                        </div>
+
                                                     </div>
 
-                                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                                    <div id="collapseTwo" class="accordion-collapse collapse show"
                                                          aria-labelledby="headingTwo"
                                                          data-bs-parent="#welcomeAccordion">
                                                         <div class="accordion-body">
@@ -126,10 +132,10 @@
                                 </div>
                                 <div class="col-md-4 col-xs-12">
                                     <div class="card shadow-lg ">
-                                        <div class="card-body">
+                                        <div class="card-body" x-data="{ c: 'controlThree' }" @click="open(c)">
                                             <div class="card-text">
                                                 <div class="accordion-item">
-                                                    <div class="d-flex">
+                                                    <div class="accordion-item-flex">
                                                         <button
                                                             class="accordion-button accordion-button-register collapsed text-uppercase"
                                                             type="button" data-bs-toggle="collapse"
@@ -139,11 +145,14 @@
                                                                  class="d-block" alt="...">
                                                         </button>
 
-                                                        <h2 class="accordion-header text-uppercase fw-bold "
-                                                            x-data="{ c: 'controlThree' }" @click="open(c)"
-                                                            id="headingThree">
-                                                            {{ __('main.info-block-title-3') }}
-                                                        </h2>
+                                                        <div class="card-title-container">
+                                                            <h2
+                                                                class="accordion-header text-uppercase fw-bold "
+                                                                id="headingThree">
+                                                                {{ __('main.info-block-title-3') }}
+                                                            </h2>
+                                                        </div>
+
                                                     </div>
 
                                                     <div id="collapseThree" class="accordion-collapse collapse"

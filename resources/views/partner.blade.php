@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 ps-4">
-                        <h1 class="display-4 fw-bold text-uppercase">{{ __('become_partner.benefits_title') }}</h1>
+                        <h1 class="display-4 fw-bold text-uppercase mb-3">{{ __('become_partner.benefits_title') }}</h1>
                         <ul>
                             <li>
                                 <div class="d-flex">
@@ -83,11 +83,11 @@
                         @endif
 
                         <div class="col-md-3">
-                            <div class="package position-relative">
+                            <div class="package position-relative" x-data="" @click="contact()">
                                 <div class="text-uppercase text-center ">
                                     <h3 class="fw-bold p-2 {{ 'text-' . $plan->name }}">{{ __('plan.' . strtolower($plan->name)) }}</h3>
                                 </div>
-                                <hr>
+
                                 <ul>
                                     <li>
                                         <img src="{{ Vite::image('options.svg') }}" alt="category"/>
@@ -153,43 +153,55 @@
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary d-flex w-100 text-uppercase" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
+                        data-bs-target="#contactModal" id="contactButton">
                     {{ __('become_partner.contact') }}
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel"
                      aria-hidden="true">
                     <div class="modal-dialog">
 
                         <form class="login" action="" method="POST">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5 text-primary fw-bold" id="exampleModalLabel">
-                                        PHONE NUMBER
+
+                                    <h1 class="modal-title fs-5 text-uppercase fw-bolder text-primary"
+                                        id="contactModalLabel">
+                                        {{__('become_partner.any_questions_title')}}
                                     </h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+
                                 </div>
                                 <div class="modal-body">
-
                                     <div class="close"></div>
-                                    <div class="form">
-                                        <input type="tel" name="phone" placeholder="+00 000"
-                                               class="form-control {{ $errors->has('phone') ? ' is-invalid' : '' }}"
-                                               id="phone"
-                                               value="{{ old('phone') }}" required autocomplete="phone" autofocus>
-                                        <label for="phone">
-                                            Leave your phone
 
-                                        </label>
+
+                                    <div class="container">
+                                        <p class="any-questions">{{ (__('become_partner.any_questions_text')) }}</p>
+
+                                        <div class="contact-input-container shadow-lg">
+
+                                            <label for="phone" class="text-uppercase fw-bolder">
+                                                {{__('partner.your_phone_number')}}
+                                            </label>
+
+                                            <input type="tel" name="phone" placeholder="+41"
+                                                   class="form-control {{ $errors->has('phone') ? ' is-invalid' : '' }}"
+                                                   id="phone"
+                                                   value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                        </div>
+
                                     </div>
 
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+
+                                    <button type="submit" class="btn btn-primary">
+                                        Submit
                                     </button>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        Close
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -239,3 +251,12 @@
 
     @include('common.partner-register')
 @endsection
+
+
+@push('header')
+    <script>
+        function contact() {
+            document.getElementById('contactButton').click();
+        }
+    </script>
+@endpush

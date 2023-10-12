@@ -24,7 +24,8 @@ return [
     'option_1' => '1 category (2 subcategories) or 2 categories (1 subcategory in each)',
     'option_2' => '3 categories (1 subcategory in each) or 2 categories (2 subcategories in 1st., 1 subcat. in 2nd) or 3 categories (1 subcategory in each)',
     'per_year' => '/ year',
-    'any_questions' => 'FOR QUESTIONS - LEAVE YOUR TELEPHONE NUMBER AND WE WILL CONTACT YOU',
+    'any_questions_title' => 'Any Questions?',
+    'any_questions_text' => 'Leave your phone number and we will contact you as soon as possible.',
     'contact' => 'Get in contact',
     'become_info_title' => 'PARTYBOOKER USP',
     'become_info' => "

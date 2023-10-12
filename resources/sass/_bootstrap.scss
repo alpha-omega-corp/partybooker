@@ -10,9 +10,9 @@ $warning: $orange-700;
 $danger: $red-500;
 $success: $green-400;
 
-$standart: $green-500;
-$premium: $orange-500;
-$exclusif: $red-500;
+$standart: $cyan-500;
+$premium: $purple-500;
+$exclusif: $red-400;
 
 $transparent: rgba(0, 0, 0, 0.4);
 
@@ -38,9 +38,8 @@ $modal-content-bg: $white;
 $modal-content-color: $white;
 
 .tippy-box[data-theme~='navigation'] {
-    border: $primary;
     padding: 8px;
-    border-radius: 0px 10px 0px 10px;
+    border-bottom: 2px solid $primary;
     color: #ffffff;
 }
 

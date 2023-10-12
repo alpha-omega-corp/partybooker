@@ -14,13 +14,11 @@
                         <div class="d-flex">
                             <div class="glide__bullets" data-glide-el="controls[nav]">
                                 @foreach ($top as $key => $service)
-
                                     <button class="glide__bullet transition-colors btn"
                                             data-glide-dir="{{ '=' . $key }}"
                                             data-tippy-content="{{ $service->fr_company_name }}">
                                         @svg('heroicon-o-building-office-2')
                                     </button>
-
                                 @endforeach
                             </div>
                         </div>
@@ -91,7 +89,7 @@
                 <div class="glide__arrows pointer-events-none" data-glide-el="controls">
                     <!-- Previous Button -->
                     <button
-                        class="glide__arrow glide__arrow--left pointer-events-auto disabled:opacity-50 btn btn-primary"
+                        class="glide__arrow glide__arrow--left pointer-events-auto disabled:opacity-50 btn btn-top"
                         data-glide-dir="<">
                     <span aria-hidden="true">
                         <img class="previous-arrow" src="{{ Vite::image('right-arrow.svg') }}" alt="previous-arrow"/>
@@ -101,7 +99,7 @@
 
                     <!-- Next Button -->
                     <button
-                        class="glide__arrow glide__arrow--right pointer-events-auto disabled:opacity-50 btn btn-primary"
+                        class="glide__arrow glide__arrow--right pointer-events-auto disabled:opacity-50 btn btn-top"
                         data-glide-dir=">">
                         <span class="sr-only">NEXT</span>
                         <span aria-hidden="true">

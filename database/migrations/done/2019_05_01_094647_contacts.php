@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class Contacts extends Migration
 {
@@ -12,36 +12,36 @@ class Contacts extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->increments('id');
 
-			//ADDRESS:
-			$table->string('address');
+            //ADDRESS:
+            $table->string('address');
 
-			//EMAIL:
-			$table->string('email');
+            //EMAIL:
+            $table->string('email');
 
-			//TELEPHONE:
-			$table->string('phone', 20);
+            //TELEPHONE:
+            $table->string('phone', 20);
 
-			//FACEBOOK:
-			$table->string('facebook')->nullable();
+            //FACEBOOK:
+            $table->string('facebook')->nullable();
 
             //LINKEDIN:
             $table->string('linkedin')->nullable();
 
 
-			//GOOGLE+:
-			$table->string('googleplus')->nullable();
+            //GOOGLE+:
+            $table->string('googleplus')->nullable();
 
-			//TWITTER:
-			$table->string('twitter')->nullable();
+            //TWITTER:
+            $table->string('twitter')->nullable();
 
-			//INSTAGRAM:
-			$table->string('instagram')->nullable();
+            //INSTAGRAM:
+            $table->string('instagram')->nullable();
 
-			$table->string('user_terms_en');
-			$table->string('service_terms_en');
+            $table->longText('user_terms_en');
+            $table->longText('service_terms_en');
 
-			$table->string('user_terms_fr');
-			$table->string('service_terms_fr');
+            $table->longText('user_terms_fr');
+            $table->longText('service_terms_fr');
         });
     }
 
