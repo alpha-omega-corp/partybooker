@@ -144,60 +144,90 @@
             <section class="team-section">
                 <h2 class="display-6 text-uppercase">{{__('about.our_team')}}</h2>
 
+                <div class="accordion" id="accordionTeam">
+                    <div class="team" x-data="" @click="openMember('anne')">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="team-card">
+                                    <div class="row">
 
-                <div class="team">
 
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <div class="team-card">
-                                <div class="row">
-                                    <div class="col d-flex justify-content-center">
-                                        <img src="{{Vite::image('team2.jpg')}}"
-                                             class="d-flex justify-content-center rounded-circle shadow-lg"
-                                             alt="Anne confondatrice du concept Partybooker">
-                                    </div>
+                                        <div class="accordion-item">
+                                            <div class="col d-flex justify-content-center">
+                                                <img src="{{Vite::image('team2.jpg')}}"
+                                                     class="d-flex justify-content-center rounded-circle shadow-lg"
+                                                     alt="Anne confondatrice du concept Partybooker">
+                                            </div>
+                                            <h3 class="accordion-header text-uppercase fw-bold">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapseOne" aria-expanded="true" id="anne"
+                                                        aria-controls="collapseOne">
+                                                    {{__('about.about') . ' ' . 'Anne Bonvin'}}
+                                                </button>
+                                            </h3>
 
-                                    <div>
-                                        <h3 class="text-uppercase fw-bold">Anne Bonvin</h3>
-                                        <hr>
-                                        <p>{{__('about.ab_1')}}</p>
-                                        <p>{{__('about.ab_2')}}</p>
-                                        <p>{{__('about.ab_3')}}</p>
-                                        <p>{{__('about.ab_4')}}</p>
-                                        <p>{{__('about.ab_5')}}</p>
+                                            <div id="collapseOne" class="accordion-collapse collapse"
+                                                 data-bs-parent="#accordionTeam">
+                                                <div class="accordion-body">
+                                                    <p>{{__('about.ab_1')}}</p>
+                                                    <p>{{__('about.ab_2')}}</p>
+                                                    <p>{{__('about.ab_3')}}</p>
+                                                    <p>{{__('about.ab_4')}}</p>
+                                                    <p>{{__('about.ab_5')}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-6 col-sm-12">
-                            <div class="team-card">
-                                <div class="row">
-                                    <div class="d-flex justify-content-center">
-                                        <img src="{{Vite::image('Caro_photo_2019.jpeg')}}"
-                                             class="rounded-circle cover shadow-lg"
-                                             alt="Caroline toujours à la recherche des bons plans à découvrir de Suisse romande">
-                                    </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="team-card" x-data="" @click="openMember('caroline')">
+                                    <div class="row">
 
-                                    <div>
-                                        <h3 class="text-uppercase fw-bold">Caroline Christen</h3>
-                                        <hr>
-                                        <p>{{__('about.cc1')}},</p>
-                                        <p>{{__('about.cc2')}}</p>
-                                        <p>{{__('about.cc3')}}</p>
-                                        <p>{{__('about.cc4')}}</p>
-                                        <p>{{__('about.cc5')}}!</p>
-                                        <p>{{__('about.cc6')}}!</p>
+                                        <div class="accordion-item">
+                                            <div class="d-flex justify-content-center">
+                                                <img src="{{Vite::image('Caro_photo_2019.jpeg')}}"
+                                                     class="rounded-circle cover shadow-lg"
+                                                     alt="Caroline toujours à la recherche des bons plans à découvrir de Suisse romande">
+                                            </div>
+                                            <h3 class="accordion-header text-uppercase fw-bold">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapseTwo" aria-expanded="true" id="caroline"
+                                                        aria-controls="collapseTwo">
+                                                    {{__('about.about') . ' ' . 'Caroline Christen'}}
+                                                </button>
+                                            </h3>
+
+                                            <div id="collapseTwo" class="accordion-collapse collapse"
+                                                 data-bs-parent="#accordionTeam">
+                                                <div class="accordion-body">
+                                                    <p>{{__('about.cc1')}},</p>
+                                                    <p>{{__('about.cc2')}}</p>
+                                                    <p>{{__('about.cc3')}}</p>
+                                                    <p>{{__('about.cc4')}}</p>
+                                                    <p>{{__('about.cc5')}}!</p>
+                                                    <p>{{__('about.cc6')}}!</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </section>
         </div>
     </section>
 
 @endsection
+
+@push('header')
+    <script>
+        function openMember(id) {
+            let member = document.getElementById(id);
+            member.click();
+        }
+    </script>
+@endpush

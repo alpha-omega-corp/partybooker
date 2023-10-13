@@ -2,7 +2,7 @@
     <div class="container">
         <div class="logo">
             <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}"><img
-                    src="{{ Vite::image('images/logoPB.png') }}" alt=""></a>
+                    src="{{ Vite::image('logoPB.png') }}" alt=""></a>
         </div>
         <div class="mobile-opener">
             <div class="mobile-btn"></div>
@@ -13,7 +13,7 @@
                     <li>{{ __('partybooker-cp.hello') }}, <?php echo Auth::user()->name; ?>!</li>
                     <li>
                         <a href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
+                           onclick="event.preventDefault();
 									document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
@@ -22,9 +22,9 @@
                         </form>
                     </li>
                     <li class="lang"><a href="<?= route('setlocale', ['lang' => 'en']) ?>"><img
-                                src="{{ Vite::image('images/en.png') }}" alt="en" /></a></li>
+                                src="{{ Vite::image('images/en.png') }}" alt="en"/></a></li>
                     <li class="lang"><a href="<?= route('setlocale', ['lang' => 'fr']) ?>"><img
-                                src="{{ Vite::image('images/fr.png') }}" alt="fr" /></a></li>
+                                src="{{ Vite::image('images/fr.png') }}" alt="fr"/></a></li>
                 </ul>
             </div>
             <div class="header-navigation">

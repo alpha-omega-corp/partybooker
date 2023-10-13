@@ -12,6 +12,54 @@
                     {{ __('main.login') }}
                 </a>
             </div>
+        @else
+            <div class="dropdown border-top bg-primary dropdown-user">
+                @if (Auth::user())
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                            <p>{{Auth::user()->name}}</p>
+                        </button>
+                        <ul class="dropdown-menu">
+
+                            @if (Auth::user()->id_partner)
+                                <li>
+                                    <a class="dropdown-item"
+                                       href="{{ route('profile', Auth::user()->id_partner) }}">
+                                        Dashboard
+                                    </a>
+                                </li>
+                            @else
+                                <li>
+                                    <a class="dropdown-item"
+                                       href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
+                                        {{ __('main.become_partner_page') }}
+                                    </a>
+                                </li>
+                            @endif
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Sign out
+                                </a>
+                            </li>
+                        </ul>
+
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                              style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                @endif
+            </div>
         @endif
 
         <div class="language">
@@ -80,54 +128,7 @@
                             :tooltip="__('main.blog_page')"/>
 
                     </ul>
-                    <div class="dropdown border-top bg-primary">
-                        @if (Auth::user())
-                            <div class="btn-group dropup">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                    <img src="{{ Vite::image('ape.svg') }}" alt="mdo" width="24"
-                                         height="24" class="rounded-circle mr-2">
-                                </button>
-                                <ul class="dropdown-menu">
 
-                                    @if (Auth::user()->id_partner)
-                                        <li>
-                                            <a class="dropdown-item"
-                                               href="{{ route('profile', Auth::user()->id_partner) }}">
-                                                Profile
-                                            </a>
-                                        </li>
-                                    @else
-                                        <li>
-                                            <a class="dropdown-item"
-                                               href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
-                                                {{ __('main.become_partner_page') }}
-                                            </a>
-                                        </li>
-                                    @endif
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            Sign out
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <a href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        @endif
-                    </div>
                 </div>
             </div>
         </div>

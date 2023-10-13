@@ -177,20 +177,24 @@
 
 
                         <div class="form-check">
-                            <div class="p-4">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label text-uppercase fs-6" for="flexCheckDefault">
+                            <div class="partner-register-terms">
+                                <input class="form-check-input " type="checkbox" value=""
+                                       id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
                                     <span>{{ __('become_partner.agree') }} {{ __('become_partner.sp') }}</span>
-
+                                    <br>
+                                    <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner-terms')) }}"
+                                       class="text-accent">
+                                        Voir
+                                    </a>
                                 </label>
+                                <br>
 
 
                             </div>
-                        </div>
 
-                        <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner-terms')) }}">
-                            Voir
-                        </a>
+
+                        </div>
 
 
                     </div>

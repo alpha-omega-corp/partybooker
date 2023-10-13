@@ -149,7 +149,12 @@
         </section>
         <section class="contactus">
             <div class="container">
-                <p class="fw-bold">{{ __('become_partner.any_questions') }}</p>
+                <h4 class="text-uppercase fw-bold">
+                    {{__('become_partner.any_questions_title')}}
+                </h4>
+                <p>
+                    {{__('become_partner.any_questions_text')}}
+                </p>
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary d-flex w-100 text-uppercase" data-bs-toggle="modal"
@@ -217,14 +222,6 @@
 
         </section>
 
-        <section class="terms">
-            <div class="container">
-                <div class="row justify-content-center">
-
-                </div>
-            </div>
-        </section>
-
         <section class="usp">
             <div class="container">
                 <h2 class="display-4 mb-5 fw-bold text-uppercase">
@@ -233,7 +230,6 @@
                 <div class="container text-center">
                     <div class="row">
                         @for ($i = 0; $i < 7; $i++)
-
                             <div class="col-lg-6 usp-item">
                                 <h4 class="text-uppercase text-start">
                                     <span class="text-primary fw-bold">{{ $i + 1 }}.</span>
