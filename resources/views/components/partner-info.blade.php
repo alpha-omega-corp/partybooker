@@ -6,11 +6,9 @@
 ])
 
 
-
-<div x-data="{show: false}" class="partner-info-tippy m-2" data-tippy-content="{{$tooltip}}">
+<div x-data="{show: false}" class="partner-info-tippy" data-tippy-content="{{$tooltip}}">
     <div class="info-element">
         <div class="d-flex">
-
             <div @click="show = !show">
                 <span class="icon">
                     @svg($icon)

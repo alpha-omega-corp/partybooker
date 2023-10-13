@@ -55,7 +55,7 @@ tippy('.glide__bullet', {
 });
 
 tippy('.partner-info-tippy', {
-    placement: 'right',
+    placement: 'bottom-start',
     animation: 'scale',
     inertia: true,
     theme: 'partner-info-tippy'
@@ -69,7 +69,7 @@ tippy('.back-page', {
 });
 
 tippy('.partner-socials', {
-    placement: 'bottom-start',
+    placement: 'right-start',
     animation: 'scale',
     inertia: true,
     theme: 'partner-socials'
@@ -83,7 +83,7 @@ tippy('.tab-cat-btn', {
 });
 
 tippy('.flag', {
-    placement: 'bottom-start',
+    placement: 'bottom',
     animation: 'scale',
     inertia: true,
     theme: 'flag'

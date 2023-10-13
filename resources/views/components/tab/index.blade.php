@@ -30,8 +30,7 @@
         @keydown.left.prevent.stop="$focus.wrap().prev()"
         @keydown.end.prevent.stop="$focus.last()"
         @keydown.page-down.prevent.stop="$focus.last()"
-        role="tablist"
-        class="shadow-lg">
+        role="tablist">
         @foreach($tabs as $key => $tab)
             <li>
                 <button

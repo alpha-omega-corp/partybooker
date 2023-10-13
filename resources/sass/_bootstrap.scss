@@ -9,6 +9,7 @@ $accent: $purple-500;
 $warning: $orange-700;
 $danger: $red-500;
 $success: $green-400;
+$orange: $orange-500;
 
 $standart: $cyan-500;
 $premium: $purple-500;
@@ -30,6 +31,7 @@ $theme-colors: (
     "premium": $premium,
     "exclusif": $exclusif,
     "opaque": $transparent,
+    "orange": $orange,
 );
 
 $offcanvas-horizontal-width: auto;
@@ -51,6 +53,7 @@ $modal-content-color: $white;
 .tippy-box[data-theme~='partner-info-tippy'] {
     background-color: $primary;
     color: #fff;
+    border-radius: 10px;
     padding: 5px;
     font-size: small;
 
@@ -81,8 +84,13 @@ $modal-content-color: $white;
 }
 
 .tippy-box[data-theme~='partner-socials'] {
-    color: $white;
     font-size: smaller;
+    background-color: $primary;
+    color: #fff;
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid #fff;
+    font-weight: bold;
 }
 
 

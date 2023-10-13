@@ -656,7 +656,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-c82ee5e0.css",
+    "file": "assets/app-1d1d116a.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -664,9 +664,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-c82ee5e0.css"
+      "assets/app-1d1d116a.css"
     ],
-    "file": "assets/app-194ec1b9.js",
+    "file": "assets/app-410ea104.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

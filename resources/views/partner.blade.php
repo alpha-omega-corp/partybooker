@@ -129,8 +129,8 @@
 
                     <div class="col-md-3">
                         <div class="package position-relative">
-                            <div class="text-uppercase text-center bg-primary">
-                                <h3 class="fw-bold p-2">VIP</h3>
+                            <div class="text-uppercase text-center">
+                                <h3 class="fw-bold p-2 text-primary">VIP</h3>
                             </div>
                             <ul>
                                 <li>{{ __('partner.vip_info1') }}</li>
@@ -182,7 +182,9 @@
 
 
                                     <div class="container">
-                                        <p class="any-questions">{{ (__('become_partner.any_questions_text')) }}</p>
+                                        <p class="any-questions shadow-lg">
+                                            {{ (__('become_partner.any_questions_text')) }}
+                                        </p>
 
                                         <div class="contact-input-container shadow-lg">
 

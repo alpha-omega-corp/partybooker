@@ -7,7 +7,7 @@
 
 <li class="nav-item" data-tippy-content="{{ $tooltip }}">
     <a page="{{$page}}" href="{{ $href }}"
-       class="nav-link d-flex align-items-center justify-content-center"
+       class="nav-link d-flex align-items-center justify-content-center {{$page == 'listing' ? 'bg-accent' : ''}}"
        aria-current="{{$page}}">
 
         @svg($icon, 'nav-icon')

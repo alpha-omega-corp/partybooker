@@ -20,6 +20,9 @@
     }"
     x-id="['tab']"
     class="tabcat">
+
+    {{$title}}
+
     <!-- Tab List -->
     <ul
         x-ref="tablist"
@@ -30,7 +33,7 @@
         @keydown.end.prevent.stop="$focus.last()"
         @keydown.page-down.prevent.stop="$focus.last()"
         role="tablist"
-        class="tab-overflow d-flex m-0">
+        class="tab-overflow d-flex justify-content-center m-0 pb-5">
         @foreach($tabs as $tab)
             <li>
                 <button
@@ -52,6 +55,7 @@
     </ul>
 
     <!-- Panels -->
+    <hr>
     <div role="tabpanel" class="tab-content">
         {{$slot}}
     </div>
