@@ -11,7 +11,7 @@
 
     <x-service.list-item :title="__('partner.service_details')">
 
-        @foreach (json_decode($details->service) as $service)
+        @foreach (json_decode(json_encode($details->service)) as $service)
             <div class="d-flex flex-column mt-3 mb-3">
                <span class="fw-bold">
                     {{ $service->name }}
@@ -36,7 +36,7 @@
 
     <x-service.list-item :title="__('partner.affiliations')">
         <x-service.ul>
-            @foreach (json_decode($details->affiliation) as $affiliation)
+            @foreach (json_decode(json_encode($details->affiliation))  as $affiliation)
                 <li>
                     <a href="{{ $affiliation->link}}" target="_blank">
                         {{ $affiliation->name }}
