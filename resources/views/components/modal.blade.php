@@ -7,7 +7,7 @@
 
 <div class="modal fade" id="{{$name}}" aria-hidden="true" aria-labelledby="login" tabindex="-1">
     <form method="POST" action="{{ $action }}">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5 text-uppercase fw-bold text-primary" id="login">

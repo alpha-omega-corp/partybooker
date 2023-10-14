@@ -72,7 +72,9 @@ $('.filters-list a').on('click', function (e) {
     var filLastNum = $('.filters-list li:last').index() + 1;
 
     var categories = [];
-    $('.filters-list li.chosefil').each(function () { categories.push($(this).data('catfil')) });
+    $('.filters-list li.chosefil').each(function () {
+        categories.push($(this).data('catfil'))
+    });
     var catlist = '.' + categories.join(', .');
 
     if (filNum != 0) {
@@ -138,10 +140,8 @@ if (pages > 1) {
 $('.pagination [page=1]').addClass('active');
 
 
-
 $('.list-item').addClass('hidden');
 $('.list-item').slice(0, limit).removeClass('hidden');
-
 
 
 //SORTing
@@ -441,7 +441,8 @@ $('.partnerdetails .has-field').change(function () {
     } else {
         $('.add-input-' + field).remove();
         $('.for-' + field).removeClass('visible');
-    };
+    }
+
 
     if (field == 'article') {
         if ($(this).val() == 'art_d') {
@@ -467,7 +468,8 @@ $('.partnerdetails .has-field').change(function () {
             $('.for-' + field + ' .set').remove();
             $('.for-' + field).removeClass('visible');
             $('.for-' + field + '-select').show();
-        };
+        }
+
     }
 
     if (field == 'free_caterers') {
@@ -478,7 +480,8 @@ $('.partnerdetails .has-field').change(function () {
         } else {
             $('.for-' + field + ' .set').remove();
             $('.for-' + field).removeClass('visible');
-        };
+        }
+
     }
 });
 $('.partnerdetails .additional-field').on('click', '.button', function () {
@@ -497,7 +500,8 @@ $('.partnerdetails [name=price_for]').change(function () {
     } else {
         $('.add-input-price').remove();
         $('.for-price').removeClass('visible');
-    };
+    }
+
 });
 
 $('.partnerdetails .set .button').on('click', function () {
@@ -624,9 +628,11 @@ $('.lang-nav li').on('click', function () {
 
 //profile tab popups
 $('.contactDetail .button').on('click', function (e) {
+    console.log('click');
     e.preventDefault();
     $('.edit-contacts').fadeIn();
 });
+
 $('.companyDetails .button').on('click', function (e) {
     e.preventDefault();
     $('.edit-company').fadeIn();
@@ -1063,7 +1069,6 @@ $('.click-details li').on('click', function () {
 });
 
 
-
 //rating
 
 $('.stars li').on('mouseover', function () {
@@ -1239,8 +1244,7 @@ function initMap() {
             };
         }
 
-    };
-
+    }
 
 
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -1254,63 +1258,63 @@ function initMap() {
                 "color": "#444444"
             }]
         },
-        {
-            "featureType": "landscape",
-            "elementType": "all",
-            "stylers": [{
-                "color": "#f2f2f2"
-            }]
-        },
-        {
-            "featureType": "poi",
-            "elementType": "all",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "road",
-            "elementType": "all",
-            "stylers": [{
-                "saturation": -100
+            {
+                "featureType": "landscape",
+                "elementType": "all",
+                "stylers": [{
+                    "color": "#f2f2f2"
+                }]
             },
             {
-                "lightness": 45
-            }
-            ]
-        },
-        {
-            "featureType": "road.highway",
-            "elementType": "all",
-            "stylers": [{
-                "visibility": "simplified"
-            }]
-        },
-        {
-            "featureType": "road.arterial",
-            "elementType": "labels.icon",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "transit",
-            "elementType": "all",
-            "stylers": [{
-                "visibility": "off"
-            }]
-        },
-        {
-            "featureType": "water",
-            "elementType": "all",
-            "stylers": [{
-                "color": "#f39200"
+                "featureType": "poi",
+                "elementType": "all",
+                "stylers": [{
+                    "visibility": "off"
+                }]
             },
             {
-                "visibility": "on"
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": [{
+                    "saturation": -100
+                },
+                    {
+                        "lightness": 45
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "all",
+                "stylers": [{
+                    "visibility": "simplified"
+                }]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "labels.icon",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "featureType": "transit",
+                "elementType": "all",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": [{
+                    "color": "#f39200"
+                },
+                    {
+                        "visibility": "on"
+                    }
+                ]
             }
-            ]
-        }
         ]
     });
 
@@ -1342,7 +1346,6 @@ function initMap() {
 
     //map.fitBounds(bounds);
 }
-
 
 
 // ADMIN select plan
@@ -1430,3 +1433,16 @@ $('.filters-list li a').on('click', function (e) {
     $(this).siblings().toggle('slow');
 });
 
+
+function createCookie(name, value, days) {
+    var expires;
+
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    } else {
+        expires = "";
+    }
+    document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
+}

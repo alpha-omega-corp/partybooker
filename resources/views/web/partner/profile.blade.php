@@ -18,7 +18,7 @@
             $user->partnerInfo->currentPlan &&
                 !in_array(strtolower($user->partnerInfo->currentPlan->name), ['basic', 'commission']))
             @foreach ($adverts as $k => $advert)
-                @if ($advert->status == \App\Models\Advert::STATUS_DRAFT)
+                @if ($advert->status == Advert::STATUS_DRAFT)
                     <ul class="serviceDetails{{ $k + 1 }} attention">
                         <li block="serviceDetails{{ $k + 1 }}">
                             <h4>{{ __('partner.service_details') }} #{{ $k + 1 }}: </h4> {{ __('service.for') }}
@@ -28,12 +28,12 @@
                         <li class="li"><a href="#" class="button fulfilDetails">{{ __('partner.edit') }}</a></li>
                     </ul>
                     @include('web.partner.advert.create-forms.' . $advert->view_name)
-                @elseif($advert->status == \App\Models\Advert::STATUS_INACTIVE)
+                @elseif($advert->status == Advert::STATUS_INACTIVE)
                     {{-- <ul class="serviceDetails{{$k+1}}">
-						<li block="serviceDetails{{$k+1}}"><h4>{{__('partner.service_details')}} #{{$k+1}}: </h4>  </li>
-						<li class="li">{{__('partner.fill_service_details')}}</li>
-						<li class="li"><a href="#" class="button fulfilDetails">{{__('partner.edit')}}</a></li>
-					</ul> --}}
+                        <li block="serviceDetails{{$k+1}}"><h4>{{__('partner.service_details')}} #{{$k+1}}: </h4>  </li>
+                        <li class="li">{{__('partner.fill_service_details')}}</li>
+                        <li class="li"><a href="#" class="button fulfilDetails">{{__('partner.edit')}}</a></li>
+                    </ul> --}}
                 @else
                     @include('web.partner.advert.details.' . $advert->view_name, [
                         'iterator' => $k + 1,
@@ -69,14 +69,15 @@
 </div>
 
 @push('header')
-    <link rel="stylesheet" href="{{ asset('plugins/kendo/kendo.common.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('plugins/kendo/kendo.default.min.css') }}">
-    <script src="https://cdn.tiny.cloud/1/{{ env('TINYMCE_API_KEY') }}/tinymce/5/tinymce.min.js" referrerpolicy="origin">
+    <link rel="stylesheet" href="{{ asset('/plugins/kendo/kendo.common.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/kendo/kendo.default.min.css') }}">
+    <script src="https://cdn.tiny.cloud/1/{{ env('TINYMCE_API_KEY') }}/tinymce/5/tinymce.min.js"
+            referrerpolicy="origin">
     </script>
 @endpush
 
 @push('footer')
-    <script src="{{ Vite::image('plugins/kendo/kendo.all.min.js') }}"></script>
+    <script src="{{ asset('/plugins/kendo/kendo.all.min.js') }}"></script>
     <script>
         tinymce.init({
             selector: '.textarea-wysiwyg',
@@ -86,8 +87,8 @@
             toolbar: 'bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | removeformat | fullscreen  preview  | link anchor',
             toolbar_sticky: true,
             height: 900,
-            setup: function(editor) {
-                editor.on('change', function() {
+            setup: function (editor) {
+                editor.on('change', function () {
                     editor.save();
                     var lang = $('div.lang-nav ul li.active').attr('lan');
                     if ($('#' + editor.id + '_ifr').contents().find('body')[0].innerText.length > 1) {
@@ -99,8 +100,9 @@
             }
         });
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('.tox-notification__dismiss').click();
         });
     </script>
 @endpush
+

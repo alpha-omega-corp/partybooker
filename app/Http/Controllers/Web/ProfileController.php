@@ -16,48 +16,18 @@ use App\Models\PartnersInfo;
 use App\Models\PlanOption;
 use App\Models\Plans;
 use App\Models\ServiceImage;
+use App\User;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use \App\User;
-use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use function json_encode;
 
 class ProfileController extends Controller
 {
-
-    private function getPlanOptions($planId)
-    {
-        $options = PlanOption::where('plans_id', $planId)->get();
-        $temp = [];
-        foreach ($options as $option) {
-            $temp[$option->group][] = $option;
-        }
-
-        $list = [];
-
-        foreach ($temp as $id => $opt) {
-            $name = "";
-            $j = 0;
-            foreach ($opt as $item) {
-                $name = $name . "{$item->categories_count} cat. ({$item->sub_categories_count} sub.cat. per cat.)";
-                $j++;
-                if ($j != count($opt)) {
-                    $name = $name . " and ";
-                } else {
-                    $list[] = [
-                        'group' => $id,
-                        'name' => rtrim($name, "")
-                    ];
-                    $name = '';
-                }
-            }
-        }
-
-        return $list;
-    }
 
     public function index(Request $request)
     {
@@ -83,9 +53,9 @@ class ProfileController extends Controller
         $user->partnerInfo->avarageRate = $user->partnerInfo->rates->avg('rate');
         $user->partnerInfo->rateGroup = $groupCount;
 
-        $user->subCategoriesList = \json_encode(AdvertCategory::where('partners_info_id', $user->partnerInfo->id)->pluck('sub_category_id')->toArray());
+        $user->subCategoriesList = json_encode(AdvertCategory::where('partners_info_id', $user->partnerInfo->id)->pluck('sub_category_id')->toArray());
 
-        return view('web.partner-cp', ['user' => $user]);
+        return view('web.partner-cp', ['user' => $user, 'tabView' => 'main']);
     }
 
     public function faq($id_partner)
@@ -166,6 +136,37 @@ class ProfileController extends Controller
             'eventTypes' => EventType::all(),
             'partnerEventTypes' => $pet
         ]);
+    }
+
+    private function getPlanOptions($planId)
+    {
+        $options = PlanOption::where('plans_id', $planId)->get();
+        $temp = [];
+        foreach ($options as $option) {
+            $temp[$option->group][] = $option;
+        }
+
+        $list = [];
+
+        foreach ($temp as $id => $opt) {
+            $name = "";
+            $j = 0;
+            foreach ($opt as $item) {
+                $name = $name . "{$item->categories_count} cat. ({$item->sub_categories_count} sub.cat. per cat.)";
+                $j++;
+                if ($j != count($opt)) {
+                    $name = $name . " and ";
+                } else {
+                    $list[] = [
+                        'group' => $id,
+                        'name' => rtrim($name, "")
+                    ];
+                    $name = '';
+                }
+            }
+        }
+
+        return $list;
     }
 
     public function plans($id_partner)

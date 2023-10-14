@@ -1764,6 +1764,10 @@ a {
     left: 6rem;
     z-index: 300;
 
+    a {
+        color: $accent
+    }
+
     .btn {
         border-radius: 0;
         border-bottom-right-radius: 10px 10px;

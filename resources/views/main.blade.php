@@ -46,7 +46,6 @@
 <section>
     @include('common.cookies')
 </section>
-@stack('footer')
 
 </body>
 

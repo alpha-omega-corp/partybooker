@@ -237,17 +237,43 @@
                     </div>
                 </div>
 
+                @if (strtolower($partner->currentPlan->name) == 'commission')
 
-                <x-service.contact-modal
-                    :partnerId="$partner->id"
-                    :action="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/request/caterer')">
+                    <x-service.contact-modal
+                        :partnerId="$partner->id"
+                        name="contactModalToggle"
+                        :title="__('service.contact_us')"
+                        :submit="__('service.send')"
+                        :action="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/request/partner')">
 
-                    <x-slot:form>
-                        @include('partial.service.commission-form')
-                        @include('partial.service.else-form')
-                    </x-slot:form>
-                </x-service.contact-modal>
+                        <x-slot:form>
+                            @include('partial.service.commission-form')
+                        </x-slot:form>
+                    </x-service.contact-modal>
 
+                @elseif(in_array('cat4_1', $subCategories) || in_array('cat4_2', $subCategories) || in_array('cat2_5', $subCategories))
+
+                    <x-service.contact-modal
+                        :partnerId="$partner->id"
+                        :action="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/request/caterer')">
+
+                        <x-slot:form>
+                            @include('partial.service.else-form')
+                        </x-slot:form>
+                    </x-service.contact-modal>
+
+                @else
+
+                    <x-service.contact-modal
+                        :partnerId="$partner->id"
+                        :action="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/request/general')">
+
+                        <x-slot:form>
+                            @include('partial.service.form')
+                        </x-slot:form>
+                    </x-service.contact-modal>
+
+                @endif
 
             </section>
         </div>

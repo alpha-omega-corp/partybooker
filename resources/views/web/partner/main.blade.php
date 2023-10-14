@@ -1,19 +1,21 @@
+@php use App\Models\Advert; @endphp
+@php use App\Http\Middleware\LocaleMiddleware; @endphp
 <div class="tab" tab="main" style="display: block">
     @include('web.partner.notify')
-    @if (\Auth::user()->type == 'admin')
+    @if (Auth::user()->type == 'admin')
         <div class="admin">
             <h2>Administration:</h2>
             <div class="row">
                 <div class="col-md-3">
                     <a href="#" data-toggle="modal" data-target="#exampleModal"
-                        style="font-size: 13px; line-height: normal" class="button"
-                        data-id="{{ $user->partnerInfo->id }}">{{ __('partybooker-cp.set_discount_amount') }}</a>
+                       style="font-size: 13px; line-height: normal" class="button"
+                       data-id="{{ $user->partnerInfo->id }}">{{ __('partybooker-cp.set_discount_amount') }}</a>
                 </div>
                 @if ($user->partnerInfo->currentPlan)
                     <div class="col-md-3">
                         <a href="#" data-toggle="modal" id="add-category-button" data-target="#add-category"
-                            style="font-size: 13px; line-height: auto" class="button"
-                            data-id="{{ $user->partnerInfo->id }}">{{ __('partybooker-cp.add_sub_category') }}</a>
+                           style="font-size: 13px; line-height: auto" class="button"
+                           data-id="{{ $user->partnerInfo->id }}">{{ __('partybooker-cp.add_sub_category') }}</a>
                     </div>
                 @endif
             </div>
@@ -21,7 +23,7 @@
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -36,13 +38,13 @@
                                 <input type="hidden" value="{{ $user->partnerInfo->id }}" name="partners_info_id">
                                 <label>{{ __('partybooker-cp.discount_amount') }}</label>
                                 <input name="discount" type="number" min="0" max="100"
-                                    value="{{ $user->partnerInfo->discount }}">
+                                       value="{{ $user->partnerInfo->discount }}">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary"
-                                    data-dismiss="modal">{{ __('partner.close') }}</button>
+                                        data-dismiss="modal">{{ __('partner.close') }}</button>
                                 <button type="submit" style="font-size: 2vh"
-                                    class="btn btn-primary">{{ __('partybooker-cp.set_discount_amount') }}</button>
+                                        class="btn btn-primary">{{ __('partybooker-cp.set_discount_amount') }}</button>
                             </div>
                         </form>
                     </div>
@@ -50,7 +52,7 @@
             </div>
 
             <div class="modal fade " id="add-category" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -61,7 +63,7 @@
                             </button>
                         </div>
                         <form class="reset-this" method="post"
-                            action="{{ url(\App\Http\Middleware\LocaleMiddleware::getLocale() . '/cp/set-categories') }}">
+                              action="{{ url(LocaleMiddleware::getLocale() . '/cp/set-categories') }}">
                             <div class="modal-body">
                                 @csrf
                                 <input type="hidden" value="{{ $user->partnerInfo->id }}" name="partners_info_id">
@@ -70,17 +72,17 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary"
-                                    data-dismiss="modal">{{ __('partner.close') }}</button>
+                                        data-dismiss="modal">{{ __('partner.close') }}</button>
                                 <button type="submit" style="font-size: 2vh"
-                                    class="btn btn-primary">{{ __('partybooker-cp.save') }}</button>
+                                        class="btn btn-primary">{{ __('partybooker-cp.save') }}</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
             @push('header')
-                <link rel="stylesheet" href="{{ asset('plugins/kendo/kendo.common.min.css') }}" />
-                <link rel="stylesheet" href="{{ asset('plugins/kendo/kendo.default.min.css') }}" />
+                <link rel="stylesheet" href="{{ asset('/plugins/kendo/kendo.common.min.css') }}"/>
+                <link rel="stylesheet" href="{{ asset('/plugins/kendo/kendo.default.min.css') }}"/>
                 <style>
                     ul#categories_taglist li {
                         padding: 0 !important;
@@ -88,11 +90,11 @@
                 </style>
             @endpush
             @push('footer')
-                <script src="{{ Vite::image('/plugins/kendo/kendo.all.min.js') }}"></script>
-                <script src="{{ Vite::image('/plugins/kendo/kendo.all.min.js') }}"></script>
+                <script src="{{ asset('/plugins/kendo/kendo.all.min.js') }}"></script>
+                <script src="{{ asset('/plugins/kendo/kendo.all.min.js') }}"></script>
 
                 <script>
-                    $(document).ready(function() {
+                    $(document).ready(function () {
 
                         $("#categories").kendoMultiSelect({
                             dataTextField: "name",
@@ -101,7 +103,7 @@
                             height: 400,
                             dataSource: {
                                 transport: {
-                                    read: "{{ url(\App\Http\Middleware\LocaleMiddleware::getLocale() . '/cp/get-categories/') }}"
+                                    read: "{{ url(LocaleMiddleware::getLocale() . '/cp/get-categories/') }}"
                                 },
                                 group: {
                                     field: "category"
@@ -112,7 +114,7 @@
                         var multiselect = $("#categories").data("kendoMultiSelect");
                         multiselect.value(JSON.parse("{{ $user->subCategoriesList }}"));
 
-                        $('#add-category-button').on('click', function(e) {
+                        $('#add-category-button').on('click', function (e) {
                             var multiselect = $("#categories").data("kendoMultiSelect");
                             multiselect.value(JSON.parse("{{ $user->subCategoriesList }}"));
                         });
@@ -133,19 +135,19 @@
                     <span>{{ __('partner.not_published') }}</span>
                     @if (in_array($user->partnerInfo->plan, ['basic', 'commission']))
                         <a href="#" class="button"
-                            data-id="{{ $user->partnerInfo->id_partner }}">{{ __('partner.publish') }}</a>
-                    @elseif ($user->partnerInfo->services()->where('status', \App\Models\Advert::STATUS_DRAFT)->first())
+                           data-id="{{ $user->partnerInfo->id_partner }}">{{ __('partner.publish') }}</a>
+                    @elseif ($user->partnerInfo->services()->where('status', Advert::STATUS_DRAFT)->first())
                         <a href="#" class="button disabled">{{ __('partner.publish') }}</a>
                     @elseif (is_null($user->partnerInfo->main_img))
                         <a href="#" class="button disabled">{{ __('partner.publish') }}</a>
                     @else
                         <a href="#" class="button"
-                            data-id="{{ $user->partnerInfo->id_partner }}">{{ __('partner.publish') }}</a>
+                           data-id="{{ $user->partnerInfo->id_partner }}">{{ __('partner.publish') }}</a>
                     @endif
                 @else
                     <span>{{ __('partner.published') }}</span>
                     <a href="#" class="button"
-                        data-id="{{ $user->partnerInfo->id_partner }}">{{ __('partner.draft') }}</a>
+                       data-id="{{ $user->partnerInfo->id_partner }}">{{ __('partner.draft') }}</a>
                 @endif
             @endif
         </div>
@@ -166,7 +168,7 @@
                 @if (is_null($user->partnerInfo->plan))
                     N/A
                 @else
-                    @if (\Lang::has('plan.' . strtolower($user->partnerInfo->plan)))
+                    @if (Lang::has('plan.' . strtolower($user->partnerInfo->plan)))
                         {{ strtoupper(trans('plan.' . $user->partnerInfo->plan)) }}
                     @else
                         {{ strtoupper($user->partnerInfo->plan) }}
@@ -190,12 +192,12 @@
 
             @if ($user->partnerInfo->payment_status == 0)
                 <li class="topay"><a
-                        href="{{ url(\App\Http\Middleware\LocaleMiddleware::getLocale() . (\Auth::user()->type == 'admin' ? '/cp' : '') . '/partner-cp/' . $user->id_partner . '/plans') }}"
+                        href="{{ url(LocaleMiddleware::getLocale() . (Auth::user()->type == 'admin' ? '/cp' : '') . '/partner-cp/' . $user->id_partner . '/plans') }}"
                         class="button">{{ __('partner.make_payment') }}</a></li>
             @endif
 
         </ul>
-        <br />
+        <br/>
         @if ($user->partnerInfo->vipPlan)
             <ul>
                 <li><span>{{ __('partner.plan_up') }}:</span>
@@ -236,7 +238,7 @@
             </li>
             <?php $networks = ['Facebook', 'Twitter', 'Instagram', 'Linkedin', 'Vimeo', 'Youtube']; ?>
             @foreach ($networks as $network)
-                <?php $lc = strtolower($network); ?>
+                    <?php $lc = strtolower($network); ?>
                 <li><span>{{ $network }}: </span>{{ $user->partnerInfo->statistic->$lc ?? 0 }}</li>
             @endforeach
         </ul>

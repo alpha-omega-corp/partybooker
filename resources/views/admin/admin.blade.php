@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" @yield('page')>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +11,9 @@
     @yield('title')
 
     <!-- Styles -->
-    <link href="{{ asset('dist/admin.css') }}" rel="stylesheet">
-    <link href="{{ asset('dist/legacy.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/bootstrap-grid.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     @yield('summernote-css')
 
     <!-- Scripts -->
@@ -25,16 +24,14 @@
     <script src="{{ asset('js/jquery.mask.js') }}"></script>
     @stack('head')
 </head>
-
 <body class="body">
 
-    @include('admin.header')
+@include('admin.header')
 
-    @yield('content')
+@yield('content')
 
-    @include('admin.footer')
+@include('admin.footer')
 
-    @stack('footer')
+@stack('footer')
 </body>
-
 </html>
