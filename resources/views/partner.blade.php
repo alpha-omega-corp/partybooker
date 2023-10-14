@@ -24,13 +24,13 @@
                             @if (Auth::user() == null)
                                 <a class="rainbow p-4 text-uppercase fw-bold fs-3" data-bs-toggle="modal"
                                    href="#loginModalToggle" role="button">
-                                    @svg('heroicon-m-arrow-long-right')
+                                    {{__('become_partner.register')}}
 
                                 </a>
                             @else
                                 <a class="rainbow p-4 text-uppercase fw-bold" data-bs-toggle="modal"
                                    href="#partnershipModalToggle" role="button">
-                                    @svg('heroicon-m-arrow-long-right')
+                                    {{__('become_partner.register')}}
 
                                 </a>
                             @endif

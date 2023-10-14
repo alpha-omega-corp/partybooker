@@ -3,7 +3,7 @@
 return [
     'title' => 'DEVENIR PARTENAIRE',
     'benefits_title' => 'NOS AVANTAGES',
-    'register' => "S'enregistrer",
+    'register' => 'Devenir partenaire',
     'b1' => 'Guichet unique',
     'b1_text' => 'Partybooker est la seule plateforme de référence collective en ligne en Suisse romande, qui offre un bouquet de services complémentaires dans votre écosystème.',
     'b2' => 'Ensemble nous réalisons plus',

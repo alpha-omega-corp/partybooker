@@ -94,14 +94,13 @@
                                             @endif
                                         </blockquote>
 
-
-                                        <p class="partner-description p-3">
+                                        <div class="partner-description p-3">
                                             @if (app()->getLocale() == 'en')
                                                 {!! $partner->en_full_descr !!}
                                             @else
                                                 {!! $partner->fr_full_descr !!}
                                             @endif
-                                        </p>
+                                        </div>
                                     </div>
 
                                     <div class="d-flex flex-column m-2">
@@ -156,7 +155,7 @@
                                     @foreach ($partner->services as $advert)
                                         <x-tab.item>
                                             <div class="partner-advert">
-                                                <div class="partner-advert">
+                                                <div class="partner-advert-card">
                                                     <x-tab.index :tabs="[
                                                     __('service.general_info'),
                                                     __('service.schedule'),

@@ -41,7 +41,7 @@
                     type="button"
                     :tabindex="isSelected($el.id) ? 0 : -1"
                     :aria-selected="isSelected($el.id)"
-                    :class="isSelected($el.id) ? 'border-bottom text-white bg-accent' : 'text-dark'"
+                    :class="isSelected($el.id) ? 'text-primary' : 'text-dark'"
                     class="btn rounded-0 fw-bold  text-uppercase tab-cat-btn"
                     data-tippy-content="{{$tab}}"
                     role="tab">

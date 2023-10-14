@@ -86,9 +86,9 @@
                             <button type="button" class="btn-close btn-close-white nav-sm-close"
                                     data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
-
-
                     </div>
+                    <hr>
+
                     <ul class="nav nav-flush flex-column text-center">
 
                         <x-navigation.item
@@ -108,6 +108,7 @@
                             :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner'))"
                             icon="heroicon-o-identification"
                             :tooltip="__('main.become_partner_page')"/>
+                        <hr>
 
                         <x-navigation.item
                             page="aboutus"
@@ -115,17 +116,19 @@
                             icon="heroicon-o-information-circle"
                             :tooltip="__('main.aboutus_page')"/>
 
-                        <x-navigation.item
-                            page="faqs"
-                            :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/faq')"
-                            icon="heroicon-o-question-mark-circle"
-                            :tooltip="__('main.faqs_page')"/>
 
                         <x-navigation.item
                             page="blog"
                             :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/blog')"
                             icon="heroicon-o-book-open"
                             :tooltip="__('main.blog_page')"/>
+
+                        <x-navigation.item
+                            page="faqs"
+                            :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/faq')"
+                            icon="heroicon-o-question-mark-circle"
+                            :tooltip="__('main.faqs_page')"/>
+
 
                     </ul>
 

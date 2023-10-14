@@ -3,7 +3,7 @@
 return [
     'title' => 'Become a partner',
     'benefits_title' => 'Our benefits',
-    'register' => 'Register',
+    'register' => 'Become a partner',
     'b1' => 'One stop shop',
     'b1_text' => 'Partybooker is the first established and the only online collective reference platform in Suisse Romande, which provides prospective buyers with an instant one-stop shopping experience regrouping a large variety of  carefully selected quality services, including yours.',
     'b2' => 'Together we achieve more',

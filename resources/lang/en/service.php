@@ -11,7 +11,7 @@ return [
     'show_website' => 'Show website',
     'show_address' => 'Show address',
     'description' => 'Description',
-    'general_info' => 'Information',
+    'general_info' => 'General',
     'schedule' => 'Schedule',
     'rates' => 'Rates',
     'video' => 'Video',

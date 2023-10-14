@@ -43,6 +43,10 @@ $modal-content-color: $white;
     padding: 8px;
     border-bottom: 2px solid $primary;
     color: #ffffff;
+
+    @media only screen and (max-width: 767px) {
+        display: none;
+    }
 }
 
 .tippy-box[data-theme~='top-services'] {
@@ -51,10 +55,9 @@ $modal-content-color: $white;
 
 
 .tippy-box[data-theme~='partner-info-tippy'] {
-    background-color: $primary;
-    color: #fff;
-    border-radius: 10px;
-    padding: 5px;
+    border-bottom: 1px solid $primary;
+    color: $gray-700;
+    padding-bottom: 5px;
     font-size: small;
 
     @media only screen and (max-width: 767px) {
@@ -70,7 +73,7 @@ $modal-content-color: $white;
 .tippy-box[data-theme~='tab-cat-tippy'] {
     color: $gray-700;
     border-bottom: 2px solid $primary;
-    font-size: small;
+    font-size: smaller;
     text-transform: uppercase;
     @media only screen and (max-width: 767px) {
         display: none;
