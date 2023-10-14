@@ -86,7 +86,7 @@
                                 </a>
                                 <div class="d-flex">
                                     <div class="partner-info-text">
-                                        <blockquote class="fw-bold text-uppercase text-center m-0 mt-2">
+                                        <blockquote class="fw-bold text-uppercase m-0 mt-2">
                                             @if (app()->getLocale() == 'en')
                                                 {{ $partner->en_slogan }}
                                             @else
@@ -124,9 +124,9 @@
 
                                 <x-partner-category-tab :tabs="$cats">
                                     <x-slot:title>
-                                        <h2 class="text-center text-uppercase partner-services fw-bold display-6">
+                                        <h2 class="text-uppercase partner-services fw-bold">
                                             Services</h2>
-                                        <div class="partner-languages d-flex justify-content-center">
+                                        <div class="partner-languages d-flex justify-content-end">
 
                                             @php
                                                 $languages = [];
@@ -156,7 +156,8 @@
                                     @foreach ($partner->services as $advert)
                                         <x-tab.item>
                                             <div class="partner-advert">
-                                                <x-tab.index :tabs="[
+                                                <div class="partner-advert">
+                                                    <x-tab.index :tabs="[
                                                     __('service.general_info'),
                                                     __('service.schedule'),
                                                     __('service.rates'),
@@ -167,45 +168,46 @@
                                                     'heroicon-o-video-camera',
                                                     ]">
 
-                                                    <!-- Information -->
-                                                    <x-tab.item>
-                                                        @include('service-tabs.' . $advert->view_name . '.general', [
-                                                            'details' => $advert->service,
-                                                        ])
-                                                    </x-tab.item>
+                                                        <!-- Information -->
+                                                        <x-tab.item>
+                                                            @include('service-tabs.' . $advert->view_name . '.general', [
+                                                                'details' => $advert->service,
+                                                            ])
+                                                        </x-tab.item>
 
-                                                    <x-tab.item>
+                                                        <x-tab.item>
 
-                                                        @include('service-tabs.' . $advert->view_name . '.schedule', [
-                                                            'details' => $advert->service,
-                                                        ])
+                                                            @include('service-tabs.' . $advert->view_name . '.schedule', [
+                                                                'details' => $advert->service,
+                                                            ])
 
-                                                    </x-tab.item>
+                                                        </x-tab.item>
 
-                                                    <x-tab.item>
-                                                        @include('service-tabs.' . $advert->view_name . '.rates', [
-                                                            'details' => $advert->service,
-                                                        ])
-                                                    </x-tab.item>
+                                                        <x-tab.item>
+                                                            @include('service-tabs.' . $advert->view_name . '.rates', [
+                                                                'details' => $advert->service,
+                                                            ])
+                                                        </x-tab.item>
 
-                                                    <x-tab.item>
-                                                        <div class="d-flex flex-column">
-                                                            @if ($partner->youtube)
-                                                                    <?php
-                                                                    $youtube = preg_replace('/watch\?v=/', 'embed/', $partner->youtube);
-                                                                    $youtube = str_replace('https://youtu.be/', 'https://www.youtube.com/embed/', $youtube);
-                                                                    ?>
-                                                                <iframe src="{{ $youtube }}"></iframe>
-                                                            @endif
-                                                            @if ($partner->vimeo)
-                                                                <iframe
-                                                                    src="{{ str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/', $partner->vimeo) }}">
-                                                                </iframe>
-                                                            @endif
-                                                        </div>
+                                                        <x-tab.item>
+                                                            <div class="d-flex flex-column">
+                                                                @if ($partner->youtube)
+                                                                        <?php
+                                                                        $youtube = preg_replace('/watch\?v=/', 'embed/', $partner->youtube);
+                                                                        $youtube = str_replace('https://youtu.be/', 'https://www.youtube.com/embed/', $youtube);
+                                                                        ?>
+                                                                    <iframe src="{{ $youtube }}"></iframe>
+                                                                @endif
+                                                                @if ($partner->vimeo)
+                                                                    <iframe
+                                                                        src="{{ str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/', $partner->vimeo) }}">
+                                                                    </iframe>
+                                                                @endif
+                                                            </div>
 
-                                                    </x-tab.item>
-                                                </x-tab.index>
+                                                        </x-tab.item>
+                                                    </x-tab.index>
+                                                </div>
                                             </div>
                                         </x-tab.item>
                                     @endforeach
@@ -258,6 +260,7 @@
                         :action="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/request/caterer')">
 
                         <x-slot:form>
+                            @include('partial.service.commission-form')
                             @include('partial.service.else-form')
                         </x-slot:form>
                     </x-service.contact-modal>

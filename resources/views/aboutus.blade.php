@@ -145,7 +145,7 @@
                 <h2 class="display-6 text-uppercase">{{__('about.our_team')}}</h2>
 
                 <div class="accordion" id="accordionTeam">
-                    <div class="team" x-data="" @click="openMember('anne')">
+                    <div class="team">
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
                                 <div class="team-card">
@@ -182,7 +182,7 @@
                             </div>
 
                             <div class="col-md-6 col-sm-12">
-                                <div class="team-card" x-data="" @click="openMember('caroline')">
+                                <div class="team-card">
                                     <div class="row">
 
                                         <div class="accordion-item">
@@ -226,8 +226,7 @@
 @push('header')
     <script>
         function openMember(id) {
-            let member = document.getElementById(id);
-            member.click();
+            document.getElementById(id).click()
         }
     </script>
 @endpush

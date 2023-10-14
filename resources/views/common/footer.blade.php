@@ -69,7 +69,7 @@
             </div>
             <section class="subscribe shadow-lg">
                 <div class="container">
-                    <h6 class="fs-4 fw-bold">{{ __('main.subscribe_offers') }}</h6>
+                    <h6 class="fs-4 fw-bold text-white">{{ __('main.subscribe_offers') }}</h6>
                     <p>{{ __('main.subscribe_text') }}</p>
 
                     <form class="subscribe-form">

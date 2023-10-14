@@ -1,3 +1,4 @@
+
 .btn-primary:hover {
     color: #fff;
 }
@@ -16,6 +17,23 @@ html, body {
     height: 100%;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $gray-700 !important;
+}
+
+h1, a {
+    font-family: "GothamPro" !important;
+}
+
+.listing-card-title {
+    border-bottom: 1px solid $primary;
+    padding-bottom: 5px;
+}
 
 .sitemap-section {
     h1 {
@@ -179,6 +197,10 @@ a {
 .about {
     @media only screen and (max-width: 767px) {
         margin-top: 100px;
+
+        h1 {
+            padding: 20px;
+        }
     }
 
 
@@ -230,7 +252,7 @@ a {
         width: auto;
         height: auto;
 
-        border: 2px solid $primary;
+        border: 1px solid $primary;
         border-radius: 20px;
         padding: 20px;
         margin-top: 20px;
@@ -518,6 +540,27 @@ a {
 // Service Page
 .partner {
 
+    .partner-advert {
+        
+
+        .partner-advert-card {
+
+        }
+    }
+
+    .tab-overflow {
+        border-bottom: 2px solid $accent;
+
+        li {
+            margin-right: 5px;
+
+            button {
+                border-top-left-radius: 20px !important;
+                border-top-right-radius: 20px !important;
+            }
+        }
+    }
+
     .coord {
         color: $gray-700;
         border-bottom: 1px solid $primary;
@@ -572,7 +615,10 @@ a {
     }
 
     blockquote {
+        padding: 10px;
         font-size: large;
+        color: $gray-700;
+        border-bottom: 1px solid;
     }
 
 
@@ -601,7 +647,8 @@ a {
     }
 
     .partner-languages {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
+        margin-right: 10px;
 
         img {
             cursor: pointer;
@@ -878,18 +925,16 @@ a {
     }
 
     .tabcat {
-        border: 2px solid $accent;
-        border-radius: 50px;
-        padding-top: 40px;
         margin-top: 50px;
-        margin-bottom: 40px;
+        height: 100%;
+        padding: 10px;
 
         .partner-services {
-            color: $gray-700;
-            border-bottom: 2px solid $gray-400;
             margin: 0;
-            padding-bottom: 40px;
+            padding: 10px;
+            border-bottom: 1px solid;
         }
+
 
         ul {
             padding: 0;

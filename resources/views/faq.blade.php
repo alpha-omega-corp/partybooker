@@ -26,7 +26,7 @@
                                     aria-expanded="false"
                                     aria-controls="{{'collapse' . $key }}">
 
-                                <span class="faq-question text-nowrap text-truncate">
+                                <span class="faq-question">
                                     @if (app()->getLocale() == 'en')
                                         {{ $faq->question_en }}
                                     @else
