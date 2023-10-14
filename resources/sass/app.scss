@@ -313,9 +313,9 @@ a {
     }
 
     .team-section {
-        margin-top: 80px;
         cursor: pointer;
-
+        border: 1px solid $primary;
+        border-top: 0;
         @media only screen and (max-width: 1200px) {
             margin: 0;
 

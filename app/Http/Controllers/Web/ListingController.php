@@ -7,7 +7,6 @@ use App\Models\Advert;
 use App\Models\AdvertCategory;
 use App\Models\Category;
 use App\Models\CategoryLocale;
-use App\Models\EventPlace;
 use App\Models\EventType;
 use App\Models\PartnersInfo;
 use App\Models\PartnerVipPlan;
@@ -16,8 +15,6 @@ use App\Models\Statistic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
-use MetaTag;
 use Torann\LaravelMetaTags\Facades\MetaTag as FacadesMetaTag;
 
 class ListingController extends Controller
@@ -50,15 +47,6 @@ class ListingController extends Controller
             }
             Cache::put(app()->getLocale() . '_filter_events', $this->eventTypes, 60000);
         }
-    }
-
-    private function getBanners($categoryCode)
-    {
-        return PartnerVipPlan::where('is_payed', 1)
-            ->whereDate('created_at', '<=', date('Y-m-d'))
-            ->whereHas('categories', function ($query) use ($categoryCode) {
-                $query->where('category', $categoryCode);
-            })->get();
     }
 
     public function index(Request $request)
@@ -102,9 +90,8 @@ class ListingController extends Controller
         $query = $query->orderBy('priority');
 
 
-        return view('web.listings.index', ['partners' => $query->paginate(20)->appends($query_params), 'categories' => $this->categories, 'eventTypes' => $this->eventTypes]);
+        return view('web.listings.index', ['partners' => $query->paginate(8)->appends($query_params), 'categories' => $this->categories, 'eventTypes' => $this->eventTypes]);
     }
-
 
     public function category($category, Request $request)
     {
@@ -183,6 +170,14 @@ class ListingController extends Controller
         ]);
     }
 
+    private function getBanners($categoryCode)
+    {
+        return PartnerVipPlan::where('is_payed', 1)
+            ->whereDate('created_at', '<=', date('Y-m-d'))
+            ->whereHas('categories', function ($query) use ($categoryCode) {
+                $query->where('category', $categoryCode);
+            })->get();
+    }
 
     public function subcategory($cat, $subcat, Request $request)
     {
@@ -267,14 +262,6 @@ class ListingController extends Controller
         ]);
     }
 
-    private function clearValue($value)
-    {
-        if ($value == null || $value == 'null' || strlen($value) == 0) {
-            return null;
-        }
-        return $value;
-    }
-
     public function filtered(Request $request)
     {
         $query_params = [];
@@ -353,6 +340,13 @@ class ListingController extends Controller
         return view('web.listings.index', ['partners' => $query->paginate(20)->appends($query_params), 'categories' => $this->categories, 'eventTypes' => $this->eventTypes]);
     }
 
+    private function clearValue($value)
+    {
+        if ($value == null || $value == 'null' || strlen($value) == 0) {
+            return null;
+        }
+        return $value;
+    }
 
     public function service(Request $request, $slug)
     {

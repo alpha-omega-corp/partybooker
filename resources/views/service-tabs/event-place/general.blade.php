@@ -235,7 +235,7 @@
 
     <x-service.list-item :title="__('become_partner.other')">
         {{SimpleTranslateHelper::translate($details->transport)}}
-        @if(isset($details->other_services))
+        @if($details->other_services)
             <p>
                 @foreach (json_decode($details->other_services) as $other_services)
                     <span class="d-flex flex-column">
