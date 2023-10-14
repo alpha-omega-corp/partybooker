@@ -192,12 +192,9 @@
 
                                                             <div class="p-4">
                                                                 @if ($partner->youtube)
-                                                                        <?php
-                                                                        $youtube = preg_replace('/watch\?v=/', 'embed/', $partner->youtube);
-                                                                        $youtube = str_replace('https://youtu.be/', 'https://www.youtube.com/embed/', $youtube);
-                                                                        ?>
-                                                                    <iframe src="{{ $youtube }}"
-                                                                            style="width: 100%; height: 400px"></iframe>
+                                                                    <iframe
+                                                                        src="{{ 'https://www.youtube.com/embed/' . $partner->youtube }}"
+                                                                        style="width: 100%; height: 400px"></iframe>
                                                                 @endif
                                                                 @if ($partner->vimeo)
                                                                     <iframe
