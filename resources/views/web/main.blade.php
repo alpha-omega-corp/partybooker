@@ -26,7 +26,6 @@
 
     <section class="general-section partner-cp" data-type="{{Auth::user()->type}}">
         <div class="container">
-
             <div class="row">
                 <div class="col-md-4 col-xl-3">
                     <ul class="partner-nav">

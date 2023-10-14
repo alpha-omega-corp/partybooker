@@ -669,5 +669,10 @@
     "file": "assets/app-59ac6cda.js",
     "isEntry": true,
     "src": "resources/js/app.js"
+  },
+  "resources/sass/admin/admin.scss": {
+    "file": "assets/admin-c1bb8ebe.css",
+    "isEntry": true,
+    "src": "resources/sass/admin/admin.scss"
   }
 }
