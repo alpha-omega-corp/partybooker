@@ -26,12 +26,30 @@ class WineFactory extends Factory
             'other_price' => null,
             'paymeny' => '["invoice"]',
             'other_payment' => 'Upon request',
-            'deposit' => 'A Discuter',
-            'service' => '["bar","dance-floor","lighting"]',
+            'deposit' => 'Acompte de 50% à la commande, solde à 10 jours net',
+            'service' => json_encode([
+                [
+                    'name' => 'DEGUSTATION DIDACTIQUE',
+                    'description' => "D\u00e9couverte de trois vins suisse insoup\u00e7onn\u00e9es et rares aux c\u00f4t\u00e9s d'un expert. Une carte g\u00e9ante du vignoble et un guide de d\u00e9gustation individuel viennent compl\u00e9ter",
+                ],
+                [
+                    'name' => 'APERITIF GOURMAND',
+                    'description' => "D\u00e9couverte de trois vins suisse insoup\u00e7onn\u00e9es et rares aux c\u00f4t\u00e9s d'un expert. Une carte g\u00e9ante du vignoble et un guide de d\u00e9gustation individuel viennent compl\u00e9ter",
+                ],
+            ]),
             'participant' => '["space name: lieu choisi, min: 20, max:40"]',
             'wine' => '["wine","champagne","aperitif","digestif"]',
-            'affiliation' => '["name: Swisslabel, link: http:\/\/www.swisslabel.ch\/fr","name: Swisswinedirectory, link: https:\/\/www.swisswinedirectory.ch\/"]',
-            'reward' => '["cash","invoice","ec-direct","visa","american"]',
+            'affiliation' => json_encode([
+                [
+                    'name' => 'Swisslabel',
+                    'link' => 'http://www.swisslabel.ch/fr'
+                ],
+                [
+                    'name' => 'Swisswinedirectory',
+                    'link' => 'https://www.swisswinedirectory.ch'
+                ],
+            ]),
+            'reward' => '["name: -, contest: -, reward: gold"]',
             'article' => '["wine","champagne","aperitif","digestif"]',
             'art_d' => '["wine","champagne","aperitif","digestif"]',
             'art_l' => '["wine","champagne","aperitif","digestif"]',

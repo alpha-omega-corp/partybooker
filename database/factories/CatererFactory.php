@@ -15,7 +15,7 @@ class CatererFactory extends Factory
     public function definition(): array
     {
         return [
-            'holidays' => 'N/A',
+            'holidays' => 'Samedi, dimanche et jours fériés ; fermeture du 22 décembre au 6 janvier inclus (à confirmer)',
             'price_for' => 'fixed_price_per_person',
             'paymeny' => '["cash","invoice"]',
             'other_payment' => null,

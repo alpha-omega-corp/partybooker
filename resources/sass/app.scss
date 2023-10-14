@@ -190,8 +190,6 @@ a {
 
 .btn-accent:hover {
     color: #fff;
-    font-weight: bold;
-    transition: 0.2s;
 }
 
 .about {
@@ -545,8 +543,24 @@ a {
 
 
         .partner-advert-card {
-            border: 2px solid $accent;
             border-top: 0;
+
+            .advert-ul {
+                padding: 5px;
+                margin-bottom: 10px;
+            }
+
+            ul {
+
+                li {
+                    list-style-type: square;
+                    color: $dark;
+                }
+
+                li::marker {
+                    color: $primary;
+                }
+            }
         }
     }
 
@@ -767,7 +781,6 @@ a {
 
         .partner-comment {
             background-color: $white;
-            padding: 10px;
             color: $black;
             margin-bottom: 10px;
         }
@@ -776,11 +789,6 @@ a {
 
     .tab {
         overflow: scroll;
-
-        @media only screen and (min-width: 1200px) {
-            margin-right: 100px;
-        }
-
 
         ul {
             padding: 0;
@@ -852,6 +860,12 @@ a {
                 margin-right: 5px;
             }
 
+            .max-guests-icon {
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+            }
+
             .wt-icon {
                 width: 20px;
                 height: 20px;
@@ -889,13 +903,17 @@ a {
                     color: $gray-700;
                     width: 100%;
                     text-transform: uppercase;
-                    font-size: 14px;
+                    font-size: medium;
                     font-weight: bold;
                 }
 
                 .content {
+                    font-size: small;
 
-                    font-size: 13px;
+                    a {
+                        color: $accent;
+                        border-bottom: 1px solid;
+                    }
                 }
             }
 
@@ -1818,7 +1836,7 @@ a {
     z-index: 300;
 
     a {
-        color: $accent
+        color: #fff;
     }
 
     .btn {

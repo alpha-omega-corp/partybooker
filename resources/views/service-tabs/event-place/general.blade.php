@@ -40,12 +40,14 @@
     @if(isset($details->room))
         <x-service.list-item :title="__('partner.conference_room')">
             <div class="d-flex flex-column">
-                @foreach($details->room as $key => $room)
-                    <div class="d-flex flex-column">
-                        <div>{{$room['name']}}</div>
-                        <p>@svg('heroicon-o-user-group', 'room-icon') {{strtolower($room['capacity'])}} </p>
-                    </div>
-                @endforeach
+                <x-service.ul>
+                    @foreach($details->room as $key => $room)
+                        <div class="d-flex flex-column">
+                            <li>{{$room['name']}}</li>
+                            <p>@svg('heroicon-o-user-group', 'room-icon') {{strtolower($room['capacity'])}} </p>
+                        </div>
+                    @endforeach
+                </x-service.ul>
             </div>
         </x-service.list-item>
     @endif
@@ -72,27 +74,22 @@
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.conveniences')">
-        @if(isset($details->convenience))
-            <p>
-                @foreach(json_decode($details->convenience) as $convenience)
-                    <span class="d-flex flex-column">
-                        {{ConveniencesTranslatorHelper::translate($convenience)}}
-                    </span>
-                @endforeach
-            </p>
-
-        @endif
+        <x-service.ul>
+            @foreach(json_decode($details->convenience) as $convenience)
+                <li>{{ConveniencesTranslatorHelper::translate($convenience)}}</li>
+            @endforeach
+        </x-service.ul>
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.Bar_dance_floor_stage')">
         @if(isset($details->facilities))
-            <p>
+            <x-service.ul>
                 @foreach (json_decode($details->facilities) as $facilities)
-                    <span class="d-flex flex-column">
+                    <li>
                         {{BarDanceFloorTranslatorHelper::translate($facilities)}}
-                    </span>
+                    </li>
                 @endforeach
-            </p>
+            </x-service.ul>
         @endif
 
     </x-service.list-item>
@@ -100,7 +97,7 @@
     <x-service.list-item :title="__('partner.bring_alcohol')">
         <div class="d-flex">
             <x-service.list-bool :value="$details->alcohole"/>
-            <p class="alcohol_yes">{{SimpleTranslateHelper::translate($details->alcohole_yes)}}</p>
+            <p class="alcohol_yes p-1">{{SimpleTranslateHelper::translate($details->alcohole_yes)}}</p>
         </div>
     </x-service.list-item>
 
@@ -116,13 +113,16 @@
     @if(isset($details->yes_af_caterers))
         <x-service.list-item :title="__('partner.works_with_affiliated_partners')">
 
-            <p>
+            <x-service.ul>
                 @foreach(json_decode($details->yes_af_caterers) as $caterer)
                     @if($caterer->name > 0)
-                        <a href="{{$caterer->url ?? "#"}}" target="_blank">{{$caterer->name}}</a><br>
+                        <li>
+                            <a href="{{$caterer->url ?? "#"}}" target="_blank">{{$caterer->name}}</a>
+                        </li>
                     @endif
                 @endforeach
-            </p>
+            </x-service.ul>
+
         </x-service.list-item>
     @endif
 
@@ -134,7 +134,7 @@
 
         @foreach (isset($details->yes_free_caterers) ? json_decode($details->yes_free_caterers) : [] as $yes_free_caterers)
             @if (strlen($yes_free_caterers) > 0)
-                {{$yes_free_caterers}}<span class="coma"><br></span>
+                {{$yes_free_caterers}}
             @endif
         @endforeach
     </x-service.list-item>
@@ -146,29 +146,28 @@
     <x-service.list-item :title="__('partner.available_furniture_equipment')">
         @if(isset($details->furniture))
 
-            <p>
+            <x-service.ul>
                 @foreach(json_decode($details->furniture) as $furniture)
                     <span class="d-flex flex-column">
-                       {{FurnitureTranslatorHelper::translate($furniture)}}
+                       <li>{{FurnitureTranslatorHelper::translate($furniture)}}</li>
                     </span>
                 @endforeach
-            </p>
+            </x-service.ul>
 
         @endif
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.technical_equipment')">
         @if(isset($details->equipment))
-            <p>
+            <x-service.ul>
                 @foreach(json_decode($details->equipment) as $equipment)
                     @if (strlen($equipment) > 0)
-
-                        <span class="d-flex flex-column">
-                        {{ucfirst(TechnicalEquipmentTranslatorHelper::translate($equipment))}}
-                    </span>
+                        <li>
+                            {{ucfirst(TechnicalEquipmentTranslatorHelper::translate($equipment))}}
+                        </li>
                     @endif
                 @endforeach
-            </p>
+            </x-service.ul>
         @endif
 
 
@@ -179,13 +178,14 @@
 
     <x-service.list-item :title="__('partner.staff')">
         @if(isset($details->staff))
-            <p>
+            <x-service.ul>
                 @foreach(json_decode($details->staff) as $staff)
-                    <span class="d-flex flex-column">
+                    <li>
                         {{ucfirst(EventsStaffTranslatorHelper::translate($staff))}}
-                    </span>
+                    </li>
                 @endforeach
-            </p>
+            </x-service.ul>
+
         @endif
 
         {{$details->other_staff ?? '' }}
@@ -204,11 +204,13 @@
                     <div class="d-flex flex-column m-1">
                         <span>A proximiter</span>
 
-                        <span class="d-flex">
+                        @if(strlen($details->number_questrooms))
+                            <span class="d-flex">
                             <img src="{{Vite::image('double-bed.svg')}}" class="accommodation-icon" alt="guest room">
 
                             <span class="p-1">{{$details->number_questrooms}}</span>
                         </span>
+                        @endif
                     </div>
                 </div>
                 @break
@@ -220,11 +222,13 @@
                     <div class="d-flex flex-column m-1">
                         <span>Sur place</span>
 
-                        <span class="d-flex">
+                        @if(strlen($details->number_questrooms))
+                            <span class="d-flex">
                             <img src="{{Vite::image('double-bed.svg')}}" class="accommodation-icon" alt="guest room">
 
                             <span class="p-1">{{$details->number_questrooms}}</span>
                         </span>
+                        @endif
                     </div>
                 </div>
                 @break
@@ -236,24 +240,19 @@
     <x-service.list-item :title="__('become_partner.other')">
         {{SimpleTranslateHelper::translate($details->transport)}}
         @if($details->other_services)
-            <p>
+            <x-service.ul>
                 @foreach (json_decode($details->other_services) as $other_services)
-                    <span class="d-flex flex-column">
+                    <li>
                         {{ucfirst(OtherServicesTranslatorHelper::translate($other_services))}}
-                    </span>
-
+                    </li>
                 @endforeach
-            </p>
-
+            </x-service.ul>
         @endif
         {{$details->more_services ?? ''}}
     </x-service.list-item>
 
-    @if(isset($details->comment))
-        <x-service.list-item :title="__('partner.comment')">
-            <p class="partner-comment"> {{$details->comment}}</p>
-        </x-service.list-item>
-    @endif
+    <x-service.comment :value="$details->comment"/>
+
 </x-service.list>
 
 

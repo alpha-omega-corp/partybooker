@@ -2,36 +2,48 @@
     <h6 class="text-uppercase">{{__('service.general_info')}}</h6>
 
     <x-service.list-item :title="__('partner.geographical_limit')">
-        {{$details->geo ?? "" }}
+        <p>
+            {{$details->geo ?? "" }}
+        </p>
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.number_of_participants')">
-        {{$details->participants ?? "" }}
+        <p>
+            {{$details->participants ?? "" }}
+        </p>
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.list_of_your_services')">
-        {{$details->services ?? ""}}
+        <p>
+            {{$details->services ?? ""}}
+        </p>
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.equipment_provided')">
-        {{$details->equipment ?? ""}}
+        <p>
+            {{$details->equipment ?? ""}}
+        </p>
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.equipment_not_included')">
-        {{$details->eq_not_incl ?? ""}}
+        <p>
+            {{$details->eq_not_incl ?? ""}}
+        </p>
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.biography')">
-        {{$details->biography ?? ""}}
+        <p>
+            {{$details->biography ?? ""}}
+        </p>
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.references')">
-        {{$details->reference ?? ""}}
+        <p>
+            {{$details->reference ?? ""}}
+        </p>
     </x-service.list-item>
 
-    <h6>{{__('partner.comment')}}</h6>
-    <p class="partner-comment"> {{$details->comment ?? ""}}</p>
-
+    <x-service.comment :value="$details->comment"/>
 
 </x-service.list>
 

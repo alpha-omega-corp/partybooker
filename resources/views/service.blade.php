@@ -189,17 +189,20 @@
                                                         </x-tab.item>
 
                                                         <x-tab.item>
-                                                            <div class="d-flex flex-column">
+
+                                                            <div class="p-4">
                                                                 @if ($partner->youtube)
                                                                         <?php
                                                                         $youtube = preg_replace('/watch\?v=/', 'embed/', $partner->youtube);
                                                                         $youtube = str_replace('https://youtu.be/', 'https://www.youtube.com/embed/', $youtube);
                                                                         ?>
-                                                                    <iframe src="{{ $youtube }}"></iframe>
+                                                                    <iframe src="{{ $youtube }}"
+                                                                            style="width: 100%; height: 400px"></iframe>
                                                                 @endif
                                                                 @if ($partner->vimeo)
                                                                     <iframe
-                                                                        src="{{ str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/', $partner->vimeo) }}">
+                                                                        src="{{ str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/', $partner->vimeo) }}"
+                                                                        style="width: 100%; height: 400px">
                                                                     </iframe>
                                                                 @endif
                                                             </div>

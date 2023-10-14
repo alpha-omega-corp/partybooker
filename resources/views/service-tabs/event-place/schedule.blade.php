@@ -1,14 +1,8 @@
 @php use App\Helpers\SimpleTranslateHelper; @endphp
 <x-service.list>
     <h6 class="text-uppercase">{{__('service.schedule')}}</h6>
-
-    <x-service.list-item :title="__('partner.working_days')">
-        <p>
-            @foreach(json_decode($details->working_days) as $day)
-                {{$day}}
-            @endforeach
-        </p>
-    </x-service.list-item>
+    <x-service.working-days :days="$details->working_days"/>
+    <x-service.holidays :details="$details->holidays"/>
 
     <x-service.list-item :title="__('partner.opening_hours')">
         @if($details->working_time)
@@ -31,20 +25,6 @@
         @endif
     </x-service.list-item>
 
-    @if($details->holidays)
-        <x-service.list-item :title="__('partner.annual_holidays')">
-            <p>{{$details->holidays}}</p>
-        </x-service.list-item>
-    @endif
-
-
-    <x-service.list-item :title="__('partner.possibility_extend_time')">
-        <div class="d-flex">
-            <x-service.list-bool :value="$details->extansion"/>
-            @if (isset($details) && !is_null($details->ext_true))
-                <p class="m-1">{{$details->ext_true}}</p>
-            @endif
-        </div>
-    </x-service.list-item>
+    <x-service.extension :details="$details"/>
 </x-service.list>
 

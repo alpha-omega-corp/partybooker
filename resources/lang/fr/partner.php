@@ -149,7 +149,7 @@ return [
     'payment_methods_expl' => "Sélectionner les méthode de paiement acceptée par votre établissement",
     'service_general_info' => "Conditions Générales de Service",
     'geographical_limit' => "Limite géographique",
-    'min_max_guests' => "Intités minimum/maximum ",
+    'min_max_guests' => "Capacité Invités",
     'min_max_guests_expl' => "Veuillez indiquer le montant minimum et maximum de repas",
     'smood_ch_link' => "Lien Smood.ch",
     'smood_ch_link_expl' => "Êtes-vous partenaire de smood.ch? Veuillez indiquer le lien vers votre annonce smood.",
