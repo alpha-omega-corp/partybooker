@@ -13,7 +13,7 @@
         @php
             $services;
             if(is_array($details->service)) {
-                   $services = $details->service;
+                   $services = (object) $details->service;
             } else {
                 $services = json_decode($details->service);
             }
@@ -47,7 +47,7 @@
         @php
             $affiliations;
             if(is_array($details->affiliation)) {
-                   $affiliations = $details->affiliation;
+                   $affiliations = (object) $details->affiliation;
             } else {
                 $affiliations = json_decode($details->affiliation);
             }
