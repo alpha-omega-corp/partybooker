@@ -10,8 +10,16 @@
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.service_details')">
+        @php
+            $services;
+            if(is_array($details->service)) {
+                   $services = $details->service;
+            } else {
+                $services = json_decode($details->service);
+            }
 
-        @foreach (json_decode(json_encode($details->service)) as $service)
+        @endphp
+        @foreach ($services as $service)
             <div class="d-flex flex-column mt-3 mb-3">
                <span class="fw-bold">
                     {{ $service->name }}
@@ -35,8 +43,17 @@
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.affiliations')">
+        @php
+            $affiliations;
+            if(is_array($details->affiliation)) {
+                   $affiliations = $details->affiliation;
+            } else {
+                $affiliations = json_decode($details->affiliation);
+            }
+
+        @endphp
         <x-service.ul>
-            @foreach (json_decode(json_encode($details->affiliation))  as $affiliation)
+            @foreach ($affiliations as $affiliation)
                 <li>
                     <a href="{{ $affiliation->link}}" target="_blank">
                         {{ $affiliation->name }}
