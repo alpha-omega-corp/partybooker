@@ -22,10 +22,10 @@
         @foreach ($services as $service)
             <div class="d-flex flex-column mt-3 mb-3">
                <span class="fw-bold">
-                    {{ $service->name }}
+                    {{ $service['name'] }}
                 </span>
                 <br>
-                <p>{{ $service->description }}</p>
+                <p>{{ $service['description'] }}</p>
             </div>
         @endforeach
 
@@ -55,8 +55,8 @@
         <x-service.ul>
             @foreach ($affiliations as $affiliation)
                 <li>
-                    <a href="{{ $affiliation->link}}" target="_blank">
-                        {{ $affiliation->name }}
+                    <a href="{{ $affiliation['link']}}" target="_blank">
+                        {{ $affiliation['name'] }}
                     </a>
                 </li>
             @endforeach
