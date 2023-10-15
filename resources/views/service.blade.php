@@ -280,4 +280,6 @@
             </section>
         </div>
     </div>
+
+    @include('common.footer')
 @endsection

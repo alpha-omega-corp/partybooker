@@ -172,7 +172,31 @@ a {
 
 .socials {
     position: fixed;
-    top: 0;
+    top: 400px;
+    right: 0;
+    padding: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    z-index: 800;
+    border: 2px solid $primary;
+
+    @media only screen and (max-width: 767px) {
+        background-color: $primary;
+        border: 2px solid #fff;
+        padding: 15px 5px 5px;
+
+        img {
+            width: 15px;
+        }
+    }
+
+    a {
+        margin-bottom: 10px;
+
+        img {
+            width: 30px;
+        }
+    }
 
 }
 
@@ -2073,9 +2097,9 @@ a {
 }
 
 .offcanvas {
-    -webkit-transition: .4s ease all;
-    -o-transition: .4s ease all;
-    transition: .4s ease all;
+    -webkit-transition: .2s ease all;
+    -o-transition: .2s ease all;
+    transition: .2s ease all;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -2108,7 +2132,7 @@ a {
                 .card {
                     background-color: transparent;
                     border-radius: 40px;
-                    border: 2px solid $primary;
+                    border: 2px dashed $primary;
                     cursor: pointer;
 
                     .card-body {
@@ -2485,7 +2509,7 @@ a {
                 .card {
                     margin: 0 40px 20px;
                     background-color: transparent;
-                    border: 2px solid $primary;
+                    border: 2px dashed $primary;
                     border-radius: 20px;
 
 

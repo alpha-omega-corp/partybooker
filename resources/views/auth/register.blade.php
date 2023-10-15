@@ -10,15 +10,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
                     @csrf
 
-                    @csrf
 
                     <div class="form-floating mb-3">
                         <input type="text" name="name"
-                            class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="email"
-                            value="{{ old('name') }}" required autofocus>
+                               class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="email"
+                               value="{{ old('name') }}" required autofocus>
                         <label for="name">
                             Username
                         </label>
@@ -31,9 +29,9 @@
 
                     <div class="form-floating mb-3">
                         <input type="email" name="email"
-                            class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="email"
-                            value="{{ old('name') }}" required>
-                        <label for="name">
+                               class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="email"
+                               value="{{ old('name') }}" required>
+                        <label for="email">
                             Email
                         </label>
                         @if ($errors->has('name'))
@@ -45,7 +43,7 @@
 
                     <div class="form-floating">
                         <input type="password" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}"
-                            id="password" name="password" required>
+                               id="password" name="password" required>
                         <label for="password">Password</label>
                         @if ($errors->has('password'))
                             <span class="invalid-feedback" role="alert">
@@ -56,8 +54,8 @@
 
                     <div class="form-floating">
                         <input type="password"
-                            class="form-control {{ $errors->has('password_repeat') ? ' is-invalid' : '' }}"
-                            id="password-repeat" name="password_repeat" required>
+                               class="form-control {{ $errors->has('password_repeat') ? ' is-invalid' : '' }}"
+                               id="password-repeat" name="password_repeat" required>
                         <label for="password-repeat">
                             Password Confirmation
                         </label>

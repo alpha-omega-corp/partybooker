@@ -1,3 +1,5 @@
+@include('common.social')
+
 <nav class="navbar fixed-top bg-white">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"

@@ -287,6 +287,10 @@
     "file": "assets/german-e0a5a75e.svg",
     "src": "resources/images/german.svg"
   },
+  "resources/images/google.svg": {
+    "file": "assets/google-cd62522b.svg",
+    "src": "resources/images/google.svg"
+  },
   "resources/images/greenLeft.png": {
     "file": "assets/greenLeft-b35d98bd.png",
     "src": "resources/images/greenLeft.png"
@@ -656,7 +660,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-af9dd7e9.css",
+    "file": "assets/app-628db02f.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -664,9 +668,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-af9dd7e9.css"
+      "assets/app-628db02f.css"
     ],
-    "file": "assets/app-3e9eb01f.js",
+    "file": "assets/app-7d244914.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
