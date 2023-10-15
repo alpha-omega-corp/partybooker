@@ -13,13 +13,16 @@
         @php
             $services;
             if(is_array($details->service)) {
-                   $services = (object) $details->service;
+                   $services = $details->service;
             } else {
                 $services = json_decode($details->service);
             }
 
         @endphp
         @foreach ($services as $service)
+            @php
+                $service = (object) $service;
+            @endphp
             <div class="d-flex flex-column mt-3 mb-3">
                <span class="fw-bold">
                     {{ $service->name }}
@@ -47,7 +50,7 @@
         @php
             $affiliations;
             if(is_array($details->affiliation)) {
-                   $affiliations = (object) $details->affiliation;
+                   $affiliations = $details->affiliation;
             } else {
                 $affiliations = json_decode($details->affiliation);
             }
