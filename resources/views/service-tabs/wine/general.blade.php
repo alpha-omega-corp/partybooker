@@ -22,10 +22,10 @@
         @foreach ($services as $service)
             <div class="d-flex flex-column mt-3 mb-3">
                <span class="fw-bold">
-                    {{ $service['name'] }}
+                    {{ $service->name }}
                 </span>
                 <br>
-                <p>{{ $service['description'] }}</p>
+                <p>{{ $service->description }}</p>
             </div>
         @endforeach
 
@@ -43,6 +43,7 @@
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.affiliations')">
+
         @php
             $affiliations;
             if(is_array($details->affiliation)) {
@@ -50,14 +51,12 @@
             } else {
                 $affiliations = json_decode($details->affiliation);
             }
-
         @endphp
+
         <x-service.ul>
             @foreach ($affiliations as $affiliation)
                 <li>
-                    <a href="{{ $affiliation['link']}}" target="_blank">
-                        {{ $affiliation['name'] }}
-                    </a>
+                    {{$affiliation}}
                 </li>
             @endforeach
         </x-service.ul>

@@ -39,16 +39,7 @@ class WineFactory extends Factory
             ]),
             'participant' => '["space name: lieu choisi, min: 20, max:40"]',
             'wine' => '["wine","champagne","aperitif","digestif"]',
-            'affiliation' => json_encode([
-                [
-                    'name' => 'Swisslabel',
-                    'link' => 'http://www.swisslabel.ch/fr'
-                ],
-                [
-                    'name' => 'Swisswinedirectory',
-                    'link' => 'https://www.swisswinedirectory.ch'
-                ],
-            ]),
+            'affiliation' => '["name: Swisslabel, link: http:\/\/www.swisslabel.ch\/fr","name: Swisswinedirectory, link: https:\/\/www.swisswinedirectory.ch\/"]',
             'reward' => '["name: -, contest: -, reward: gold"]',
             'article' => '["wine","champagne","aperitif","digestif"]',
             'art_d' => '["wine","champagne","aperitif","digestif"]',
