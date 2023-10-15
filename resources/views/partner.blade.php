@@ -28,9 +28,11 @@
 
                                 </a>
                             @else
-                                <a class="rainbow p-4 text-uppercase fw-bold" data-bs-toggle="modal"
-                                   href="#partnershipModalToggle" role="button">
+                                <a class="rainbow p-4 text-uppercase fw-bold"
+                                   href="{{url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner-register'))}}"
+                                >
                                     {{__('become_partner.register')}}
+
 
                                 </a>
                             @endif
@@ -38,6 +40,8 @@
 
                         </div>
                     </div>
+
+
                     <div class="col-md-6 ps-4">
                         <h1 class="display-4 fw-bold text-uppercase mb-3">{{ __('become_partner.benefits_title') }}</h1>
                         <ul>
@@ -246,8 +250,6 @@
             </div>
         </section>
     </div>
-
-    @include('common.partner-register')
 @endsection
 
 

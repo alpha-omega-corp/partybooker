@@ -1,5 +1,6 @@
 <footer class="footer">
     <div class="container">
+        @stack('footer')
         <div class="footer-box  shadow-lg">
             <div class="row">
                 <div class="col-md-6">

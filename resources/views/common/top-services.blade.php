@@ -52,7 +52,7 @@
                                             </div>
 
                                             <div class="card-body">
-                                                <h5 class="card-title text-uppercase text-truncate fw-bold text-primary">
+                                                <h5 class="card-title text-uppercase text-truncate fw-bold">
                                                     @if (app()->getLocale() == 'en')
                                                         {{ $service->en_company_name }}
                                                     @else

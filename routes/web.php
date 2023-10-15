@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'en'], function () {
     Route::get('/partner', 'mainWebsite@partner');
+    Route::view('/partner/register', 'partner-register');
+
 
     Route::get('/listings', '\App\Http\Controllers\Web\ListingController@index');
     Route::get('/listings-filtered', '\App\Http\Controllers\Web\ListingController@filtered');
@@ -33,6 +35,8 @@ Route::group(['prefix' => 'en'], function () {
 Route::group(['prefix' => null], function () {
 
     Route::get('/partenaire', 'mainWebsite@partner');
+    Route::view('/partenaire/inscription', 'partner-register');
+
 
     Route::get('/annonces', '\App\Http\Controllers\Web\ListingController@index');
     Route::get('/annonces-filtered', '\App\Http\Controllers\Web\ListingController@filtered');

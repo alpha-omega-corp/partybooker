@@ -30,6 +30,16 @@ a {
     font-family: "GothamPro" !important;
 }
 
+.pb-logo {
+    img {
+        border: 2px solid $primary;
+        border-radius: 20px;
+        margin: 10px;
+        padding: 5px;
+        width: 80px;
+    }
+}
+
 .listing-card-title {
     border-bottom: 1px solid $primary;
     padding-bottom: 5px;
@@ -1133,6 +1143,13 @@ a {
 
 .partner-register {
     color: $dark;
+    padding: 30px;
+    border: 2px solid $gray-400;
+    border-radius: 20px;
+
+    input {
+        margin-bottom: 10px;
+    }
 
     h4 {
         border-bottom: 1px solid $primary;
@@ -1467,12 +1484,19 @@ a {
     }
 
     .glide__track {
-        margin: 10px;
+
+        .glide__slide:hover {
+            transform: scale(1.04);
+            transition: .2s;
+        }
 
         .glide__slide--active {
-            border-bottom: 2px solid $accent;
+            border: 2px dashed $accent;
+            border-radius: 20px;
 
-
+            .card {
+                border: 0;
+            }
         }
     }
 
@@ -1484,12 +1508,11 @@ a {
     .glide__slide {
 
         .card {
-            border: 1px solid $gray-300;
-            border-top-right-radius: 70px;
+            border: 2px solid $primary;
 
             .card-title {
                 color: $gray-700;
-                border-bottom: 1px solid $primary;
+                border-bottom: 1px solid $accent;
                 padding-bottom: 5px;
 
                 @media only screen and (max-width: 1000px) {
@@ -1665,11 +1688,15 @@ a {
         }
     }
 
+    .scene--card:hover {
+        transform: scale(1.04);
+        transition: .1s;
+    }
+
     .scene {
         display: inline-block;
         width: 400px;
         height: 200px;
-        /*   border: 1px solid #CCC; */
         margin: 12px 0;
         perspective: 600px;
 
@@ -2128,6 +2155,10 @@ a {
                 border-color: $secondary;
                 border-radius: 10px;
 
+                .card:hover {
+                    transform: scale(1.04);
+                    transition: .2s;
+                }
 
                 .card {
                     background-color: transparent;

@@ -5,55 +5,53 @@
 @endsection
 
 @section('content')
-    <section class="header not-full">
-        @include('common.header-nav')
-        <div class="cover abs">
-            <img src="/images/home-header-bg.jpg" class="bg abs" alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
-        </div>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-10">
-                    <h1>Reset password!</h1>
-                </div>
-            </div>
-        </div>
-        @include('common.social')
-    </section>
 
     <section class="section-reset">
         <div class="container" style="color: black">
-            <div class="row justify-content-center" style="padding: 60px">
+
+            <div class="d-flex align-items-center">
+                <x-logo/>
+                <h1 class="text-uppercase">
+                    {{ __('Reset Password') }}
+                </h1>
+
+            </div>
+            <hr>
+            <div class="row justify-content-center">
                 <div class="col-md-10">
-                @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                       {{ session('status') }}
-                    </div>
-                @endif
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                 </div>
                 <form method="POST" action="{{ route('password.email') }}">
                     @csrf
-
-                    <div class="form-group row">
-                        <label for="email" class="col-md-10 col-form-label text-md-left">{{ __('E-Mail Address') }}</label>
-
-                        <div class="col-md-10">
-                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                            @if ($errors->has('email'))
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
+                    <div class="input-group mb-3">
+                            <span class="input-group-text" id="mail">
+                                @svg('heroicon-o-envelope')
+                            </span>
+                        <input
+                            type="email"
+                            required
+                            name="email"
+                            placeholder="{{ __('service.email') }}"
+                            class="form-control @error('email') is-invalid @enderror"
+                            aria-label="{{ __('service.email') }}"
+                            aria-describedby="mail"
+                            value="{{ old('email') }}" autocomplete="email" autofocus>
                     </div>
 
-                    <div class="form-group row mb-0">
-                        <div class="col-md-10">
-                            <button type="submit" class="btn btn-orange">
-                                {{ __('Send Password Reset Link') }}
-                            </button>
-                        </div>
-                    </div>
+                    @if ($errors->has('email'))
+                        <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                    @endif
+
+
+                    <button type="submit" class="btn btn-primary w-100">
+                        {{ __('Send Password Reset Link') }}
+                    </button>
                 </form>
             </div>
         </div>
