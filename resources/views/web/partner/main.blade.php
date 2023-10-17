@@ -166,7 +166,7 @@
 
             @if ($user->partnerInfo->payment_status == 0)
                 <li class="topay"><a
-                        href="{{ url(payment-status.blade.phpLocaleMiddleware::getLocale() . (Auth::user()->type == 'admin' ? '/cp' : '') . '/partner-cp/' . $user->id_partner . '/plans') }}"
+                        href="{{ url(LocaleMiddleware::getLocale() . (Auth::user()->type == 'admin' ? '/cp' : '') . '/partner-cp/' . $user->id_partner . '/plans') }}"
                         class="button">{{ __('partner.make_payment') }}</a></li>
             @endif
 
