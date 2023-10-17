@@ -140,8 +140,9 @@ class DatabaseSeeder extends Seeder
 
     private function newPartner(string $slug, $r, string $for = null)
     {
+        $partnerUid = '120036190814-044' . $r;
         $partnerId = DB::table('partners_info')->insertGetId([
-            'id_partner' => '120036190814-044' . $r,
+            'id_partner' => $partnerUid,
             'en_company_name' => $slug,
             'fr_company_name' => $slug,
             'slug' => $slug,
@@ -192,13 +193,27 @@ class DatabaseSeeder extends Seeder
 
         //$this->createServiceTabs($partnerId, $r);
         $this->createServiceTabs($partnerId, $r, true);
-
+        DB::table('statistics')->insert([
+            'id_partner' => $partnerUid,
+            'view' => 0,
+            'phone' => 0,
+            'email' => 0,
+            'website' => 0,
+            'address' => 0,
+            'facebook' => 0,
+            'twitter' => 0,
+            'instagram' => 0,
+            'linkedin' => 0,
+            'vimeo' => 0,
+            'youtube' => 0,
+            'direct' => 0
+        ]);
 
         if ($for) {
             DB::table('users')->insert([
                 'name' => $for,
                 'email' => $for . '@alphomega.org',
-                'id_partner' => '120036190814-044' . $r,
+                'id_partner' => $partnerUid,
                 'email_verification' => 1,
                 'password' => bcrypt('password'),
                 'type' => 'partner',

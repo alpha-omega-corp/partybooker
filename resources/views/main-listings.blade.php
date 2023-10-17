@@ -10,9 +10,9 @@
     @if (env('APP_ENV') == 'production')
         <!-- Google Analytics -->
         <script>
-            (function(i, s, o, g, r, a, m) {
+            (function (i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function() {
+                i[r] = i[r] || function () {
                     (i[r].q = i[r].q || []).push(arguments)
                 }, i[r].l = 1 * new Date();
                 a = s.createElement(o),
@@ -33,17 +33,21 @@
     {!! MetaTag::tag('keywords') !!}
     @stack('header')
 
+    <script src="{{ asset('/js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('/js/script.js') }}" defer></script>
+    <script src="{{ asset('/js/jquery.mask.js') }}"></script>
+
     @vite(['resources/js/app.js'])
 
 </head>
 
 <body class="body">
-    @include('common.header-nav')
-    @yield('content')
+@include('common.header-nav')
+@yield('content')
 
-    <section>
-        @include('common.cookies')
-    </section>
+<section>
+    @include('common.cookies')
+</section>
 </body>
 @stack('footer')
 

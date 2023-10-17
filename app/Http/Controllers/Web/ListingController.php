@@ -382,6 +382,7 @@ class ListingController extends Controller
             FacadesMetaTag::set('keywords', $partner->{$locale_seo_keywords});
         }
 
+
         return view('service', [
             'partner' => $partner,
             'email' => $partner->user->email,

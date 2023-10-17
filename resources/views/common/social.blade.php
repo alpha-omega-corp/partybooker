@@ -1,4 +1,4 @@
-<div class="socials d-flex flex-column shadow-lg">
+<div class="socials d-flex">
     @if ($settings[0]->facebook)
         <a href="{{ $settings[0]->facebook }}" target="_blank">
             <img src="{{Vite::image('facebook.svg')}}" alt="party-booker-facebook"/>

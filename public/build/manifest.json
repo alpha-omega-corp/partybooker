@@ -303,6 +303,10 @@
     "file": "assets/grid-world-5f446a2a.png",
     "src": "resources/images/grid-world.png"
   },
+  "resources/images/group-icon.svg": {
+    "file": "assets/group-icon-e0f39767.svg",
+    "src": "resources/images/group-icon.svg"
+  },
   "resources/images/group.svg": {
     "file": "assets/group-12ef6361.svg",
     "src": "resources/images/group.svg"
@@ -527,6 +531,10 @@
     "file": "assets/right-arrow-126f8b6c.svg",
     "src": "resources/images/right-arrow.svg"
   },
+  "resources/images/rocket.svg": {
+    "file": "assets/rocket-ec5a2682.svg",
+    "src": "resources/images/rocket.svg"
+  },
   "resources/images/rose-petals.svg": {
     "file": "assets/rose-petals-ebe3c853.svg",
     "src": "resources/images/rose-petals.svg"
@@ -660,7 +668,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-5bfefa38.css",
+    "file": "assets/app-e6a42c1b.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -668,9 +676,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-5bfefa38.css"
+      "assets/app-e6a42c1b.css"
     ],
-    "file": "assets/app-8b386d81.js",
+    "file": "assets/app-2f2a4c7c.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },

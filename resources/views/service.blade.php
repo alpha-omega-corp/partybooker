@@ -6,8 +6,6 @@
 
 @section('content')
     <div class="partner">
-
-
         <div class="container">
             <section data-id="{{ $partner->id_partner }}" class="partner-details">
 
@@ -44,25 +42,25 @@
                     @else
                         <x-partner-info
                             icon="heroicon-o-phone"
-                            tooltip="Company Phone"
+                            tooltip="phone"
                             content="{{$partner->company_phone}}"
                             type="tel"/>
 
                         <x-partner-info
                             icon="heroicon-o-envelope"
-                            tooltip="Company Email"
+                            tooltip="email"
                             content="{{$partner->user->email}}"
                             type="email"/>
 
                         <x-partner-info
                             icon="heroicon-o-globe-alt"
-                            tooltip="Company Website"
+                            tooltip="website"
                             content="{{$partner->fr_company_name}}"
                             type="web"/>
 
                         <x-partner-info
                             icon="heroicon-o-map-pin"
-                            tooltip="Company Location"
+                            tooltip="address"
                             content="{{$partner->address}}"
                             type="loc"/>
                     @endif

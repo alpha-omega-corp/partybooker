@@ -129,50 +129,17 @@
         @include('web.partner.partials.dashboard.payment-status')
     </x-dashboard.card>
 
+    <x-dashboard.card :title="__('partner.plan_up')">
+        @include('web.partner.partials.dashboard.active-plan')
+    </x-dashboard.card>
 
-    <div class="active-plan shadow-lg">
-        <ul>
-            <h2 class="fw-bold text-uppercase">
-                Informations
-            </h2>
-            <li>
-                <span class="fw-bold text-uppercase">{{ __('partner.plan_up') }}</span>
-                @if (is_null($user->partnerInfo->plan))
-                    N/A
-                @else
-                    @if (Lang::has('plan.' . strtolower($user->partnerInfo->plan)))
-                        {{ strtoupper(trans('plan.' . $user->partnerInfo->plan)) }}
-                    @else
-                        {{ strtoupper($user->partnerInfo->plan) }}
-                    @endif
-                @endif
-            </li>
-            <li>
-                <span>{{ __('partner.payment') }}: </span>
-                @if ($user->partnerInfo->payment_status == 0)
-                    N/A
-                @else
-                    {{ __('partner.paid_on') }} {{ $user->partnerInfo->payed }}
-                @endif
-            </li>
-            <li>
-                <span>{{ __('partner.expire') }}: </span>
-                @if (is_null($user->partnerInfo->expiration_date))
-                    N/A
-                @else
-                    {{ $user->partnerInfo->expiration_date }}
-                @endif
-            </li>
+    <x-dashboard.card :title="__('partner.statistics_data')">
+        @include('web.partner.partials.dashboard.statistics')
+    </x-dashboard.card>
 
-            @if ($user->partnerInfo->payment_status == 0)
-                <li class="topay"><a
-                        href="{{ url(LocaleMiddleware::getLocale() . (Auth::user()->type == 'admin' ? '/cp' : '') . '/partner-cp/' . $user->id_partner . '/plans') }}"
-                        class="button">{{ __('partner.make_payment') }}</a></li>
-            @endif
-
-        </ul>
-    </div>
-
+    <x-dashboard.card :title="__('partner.rating')">
+        @include('web.partner.partials.dashboard.evaluation')
+    </x-dashboard.card>
 
     <div class="card">
         @if ($user->partnerInfo->discount)
@@ -210,52 +177,4 @@
             @endif
         </ul>
     @endif
-
-
-    <div class="statistics">
-        <h2>{{ __('partner.statistics_data') }}</h2>
-        <ul>
-            <li><span>{{ __('partner.views') }}: </span>{{ $user->partnerInfo->statistic->view ?? 0 }}</li>
-            <li><span>{{ __('partner.phone_clicks') }}: </span>{{ $user->partnerInfo->statistic->phone ?? 0 }}</li>
-            <li><span>{{ __('partner.email_clicks') }}: </span>{{ $user->partnerInfo->statistic->email ?? 0 }}</li>
-            <li><span>{{ __('partner.website_clicks') }}: </span>{{ $user->partnerInfo->statistic->website ?? 0 }}
-            </li>
-            <li><span>{{ __('partner.address_clicks') }}: </span>{{ $user->partnerInfo->statistic->address ?? 0 }}
-            </li>
-            <li><span>{{ __('partner.direct_requests') }}: </span>{{ $user->partnerInfo->statistic->direct ?? 0 }}
-            </li>
-            <?php $networks = ['Facebook', 'Twitter', 'Instagram', 'Linkedin', 'Vimeo', 'Youtube']; ?>
-            @foreach ($networks as $network)
-                    <?php $lc = strtolower($network); ?>
-                <li><span>{{ $network }}: </span>{{ $user->partnerInfo->statistic->$lc ?? 0 }}</li>
-            @endforeach
-        </ul>
-    </div>
-    <div class="rating-stat">
-        <h2>{{ __('partner.rating') }}</h2>
-        <ul class="stars">
-            @for ($i = 1; $i <= 5; $i++)
-                @if ($user->partnerInfo->average_rate >= $i)
-                    @include('common.star-selected')
-                @else
-                    @include('common.star')
-                @endif
-            @endfor
-            <li class="pointed">{{ __('partner.based_on') }} {{ $user->partnerInfo->votes }}
-                {{ __('partner.rates') }}</li>
-        </ul>
-
-        <div class="rated">
-            @for ($i = 5; $i > 0; $i--)
-                <ul class="stars">
-                    @for ($j = 1; $j <= $i; $j++)
-                        @include('web.common.star')
-                    @endfor
-                    <li class="pointed">
-                        {{ isset($user->partnerInfo->rateGroup[$i]) ? $user->partnerInfo->rateGroup[$i] : 0 }}
-                        {{ __('partner.rates') }}</li>
-                </ul>
-            @endfor
-        </div>
-    </div>
 </div>

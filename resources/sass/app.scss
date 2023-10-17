@@ -29,10 +29,8 @@ h6 {
 
 .pb-logo {
     img {
-        border: 2px solid $primary;
-        border-radius: 20px;
         margin: 10px;
-        padding: 5px;
+        padding: 10px;
         width: 80px;
     }
 }
@@ -172,25 +170,18 @@ a {
     height: 100%;
 
     @media only screen and (min-width: 767px) {
-        padding-top: 200px;
+        padding-top: 40px;
     }
 }
 
 
 .socials {
-    position: fixed;
-    top: 400px;
-    right: 0;
-    padding: 20px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
     z-index: 800;
-    border: 2px solid $primary;
+    margin-right: 150px;
 
     @media only screen and (max-width: 767px) {
-        background-color: $primary;
-        border: 2px solid #fff;
         padding: 15px 5px 5px;
+        margin-right: 100px;
 
         img {
             width: 15px;
@@ -202,6 +193,7 @@ a {
 
         img {
             width: 30px;
+            margin-left: 10px;
         }
     }
 
@@ -251,6 +243,7 @@ a {
         margin-bottom: 30px;
         color: $gray-700;
     }
+
 
     h3 {
         text-transform: uppercase;
@@ -1468,11 +1461,9 @@ a {
 }
 
 .top-services {
+    margin-top: 180px;
 
-
-    height: 800px;
     @media only screen and (max-width: 1000px) {
-        height: 750px;
         margin-top: 80px;
     }
 
@@ -1481,35 +1472,34 @@ a {
     }
 
     .glide__track {
-
         .glide__slide:hover {
             transform: scale(1.04);
             transition: .2s;
         }
 
         .glide__slide--active {
-            border: 2px dashed $accent;
-            border-radius: 20px;
-
             .card {
-                border: 0;
+                border: 4px solid $accent;
+                border-radius: 50px;
             }
         }
     }
 
-    .glide__ {
-        height: 500px;
-    }
 
+    .glide__slides {
+        padding: 20px 0;
+    }
 
     .glide__slide {
 
         .card {
-            border: 2px solid $primary;
+            border-radius: 50px;
+            width: 100%;
+            overflow: hidden;
+            margin: 20px 20px 20px;
 
             .card-title {
                 color: $gray-700;
-                border-bottom: 1px solid $accent;
                 padding-bottom: 5px;
 
                 @media only screen and (max-width: 1000px) {
@@ -1519,14 +1509,11 @@ a {
             }
 
             .card-img {
-                height: 200px;
-
                 .card-img-logo {
                     position: absolute;
                     top: -10px;
                     left: 20px;
                     background-color: #fff;
-                    border: 2px solid $accent;
                     width: 70px;
                     padding: 20px 15px 20px;
                     border-bottom-right-radius: 10px;
@@ -1542,23 +1529,14 @@ a {
 
                 .card-logo {
                     padding: 10px;
-                    background-color: $secondary;
                 }
             }
 
             .card-body {
-                height: 250px;
                 padding: 15px;
-                margin-top: 20px;
 
-                .card-text {
-                    max-height: 92px;
-                    text-align: justify;
-                    overflow: hidden;
-
-                    p {
-                        font-size: small !important;
-                    }
+                h5 {
+                    text-align: center;
                 }
             }
 
@@ -1581,7 +1559,7 @@ a {
 
         .glide__arrow {
             position: absolute;
-            margin-top: 100px;
+            margin-top: 200px;
 
             img {
                 width: 20px;
@@ -1595,47 +1573,31 @@ a {
         .glide__arrow--right {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
-            right: -55px;
-            height: 440px;
+            right: 0;
 
             @media only screen and (max-width: 1000px) {
-                right: -15px;
-                height: 240px;
                 border: 1px solid #fff;
-                transform: rotate(180deg);
-                padding-left: 10px;
-
-                .next-arrow {
-                    transform: rotate(180deg);
-                }
-
             }
         }
 
         .glide__arrow--left {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
-            left: -55px;
-            height: 440px;
+            left: 0;
 
             @media only screen and (max-width: 1000px) {
-                left: -15px;
                 background-color: rgba(0, 0, 0, .5);
-                height: 240px;
                 border: 1px solid #fff;
+            }
+        }
+
+
+        .glide__arrow--left {
+            img {
                 transform: rotate(180deg);
-                padding-right: 10px;
-
             }
         }
 
-        @media only screen and (min-width: 1000px) {
-            .glide__arrow--left {
-                img {
-                    transform: rotate(180deg);
-                }
-            }
-        }
     }
 
     .bullets {
@@ -1652,6 +1614,7 @@ a {
                 color: $gray-700;
             }
         }
+
     }
 
     .glide__bullet--active {
@@ -1675,14 +1638,7 @@ a {
 .categories {
 
     h2 {
-        margin-bottom: 100px;
-        margin-top: 40px;
         color: $gray-700;
-
-        @media only screen and (min-width: 1000px) {
-            margin-top: 120px;
-
-        }
     }
 
     .scene--card:hover {
@@ -1711,7 +1667,6 @@ a {
             transform-origin: center right;
             transition: transform .4s;
             background-color: transparent;
-
 
             h3 {
                 margin-bottom: 0;
@@ -2127,141 +2082,218 @@ a {
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
-
     width: 100%;
 }
 
+html {
+    overflow-x: hidden;
+}
 
-// Applies After Medium
-@media only screen and (min-width: 767px) {
+h1 {
+    margin-top: 100px;
 
-    .welcome {
-        margin-bottom: 100px;
+    @media only screen and (max-width: 767px) {
+        margin-top: 100px;
+    }
+}
 
-        h1 {
-            margin-bottom: 80px;
-            z-index: 10;
+
+.home-side {
+
+    @media only screen and (min-width: 1200px) {
+        border-left: 8px solid $primary;
+    }
+
+}
+
+.home-section {
+    h2 {
+        border-bottom: 2px solid $primary;
+        padding-bottom: 10px;
+    }
+
+    .home-about {
+
+        display: flex;
+        justify-content: center;
+
+        @media only screen and (min-width: 1000px) {
+            margin: 100px 0;
         }
+    }
+}
 
-        .accordion {
+.home-container {
+    border-radius: 50px;
+    padding: 20px;
+}
+
+.welcome-container {
+    padding: 60px 0;
+}
+
+.home-description {
+    border: 8px solid $primary;
+    border-radius: 20px;
+    padding: 20px;
+    width: 400px;
+    margin: 20px;
+
+    p {
+        text-align: justify;
+    }
+
+    img {
+        width: 50px;
+    }
+}
+
+
+@media only screen and (min-width: 1200px) {
+    .row-top {
+        border-top: 8px solid $primary;
+    }
+
+    .row-bottom {
+        border-bottom: 8px solid $primary;
+    }
+}
+
+
+.welcome {
+
+
+    @media only screen and (max-width: 767px) {
+        margin-top: 100px;
+    }
+
+    .accordion {
+        background-color: transparent;
+        --bs-accordion-border-width: 0;
+
+        .card-group {
             background-color: transparent;
-            --bs-accordion-border-width: 0;
+            border-color: $secondary;
+            border-radius: 10px;
 
-            .card-group {
+            display: flex;
+            justify-content: center;
+            @media only screen and (max-width: 767px) {
+                flex-direction: column;
+            }
+
+
+            .card:hover {
+                transform: scale(1.04);
+                transition: .2s;
+            }
+
+            .card {
+                border-radius: 40px;
+                border: 8px solid $primary;
+                cursor: pointer;
+                width: 400px;
                 background-color: transparent;
-                border-color: $secondary;
-                border-radius: 10px;
 
-                .card:hover {
-                    transform: scale(1.04);
-                    transition: .2s;
+
+                .card-body {
+                    padding: 40px;
                 }
 
-                .card {
+                img {
+                    animation: tilt-n-move-shaking 2s infinite;
+                    width: 60px;
+                    height: 60px;
+                    margin-left: 70px;
+                }
+
+                img:hover {
+                    transform: scale(1.5);
+                    transition: 0.2s ease-in-out;
+                    padding: 20px;
+                }
+
+                h3 {
+                    width: 100%;
+                    height: 100%;
+                    font-size: large;
+                    align-items: center;
+                }
+
+                h3:hover {
+                    color: $primary;
+                }
+
+                .accordion-collapse {
+                    border: 0;
+                }
+
+                .accordion-button::after {
+                    transform: none !important;
+                    transition: none !important;
+                    display: none
+                }
+
+                .accordion-button:focus {
+                    box-shadow: none;
+                    border-color: rgba(0, 0, 0, .125);
+                }
+
+                .accordion-item {
                     background-color: transparent;
-                    border-radius: 40px;
-                    border: 2px dashed $primary;
-                    cursor: pointer;
+                    border: 0;
 
-                    .card-body {
-                        padding: 40px;
-                    }
-
-                    img {
-                        animation: tilt-n-move-shaking 2s infinite;
-                        width: 100px;
-                        height: 100px;
-                        margin-left: 70px;
-                    }
-
-                    img:hover {
-                        transform: scale(1.5);
-                        transition: 0.2s ease-in-out;
-                        padding: 20px;
-                    }
-
-                    h2 {
-                        width: 100%;
-                        height: 100%;
-                        font-size: large;
-                        align-items: center;
-                    }
-
-                    h2:hover {
-                        color: $primary;
-                    }
-
-                    .accordion-collapse {
-                        border: 0;
-                    }
-
-                    .accordion-button::after {
-                        transform: none !important;
-                        transition: none !important;
-                        display: none
-                    }
-
-                    .accordion-button:focus {
-                        box-shadow: none;
-                        border-color: rgba(0, 0, 0, .125);
-                    }
-
-                    .accordion-item {
-                        background-color: transparent;
-                        border: 0;
-
-
-                        .accordion-button {
-                            border: 0;
-                        }
-
-                        .accordion-item-flex {
-                            display: flex;
-                            margin-bottom: 20px;
-                        }
-                    }
-
-                    .accordion-body {
-                        text-align: justify;
-                        border: 0;
-                        padding: 0;
-                        margin-top: 50px;
-
-                    }
 
                     .accordion-button {
-                        font-weight: bold;
-                        background-color: transparent;
                         border: 0;
-                        padding: 0;
                     }
 
-                    .accordion-header {
-                        margin-bottom: 30px;
-                        cursor: pointer;
-                        text-align: end;
-                        color: $gray-700;
+                    .accordion-item-flex {
+                        display: flex;
+                        margin-bottom: 20px;
                     }
+                }
 
-                    .accordion-header::before {
-                        content: url('../images/right-arrow.svg');
-                        position: absolute;
-                        left: 20px;
-                        top: 100px;
-                        width: 30px;
-                        height: 30px;
-                    }
+                .accordion-body {
+                    text-align: justify;
+                    border: 0;
+                    padding: 0;
+                    margin-top: 50px;
 
-                    .register {
-                        color: #ffffff;
-                        margin-top: 20px;
-                        width: 100%;
-                        text-align: left;
-                    }
+                }
 
-                    .card-footer {
-                        background-color: transparent;
-                    }
+                .accordion-button {
+                    font-weight: bold;
+                    background-color: transparent;
+                    border: 0;
+                    padding: 0;
+                }
+
+                .accordion-header {
+                    margin-bottom: 30px;
+                    cursor: pointer;
+                    text-align: end;
+                    color: $gray-700;
+                }
+
+                .accordion-header::before {
+                    content: url('../images/right-arrow.svg');
+                    position: absolute;
+                    left: 20px;
+                    top: 100px;
+                    width: 30px;
+                    height: 30px;
+                }
+
+                .register {
+                    color: #ffffff;
+                    margin-top: 20px;
+                    width: 100%;
+                    text-align: left;
+                }
+
+                .card-footer {
+                    background-color: transparent;
                 }
             }
         }
@@ -2515,124 +2547,7 @@ a {
         }
     }
 
-    //Small
-    .welcome {
-        h1 {
-            margin-top: 120px;
-            z-index: 10;
-            font-size: xx-large;
-        }
 
-
-        .accordion {
-            background-color: transparent;
-            --bs-accordion-border-width: 0;
-
-            .card-group {
-                margin-top: 40px;
-                margin-bottom: 80px;
-                background-color: transparent;
-
-
-                .card {
-                    margin: 0 40px 20px;
-                    background-color: transparent;
-                    border: 2px dashed $primary;
-                    border-radius: 20px;
-
-
-                    img {
-                        animation: tilt-n-move-shaking 2s infinite;
-                        display: block;
-                        margin-left: 90px;
-                        margin-top: 20px;
-                        width: 50px;
-                    }
-
-                    .card-title-container {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-
-                        h2 {
-                            font-size: small;
-                        }
-                    }
-
-                    .accordion-collapse {
-                        border: 0;
-                    }
-
-                    .accordion-button::after {
-                        transform: none !important;
-                        transition: none !important;
-                        display: none
-                    }
-
-                    .accordion-button:focus {
-                        box-shadow: none;
-                        border-color: rgba(0, 0, 0, .125);
-                    }
-
-                    .accordion-item {
-                        background-color: transparent;
-                        border: 0;
-
-                        .accordion-button {
-                            border: 0;
-                        }
-
-                        .accordion-item-flex {
-                            display: flex;
-                            margin-bottom: 20px;
-                        }
-                    }
-
-                    .accordion-body {
-                        text-align: justify;
-                        border: 0;
-                        padding: 0;
-                        margin-top: 50px;
-                        cursor: pointer;
-                    }
-
-                    .accordion-button {
-                        font-weight: bold;
-                        background-color: transparent;
-                        width: 170px;
-                        border: 0;
-                        padding: 0;
-
-                    }
-
-                    .accordion-header {
-                        color: $gray-700;
-                        cursor: pointer;
-                    }
-
-                    .accordion-header::before {
-                        content: url('../images/right-arrow.svg');
-                        position: absolute;
-                        left: 20px;
-                        top: 60px;
-                        width: 30px;
-                        height: 30px;
-                    }
-
-                    .register {
-                        color: #ffffff;
-                        margin-top: 20px;
-                        width: 100%;
-                        text-align: left;
-                    }
-
-                    .card-footer {
-                        background-color: transparent;
-                    }
-                }
-            }
-        }
-    }
 }
 
 .bg-shiny {

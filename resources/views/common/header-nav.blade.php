@@ -1,5 +1,3 @@
-@include('common.social')
-
 <nav class="navbar fixed-top bg-white">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -64,7 +62,11 @@
             </div>
         @endif
 
+        @include('common.social')
+
         <div class="language">
+
+
             <a href="<?= route('setlocale', ['lang' => 'fr']) ?>" lan="fr">
                 <img src="{{ Vite::image('switzerland.svg') }}" alt="Partybooker French"/>
             </a>

@@ -1,13 +1,13 @@
 @if (count($top))
 
-    <div class="container">
-        <h2 class="display-1 fw-bold text-center mb-3">
+    <div class="top-services-container">
+        <h2 class="fw-bold mb-3 text-center">
             {{ __('main.top_services')}}
         </h2>
         <div x-ref="glide" class="glide">
             <div class="glide__">
 
-                <div class="d-flex justify-content-center mb-5">
+                <div class="d-flex justify-content-center">
 
                     <!-- Bullets -->
                     <div class="d-none d-md-block">
@@ -35,7 +35,7 @@
                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listing') . '/' . $service->slug) }}">
 
                                     <div class="d-flex align-items-center">
-                                        <div class="card">
+                                        <div class="card shadow-lg">
 
                                             <div class="card-img">
                                                 <img src="{{ Vite::image('logoPB.png') }}" class="card-img-logo"
@@ -59,22 +59,6 @@
                                                         {{ $service->fr_company_name }}
                                                     @endif
                                                 </h5>
-
-                                                <div class="card-text">
-
-                                                    @if (app()->getLocale() == 'en')
-                                                        {!! $service->en_short_descr !!}
-                                                    @else
-                                                        {!! $service->fr_short_descr !!}
-                                                    @endif
-
-                                                </div>
-                                            </div>
-
-                                            <div class="card-footer">
-                                                <blockquote>
-                                                    A quote in a blockquote element
-                                                </blockquote>
                                             </div>
                                         </div>
                                     </div>

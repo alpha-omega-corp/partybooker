@@ -256,13 +256,12 @@ if (selBu) {
 
 
 //statistics of clicks
-$('.click-details li span').on('click', function () {
+$('.info-element .element').on('click', function () {
+    console.log('tt');
     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
     var click = $(this).parent().attr('class');
-    var id = $('.service-section').data('id');
-    console.log($(this).closest('a'))
-    $(this).closest('li').find('a').removeClass('hide');
-    $(this).closest('a').addClass('show');
+    var id = $('.partner-details').data('id');
+   
     $.ajax({
         url: '/stat',
         type: 'POST',

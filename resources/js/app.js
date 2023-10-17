@@ -23,7 +23,7 @@ tippy('.nav-item', {
 });
 
 tippy('.glide__bullet', {
-    placement: 'top',
+    placement: 'bottom',
     animation: 'scale',
     inertia: true,
     theme: 'top-services'
@@ -84,10 +84,11 @@ if (document.getElementsByClassName('glide').length > 0) {
     new Glide('.glide', {
         type: 'carousel',
         keyboard: true,
-        perView: 4,
+        perView: 3,
+        focusAt: "center",
         breakpoints: {
-            1200: {
-                perView: 3,
+            1500: {
+                perView: 2,
             },
             767: {
                 perView: 1,
