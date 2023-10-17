@@ -4,6 +4,10 @@
 namespace App\Models;
 
 
+use Database\Factories\PartnerPlanOptionFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -15,27 +19,33 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $sub_categories_count
  * @property int|null $extra
  * @property int|null $active
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnerPlanOption newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnerPlanOption newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnerPlanOption query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnerPlanOption whereActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnerPlanOption whereCategoriesCount($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnerPlanOption whereExtra($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnerPlanOption whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnerPlanOption wherePartnersInfoId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnerPlanOption whereSubCategoriesCount($value)
- * @mixin \Eloquent
+ * @method static Builder|PartnerPlanOption newModelQuery()
+ * @method static Builder|PartnerPlanOption newQuery()
+ * @method static Builder|PartnerPlanOption query()
+ * @method static Builder|PartnerPlanOption whereActive($value)
+ * @method static Builder|PartnerPlanOption whereCategoriesCount($value)
+ * @method static Builder|PartnerPlanOption whereExtra($value)
+ * @method static Builder|PartnerPlanOption whereId($value)
+ * @method static Builder|PartnerPlanOption wherePartnersInfoId($value)
+ * @method static Builder|PartnerPlanOption whereSubCategoriesCount($value)
+ * @mixin Eloquent
  */
 class PartnerPlanOption extends Model
 {
+    use HasFactory;
 
-	public $timestamps;
+    public $timestamps;
 
 
-	protected $fillable = ['active'];
+    protected $fillable = ['active'];
 
-	protected $casts = [
-		'active' => 'bool'
-	];
+    protected $casts = [
+        'active' => 'bool'
+    ];
+
+    protected static function newFactory(): PartnerPlanOptionFactory
+    {
+        return PartnerPlanOptionFactory::new();
+    }
 
 }

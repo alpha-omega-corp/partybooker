@@ -11,9 +11,6 @@
 
     @vite(['resources/js/app.js', 'resources/sass/admin/admin.scss'])
     <script src="{{ asset('/js/jquery-3.2.1.min.js') }}"></script>
-    <script src="{{ asset('/js/popper.js') }}"></script>
-    <script src="{{ asset('/js/bootstrap4.js') }}"></script>
-    <script src="{{ asset('/js/owl.carousel.js') }}"></script>
     <script src="{{ asset('/js/script.js') }}" defer></script>
     <script src="{{ asset('/js/jquery.mask.js') }}"></script>
 
@@ -27,43 +24,49 @@
     <section class="general-section partner-cp" data-type="{{Auth::user()->type}}">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-xl-3">
-                    <ul class="partner-nav">
-                        <ul class="partner-nav">
-                            @if(Auth::user()->type == 'admin')
-                                <li>
-                                    <a href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}">{{__('partner.home_page')}}</a>
-                                </li>
-                                <li>
-                                    <a href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/profile">{{__('partner.profile')}}</a>
-                                </li>
-                                <li>
-                                    <a href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/plans">{{__('partner.my_plan')}}</a>
-                                </li>
-                            @else
-                                <li>
-                                    <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}">{{__('partner.home_page')}}</a>
-                                </li>
-                                <li>
-                                    <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/profile">{{__('partner.profile')}}</a>
-                                </li>
-                                <li>
-                                    <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/plans">{{__('partner.my_plan')}}</a>
-                                </li>
-                                <li>
-                                    <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/faq">{{__('partner.faq')}}</a>
-                                </li>
-                                <li>
-                                    <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/terms">{{__('partner.provider_terms')}}</a>
-                                </li>
-                                <li>
-                                    <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/contacts">{{__('partner.contacts')}}</a>
-                                </li>
-                            @endif
-                        </ul>
+                <div class="col-md-4 col-sm-12">
+                    <h1 class="text-uppercase fw-bold display-4 mb-5">Dashboard</h1>
+
+                    <ul class="list-group">
+                        @if(Auth::user()->type == 'admin')
+                            <li class="list-group-item">
+                                <a class="link-underline link-underline-primary"
+                                   href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}">{{__('partner.home_page')}}</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a class="link-underline link-underline-primary"
+                                   href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/profile">{{__('partner.profile')}}</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a class="link-underline link-underline-primary"
+                                   href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/plans">{{__('partner.my_plan')}}</a>
+                            </li>
+                        @else
+                            <li class="list-group-item">
+                                <a class="link-underline link-underline-primary"
+                                   href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}">{{__('partner.home_page')}}</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a class="link-underline link-underline-primary"
+                                   href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/profile">{{__('partner.profile')}}</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/plans">{{__('partner.my_plan')}}</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/faq">{{__('partner.faq')}}</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/terms">{{__('partner.provider_terms')}}</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/contacts">{{__('partner.contacts')}}</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
-                <div class="col-md-8 col-xl-9">
+
+                <div class="col-md-8 col-sm-12">
                     @if ($errors->any())
                         <div class="alert alert-danger alert-block">
                             <button type="button" class="close" data-dismiss="alert">×</button>
@@ -89,7 +92,22 @@
                         </div>
                     @endif
 
-                    @yield('content')
+
+                    <div class="card">
+
+
+                        @if (Auth::user()->type == 'admin')
+                            @if (app()->getLocale() == 'en')
+                                <h1 class="m-145">{{$user->partnerInfo->en_company_name}}</h1>
+                            @else
+                                <h1 class="m-145">{{$user->partnerInfo->fr_company_name}}</h1>
+                            @endif
+                        @else
+                            <h1 class="m-145">Partner CP</h1>
+                        @endif
+
+                        @yield('content')
+                    </div>
                 </div>
             </div>
         </div>

@@ -423,7 +423,7 @@ return [
     'stage' => 'Scène',
 
 
-    'home_page' => "Le menu principal",
+    'home_page' => "Statistics",
     'profile' => 'Profil',
     'my_plan' => 'Mon plan',
     'faq' => 'FAQ',

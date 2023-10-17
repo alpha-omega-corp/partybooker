@@ -124,47 +124,19 @@
             @endpush
         </div>
     @endif
-    <div class="status">
-        <h2>{{ __('partner.status') }}</h2>
-        <div class="public">
-            @if ($user->partnerInfo->payment_status != 1)
-                <span>{{ __('partner.not_published') }}</span>
-                <a href="#" class="button disabled">{{ __('partner.publish') }}</a>
-            @else
-                @if ($user->partnerInfo->public == 0)
-                    <span>{{ __('partner.not_published') }}</span>
-                    @if (in_array($user->partnerInfo->plan, ['basic', 'commission']))
-                        <a href="#" class="button"
-                           data-id="{{ $user->partnerInfo->id_partner }}">{{ __('partner.publish') }}</a>
-                    @elseif ($user->partnerInfo->services()->where('status', Advert::STATUS_DRAFT)->first())
-                        <a href="#" class="button disabled">{{ __('partner.publish') }}</a>
-                    @elseif (is_null($user->partnerInfo->main_img))
-                        <a href="#" class="button disabled">{{ __('partner.publish') }}</a>
-                    @else
-                        <a href="#" class="button"
-                           data-id="{{ $user->partnerInfo->id_partner }}">{{ __('partner.publish') }}</a>
-                    @endif
-                @else
-                    <span>{{ __('partner.published') }}</span>
-                    <a href="#" class="button"
-                       data-id="{{ $user->partnerInfo->id_partner }}">{{ __('partner.draft') }}</a>
-                @endif
-            @endif
-        </div>
+
+    <x-dashboard.card :title="__('partner.status')">
+        @include('web.partner.partials.dashboard.payment-status')
+    </x-dashboard.card>
 
 
-        @if ($user->partnerInfo->discount)
-            <ul>
-                <li><span>{{ __('partybooker-cp.discount') }}:</span>
-                    {{ $user->partnerInfo->discount }} %
-                </li>
-            </ul>
-        @endif
-
-
+    <div class="active-plan shadow-lg">
         <ul>
-
-            <li><span>{{ __('partner.plan_up') }}: </span>
+            <h2 class="fw-bold text-uppercase">
+                Informations
+            </h2>
+            <li>
+                <span class="fw-bold text-uppercase">{{ __('partner.plan_up') }}</span>
                 @if (is_null($user->partnerInfo->plan))
                     N/A
                 @else
@@ -175,14 +147,16 @@
                     @endif
                 @endif
             </li>
-            <li><span>{{ __('partner.payment') }}: </span>
+            <li>
+                <span>{{ __('partner.payment') }}: </span>
                 @if ($user->partnerInfo->payment_status == 0)
                     N/A
                 @else
                     {{ __('partner.paid_on') }} {{ $user->partnerInfo->payed }}
                 @endif
             </li>
-            <li><span>{{ __('partner.expire') }}: </span>
+            <li>
+                <span>{{ __('partner.expire') }}: </span>
                 @if (is_null($user->partnerInfo->expiration_date))
                     N/A
                 @else
@@ -192,38 +166,52 @@
 
             @if ($user->partnerInfo->payment_status == 0)
                 <li class="topay"><a
-                        href="{{ url(LocaleMiddleware::getLocale() . (Auth::user()->type == 'admin' ? '/cp' : '') . '/partner-cp/' . $user->id_partner . '/plans') }}"
+                        href="{{ url(payment-status.blade.phpLocaleMiddleware::getLocale() . (Auth::user()->type == 'admin' ? '/cp' : '') . '/partner-cp/' . $user->id_partner . '/plans') }}"
                         class="button">{{ __('partner.make_payment') }}</a></li>
             @endif
 
         </ul>
-        <br/>
-        @if ($user->partnerInfo->vipPlan)
-            <ul>
-                <li><span>{{ __('partner.plan_up') }}:</span>
-                    VIP
-                </li>
-                <li><span>{{ __('partner.payment') }}: </span>
-                    @if (
-                        !$user->partnerInfo->vipPlan->is_payed ||
-                            ($user->partnerInfo->vipPlan->end_date && date('Y-m-d') > $user->partnerInfo->vipPlan->end_date))
-                        N/A
-                    @else
-                        {{ __('partner.paid_on') }} {{ $user->partnerInfo->vipPlan->start_date }}
-                    @endif
-                </li>
-                <li><span>{{ __('partner.expire') }}: </span>
-                    {{ $user->partnerInfo->vipPlan->end_date ?? 'N/A' }}
-                </li>
+    </div>
 
-                @if (
-                    !$user->partnerInfo->vipPlan->is_payed ||
-                        ($user->partnerInfo->vipPlan->end_date && date('Y-m-d') > $user->partnerInfo->vipPlan->end_date))
-                    <li class="topay"><a href="#plan" class="button">{{ __('partner.make_payment') }}</a></li>
-                @endif
+
+    <div class="card">
+        @if ($user->partnerInfo->discount)
+            <ul>
+                <li><span>{{ __('partybooker-cp.discount') }}:</span>
+                    {{ $user->partnerInfo->discount }} %
+                </li>
             </ul>
         @endif
     </div>
+
+
+    @if ($user->partnerInfo->vipPlan)
+        <ul>
+            <li><span>{{ __('partner.plan_up') }}:</span>
+                VIP
+            </li>
+            <li><span>{{ __('partner.payment') }}: </span>
+                @if (
+                    !$user->partnerInfo->vipPlan->is_payed ||
+                        ($user->partnerInfo->vipPlan->end_date && date('Y-m-d') > $user->partnerInfo->vipPlan->end_date))
+                    N/A
+                @else
+                    {{ __('partner.paid_on') }} {{ $user->partnerInfo->vipPlan->start_date }}
+                @endif
+            </li>
+            <li><span>{{ __('partner.expire') }}: </span>
+                {{ $user->partnerInfo->vipPlan->end_date ?? 'N/A' }}
+            </li>
+
+            @if (
+                !$user->partnerInfo->vipPlan->is_payed ||
+                    ($user->partnerInfo->vipPlan->end_date && date('Y-m-d') > $user->partnerInfo->vipPlan->end_date))
+                <li class="topay"><a href="#plan" class="button">{{ __('partner.make_payment') }}</a></li>
+            @endif
+        </ul>
+    @endif
+
+
     <div class="statistics">
         <h2>{{ __('partner.statistics_data') }}</h2>
         <ul>

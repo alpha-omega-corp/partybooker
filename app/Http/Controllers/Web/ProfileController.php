@@ -28,7 +28,6 @@ use function json_encode;
 
 class ProfileController extends Controller
 {
-
     public function index(Request $request)
     {
 
@@ -105,7 +104,7 @@ class ProfileController extends Controller
         }])->whereNull('parent_id')->whereIn('id', array_values($hash))->get();
 
         $user = User::where('id_partner', $id)->with(['partnerInfo', 'partnerInfo.planOptions'])->first();
-        $user->has_free_options = $user->partnerInfo->planOptions()->whereNull('active')->count() ? true : false;
+        $user->has_free_options = (bool)$user->partnerInfo->planOptions()->whereNull('active')->count();
 
         $adverts = Advert::where('partners_info_id', $user->partnerInfo->id)->with(['service'])->orderBy('status')->get();
 

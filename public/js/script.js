@@ -357,9 +357,14 @@ $('.li.files .del').on('click', function (e) {
 });
 
 //PUBLISH / DRAFT service
-$('.tab .status .public .button').on('click', function (e) {
+$('.tab .status .public .btn').on('click', function (e) {
     e.preventDefault();
     if (!$(this).hasClass('disabled')) {
+        $('.tab .status .public span').removeClass('text-primary');
+        $('.tab .status .public span').removeClass('text-danger');
+        $('.tab .status .public .btn').removeClass('text-danger');
+        $('.tab .status .public .btn').removeClass('text-primary');
+
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         var id = $(this).data('id');
         var admin = $('.partner-cp').data('type');
@@ -376,8 +381,18 @@ $('.tab .status .public .button').on('click', function (e) {
                 id_partner: id
             },
             success: function (data) {
-                $('.tab .status .public .button').html(data.msg);
+                $('.tab .status .public .btn').html(data.msg);
                 $('.tab .status .public span').html(data.stat);
+                console.log(data.msg);
+                if (data.msg === 'Draft') {
+                    $('.tab .status .public span').addClass('text-primary');
+                    $('.tab .status .public .btn').addClass('text-danger');
+                } else {
+                    $('.tab .status .public span').addClass('text-danger');
+                    $('.tab .status .public .btn').addClass('text-primary');
+
+                }
+
 
             }
         });
@@ -1151,30 +1166,6 @@ function openNav() {
 function closeNav() {
     document.getElementById("myNav").style.width = "0%";
 }
-
-$(".header_carousel").owlCarousel({
-    // center: true,
-    loop: false,
-    margin: 15,
-    nav: true,
-    navText: ["", ""],
-    dots: false,
-    responsive: {
-        0: {
-            center: false,
-            items: 1
-        },
-        576: {
-            items: 2
-        },
-        768: {
-            items: 3
-        },
-        1024: {
-            items: 4
-        }
-    }
-});
 
 $(".filters-list li:has(ul)").addClass("dropdown-btn");
 

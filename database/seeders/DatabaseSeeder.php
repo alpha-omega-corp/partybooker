@@ -7,6 +7,7 @@ use App\Models\Caterer;
 use App\Models\Entertainment;
 use App\Models\Equipment;
 use App\Models\EventPlace;
+use App\Models\PartnerPlanOption;
 use App\Models\Wine;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -146,6 +147,8 @@ class DatabaseSeeder extends Seeder
             'slug' => $slug,
             'average_rate' => 3,
             'plans_id' => 2,
+            'plan' => 'premium',
+
             'plan_option_group' => 2,
             'payment_status' => true,
             'public' => true,
@@ -158,15 +161,15 @@ class DatabaseSeeder extends Seeder
             'phone' => fake()->phoneNumber,
             'company_phone' => fake()->phoneNumber,
             'language' => '["french","english","german","italian"]',
-            'price' => true,
+            'price' => '60',
             'budget' => true,
-            'priority' => 1,
-            'plan' => 'exclusif',
+            'priority' => 3,
             'en_slogan' => "Un Chef d'oeuvre au bord du lac Léman",
             'fr_slogan' => "Un Chef d'oeuvre au bord du lac Léman",
-
-            'category_1' => 'cat3',
-            'subcat_1' => 'cat3_2',
+            'category_1' => 'cat1',
+            'subcat_1' => 'cat1_7',
+            'subcat_2' => 'cat1_3',
+            'plan_option' => '1',
 
             'www' => 'https://www.' . $slug . '.ch',
             'facebook' => 'https://www.facebook.com/' . $slug,
@@ -183,66 +186,13 @@ class DatabaseSeeder extends Seeder
             'other_lang' => null,
         ]);
 
-        $epId = EventPlace::factory([
-            'id_partner' => '120036190814-044' . $r
-        ])->create()->id;
-        DB::table('adverts')->insert([
-            'partners_info_id' => $partnerId,
-            'category_id' => 1,
-            'status' => 1,
-            'view_name' => 'event-place',
-            'service_type' => 'App\Models\EventPlace',
-            'service_id' => $epId,
-        ]);
+        PartnerPlanOption::factory([
+            'partners_info_id' => $partnerId
+        ])->create();
 
+        //$this->createServiceTabs($partnerId, $r);
+        $this->createServiceTabs($partnerId, $r, true);
 
-        $wineId = Wine::factory([
-            'id_partner' => '120036190814-044' . $r
-        ])->create()->id;
-        DB::table('adverts')->insert([
-            'partners_info_id' => $partnerId,
-            'category_id' => 1,
-            'status' => 1,
-            'view_name' => 'wine',
-            'service_type' => 'App\Models\Wine',
-            'service_id' => $wineId,
-        ]);
-
-        $equipmentId = Equipment::factory([
-            'id_partner' => '120036190814-044' . $r
-        ])->create()->id;
-        DB::table('adverts')->insert([
-            'partners_info_id' => $partnerId,
-            'category_id' => 1,
-            'status' => 1,
-            'view_name' => 'equipment',
-            'service_type' => 'App\Models\Equipment',
-            'service_id' => $equipmentId,
-        ]);
-
-        $entertainmentId = Entertainment::factory([
-            'id_partner' => '120036190814-044' . $r
-        ])->create()->id;
-        DB::table('adverts')->insert([
-            'partners_info_id' => $partnerId,
-            'category_id' => 1,
-            'status' => 1,
-            'view_name' => 'entertainment',
-            'service_type' => 'App\Models\Entertainment',
-            'service_id' => $entertainmentId,
-        ]);
-
-        $catererId = Caterer::factory([
-            'id_partner' => '120036190814-044' . $r
-        ])->create()->id;
-        DB::table('adverts')->insert([
-            'partners_info_id' => $partnerId,
-            'category_id' => 1,
-            'status' => 1,
-            'view_name' => 'caterer',
-            'service_type' => 'App\Models\Caterer',
-            'service_id' => $catererId,
-        ]);
 
         if ($for) {
             DB::table('users')->insert([
@@ -251,7 +201,7 @@ class DatabaseSeeder extends Seeder
                 'id_partner' => '120036190814-044' . $r,
                 'email_verification' => 1,
                 'password' => bcrypt('password'),
-                'type' => 'admin',
+                'type' => 'partner',
                 'provider' => null,
                 'provider_id' => null,
             ]);
@@ -268,6 +218,85 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+
+    }
+
+    private function createServiceTabs(int $partnerId, $r, bool $single = false): void
+    {
+        if (!$single) {
+            $epId = EventPlace::factory([
+                'id_partner' => '120036190814-044' . $r
+            ])->create()->id;
+            DB::table('adverts')->insert([
+                'partners_info_id' => $partnerId,
+                'category_id' => 1,
+                'status' => 2,
+                'view_name' => 'event-place',
+                'service_type' => 'App\Models\EventPlace',
+                'service_id' => $epId,
+            ]);
+
+
+            $wineId = Wine::factory([
+                'id_partner' => '120036190814-044' . $r
+            ])->create()->id;
+            DB::table('adverts')->insert([
+                'partners_info_id' => $partnerId,
+                'category_id' => 1,
+                'status' => 1,
+                'view_name' => 'wine',
+                'service_type' => 'App\Models\Wine',
+                'service_id' => $wineId,
+            ]);
+
+            $equipmentId = Equipment::factory([
+                'id_partner' => '120036190814-044' . $r
+            ])->create()->id;
+            DB::table('adverts')->insert([
+                'partners_info_id' => $partnerId,
+                'category_id' => 1,
+                'status' => 1,
+                'view_name' => 'equipment',
+                'service_type' => 'App\Models\Equipment',
+                'service_id' => $equipmentId,
+            ]);
+
+            $entertainmentId = Entertainment::factory([
+                'id_partner' => '120036190814-044' . $r
+            ])->create()->id;
+            DB::table('adverts')->insert([
+                'partners_info_id' => $partnerId,
+                'category_id' => 1,
+                'status' => 1,
+                'view_name' => 'entertainment',
+                'service_type' => 'App\Models\Entertainment',
+                'service_id' => $entertainmentId,
+            ]);
+
+            $catererId = Caterer::factory([
+                'id_partner' => '120036190814-044' . $r
+            ])->create()->id;
+            DB::table('adverts')->insert([
+                'partners_info_id' => $partnerId,
+                'category_id' => 1,
+                'status' => 1,
+                'view_name' => 'caterer',
+                'service_type' => 'App\Models\Caterer',
+                'service_id' => $catererId,
+            ]);
+        } else {
+            $entertainmentId = Entertainment::factory([
+                'id_partner' => '120036190814-044' . $r
+            ])->create()->id;
+            DB::table('adverts')->insert([
+                'partners_info_id' => $partnerId,
+                'category_id' => 1,
+                'status' => 1,
+                'view_name' => 'entertainment',
+                'service_type' => 'App\Models\Entertainment',
+                'service_id' => $entertainmentId,
+            ]);
+        }
 
     }
 
@@ -301,6 +330,5 @@ class DatabaseSeeder extends Seeder
             'group' => 1
         ]);
     }
-
 
 }
