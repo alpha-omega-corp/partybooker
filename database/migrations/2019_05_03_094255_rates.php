@@ -1,31 +1,25 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class Rates extends Migration
 {
-    /* RATES */
-    public function up()
+    public function up(): void
     {
         Schema::create('rates', function (Blueprint $table) {
             $table->increments('id');
-			
-			//EVENT DATE & TIME
-			$table->dateTime('rated');
-						
-			//SERVICE PROVIDER ID: 
-			$table->string('id_partner', 30);
-			
-			//RATE (number of stars):
-			$table->integer('rate');
-		});
+            $table->dateTime('rated');
+            $table->string('id_partner', 30);
+            $table->string('user_email');
+            $table->integer('rate');
+        });
     }
 
-    
-    public function down()
+
+    public function down(): void
     {
-		Schema::dropIfExists('rates');
+        Schema::dropIfExists('rates');
     }
 }

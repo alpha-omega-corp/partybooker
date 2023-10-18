@@ -171,7 +171,7 @@
                      aria-hidden="true">
                     <div class="modal-dialog">
 
-                        <form class="login" action="" method="POST">
+                        <div class="phone-form">
                             <div class="modal-content">
                                 <div class="modal-header">
 
@@ -207,15 +207,16 @@
                                 </div>
                                 <div class="modal-footer">
 
-                                    <button type="submit" class="btn btn-primary">
+                                    <button class="btn btn-primary submit">
                                         Submit
                                     </button>
+
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                         Close
                                     </button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
                 <div class="terms">

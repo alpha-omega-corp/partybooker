@@ -146,10 +146,9 @@ class DatabaseSeeder extends Seeder
             'en_company_name' => $slug,
             'fr_company_name' => $slug,
             'slug' => $slug,
-            'average_rate' => 3,
+            'average_rate' => 0,
             'plans_id' => 2,
             'plan' => 'premium',
-
             'plan_option_group' => 2,
             'payment_status' => true,
             'public' => true,

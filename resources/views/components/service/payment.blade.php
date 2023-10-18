@@ -9,7 +9,9 @@
             @foreach (json_decode($details->paymeny) as $payment)
                 <span class="d-flex align-items-center">
 
+                    @if($payment !== 'other')
                         <img src="{{Vite::image($payment . '.svg')}}" alt="{{$payment}}" class="payment-icon"/>
+                    @endif
 
                         <span>
                             {{PaymentMethodsTranslatorHelper::translate($payment)}}

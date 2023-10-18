@@ -101,6 +101,7 @@
                                         </div>
                                     </div>
 
+
                                     <div class="d-flex flex-column m-2">
                                         <?php $networks = ['Instagram', 'Facebook', 'Linkedin', 'Youtube', 'Twitter', 'Vimeo']; ?>
                                         @foreach ($networks as $network)
@@ -119,10 +120,51 @@
                                     </div>
                                 </div>
 
+                                <div class="rating-card">
+                                    <div class="d-flex flex-column align-items-start">
+                                        <div class="rating-stars">
+                                        <span
+                                            class="rating-text text-uppercase">{{__('main.rating-based') . ' ' . $rates . ' ' . __('main.rating')}}</span>
+
+                                            <ul class="stars service-page">
+                                                @for($i = 1; $i <= 5; $i++)
+                                                    @if($i <=$partner->average_rate)
+                                                        @include('common.star-selected')
+                                                    @else
+                                                        <li class="star">
+                                                            @svg('heroicon-o-star')
+                                                        </li>
+                                                    @endif
+                                                @endfor
+                                            </ul>
+                                        </div>
+
+                                        <div class="d-none">
+                                            @if (Auth::user())
+                                                <button role="button" class="rating btn btn-primary"
+                                                        data-service="{{$partner->id_partner}}"
+                                                        data-user="{{Auth::user()->email}}">
+                                                    Submit
+                                                </button>
+                                            @else
+                                                <a data-bs-toggle="modal" class="text-white rating"
+                                                   href="#loginModalToggle" role="button">
+                                                    <button role="button" class=" btn btn-accent">
+                                                        {{ __('main.login') }}
+                                                    </button>
+                                                </a>
+                                            @endif
+                                        </div>
+
+                                        <span class="rating-message"></span>
+                                    </div>
+                                </div>
+
                                 <x-partner-category-tab :tabs="$cats">
                                     <x-slot:title>
                                         <h2 class="text-uppercase partner-services fw-bold">
-                                            Services</h2>
+                                            Services
+                                        </h2>
                                         <div class="partner-languages d-flex justify-content-end">
 
                                             @php
@@ -149,6 +191,8 @@
                                             {{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
 
                                         </div>
+
+
                                     </x-slot:title>
                                     @foreach ($partner->services as $advert)
                                         <x-tab.item>
@@ -212,6 +256,8 @@
                             </div>
 
                             <div class="col-lg-4 col-md-12">
+
+                                <!-- Rating -->
 
 
                                 <div class="row d-flex gallery">

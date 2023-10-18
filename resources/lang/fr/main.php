@@ -1,7 +1,8 @@
 <?php
 
 return [
-
+    'rating-based' => "Avis basé sur",
+    'rating' => "Vote",
     //GENERAL
     'login' => "S'identifier",
     'register' => "S'inscrire",

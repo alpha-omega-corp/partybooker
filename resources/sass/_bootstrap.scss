@@ -10,6 +10,7 @@ $warning: $orange-700;
 $danger: $red-500;
 $success: $green-400;
 $orange: $orange-500;
+$yellow: $yellow-400;
 
 $standart: $cyan-500;
 $premium: $purple-500;
@@ -32,6 +33,7 @@ $theme-colors: (
     "exclusif": $exclusif,
     "opaque": $transparent,
     "orange": $orange,
+    "yellow": $yellow,
 );
 
 $offcanvas-horizontal-width: auto;

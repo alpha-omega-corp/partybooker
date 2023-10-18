@@ -31,7 +31,9 @@
     @yield('title')
     @stack('header')
 
-    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('/js/script.js') }}" defer></script>
+    <script src="{{ asset('/js/jquery.mask.js') }}"></script>
     @vite(['resources/js/app.js'])
 </head>
 

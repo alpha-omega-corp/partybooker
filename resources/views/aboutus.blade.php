@@ -11,16 +11,8 @@
 @section('content')
     <section class="about">
         <div class="container">
+            <h1 class="text-uppercase display-1">{{__('about.ABOUT_PARTYBOOKER')}}</h1>
 
-            <div class="d-flex">
-                <div>
-                    <h1 class="text-uppercase display-1">{{__('about.ABOUT_PARTYBOOKER')}}</h1>
-                </div>
-                <div class="d-flex align-items-center">
-                    <img src="{{Vite::image('logoPB.png')}}" class="about-logo shadow-lg"
-                         alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande."/>
-                </div>
-            </div>
             <div class="description">
 
                 <div class="row">

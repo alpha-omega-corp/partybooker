@@ -350,7 +350,6 @@ class ListingController extends Controller
 
     public function service(Request $request, $slug)
     {
-
         $partner = PartnersInfo::where('slug', $slug)->with(['currentPlan', 'user', 'categories', 'categories.primaryCategory'])->with(['services' => function ($query) {
             $query->where('status', Advert::STATUS_ACTIVE);
         }])->first();
@@ -388,6 +387,7 @@ class ListingController extends Controller
             'email' => $partner->user->email,
             'images' => $images,
             'subCategories' => $subCategories,
+            'rates' => count($partner->rates),
             'adverts' => PartnersInfo::where('public', 1)
                 ->where('payment_status', 1)
                 ->orderBy('priority')

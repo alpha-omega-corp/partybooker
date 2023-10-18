@@ -1,7 +1,7 @@
 <div class="welcome">
     <div class="accordion" id="infoAccordion">
         <div class="card-group">
-            <div class="m-5">
+            <div class="card-container">
                 <div class="card mb-5 shadow-lg">
                     <div class="card-body" x-data="{ c: 'controlTwo' }"
                          @click="open(c)">
@@ -46,7 +46,7 @@
                     </div>
                 </div>
             </div>
-            <div class="m-5">
+            <div class="card-container">
                 <div class="card shadow-lg">
                     <div class="card-body" x-data="{ c: 'controlThree' }" @click="open(c)">
                         <div class="card-text">

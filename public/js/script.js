@@ -257,11 +257,10 @@ if (selBu) {
 
 //statistics of clicks
 $('.info-element .element').on('click', function () {
-    console.log('tt');
     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
     var click = $(this).parent().attr('class');
     var id = $('.partner-details').data('id');
-   
+
     $.ajax({
         url: '/stat',
         type: 'POST',
@@ -291,36 +290,11 @@ $('.click-details li a.social-network').on('click', function () {
 
 //Service page: add data value to stars
 for (var i = 1; i <= 5; i++) {
-    $('.service-page li:nth-child(' + i + ')').attr('data-value', i);
+    $('.service-section li:nth-child(' + i + ')').attr('data-value', i);
 }
 
 //LEAVE A RATING
-$('.rating').on('click', function () {
-    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-    var id_partner = $(this).data('service');
-    var user_email = $(this).data('user');
-    var stars = parseInt($('.rating-stars ul .selected:last').index()) + 1;
-    var lang = $('html').attr('lang');
-    $.ajax({
-        url: '/rate',
-        type: 'POST',
-        data: {
-            _token: CSRF_TOKEN,
-            id_partner: id_partner,
-            user_email: user_email,
-            stars: stars,
-            lang: lang
-        },
-        success: function (data) {
-            $('.rating').replaceWith('<span class="rating" style="text-decoration: none; cursor: auto"> ' + data.msg + '</span>');
-            var rate = data.rate;
-            $('.rating-stars ul li').removeClass('selected');
-            for (var i = 1; i <= rate; i++) {
-                $('.rating-stars ul li:nth-child(' + i + ')').addClass('selected');
-            }
-        }
-    });
-});
+
 
 //DELETE FILE
 $('.li.files .del').on('click', function (e) {
@@ -791,7 +765,9 @@ $('#collapse1').addClass('show');
 
 //ajax partner phone form
 $(".phone-form button").on('click', function (e) {
+    console.log('hi')
     if ($('.phone-form [name=phone]').val().length > 0) {
+        console.log($('.phone-form [name=phone]').val())
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         e.preventDefault();
         $.ajax({
@@ -1085,34 +1061,58 @@ $('.click-details li').on('click', function () {
 
 //rating
 
-$('.stars li').on('mouseover', function () {
-    var onStar = parseInt($(this).data('value'), 10);
-    $(this).parent().children('li.star').each(function (e) {
-        if (e < onStar) {
-            $(this).addClass('hover');
-        } else {
-            $(this).removeClass('hover');
-        }
-    });
+$('.rating').on('click', function () {
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    var id_partner = $(this).data('service');
+    var user_email = $(this).data('user');
+    var stars = parseInt($('.rating-stars ul .selected-active:last').index()) + 1;
+    console.log(stars);
+    var lang = $('html').attr('lang');
+    $.ajax({
+        url: '/rate',
+        type: 'POST',
+        data: {
+            _token: CSRF_TOKEN,
+            id_partner: id_partner,
+            user_email: user_email,
+            stars: stars,
+            lang: lang
+        },
+        success: function (data) {
+            $('.rating').parent().addClass('d-none')
+            $('.rating-message').replaceWith('<span class="rating-message" style="text-decoration: none; cursor: auto"> ' + data.msg + '</span>');
 
-}).on('mouseout', function () {
-    $(this).parent().children('li.star').each(function (e) {
-        $(this).removeClass('hover');
+            let rate = data.rate;
+            $('.rating-stars ul li').removeClass('selected');
+            for (let i = 1; i <= rate; i++) {
+                $('.rating-stars ul li:nth-child(' + i + ')').addClass('selected');
+            }
+
+            setTimeout(function () {
+                $('.rating-message').addClass('d-none');
+            }, 2000);
+        }
     });
 });
 
-
 $('.stars li').on('click', function () {
-    var onStar = parseInt($(this).data('value'), 10);
-    var stars = $(this).parent().children('li.star');
+    let selected = $(this).index() + 1;
+    let stars = $(this).parent().children('li.star');
+
 
     for (i = 0; i < stars.length; i++) {
-        $(stars[i]).removeClass('selected');
+        $(stars[i]).removeClass('text-yellow');
+        $(stars[i]).removeClass('selected-active');
+
     }
 
-    for (i = 0; i < onStar; i++) {
-        $(stars[i]).addClass('selected');
+    for (i = 0; i < selected; i++) {
+        console.log(stars[i])
+        $(stars[i]).addClass('text-yellow');
+        $(stars[i]).addClass('selected-active');
     }
+
+    $('.rating').parent().removeClass('d-none')
 });
 
 

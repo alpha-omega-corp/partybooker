@@ -1,141 +1,154 @@
 <nav class="navbar fixed-top bg-white">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+    <div class="d-flex">
+        <a href="{{url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/')}}">
+            <x-logo/>
+        </a>
 
-            @svg('heroicon-s-bars-3-bottom-left')
-        </button>
 
-        @if (Auth::user() == null)
-            <div class="auth">
-                <a class="btn btn-accent" data-bs-toggle="modal" href="#loginModalToggle" role="button">
-                    {{ __('main.login') }}
-                </a>
-            </div>
-        @else
-            <div class="dropdown border-top bg-primary dropdown-user">
-                @if (Auth::user())
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                            <p>{{Auth::user()->name}}</p>
-                        </button>
-                        <ul class="dropdown-menu">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                @svg('heroicon-s-bars-3-bottom-left')
+            </button>
 
-                            @if (Auth::user()->id_partner)
-                                <li>
-                                    <a class="dropdown-item"
-                                       href="{{ route('profile', Auth::user()->id_partner) }}">
-                                        Dashboard
-                                    </a>
-                                </li>
-                            @else
-                                <li>
-                                    <a class="dropdown-item"
-                                       href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
-                                        {{ __('main.become_partner_page') }}
-                                    </a>
-                                </li>
-                            @endif
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    Sign out
-                                </a>
-                            </li>
-                        </ul>
+            @if (Auth::user() == null)
+                <div class="auth">
+                    <a class="btn btn-accent" data-bs-toggle="modal" href="#loginModalToggle" role="button">
+                        {{ __('main.login') }}
+                    </a>
+                </div>
+            @endif
 
-                        <a href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                        </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                              style="display: none;">
-                            @csrf
-                        </form>
+            <div class="d-flex flex-column">
+                <div class="language">
+
+                    <div class="socials">
+                        @include('common.social')
                     </div>
-                @endif
+                    <a href="<?= route('setlocale', ['lang' => 'fr']) ?>" lan="fr">
+                        <img src="{{ Vite::image('switzerland.svg') }}" alt="Partybooker French"/>
+                    </a>
+                    <a href="<?= route('setlocale', ['lang' => 'en']) ?>" lan="en">
+                        <img src="{{ Vite::image('united-kingdom.svg') }}" alt="Partybooker English"/>
+                    </a>
+
+
+                </div>
             </div>
-        @endif
 
-        @include('common.social')
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                 aria-labelledby="offcanvasNavbarLabel">
 
-        <div class="language">
+                <div class="offcanvas-body">
+                    <div class="navigation h-full">
+                        <div class="nav-logo-container">
+                            <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}"
+                               class="nav-logo">
+                                <img src="{{ Vite::image('logoPB.png') }}"
+                                     alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
 
-
-            <a href="<?= route('setlocale', ['lang' => 'fr']) ?>" lan="fr">
-                <img src="{{ Vite::image('switzerland.svg') }}" alt="Partybooker French"/>
-            </a>
-            <a href="<?= route('setlocale', ['lang' => 'en']) ?>" lan="en">
-                <img src="{{ Vite::image('united-kingdom.svg') }}" alt="Partybooker English"/>
-            </a>
-        </div>
-
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
-             aria-labelledby="offcanvasNavbarLabel">
-
-            <div class="offcanvas-body">
-                <div class="navigation h-full">
-                    <div class="nav-logo-container">
-                        <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}" class="nav-logo">
-                            <img src="{{ Vite::image('logoPB.png') }}"
-                                 alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
-
-                        </a>
-                        <div class="position-absolute close-container">
-                            <button type="button" class="btn-close btn-close-white nav-sm-close"
-                                    data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </a>
+                            <div class="position-absolute close-container">
+                                <button type="button" class="btn-close btn-close-white nav-sm-close"
+                                        data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
                         </div>
-                    </div>
-                    <hr>
-
-                    <ul class="nav nav-flush flex-column text-center">
-
-                        <x-navigation.item
-                            page="home"
-                            :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/')"
-                            icon="heroicon-o-home"
-                            :tooltip="__('main.home_page')"/>
-
-                        <x-navigation.item
-                            page="listing"
-                            :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings'))"
-                            icon="heroicon-o-queue-list"
-                            :tooltip="__('main.listing_page')"/>
-
-                        <x-navigation.item
-                            page="partner"
-                            :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner'))"
-                            icon="heroicon-o-identification"
-                            :tooltip="__('main.become_partner_page')"/>
                         <hr>
 
-                        <x-navigation.item
-                            page="aboutus"
-                            :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus')) "
-                            icon="heroicon-o-information-circle"
-                            :tooltip="__('main.aboutus_page')"/>
+                        <ul class="nav nav-flush flex-column text-center">
+
+                            <x-navigation.item
+                                page="home"
+                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/')"
+                                icon="heroicon-o-home"
+                                :tooltip="__('main.home_page')"/>
+
+                            <x-navigation.item
+                                page="listing"
+                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings'))"
+                                icon="heroicon-o-queue-list"
+                                :tooltip="__('main.listing_page')"/>
+
+                            <x-navigation.item
+                                page="partner"
+                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner'))"
+                                icon="heroicon-o-identification"
+                                :tooltip="__('main.become_partner_page')"/>
+                            <hr>
+
+                            <x-navigation.item
+                                page="aboutus"
+                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus')) "
+                                icon="heroicon-o-information-circle"
+                                :tooltip="__('main.aboutus_page')"/>
 
 
-                        <x-navigation.item
-                            page="blog"
-                            :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/blog')"
-                            icon="heroicon-o-book-open"
-                            :tooltip="__('main.blog_page')"/>
+                            <x-navigation.item
+                                page="blog"
+                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/blog')"
+                                icon="heroicon-o-book-open"
+                                :tooltip="__('main.blog_page')"/>
 
-                        <x-navigation.item
-                            page="faqs"
-                            :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/faq')"
-                            icon="heroicon-o-question-mark-circle"
-                            :tooltip="__('main.faqs_page')"/>
+                            <x-navigation.item
+                                page="faqs"
+                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/faq')"
+                                icon="heroicon-o-question-mark-circle"
+                                :tooltip="__('main.faqs_page')"/>
 
+                            <div class="dropdown dropup border-top bg-primary dropdown-user">
+                                @if (Auth::user())
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary dropdown-toggle"
+                                                data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                            <p>{{Auth::user()->name}}</p>
+                                        </button>
+                                        <ul class="dropdown-menu">
 
-                    </ul>
+                                            @if (Auth::user()->id_partner)
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="{{ route('profile', Auth::user()->id_partner) }}">
+                                                        Dashboard
+                                                    </a>
+                                                </li>
+                                            @else
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
+                                                        {{ __('main.become_partner_page') }}
+                                                    </a>
+                                                </li>
+                                            @endif
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                    Sign out
+                                                </a>
+                                            </li>
+                                        </ul>
 
+                                        <a href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                              style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                @endif
+                            </div>
+
+                        </ul>
+
+                    </div>
                 </div>
             </div>
         </div>

@@ -2,6 +2,9 @@
 
 return [
 
+
+    'rating-based' => "Rating based on",
+    'rating' => "Vote",
     //GENERAL
     'login' => "Log in",
     'register' => "Register",

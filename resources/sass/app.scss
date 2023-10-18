@@ -32,12 +32,18 @@ h6 {
         margin: 10px;
         padding: 10px;
         width: 80px;
+
+        @media only screen and (max-width: 767px) {
+            width: 40px;
+            padding: 0;
+        }
     }
 }
 
 .listing-card-title {
     border-bottom: 1px solid $primary;
     padding-bottom: 5px;
+    color: $gray-700;
 }
 
 .sitemap-section {
@@ -170,34 +176,10 @@ a {
     height: 100%;
 
     @media only screen and (min-width: 767px) {
-        padding-top: 40px;
+        padding-top: 140px;
     }
 }
 
-
-.socials {
-    z-index: 800;
-    margin-right: 150px;
-
-    @media only screen and (max-width: 767px) {
-        padding: 15px 5px 5px;
-        margin-right: 100px;
-
-        img {
-            width: 15px;
-        }
-    }
-
-    a {
-        margin-bottom: 10px;
-
-        img {
-            width: 30px;
-            margin-left: 10px;
-        }
-    }
-
-}
 
 .btn-secondary {
     background-color: #fff;
@@ -217,11 +199,7 @@ a {
 
 .about {
     @media only screen and (max-width: 767px) {
-        margin-top: 100px;
-
-        h1 {
-            padding: 20px;
-        }
+        margin-top: 140px;
     }
 
 
@@ -234,7 +212,7 @@ a {
     h1 {
         font-weight: bold;
         text-align: center;
-        color: $gray-900;
+        color: $gray-700;
     }
 
     h2 {
@@ -562,6 +540,39 @@ a {
 
 // Service Page
 .partner {
+
+    .rating-card {
+        border: 1px solid $gray-300;
+        border-radius: 20px;
+        padding: 30px;
+        margin-top: 10px;
+        @media only screen and (max-width: 767px) {
+            margin-top: 20px;
+        }
+    }
+
+    .rating-stars {
+        .rating-text {
+            font-size: smaller;
+            color: $gray-700;
+            font-weight: bold;
+        }
+
+        ul {
+            padding: 0;
+            display: flex;
+            cursor: pointer;
+        }
+
+        svg {
+            width: 20px;
+        }
+
+        svg:hover {
+            color: $primary;
+            transition: .2s;
+        }
+    }
 
     .partner-advert {
 
@@ -1479,7 +1490,7 @@ a {
 
         .glide__slide--active {
             .card {
-                border: 4px solid $accent;
+                border: 8px solid $accent;
                 border-radius: 50px;
             }
         }
@@ -1560,6 +1571,7 @@ a {
         .glide__arrow {
             position: absolute;
             margin-top: 200px;
+            padding-bottom: 10px;
 
             img {
                 width: 20px;
@@ -1571,8 +1583,6 @@ a {
         }
 
         .glide__arrow--right {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
             right: 0;
 
             @media only screen and (max-width: 1000px) {
@@ -1581,8 +1591,6 @@ a {
         }
 
         .glide__arrow--left {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
             left: 0;
 
             @media only screen and (max-width: 1000px) {
@@ -1636,6 +1644,9 @@ a {
 }
 
 .categories {
+    @media only screen and (max-width: 767px) {
+        margin-top: 60px;
+    }
 
     h2 {
         color: $gray-700;
@@ -1768,7 +1779,6 @@ a {
             position: absolute;
             top: 10px;
             margin-bottom: 20px;
-            color: $primary;
         }
 
         .description {
@@ -1825,17 +1835,11 @@ a {
     }
 }
 
-.dropdown-user {
-    position: fixed;
-    top: 0;
-    left: 6rem;
-    z-index: 300;
-}
 
 .auth {
     position: fixed;
     top: 0;
-    left: 6rem;
+    left: 14rem;
     z-index: 300;
 
     a {
@@ -1854,8 +1858,12 @@ a {
 .language {
     position: fixed;
     top: 10px;
-    right: 20px;
+    right: 10px;
     z-index: 100;
+
+    .socials {
+        margin-bottom: 10px;
+    }
 
     a {
         color: #fff;
@@ -1932,7 +1940,7 @@ a {
 .filters {
     position: fixed;
     right: 0;
-    top: 80px;
+    top: 110px;
     z-index: 10;
 
     .list-group-item-child {
@@ -1990,6 +1998,8 @@ a {
 
 .nav-logo-container {
     padding-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .navbar-toggler:focus,
@@ -2002,24 +2012,32 @@ a {
 .navbar {
     border-bottom: 2px solid $primary;
 
+    .container-fluid {
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
     .navbar-toggler {
         outline: none;
         border: 0;
+        padding: 0;
 
         svg {
             color: $gray-800;
             width: 40px;
             height: 40px;
         }
+
+        svg:hover {
+            transform: scale(1.12);
+            transition: .2s;
+        }
     }
 
-    .navbar-toggler:hover {
-        transform: scale(1.12);
-        transition: .2s;
-    }
 
     .offcanvas-body {
-        width: 80px;
+        width: 140px;
         padding: 0;
 
         @media only screen and (max-width: 767px) {
@@ -2089,14 +2107,6 @@ html {
     overflow-x: hidden;
 }
 
-h1 {
-    margin-top: 100px;
-
-    @media only screen and (max-width: 767px) {
-        margin-top: 100px;
-    }
-}
-
 
 .home-side {
 
@@ -2107,8 +2117,18 @@ h1 {
 }
 
 .home-section {
+    overflow-x: hidden;
+
+    h1 {
+        margin-top: 100px;
+
+        @media only screen and (max-width: 767px) {
+            margin-top: 100px;
+        }
+    }
+
     h2 {
-        border-bottom: 2px solid $primary;
+        border-bottom: 8px solid $primary;
         padding-bottom: 10px;
     }
 
@@ -2161,10 +2181,16 @@ h1 {
 
 
 .welcome {
-
-
     @media only screen and (max-width: 767px) {
-        margin-top: 100px;
+        margin-top: 20px;
+
+
+    }
+
+    @media only screen and (min-width: 1000px) {
+        .card {
+            margin: 20px;
+        }
     }
 
     .accordion {
@@ -2210,7 +2236,7 @@ h1 {
                 img:hover {
                     transform: scale(1.5);
                     transition: 0.2s ease-in-out;
-                    padding: 20px;
+                    padding: 10px;
                 }
 
                 h3 {
@@ -2525,8 +2551,6 @@ h1 {
             h5 {
                 padding: 10px;
                 font-size: medium;
-                color: $primary;
-                border-bottom-right-radius: 10px 10px;
                 top: 230px;
                 left: 6px;
             }
