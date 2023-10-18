@@ -20,13 +20,14 @@
                 </div>
             @endif
 
+            <div class="socials">
+                @include('common.social')
+            </div>
 
             <div class="d-flex flex-column">
                 <div class="language">
 
-                    <div class="socials">
-                        @include('common.social')
-                    </div>
+
                     <a href="<?= route('setlocale', ['lang' => 'fr']) ?>" lan="fr">
                         <img src="{{ Vite::image('switzerland.svg') }}" alt="Partybooker French"/>
                     </a>

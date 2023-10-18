@@ -216,7 +216,7 @@ $('.filter-btn').on('click', function () {
         lang = '/annonces-filtered';
     }
 
-    var url = lang + '?name=' + name + '&cat=' + category + '&place=' + place + '&budget=' + budget;
+    var url = lang + '?place=' + place
     $(this).attr('href', url);
 });
 var filName = $('[name=filter_name]').data('value');

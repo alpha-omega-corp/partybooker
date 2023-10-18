@@ -51,6 +51,10 @@
     "file": "assets/dvert-f54f6968.png",
     "src": "resources/images/dvert.png"
   },
+  "resources/images/alphomega_logo.png": {
+    "file": "assets/alphomega_logo-6fce03e6.png",
+    "src": "resources/images/alphomega_logo.png"
+  },
   "resources/images/american.svg": {
     "file": "assets/american-bf19bce0.svg",
     "src": "resources/images/american.svg"
@@ -668,7 +672,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-77847935.css",
+    "file": "assets/app-840bbf84.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -676,9 +680,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-77847935.css"
+      "assets/app-840bbf84.css"
     ],
-    "file": "assets/app-14bed346.js",
+    "file": "assets/app-b15b5936.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },

@@ -73,8 +73,7 @@
                     <h6 class="fs-4 fw-bold text-white">{{ __('main.subscribe_offers') }}</h6>
                     <p>{{ __('main.subscribe_text') }}</p>
 
-                    <form class="subscribe-form">
-
+                    <div class="subscribe-form">
                         <div class="d-flex m-2">
                             <div class="input-group">
                                 <span class="input-group-text" id="offer">
@@ -92,8 +91,26 @@
 
                             <button type="submit" class="btn btn-primary">{{ __('main.subscribe') }}</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
+            </section>
+
+            <section class="alphomega">
+                <div class="alphomega-card">
+
+                    <h6 class="text-center text-uppercase fw-bold">
+
+                        {{ __('main.made-by') }}
+
+                    </h6>
+                    <div class="d-flex justify-content-center">
+
+                        <a href="https://www.alphomega.org" target="_blank">
+                            <img src="{{Vite::image('alphomega_logo.png')}}" alt="alphomega">
+                        </a>
+                    </div>
+                </div>
+
             </section>
         </div>
     </div>

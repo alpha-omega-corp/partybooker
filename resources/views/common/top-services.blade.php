@@ -60,8 +60,11 @@
                                                     @endif
                                                 </h5>
 
-                                                <p class="top-location">{{__('cantons.'.strtolower($service->location_code).'_loc')}}
-                                                    , {{$service->address}}</p>
+                                                <p class="top-location">{{__('cantons.'.strtolower($service->location_code).'_loc')}}</p>
+
+                                                <div class="top-address">
+                                                    {{$service->address}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

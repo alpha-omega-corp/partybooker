@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'made-by' => 'Développement',
+
     'rating-based' => "Avis basé sur",
     'rating' => "Vote",
     //GENERAL

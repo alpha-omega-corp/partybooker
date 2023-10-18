@@ -2,7 +2,7 @@
 
 return [
 
-
+    'made-by' => 'Development',
     'rating-based' => "Rating based on",
     'rating' => "Vote",
     //GENERAL
@@ -88,7 +88,24 @@ return [
     'event-types' => 'Event types',
     'select_all' => 'Select all',
 
-    'info-block-1' => 'The ultimate destination for individuals and organisations seeking to craft unforgettable events infused with exceptional quality and creativity. Based in the picturesque heart of Suisse Romande, PartyBooker is your trusted partner, bringing together innovative service providers and those with a passion for crafting one-of-a-kind experiences. At PartyBooker, we believe that every event has the potential to become an unforgettable experience.',
-    'info-block-2' => 'Our mission is to empower you to transform your event dreams into reality by connecting you with a curated selection of top-tier service providers who share your desire for excellence. We understand that your event is a reflection of your unique vision, and we are dedicated to providing you with the tools and resources to make it a resounding success. So what are you waiting for, contact Partybooker today and lets get the party started',
+    'www' => 'At PartyBooker,
+     ',
+    'ww' => '  . . ',
 
+
+    'info-block-1' => 'The ultimate destination for individuals and organisations seeking to craft unforgettable events infused with exceptional quality and creativity.',
+    'info-block-1-1' => 'Based in the picturesque heart of Suisse Romande, PartyBooker is your trusted partner, bringing together innovative service providers and those with a passion for crafting one-of-a-kind experiences',
+    'info-block-2' => 'Our mission is to empower you to',
+    'info-block-2-1' => 'transform your event dreams into reality',
+    'info-block-2-2' => 'by connecting you with a curated selection of top-tier service providers who share your desire for excellence.',
+    'info-block-2-3' => 'We understand that your event is a reflection of your unique vision, and we are dedicated to providing you with the tools and resources to make it a resounding success.',
+    'info-block-3' => 'we believe that every event has the potential to become an unforgettable experience.',
+    'info-block-3-1' => 'So what are you waiting for, contact Partybooker today and lets get the party started.',
+    'info-block-title-1' => 'Who are we',
+    'info-block-title-1-1' => 'Our location',
+    'info-block-title-2' => 'Our mission',
+    'info-block-title-3' => 'Partnership!',
+    'info-block-register' => 'Become a partner',
+    'info-block-pb' => 'PartyBooker',
+    'info-block-at' => 'Chez',
 ];

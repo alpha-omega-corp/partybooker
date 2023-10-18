@@ -1,6 +1,9 @@
+@php use App\Helpers\BudgetsHelper; @endphp
+
+
 @php
 
-    $cantonShortCodes = [
+    $cantonNames = [
         __('cantons.ag_loc'),
         __('cantons.ai_loc'),
         __('cantons.ar_loc'),
@@ -29,7 +32,7 @@
         __('cantons.zh_loc'),
     ];
 
-    $cantonNames = [
+    $cantonShortCodes = [
         __('cantons.ag'),
         __('cantons.ai'),
         __('cantons.ar'),
@@ -60,3 +63,28 @@
 
 @endphp
 
+<div class="btn-group dropstart" data-url="{{ $partners->url($partners->currentPage()) }}">
+    <button type="button" class="btn btn-labeled btn-accent text-uppercase" data-bs-toggle="dropdown"
+            data-bs-display="static" aria-expanded="false">
+        <span class="btn-label">
+            @svg('heroicon-o-globe-americas')
+        </span>
+        <span class="btn-text">
+
+            Cantons
+
+        </span>
+    </button>
+    <ul class="dropdown-menu">
+
+        @foreach ($cantonNames as $k => $v)
+            <li class="dropdown-item p-2">
+                <a data-value="{{ $cantonShortCodes[$k] }}"
+                   href="{{ $partners->url(1) . '&place=' . $cantonShortCodes[$k] }}"
+                   class="text-dark">
+                    {{ $v }}
+                </a>
+            </li>
+        @endforeach
+    </ul>
+</div>

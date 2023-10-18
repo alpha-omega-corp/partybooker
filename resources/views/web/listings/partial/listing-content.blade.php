@@ -47,6 +47,10 @@
     </div>
 
     <div class="d-flex justify-content-end">
+        @include('web.listings.partial.location-filter')
+    </div>
+
+    <div class="d-flex justify-content-end">
         @include('web.listings.partial.budget-filter')
     </div>
 
