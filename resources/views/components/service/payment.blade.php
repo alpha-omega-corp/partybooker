@@ -3,8 +3,8 @@
     'details',
 ])
 
-<x-service.list-item :title="__('partner.payment_methods')">
-    @if(isset($details->paymeny))
+@if(json_decode($details->paymeny))
+    <x-service.list-item :title="__('partner.payment_methods')">
         <p>
             @foreach (json_decode($details->paymeny) as $payment)
                 <span class="d-flex align-items-center">
@@ -16,8 +16,8 @@
                         <span>
                             {{PaymentMethodsTranslatorHelper::translate($payment)}}
                         </span>
-                    </span>
+                </span>
             @endforeach
         </p>
-    @endif
-</x-service.list-item>
+    </x-service.list-item>
+@endif
