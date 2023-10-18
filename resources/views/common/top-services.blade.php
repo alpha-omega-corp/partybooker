@@ -59,6 +59,9 @@
                                                         {{ $service->fr_company_name }}
                                                     @endif
                                                 </h5>
+
+                                                <p class="top-location">{{__('cantons.'.strtolower($service->location_code).'_loc')}}
+                                                    , {{$service->address}}</p>
                                             </div>
                                         </div>
                                     </div>

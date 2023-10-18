@@ -304,7 +304,7 @@
     "src": "resources/images/grid-world.png"
   },
   "resources/images/group-icon.svg": {
-    "file": "assets/group-icon-e0f39767.svg",
+    "file": "assets/group-icon-927b8c7a.svg",
     "src": "resources/images/group-icon.svg"
   },
   "resources/images/group.svg": {
@@ -668,7 +668,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-d65e26b0.css",
+    "file": "assets/app-77847935.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -676,9 +676,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-d65e26b0.css"
+      "assets/app-77847935.css"
     ],
-    "file": "assets/app-4d3d4512.js",
+    "file": "assets/app-14bed346.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },

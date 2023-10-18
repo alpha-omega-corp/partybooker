@@ -26,7 +26,6 @@ h6 {
     color: $gray-700;
 }
 
-
 .pb-logo {
     img {
         margin: 10px;
@@ -34,7 +33,7 @@ h6 {
         width: 80px;
 
         @media only screen and (max-width: 767px) {
-            width: 40px;
+            width: 50px;
             padding: 0;
         }
     }
@@ -1478,6 +1477,11 @@ a {
         margin-top: 80px;
     }
 
+    .top-location {
+        font-size: small;
+        text-align: center;
+    }
+
     h2 {
         color: $gray-700;
     }
@@ -2010,7 +2014,7 @@ a {
 }
 
 .navbar {
-    border-bottom: 2px solid $primary;
+    border-bottom: 2px solid $accent;
 
     .container-fluid {
         padding: 0;
@@ -2022,6 +2026,7 @@ a {
         outline: none;
         border: 0;
         padding: 0;
+        margin-left: 5px;
 
         svg {
             color: $gray-800;
