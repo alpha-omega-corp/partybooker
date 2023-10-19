@@ -86,12 +86,5 @@
 </div>
 
 
-<div class="input-group mb-3">
-    <span class="input-group-text" id="contact-message">
-        @svg('heroicon-o-chat-bubble-bottom-center-text')
-    </span>
-    <textarea class="form-control" placeholder="{{ __('service.message') }}"
-              name="message"
-              aria-label="{{ __('service.location') }}"
-              aria-describedby="contact-message"></textarea>
-</div>
+
+

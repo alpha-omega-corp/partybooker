@@ -98,6 +98,13 @@
                                 icon="heroicon-o-question-mark-circle"
                                 :tooltip="__('main.faqs_page')"/>
 
+
+                            <x-navigation.item
+                                page="comments"
+                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.comments'))"
+                                icon="heroicon-o-chat-bubble-bottom-center-text"
+                                :tooltip="__('main.comments_page')"/>
+
                             <div class="dropdown dropup border-top bg-primary dropdown-user">
                                 @if (Auth::user())
                                     <div class="btn-group">
@@ -146,9 +153,7 @@
                                     </div>
                                 @endif
                             </div>
-
                         </ul>
-
                     </div>
                 </div>
             </div>

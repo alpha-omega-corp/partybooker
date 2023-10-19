@@ -44,6 +44,8 @@ return [
     'faqs_page' => "FAQs",
     'blog_page' => "Blog",
     'contact_page' => "Contact",
+    'comments_page' => "Commentaires",
+
 
     //subscribe form
     'subscribe_offers' => "OFFRES SPECIALES",

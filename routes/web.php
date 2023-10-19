@@ -29,10 +29,14 @@ Route::group(['prefix' => 'en'], function () {
     Route::get('/partner-terms', 'mainWebsite@partnerterms');
 
     Route::get('/sitemap', '\App\Http\Controllers\Web\PageController@siteMap');
+
+    Route::view('/comments', 'general-comments');
 });
 
 
 Route::group(['prefix' => null], function () {
+
+    Route::view('/commentaires', 'general-comments');
 
     Route::get('/partenaire', 'mainWebsite@partner');
     Route::view('/partenaire/inscription', 'partner-register');

@@ -1,56 +1,103 @@
 @extends('main')
 
 @section('page')
-page="contacts"
+    page="contacts"
 @endsection
 
 @section('title')
-<title>{{__('main.contact_us')}} | {{ __('partybooker-cp.www')}}</title>
+    <title>{{__('main.contact_us')}} | {{ __('partybooker-cp.www')}}</title>
 @endsection
 
 @section('content')
-    <section class="header not-full">
-        @include('common.header-nav')
-        <div class="cover abs">
-            <img src="/images/home-header-bg.jpg" class="bg abs" alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
-        </div>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-10">
-                    <h1>{{__('main.contact_us')}}</h1>
-                </div>
-            </div>
-        </div>
-        @include('common.social')
-    </section>
 
     <section class="contact-section">
         <div class="container">
-            <div class="row justify-content-around">
-                <div class="col-md-5 col-sm-8 our-contacts">
-                    <h3>{{__('main.our_contacts')}}</h3>
-                    <a href="mailto:contact@partybooker.ch" class="email">{{$settings[0]->email}}</a>
-                    <a href="tel:{{$settings[0]->phone}}" class="phone">{{$settings[0]->phone}}</a>
-                    <a target="_blank" href="{{$settings[0]->facebook}}"
-                        class="facebook">{{$settings[0]->facebook}}</a>
-                    <a target="_blank" href="{{$settings[0]->linkedin}}"
-                        class="linkedin">{{$settings[0]->linkedin}}</a>
-                    <a target="_blank" href="{{$settings[0]->instagram}}"
-                        class="instagram">{{$settings[0]->instagram}}</a>
-                    <img src="images/contacts.svg" alt="">
+
+
+            <div class="d-flex flex-column justify-content-center">
+
+                <h1 class="text-uppercase text-center fw-bold pb-5">
+                    {{__('main.contact_us')}}
+                </h1>
+            </div>
+
+            <div class="container">
+                <div class="d-flex justify-content-center">
+
+
+                    <div class="contact-card shadow-lg">
+                        <div class="d-flex justify-content-center">
+                            <img src="{{Vite::image('contacts.svg')}}" alt="" width="100">
+                        </div>
+                        <hr>
+                        <form class="contact-form">
+                            <div class="input-group mb-3">
+                                    <span class="input-group-text" id="contact-name">
+                                        @svg('heroicon-o-user-circle')
+                                    </span>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    required
+                                    class="form-control"
+                                    placeholder="{{__('main.contacts_name')}}"
+                                    aria-label="{{__('main.contacts_name')}}"
+                                    aria-describedby="contact-name">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                    <span class="input-group-text" id="contact-email">
+                                        @svg('heroicon-o-envelope')
+                                    </span>
+                                <input
+                                    type="email"
+                                    required
+                                    name="email"
+                                    class="form-control"
+                                    placeholder="{{__('main.contacts_email')}}"
+                                    aria-label="{{__('main.contacts_email')}}"
+                                    aria-describedby="contact-email">
+                            </div>
+
+
+                            <div class="input-group mb-3">
+                                    <span class="input-group-text" id="contact-message">
+                                        @svg('heroicon-o-chat-bubble-bottom-center-text')
+                                    </span>
+                                <textarea name="message"
+                                          class="form-control"
+                                          placeholder="{{__('main.contacts_message')}}"
+                                          aria-label="{{__('main.contacts_message')}}"
+                                          aria-describedby="contact-message"></textarea>
+                            </div>
+
+
+                            <button class="btn btn-primary w-100">{{__('main.send')}}</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="col-sm-8 col-md-5 col-lg-4 write_form">
-                    <h3>{{__('main.write_us')}}</h3>
-                    <form class="contact-form">
-                        <input type="text" name="name" placeholder="{{__('main.contacts_name')}}" required>
-                        <input type="email" name="email" placeholder="{{__('main.contacts_email')}}" required>
-                        <textarea name="message" placeholder="{{__('main.contacts_message')}}" required></textarea>
-                        <span class="agreement checkbox-item">
-							<input type="checkbox" name="agreement" required />
-							<span>{{__('main.contacts_agree')}} <a href="{{url(App\Http\Middleware\LocaleMiddleware::getLocale().'/user-terms')}}" class="agree-term" target="_blank">{{__('main.contacts_terms')}}</a></span>
-                        </span>
-                        <button class="btn-orange">{{__('main.send')}}</button>
-                    </form>
+                <div class="d-flex justify-content-center">
+                    <div class="mt-5">
+                        <h3 class="fw-bold">
+                            {{__('main.our_contacts')}}
+                        </h3>
+                        <hr>
+                        <ul>
+                            <li>
+                                <a href="mailto:contact@partybooker.ch" class="email">
+                                    {{$settings[0]->email}}
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="tel:{{$settings[0]->phone}}" class="phone">
+                                    {{$settings[0]->phone}}
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

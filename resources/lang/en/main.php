@@ -45,6 +45,7 @@ return [
     'faqs_page' => "FAQs",
     'blog_page' => "Blog",
     'contact_page' => "Contact",
+    'comments_page' => "Comments",
 
     //subscribe form
     'subscribe_offers' => "SPECIAL OFFERS",
@@ -87,11 +88,6 @@ return [
 
     'event-types' => 'Event types',
     'select_all' => 'Select all',
-
-    'www' => 'At PartyBooker,
-     ',
-    'ww' => '  . . ',
-
 
     'info-block-1' => 'The ultimate destination for individuals and organisations seeking to craft unforgettable events infused with exceptional quality and creativity.',
     'info-block-1-1' => 'Based in the picturesque heart of Suisse Romande, PartyBooker is your trusted partner, bringing together innovative service providers and those with a passion for crafting one-of-a-kind experiences',

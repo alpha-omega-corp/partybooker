@@ -8,5 +8,6 @@ return [
     'partner-register' => 'partenaire/inscription',
     'sitemap' => 'plan-du-site',
     'user-terms' => 'user-terms',
-    'partner-terms' => 'conditions-generales-partnaires'
+    'partner-terms' => 'conditions-generales-partnaires',
+    'comments' => 'commentaires',
 ];

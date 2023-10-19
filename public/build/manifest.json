@@ -599,6 +599,14 @@
     "file": "assets/swiHref-75070111.jpg",
     "src": "resources/images/swiHref.jpg"
   },
+  "resources/images/swiss-army-knife.svg": {
+    "file": "assets/swiss-army-knife-a76917c0.svg",
+    "src": "resources/images/swiss-army-knife.svg"
+  },
+  "resources/images/swiss-icon.svg": {
+    "file": "assets/swiss-icon-23763bd9.svg",
+    "src": "resources/images/swiss-icon.svg"
+  },
   "resources/images/switzerland.svg": {
     "file": "assets/switzerland-f091cdc2.svg",
     "src": "resources/images/switzerland.svg"
@@ -655,6 +663,10 @@
     "file": "assets/wave-haikei-b69cee48.svg",
     "src": "resources/images/wave-haikei.svg"
   },
+  "resources/images/who-icon.svg": {
+    "file": "assets/who-icon-7d1f39ea.svg",
+    "src": "resources/images/who-icon.svg"
+  },
   "resources/images/wine.svg": {
     "file": "assets/wine-1e833c9e.svg",
     "src": "resources/images/wine.svg"
@@ -672,7 +684,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-840bbf84.css",
+    "file": "assets/app-e6b92974.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -680,9 +692,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-840bbf84.css"
+      "assets/app-e6b92974.css"
     ],
-    "file": "assets/app-b15b5936.js",
+    "file": "assets/app-16b578ce.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },

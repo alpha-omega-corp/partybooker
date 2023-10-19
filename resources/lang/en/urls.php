@@ -8,5 +8,6 @@ return [
     'partner-register' => 'partner/register',
     'sitemap' => 'sitemap',
     'user-terms' => 'user-terms',
-    'partner-terms' => 'partner-terms'
+    'partner-terms' => 'partner-terms',
+    'comments' => 'comments',
 ];

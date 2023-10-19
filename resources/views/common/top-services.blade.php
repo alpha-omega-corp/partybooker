@@ -60,10 +60,10 @@
                                                     @endif
                                                 </h5>
 
-                                                <p class="top-location">{{__('cantons.'.strtolower($service->location_code).'_loc')}}</p>
 
                                                 <div class="top-address">
-                                                    {{$service->address}}
+
+                                                    <p class="top-location text-uppercase">{{__('cantons.'.strtolower($service->location_code)) . ', ' . explode(',', $service->address)[1]}}</p>
                                                 </div>
                                             </div>
                                         </div>

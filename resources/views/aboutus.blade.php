@@ -52,7 +52,7 @@
                                     <p>
                                         {{__('about.ABOUT_PARTYBOOKER_p2')}}
                                     </p>
-                                    <h3 class="about-concept">Le concept</h3>
+                                    <h3 class="about-concept fw-bold">{{__('about.CONCEPT')}}</h3>
                                     <p>
                                         {{ __('about.CONCEPT_expl') }}
                                     </p>
