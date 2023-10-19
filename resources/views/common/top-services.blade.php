@@ -62,8 +62,13 @@
 
 
                                                 <div class="top-address">
+                                                    @php
+                                                        $explodedAddress = explode(',', $service->address);
 
-                                                    <p class="top-location text-uppercase">{{__('cantons.'.strtolower($service->location_code)) . ', ' . explode(',', $service->address)[1]}}</p>
+                                                    @endphp
+                                                    <p class="top-location text-uppercase">
+                                                        {{__('cantons.'.strtolower($service->location_code)) . ($explodedAddress ? ', ' . $explodedAddress[1] : '')}}
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
