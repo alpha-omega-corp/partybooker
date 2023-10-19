@@ -15,8 +15,9 @@
 @section('content')
     <section class="post-section">
         <div class="container">
-            <a href="{{url(App\Http\Middleware\LocaleMiddleware::getLocale().'/blog/')}}" class="btn-back"
-               style="margin-right: 27px;"> Back</a>
+            <a href="{{url(App\Http\Middleware\LocaleMiddleware::getLocale().'/blog/')}}" class="btn btn-primary">
+                Back
+            </a>
             <div class="text-uppercase fw-bold">
                 @if (app()->getLocale() == 'en')
                     <h1 class="m-145">{{$post[0]->title_en}}</h1>

@@ -57,6 +57,34 @@ class ProfileController extends Controller
         return view('web.partner-cp', ['user' => $user, 'tabView' => 'main']);
     }
 
+    public function statistics(Request $request)
+    {
+        if (Auth::user()->type == 'admin') {
+            $id = $request->id_partner;
+        } else {
+            $id = Auth::user()->id_partner;
+        }
+
+        $user = User::where('id_partner', $id)->with(['partnerInfo', 'partnerInfo.vipPlan', 'partnerInfo.rates'])->first();
+
+        $payed = $user->partnerInfo->payed ? Carbon::parse($user->partnerInfo->payed) : '';
+        $exp_date = $user->partnerInfo->expiration_date ? Carbon::parse($user->partnerInfo->expiration_date) : '';
+        $user->partnerInfo->planExpirationDays = $payed ? $payed->diffInDays($exp_date) : 0;
+
+        $grouped = $user->partnerInfo->rates->groupBy('rate');
+        $groupCount = $grouped->map(function ($item, $key) {
+            return collect($item)->count();
+        })->sort();
+
+        $user->partnerInfo->votes = $user->partnerInfo->rates->count();
+        $user->partnerInfo->avarageRate = $user->partnerInfo->rates->avg('rate');
+        $user->partnerInfo->rateGroup = $groupCount;
+
+        $user->subCategoriesList = json_encode(AdvertCategory::where('partners_info_id', $user->partnerInfo->id)->pluck('sub_category_id')->toArray());
+
+        return view('web.partner.pages.main', ['user' => $user, 'tabView' => 'main']);
+    }
+
     public function faq($id_partner)
     {
         if (Auth::user()->type == 'admin') {

@@ -2,8 +2,8 @@
 @import "responsive";
 
 
-.button {
-
+.nav-active {
+    border-bottom: 2px solid $primary;
 }
 
 .button:hover {
@@ -3455,15 +3455,6 @@ input[type="range"] {
             margin-bottom: 20px;
         }
 
-        h3 {
-            font-size: 30px !important;
-            line-height: 45px !important;
-            color: #fe8a02 !important;
-            font-family: "GothamPro" !important;
-            padding-top: 0 !important;
-            margin-bottom: 0 !important;
-        }
-
         p {
             text-align: left;
             font-size: 14px !important;
@@ -3655,11 +3646,13 @@ input[type="range"] {
         .profile-info {
             ul {
                 margin: 0 0 15px;
-                padding: 15px;
-                color: $grey-33;
-                border: 1px solid $green;
-                border-radius: 3px;
-                box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+                color: $gray-700;
+                border: 1px solid $primary;
+
+                .li {
+                    margin-left: 20px;
+                }
 
                 h4 {
                     text-align: left;
@@ -3691,6 +3684,10 @@ input[type="range"] {
                         h4 {
                             margin-bottom: 0;
                             position: relative;
+                            text-align: center;
+                            text-transform: uppercase;
+                            padding-bottom: 10px;
+                            font-weight: bold;
 
                             &:before,
                             &:after {
@@ -3699,7 +3696,7 @@ input[type="range"] {
                                 bottom: 0;
                                 width: 0;
                                 height: 2px;
-                                background: $green;
+                                background: $accent;
                                 transition: 0.3s;
                             }
 
@@ -3718,7 +3715,7 @@ input[type="range"] {
                     }
 
                     span {
-                        color: $orange-ff;
+                        color: $primary;
                         font-weight: bold;
                     }
 

@@ -424,7 +424,7 @@ return [
 
     'home_page' => "Main",
     'profile' => 'Profile',
-    'my_plan' => 'My plan',
+    'my_plan' => 'Plan',
     'faq' => 'FAQ',
     'provider_terms' => 'Service Provider Terms & Conditions',
     'contacts' => 'Contacts',

@@ -26,6 +26,66 @@ h6 {
     color: $gray-700;
 }
 
+.comments {
+
+    padding: 20px;
+
+    .glide__arrow {
+        img {
+            width: 30px;
+        }
+    }
+
+
+    .glide-comments {
+        position: relative;
+    }
+
+    .glide__arrows {
+        position: absolute;
+        top: -230px;
+    }
+
+    .glide__arrow--left {
+        transform: rotate(180deg);
+        position: absolute;
+        left: 200px;
+    }
+
+    .glide__arrow--right {
+        position: absolute;
+        right: 200px;
+    }
+
+
+
+    h1 {
+        text-align: center;
+        border-bottom: 1px solid $primary;
+    }
+
+    .reference {
+        text-align: justify;
+        margin-bottom: 100px;
+
+        h6 {
+            margin-left: 10px;
+        }
+
+        .reference-title {
+            border-bottom: 1px solid $primary;
+            margin-bottom: 10px;
+        }
+
+        .reference-card {
+            width: 500px;
+            margin-top: 100px;
+            padding: 20px;
+            border-radius: 20px;
+        }
+    }
+}
+
 .pb-logo {
     img {
         margin: 10px;
@@ -173,6 +233,7 @@ a {
 
 .main-content {
     height: 100%;
+    padding-top: 100px;
 
     @media only screen and (min-width: 767px) {
         padding-top: 140px;
@@ -197,11 +258,6 @@ a {
 }
 
 .about {
-    @media only screen and (max-width: 767px) {
-        margin-top: 140px;
-    }
-
-
     .about-concept {
         border-bottom: 1px solid $primary;
         font-size: large;
@@ -1046,7 +1102,7 @@ a {
 
     @media only screen and (min-width: 767px) {
         padding-top: 100px;
-        margin-top: 150px;
+        margin-top: 50px;
 
     }
 
@@ -1263,7 +1319,6 @@ a {
 
 
     .benefits {
-        padding-top: 80px;
 
         h3 {
             font-weight: bold;
@@ -1323,7 +1378,7 @@ a {
 
 
     .packages {
-        margin-top: 250px;
+        margin-top: 150px;
 
         @media only screen and (min-width: 767px) {
             .package:hover {
@@ -2190,16 +2245,6 @@ html {
 .home-section {
     overflow-x: hidden;
 
-    h1 {
-        @media only screen and (max-width: 767px) {
-            margin-top: 100px;
-        }
-    }
-
-    h2 {
-        padding-bottom: 60px;
-    }
-
     .home-about {
 
         display: flex;
@@ -2604,7 +2649,6 @@ html {
     .listing {
 
         h1 {
-            margin-top: 100px;
             margin-bottom: 5px;
         }
 
@@ -2702,5 +2746,15 @@ html {
     .alphomega-card {
         margin: 20px 20px 0;
         padding: 10px 10px 50px;
+    }
+}
+
+.dashboard-container {
+    padding: 20px;
+
+    h1 {
+        border-bottom: 2px solid $accent;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
     }
 }

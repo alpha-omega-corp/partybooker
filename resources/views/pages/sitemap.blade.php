@@ -48,7 +48,7 @@
                         <ul>
                             @foreach($articles as $article)
                                 <li>
-                                    <a href="{{url(LocaleMiddleware::getLocale() . '/' . __('urls.blog') . '/' . $article->slug)}}">{{app()->getLocale() == 'en' ? $article->title_en : $article->title_fr }}</a>
+                                    <a href="{{url(LocaleMiddleware::getLocale() . '/blog/' . $article->slug)}}">{{app()->getLocale() == 'en' ? $article->title_en : $article->title_fr }}</a>
                                 </li>
                             @endforeach
                         </ul>

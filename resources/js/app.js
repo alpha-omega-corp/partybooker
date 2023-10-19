@@ -3,7 +3,7 @@ import '../sass/app.scss';
 import Alpine from 'alpinejs';
 import tippy, {animateFill} from 'tippy.js';
 import 'tippy.js/animations/scale.css';
-import Glide, {Breakpoints, Controls} from '@glidejs/glide/dist/glide.modular.esm'
+import Glide, {Breakpoints, Controls, Autoplay} from '@glidejs/glide/dist/glide.modular.esm'
 import focus from '@alpinejs/focus';
 
 import.meta.glob([
@@ -95,4 +95,13 @@ if (document.getElementsByClassName('glide').length > 0) {
             },
         },
     }).mount({Controls, Breakpoints});
+}
+
+
+if (document.getElementsByClassName('glide-comments').length > 0) {
+    const glide = new Glide('.glide-comments', {
+        type: 'carousel',
+        autoplay: 5000
+    }).mount({Controls, Autoplay});
+    glide.play()
 }

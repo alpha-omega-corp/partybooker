@@ -425,7 +425,7 @@ return [
 
     'home_page' => "Statistics",
     'profile' => 'Profil',
-    'my_plan' => 'Mon plan',
+    'my_plan' => 'Plan',
     'faq' => 'FAQ',
     'provider_terms' => 'Termes et conditions du fournisseur de services',
     'contacts' => 'Contacts',

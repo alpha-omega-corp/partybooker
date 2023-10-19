@@ -229,6 +229,8 @@
 
         </section>
 
+        <hr>
+
         <section class="usp">
             <div class="container">
                 <h2 class="display-4 mb-5 fw-bold text-uppercase">

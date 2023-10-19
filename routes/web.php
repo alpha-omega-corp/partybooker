@@ -166,7 +166,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::post('/cp/blog/remove/{postid}', 'newPost@remove');
         Route::post('/cp/blog/edit-post', 'newPost@edit');
 
-        Route::get('/cp/partner-cp/{id_partner}', '\App\Http\Controllers\Web\ProfileController@index');
+        Route::get('/cp/partner-cp/{id_partner}/statistics', '\App\Http\Controllers\Web\ProfileController@statistics');
         Route::get('/cp/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@plans');
         Route::get('/cp/partner-cp/{id_partner}/profile', '\App\Http\Controllers\Web\ProfileController@profile');
         Route::get('/cp/partner-cp/{id_partner}/adverts', '\App\Http\Controllers\Web\PartnerController@adverts');
@@ -241,11 +241,14 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     //ACCESS to PARTNER CP
     Route::middleware(['auth', 'partner', 'email'])->group(function () {
         Route::get('/partner-cp', '\App\Http\Controllers\Web\ProfileController@index');
+
         Route::get('/partner-cp/{id_partner}', '\App\Http\Controllers\Web\ProfileController@index');
+        Route::get('/partner-cp/{id_partner}/statistics', '\App\Http\Controllers\Web\ProfileController@statistics')->name('statistics');
+        Route::get('/partner-cp/{id_partner}/profile', '\App\Http\Controllers\Web\ProfileController@profile')->name('profile');
+
         Route::get('/partner-cp/{id_partner}/faq', '\App\Http\Controllers\Web\ProfileController@faq');
         Route::get('/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@plans');
         Route::get('/partner-cp/{id_partner}/terms', '\App\Http\Controllers\Web\ProfileController@terms');
-        Route::get('/partner-cp/{id_partner}/profile', '\App\Http\Controllers\Web\ProfileController@profile')->name('profile');
         Route::get('/partner-cp/{id_partner}/contacts', '\App\Http\Controllers\Web\ProfileController@contacts');
 
         Route::get('/partner-cp/{id_partner}/adverts', '\App\Http\Controllers\Web\PartnerController@adverts');

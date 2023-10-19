@@ -5,27 +5,36 @@
                 N/A
             @else
                 @if (Lang::has('plan.' . strtolower($user->partnerInfo->plan)))
-                    {{ strtoupper(trans('plan.' . $user->partnerInfo->plan)) }}
+                    <div class="fw-bold {{'text-' . strtolower($user->partnerInfo->plan)}}">
+                        {{ strtoupper(trans('plan.' . $user->partnerInfo->plan)) }}
+                    </div>
+
                 @else
                     {{ strtoupper($user->partnerInfo->plan) }}
                 @endif
             @endif
+            <hr>
         </li>
         <li>
-            <span>{{ __('partner.payment') }}: </span>
+            <span class="text-uppercase fw-bold">{{ __('partner.payment') }} </span>
+            <br>
             @if ($user->partnerInfo->payment_status == 0)
                 N/A
             @else
-                {{ __('partner.paid_on') }} {{ $user->partnerInfo->payed }}
+                {{ $user->partnerInfo->payed }}
             @endif
+            <hr>
         </li>
         <li>
-            <span>{{ __('partner.expire') }}: </span>
+
+            <span class="text-uppercase fw-bold">{{ __('partner.expire') }}</span>
+            <br>
             @if (is_null($user->partnerInfo->expiration_date))
                 N/A
             @else
                 {{ $user->partnerInfo->expiration_date }}
             @endif
+            <hr>
         </li>
 
         @if ($user->partnerInfo->payment_status == 0)

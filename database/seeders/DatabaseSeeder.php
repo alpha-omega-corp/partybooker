@@ -215,7 +215,7 @@ class DatabaseSeeder extends Seeder
                 'id_partner' => $partnerUid,
                 'email_verification' => 1,
                 'password' => bcrypt('password'),
-                'type' => 'partner',
+                'type' => 'admin',
                 'provider' => null,
                 'provider_id' => null,
             ]);

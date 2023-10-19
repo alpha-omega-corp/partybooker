@@ -100,7 +100,7 @@ page="listing"
 								<h3>{{$service->en_company_name}}</h3>
 								<h6>{{__('cantons.' . strtolower($service->location_code) . '_loc')}}</h6>
 							</div>
-							<a href="{{url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/partner-cp/'.$service->id_partner)}}" class="button">{{ __('partybooker-cp.view_profile')}}</a>
+							<a href="{{url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/partner-cp/'.$service->id_partner)}}/statistics" class="button">{{ __('partybooker-cp.view_profile')}}</a>
 							<a href="#" id="remove-partner" data-partner="{{$service->id_partner}}" class="button btn-remove">{{ __('partybooker-cp.remove_partner')}}</a>
 						</div>
 						<!-- <div class="clearfix"></div> -->

@@ -9,8 +9,6 @@
 @endsection
 
 @section('content')
-    @include('web.partner.main')
-
     <section id="service" class="location">
         <div id="map" class="abs"
              data-lat="{{$user->partnerInfo->lat}}"
