@@ -63,13 +63,10 @@
             @endif
 
                 @php
-
-
                     function isActive($segment): string {
                         $active = collect(request()->segments())->last();
                         return $active === $segment ? 'nav-active' : '';
                     }
-
                 @endphp
 
             <div class="d-flex justify-content-center">

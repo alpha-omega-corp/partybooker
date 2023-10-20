@@ -101,7 +101,7 @@ if (document.getElementsByClassName('glide').length > 0) {
 if (document.getElementsByClassName('glide-comments').length > 0) {
     const glide = new Glide('.glide-comments', {
         type: 'carousel',
-        autoplay: 5000
+        autoplay: 8000
     }).mount({Controls, Autoplay});
     glide.play()
 }

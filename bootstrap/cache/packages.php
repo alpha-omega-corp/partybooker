@@ -13,6 +13,17 @@
       0 => 'BladeUI\\Icons\\BladeIconsServiceProvider',
     ),
   ),
+  'buzz/laravel-google-captcha' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Buzz\\LaravelGoogleCaptcha\\CaptchaServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Captcha' => 'Buzz\\LaravelGoogleCaptcha\\CaptchaFacade',
+    ),
+  ),
   'intervention/image' => 
   array (
     'providers' => 

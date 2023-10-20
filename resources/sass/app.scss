@@ -68,7 +68,6 @@ h6 {
     }
 
 
-
     h1 {
         text-align: center;
         border-bottom: 1px solid $primary;
@@ -764,8 +763,10 @@ a {
 
         ul {
             color: $primary;
+
             li {
                 list-style-type: square;
+                color: #000000;
             }
         }
     }
@@ -1524,7 +1525,6 @@ a {
 }
 
 .nav-logo {
-    padding-left: 15px;
 
     img {
         width: 50px;
@@ -2118,8 +2118,6 @@ a {
 }
 
 .navbar {
-    border-bottom: 2px solid $accent;
-
     .container-fluid {
         padding: 0;
         display: flex;
@@ -2780,4 +2778,11 @@ html {
         margin-bottom: 20px;
         padding-bottom: 10px;
     }
+}
+
+.reset-password-container {
+    border: 2px solid $primary;
+    border-radius: 40px;
+    padding: 40px;
+    width: 500px;
 }

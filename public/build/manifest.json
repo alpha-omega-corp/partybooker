@@ -527,6 +527,10 @@
     "file": "assets/register-bg-d1d3c580.png",
     "src": "resources/images/register-bg.png"
   },
+  "resources/images/reset-password.svg": {
+    "file": "assets/reset-password-51804db8.svg",
+    "src": "resources/images/reset-password.svg"
+  },
   "resources/images/respect.svg": {
     "file": "assets/respect-5c5c8ac2.svg",
     "src": "resources/images/respect.svg"
@@ -684,7 +688,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-761aa311.css",
+    "file": "assets/app-a9bf7840.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -692,9 +696,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-761aa311.css"
+      "assets/app-a9bf7840.css"
     ],
-    "file": "assets/app-da8644ed.js",
+    "file": "assets/app-fd967859.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },

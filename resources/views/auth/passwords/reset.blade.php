@@ -6,68 +6,82 @@
 
 @section('content')
     <section>
-        <div class="container" style="color: black">
-            <div class="row justify-content-center">
-                <div class="col-md-8" style="padding: 20px">
+        <div class="container">
+
+            <div class="d-flex justify-content-center">
+                <div class="d-flex flex-column">
+
+                    <h1 class="text-uppercase fw-bold mb-5">
+                        {{ __('Reset Password') }}
+                    </h1>
+                </div>
+            </div>
+
+
+            <div class="d-flex justify-content-center">
+                <div class="reset-password-container shadow-lg">
+
+                    <div class="d-flex justify-content-center">
+                        <img src="{{Vite::image('reset-password.svg')}}" alt="reset-password" width="80">
+                    </div>
+
+                    <hr>
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
-
-                        <div class="form-group row">
-                            <label for="email"
-                                   class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email"
-                                       class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
-                                       value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('email') }}</strong>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="mail">
+                                @svg('heroicon-o-envelope')
                             </span>
-                                @endif
-                            </div>
+                            <input
+                                type="email"
+                                required
+                                name="email"
+                                placeholder="{{ __('service.email') }}"
+                                class="form-control @error('email') is-invalid @enderror"
+                                aria-label="{{ __('service.email') }}"
+                                aria-describedby="mail"
+                                value="{{ $email ?? old('email') }}" autocomplete="email" autofocus>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password"
-                                   class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password"
-                                       class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                       name="password" required autocomplete="new-password">
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('password') }}</strong>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="password">
+                                @svg('heroicon-o-lock-closed')
                             </span>
-                                @endif
-                            </div>
+                            <input
+                                type="password"
+                                required
+                                name="password"
+                                placeholder="{{ __('New Password') }}"
+                                class="form-control @error('password') is-invalid @enderror"
+                                aria-label="{{ __('New Password') }}"
+                                aria-describedby="password"
+                                autocomplete="off">
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm"
-                                   class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control"
-                                       name="password_confirmation" required autocomplete="new-password">
-                            </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="confirm-password">
+                                @svg('heroicon-o-lock-closed')
+                            </span>
+                            <input
+                                type="password"
+                                required
+                                name="password_confirmation"
+                                placeholder="{{ __('Confirm Password') }}"
+                                class="form-control @error('password_confirmation') is-invalid @enderror"
+                                aria-label="{{ __('New Password') }}"
+                                aria-describedby="confirm-password">
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-orange">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
-                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            Submit
+                        </button>
                     </form>
                 </div>
             </div>
+
+        </div>
     </section>
 @endsection

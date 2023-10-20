@@ -12,6 +12,7 @@ use App\Http\Middleware\PartnerAdmin;
 use App\Http\Middleware\PartybookerAdmin;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\TrimStrings;
+use App\Http\Middleware\TrustHosts;
 use App\Http\Middleware\TrustProxies;
 use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
@@ -45,6 +46,7 @@ class Kernel extends HttpKernel
         ConvertEmptyStringsToNull::class,
         TrustProxies::class,
         LocaleMiddleware::class,
+        TrustHosts::class
     ];
 
     /**

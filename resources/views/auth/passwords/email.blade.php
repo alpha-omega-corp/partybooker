@@ -10,7 +10,7 @@
         <div class="container" style="color: black">
 
             <div class="d-flex flex-column align-items-start">
-                <x-logo/>
+
                 <h1 class="text-uppercase mt-5">
                     {{ __('Reset Password') }}
                 </h1>

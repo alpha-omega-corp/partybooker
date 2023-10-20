@@ -15,7 +15,10 @@
 
         @if (Auth::user()->type == 'admin')
             <x-dashboard.card title="Administration">
-                @include('web.partner.partials.dashboard.discount')
+                <div class="admin">
+                    @include('web.partner.partials.dashboard.discount')
+                </div>
+
             </x-dashboard.card>
         @endif
 

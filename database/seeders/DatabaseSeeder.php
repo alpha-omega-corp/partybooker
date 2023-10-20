@@ -211,11 +211,11 @@ class DatabaseSeeder extends Seeder
         if ($for) {
             DB::table('users')->insert([
                 'name' => $for,
-                'email' => $for . '@alphomega.org',
+                'email' => 'bleyo@alphomega.org',
                 'id_partner' => $partnerUid,
                 'email_verification' => 1,
                 'password' => bcrypt('password'),
-                'type' => 'admin',
+                'type' => 'partner',
                 'provider' => null,
                 'provider_id' => null,
             ]);

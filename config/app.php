@@ -1,6 +1,6 @@
 <?php
 
-use Doctrine\DBAL\Schema\View;
+use Buzz\LaravelGoogleCaptcha\CaptchaServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
@@ -140,7 +140,6 @@ return [
     */
 
 
-
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*
          * Package Service Providers...
@@ -155,7 +154,8 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+        CaptchaServiceProvider::class,
     ])->toArray(),
 
 
@@ -171,10 +171,10 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'Vite' => \Illuminate\Support\Facades\Vite::class,
+        'Vite' => Vite::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Image' => Intervention\Image\Facades\Image::class,
-        'MetaTag'   => Torann\LaravelMetaTags\Facades\MetaTag::class,
+        'MetaTag' => Torann\LaravelMetaTags\Facades\MetaTag::class,
     ])->toArray(),
 
 

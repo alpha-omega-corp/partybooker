@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\SlugSanitizer;
 use App\Models\Advert;
 use App\Models\AdvertCategory;
 use App\Models\Caterer;
@@ -15,12 +16,13 @@ use App\Models\PartnerVipPlan;
 use App\Models\ServiceImage;
 use App\Models\Wine;
 use App\User;
+use Exception;
+use Geocode;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Geocode;
-use Illuminate\Support\Facades\DB;
 
 class adminController extends Controller
 {
@@ -60,6 +62,7 @@ class adminController extends Controller
     {
         return view('admin.partner.create-partner');
     }
+
     public function createPartner(Request $request)
     {
 
@@ -152,7 +155,7 @@ class adminController extends Controller
 
                 $partner_info_data = [
                     'id_partner' => $id_partner,
-                    'slug' => \App\Helpers\SlugSanitizer::sanitize($slug),
+                    'slug' => SlugSanitizer::sanitize($slug),
                     'en_company_name' => $en_company_name,
                     'fr_company_name' => $fr_company_name,
                     'location_code' => $location,
@@ -216,18 +219,18 @@ class adminController extends Controller
                         'email' => $email,
                     );
 
-                    //Mail::send('email.html', $data, function ($message) use ($data, $email) {
+                    //Mails::send('email.html', $data, function ($message) use ($data, $email) {
                     //	$message->from('partybooker@partybooker.ch', 'New registration');
                     //	$message->to($email)->subject('Email Varification');
                     //});
                     DB::table('statistics')->insert(['id_partner' => $id_partner]);
                 } else {
 
-                    throw new \Exception("Can`t create new partner");
+                    throw new Exception("Can`t create new partner");
                 }
             }
             DB::commit();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollBack();
             var_dump(123);
             exit;
@@ -245,7 +248,7 @@ class adminController extends Controller
             $partner = PartnersInfo::where('id', $request->get('partners_info_id'))->first();
             $partner->discount = $discount < 0 ? 0 : ($discount > 100 ? 100 : ($discount > 0 ? $discount : null));
             $partner->save();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
 
@@ -257,10 +260,12 @@ class adminController extends Controller
         $posts = DB::table('blog')->get();
         return view('admin.blog', ['posts' => $posts]);
     }
+
     public function newpost()
     {
         return view('admin.new-post');
     }
+
     public function post(Request $request, $post_slug)
     {
         $post = DB::table('blog')->where('slug', $post_slug)->get();
@@ -304,7 +309,7 @@ class adminController extends Controller
             PartnersInfo::where('id_partner', $user->id_partner)->delete();
             User::where('id_partner', $user->id_partner)->delete();
             DB::commit();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             DB::rollBack();
             return response()->json(['message' => $e->getMessage()], 400);
         }

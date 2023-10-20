@@ -15,4 +15,8 @@
     <h4 class="text-uppercase fw-bold coord">{{__('service.coord')}}</h4>
 
     {{$form}}
+
+    <div class="d-flex justify-content-center">
+        {!! app('captcha')->display($attributes->jsonSerialize()) !!}
+    </div>
 </x-modal>

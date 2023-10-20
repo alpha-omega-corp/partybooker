@@ -13,10 +13,10 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
 Route::group(['prefix' => 'en'], function () {
     Route::get('/partner', 'mainWebsite@partner');
     Route::view('/partner/register', 'partner-register');
-
 
     Route::get('/listings', '\App\Http\Controllers\Web\ListingController@index');
     Route::get('/listings-filtered', '\App\Http\Controllers\Web\ListingController@filtered');
@@ -65,14 +65,13 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
     Route::get('/callback/{provider}', 'SocialController@callback');
 
-
     Route::get('/password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.email');
     Route::post('/password/email', 'ForgotPasswordController@sendResetLinkEmail');
     Route::get('/password/reset/{token}', 'ResetPasswordController@showResetForm')->name('password.request');
     Route::post('/password/reset', 'ResetPasswordController@reset')->name('password.reset');
 
 
-    Route::get('/', 'mainWebsite@home');
+    Route::get('/', 'mainWebsite@home')->name('home');
 
     // Request Forms
     Route::post('/request/partner', 'ServiceRequestController@commissionFormAction');

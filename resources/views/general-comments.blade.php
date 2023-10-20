@@ -24,27 +24,21 @@
                 <div class="glide__">
 
 
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides">
+                            <li class="glide__slide ">
+                                <x-reference
+                                    :title="__('comments.reference-title-1')"
+                                    :text="__('comments.reference-text-1')"/>
+                            </li>
 
-                        <div class="glide__track" data-glide-el="track">
-                            <ul class="glide__slides">
-                                <li class="glide__slide ">
-                                    <x-reference
-                                        :title="__('comments.reference-title-1')"
-                                        :text="__('comments.reference-text-1')" />
-                                </li>
-
-                                <li class="glide__slide">
-                                    <x-reference
-                                        :title="__('comments.reference-title-2')"
-                                        :text="__('comments.reference-text-2')" />
-                                </li>
-                            </ul>
-                        </div>
-
-
-
-
-
+                            <li class="glide__slide">
+                                <x-reference
+                                    :title="__('comments.reference-title-2')"
+                                    :text="__('comments.reference-text-2')"/>
+                            </li>
+                        </ul>
+                    </div>
 
                 </div>
                 <!-- Controls -->
@@ -54,7 +48,8 @@
                         class="glide__arrow glide__arrow--left pointer-events-auto disabled:opacity-50 btn btn-top"
                         data-glide-dir="<">
                             <span aria-hidden="true">
-                                <img class="previous-arrow" src="{{ Vite::image('right-arrow.svg') }}" alt="previous-arrow"/>
+                                <img class="previous-arrow" src="{{ Vite::image('right-arrow.svg') }}"
+                                     alt="previous-arrow"/>
                             </span>
                         <span class="sr-only"></span>
                     </button>

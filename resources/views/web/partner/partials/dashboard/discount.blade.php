@@ -1,19 +1,12 @@
 @php use App\Http\Middleware\LocaleMiddleware; @endphp
 
-<div class="admin">
-    <div class="row">
-        <div class="col-md-3">
-            <a href="#" data-toggle="modal" data-target="#exampleModal"
-               style="font-size: 13px; line-height: normal" class="button"
-               data-id="{{ $user->partnerInfo->id }}">{{ __('partybooker-cp.set_discount_amount') }}</a>
-        </div>
-        @if ($user->partnerInfo->currentPlan)
-            <div class="col-md-3">
-                <a href="#" data-toggle="modal" id="add-category-button" data-target="#add-category"
-                   class="button"
-                   data-id="{{ $user->partnerInfo->id }}">{{ __('partybooker-cp.add_sub_category') }}</a>
-            </div>
-        @endif
+
+    <a href="#" data-toggle="modal" data-target="#exampleModal"
+       style="font-size: 13px; line-height: normal" class="button"
+       data-id="{{ $user->partnerInfo->id }}">{{ __('partybooker-cp.set_discount_amount') }}</a>
+
+
+
     </div>
 
 

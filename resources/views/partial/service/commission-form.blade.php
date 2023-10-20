@@ -5,7 +5,6 @@
     <input
         type="text"
         name="name"
-        required
         class="form-control"
         placeholder="{{ __('service.name') }}"
         aria-label="{{__('service.name')}}"
@@ -18,7 +17,6 @@
                             </span>
     <input
         type="email"
-        required
         name="email"
         placeholder="{{ __('service.email') }}"
         class="form-control"
@@ -32,7 +30,6 @@
                             </span>
     <input
         type="text"
-        required
         placeholder="{{ __('service.phone') }}"
         class="form-control"
         name="phone"
@@ -49,7 +46,6 @@
         type="text"
         class="form-control"
         name="event"
-        required
         placeholder="{{ __('service.type_of_event') }}"
         aria-label="{{ __('service.type_of_event') }}"
         aria-describedby="contact-addon4">
@@ -63,7 +59,6 @@
         type="text"
         class="form-control"
         name="event_date"
-        required
         placeholder="{{ __('service.date_of_event') }}"
         aria-label="{{ __('service.date_of_event') }}"
         onfocus="(this.type='date')" onblur="(this.type='text')"
@@ -78,7 +73,6 @@
         type="text"
         class="form-control"
         name="alternative_date"
-        required
         placeholder="{{ __('service.alternative_date') }}"
         aria-label="{{  __('service.alternative_date') }}"
         onfocus="(this.type='date')" onblur="(this.type='text')"
@@ -93,7 +87,6 @@
         type="text"
         class="form-control"
         name="participant"
-        required
         placeholder="{{ __('service.amount_of_participants') }}"
         aria-label="{{ __('service.amount_of_participants') }}"
         aria-describedby="contact-addon7">

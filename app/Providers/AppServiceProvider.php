@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IPaymentTransactionService::class, PaymentTransactionService::class);
         $this->app->bind(IPartnerPlanOptionService::class, PartnerPlanOptionService::class);
         $this->app->bind(IImageService::class, ImageService::class);
+
+       
     }
 
     public function boot(): void
@@ -34,6 +36,8 @@ class AppServiceProvider extends ServiceProvider
         view()->share('settings', $settings);
 
         view()->share('footerCategories', $this->getFooterCategories());
+
+
     }
 
     private function getFooterCategories()
