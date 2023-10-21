@@ -9,10 +9,10 @@
     @yield('title')
     @stack('header')
 
-    @vite(['resources/js/app.js', 'resources/sass/admin/admin.scss'])
     <script src="{{ asset('/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('/js/script.js') }}" defer></script>
     <script src="{{ asset('/js/jquery.mask.js') }}"></script>
+    @vite(['resources/js/app.js', 'resources/sass/admin/admin.scss'])
 
 </head>
 <body class="body">
@@ -48,29 +48,16 @@
                 </div>
             @endif
 
-            @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ $message }}</strong>
-                </div>
-            @endif
+            <x-app-notifications/>
 
-            @if ($message = Session::get('error'))
-                <div class="alert alert-danger alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ $message }}</strong>
-                </div>
-            @endif
-
-                @php
-                    function isActive($segment): string {
-                        $active = collect(request()->segments())->last();
-                        return $active === $segment ? 'nav-active' : '';
-                    }
-                @endphp
+            @php
+                function isActive($segment): string {
+                    $active = collect(request()->segments())->last();
+                    return $active === $segment ? 'nav-active' : '';
+                }
+            @endphp
 
             <div class="d-flex justify-content-center">
-
                 @if(Auth::user()->type == 'admin')
                     <li class="{{isActive('statistics')}}">
                         <a class="link-underline link-underline-primary"
@@ -85,9 +72,8 @@
                            href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/plans">{{__('partner.my_plan')}}</a>
                     </li>
                 @else
-
                     <li class="{{isActive('statistics')}}">
-                        <a  href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/statistics">{{__('partner.home_page')}}</a>
+                        <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/statistics">{{__('partner.home_page')}}</a>
                     </li>
                     <li class="{{isActive('profile')}}">
                         <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/profile">{{__('partner.profile')}}</a>
@@ -105,12 +91,11 @@
             <div class="dashboard-container">
                 @yield('content')
             </div>
+
         </div>
     </section>
-
 
     @include('common.footer')
 </div>
 </body>
-
 </html>

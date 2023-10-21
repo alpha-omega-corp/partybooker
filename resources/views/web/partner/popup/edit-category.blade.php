@@ -18,7 +18,6 @@
             @endif
 
             <?php $cat = 1; ?>
-            {{$partnerPlanOptions}}
             @foreach($partnerPlanOptions as $k => $option)
                 <div class="option-{{$cat}}">
                     <div class="categories cat">

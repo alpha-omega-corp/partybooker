@@ -43,6 +43,9 @@
 
 <body class="body">
 @include('common.header-nav')
+
+<x-app-notifications/>
+
 @yield('content')
 
 <section>

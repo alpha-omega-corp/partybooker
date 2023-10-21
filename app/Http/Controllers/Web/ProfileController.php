@@ -30,7 +30,6 @@ class ProfileController extends Controller
 {
     public function index(Request $request)
     {
-
         if (Auth::user()->type == 'admin') {
             $id = $request->id_partner;
         } else {
@@ -161,7 +160,12 @@ class ProfileController extends Controller
             'adverts' => $adverts,
             'categoryImages' => $tempImages,
             'eventTypes' => EventType::all(),
-            'partnerEventTypes' => $pet
+            'partnerEventTypes' => $pet,
+            'location' => [
+                'lat' => $user->partnerInfo->lat,
+                'lon' => $user->partnerInfo->lon,
+                'address' => $user->partnerInfo->address
+            ]
         ]);
     }
 
@@ -262,6 +266,28 @@ class ProfileController extends Controller
         }
     }
 
+    public function editCompanyLocation(Request $request)
+    {
+        $validated = Validator::make($request->all(), [
+            'map' => 'required',
+        ]);
+        $map = $validated->getData()['map'];
+        if (Auth::user()->type == 'admin') {
+            $id = $request->id_partner;
+        } else {
+            $id = Auth::user()->id_partner;
+        }
+
+        $partner = PartnersInfo::where('id_partner', $id)->first();
+        $partner->address = $map['address'];
+        $partner->lat = $map['lat'];
+        $partner->lon = $map['lon'];
+        $partner->location_code = $map['state'];
+        $partner->save();
+
+        return redirect()->back()->with('success', "Location updated.");
+    }
+
     public function editCompany(Request $request)
     {
         if (Auth::user()->type == 'admin') {
@@ -272,7 +298,6 @@ class ProfileController extends Controller
 
         DB::beginTransaction();
         try {
-
             $partner = PartnersInfo::where('id_partner', $id)->first();
             if (!$partner) {
                 throw new Exception("Partner not found");
@@ -282,14 +307,9 @@ class ProfileController extends Controller
             if ($request->file('logo')) {
                 $oldImageName = $partner->logo;
                 $logo = $partner->id . '-' . $request->file('logo')->getClientOriginalName();
-                $request->file('logo')->storeAs('logos', $logo);
+                Storage::putFileAs('logos', $request->file('logo'), $logo);
                 $partner->logo = $logo;
             }
-
-            $partner->address = $request->address;
-            $map = $request->get('map');
-            $partner->lat = $map['lat'];
-            $partner->lon = $map['lon'];
 
             $partner->company_phone = $request->company_phone;
 

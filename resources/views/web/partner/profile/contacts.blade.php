@@ -1,11 +1,13 @@
-<ul class="contactDetail">
-    <li block="contactDetail">
-        <h4>{{__('become_partner.contact_details')}}</h4>
-    </li>
+<x-dashboard.card-item :title="__('become_partner.contact_name')">
+    {{$user->name}}
+</x-dashboard.card-item>
 
-    <li class="li"><span>{{__('become_partner.contact_name')}}:</span> {{$user->name}}</li>
-    <li class="li"><span>{{__('become_partner.contact_email')}}:</span> {{$user->email}}</li>
-    <li class="li"><span>{{__('become_partner.phone')}}:</span> {{$user->partnerInfo->phone}}</li>
-    <li class="li"><a href="#" class="button">{{__('partner.edit')}}</a></li>
+<x-dashboard.card-item :title="__('become_partner.contact_email')">
+    {{$user->email}}
+</x-dashboard.card-item>
 
-</ul>
+<x-dashboard.card-item :title="__('become_partner.phone')">
+    {{$user->partnerInfo->phone}}
+</x-dashboard.card-item>
+
+@include('web.partner.popup.edit-contacts')

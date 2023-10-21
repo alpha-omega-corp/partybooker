@@ -56,7 +56,7 @@ return [
     'yes' => 'YES',
     'no' => 'NO',
     'maybe' => 'MAYBE',
-    'book_now' => 'JE RESERVE',
+    'book_now' => 'je réserve',
 
     'space' => 'capacité pour',
     'people' => 'Personnes',

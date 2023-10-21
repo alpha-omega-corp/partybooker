@@ -49,23 +49,6 @@ class DatabaseSeeder extends Seeder
             'answer_fr' => 'Partybooker is a free internet pe connection between customers and service providers via one site.',
         ]);
 
-        $this->newPartner('alphomega', 11, 'bleyo');
-        $this->newPartner('dynam-event', 1);
-        $this->newPartner('chillfood', 2);
-        $this->newPartner('la-cave-geneve-vieille-ville', 3);
-        $this->newPartner('moulin-du-creux-vich', 4);
-        $this->newPartner('chateau-de-coppet', 5);
-        $this->newPartner('twist-events-carouge-geneve', 6);
-        $this->newPartner('domaine-la-capitaine', 7);
-        $this->newPartner('domaine-des-esserts', 8);
-        $this->newPartner('la-caravane-passe-geneve', 9);
-        $this->newPartner('headphone-music--silent-disco', 10);
-
-
-        for ($i = 11; $i < 22; $i++) {
-            $this->newPartner(strtolower(fake()->company), $i);
-        }
-
         $this->newPlan(
             'Standart',
             '1',
@@ -122,6 +105,24 @@ class DatabaseSeeder extends Seeder
             '365'
         );
 
+        $this->newPartner('alphomega', 11, 'bleyo');
+        $this->newPartner('dynam-event', 1);
+        $this->newPartner('chillfood', 2);
+        $this->newPartner('la-cave-geneve-vieille-ville', 3);
+        $this->newPartner('moulin-du-creux-vich', 4);
+        $this->newPartner('chateau-de-coppet', 5);
+        $this->newPartner('twist-events-carouge-geneve', 6);
+        $this->newPartner('domaine-la-capitaine', 7);
+        $this->newPartner('domaine-des-esserts', 8);
+        $this->newPartner('la-caravane-passe-geneve', 9);
+        $this->newPartner('headphone-music--silent-disco', 10);
+
+
+        for ($i = 11; $i < 22; $i++) {
+            $this->newPartner(strtolower(fake()->company), $i);
+        }
+
+
         DB::table('settings')->insert([
             'address' => '1296 Coppet, Suisse',
             'email' => 'contact@partybooker.ch',
@@ -138,6 +139,37 @@ class DatabaseSeeder extends Seeder
 
     }
 
+    private function newPlan(
+        string $name,
+        int    $positon,
+        bool   $listing,
+        int    $photos,
+        int    $videos,
+        int    $requests,
+        int    $price,
+        int    $duration
+    )
+    {
+        $id = DB::table('plans')->insertGetId([
+            'name' => $name,
+            'plan_created' => now(),
+            'position' => $positon,
+            'listing' => $listing,
+            'photos_num' => $photos,
+            'video' => $videos,
+            'direct_request' => $requests,
+            'price' => $price,
+            'days_period' => $duration,
+        ]);
+
+        DB::table('plan_options')->insert([
+            'plans_id' => $id,
+            'categories_count' => 1,
+            'sub_categories_count' => 1,
+            'group' => 1
+        ]);
+    }
+
     private function newPartner(string $slug, $r, string $for = null)
     {
         $partnerUid = '120036190814-044' . $r;
@@ -147,7 +179,7 @@ class DatabaseSeeder extends Seeder
             'fr_company_name' => $slug,
             'slug' => $slug,
             'average_rate' => 0,
-            'plans_id' => 2,
+            'plans_id' => 3,
             'plan' => 'premium',
             'plan_option_group' => 2,
             'payment_status' => true,
@@ -189,9 +221,9 @@ class DatabaseSeeder extends Seeder
         PartnerPlanOption::factory([
             'partners_info_id' => $partnerId
         ])->create();
-
         //$this->createServiceTabs($partnerId, $r);
         $this->createServiceTabs($partnerId, $r, true);
+
         DB::table('statistics')->insert([
             'id_partner' => $partnerUid,
             'view' => 0,
@@ -212,7 +244,7 @@ class DatabaseSeeder extends Seeder
             DB::table('users')->insert([
                 'name' => $for,
                 'email' => 'bleyo@alphomega.org',
-                'id_partner' => $partnerUid,
+                'id_partner' => '120036190814-044' . $r,
                 'email_verification' => 1,
                 'password' => bcrypt('password'),
                 'type' => 'partner',
@@ -312,37 +344,6 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-    }
-
-    private function newPlan(
-        string $name,
-        int    $positon,
-        bool   $listing,
-        int    $photos,
-        int    $videos,
-        int    $requests,
-        int    $price,
-        int    $duration
-    )
-    {
-        $id = DB::table('plans')->insertGetId([
-            'name' => $name,
-            'plan_created' => now(),
-            'position' => $positon,
-            'listing' => $listing,
-            'photos_num' => $photos,
-            'video' => $videos,
-            'direct_request' => $requests,
-            'price' => $price,
-            'days_period' => $duration,
-        ]);
-
-        DB::table('plan_options')->insert([
-            'plans_id' => $id,
-            'categories_count' => 1,
-            'sub_categories_count' => 1,
-            'group' => 1
-        ]);
     }
 
 }

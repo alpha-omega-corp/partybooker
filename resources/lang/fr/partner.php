@@ -78,7 +78,7 @@ return [
     'send_request' => "Envoyer la demande",
     'pay_with_pp' => "Paiement avec PayPal",
     'image' => "image",
-    'url_website' => "URL du site",
+    'url_website' => "Site de l'entreprise",
     'edit' => "Modifier",
 
     // Plan options
@@ -106,7 +106,8 @@ return [
     'image_s' => "image(s)",
 
     //Company details
-    'link' => "Lien",
+    'link' => "Lien URL",
+    'socials' => 'Réseaux Sociaux',
 
     //details
     'service_details' => "Service(s) détaillé(s)",

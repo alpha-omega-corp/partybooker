@@ -9,21 +9,17 @@ use App\Models\PartnersInfo;
 use App\Models\Statistic;
 use App\User;
 use Exception;
-use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Log;
 use Mail;
 
 class ServiceRequestController extends Controller
 {
 
-    public function commissionFormAction(CommissionRequest $request): JsonResponse
+    public function commissionFormAction(CommissionRequest $request): RedirectResponse
     {
-
-
         $data = $request->all();
-        dd($data);
         $partner = $this->getPartner($request->get('partner_id'));
-
         $this->StoreDirectMessageData($partner, $data, DirectMessage::TYPE_COMMISSION);
 
         if (env("APP_ENV") == 'production') {
@@ -33,7 +29,7 @@ class ServiceRequestController extends Controller
             });
         }
 
-        return response()->json(['message' => '']);
+        return redirect()->back()->with('success', 'Your request has been sent successfully');
     }
 
     private function getPartner($id)

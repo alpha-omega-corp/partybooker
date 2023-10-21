@@ -77,7 +77,7 @@
                     <div class="tab-index">
                         <div class="row">
                             <div class="col-lg-8 col-md-12">
-                                <a class="btn btn-primary w-100 book-btn" data-bs-toggle="modal"
+                                <a class="btn btn-primary w-100 book-btn text-uppercase" data-bs-toggle="modal"
                                    href="#contactModalToggle"
                                    role="button">
                                     {{ __('service.book_now')}}
@@ -189,10 +189,7 @@
                                             @endforeach
 
                                             {{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
-
                                         </div>
-
-
                                     </x-slot:title>
                                     @foreach ($partner->services as $advert)
                                         <x-tab.item>

@@ -65,9 +65,9 @@
                                                     @php
                                                         $explodedAddress = explode(',', $service->address);
                                                     @endphp
-                                                    
+
                                                     <p class="top-location text-uppercase">
-                                                        {{__('cantons.'.strtolower($service->location_code)) . (array_key_exists(1, $explodedAddress) ? ', ' . $explodedAddress[1] : '')}}
+                                                        {{(array_key_exists(1, $explodedAddress) ? $explodedAddress[1] : '') . ', ' . __('cantons.'.strtolower($service->location_code))}}
                                                     </p>
                                                 </div>
                                             </div>

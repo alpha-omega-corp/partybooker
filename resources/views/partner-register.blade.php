@@ -37,7 +37,6 @@
 
                 @include('partial.map')
 
-
                 <hr>
 
                 <div class="input-group">

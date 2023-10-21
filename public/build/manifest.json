@@ -688,7 +688,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-a9bf7840.css",
+    "file": "assets/app-a7c4500c.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -696,15 +696,23 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-a9bf7840.css"
+      "assets/app-a7c4500c.css"
     ],
-    "file": "assets/app-fd967859.js",
+    "file": "assets/app-b95e86d4.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "resources/sass/admin/admin.scss": {
-    "file": "assets/admin-76630c7c.css",
+    "file": "assets/admin-2fecb9ff.css",
     "isEntry": true,
     "src": "resources/sass/admin/admin.scss"
+  },
+  "storage/app/public/logos/1-alphomega.png": {
+    "file": "assets/1-alphomega-c4c8e83a.png",
+    "src": "storage/app/public/logos/1-alphomega.png"
+  },
+  "storage/app/public/logos/1-nanstis.png": {
+    "file": "assets/1-nanstis-6372614e.png",
+    "src": "storage/app/public/logos/1-nanstis.png"
   }
 }

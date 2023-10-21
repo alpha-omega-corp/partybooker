@@ -12,13 +12,24 @@
     <input type="hidden" id="map_state" name="map[state]"/>
     <input type="hidden" id="map_zip" name="map[zip]" placeholder="zip code"/>
 </div>
+
 <div id="map" style="width: 100%; height: 400px;"></div>
 
 @push('footer')
-    <script
-        src="https:///maps.google.com/maps/api/js?libraries=places&language=en&key=AIzaSyBPleD5xW_3gBLeUfgdw-QIwP--2VzWSt8&language={{App\Http\Middleware\LocaleMiddleware::getLocale()}}"></script>
-    <script src="{{asset('js/locationpicker.jquery.js')}}"></script>
+
     <script type="text/javascript">
+        async function initMap() {
+            
+        }
+    </script>
+    <script
+        src="https:///maps.google.com/maps/api/js?libraries=places&language=en&key=AIzaSyBPleD5xW_3gBLeUfgdw-QIwP--2VzWSt8&language={{App\Http\Middleware\LocaleMiddleware::getLocale()}}&callback=initMap"></script>
+    <script src="{{asset('/js/locationpicker.jquery.js')}}"></script>
+
+
+    <script type="text/javascript">
+
+
         function updateControls(addressComponents, location) {
             $("#map_city").val(addressComponents.city);
             $("#map_street").val(addressComponents.streetName);

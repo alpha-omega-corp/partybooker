@@ -184,6 +184,8 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
 
         Route::post('/cp/partner-cp/edit-contacts', '\App\Http\Controllers\Web\ProfileController@editContacts');
         Route::post('/cp/partner-cp/edit-company', '\App\Http\Controllers\Web\ProfileController@editCompany');
+        Route::post('/cp/partner-cp/edit-company-location', '\App\Http\Controllers\Web\ProfileController@editCompanyLocation');
+
         Route::post('/cp/partner-cp/edit-www', '\App\Http\Controllers\Web\ProfileController@editWww');
         Route::post('/cp/partner-cp/edit-seo', '\App\Http\Controllers\Web\ProfileController@editSeo');
         Route::post('/cp/partner-cp/edit-images-alt', '\App\Http\Controllers\Web\ProfileController@editImagesAlt');
@@ -257,6 +259,8 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::post('/partner-form', 'ajaxController@partner');
         Route::post('/partner-cp/edit-contacts', '\App\Http\Controllers\Web\ProfileController@editContacts');
         Route::post('/partner-cp/edit-company', '\App\Http\Controllers\Web\ProfileController@editCompany');
+        Route::post('/partner-cp/edit-company-location', '\App\Http\Controllers\Web\ProfileController@editCompanyLocation');
+
         Route::post('/partner-cp/edit-www', '\App\Http\Controllers\Web\ProfileController@editWww');
         Route::post('/partner-cp/edit-option', '\App\Http\Controllers\Web\PlanOptionController@editOption');
         Route::post('/partner-cp/edit-event-types', '\App\Http\Controllers\Web\ProfileController@updateEventTypes');

@@ -1,8 +1,8 @@
 <?php
 
 return [
+    'preview' => 'Apperçu',
     'made-by' => 'Développement',
-
     'rating-based' => "Avis basé sur",
     'rating' => "Vote",
     //GENERAL

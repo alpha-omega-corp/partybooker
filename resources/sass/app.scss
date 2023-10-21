@@ -1438,7 +1438,7 @@ a {
             height: 400px;
             margin-bottom: 10px;
             border-radius: 20px;
-            border: 4px solid $primary;
+            border: 1px solid $primary;
             cursor: pointer;
 
             h3 {
@@ -2772,12 +2772,6 @@ html {
 
 .dashboard-container {
     padding: 20px;
-
-    h1 {
-        border-bottom: 2px solid $accent;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-    }
 }
 
 .reset-password-container {
@@ -2786,3 +2780,39 @@ html {
     padding: 40px;
     width: 500px;
 }
+
+.main-notifications {
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+
+
+    .app-notification {
+        border: 2px solid $primary;
+        border-radius: 20px;
+        overflow: hidden;
+
+        .notification-title {
+            display: flex;
+            color: #fff;
+            border-bottom: 1px solid #fff;
+            padding: 10px;
+            background-color: $primary;
+
+
+            h6 {
+                color: #fff;
+                margin-left: 10px;
+                font-weight: bold;
+            }
+        }
+
+        .notification-message {
+            margin-top: 10px;
+            padding: 0 20px 20px;
+        }
+
+
+    }
+}
+

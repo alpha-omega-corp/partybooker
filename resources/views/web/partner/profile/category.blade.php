@@ -1,19 +1,18 @@
-@if (count($currentCategories) == 0)
-	<ul class="categorySubcat attention">
-		<li block="categorySubcat"><h4>{{__('partner.category')}}</h4></li>
-		<li class="li">{{__('partner.choose_category')}}</li>
-		<li class="li"><a href="#" class="button">{{__('partner.choose')}}</a></li>
-	</ul>
+@if (!count($currentCategories))
+    <x-dashboard.card-item :title="__('partner.choose_category')"/>
+    <button role="button" id="edit" class="btn btn-primary">{{__('partner.choose')}}</button>
 @else
-	<ul class="categorySubcat">
-		<li block="categorySubcat"><h4>{{__('partner.category')}}</h4></li>
-		@foreach($currentCategories as $key => $category)
-		<li class="li"><span>#{{$key+1}}</span></li>
-		<li class="li"><span>{{__('partner.category')}}:</span> {{$category->lang->name}}</li>
-			@foreach($category->subCategories as $sub)
-				<li class="li"><span>{{__('partner.subcategory')}}:</span> {{$sub->lang->name}}</li>
-			@endforeach
-		@endforeach
-		<li class="li"><a href="#" class="button">{{__('partner.edit')}}</a></li>
-	</ul>
+    @foreach($currentCategories as $category)
+        <x-dashboard.card-item :title="__('partner.category')">
+            {{$category->lang->name}}
+        </x-dashboard.card-item>
+
+        @foreach($category->subCategories as $sub)
+            <x-dashboard.card-item :title="__('partner.subcategory')">
+                {{$sub->lang->name}}
+            </x-dashboard.card-item>
+        @endforeach
+    @endforeach
+
+    <button role="button" id="edit" class="btn btn-primary">{{__('partner.edit')}}</button>
 @endif

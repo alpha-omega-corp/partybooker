@@ -615,21 +615,21 @@ $('.lang-nav li').on('click', function () {
 });
 
 //profile tab popups
-$('.contactDetail .button').on('click', function (e) {
+$('.contactDetails #edit').on('click', function (e) {
     console.log('click');
     e.preventDefault();
     $('.edit-contacts').fadeIn();
 });
 
-$('.companyDetails .button').on('click', function (e) {
+$('.companyDetails #edit').on('click', function (e) {
     e.preventDefault();
     $('.edit-company').fadeIn();
 });
-$('.socialLiks .button').on('click', function (e) {
+$('.socialLiks #edit').on('click', function (e) {
     e.preventDefault();
     $('.edit-www').fadeIn();
 });
-$('.seo .button').on('click', function (e) {
+$('.seo #edit').on('click', function (e) {
     e.preventDefault();
     $('.edit-seo').fadeIn();
 });
@@ -638,11 +638,11 @@ $('.images-alt-button.button').on('click', function (e) {
     e.preventDefault();
     $('.edit-images-alt').fadeIn();
 });
-$('.optionPlan .button').on('click', function (e) {
+$('.optionPlan #edit').on('click', function (e) {
     e.preventDefault();
     $('.edit-option').fadeIn();
 });
-$('.categorySubcat .button').on('click', function (e) {
+$('.categorySubcat #edit').on('click', function (e) {
     e.preventDefault();
     $('.edit-category').fadeIn();
 });

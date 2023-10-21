@@ -78,7 +78,7 @@ return [
     'send_request' => 'Send Request',
     'pay_with_pp' => 'Pay with PayPal',
     'image' => 'Image',
-    'url_website' => 'Website URL',
+    'url_website' => 'Comany website',
     'edit' => 'Edit',
     'other' => 'other',
 
@@ -107,8 +107,8 @@ return [
     'image_s' => 'image(s)',
 
     //Company details
-    'link' => 'Link',
-
+    'link' => 'Link URL',
+    'socials' => 'Social Networks',
     //details
     'service_details' => 'Service details',
     'fill_service_details' => 'Please fill your service details for publishing.',

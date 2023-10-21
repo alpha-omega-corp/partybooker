@@ -1,17 +1,65 @@
+@php use App\Models\Advert; @endphp
 <div class="tab" tab="profile" style="display: block">
     @include('web.partner.notify')
     <div class="profile-info">
-        @include('web.partner.profile.contacts')
-        @include('web.partner.profile.company')
-        @include('web.partner.profile.www')
+
+        <x-dashboard.card :title="__('become_partner.contact_details')">
+            <div class="contactDetails">
+                @include('web.partner.profile.contacts')
+            </div>
+        </x-dashboard.card>
+
+        <x-dashboard.card :title="__('become_partner.company_info')">
+            <div class="companyDetails">
+                @include('web.partner.profile.company')
+            </div>
+        </x-dashboard.card>
+
+        <x-dashboard.card title="Location">
+            <form method="POST" action="{{
+                Auth::user()->type == 'admin'
+                    ? url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/partner-cp/edit-company-location')
+                    : url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-company-location')
+                }}">
+                @csrf
+                @include('partial.map_company')
+                <hr>
+                <button type="submit" class="btn btn-primary w-100">Save</button>
+            </form>
+        </x-dashboard.card>
+
+        <x-dashboard.card :title="__('partner.socials')">
+            <div class="socialLiks">
+                @include('web.partner.profile.www')
+            </div>
+        </x-dashboard.card>
+
         @if (Auth::user()->type == 'admin')
-            @include('web.partner.profile.seo')
+            <x-dashboard.card title="seo">
+                <div class="seo">
+                    @include('web.partner.profile.seo')
+                </div>
+            </x-dashboard.card>
         @endif
-        @include('web.partner.profile.vip')
+
         @if ($user->partnerInfo->currentPlan)
-            @include('web.partner.profile.plan-options')
-            @include('web.partner.profile.category')
+            <x-dashboard.card :title="__('partner.plan_options')">
+                <div class="optionPlan">
+                    @include('web.partner.profile.plan-options')
+                </div>
+            </x-dashboard.card>
+
+            <x-dashboard.card :title="__('partner.category')">
+                <div class="categorySubcat">
+                    @include('web.partner.profile.category')
+                </div>
+            </x-dashboard.card>
         @endif
+
+
+        @include('web.partner.profile.vip')
+
+
         @include('web.partner.profile.event-types')
 
         @if (
@@ -46,9 +94,6 @@
 
         @include('web.partner.profile.category-images')
 
-        @include('web.partner.popup.edit-contacts')
-        @include('web.partner.popup.edit-company')
-        @include('web.partner.popup.edit-www')
         @if (Auth::user()->type == 'admin')
             @include('web.partner.popup.edit-seo')
         @endif
@@ -86,7 +131,7 @@
             menubar: 'edit view format table',
             toolbar: 'bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | removeformat | fullscreen  preview  | link anchor',
             toolbar_sticky: true,
-            height: 900,
+            height: 300,
             setup: function (editor) {
                 editor.on('change', function () {
                     editor.save();

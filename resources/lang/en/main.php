@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'preview' => 'Preview',
     'made-by' => 'Development',
     'rating-based' => "Rating based on",
     'rating' => "Vote",
