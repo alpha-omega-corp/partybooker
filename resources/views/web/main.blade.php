@@ -12,7 +12,7 @@
     <script src="{{ asset('/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('/js/script.js') }}" defer></script>
     <script src="{{ asset('/js/jquery.mask.js') }}"></script>
-    @vite(['resources/js/app.js', 'resources/sass/admin/admin.scss'])
+    @vite(['resources/js/app.js'])
 
 </head>
 <body class="body">
@@ -57,19 +57,19 @@
                 }
             @endphp
 
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center partner-nav">
                 @if(Auth::user()->type == 'admin')
                     <li class="{{isActive('statistics')}}">
-                        <a class="link-underline link-underline-primary"
-                           href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/statistics">{{__('partner.home_page')}}</a>
+                        <a
+                            href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/statistics">{{__('partner.home_page')}}</a>
                     </li>
                     <li class="{{isActive('profile')}}">
-                        <a class="link-underline link-underline-primary"
-                           href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/profile">{{__('partner.profile')}}</a>
+                        <a
+                            href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/profile">{{__('partner.profile')}}</a>
                     </li>
                     <li class="{{isActive('plans')}}">
-                        <a class="link-underline link-underline-primary"
-                           href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/plans">{{__('partner.my_plan')}}</a>
+                        <a
+                            href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/plans">{{__('partner.my_plan')}}</a>
                     </li>
                 @else
                     <li class="{{isActive('statistics')}}">
@@ -90,12 +90,14 @@
 
             <div class="dashboard-container">
                 @yield('content')
+
+                @include('common.footer')
             </div>
 
         </div>
     </section>
 
-    @include('common.footer')
 </div>
 </body>
+
 </html>

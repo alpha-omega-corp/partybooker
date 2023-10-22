@@ -688,22 +688,24 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-a7c4500c.css",
+    "file": "assets/app-07eb60b2.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "assets": [
-      "assets/right-arrow-126f8b6c.svg"
+      "assets/right-arrow-126f8b6c.svg",
+      "assets/check-1-3d223e12.png",
+      "assets/upload-00dc4252.png"
     ],
     "css": [
-      "assets/app-a7c4500c.css"
+      "assets/app-07eb60b2.css"
     ],
-    "file": "assets/app-b95e86d4.js",
+    "file": "assets/app-d1ab08c0.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "resources/sass/admin/admin.scss": {
-    "file": "assets/admin-2fecb9ff.css",
+    "file": "assets/admin-2699c991.css",
     "isEntry": true,
     "src": "resources/sass/admin/admin.scss"
   },

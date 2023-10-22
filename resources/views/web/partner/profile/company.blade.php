@@ -1,6 +1,7 @@
 @if (!is_null($user->partnerInfo->logo) || strlen($user->partnerInfo->logo) > 0)
     <x-dashboard.card-item title="Logo">
-        <img src="{{ asset('/storage/logos/'.$user->partnerInfo->logo)}}" alt="logo" width="100" class="mt-2">
+        <img src="{{ asset('/storage/logos/'.$user->partnerInfo->logo)}}" alt="logo" width="100"
+             class="mt-2 cp-company-logo">
     </x-dashboard.card-item>
 @endif
 
@@ -25,7 +26,12 @@
 </x-dashboard.card-item>
 
 <x-dashboard.card-item :title="__('become_partner.fax')">
-    {{$user->partnerInfo->fax}}
+    @if($user->partnerInfo->fax)
+        {{$user->partnerInfo->fax}}
+    @else
+        @svg('heroicon-o-no-symbol')
+    @endif
+  
 </x-dashboard.card-item>
 
 <x-dashboard.card-item :title="__('become_partner.slogan')">

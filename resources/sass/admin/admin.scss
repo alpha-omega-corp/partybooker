@@ -20,11 +20,6 @@
     }
 }
 
-.button:hover {
-    background: #b2d035;
-    color: #fff !important;
-}
-
 .partner-cp {
     .dashboard-card {
         border: 2px solid $gray-300;
@@ -123,107 +118,7 @@
         }
     }
 
-    .profile-info {
 
-        .edit-www-container {
-            img {
-                width: 20px;
-            }
-        }
-
-        .description-preview {
-            border: 1px solid $gray-700;
-            padding: 10px;
-            border-radius: 10px;
-            margin: 20px 0;
-
-            h6 {
-                font-weight: bold;
-                border-bottom: 1px solid $primary;
-                padding-bottom: 5px;
-            }
-        }
-
-
-        .cp-socials-item {
-            a {
-                color: $gray-700;
-                border-bottom: 1px solid $gray-700;
-            }
-
-            a:hover {
-                color: $primary;
-                border-bottom: 1px solid $primary;
-            }
-
-            img {
-                margin: 10px;
-                width: 30px;
-            }
-        }
-
-
-        label {
-            color: $gray-700;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin: 10px;
-            border-bottom: 1px solid $primary;
-            padding-bottom: 5px;
-        }
-
-        .language-list {
-            padding-left: 20px;
-
-            .form-check {
-                border-bottom: 1px solid $gray-400;
-                padding-bottom: 5px;
-            }
-
-            img {
-                width: 20px;
-                margin-right: 5px;
-            }
-
-            label {
-                font-size: small;
-            }
-        }
-
-        .company-edit-map {
-            z-index: 1000 !important;
-        }
-
-        .tab-content {
-            width: 100% !important;
-        }
-
-        .tabcat {
-            margin-top: 20px;
-
-            ul {
-                padding: 0 !important;
-                border-bottom: 2px solid $accent;
-                margin-bottom: 20px !important;
-
-                button {
-                    border-top-left-radius: 20px !important;
-                    border-top-right-radius: 20px !important;
-                }
-            }
-        }
-
-        .attention {
-            border-color: $oranfe-dark;
-
-            h4 {
-                &:before,
-                &:after {
-                    background: $oranfe-dark !important;
-                }
-            }
-        }
-    }
 }
 
 header {

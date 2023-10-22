@@ -1,116 +1,83 @@
 @php use App\Models\Advert; @endphp
-<div class="tab" tab="profile" style="display: block">
-    @include('web.partner.notify')
-    <div class="profile-info">
+@include('web.partner.notify')
+<div class="profile-info">
 
-        <x-dashboard.card :title="__('become_partner.contact_details')">
-            <div class="contactDetails">
-                @include('web.partner.profile.contacts')
-            </div>
+    @if ($user->partnerInfo->currentPlan &&
+       !in_array(strtolower($user->partnerInfo->currentPlan->name), ['basic', 'commission']))
+
+        <x-dashboard.card :title="__('partner.service_details')">
+            @include('web.partner.profile.service-details')
         </x-dashboard.card>
+    @endif
+    
+    <x-dashboard.card :title="__('become_partner.contact_details')">
+        @include('web.partner.profile.contacts')
+    </x-dashboard.card>
 
-        <x-dashboard.card :title="__('become_partner.company_info')">
-            <div class="companyDetails">
-                @include('web.partner.profile.company')
-            </div>
-        </x-dashboard.card>
+    <x-dashboard.card :title="__('become_partner.company_info')">
+        @include('web.partner.profile.company')
+    </x-dashboard.card>
 
-        <x-dashboard.card title="Location">
-            <form method="POST" action="{{
+    <x-dashboard.card title="Location">
+        <form method="POST" action="{{
                 Auth::user()->type == 'admin'
                     ? url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/partner-cp/edit-company-location')
                     : url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-company-location')
                 }}">
-                @csrf
-                @include('partial.map_company')
-                <hr>
-                <button type="submit" class="btn btn-primary w-100">Save</button>
-            </form>
+            @csrf
+            @include('partial.map_company')
+            <hr>
+            <button type="submit" class="btn btn-primary w-100">Save</button>
+        </form>
+    </x-dashboard.card>
+
+    <x-dashboard.card :title="__('partner.socials')">
+        @include('web.partner.profile.www')
+    </x-dashboard.card>
+
+    @if ($user->partnerInfo->currentPlan)
+        <x-dashboard.card :title="__('partner.plan_options')">
+            @include('web.partner.profile.plan-options')
         </x-dashboard.card>
 
-        <x-dashboard.card :title="__('partner.socials')">
-            <div class="socialLiks">
-                @include('web.partner.profile.www')
+        <x-dashboard.card :title="__('partner.category')">
+            @include('web.partner.profile.category')
+        </x-dashboard.card>
+    @endif
+
+
+    @if (Auth::user()->type == 'admin')
+        <x-dashboard.card title="seo">
+            <div class="seo">
+                @include('web.partner.profile.seo')
             </div>
         </x-dashboard.card>
+    @endif
 
-        @if (Auth::user()->type == 'admin')
-            <x-dashboard.card title="seo">
-                <div class="seo">
-                    @include('web.partner.profile.seo')
-                </div>
-            </x-dashboard.card>
-        @endif
-
-        @if ($user->partnerInfo->currentPlan)
-            <x-dashboard.card :title="__('partner.plan_options')">
-                <div class="optionPlan">
-                    @include('web.partner.profile.plan-options')
-                </div>
-            </x-dashboard.card>
-
-            <x-dashboard.card :title="__('partner.category')">
-                <div class="categorySubcat">
-                    @include('web.partner.profile.category')
-                </div>
-            </x-dashboard.card>
-        @endif
+    @include('web.partner.profile.vip')
 
 
-        @include('web.partner.profile.vip')
+    @include('web.partner.profile.event-types')
 
 
-        @include('web.partner.profile.event-types')
-
-        @if (
-            $user->partnerInfo->currentPlan &&
-                !in_array(strtolower($user->partnerInfo->currentPlan->name), ['basic', 'commission']))
-            @foreach ($adverts as $k => $advert)
-                @if ($advert->status == Advert::STATUS_DRAFT)
-                    <ul class="serviceDetails{{ $k + 1 }} attention">
-                        <li block="serviceDetails{{ $k + 1 }}">
-                            <h4>{{ __('partner.service_details') }} #{{ $k + 1 }}: </h4> {{ __('service.for') }}
-                            {{ __('service.' . $advert->view_name) }}
-                        </li>
-                        <li class="li">{{ __('partner.fill_service_details') }}</li>
-                        <li class="li"><a href="#" class="button fulfilDetails">{{ __('partner.edit') }}</a></li>
-                    </ul>
-                    @include('web.partner.advert.create-forms.' . $advert->view_name)
-                @elseif($advert->status == Advert::STATUS_INACTIVE)
-                    {{-- <ul class="serviceDetails{{$k+1}}">
-                        <li block="serviceDetails{{$k+1}}"><h4>{{__('partner.service_details')}} #{{$k+1}}: </h4>  </li>
-                        <li class="li">{{__('partner.fill_service_details')}}</li>
-                        <li class="li"><a href="#" class="button fulfilDetails">{{__('partner.edit')}}</a></li>
-                    </ul> --}}
-                @else
-                    @include('web.partner.advert.details.' . $advert->view_name, [
-                        'iterator' => $k + 1,
-                        'advert' => $advert,
-                    ])
-                @endif
-            @endforeach
-        @endif
 
 
-        @include('web.partner.profile.category-images')
+    @include('web.partner.profile.category-images')
 
-        @if (Auth::user()->type == 'admin')
-            @include('web.partner.popup.edit-seo')
-        @endif
-        @if ($user->partnerInfo->currentPlan)
-            @include('web.partner.popup.edit-option')
-            @include('web.partner.popup.edit-category')
-        @endif
-        @if ($user->partnerInfo->vipPlan)
-            @include('web.partner.popup.edit-vip')
-        @endif
-        @if ($user->partnerInfo->currentPlan && $user->partnerInfo->currentPlan->name == 'Exclusif')
-            @include('web.partner.popup.edit-event-types')
-        @endif
-        @if (Auth::user()->type == 'admin')
-            @include('web.partner.popup.edit-image')
-        @endif
-    </div>
+    @if (Auth::user()->type == 'admin')
+        @include('web.partner.popup.edit-seo')
+    @endif
+
+
+    @if ($user->partnerInfo->vipPlan)
+        @include('web.partner.popup.edit-vip')
+    @endif
+    @if ($user->partnerInfo->currentPlan && $user->partnerInfo->currentPlan->name == 'Exclusif')
+        @include('web.partner.popup.edit-event-types')
+    @endif
+    @if (Auth::user()->type == 'admin')
+        @include('web.partner.popup.edit-image')
+    @endif
 </div>
 
 @push('header')

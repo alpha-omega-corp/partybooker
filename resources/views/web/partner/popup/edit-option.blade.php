@@ -1,26 +1,38 @@
-<div class="edit-option popup popup-form">
-    <form class="login"
-          action="{{url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-option')}}"
-          method="POST">
-        <label>
-            <input type="text" name="id_partner" value="{{Auth::user()->id_partner}}" hidden/>
-        </label>
+<x-dashboard.modal
+    id="editOption"
+    :title="__('partner.choose_option_of_your_plan')"
+    :button="__('partner.edit')"
+    :action="url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-option')"
+    method="POST">
 
-        @csrf
-        <div class="close"></div>
-        <div class="form">
-            <h3>{{__('partner.choose_option_of_your_plan')}}</h3>
+    <div class="cp-plan-options">
+        @foreach($planOptions as $option)
+            <span class="radio-item">
+                <label for="option_{{$option['group']}}"></label>
+                <input id="option_{{$option['group']}}" type="radio"
+                       name="option"
+                       value="{{$option['group']}}">
+                <span>{{$option['name']}}</span>
+            </span>
+        @endforeach
+    </div>
 
-            <div class="options">
-                @foreach($planOptions as $option)
-                    <span class="radio-item">
-                        <input id="option_{{$option['group']}}" type="radio"
-                               name="option"
-                               value="{{$option['group']}}"> <span>{{$option['name']}}</span></span>
-                @endforeach
-            </div>
-            <button type="submit" class="btn btn-primary">{{__('partner.choose')}}</button>
-        </div>
-    </form>
-</div>
+
+    <label>
+        <input type="text" name="id_partner" value="{{Auth::user()->id_partner}}" hidden/>
+    </label>
+
+</x-dashboard.modal>
+
+
+@push('footer')
+    <script>
+        let groupCurrent = '{{$user->partnerInfo->plan_option_group}}';
+        $('#editOption .btn-primary').on('click', function () {
+            $('.radio-item').append('<span class="checkmark"></span>');
+            $('div.options #option_' + groupCurrent).click();
+        });
+    </script>
+@endpush
+
 

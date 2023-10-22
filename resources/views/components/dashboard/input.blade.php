@@ -13,7 +13,7 @@
 
 <div>
     @if($label)
-        <label for="{{$id}}" class="form-label">{{$label}}</label>
+        <label for="{{$id}}" class="form-label w-100">{{$label}}</label>
     @endif
 
     <div class="input-group">

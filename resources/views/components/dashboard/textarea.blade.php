@@ -24,7 +24,5 @@
         aria-label="{{ $label }}"
         aria-describedby="{{$id}}"
         {{$required ? 'required' : ''}}
-        {{$max ? 'max-length="' . $max . '"' : ''}}>
-            {{$slot}}
-    </textarea>
+        {{$max ? 'max-length="' . $max . '"' : ''}}>{{$slot}}</textarea>
 </div>

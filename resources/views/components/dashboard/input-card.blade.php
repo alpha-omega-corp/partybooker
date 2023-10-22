@@ -1,3 +1,3 @@
-<div class="dashboard-input-card">
+<div class="dashboard-input-card shadow-lg">
     {{$slot}}
 </div>

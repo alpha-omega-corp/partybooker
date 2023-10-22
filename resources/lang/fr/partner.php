@@ -1,6 +1,9 @@
 <?php
 
 return [
+
+    'extansion' => 'Détails de prolongation',
+
     'Become a partner' => "Devenir partenaire",
     'Register' => "S'inscrir",
     'Our benefits' => "Nos avantages",
@@ -257,9 +260,9 @@ return [
     'references_expl' => "Coordonnées des référenceurs",
 
     //Equipment
-    'opening_time' => "Horaire d'ouverture",
+    'opening_time' => "ouverture",
     'opening_time_expl' => "Indiquez vos heures d'ouverture",
-    'closing_time' => "Horaire de fermeture",
+    'closing_time' => "fermeture",
     'space_rental_price_per_day' => "prix de location de l'espace par jour",
     'space_rental_price_per_hour' => "prix de location de l'espace par heure",
     'indicate_budget_for_service' => "Indiquez le budget moyen de votre service",

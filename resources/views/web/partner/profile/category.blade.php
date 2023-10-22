@@ -1,6 +1,5 @@
 @if (!count($currentCategories))
     <x-dashboard.card-item :title="__('partner.choose_category')"/>
-    <button role="button" id="edit" class="btn btn-primary">{{__('partner.choose')}}</button>
 @else
     @foreach($currentCategories as $category)
         <x-dashboard.card-item :title="__('partner.category')">
@@ -13,6 +12,9 @@
             </x-dashboard.card-item>
         @endforeach
     @endforeach
-
-    <button role="button" id="edit" class="btn btn-primary">{{__('partner.edit')}}</button>
 @endif
+
+<div class="edit-category">
+    @include('web.partner.popup.edit-category')
+</div>
+
