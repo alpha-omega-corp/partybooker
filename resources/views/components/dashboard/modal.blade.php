@@ -6,7 +6,7 @@
     'method' => 'POST',
     'hasFiles' => false
 ])
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="{{'#'. $id}}">
+<button type="button" class="btn btn-primary row-cc-button" data-bs-toggle="modal" data-bs-target="{{'#'. $id}}">
     {{$button}}
 </button>
 

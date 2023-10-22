@@ -688,7 +688,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-07eb60b2.css",
+    "file": "assets/app-9e35d89d.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -698,9 +698,9 @@
       "assets/upload-00dc4252.png"
     ],
     "css": [
-      "assets/app-07eb60b2.css"
+      "assets/app-9e35d89d.css"
     ],
-    "file": "assets/app-d1ab08c0.js",
+    "file": "assets/app-15254efa.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },

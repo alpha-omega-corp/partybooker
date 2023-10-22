@@ -84,9 +84,9 @@ return [
     'url_website' => 'Comany website',
     'edit' => 'Edit',
     'other' => 'other',
-
+    'see-all' => 'See all',
     // Plan options
-    'plan_options' => 'Plan options',
+    'plan_options' => 'Plan',
     'plan' => 'Plan',
     'Option' => 'Option',
     'choose_plan_option' => 'The following packages offer various services. Please select one plan',

@@ -18,7 +18,15 @@
 </x-dashboard.card-item>
 
 <x-dashboard.card-item :title="__('become_partner.location')">
-    {{__('cantons.'.strtolower($user->partnerInfo->location_code).'_loc')}}
+    @if($user->partnerInfo->address)
+        {{$user->partnerInfo->address}}
+    @else
+        @svg('heroicon-o-no-symbol')
+    @endif
+    <br>
+    <a href="#editLocation">
+        Edit
+    </a>
 </x-dashboard.card-item>
 
 <x-dashboard.card-item :title="__('become_partner.phone')">
@@ -31,7 +39,7 @@
     @else
         @svg('heroicon-o-no-symbol')
     @endif
-  
+
 </x-dashboard.card-item>
 
 <x-dashboard.card-item :title="__('become_partner.slogan')">

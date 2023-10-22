@@ -18,21 +18,51 @@
                 <div class="admin">
                     @include('web.partner.partials.dashboard.discount')
                 </div>
-
             </x-dashboard.card>
         @endif
 
-        <x-dashboard.card :title="__('partner.status')">
-            @include('web.partner.partials.dashboard.payment-status')
-        </x-dashboard.card>
 
-        <x-dashboard.card :title="__('partner.plan_up')">
-            @include('web.partner.partials.dashboard.active-plan')
-        </x-dashboard.card>
+        <div class="row">
+            <div class="col-12">
+                <div class="dashboard-item">
+                    <x-dashboard.card :title="__('partner.plan_up')">
+                        @include('web.partner.partials.dashboard.active-plan')
+                    </x-dashboard.card>
+                </div>
+            </div>
 
-        <x-dashboard.card :title="__('partner.statistics_data')">
-            @include('web.partner.partials.dashboard.statistics')
-        </x-dashboard.card>
+            <div class="col-md-3 col-sm-12">
+                <div class="dashboard-item">
+                    <x-dashboard.card :title="__('partner.status')">
+                        @include('web.partner.partials.dashboard.payment-status')
+                    </x-dashboard.card>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-12">
+                <div class="dashboard-item">
+                    <x-dashboard.card :title="__('partner.statistics_data')">
+                        @include('web.partner.partials.dashboard.statistics')
+                    </x-dashboard.card>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="dashboard-item">
+                    <h2>Item 4</h2>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12">
+                <div class="dashboard-item">
+                    <h2>Item 5</h2>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="dashboard-item">
+                    <h2>Item 6</h2>
+                </div>
+            </div>
+        </div>
+
 
         <x-dashboard.card :title="__('partner.rating')">
             @include('web.partner.partials.dashboard.evaluation')

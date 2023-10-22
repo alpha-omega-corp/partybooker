@@ -1,49 +1,68 @@
 @php use App\Models\Advert; @endphp
-@include('web.partner.notify')
+
 <div class="profile-info">
 
     @if ($user->partnerInfo->currentPlan &&
-       !in_array(strtolower($user->partnerInfo->currentPlan->name), ['basic', 'commission']))
-
+                    !in_array(strtolower($user->partnerInfo->currentPlan->name), ['basic', 'commission']))
         <x-dashboard.card :title="__('partner.service_details')">
             @include('web.partner.profile.service-details')
         </x-dashboard.card>
     @endif
-    
-    <x-dashboard.card :title="__('become_partner.contact_details')">
-        @include('web.partner.profile.contacts')
-    </x-dashboard.card>
 
-    <x-dashboard.card :title="__('become_partner.company_info')">
-        @include('web.partner.profile.company')
-    </x-dashboard.card>
+    @if ($user->partnerInfo->currentPlan)
+        <div class="row row-cc">
+            <div class="col-lg-4 col-md-12">
+                <x-dashboard.card :title="__('become_partner.contact_details')">
+                    @include('web.partner.profile.contacts')
+                </x-dashboard.card>
+            </div>
 
-    <x-dashboard.card title="Location">
-        <form method="POST" action="{{
+            <div class="col-lg-4 col-md-12">
+                <x-dashboard.card :title="__('partner.plan_options')">
+                    @include('web.partner.profile.plan-options')
+                </x-dashboard.card>
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+                <x-dashboard.card :title="__('partner.category')">
+                    @include('web.partner.profile.category')
+                </x-dashboard.card>
+            </div>
+        </div>
+    @endif
+
+    <hr>
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <div class="row">
+                <x-dashboard.card title="Location">
+                    <form method="POST" id="editLocation" action="{{
                 Auth::user()->type == 'admin'
                     ? url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/partner-cp/edit-company-location')
                     : url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-company-location')
                 }}">
-            @csrf
-            @include('partial.map_company')
-            <hr>
-            <button type="submit" class="btn btn-primary w-100">Save</button>
-        </form>
-    </x-dashboard.card>
+                        @csrf
+                        @include('partial.map_company')
+                        <hr>
+                        <button type="submit" class="btn btn-primary w-100">Save</button>
+                    </form>
+                </x-dashboard.card>
+            </div>
 
-    <x-dashboard.card :title="__('partner.socials')">
-        @include('web.partner.profile.www')
-    </x-dashboard.card>
+            <div class="row">
+                <x-dashboard.card :title="__('partner.socials')">
+                    @include('web.partner.profile.www')
+                </x-dashboard.card>
+            </div>
 
-    @if ($user->partnerInfo->currentPlan)
-        <x-dashboard.card :title="__('partner.plan_options')">
-            @include('web.partner.profile.plan-options')
-        </x-dashboard.card>
-
-        <x-dashboard.card :title="__('partner.category')">
-            @include('web.partner.profile.category')
-        </x-dashboard.card>
-    @endif
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <x-dashboard.card :title="__('become_partner.company_info')">
+                @include('web.partner.profile.company')
+                <div id="editLocation" class="mb-5"></div>
+            </x-dashboard.card>
+        </div>
+    </div>
 
 
     @if (Auth::user()->type == 'admin')

@@ -8,47 +8,50 @@
     </div>
     <hr>
 
-    <div class="cp-socials-item">
-        <img src="{{Vite::image('instagram.svg')}}" alt="Instagram">
-        <a href="{{$user->partnerInfo->instagram}}" target="_blank">
-            {{$user->partnerInfo->instagram}}
-        </a>
-    </div>
+    <x-dashboard.accordion :title="__('partner.see-all')" name="cpSocialsAccordion">
+        <div class="cp-socials-item">
+            <img src="{{Vite::image('instagram.svg')}}" alt="Instagram">
+            <a href="{{$user->partnerInfo->instagram}}" target="_blank">
+                {{$user->partnerInfo->instagram}}
+            </a>
+        </div>
 
-    <div class="cp-socials-item">
-        <img src="{{Vite::image('facebook.svg')}}" alt="Facebook">
-        <a href="{{$user->partnerInfo->facebook}}" target="_blank">
-            {{$user->partnerInfo->facebook}}
-        </a>
-    </div>
+        <div class="cp-socials-item">
+            <img src="{{Vite::image('facebook.svg')}}" alt="Facebook">
+            <a href="{{$user->partnerInfo->facebook}}" target="_blank">
+                {{$user->partnerInfo->facebook}}
+            </a>
+        </div>
 
-    <div class="cp-socials-item">
-        <img src="{{Vite::image('youtube.svg')}}" alt="Youtube">
-        <a href="{{$user->partnerInfo->youtube}}" target="_blank">
-            {{$user->partnerInfo->youtube}}
-        </a>
-    </div>
+        <div class="cp-socials-item">
+            <img src="{{Vite::image('youtube.svg')}}" alt="Youtube">
+            <a href="{{$user->partnerInfo->youtube}}" target="_blank">
+                {{$user->partnerInfo->youtube}}
+            </a>
+        </div>
 
-    <div class="cp-socials-item">
-        <img src="{{Vite::image('twitter.svg')}}" alt="Twitter">
-        <a href="{{$user->partnerInfo->twitter}}" target="_blank">
-            {{$user->partnerInfo->twitter}}
-        </a>
-    </div>
+        <div class="cp-socials-item">
+            <img src="{{Vite::image('twitter.svg')}}" alt="Twitter">
+            <a href="{{$user->partnerInfo->twitter}}" target="_blank">
+                {{$user->partnerInfo->twitter}}
+            </a>
+        </div>
 
-    <div class="cp-socials-item">
-        <img src="{{Vite::image('linkedin.svg')}}" alt="Linkedin">
-        <a href="{{$user->partnerInfo->linkedin}}" target="_blank">
-            {{$user->partnerInfo->linkedin}}
-        </a>
-    </div>
+        <div class="cp-socials-item">
+            <img src="{{Vite::image('linkedin.svg')}}" alt="Linkedin">
+            <a href="{{$user->partnerInfo->linkedin}}" target="_blank">
+                {{$user->partnerInfo->linkedin}}
+            </a>
+        </div>
 
-    <div class="cp-socials-item">
-        <img src="{{Vite::image('vimeo.svg')}}" alt="Vimeo">
-        <a href="{{$user->partnerInfo->vimeo}}" target="_blank">
-            {{$user->partnerInfo->vimeo}}
-        </a>
-    </div>
+        <div class="cp-socials-item">
+            <img src="{{Vite::image('vimeo.svg')}}" alt="Vimeo">
+            <a href="{{$user->partnerInfo->vimeo}}" target="_blank">
+                {{$user->partnerInfo->vimeo}}
+            </a>
+        </div>
+    </x-dashboard.accordion>
+
 </div>
 <hr>
 

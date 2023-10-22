@@ -83,9 +83,10 @@ return [
     'image' => "image",
     'url_website' => "Site de l'entreprise",
     'edit' => "Modifier",
+    'see-all' => 'Voir tout',
 
     // Plan options
-    'plan_options' => "Options de formules",
+    'plan_options' => "Formule",
     'plan' => "Formule",
     'Option' => "Option",
     'choose_plan_option' => "Les formules offres divers choix de service. Veuillez sélectionner une formule.",
