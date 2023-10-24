@@ -16,6 +16,7 @@
             <x-dashboard.input
                 type="url"
                 name="www"
+                :required="false"
                 :value="$user->partnerInfo->www"
                 :placeholder="__('partner.your_website')"
                 :label="__('partner.your_website')"
@@ -26,6 +27,7 @@
             <x-dashboard.input
                 type="url"
                 name="facebook"
+                :required="false"
                 :value="$user->partnerInfo->facebook"
                 placeholder="Facebook link"
                 label="Facebook"
@@ -36,6 +38,7 @@
             <x-dashboard.input
                 type="url"
                 name="twitter"
+                :required="false"
                 :value="$user->partnerInfo->twitter"
                 placeholder="Twitter link"
                 label="Twitter"
@@ -46,6 +49,7 @@
             <x-dashboard.input
                 type="url"
                 name="instagram"
+                :required="false"
                 :value="$user->partnerInfo->instagram"
                 placeholder="Instagram link"
                 label="Instagram"
@@ -56,6 +60,7 @@
             <x-dashboard.input
                 type="url"
                 name="linkedin"
+                :required="false"
                 :value="$user->partnerInfo->linkedin"
                 placeholder="LinkedIn link"
                 label="LinkedIn"
@@ -66,6 +71,7 @@
             <x-dashboard.input
                 type="url"
                 name="youtube"
+                :required="false"
                 :value="$user->partnerInfo->youtube"
                 placeholder="Youtube link"
                 label="Youtube"
@@ -76,6 +82,7 @@
             <x-dashboard.input
                 type="url"
                 name="vimeo"
+                :required="false"
                 :value="$user->partnerInfo->vimeo"
                 placeholder="Vimeo link"
                 label="Vimeo"

@@ -11,3 +11,4 @@
 </x-dashboard.card-item>
 
 @include('web.partner.popup.edit-contacts')
+<div id="editLocation" class="mb-5"></div>

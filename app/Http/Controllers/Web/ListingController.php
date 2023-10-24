@@ -381,12 +381,14 @@ class ListingController extends Controller
             FacadesMetaTag::set('keywords', $partner->{$locale_seo_keywords});
         }
 
+        $services = Advert::where('partners_info_id', $partner->id)->where('status', Advert::STATUS_ACTIVE)->get();
 
         return view('service', [
             'partner' => $partner,
             'email' => $partner->user->email,
             'images' => $images,
             'subCategories' => $subCategories,
+            'services' => $services,
             'rates' => count($partner->rates),
             'adverts' => PartnersInfo::where('public', 1)
                 ->where('payment_status', 1)

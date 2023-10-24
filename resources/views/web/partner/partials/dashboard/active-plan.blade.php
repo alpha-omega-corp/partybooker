@@ -11,7 +11,6 @@
 
                 @else
                     @svg('heroicon-o-no-symbol')
-
                 @endif
 
             @else
@@ -30,7 +29,7 @@
             <span class="text-uppercase fw-bold">{{ __('partner.payment') }} </span>
             <br>
             @if ($user->partnerInfo->payment_status == 0)
-                N/A
+                @svg('heroicon-o-no-symbol')
             @else
                 {{ $user->partnerInfo->payed }}
             @endif
@@ -41,7 +40,7 @@
             <span class="text-uppercase fw-bold">{{ __('partner.expire') }}</span>
             <br>
             @if (is_null($user->partnerInfo->expiration_date))
-                N/A
+                @svg('heroicon-o-no-symbol')
             @else
                 {{ $user->partnerInfo->expiration_date }}
             @endif

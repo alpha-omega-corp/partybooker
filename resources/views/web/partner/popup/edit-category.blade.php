@@ -12,26 +12,30 @@
     @foreach($partnerPlanOptions as $k => $option)
         <div class="option-{{$cat}}">
             <div class="categories cat">
-                <label for="category" class="select">{{__('partner.category')}}</label>
-                <select option="{{$cat}}" required id="category" class="form-select">
-                    <option selected disabled>--</option>
-                    @foreach($categoriesList as $c)
-                        <option value="{{$c->code}}">{{$c->lang->name}}</option>
-                    @endforeach
-                </select>
+                <x-dashboard.input-card>
+                    <label for="category" class="select">{{__('partner.category')}}</label>
+                    <select option="{{$cat}}" required id="category" class="form-select">
+                        <option selected disabled>--</option>
+                        @foreach($categoriesList as $c)
+                            <option value="{{$c->code}}">{{$c->lang->name}}</option>
+                        @endforeach
+                    </select>
+                </x-dashboard.input-card>
             </div>
 
             @for($i = 1; $i <= $option->sub_categories_count; $i++)
                 @foreach($categoriesList as $categ)
                     <div class="categories subcat d-none w-100 {{$categ->code}}">
                         <div class="d-flex flex-column w-100">
-                            <label for="subCat" class="select">{{__('partner.subcategory')}}</label>
-                            <select name="category[{{$categ->id}}][]" id="subCat" class="form-select w-100">
-                                <option selected disabled>--</option>
-                                @foreach($categ->subCategories as $sub)
-                                    <option value="{{$sub->id}}">{{$sub->lang->name}}</option>
-                                @endforeach
-                            </select>
+                            <x-dashboard.input-card>
+                                <label for="subCat" class="select">{{__('partner.subcategory')}}</label>
+                                <select name="category[{{$categ->id}}][]" id="subCat" class="form-select w-100">
+                                    <option selected disabled>--</option>
+                                    @foreach($categ->subCategories as $sub)
+                                        <option value="{{$sub->id}}">{{$sub->lang->name}}</option>
+                                    @endforeach
+                                </select>
+                            </x-dashboard.input-card>
                         </div>
                     </div>
                 @endforeach

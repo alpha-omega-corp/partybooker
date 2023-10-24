@@ -210,7 +210,7 @@ class ProfileController extends Controller
 
         $user = User::where('id_partner', $id)->first();
 
-        $plans = Plans::with('planOptions')->orderBy('position', 'ASC')->get();
+        $plans = Plans::with('planOptions')->orderBy('price', 'ASC')->get();
         foreach ($plans as $plan) {
             $plan->name = strtolower($plan->name);
         }

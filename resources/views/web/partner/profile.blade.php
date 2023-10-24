@@ -3,7 +3,9 @@
 <div class="profile-info">
 
     @if ($user->partnerInfo->currentPlan &&
-                    !in_array(strtolower($user->partnerInfo->currentPlan->name), ['basic', 'commission']))
+     $user->partnerInfo->categories->count() > 0 &&
+      !in_array(strtolower($user->partnerInfo->currentPlan->name), ['basic', 'commission']))
+
         <x-dashboard.card :title="__('partner.service_details')">
             @include('web.partner.profile.service-details')
         </x-dashboard.card>
@@ -34,6 +36,21 @@
     <hr>
     <div class="row">
         <div class="col-lg-6 col-md-12">
+
+            <div class="row">
+                <x-dashboard.card :title="__('partner.status')">
+                    @include('web.partner.partials.dashboard.payment-status')
+                </x-dashboard.card>
+            </div>
+
+            <div class="row">
+                <x-dashboard.card :title="__('partner.image')">
+                    <div class="serviceDetails">
+                        @include('web.partner.profile.category-images')
+                    </div>
+                </x-dashboard.card>
+            </div>
+
             <div class="row">
                 <x-dashboard.card title="Location">
                     <form method="POST" id="editLocation" action="{{
@@ -55,15 +72,15 @@
                 </x-dashboard.card>
             </div>
 
+
         </div>
         <div class="col-lg-6 col-md-12">
             <x-dashboard.card :title="__('become_partner.company_info')">
                 @include('web.partner.profile.company')
-                <div id="editLocation" class="mb-5"></div>
             </x-dashboard.card>
         </div>
-    </div>
 
+    </div>
 
     @if (Auth::user()->type == 'admin')
         <x-dashboard.card title="seo">
@@ -74,14 +91,11 @@
     @endif
 
     @include('web.partner.profile.vip')
-
-
     @include('web.partner.profile.event-types')
 
 
 
 
-    @include('web.partner.profile.category-images')
 
     @if (Auth::user()->type == 'admin')
         @include('web.partner.popup.edit-seo')

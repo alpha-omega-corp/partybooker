@@ -130,7 +130,6 @@
             var i = 1;
             $('div.add-opening-time-create').on('click', function (e) {
                 e.preventDefault();
-                console.log(1);
                 var row = $('#opening-time .opening-record:first').clone();
                 row.find('input.open').val('').attr('name', 'opening[' + i + '][open]');
                 row.find('input.closing').val('').attr('name', 'opening[' + i + '][close]');
@@ -212,298 +211,311 @@
         </div>
     </x-dashboard.card>
 
+    <x-dashboard.card :title="__('partner.service_general_info')">
+        <div class="row">
+            <div class="col-md-6">
+                <label>{{__('partner.cocktail_reception_capacity')}}
+                    <div class="explanation">{{__('partner.cocktail_reception_capacity_expl')}}</div>
+                </label>
+                <input type="number" name="cocktail_capacity" min="0" value="0"/>
 
-    <div class="row mt-30">
-        <div class="col-10 offset-1">
-            <h6>{{__('partner.service_general_info')}}</h6>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-5 offset-lg-1 col-md-6">
-            <label>{{__('partner.cocktail_reception_capacity')}}
-                <div class="explanation">{{__('partner.cocktail_reception_capacity_expl')}}</div>
-            </label>
-            <input type="number" name="cocktail_capacity" min="0" value="0"/>
+                <label class="mt-10">{{__('partner.banquet_capacity')}}
+                    <div class="explanation">{{__('partner.banquet_capacity_expl')}}</div>
+                </label>
+                <input type="number" name="banquet_capacity" min="0" value="0"/>
 
-            <label class="mt-10">{{__('partner.banquet_capacity')}}
-                <div class="explanation">{{__('partner.banquet_capacity_expl')}}</div>
-            </label>
-            <input type="number" name="banquet_capacity" min="0" value="0"/>
+                <label class="mt-10">{{__('partner.outdoor_facility')}}
+                    <div class="explanation">{{__('partner.other_service_facilities_expl')}}</div>
+                </label>
+                <input type="number" name="outdor_capacity" min="0" value="0"/>
 
-            <label class="mt-10">{{__('partner.outdoor_facility')}}
-                <div class="explanation">{{__('partner.other_service_facilities_expl')}}</div>
-            </label>
-            <input type="number" name="outdor_capacity" min="0" value="0"/>
+                <label>{{__('partner.car_park')}}
+                    <div class="explanation">{{__('partner.car_park_expl')}}</div>
+                </label>
+                <input type="number" name="car_park" min="0"/>
+            </div>
+            <div class="col-md-6">
 
-        </div>
-        <div class="col-lg-5 col-md-6">
-            {{--			SCHEMAS				--}}
-        </div>
-    </div>
-    <div class="row mt-10">
-        <div class="col-lg-4 offset-lg-1 col-md-4">
-            <label>{{__('partner.conference_room')}}
-                <div class="explanation">{{__('partner.conference_room-expl')}}</div>
-            </label>
-            <div class="set">
-                <div class="set-conference-room">
-                    <input type="text" value="1" name="set_num" hidden/>
-                    <div class="conference-room">
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <input type="text" name="room_name_1"
-                                       placeholder="{{__('partner.name')}}"/>
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="number" name="room_cap_1" min="0"
-                                       placeholder="{{__('partner.capacity')}}"/>
-                            </div>
-                        </div>
+                <div class="row">
+                    <div>
+                        <label class="wide">{{__('partner.reduced_mobility_access')}}<span>*</span>
+                            <div class="explanation">{{__('partner.reduced_mobility_access_expl')}}</div>
+                        </label>
+                        <span class="radio-item">
+                        <input type="radio" name="reduced_mobility" value="yes" required/>
+                        <span>{{__('partner.yes')}}</span>
+                        </span>
+                        <span class="radio-item">
+                            <input type="radio" name="reduced_mobility" value="no"/>
+                            <span>{{__('partner.no')}}</span>
+                        </span>
+                        <span class="radio-item">
+                            <input type="radio" name="reduced_mobility" value="partial"/>
+                            <span>{{__('partner.partial')}}</span>
+                        </span>
                     </div>
                 </div>
-                <div class="button" set="conference-room">{{__('partner.add_more_room')}}</div>
+                <hr>
+                <div>
+                    <label>{{__('partner.conference_room')}}
+                        <div class="explanation">{{__('partner.conference_room-expl')}}</div>
+                    </label>
+                    <div class="set">
+                        <div class="set-conference-room">
+                            <input type="text" value="1" name="set_num" hidden/>
+                            <div class="conference-room">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <input type="text" name="room_name_1"
+                                               placeholder="{{__('partner.name')}}"/>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" name="room_cap_1" min="0"
+                                               placeholder="{{__('partner.capacity')}}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <a class="btn btn-primary btn-room" set="conference-room">
+                            {{__('partner.add_more_room')}}
+                        </a>
+                    </div>
+                </div>
+
             </div>
-
-            <label class="mt-10 wide">{{__('partner.reduced_mobility_access')}}<span>*</span>
-                <div class="explanation">{{__('partner.reduced_mobility_access_expl')}}</div>
-            </label>
-            <span class="radio-item">
-					<input type="radio" name="reduced_mobility" value="yes" required/>
-					<span>{{__('partner.yes')}}</span>
-				</span>
-            <span class="radio-item">
-					<input type="radio" name="reduced_mobility" value="no"/>
-					<span>{{__('partner.no')}}</span>
-				</span>
-            <span class="radio-item">
-					<input type="radio" name="reduced_mobility" value="partial"/>
-					<span>{{__('partner.partial')}}</span>
-				</span>
-        </div>
-        <div class="col-lg-3 col-md-4 convence-options">
-            <label>{{__('partner.car_park')}}
-                <div class="explanation">{{__('partner.car_park_expl')}}</div>
-            </label>
-            <input type="number" name="car_park" min="0"/>
-
-            <label class="mt-10">{{__('partner.conveniences')}}<span>*</span>
-                <div class="explanation">{{__('partner.conveniences_expl')}}</div>
-            </label>
-            @foreach(ConveniencesTranslatorHelper::$_items as $item)
-                <span class="checkbox-item wide">
-						<input type="checkbox" name="conveniences[]" value="{{$item}} required"/>
-						<span>{{ConveniencesTranslatorHelper::translate($item)}}</span>
-					</span>
-            @endforeach
         </div>
 
-        <div class="col-lg-3 col-md-4 bar-options">
-            <label class="mt-10">{{__('partner.Bar_dance_floor_stage')}}<span>*</span>
-                <div class="explanation">{{__('partner.Bar_dance_floor_stage_expl')}}</div>
-            </label>
-            @foreach(BarDanceFloorTranslatorHelper::$_items as $item)
-                <span class="checkbox-item wide">
+        <hr>
+
+        <div class="row">
+            <div class="col-md-5">
+                <div class="bar-options">
+                    <label class="mt-10">{{__('partner.Bar_dance_floor_stage')}}<span>*</span>
+                        <div class="explanation">{{__('partner.Bar_dance_floor_stage_expl')}}</div>
+                    </label>
+                    @foreach(BarDanceFloorTranslatorHelper::$_items as $item)
+                        <span class="checkbox-item wide">
 						<input type="checkbox" name="facilities[]" value="{{$item}}" required/>
 						<span>{{BarDanceFloorTranslatorHelper::translate($item)}}</span>
 					</span>
-            @endforeach
-            <span class="checkbox-item wide">
+                    @endforeach
+                    <span class="checkbox-item wide">
 					<input type="checkbox" name="facilities[]" class="other-field" field="facilities" value="other"/>
 					<span>{{__('become_partner.other')}}</span>
 				</span>
-            <div class="for-facilities additional-field mt-10"></div>
-        </div>
-    </div>
+                    <div class="for-facilities additional-field mt-10"></div>
+                </div>
+            </div>
 
-    <div class="row mt-10">
-        <div class="col-lg-10 offset-lg-1 col-md-6">
-            <label class="mt-10">{{__('partner.bring_alcohol')}}<span>*</span>
-                <div class="explanation">{{__('partner.bring_alcohol_expl')}}</div>
-            </label>
-            <span class="radio-item">
+            <div class="convence-options col-md-2">
+                <label class="mt-10">{{__('partner.conveniences')}}<span>*</span>
+                    <div class="explanation">{{__('partner.conveniences_expl')}}</div>
+                </label>
+                @foreach(ConveniencesTranslatorHelper::$_items as $item)
+                    <span class="checkbox-item wide">
+						<input type="checkbox" name="conveniences[]" value="{{$item}} required"/>
+						<span>{{ConveniencesTranslatorHelper::translate($item)}}</span>
+                        </span>
+                @endforeach
+            </div>
+
+
+            <div class="col-md-3">
+                <label>
+                    <span class="text-nowrap text-gray">
+                        {{__('partner.bring_alcohol')}}
+                        <span>*</span>
+                    </span>
+
+                    <div class="explanation">{{__('partner.bring_alcohol_expl')}}</div>
+                </label>
+                <span class="radio-item">
 					<input type="radio" name="alcohol" class="has-field" field="alcohol" value="yes" required/>
 					<span>{{__('partner.yes')}}</span>
 				</span>
-            <span class="radio-item">
+                <span class="radio-item">
 					<input type="radio" name="alcohol" class="has-field" field="alcohol" value="no"/>
 					<span>{{__('partner.no')}}</span>
 				</span>
-            <div class="for-alcohol additional-field mt-10"></div>
+                <div class="for-alcohol additional-field mt-10"></div>
+            </div>
         </div>
-    </div>
+    </x-dashboard.card>
 
-    <div class="row mt-30">
-        <div class="col-10 offset-1">
-            <h6>{{__('partner.catering-stewardship')}}</h6>
-        </div>
-    </div>
+    <x-dashboard.card :title="__('partner.catering-stewardship')">
+        <div class="row">
+            <div class="col-md-6">
+                <label class="wide">{{__('partner.external_food_allowed')}}<span>*</span></label>
+                <span class="radio-item">
+                    <input type="radio" name="external_food" value="yes" required/>
+                    <span>{{__('partner.yes')}}</span>
+                </span>
+                <span class="radio-item">
+                    <input type="radio" name="external_food" value="no"/>
+                    <span>{{__('partner.no')}}</span>
+                </span>
+            </div>
 
-    <div class="row mt-10">
-        <div class="col-lg-5 offset-lg-1 col-md-6">
-            <label class="wide">{{__('partner.property_prepare_meals')}}<span>*</span></label>
-            <span class="radio-item">
-					<input type="radio" id="prepare_meal_yes" name="prepare_meal" value="yes" required/>
-					<span>{{__('partner.yes')}}</span>
-				</span>
-            <span class="radio-item">
-					<input type="radio" id="prepare_meal_no" name="prepare_meal" value="no"/>
-					<span>{{__('partner.no')}}</span>
-				</span>
-
-            <label class="mt-10 wide">{{__('partner.works_with_affiliated_partners')}}<span
-                    class="aff_req">*</span></label>
-            <span class="radio-item">
-					<input type="radio" id="aff_caterers" name="aff_caterers" class="has-field" field="aff_caterers"
-                           value="yes" required/>
-					<span>{{__('partner.yes')}}</span>
-				</span>
-            <span class="radio-item">
-					<input type="radio" name="aff_caterers" class="has-field" field="aff_caterers" value="no"/>
-					<span>{{__('partner.no')}}</span>
-				</span>
-            <div class="for-aff_caterers additional-field mt-10"></div>
-            <div class="for-aff_caterers-select mt-10">
-                {{--						<select name="aff_caterers_partybooker">--}}
-                {{--							<option>Partybooker</option>--}}
-                {{--							<option>Lionwood</option>--}}
-                {{--						</select>--}}
+            <div class="col-md-6">
+                <label class="wide">{{__('partner.property_prepare_meals')}}<span>*</span></label>
+                <span class="radio-item">
+                <input type="radio" id="prepare_meal_yes" name="prepare_meal" value="yes" required/>
+                <span>{{__('partner.yes')}}</span>
+                </span>
+                <span class="radio-item">
+                    <input type="radio" id="prepare_meal_no" name="prepare_meal" value="no"/>
+                    <span>{{__('partner.no')}}</span>
+                </span>
             </div>
         </div>
 
-        <div class="col-lg-5 offset-lg-1 col-md-6">
-            <label class="wide">{{__('partner.external_food_allowed')}}<span>*</span></label>
-            <span class="radio-item">
-					<input type="radio" name="external_food" value="yes" required/>
-					<span>{{__('partner.yes')}}</span>
-				</span>
-            <span class="radio-item">
-					<input type="radio" name="external_food" value="no"/>
-					<span>{{__('partner.no')}}</span>
-				</span>
+        <hr>
 
-            <label class="mt-10 wide">{{__('partner.free_choice_of_caterer')}}<span>*</span></label>
-            <span class="radio-item">
-					<input type="radio" name="free_caterers" class="has-field" field="free_caterers" value="yes"
-                           required/>
-					<span>{{__('partner.yes')}}</span>
-				</span>
-            <span class="radio-item">
-					<input type="radio" name="free_caterers" class="has-field" field="free_caterers" value="no"/>
-					<span>{{__('partner.no')}}</span>
-				</span>
-            <div class="for-free_caterers additional-field mt-10"></div>
-        </div>
-    </div>
-
-    <div class="row mt-10">
-        <div class="col-lg-5 offset-lg-1 col-md-6 furniture-options">
-            <label class="wide">{{__('partner.available_furniture_equipment')}}<span>*</span>
-                <div class="explanation">{{__('partner.available_furniture_equipment_expl')}}</div>
-            </label>
-            @foreach(FurnitureTranslatorHelper::$_items as $item)
-                <span class="checkbox-item wide">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="furniture-options">
+                    <label class="wide">{{__('partner.available_furniture_equipment')}}<span>*</span>
+                        <div class="explanation">{{__('partner.available_furniture_equipment_expl')}}</div>
+                    </label>
+                    @foreach(FurnitureTranslatorHelper::$_items as $item)
+                        <span class="checkbox-item wide">
 						<input type="checkbox" name="furniture_eq[]" value="{{$item}}" required/>
 						<span>{{FurnitureTranslatorHelper::translate($item)}}</span>
 					</span>
-            @endforeach
-        </div>
-        <div class="col-lg-5 offset-lg-1 col-md-6 te-options">
-            <label class="wide">{{__('partner.technical_equipment')}}<span>*</span>
-                <div class="explanation">{{__('partner.technical_equipment_expl')}}</div>
-            </label>
-            @foreach(TechnicalEquipmentTranslatorHelper::$_items as $item)
-                <span class="checkbox-item wide">
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="te-options">
+                    <label class="wide">{{__('partner.technical_equipment')}}<span>*</span>
+                        <div class="explanation">{{__('partner.technical_equipment_expl')}}</div>
+                    </label>
+                    @foreach(TechnicalEquipmentTranslatorHelper::$_items as $item)
+                        <span class="checkbox-item wide">
 						<input type="checkbox" name="tech_eq[]" value="{{$item}}" required/>
 						<span>{{TechnicalEquipmentTranslatorHelper::translate($item)}}</span>
 					</span>
-            @endforeach
-            <span class="checkbox-item wide">
+                    @endforeach
+                    <span class="checkbox-item wide">
 					<input type="checkbox" name="tech_eq[]" class="other-field" field="tech_eq" value="other"/>
 					<span>{{__('become_partner.other')}}</span>
 				</span>
-            <div class="for-tech_eq additional-field mt-10"></div>
+                    <div class="for-tech_eq additional-field mt-10"></div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="row mt-30">
-        <div class="col-10 offset-1">
-            <h6>{{__('partner.other_services')}}</h6>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label class="wide">{{__('partner.works_with_affiliated_partners')}}<span
+                        class="aff_req">*</span></label>
+                <span class="radio-item">
+                <input type="radio" id="aff_caterers" name="aff_caterers" class="has-field" field="aff_caterers"
+                       value="yes" required/>
+                <span>{{__('partner.yes')}}</span>
+                 </span>
+                <span class="radio-item">
+                <input type="radio" name="aff_caterers" class="has-field" field="aff_caterers" value="no"/>
+                <span>{{__('partner.no')}}</span>
+            </span>
+                <div class="for-aff_caterers additional-field"></div>
+                <div class="for-aff_caterers-select"></div>
+            </div>
+
+            <div class="col-md-6">
+                <label class="wide">{{__('partner.free_choice_of_caterer')}}<span>*</span></label>
+                <span class="radio-item">
+                <input type="radio" name="free_caterers" class="has-field" field="free_caterers" value="yes"
+                       required/>
+                <span>{{__('partner.yes')}}</span>
+            </span>
+                <span class="radio-item">
+                <input type="radio" name="free_caterers" class="has-field" field="free_caterers" value="no"/>
+                <span>{{__('partner.no')}}</span>
+            </span>
+                <div class="for-free_caterers additional-field mt-10"></div>
+            </div>
         </div>
-    </div>
+    </x-dashboard.card>
 
-    <div class="row mt-10">
-        <div class="col-lg-3 offset-lg-1 col-md-4 staff-options">
-            <label class="wide">{{__('partner.staff')}}<span>*</span>
-                <div class="explanation">{{__('partner.staff_expl')}}</div>
-            </label>
-            @foreach(EventsStaffTranslatorHelper::$_items as $item)
-                <span class="checkbox-item wide">
+    <x-dashboard.card :title="__('partner.other_services')">
+        <div class="row">
+            <div class="col-md-6 staff-options">
+                <label class="wide">{{__('partner.staff')}}<span>*</span>
+                    <div class="explanation">{{__('partner.staff_expl')}}</div>
+                </label>
+                @foreach(EventsStaffTranslatorHelper::$_items as $item)
+                    <span class="checkbox-item wide">
 						<input type="checkbox" name="staff[]" value="{{$item}}" required/>
 						<span>{{EventsStaffTranslatorHelper::translate($item)}}</span>
 					</span>
-            @endforeach
+                @endforeach
 
-            <span class="checkbox-item wide">
+                <span class="checkbox-item wide">
 					<input type="checkbox" name="staff[]" class="other-field" field="staff" value="other"/>
 					<span>{{__('become_partner.other')}}</span>
 				</span>
-            <div class="for-staff additional-field mt-10"></div>
-        </div>
-        <div class="col-lg-3 col-md-4">
-            <label class="wide">{{__('partner.other_services')}}
-                <div class="explanation">{{__('partner.staf_expl')}}</div>
-            </label>
-            @foreach(OtherServicesTranslatorHelper::$_items as $item)
-                <span class="checkbox-item wide">
+                <div class="for-staff additional-field mt-10"></div>
+            </div>
+            <div class="col-md-6">
+                <label class="wide">{{__('partner.other_services')}}
+                    <div class="explanation">{{__('partner.staf_expl')}}</div>
+                </label>
+                @foreach(OtherServicesTranslatorHelper::$_items as $item)
+                    <span class="checkbox-item wide">
 						<input type="checkbox" name="other[]" value="{{$item}}"/>
 						<span>{{OtherServicesTranslatorHelper::translate($item)}}</span>
                     <br>
                 </span>
-            @endforeach
-            <span class="checkbox-item wide">
+                @endforeach
+                <span class="checkbox-item wide">
 					<input type="checkbox" name="other[]" class="other-field" field="other-service" value="other"/>
 					<span>{{__('become_partner.other')}}</span>
 				</span>
-            <div class="for-other-service additional-field mt-10"></div>
+                <div class="for-other-service additional-field mt-10"></div>
+            </div>
         </div>
 
-        <div class="col-lg-3 col-md-4">
-            <label class="wide">{{__('partner.accomodation')}}<span>*</span>
-                <div class="explanation">{{__('partner.accomodation_expl')}}</div>
-            </label>
-            <span class="radio-item wide">
+        <hr>
+
+        <div class="row">
+            <div>
+                <label class="wide">{{__('partner.accomodation')}}<span>*</span>
+                    <div class="explanation">{{__('partner.accomodation_expl')}}</div>
+                </label>
+                <span class="radio-item wide">
 					<input type="radio" name="accomodation" class="has-field" field="accomodation" value="yes"
                            required/>
 					<span>{{__('partner.yes')}}</span>
 				</span>
-            <span class="radio-item wide">
+                <span class="radio-item wide">
 					<input type="radio" name="accomodation" class="has-field" field="accomodation" value="yes-nearby"/>
 					<span>{{__('partner.YES_nearby')}}</span>
 				</span>
-            <span class="radio-item wide">
+                <span class="radio-item wide">
 					<input type="radio" name="accomodation" class="has-field" field="accomodation"
                            value="not-available"/>
 					<span>{{__('partner.not_available')}}</span>
 				</span>
-            <div class="for-accomodation additional-field mt-10"></div>
+                <div class="for-accomodation additional-field mt-10"></div>
+            </div>
         </div>
-    </div>
+    </x-dashboard.card>
 
-    <div class="row mt-30">
-        <div class="col-10 offset-1">
-            <h6>{{__('partner.want_to_add_something')}}</h6>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-10 offset-lg-1">
+    <x-dashboard.card :title="__('partner.want_to_add_something')">
+        <div>
             <label>{{__('partner.your_comment')}}
                 <div class="explanation">{{__('partner.want_to_add_something_expl')}}</div>
             </label>
             <textarea maxlength="500" name="comment"></textarea>
         </div>
-    </div>
-    <button type="submit" class="button btn-reg">{{__('partner.save')}}</button>
+    </x-dashboard.card>
+
+    <button type="submit" class="button btn-reg btn btn-primary w-100">{{__('partner.save')}}</button>
 </form>
 
 

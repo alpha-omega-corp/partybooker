@@ -1,4 +1,4 @@
-@if (!is_null($user->partnerInfo->logo) || strlen($user->partnerInfo->logo) > 0)
+@if ($user->partnerInfo->logo)
     <x-dashboard.card-item title="Logo">
         <img src="{{ asset('/storage/logos/'.$user->partnerInfo->logo)}}" alt="logo" width="100"
              class="mt-2 cp-company-logo">

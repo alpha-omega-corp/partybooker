@@ -24,8 +24,11 @@
                     <input type="file" id="logo" name="logo" class="imagesFileUpload" hidden>
                 </label>
                 <div id="filename" class="m-2 text-dark d-flex align-items-center">
-                    <img src="{{ asset('/storage/logos/'.$user->partnerInfo->logo)}}" alt="logo" class="cp-company-logo"
-                         width="100">
+                    @if ($user->partnerInfo->logo)
+                        <img src="{{ asset('/storage/logos/'.$user->partnerInfo->logo)}}" alt="logo"
+                             class="cp-company-logo"
+                             width="100">
+                    @endif
                 </div>
 
             </div>

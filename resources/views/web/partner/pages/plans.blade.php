@@ -9,5 +9,15 @@
 @endsection
 
 @section('content')
-    @include('web.partner.plan')
+    <div class="row">
+        @foreach($plans as $plan)
+            <div class="col-md-3">
+                <div class="become-partner">
+                    <div class="packages">
+                        <x-partner.package :plan="$plan"/>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
 @endsection

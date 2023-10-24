@@ -3434,6 +3434,7 @@ input[type="range"] {
                 }
             }
 
+
             .del {
                 position: absolute;
                 right: 5px;
@@ -3716,15 +3717,10 @@ input[type="range"] {
 }
 
 .serviceDetails .files .del {
-    float: left;
-    margin-right: 20px;
     cursor: pointer;
     color: red;
-    transition: 0.3s;
 
-    &:hover {
-        color: $aqua;
-    }
+    
 }
 
 .edit-company {

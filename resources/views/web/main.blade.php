@@ -90,7 +90,6 @@
 
             <div class="dashboard-container">
                 @yield('content')
-
                 @include('common.footer')
             </div>
 

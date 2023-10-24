@@ -420,7 +420,7 @@ $('.partnerdetails .has-field').change(function () {
 
     if ($(this).val() == 'yes' && field != 'aff_caterers' && field != 'free_caterers') {
         if (field == 'accomodation') {
-            var addInput = '<input type="number" name="yes_' + field + '" min="0" class="add-input-' + field + '" placeholder="capacity" required/>';
+            var addInput = '<input type="number" name="yes_' + field + '" min="0" class="add-input-' + field + ' mt-4" placeholder="Capacity" required/>';
         } else {
             var addInput = '<input type="text" name="yes_' + field + '" maxlength="150" class="add-input-' + field + '" required/>';
         }
@@ -448,7 +448,7 @@ $('.partnerdetails .has-field').change(function () {
 
     if (field == 'aff_caterers') {
         if ($(this).val() == 'yes') {
-            var addInput = '<div class="set"><div class="set-' + field + ' mt-10"><input type="text" value="1" name="set_num_' + field + '" hidden /><div class="' + field + '"><input type="text" name="' + field + '_name_1" placeholder="name"  /><input type="url" name="' + field + '_web_1" class="mt-10" placeholder="url"  /></div></div><div class="button" set="' + field + '">Add one more</div></div>';
+            var addInput = '<div class="set"><div class="set-' + field + ' mt-2"><input type="text" value="1" name="set_num_' + field + '" hidden /><div class="' + field + '"><input type="text" name="' + field + '_name_1" placeholder="name" /><input type="url" name="' + field + '_web_1" class="mt-2" placeholder="url"  /></div></div><div class="button btn btn-primary fw-bold mt-2" set="' + field + '">+</div></div>';
             $('.for-' + field).append(addInput);
             $('.for-' + field).addClass('visible');
             $('.for-' + field + '-select').hide();
@@ -462,7 +462,7 @@ $('.partnerdetails .has-field').change(function () {
 
     if (field == 'free_caterers') {
         if ($(this).val() == 'yes') {
-            var addInput = '<div class="set"><div class="set-' + field + ' mt-10"><input type="text" value="1" name="set_num_' + field + '" hidden /><div class="' + field + '"><input type="text" name="' + field + '_name_1" placeholder="name" /><input type="url" name="' + field + '_web_1" class="mt-10" placeholder="url" /></div></div><div class="button" set="' + field + '">Add one more</div></div>';
+            var addInput = '<div class="set"><div class="set-' + field + ' mt-2"><input type="text" value="1" name="set_num_' + field + '" hidden /><div class="' + field + '"><input type="text" name="' + field + '_name_1" placeholder="name" /><input type="url" name="' + field + '_web_1" class="mt-2" placeholder="url" /></div></div><div class="button btn btn-primary fw-bold mt-2" set="' + field + '">+</div></div>';
             $('.for-' + field).append(addInput);
             $('.for-' + field).addClass('visible');
         } else {
@@ -475,7 +475,7 @@ $('.partnerdetails .has-field').change(function () {
 $('.partnerdetails .additional-field').on('click', '.button', function () {
     var set = $(this).attr('set');
     var setNum = parseInt($('.partnerdetails .additional-field .set-' + set + ' [name=set_num_' + set + ']').val()) + 1;
-    var block = '<div class="' + set + ' mt-10"><input type="text" name="' + set + '_name_' + setNum + '" placeholder="name" /><input type="url" name="' + set + '_web_' + setNum + '" class="mt-10" placeholder="url"/></div>';
+    var block = '<div class="' + set + ' mt-2"><input type="text" name="' + set + '_name_' + setNum + '" placeholder="name" class="mb-2" /><input type="url" name="' + set + '_web_' + setNum + '" class="mt-10" placeholder="url"/></div>';
     $('.partnerdetails .additional-field .set-' + set).append(block);
     $('.partnerdetails .additional-field .set-' + set + ' [name=set_num_' + set + ']').val(setNum);
 });
@@ -492,8 +492,9 @@ $('.partnerdetails [name=price_for]').change(function () {
 
 });
 
-$('.partnerdetails .set .button').on('click', function () {
+$('.partnerdetails .set .btn-room').on('click', function () {
     var set = $(this).attr('set');
+    console.log(set);
     var setNum = parseInt($('.partnerdetails .set-' + set + ' [name=set_num]').val()) + 1;
     if (set == 'conference-room') {
         var block = '<div class="conference-room mt-10"><div class="row"><div class="col-sm-8"><input type="text" name="room_name_' + setNum + '" placeholder="Name"  /></div><div class="col-sm-4"><input type="number" name="room_cap_' + setNum + '" min="0" placeholder="Capacity" /></div></div></div>';
@@ -1348,7 +1349,7 @@ $(document).on("click", '#plan-choose', function () {
     $("#ModalCenter #start_date").val('');
 });
 
-$(document).on("click", '#plan-payment-choose', function () {
+$('#plan-payment-choose').on("click", function () {
     var title = $(this).data("plan-name");
     var id = $(this).data("plan-id");
     $("#ModalPayment #ModalTitle").text(title);

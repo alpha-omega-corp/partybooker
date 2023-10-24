@@ -191,7 +191,7 @@
                                             {{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
                                         </div>
                                     </x-slot:title>
-                                    @foreach ($partner->services as $advert)
+                                    @foreach ($services as $advert)
                                         <x-tab.item>
                                             <div class="partner-advert">
                                                 <div class="partner-advert-card">
@@ -259,7 +259,7 @@
 
                                 <div class="row d-flex gallery">
                                     <?php $locale = app()->getLocale(); ?>
-                                    @if(config('app.url') == 'http://localhost')
+                                    @if(!$images->count())
                                         @for ($i = 1; $i <= 10; $i++)
                                             <div class="col-12 mb-4 gallery-image gal-img">
                                                 <img src="//via.placeholder.com/500x500/fc0?text=6" alt="...">

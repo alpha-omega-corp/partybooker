@@ -642,31 +642,6 @@ a {
         }
     }
 
-    .partner-advert {
-
-
-        .partner-advert-card {
-            border-top: 0;
-
-            .advert-ul {
-                padding: 5px;
-                margin-bottom: 10px;
-            }
-
-            ul {
-
-                li {
-                    list-style-type: square;
-                    color: $dark;
-                }
-
-                li::marker {
-                    color: $primary;
-                }
-            }
-        }
-    }
-
     .tab-overflow {
         border-bottom: 2px solid $accent;
 
@@ -2828,10 +2803,6 @@ html {
     padding: 0 20px 20px;
     border-radius: 20px;
     margin-bottom: 20px;
-
-    .dashboard-card-body {
-
-    }
 }
 
 
@@ -3122,6 +3093,8 @@ html {
     }
 
     .partner-nav {
+        margin-bottom: 20px;
+
         li {
             padding: 0;
 
@@ -3205,6 +3178,68 @@ html {
     }
 
     .profile-info {
+
+        .edit-main-image {
+            margin-left: 10px;
+        }
+
+        .gal-img-all {
+            .del {
+                display: flex;
+                justify-content: center;
+                margin: 10px;
+            }
+        }
+
+        .catImages {
+            padding: 0;
+            font-weight: bold;
+
+            .imgNumber {
+                padding: 10px;
+                background-color: $primary;
+                color: #fff;
+            }
+        }
+
+        .partner-advert-card {
+            border-top: 0;
+
+            .card:hover {
+                transform: scale(1.02);
+                transition: .2s;
+            }
+
+
+            .advert-ul {
+                padding: 5px;
+                margin-bottom: 10px;
+            }
+
+            .advert-body {
+                padding: 10px 10px 0;
+            }
+
+            ul {
+
+                li {
+                    list-style-type: square;
+                    color: $dark;
+                }
+
+                li::marker {
+                    color: $primary;
+                }
+            }
+        }
+
+        .gallery {
+            img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
 
         .cp-plan-options {
             color: $gray-700;
@@ -3317,6 +3352,10 @@ html {
     }
 }
 
+.conference-room {
+    margin-bottom: 10px;
+}
+
 .row-cc {
     .dashboard-card {
         height: 100%;
@@ -3333,5 +3372,51 @@ html {
 
         }
 
+    }
+}
+
+
+.dashboard-stat-card {
+    border: 1px solid $gray-300;
+    border-radius: 20px;
+    margin: 10px;
+    width: 200px;
+    overflow: hidden;
+    cursor: pointer;
+
+    .stat-card-title {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        background-color: $accent;
+
+        img {
+            width: 20px;
+        }
+
+        svg {
+            color: #fff;
+        }
+    }
+
+    .stat-value {
+        margin: 0;
+        text-align: center;
+        padding-bottom: 10px;
+        font-weight: bold;
+    }
+}
+
+.rating-stat {
+    ul {
+        padding: 0;
+    }
+}
+
+.row-evaluation {
+    height: 100%;
+
+
+    .dashboard-card {
     }
 }

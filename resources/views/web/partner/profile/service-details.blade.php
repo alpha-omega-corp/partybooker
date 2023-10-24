@@ -1,9 +1,10 @@
 @php use App\Models\Advert; @endphp
 @foreach ($adverts as $k => $advert)
+    @php
+        $title = '#' .  $k + 1 . ': ' . __('service.' . $advert->view_name)
+    @endphp
+
     @if ($advert->status == Advert::STATUS_DRAFT)
-        @php
-            $title = '#' .  $k + 1 . ': ' . __('service.' . $advert->view_name)
-        @endphp
 
         <x-dashboard.card-info>
             {{__('partner.fill_service_details')}}
@@ -27,9 +28,14 @@
         </ul> --}}
     @else
 
-        @include('web.partner.advert.details.' . $advert->view_name, [
+        <x-dashboard.accordion
+            :title="$title"
+            :name="$advert->view_name">
+
+            @include('web.partner.advert.details.' . $advert->view_name, [
             'iterator' => $k + 1,
             'advert' => $advert,
         ])
+        </x-dashboard.accordion>
     @endif
 @endforeach

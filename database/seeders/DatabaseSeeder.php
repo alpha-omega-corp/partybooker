@@ -22,33 +22,6 @@ class DatabaseSeeder extends Seeder
 
         Article::factory()->count(10)->create();
 
-        DB::table('faq')->insert([
-            'faq_created' => now(),
-            'relation' => 1,
-            'question_en' => 'Question en',
-            'answer_en' => 'Answer en',
-            'question_fr' => 'Comment fonctionne www.partybooker.ch',
-            'answer_fr' => 'Partybooker is a free internet pe connection between customers and service providers via one site.',
-        ]);
-
-        DB::table('faq')->insert([
-            'faq_created' => now(),
-            'relation' => 1,
-            'question_en' => 'Question en',
-            'answer_en' => 'Answer en',
-            'question_fr' => 'Comment fonctionne www.partybooker.ch',
-            'answer_fr' => 'Partybooker is a free internet pe connection between customers and service providers via one site.',
-        ]);
-
-        DB::table('faq')->insert([
-            'faq_created' => now(),
-            'relation' => 1,
-            'question_en' => 'Question en',
-            'answer_en' => 'Answer en',
-            'question_fr' => 'Comment fonctionne www.partybooker.ch',
-            'answer_fr' => 'Partybooker is a free internet pe connection between customers and service providers via one site.',
-        ]);
-
         $this->newPlan(
             'Standart',
             '1',
@@ -82,30 +55,36 @@ class DatabaseSeeder extends Seeder
             '365'
         );
 
-        $this->newPlan(
-            'Basic',
-            '10',
-            '0',
-            '1',
-            '0',
-            '1',
-            '0',
-            '365'
-        );
+
+        DB::table('faq')->insert([
+            'faq_created' => now(),
+            'relation' => 1,
+            'question_en' => 'Question en',
+            'answer_en' => 'Answer en',
+            'question_fr' => 'Comment fonctionne www.partybooker.ch',
+            'answer_fr' => 'Partybooker is a free internet pe connection between customers and service providers via one site.',
+        ]);
+
+        DB::table('faq')->insert([
+            'faq_created' => now(),
+            'relation' => 1,
+            'question_en' => 'Question en',
+            'answer_en' => 'Answer en',
+            'question_fr' => 'Comment fonctionne www.partybooker.ch',
+            'answer_fr' => 'Partybooker is a free internet pe connection between customers and service providers via one site.',
+        ]);
+
+        DB::table('faq')->insert([
+            'faq_created' => now(),
+            'relation' => 1,
+            'question_en' => 'Question en',
+            'answer_en' => 'Answer en',
+            'question_fr' => 'Comment fonctionne www.partybooker.ch',
+            'answer_fr' => 'Partybooker is a free internet pe connection between customers and service providers via one site.',
+        ]);
 
 
-        $this->newPlan(
-            'Commission',
-            '10',
-            '0',
-            '1',
-            '0',
-            '0',
-            '0',
-            '365'
-        );
-
-        $this->newPartner('alphomega', 11, 'bleyo');
+        $this->newPartner('alphomega', 0, 'bleyo');
         $this->newPartner('dynam-event', 1);
         $this->newPartner('chillfood', 2);
         $this->newPartner('la-cave-geneve-vieille-ville', 3);
@@ -162,6 +141,7 @@ class DatabaseSeeder extends Seeder
             'days_period' => $duration,
         ]);
 
+        // Current
         DB::table('plan_options')->insert([
             'plans_id' => $id,
             'categories_count' => 1,
@@ -181,7 +161,7 @@ class DatabaseSeeder extends Seeder
             'average_rate' => 0,
             'plans_id' => 3,
             'plan' => 'premium',
-            'plan_option_group' => 2,
+            'plan_option_group' => 1,
             'payment_status' => true,
             'public' => true,
             'payed' => '2020-09-18',
@@ -270,19 +250,6 @@ class DatabaseSeeder extends Seeder
     private function createServiceTabs(int $partnerId, $r, bool $single = false): void
     {
         if (!$single) {
-            $epId = EventPlace::factory([
-                'id_partner' => '120036190814-044' . $r
-            ])->create()->id;
-            DB::table('adverts')->insert([
-                'partners_info_id' => $partnerId,
-                'category_id' => 1,
-                'status' => 2,
-                'view_name' => 'event-place',
-                'service_type' => 'App\Models\EventPlace',
-                'service_id' => $epId,
-            ]);
-
-
             $wineId = Wine::factory([
                 'id_partner' => '120036190814-044' . $r
             ])->create()->id;
@@ -330,7 +297,7 @@ class DatabaseSeeder extends Seeder
                 'service_type' => 'App\Models\Caterer',
                 'service_id' => $catererId,
             ]);
-        } else {
+
             $entertainmentId = Entertainment::factory([
                 'id_partner' => '120036190814-044' . $r
             ])->create()->id;
@@ -341,6 +308,32 @@ class DatabaseSeeder extends Seeder
                 'view_name' => 'entertainment',
                 'service_type' => 'App\Models\Entertainment',
                 'service_id' => $entertainmentId,
+            ]);
+
+
+        } else {
+            $epId = EventPlace::factory([
+                'id_partner' => '120036190814-044' . $r
+            ])->create()->id;
+            DB::table('adverts')->insert([
+                'partners_info_id' => $partnerId,
+                'category_id' => 1,
+                'status' => 1,
+                'view_name' => 'event-place',
+                'service_type' => 'App\Models\EventPlace',
+                'service_id' => $epId,
+            ]);
+            DB::table('advert_categories')->insert([
+                'category_id' => 1,
+                'sub_category_id' => 2,
+                'partners_info_id' => $partnerId,
+                'id_partner' => '120036190814-044' . $r,
+            ]);
+            DB::table('advert_categories')->insert([
+                'category_id' => 1,
+                'sub_category_id' => 3,
+                'partners_info_id' => $partnerId,
+                'id_partner' => '120036190814-044' . $r,
             ]);
         }
 

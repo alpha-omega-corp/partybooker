@@ -1,45 +1,177 @@
-<?php $i = 1;?>
+<?php use App\Models\Category;
+
+$i = 1; ?>
 @foreach($categoryImages as $category => $data)
-    <ul class="catImages_{{$category}}">
-        <li block="catImages_{{$category}}"><h4>Service detail images</h4></li>
-        <li class="li">{{__('partner.you_uploaded')}} <div class="imgNumber" data-max="{{$data['count'] - 1}}">{{count($data['images'])}}</div> of {{$data['count']}} {{__('partner.image_s')}}</li>
-        <li class="li">
-            <label>{{__('partner.upload_main_image')}}:</label>
-            <div class="demo-section k-content">
-                <input name="main_image" id="main_image_{{$category}}" type="file" aria-label="files" />
-            </div>
-        </li>
-        <li class="li">
-            <label>{{__('partner.upload_images')}}:</label>
-            <div class="demo-section k-content">
-                <input name="files_image" id="files_image_{{$category}}" type="file" aria-label="files" />
-            </div>
-        </li>
-        @if (Auth::user()->type == 'admin')
-        <li class="li"><a href="#" class="images-alt-button button">Edit alts</a></li>
-        @endif
-    </ul>
-    <div class="row mt-30 justify-content-center">
-        <div class="col-12 gallery justify-content-center">
-            <?php $locale = app()->getLocale();?>
-            @foreach($data['images'] as $img)
-                <div class="gal-img">
-                    <img src="{{ asset('storage/images/'.$img['image_name'])}}" alt="{{$img['image_alt_'.$locale]}}" data-imageId="{{$img['id']}}"/>
-                    @if(!$img['is_main'])
-                        <div class="del" data-img="{{$img['image_name']}}" data-image-id="{{$img['id']}}" data-id="{{$user->id_partner}}">x</div>
-                    @endif
-                </div>
-            @endforeach
+
+    @php
+        $images = count($data['images']);
+        $allowed = $data['count'];
+    @endphp
+    <div class="imgNumber" data-max="{{$data['count'] - 1}}">
+        <div class="d-flex align-items-center">
+            @svg('heroicon-o-photo', 'm-2')
+            <span>{{$images . ' / ' . $allowed}}</span>
         </div>
     </div>
 
+    <hr>
+
+    <div class="row">
+        <div class="gallery">
+                <?php $locale = app()->getLocale(); ?>
+            @foreach($data['images'] as $img)
+                <div class="gal-img">
+                    <!-- Modal -->
+                    <div class="modal fade" id="editMainImageModel" tabindex="-1"
+                         aria-labelledby="editMainImageModelLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5 text-uppercase fw-bold" id="editMainImageModelLabel">
+                                        {{__('partner.edit_main_image')}}
+                                    </h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <li class="li">
+                                        <div class="demo-section k-content">
+                                            <input name="main_image" id="main_image_{{$category}}" type="file"
+                                                   aria-label="files"/>
+                                        </div>
+                                    </li>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if($img['is_main'])
+                        <div class="d-flex">
+                            <div class="w-100">
+                                <x-partner-adverts :partner="$user->partnerInfo">
+                                    <img src="{{ asset('storage/images/thumbnails/'.$img['image_name'])}}"
+                                         data-imageId="{{$img['id']}}"
+                                         alt="{{$img['image_alt_'.$locale]}}"
+                                         class="card-img"/>
+                                </x-partner-adverts>
+                            </div>
+                            <div class="edit-main-image">
+                                <div class="d-flex align-items-start justify-content-end">
+                                    <a type="button" data-bs-toggle="modal" data-bs-target="#editMainImageModel">
+                                        @svg('heroicon-o-cog-6-tooth')
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            @endforeach
+
+            <hr>
+
+            <div class="gal-img gal-img-all">
+                @if($allowed !== $images)
+                    <a type="button" class="btn btn-primary mb-2 w-100" data-bs-toggle="modal"
+                       data-bs-target="#galleryModal">
+                        @svg('heroicon-o-plus')
+                    </a>
+                @endif
+
+
+                <x-dashboard.accordion title="Gallery" name="galleryAccordion">
+                    <div class="d-flex">
+                        @foreach($data['images'] as $img)
+                            @if(!$img['is_main'])
+                                <div>
+                                    <img src="{{ asset('storage/images/'.$img['image_name'])}}"
+                                         data-imageId="{{$img['id']}}"
+                                         alt="{{$img['image_alt_'.$locale]}}"
+                                    />
+
+                                    <div class="del btn btn-danger" data-img="{{$img['image_name']}}"
+                                         data-image-id="{{$img['id']}}"
+                                         data-id="{{$user->id_partner}}">
+                                        @svg('heroicon-o-trash')
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                </x-dashboard.accordion>
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 text-uppercase fw-bold" id="galleryModalLabel">
+                                    {{__('partner.upload_images')}}
+                                </h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <li class="li">
+                                    <div class="demo-section k-content">
+                                        <input name="files_image" id="files_image_{{$category}}" type="file"
+                                               aria-label="files"/>
+                                    </div>
+                                </li>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <hr>
+
+
+
+    <ul class="catImages catImages_{{$category}}">
+
+
+        @if(!$user->partnerInfo->main_img)
+            <li class="li">
+                <label>{{__('partner.upload_main_image')}}:</label>
+                <div class="demo-section k-content">
+                    <input name="main_image" id="main_image_{{$category}}" type="file" aria-label="files"/>
+                </div>
+            </li>
+        @endif
+
+
+
+
+        @if (Auth::user()->type == 'admin')
+            <li class="li"><a href="#" class="images-alt-button button">Edit alts</a></li>
+        @endif
+
+    </ul>
+
+
     @push('footer')
         <script>
-            $(document).ready(function() {
+            $(document).ready(function () {
+
                 $("#main_image_{{$category}}").kendoUpload({
                     "multiple": false,
                     async: {
-                        saveUrl:  "{{auth()->user()->type == 'admin' ? '/cp/' : '/'}}service-images/upload-main/{{$user->id_partner . '/' . $category}}",
+                        saveUrl: "{{auth()->user()->type == 'admin' ? '/cp/' : '/'}}service-images/upload-main/{{$user->id_partner . '/' . $category}}",
                         removeUrl: "remove",
                         autoUpload: false
                     },
@@ -71,5 +203,5 @@
             });
         </script>
     @endpush
-    <?php $i++?>
+        <?php $i++ ?>
 @endforeach

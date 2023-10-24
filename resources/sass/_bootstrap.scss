@@ -11,6 +11,7 @@ $danger: $red-500;
 $success: $green-400;
 $orange: $orange-500;
 $yellow: $yellow-400;
+$gray: $gray-700;
 
 $standart: $cyan-500;
 $premium: $purple-500;
@@ -34,6 +35,7 @@ $theme-colors: (
     "opaque": $transparent,
     "orange": $orange,
     "yellow": $yellow,
+    "gray": $gray,
 );
 
 $offcanvas-horizontal-width: auto;
@@ -96,6 +98,27 @@ $modal-content-color: $white;
     padding: 5px;
     border: 1px solid #fff;
     font-weight: bold;
+}
+
+.tippy-box[data-theme~='partner-advert'] {
+    font-size: smaller;
+    background-color: $primary;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #fff;
+    font-weight: bold;
+}
+
+.tippy-box[data-theme~='stats'] {
+    color: #fff;
+    background-color: $accent;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: small;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 
