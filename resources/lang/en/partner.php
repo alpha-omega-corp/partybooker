@@ -105,7 +105,7 @@ return [
 
     // Images
     'you_uploaded' => 'You uploaded',
-    'upload_main_image' => 'Upload image',
+    'upload_main_image' => 'Cover image',
     'upload_images' => 'Upload images',
     'of' => 'of',
     'image_s' => 'image(s)',

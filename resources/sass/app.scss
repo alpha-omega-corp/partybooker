@@ -1562,7 +1562,7 @@ a {
 
         .glide__slide--active {
             .card {
-                border: 1px solid $accent;
+                border: 4px solid $accent;
                 border-radius: 50px;
             }
         }
@@ -1580,6 +1580,7 @@ a {
             width: 100%;
             overflow: hidden;
             margin: 20px 20px 20px;
+            border: 4px solid $primary;
 
             .card-title {
                 color: $gray-700;
@@ -2262,7 +2263,7 @@ html {
 }
 
 .home-description {
-    border: 1px solid $primary;
+    border: 8px solid $primary;
     border-radius: 100px;
     padding: 40px;
     width: 400px;
@@ -2325,7 +2326,7 @@ html {
 
             .card {
                 border-radius: 40px;
-                border: 1px solid $primary;
+                border: 8px solid $primary;
                 cursor: pointer;
                 width: 400px;
                 background-color: transparent;
@@ -3420,3 +3421,9 @@ html {
     .dashboard-card {
     }
 }
+
+.del {
+    cursor: pointer;
+}
+
+

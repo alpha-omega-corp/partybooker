@@ -31,6 +31,8 @@
                             {{ __('cantons.' . strtolower($partner->location_code) . '_loc') }},
                             {{ $partner->address }}
                         </small>
+
+
                     </div>
                 </div>
             </div>

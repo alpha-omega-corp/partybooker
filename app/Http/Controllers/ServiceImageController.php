@@ -124,9 +124,14 @@ class ServiceImageController extends Controller
         }
 
         ServiceImage::where('id', $img->id)->delete();
-        Storage::delete('images/' . $img->image_name);
-        Storage::delete('images/thumbnails/' . $img->image_name);
+        $pInfo = PartnersInfo::where('id_partner', $id_partner)->first();
 
+        if ($img->image_name == $pInfo->main_img) {
+            Storage::delete('images/thumbnails/' . $img->image_name);
+            $pInfo->update(['main_img' => null]);
+        } else {
+            Storage::delete('images/' . $img->image_name);
+        }
 
         return response()->json(['message' => 'ok'], 200);
     }

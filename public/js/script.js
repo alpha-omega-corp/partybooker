@@ -330,13 +330,13 @@ $('.li.files .del').on('click', function (e) {
 });
 
 //PUBLISH / DRAFT service
-$('.tab .status .public .btn').on('click', function (e) {
+$('.status-button').on('click', function (e) {
     e.preventDefault();
     if (!$(this).hasClass('disabled')) {
-        $('.tab .status .public span').removeClass('text-primary');
-        $('.tab .status .public span').removeClass('text-danger');
-        $('.tab .status .public .btn').removeClass('text-danger');
-        $('.tab .status .public .btn').removeClass('text-primary');
+        $('.status .public span').removeClass('text-primary');
+        $('.status .public span').removeClass('text-danger');
+        $('.status .public .status-button').removeClass('text-danger');
+        $('.status .public .status-button').removeClass('text-primary');
 
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         var id = $(this).data('id');
@@ -354,15 +354,15 @@ $('.tab .status .public .btn').on('click', function (e) {
                 id_partner: id
             },
             success: function (data) {
-                $('.tab .status .public .btn').html(data.msg);
-                $('.tab .status .public span').html(data.stat);
+                $('.status-button').html(data.msg);
+                $('.status .public span').html(data.stat);
                 console.log(data.msg);
                 if (data.msg === 'Draft') {
-                    $('.tab .status .public span').addClass('text-primary');
-                    $('.tab .status .public .btn').addClass('text-danger');
+                    $('.status .public span').addClass('text-primary');
+                    $('.status .public .status-button').addClass('text-danger');
                 } else {
-                    $('.tab .status .public span').addClass('text-danger');
-                    $('.tab .status .public .btn').addClass('text-primary');
+                    $('.status .public span').addClass('text-danger');
+                    $('.status .public .status-button').addClass('text-primary');
 
                 }
 

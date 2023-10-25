@@ -105,7 +105,7 @@ return [
 
     // Images
     'you_uploaded' => "Vous avez téléchargé",
-    'upload_main_image' => "Télécharger une image",
+    'upload_main_image' => "Image de couverture",
     'upload_images' => "Télécharger des images",
     'of' => "de",
     'image_s' => "image(s)",

@@ -54,25 +54,75 @@ $i = 1; ?>
                         <div class="d-flex">
                             <div class="w-100">
                                 <x-partner-adverts :partner="$user->partnerInfo">
+
                                     <img src="{{ asset('storage/images/thumbnails/'.$img['image_name'])}}"
                                          data-imageId="{{$img['id']}}"
                                          alt="{{$img['image_alt_'.$locale]}}"
                                          class="card-img"/>
+
                                 </x-partner-adverts>
                             </div>
                             <div class="edit-main-image">
-                                <div class="d-flex align-items-start justify-content-end">
+                                <div class="d-flex flex-column align-items-start justify-content-end">
                                     <a type="button" data-bs-toggle="modal" data-bs-target="#editMainImageModel">
-                                        @svg('heroicon-o-cog-6-tooth')
+                                        @svg('heroicon-o-cog-6-tooth', 'text-accent')
                                     </a>
+
+                                    <div class="del mt-1" data-img="{{$img['image_name']}}"
+                                         data-image-id="{{$img['id']}}"
+                                         data-id="{{$user->id_partner}}">
+                                        @svg('heroicon-o-trash', 'text-danger')
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     @endif
                 </div>
             @endforeach
+            @if(!$user->partnerInfo->main_img)
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 text-uppercase fw-bold" id="exampleModalLabel">
+                                    {{__('partner.upload_main_image')}}
+                                </h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <li class="li">
+                                    <div class="demo-section k-content">
+                                        <input name="main_image" id="main_image_{{$category}}" type="file"
+                                               aria-label="files"/>
+                                    </div>
+                                </li>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex">
+                    <button type="button" class="btn btn-primary m-2 " data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                        @svg('heroicon-o-plus')
+                    </button>
+                    <div class="w-100">
+                        <x-partner-adverts :partner="$user->partnerInfo"/>
+                    </div>
+                </div>
+            @endif
+
 
             <hr>
+
 
             <div class="gal-img gal-img-all">
                 @if($allowed !== $images)
@@ -85,22 +135,28 @@ $i = 1; ?>
 
                 <x-dashboard.accordion title="Gallery" name="galleryAccordion">
                     <div class="d-flex">
-                        @foreach($data['images'] as $img)
-                            @if(!$img['is_main'])
-                                <div>
-                                    <img src="{{ asset('storage/images/'.$img['image_name'])}}"
-                                         data-imageId="{{$img['id']}}"
-                                         alt="{{$img['image_alt_'.$locale]}}"
-                                    />
+                        @if(count($data['images']) > 0)
+                            @foreach($data['images'] as $img)
+                                @if(!$img['is_main'])
+                                    <div>
+                                        <img src="{{ asset('storage/images/'.$img['image_name'])}}"
+                                             data-imageId="{{$img['id']}}"
+                                             alt="{{$img['image_alt_'.$locale]}}"
+                                        />
 
-                                    <div class="del btn btn-danger" data-img="{{$img['image_name']}}"
-                                         data-image-id="{{$img['id']}}"
-                                         data-id="{{$user->id_partner}}">
-                                        @svg('heroicon-o-trash')
+                                        <div class="del btn btn-danger" data-img="{{$img['image_name']}}"
+                                             data-image-id="{{$img['id']}}"
+                                             data-id="{{$user->id_partner}}">
+                                            @svg('heroicon-o-trash')
+                                        </div>
                                     </div>
-                                </div>
-                            @endif
-                        @endforeach
+                                @endif
+                            @endforeach
+
+                        @else
+                            <p class="text-uppercase fw-bold">No images yet</p>
+                        @endif
+
                     </div>
                 </x-dashboard.accordion>
 
@@ -146,12 +202,7 @@ $i = 1; ?>
 
 
         @if(!$user->partnerInfo->main_img)
-            <li class="li">
-                <label>{{__('partner.upload_main_image')}}:</label>
-                <div class="demo-section k-content">
-                    <input name="main_image" id="main_image_{{$category}}" type="file" aria-label="files"/>
-                </div>
-            </li>
+
         @endif
 
 
