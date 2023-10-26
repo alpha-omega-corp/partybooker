@@ -8,15 +8,17 @@
         <li>
             <img src="{{ Vite::image('options.svg') }}" alt="category"/>
             @foreach ($plan->options as $option)
-                @foreach($option as $package)
-                    <p>
-                        {{$package->categories_count . ' ' . __('become_partner.category')}}
-                        {{$package->sub_categories_count . ' ' . __('become_partner.sub_category')}}
-                        @if (!$loop->last)
-                            <span>or</span>
-                        @endif
-                    </p>
-                @endforeach
+                <div class="d-flex flex-column">
+                    @foreach($option as $package)
+                        <p>
+                            {{$package->categories_count . ' ' . __('become_partner.category')}}
+                            {{$package->sub_categories_count . ' ' . __('become_partner.sub_category')}}
+                            @if (!$loop->last)
+                                <span>or</span>
+                            @endif
+                        </p>
+                    @endforeach
+                </div>
             @endforeach
         </li>
 
