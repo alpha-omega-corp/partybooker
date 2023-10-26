@@ -7,16 +7,15 @@
     <ul>
         <li>
             <img src="{{ Vite::image('options.svg') }}" alt="category"/>
-            @foreach ($plan->options as $option)
+            @foreach ($plan->options as $key => $option)
+                <h6 class="text-center text-uppercase">{{'option ' . $key}}</h6>
+                <hr>
                 <div class="d-flex flex-column">
                     @foreach($option as $package)
-                        <p>
+                        <div>
                             {{$package->categories_count . ' ' . __('become_partner.category')}}
                             {{$package->sub_categories_count . ' ' . __('become_partner.sub_category')}}
-                            @if (!$loop->last)
-                                <span>or</span>
-                            @endif
-                        </p>
+                        </div>
                     @endforeach
                 </div>
             @endforeach
