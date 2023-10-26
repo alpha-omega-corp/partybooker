@@ -225,7 +225,8 @@ class ProfileController extends Controller
 
         return view('web.partner.pages.plans', [
             'user' => $user,
-            'plans' => $plans
+            'plans' => $plans,
+            'intent' => Auth::user()->createSetupIntent()
         ]);
     }
 

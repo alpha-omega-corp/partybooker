@@ -16,7 +16,6 @@ use Auth;
 use DB;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Mail;
 
@@ -109,175 +108,83 @@ class partnerController extends Controller
 
     public function register(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'email' => 'unique:users',
-            'phone' => 'unique:partners_info',
-            'company_phone' => 'unique:partners_info',
-            'www' => 'nullable|unique:partners_info,www',
-            'map' => 'required'
-        ]);
+        if (Auth::user()) {
+            $validator = Validator::make($request->all(), [
+                'email' => 'unique:partners_info',
+                'phone' => 'unique:partners_info',
+                'company_phone' => 'unique:partners_info',
+                'www' => 'nullable|unique:partners_info,www',
+                'map' => 'required'
+            ]);
 
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator->errors())->withInput();
-        }
 
-        DB::beginTransaction();
-        try {
-            $lang = LocaleMiddleware::getLocale();
-            $lang = ($lang == null) ? "en" : $lang;
-
-            //user register
-            $time = $_SERVER["REQUEST_TIME_FLOAT"];
-            $pos = strpos($time, '.');
-            $in = substr($time, $pos + 1);
-            $id_partner = date('hisymd') . '-' . $in;
-            $name = $request->input('name');
-            $email = $request->input('email');
-            $phone = $request->input('phone');
-            $password = Hash::make($request->input('password'));
-            //$email_verification = 0;
-            $email_verification = 1;
-            $type = 'partner';
-            $date = date('Y-m-d H:i:s');
-
-            //general info
-            if ($lang == 'en') {
-                $empty = 'Fill this field, please.';
-
-                $en_company_name = $request->input('company_name');
-                $fr_company_name = $empty;
-
-                $en_slogan = $request->input('slogan');
-                $fr_slogan = $empty;
-
-                $en_short_descr = $request->input('short_descr');
-                $fr_short_descr = $empty;
-
-                $en_full_descr = $request->input('full_descr');
-                $fr_full_descr = $empty;
-
-                $slug = str_replace([' ', '.', ',', '"', '--'], '-', strtolower($en_company_name));
-
-            } else {
-                $empty = "Remplissez ce champ, s'il vous plaît.";
-
-                $en_company_name = $empty;
-                $fr_company_name = $request->input('company_name');
-
-                $en_slogan = $empty;
-                $fr_slogan = $request->input('slogan');
-
-                $en_short_descr = $empty;
-                $fr_short_descr = $request->input('short_descr');
-
-                $en_full_descr = $empty;
-                $fr_full_descr = $request->input('full_descr');
-
-                $slug = str_replace([' ', '.', ',', '"', '--'], '-', strtolower($fr_company_name));
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator->errors())->withInput();
             }
 
-//			$location = $request->input('location');
-            //$address = $request->input('address');
-            $map = $request->get('map');
 
-            $lat = $map['lat'];
-            $lon = $map['lon'];
-            dd($map);
+            DB::beginTransaction();
+            try {
+
+                //user register
+                $time = $_SERVER["REQUEST_TIME_FLOAT"];
+                $pos = strpos($time, '.');
+                $in = substr($time, $pos + 1);
+                $id_partner = date('hisymd') . '-' . $in;
+                $name = $request->input('name');
+                $date = date('Y-m-d H:i:s');
 
 
-            $company_phone = $request->input('company_phone');
-            $company_fax = $request->input('company_fax');
+                $map = $request->get('map');
+                $languages = json_encode($request->input('languages'));
+                $companyName = $request->input('company_name');
+                $companyPhone = $request->input('company_phone');
+                $slug = str_replace([' ', '.', ',', '"', '--'], '-', strtolower($companyName));
 
-            $languages = json_encode($request->input('languages'));
-            $other = $request->input('other');
 
-            //www
-            $company_url = $request->input('company_url');
-            $facebook = $request->input('facebook');
-            $twitter = $request->input('twitter');
-            $instagram = $request->input('instagram');
-            $linkedin = $request->input('linkedin');
-            $youtube = $request->input('youtube');
-            $vimeo = $request->input('vimeo');
-
-            if ($request->file('logo')) {
-                $logo = $id_partner . '-' . $request->file('logo')->getClientOriginalName();
-            } else {
-                $logo = null;
-            }
-            if (DB::table('users')->insert([
-                'id_partner' => $id_partner,
-                'name' => $name,
-                'email' => $email,
-                'email_verification' => $email_verification,
-                'password' => $password,
-                'created_at' => $date,
-                'updated_at' => $date,
-                'type' => $type])) {
-
-                if (DB::table('partners_info')->insert([
+                DB::table('partners_info')->insert([
                     'id_partner' => $id_partner,
                     'slug' => SlugSanitizer::sanitize($slug),
-                    'en_company_name' => $en_company_name,
-                    'fr_company_name' => $fr_company_name,
+                    'en_company_name' => $companyName,
+                    'fr_company_name' => $companyName,
                     'location_code' => $map['state'],
                     'address' => $map['address'],
                     'lat' => $map['lat'],
                     'lon' => $map['lon'],
-                    'phone' => $phone,
-                    'company_phone' => $company_phone,
-                    'fax' => $company_fax,
-                    'logo' => $logo,
-                    'en_slogan' => $en_slogan,
-                    'en_short_descr' => $en_short_descr,
-                    'en_full_descr' => $en_full_descr,
-                    'fr_slogan' => $fr_slogan,
-                    'fr_short_descr' => $fr_short_descr,
-                    'fr_full_descr' => $fr_full_descr,
+                    'company_phone' => $companyPhone,
+                    'phone' => $companyPhone,
                     'language' => $languages,
-                    'other_lang' => $other,
-                    'www' => $company_url,
-                    'facebook' => $facebook,
-                    'twitter' => $twitter,
-                    'instagram' => $instagram,
-                    'linkedin' => $linkedin,
-                    'youtube' => $youtube,
-                    'vimeo' => $vimeo,
-                    'priority' => 10
-                ])) {
+                    'priority' => 10,
+                    'average_rate' => 0,
+                    'plan' => 'basic',
+                    'budget' => 1,
+                    'payment_status' => false,
+                    'public' => false,
+                    'expiration_date' => null,
+                    'price' => 1,
+                ]);
 
-                    if ($request->file('logo')) {
-                        $request->file('logo')->storeAs('logos', $logo);
-                    }
+                Auth::user()->update([
+                    'id_partner' => $id_partner,
+                    'type' => 'partner'
+                ]);
 
-                    //write event to DB for notifications "REGISTRATION"
-                    $event = 'Service provider registration';
-                    $description = 'New service provider:' . $name . ', ID:' . $id_partner;
+                $event = 'Service provider registration';
+                $description = 'New service provider:' . $name . ', ID:' . $id_partner;
 
-                    DB::insert('insert into notification (event_date, event, description) value(?, ?, ?)', [$date, $event, $description]);
+                DB::insert('insert into notification (event_date, event, description) value(?, ?, ?)', [$date, $event, $description]);
+                DB::table('statistics')->insert(['id_partner' => $id_partner]);
 
-                    //send verification mail to user
-                    $data = array(
-                        'name' => $name,
-                        'type' => $type,
-                        'email' => $email,
-                    );
-                    Mail::send('email.html', $data, function ($message) use ($data, $email) {
-                        $message->from('partybooker@partybooker.ch', 'New registration');
-                        $message->to($email)->subject('Email Varification');
-                    });
-
-                    DB::table('statistics')->insert(['id_partner' => $id_partner]);
-                } else {
-                    throw new Exception("Can`t create new partner");
-                }
+                DB::commit();
+            } catch (Exception $e) {
+                DB::rollBack();
+                return redirect()->back()->with('error', $e->getMessage());
             }
-            DB::commit();
-        } catch (Exception $e) {
-            DB::rollBack();
-            return redirect()->back()->with('error', $e->getMessage());
+            return redirect()->route('profile', Auth::user()->id_partner);
+
         }
         return redirect()->back();
+
     }
 
     public function editCategory(Request $request)

@@ -1205,10 +1205,6 @@ a {
     border: 2px solid $gray-400;
     border-radius: 20px;
 
-    input {
-        margin-bottom: 10px;
-    }
-
     h4 {
         border-bottom: 1px solid $primary;
         padding: 10px;
@@ -1216,24 +1212,50 @@ a {
     }
 
     label {
-        color: $dark;
+        color: $gray-700;
+        border-bottom: 1px solid $primary;
+        font-weight: bold;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+        padding-top: 10px;
     }
 
-    .partner-register-terms {
-        margin-top: 20px;
-        padding: 20px;
-        text-align: justify;
-        font-size: small;
-
+    .form-switch {
         label {
-            font-size: small;
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .language-list {
+        padding: 0;
+
+        h6 {
+            border-bottom: 1px solid $primary;
+            padding-bottom: 5px;
         }
 
         input {
-            border: 2px solid $primary;
-            width: 20px;
-            height: 20px;
-            margin-right: 20px;
+            margin-top: 10px;
+        }
+    }
+
+    .partner-register-terms {
+        font-size: small;
+
+        .form-check-label {
+            padding: 0;
+        }
+
+        label {
+            font-size: small;
+            border: 0;
+        }
+
+        input {
+            border: 1px solid $accent;
+            margin-right: 5px;
         }
     }
 }
@@ -1377,7 +1399,7 @@ a {
 
 
     .packages {
-        margin-top: 150px;
+        margin-top: 100px;
 
         @media only screen and (min-width: 767px) {
             .package:hover {
@@ -1410,17 +1432,23 @@ a {
         }
 
         .package {
-            height: 400px;
+            width: 400px;
+            height: 700px;
             margin-bottom: 10px;
             border-radius: 20px;
-            border: 1px solid $primary;
+            border: 2px solid $accent;
             cursor: pointer;
+
+            p {
+                padding-left: 10px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
 
             h3 {
                 color: #fff;
                 margin: 0;
                 padding: 0;
-
             }
 
             ul {
@@ -1430,12 +1458,14 @@ a {
 
             li {
                 list-style-type: none;
-                border-bottom: 2px dashed $gray-300;
+                border-bottom: 2px dashed $gray-400;
                 padding: 10px;
                 font-size: small;
+                display: flex;
+
 
                 img {
-                    width: 10px;
+                    width: 40px;
                     margin-right: 10px;
                 }
             }
@@ -3298,24 +3328,6 @@ html {
             padding-bottom: 5px;
         }
 
-        .language-list {
-            padding-left: 20px;
-
-            .form-check {
-                border-bottom: 1px solid $gray-400;
-                padding-bottom: 5px;
-            }
-
-            img {
-                width: 20px;
-                margin-right: 5px;
-            }
-
-            label {
-                font-size: small;
-                cursor: pointer;
-            }
-        }
 
         .company-edit-map {
             z-index: 1000 !important;
@@ -3426,4 +3438,26 @@ html {
     cursor: pointer;
 }
 
+.language-list {
+    padding-left: 20px;
 
+    .form-check {
+        border-bottom: 1px solid $gray-400;
+        padding-bottom: 5px;
+    }
+
+    img {
+        width: 20px;
+        margin-right: 5px;
+    }
+
+    label {
+        font-size: small;
+        cursor: pointer;
+    }
+}
+
+.update-payment-container {
+    width: 400px;
+
+}

@@ -89,6 +89,8 @@
             </div>
 
             <div class="dashboard-container">
+                <x-dashboard.payment-methods/>
+
                 @yield('content')
                 @include('common.footer')
             </div>

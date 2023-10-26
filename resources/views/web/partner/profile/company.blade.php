@@ -23,10 +23,7 @@
     @else
         @svg('heroicon-o-no-symbol')
     @endif
-    <br>
-    <a href="#editLocation">
-        Edit
-    </a>
+
 </x-dashboard.card-item>
 
 <x-dashboard.card-item :title="__('become_partner.phone')">

@@ -14,12 +14,6 @@
     @if ($user->partnerInfo->currentPlan)
         <div class="row row-cc">
             <div class="col-lg-4 col-md-12">
-                <x-dashboard.card :title="__('become_partner.contact_details')">
-                    @include('web.partner.profile.contacts')
-                </x-dashboard.card>
-            </div>
-
-            <div class="col-lg-4 col-md-12">
                 <x-dashboard.card :title="__('partner.plan_options')">
                     @include('web.partner.profile.plan-options')
                 </x-dashboard.card>
@@ -34,8 +28,15 @@
     @endif
 
     <hr>
+
     <div class="row">
         <div class="col-lg-6 col-md-12">
+
+            <div class="row">
+                <x-dashboard.card :title="__('become_partner.contact_details')">
+                    @include('web.partner.profile.contacts')
+                </x-dashboard.card>
+            </div>
 
             <div class="row">
                 <x-dashboard.card :title="__('partner.status')">

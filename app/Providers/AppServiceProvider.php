@@ -10,11 +10,13 @@ use App\Services\ImageService;
 use App\Services\IPaymentTransactionService;
 use App\Services\PartnerPlanOptionService;
 use App\Services\PaymentTransactionService;
+use App\User;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Cashier\Cashier;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,11 +26,12 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IPartnerPlanOptionService::class, PartnerPlanOptionService::class);
         $this->app->bind(IImageService::class, ImageService::class);
 
-       
+
     }
 
     public function boot(): void
     {
+        Cashier::useCustomerModel(User::class);
         Vite::macro('image', fn(string $img) => $this->asset("resources/images/{$img}"));
 
         Schema::defaultStringLength(191);

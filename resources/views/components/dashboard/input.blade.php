@@ -1,7 +1,7 @@
 @props([
     'type' => 'text',
     'name',
-    'placeholder',
+    'placeholder' => '',
     'value' => '',
     'id' => '',
     'icon' => null,

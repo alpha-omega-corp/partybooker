@@ -8,10 +8,13 @@ use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Cashier\Billable;
+use function Illuminate\Events\queueable;
 
 class User extends Authenticatable implements CanResetPassword
 {
     use Notifiable;
+    use Billable;
     use CanResetPasswordTrait;
 
     protected $fillable = [
@@ -33,6 +36,19 @@ class User extends Authenticatable implements CanResetPassword
         'email_verified_at' => 'datetime',
     ];
 
+    protected static function booted(): void
+    {
+        static::updated(queueable(function (User $customer) {
+            if ($customer->hasStripeId()) {
+                $customer->syncStripeCustomerDetails();
+            }
+        }));
+    }
+
+    public function stripeName(): string|null
+    {
+        return $this->company_name;
+    }
 
     public function partnerInfo(): HasOne
     {

@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 */
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -315,6 +316,15 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     });
 
     Route::post("/contacts/claim-requests", 'ContactsController@SendClaimOrDeleteRequest');
+
+    Route::get('/billing-portal', function (Request $request) {
+        return $request->user()->redirectToBillingPortal(route('billing'));
+    });
+
+    Route::post('/payment-method', '\App\Http\Controllers\BillingController@updatePaymentMethod')->name('payment-method');
+
+    Route::post('billing', 'BillingController@index')->name('billing');
+
 });
 
 //language switch

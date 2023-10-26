@@ -3,7 +3,7 @@
     <div class="col-md-12">
         <label for="map_address" class="form-label">{{ __('become_partner.address') }}</label>
         <input type="text" class="form-control mb-4" id="map_address" name="map[address]"
-               placeholder="{{__('become_partner.location')}}" value="" autocomplete="off">
+               placeholder="{{__('become_partner.location')}}" autocomplete="off">
     </div>
     <input type="hidden" id="map_lat" name="map[lat]"/>
     <input type="hidden" id="map_lon" name="map[lon]"/>
@@ -19,7 +19,7 @@
 
     <script type="text/javascript">
         async function initMap() {
-            
+
         }
     </script>
     <script
@@ -42,9 +42,9 @@
         }
 
         $("#map").locationpicker({
-            location: {latitude: 46.15242437752303, longitude: 2.7470703125},
+            location: {latitude: 46.94849282709854, longitude: 7.449180204995168},
             radius: 0,
-            zoom: 14,
+            zoom: 8,
             scrollwheel: true,
             inputBinding: {
                 latitudeInput: $("#map_lat"),
@@ -52,7 +52,7 @@
                 locationNameInput: $("#map_address")
             },
             enableAutocomplete: true,
-            enableAutocompleteBlur: false,
+            enableAutocompleteBlur: true,
             onchanged: function (currentLocation, radius, isMarkerDropped) {
                 //	var mapContext = $(this).locationpicker("map");
                 //	mapContext.map.setZoom(14);

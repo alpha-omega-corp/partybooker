@@ -84,7 +84,17 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        $this->newPartner('alphomega', 0, 'bleyo');
+        DB::table('users')->insert([
+            'name' => 'Nicholas',
+            'email' => 'bleyo@alphomega.org',
+            'id_partner' => null,
+            'email_verification' => 1,
+            'password' => bcrypt('password'),
+            'type' => null,
+            'provider' => null,
+            'provider_id' => null,
+        ]);
+        //$this->newPartner('alphomega', 0, 'bleyo');
         $this->newPartner('dynam-event', 1);
         $this->newPartner('chillfood', 2);
         $this->newPartner('la-cave-geneve-vieille-ville', 3);
@@ -176,12 +186,12 @@ class DatabaseSeeder extends Seeder
             'price' => '60',
             'budget' => true,
             'priority' => 3,
-            'en_slogan' => "Un Chef d'oeuvre au bord du lac Léman",
-            'fr_slogan' => "Un Chef d'oeuvre au bord du lac Léman",
+
             'category_1' => 'cat1',
             'subcat_1' => 'cat1_7',
             'subcat_2' => 'cat1_3',
             'plan_option' => '1',
+
 
             'www' => 'https://www.' . $slug . '.ch',
             'facebook' => 'https://www.facebook.com/' . $slug,
@@ -190,7 +200,8 @@ class DatabaseSeeder extends Seeder
             'youtube' => 'https://www.youtube.com/' . $slug,
             'twitter' => 'https://www.twitter.com/' . $slug,
             'vimeo' => 'https://www.vimeo.com/' . $slug,
-
+            'en_slogan' => "Un Chef d'oeuvre au bord du lac Léman",
+            'fr_slogan' => "Un Chef d'oeuvre au bord du lac Léman",
             'en_short_descr' => 'En plein centre de Vevey historique, face à l’étendue somptueuse du lac et de la Riviera Vaudoise, retrouvez le Château de l’Aile, prestigieux monument historique néo-gothique du XIXe siècle alliant authenticité et artisanat d’exception. Le Château de l’Aile de Vevey est l’adresse privilégiée pour organiser un événement spécial face au plus beau panorama de la Riviera dans un cadre idyllique et unique en Suisse. Les différents salons du Château, ainsi que son jardin, proposent un cadre époustouflant s’adaptant à l’envergure de votre événement. Qu’il s’agisse d’événements privés ou professionnels, ce chef d’oeuvre architectural restauré avec passion et savoir-faire saura vous séduire.',
             'fr_short_descr' => 'En plein centre de Vevey historique, face à l’étendue somptueuse du lac et de la Riviera Vaudoise, retrouvez le Château de l’Aile, prestigieux monument historique néo-gothique du XIXe siècle alliant authenticité et artisanat d’exception. Le Château de l’Aile de Vevey est l’adresse privilégiée pour organiser un événement spécial face au plus beau panorama de la Riviera dans un cadre idyllique et unique en Suisse. Les différents salons du Château, ainsi que son jardin, proposent un cadre époustouflant s’adaptant à l’envergure de votre événement. Qu’il s’agisse d’événements privés ou professionnels, ce chef d’oeuvre architectural restauré avec passion et savoir-faire saura vous séduire.',
             'en_full_descr' => 'En plein centre de Vevey historique, face à l’étendue somptueuse du lac et de la Riviera Vaudoise, retrouvez le Château de l’Aile, prestigieux monument historique néo-gothique du XIXe siècle alliant authenticité et artisanat d’exception. Le Château de l’Aile de Vevey est l’adresse privilégiée pour organiser un événement spécial face au plus beau panorama de la Riviera dans un cadre idyllique et unique en Suisse. Les différents salons du Château, ainsi que son jardin, proposent un cadre époustouflant s’adaptant à l’envergure de votre événement. Qu’il s’agisse d’événements privés ou professionnels, ce chef d’oeuvre architectural restauré avec passion et savoir-faire saura vous séduire.',
