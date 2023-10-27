@@ -6,7 +6,7 @@
 
         @if ($user->partnerInfo->public == 0)
             <span class="text-danger">{{ __('partner.not_published') }}</span>
-            @if (in_array(strtolower($user->partnerInfo->currentPlan->name), ['basic', 'commission']))
+            @if ($user->subscribed('PartyBooker'))
 
                 <a href="#" class="status-button btn text-primary" role="button"
                    data-id="{{ $user->partnerInfo->id_partner }}">
