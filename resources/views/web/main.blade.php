@@ -89,7 +89,14 @@
             </div>
 
             <div class="dashboard-container">
-                <x-dashboard.payment-methods/>
+
+                @if(!Auth::user()->subscribed('PartyBooker'))
+                    <div>
+                        <h2>
+                            Choose a plan to start
+                        </h2>
+                    </div>
+                @endif
 
                 @yield('content')
                 @include('common.footer')

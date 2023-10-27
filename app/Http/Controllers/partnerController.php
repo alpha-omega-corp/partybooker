@@ -117,7 +117,6 @@ class partnerController extends Controller
                 'map' => 'required'
             ]);
 
-
             if ($validator->fails()) {
                 return redirect()->back()->withErrors($validator->errors())->withInput();
             }
@@ -141,7 +140,6 @@ class partnerController extends Controller
                 $companyPhone = $request->input('company_phone');
                 $slug = str_replace([' ', '.', ',', '"', '--'], '-', strtolower($companyName));
 
-
                 DB::table('partners_info')->insert([
                     'id_partner' => $id_partner,
                     'slug' => SlugSanitizer::sanitize($slug),
@@ -164,10 +162,15 @@ class partnerController extends Controller
                     'price' => 1,
                 ]);
 
-                Auth::user()->update([
+                $user = $request->user();
+                $stripeCustomer = $user->createOrGetStripeCustomer();
+
+                $user->update([
                     'id_partner' => $id_partner,
-                    'type' => 'partner'
+                    'type' => 'partner',
+                    'stripe_id' => $stripeCustomer->id
                 ]);
+
 
                 $event = 'Service provider registration';
                 $description = 'New service provider:' . $name . ', ID:' . $id_partner;
@@ -180,7 +183,9 @@ class partnerController extends Controller
                 DB::rollBack();
                 return redirect()->back()->with('error', $e->getMessage());
             }
-            return redirect()->route('profile', Auth::user()->id_partner);
+            return redirect()
+                ->route('profile-plans', Auth::user()->id_partner)
+                ->with('success', 'Your company account has been created!');
 
         }
         return redirect()->back();

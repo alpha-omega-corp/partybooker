@@ -223,10 +223,23 @@ class ProfileController extends Controller
             $plan->options = $temp;
         }
 
+        $partnerPlanOptions = PartnerPlanOption::where('partners_info_id', $user->partnerInfo->id)->get();
+
+        $select = AdvertCategory::where('id_partner', $user->id_partner)->get();
+        $hash = $select->pluck('category_id', 'sub_category_id')->toArray();
+        $categoriesList = Category::whereNull('parent_id')->with(['subCategories', 'subCategories.lang'])->get();
+        $currentCategories = Category::with(["subCategories" => function ($q) use ($hash) {
+            $q->whereIn('id', array_keys($hash));
+        }])->whereNull('parent_id')->whereIn('id', array_values($hash))->get();
+
         return view('web.partner.pages.plans', [
             'user' => $user,
             'plans' => $plans,
-            'intent' => Auth::user()->createSetupIntent()
+            'intent' => Auth::user()->createSetupIntent(),
+            'planOptions' => $this->getPlanOptions($user->partnerInfo->plans_id),
+            'partnerPlanOptions' => $partnerPlanOptions,
+            'categoriesList' => $categoriesList,
+            'currentCategories' => $currentCategories,
         ]);
     }
 

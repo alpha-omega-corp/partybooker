@@ -5,14 +5,14 @@
     :action="url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-option')"
     method="POST">
 
-    <div class="cp-plan-options">
+    <div class="cp-plan-options d-flex flex-column">
         @foreach($planOptions as $option)
             <span class="radio-item">
                 <label for="option_{{$option['group']}}"></label>
                 <input id="option_{{$option['group']}}" type="radio"
                        name="option"
                        value="{{$option['group']}}">
-                <span>{{$option['name']}}</span>
+                <span class="text-gray">{{$option['name']}}</span>
             </span>
         @endforeach
     </div>

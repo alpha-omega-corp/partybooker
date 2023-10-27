@@ -247,9 +247,9 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::get('/partner-cp/{id_partner}', '\App\Http\Controllers\Web\ProfileController@index');
         Route::get('/partner-cp/{id_partner}/statistics', '\App\Http\Controllers\Web\ProfileController@statistics')->name('statistics');
         Route::get('/partner-cp/{id_partner}/profile', '\App\Http\Controllers\Web\ProfileController@profile')->name('profile');
+        Route::get('/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@plans')->name('profile-plans');
 
         Route::get('/partner-cp/{id_partner}/faq', '\App\Http\Controllers\Web\ProfileController@faq');
-        Route::get('/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@plans');
         Route::get('/partner-cp/{id_partner}/terms', '\App\Http\Controllers\Web\ProfileController@terms');
         Route::get('/partner-cp/{id_partner}/contacts', '\App\Http\Controllers\Web\ProfileController@contacts');
 
@@ -320,6 +320,18 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     Route::get('/billing-portal', function (Request $request) {
         return $request->user()->redirectToBillingPortal(route('billing'));
     });
+    Route::get('/user/invoice/{invoice}', function (Request $request, string $invoiceId) {
+        return $request->user()->downloadInvoice($invoiceId, [
+            'vendor' => 'Your Company',
+            'product' => 'Your Product',
+            'street' => 'Main Str. 1',
+            'location' => '2000 Antwerp, Belgium',
+            'phone' => '+32 499 00 00 00',
+            'email' => 'info@example.com',
+            'url' => 'https://example.com',
+            'vendorVat' => 'BE123456789',
+        ]);
+    })->name('invoice');
 
     Route::post('/payment-method', '\App\Http\Controllers\BillingController@updatePaymentMethod')->name('payment-method');
 

@@ -38,10 +38,8 @@ class User extends Authenticatable implements CanResetPassword
 
     protected static function booted(): void
     {
-        static::updated(queueable(function (User $customer) {
-            if ($customer->hasStripeId()) {
-                $customer->syncStripeCustomerDetails();
-            }
+        static::updated(queueable(function ($customer) {
+            $customer->syncStripeCustomerDetails();
         }));
     }
 

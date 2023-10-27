@@ -569,17 +569,19 @@ $('.partnerdetails .set .btn-room').on('click', function () {
 
 });
 
+
 //partner tabs
 $('.edit-category .cat select').change(function () {
     var opt = $(this).attr('option');
-    $('.subcat').removeClass('d-none');
     $('.option-' + opt + ' .subcat').hide();
     $('.option-' + opt + ' .subcat select').attr('required', false);
     var cat = $('.option-' + opt + ' .cat option:selected').val();
+
     $(".subcat select:hidden").val("");
     $('.option-' + opt + ' .' + cat).fadeIn().css('display', 'inline-flex');
     $('.option-' + opt + ' .' + cat + ' select').attr('required', true);
 });
+
 
 var partnerTab = window.location.hash.substr(1);
 if (partnerTab.length > 0) {

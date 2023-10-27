@@ -1,5 +1,7 @@
 @if (!count($currentCategories))
-    <x-dashboard.card-item :title="__('partner.choose_category')"/>
+    <x-dashboard.card-info>
+        {{__('partner.choose_category')}}
+    </x-dashboard.card-info>
 @else
     @foreach($currentCategories as $category)
         <x-dashboard.card-item :title="__('partner.category')">
@@ -12,6 +14,7 @@
             </x-dashboard.card-item>
         @endforeach
     @endforeach
+
 @endif
 
 <div class="edit-category">

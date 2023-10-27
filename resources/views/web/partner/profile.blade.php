@@ -11,36 +11,13 @@
         </x-dashboard.card>
     @endif
 
-    @if ($user->partnerInfo->currentPlan)
-        <div class="row row-cc">
-            <div class="col-lg-4 col-md-12">
-                <x-dashboard.card :title="__('partner.plan_options')">
-                    @include('web.partner.profile.plan-options')
-                </x-dashboard.card>
-            </div>
-
-            <div class="col-lg-4 col-md-12">
-                <x-dashboard.card :title="__('partner.category')">
-                    @include('web.partner.profile.category')
-                </x-dashboard.card>
-            </div>
-        </div>
-    @endif
-
     <hr>
 
     <div class="row">
         <div class="col-lg-6 col-md-12">
-
-            <div class="row">
-                <x-dashboard.card :title="__('become_partner.contact_details')">
-                    @include('web.partner.profile.contacts')
-                </x-dashboard.card>
-            </div>
-
             <div class="row">
                 <x-dashboard.card :title="__('partner.status')">
-                    @include('web.partner.partials.dashboard.payment-status')
+                    @include('web.partner.partials.dashboard.advert-status')
                 </x-dashboard.card>
             </div>
 
@@ -51,21 +28,35 @@
                     </div>
                 </x-dashboard.card>
             </div>
+        </div>
 
-            <div class="row">
-                <x-dashboard.card title="Location">
-                    <form method="POST" id="editLocation" action="{{
+        <div class="col-lg-6 col-md-12">
+
+            <x-dashboard.card title="Location">
+                <form method="POST" id="editLocation" action="{{
                 Auth::user()->type == 'admin'
                     ? url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/partner-cp/edit-company-location')
                     : url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-company-location')
                 }}">
-                        @csrf
-                        @include('partial.map_company')
-                        <hr>
-                        <button type="submit" class="btn btn-primary w-100">Save</button>
-                    </form>
+                    @csrf
+                    @include('partial.map_company')
+                    <hr>
+                    <button type="submit" class="btn btn-primary w-100">Save</button>
+                </form>
+            </x-dashboard.card>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+
+            <div class="row">
+                <x-dashboard.card :title="__('become_partner.contact_details')">
+                    @include('web.partner.profile.contacts')
                 </x-dashboard.card>
             </div>
+
 
             <div class="row">
                 <x-dashboard.card :title="__('partner.socials')">

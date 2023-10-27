@@ -13,6 +13,7 @@
         "blade-ui-kit/blade-icons": "^1.5",
         "buzz/laravel-google-captcha": "^2.3",
         "doctrine/dbal": "^3.7",
+        "dompdf/dompdf": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.5",
         "laravel/cashier": "^13.17",

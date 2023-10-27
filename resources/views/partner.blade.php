@@ -1,3 +1,4 @@
+@php use App\Http\Middleware\LocaleMiddleware; @endphp
 @extends('main')
 
 @section('page')
@@ -20,23 +21,28 @@
                                  alt="Devenir partenaire pour rendre votre présence web plus impactante. Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande."
                                  width="100">
 
+                            @if(Auth::user()->type !== 'partner')
+                                @if (Auth::user() == null)
+                                    <a class="rainbow p-4 text-uppercase fw-bold fs-3" data-bs-toggle="modal"
+                                       href="#loginModalToggle" role="button">
+                                        {{__('become_partner.register')}}
 
-                            @if (Auth::user() == null)
-                                <a class="rainbow p-4 text-uppercase fw-bold fs-3" data-bs-toggle="modal"
-                                   href="#loginModalToggle" role="button">
-                                    {{__('become_partner.register')}}
+                                    </a>
+                                @else
+                                    <a class="rainbow p-4 text-uppercase fw-bold"
+                                       href="{{url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner-register'))}}"
+                                    >
+                                        {{__('become_partner.register')}}
 
-                                </a>
+
+                                    </a>
+                                @endif
                             @else
                                 <a class="rainbow p-4 text-uppercase fw-bold"
-                                   href="{{url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner-register'))}}"
-                                >
-                                    {{__('become_partner.register')}}
-
-
+                                   href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.Auth::user()->id_partner)}}/plans">
+                                    Our Plans
                                 </a>
                             @endif
-                            <br>
 
                         </div>
                     </div>
@@ -71,86 +77,23 @@
             </div>
         </section>
 
-        <section class="packages">
-            <div class="container">
-                <div class="heading">
-                    <h2 class="display-4 fw-bold text-uppercase">
-                        {{ __('become_partner.yearly_packages') }}
-                    </h2>
-                    <p>{{ __('become_partner.yp_text') }}</p>
-                </div>
 
-                <div class="row justify-content-center">
-                    @foreach ($plans as $plan)
-                        @if (in_array(strtolower($plan->name), ['basic', 'commission', 'vip']))
-                            @continue;
-                        @endif
-
-                        <div class="col-md-3">
-                            <div class="package position-relative" x-data="" @click="contact()">
-                                <div class="text-uppercase text-center ">
-                                    <h3 class="fw-bold p-2 {{ 'text-' . $plan->name }}">{{ __('plan.' . strtolower($plan->name)) }}</h3>
-                                </div>
-
-                                <ul>
-                                    <li>
-                                        <img src="{{ Vite::image('options.svg') }}" alt="category"/>
-                                        @foreach ($plan->options as $option)
-                                            <span> {{ $option['name'] }} </span>
-                                            @if (!$loop->last)
-                                                <span>or</span>
-                                            @endif
-                                        @endforeach
-                                    </li>
-
-                                    <li>
-                                        <img src="{{ Vite::image('picture.svg') }}" alt="picture"/>
-
-                                        <span>{{ $plan->photos_num }}
-                                            {{ __('become_partner.photos') }}</span>
-                                    </li>
-                                    @if ($plan->video == 1)
-                                        <li>
-                                            <img src="{{ Vite::image('video-player.svg') }}" alt="video"/>
-                                            <span>{{ __('become_partner.video') }}</span>
-                                        </li>
-                                    @endif
-                                    @if ($plan->direct_request == 1)
-                                        <li>
-                                            <img src="{{ Vite::image('network.svg') }}" alt="network"/>
-
-                                            <span>{{ __('become_partner.direct_request') }}</span>
-                                        </li>
-                                    @endif
-                                </ul>
-                                <div class="pricing">
-                                    <span class="amount">CHF {{ $plan->price }}</span>
-                                    <span>{{ __('become_partner.per_year') }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-
-                    <div class="col-md-3">
-                        <div class="package position-relative">
-                            <div class="text-uppercase text-center">
-                                <h3 class="fw-bold p-2 text-primary">VIP</h3>
-                            </div>
-                            <ul>
-                                <li>{{ __('partner.vip_info1') }}</li>
-                                <li>{{ __('partner.vip_info2') }}</li>
-                            </ul>
-
-                            <div class="pricing">
-                                <span class="amount">CHF 95</span>
-                                <span>{{ __('plan.per_month') }}</span>
-                            </div>
-                        </div>
+        @if(Auth::user()->type !== 'partner')
+            <section class="packages">
+                <div class="container">
+                    <div class="heading">
+                        <h2 class="display-4 fw-bold text-uppercase">
+                            {{ __('become_partner.yearly_packages') }}
+                        </h2>
+                        <p>{{ __('become_partner.yp_text') }}</p>
                     </div>
 
+                    <x-partner.packages :plans="$plans"/>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
+      
+
         <section class="contactus">
             <div class="container">
                 <h4 class="text-uppercase fw-bold">
@@ -229,7 +172,6 @@
 
         </section>
 
-        <hr>
 
         <section class="usp">
             <div class="container">

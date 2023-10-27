@@ -7,52 +7,56 @@
 @endsection
 
 @section('title')
-    <title>CP | {{ __('partybooker-cp.www')}}</title>
+    <title>Plans | {{ __('partybooker-cp.www')}}</title>
 @endsection
+
+
+@push('header')
+    <script>
+        function subscribe(plan, name) {
+            document.getElementById('plan').value = plan
+            document.getElementById('plan-name').value = name
+            document.getElementById('add-card').click()
+        }
+    </script>
+@endpush
 
 @section('content')
-    <div class="d-flex justify-content-between">
-        @foreach($plans as $plan)
-            @if(!in_array($plan->name, ['commission', 'basic']) )
-                <div class="become-partner">
-                    <div class="packages">
-                        <x-partner.package :plan="$plan">
+    <section class="mt-5">
 
-                            @switch($plan->name)
-                                @case('standart')
-                                    @include('partial.plans.standard')
-                                    @break
-                                @case('premium')
-                                    @include('partial.plans.premium')
-                                    @break
-                                @case('exclusif')
-                                    @include('partial.plans.exclusif')
-                                    @break
-                            @endswitch
+        @if(!$user->subscribed('PartyBooker'))
+            <x-partner.packages :plans="$plans"/>
+        @else
 
-                        </x-partner.package>
-                    </div>
-                </div>
-            @endif
-        @endforeach
-    </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <x-dashboard.card :title="__('partner.plan_options')">
+                        <div class="active-plan">
+                            @include('web.partner.partials.dashboard.active-plan')
+                        </div>
 
-    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="paymentModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </x-dashboard.card>
                 </div>
-                <div class="modal-body">
-                    <x-billing.update-payment-method :intent="$intent"/>
+
+                <div class="col-lg-4 col-md-12">
+                    <x-dashboard.card title="Options">
+                        @include('web.partner.profile.plan-options')
+                    </x-dashboard.card>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+
+                <div class="col-lg-4 col-md-12">
+                    <x-dashboard.card :title="__('partner.category')">
+                        @include('web.partner.profile.category')
+                    </x-dashboard.card>
                 </div>
             </div>
-        </div>
-    </div>
+        @endif
 
+
+        <x-billing.payment-intent :intent="$intent"/>
+
+    </section>
 @endsection
+
+
+

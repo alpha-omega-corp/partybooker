@@ -3,17 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\CategoryLocale;
 use App\Models\PartnersInfo;
-use App\Models\PartnerVipPlan;
-use App\Models\PartnerVipPlanCategory;
-use App\Models\PlanOption;
 use App\Models\Plans;
-use App\Models\ServiceImage;
 use App\Models\SwisswinDirectory;
 use DB;
 use Illuminate\Http\Request;
-use Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Input;
 
@@ -81,6 +75,98 @@ class mainWebsite extends Controller
         ]);
     }
 
+    public function partner()
+    {
+        $plans = Plans::with('planOptions')->orderBy('price', 'ASC')->get();
+        foreach ($plans as $plan) {
+            $plan->name = strtolower($plan->name);
+        }
+
+        foreach ($plans as $plan) {
+            $temp = [];
+            foreach ($plan->planOptions as $option) {
+                $temp[$option->group][] = $option;
+            }
+            $plan->options = $temp;
+        }
+
+        return view('partner', [
+            'plans' => $plans,
+        ]);
+
+    }
+
+    public function partnerterms()
+    {
+        $terms = DB::table('settings')->where('id', 1)->get();
+        $en_terms = $terms[0]->service_terms_en;
+        $fr_terms = $terms[0]->service_terms_fr;
+        return view('service-terms', ['en_terms' => $en_terms, 'fr_terms' => $fr_terms]);
+    }
+
+    public function userterms()
+    {
+        $terms = DB::table('settings')->where('id', 1)->get();
+        $en_terms = $terms[0]->user_terms_en;
+        $fr_terms = $terms[0]->user_terms_fr;
+        return view('user-terms', ['en_terms' => $en_terms, 'fr_terms' => $fr_terms]);
+    }
+
+    public function aboutus()
+    {
+        return view('aboutus');
+    }
+
+    public function faq()
+    {
+        $top = DB::table('partners_info')->where('payment_status', 1)->where('public', 1)->where('plan', 'exclusif')->get();
+        $top = collect($top)->sortByDesc('id')->take(10);
+        $faqs = DB::select('select * from faq');
+
+        $category = 'null';
+        $place = 'null';
+        $budget = 'null';
+        $name = 'null';
+
+        return view('faq', ['faqs' => $faqs, 'top' => $top, 'category' => $category, 'place' => $place, 'budget' => $budget, 'name' => $name, 'categories' => $this->categories]);
+    }
+
+    public function contacts()
+    {
+        $settings = DB::select('select * from settings');
+
+        $category = 'null';
+        $place = 'null';
+        $budget = 'null';
+        $name = 'null';
+
+        return view('contacts', ['settings' => $settings, 'category' => $category, 'place' => $place, 'budget' => $budget, 'name' => $name, 'categories' => $this->categories]);
+    }
+
+    public function blog()
+    {
+        $blog = collect(DB::select('select * from blog'))->sortByDesc('updated')->all();
+        foreach ($blog as $post) {
+            $text_en = html_entity_decode(strip_tags($post->article_en));
+            $post->article_en = substr($text_en, 0, 150);
+
+            $text_fr = html_entity_decode(strip_tags($post->article_fr));
+            $post->article_fr = substr($text_fr, 0, 150);
+        }
+
+        return view('blog', ['blog' => $blog]);
+    }
+
+    public function post(Request $request, $post_slug)
+    {
+        $post = DB::table('blog')->where('slug', $post_slug)->get();
+        if (count($post) > 0) {
+            return view('post', ['post' => $post]);
+        } else {
+            return view('404');
+        }
+    }
+
     private function getPlanOptions($options)
     {
         $temp = [];
@@ -109,79 +195,5 @@ class mainWebsite extends Controller
         }
 
         return $list;
-    }
-
-    public function partner()
-    {
-        $plans = Plans::with('planOptions')->get();
-        foreach ($plans as $plan) {
-            $plan->name = strtolower($plan->name);
-            $plan->options = $this->getPlanOptions($plan->planOptions);
-        }
-        return view('partner', ['plans' => $plans]);
-    }
-    public function partnerterms()
-    {
-        $terms = DB::table('settings')->where('id', 1)->get();
-        $en_terms = $terms[0]->service_terms_en;
-        $fr_terms = $terms[0]->service_terms_fr;
-        return view('service-terms', ['en_terms' => $en_terms, 'fr_terms' => $fr_terms]);
-    }
-    public function userterms()
-    {
-        $terms = DB::table('settings')->where('id', 1)->get();
-        $en_terms = $terms[0]->user_terms_en;
-        $fr_terms = $terms[0]->user_terms_fr;
-        return view('user-terms', ['en_terms' => $en_terms, 'fr_terms' => $fr_terms]);
-    }
-    public function aboutus()
-    {
-        return view('aboutus');
-    }
-    public function faq()
-    {
-        $top = DB::table('partners_info')->where('payment_status', 1)->where('public', 1)->where('plan', 'exclusif')->get();
-        $top = collect($top)->sortByDesc('id')->take(10);
-        $faqs = DB::select('select * from faq');
-
-        $category = 'null';
-        $place = 'null';
-        $budget = 'null';
-        $name = 'null';
-
-        return view('faq', ['faqs' => $faqs, 'top' => $top, 'category' => $category, 'place' => $place, 'budget' => $budget, 'name' => $name, 'categories' => $this->categories]);
-    }
-    public function contacts()
-    {
-        $settings = DB::select('select * from settings');
-
-        $category = 'null';
-        $place = 'null';
-        $budget = 'null';
-        $name = 'null';
-
-        return view('contacts', ['settings' => $settings, 'category' => $category, 'place' => $place, 'budget' => $budget, 'name' => $name, 'categories' => $this->categories]);
-    }
-    public function blog()
-    {
-        $blog = collect(DB::select('select * from blog'))->sortByDesc('updated')->all();
-        foreach ($blog as $post) {
-            $text_en = html_entity_decode(strip_tags($post->article_en));
-            $post->article_en = substr($text_en, 0, 150);
-
-            $text_fr = html_entity_decode(strip_tags($post->article_fr));
-            $post->article_fr = substr($text_fr, 0, 150);
-        }
-
-        return view('blog', ['blog' => $blog]);
-    }
-    public function post(Request $request, $post_slug)
-    {
-        $post = DB::table('blog')->where('slug', $post_slug)->get();
-        if (count($post) > 0) {
-            return view('post', ['post' => $post]);
-        } else {
-            return view('404');
-        }
     }
 }

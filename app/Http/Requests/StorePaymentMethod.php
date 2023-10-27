@@ -15,7 +15,9 @@ class StorePaymentMethod extends FormRequest
     public function rules(): array
     {
         return [
+            'name' => 'required|string',
             'method' => 'required|string',
+            'plan' => 'required|string',
         ];
     }
 }

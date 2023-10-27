@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
 
         Article::factory()->count(10)->create();
 
-        $this->newPlan(
+        $standardId = $this->newPlan(
             'Standart',
             '1',
             '0',
@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             '365'
         );
 
-        $this->newPlan(
+        $premiumId = $this->newPlan(
             'Premium',
             '1',
             '0',
@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
             '365'
         );
 
-        $this->newPlan(
+        $exclusiveId = $this->newPlan(
             'Exclusif',
             '3',
             '0',
@@ -55,6 +55,73 @@ class DatabaseSeeder extends Seeder
             '365'
         );
 
+        // Basic
+        DB::table('plan_options')->insert([
+            'plans_id' => 1,
+            'categories_count' => 1,
+            'sub_categories_count' => 1,
+            'group' => 1
+        ]);
+
+        // Commission
+        DB::table('plan_options')->insert([
+            'plans_id' => 2,
+            'categories_count' => 1,
+            'sub_categories_count' => 1,
+            'group' => 1
+        ]);
+
+        // Standard
+        DB::table('plan_options')->insert([
+            'plans_id' => $standardId,
+            'categories_count' => 1,
+            'sub_categories_count' => 1,
+            'group' => 1
+        ]);
+
+        // Premium
+        DB::table('plan_options')->insert([
+            'plans_id' => $premiumId,
+            'categories_count' => 2,
+            'sub_categories_count' => 1,
+            'group' => 1
+        ]);
+
+        DB::table('plan_options')->insert([
+            'plans_id' => $premiumId,
+            'categories_count' => 1,
+            'sub_categories_count' => 2,
+            'group' => 2
+        ]);
+
+        // Exclusive
+        DB::table('plan_options')->insert([
+            'plans_id' => $exclusiveId,
+            'categories_count' => 1,
+            'sub_categories_count' => 3,
+            'group' => 1
+        ]);
+
+        DB::table('plan_options')->insert([
+            'plans_id' => $exclusiveId,
+            'categories_count' => 1,
+            'sub_categories_count' => 2,
+            'group' => 2
+        ]);
+
+        DB::table('plan_options')->insert([
+            'plans_id' => $exclusiveId,
+            'categories_count' => 1,
+            'sub_categories_count' => 1,
+            'group' => 2
+        ]);
+
+        DB::table('plan_options')->insert([
+            'plans_id' => $exclusiveId,
+            'categories_count' => 3,
+            'sub_categories_count' => 1,
+            'group' => 3
+        ]);
 
         DB::table('faq')->insert([
             'faq_created' => now(),
@@ -137,9 +204,9 @@ class DatabaseSeeder extends Seeder
         int    $requests,
         int    $price,
         int    $duration
-    )
+    ): int
     {
-        $id = DB::table('plans')->insertGetId([
+        return DB::table('plans')->insertGetId([
             'name' => $name,
             'plan_created' => now(),
             'position' => $positon,
@@ -151,13 +218,7 @@ class DatabaseSeeder extends Seeder
             'days_period' => $duration,
         ]);
 
-        // Current
-        DB::table('plan_options')->insert([
-            'plans_id' => $id,
-            'categories_count' => 1,
-            'sub_categories_count' => 1,
-            'group' => 1
-        ]);
+
     }
 
     private function newPartner(string $slug, $r, string $for = null)

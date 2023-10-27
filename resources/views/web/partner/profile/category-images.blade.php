@@ -82,12 +82,12 @@ $i = 1; ?>
             @if(!$user->partnerInfo->main_img)
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="mainImageModal" tabindex="-1" aria-labelledby="mainImageModalLabel"
                      aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5 text-uppercase fw-bold" id="exampleModalLabel">
+                                <h1 class="modal-title fs-5 text-uppercase fw-bold" id="mainImageModalLabel">
                                     {{__('partner.upload_main_image')}}
                                 </h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -110,8 +110,8 @@ $i = 1; ?>
                 </div>
 
                 <div class="d-flex">
-                    <button type="button" class="btn btn-primary m-2 " data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
+                    <button type="button" id="addMainImage" class="btn btn-primary m-2 " data-bs-toggle="modal"
+                            data-bs-target="#mainImageModal">
                         @svg('heroicon-o-plus')
                     </button>
                     <div class="w-100">
