@@ -18,9 +18,15 @@ class BillingController extends Controller
         $validated = (object)$request->validated();
         $paymentId = $validated->method;
         $user = $request->user();
-        $stripeId = $user->stripe_id;
 
-        Cashier::findBillable($stripeId)
+        if (!$user->stripe_id) {
+            $stripeCustomer = $user->createOrGetStripeCustomer();
+            $user->update([
+                'stripe_id' => $stripeCustomer->id
+            ]);
+        }
+
+        Cashier::findBillable($user->stripe_id)
             ->updateDefaultPaymentMethod($paymentId);
 
         // 100% discount for dev environment
