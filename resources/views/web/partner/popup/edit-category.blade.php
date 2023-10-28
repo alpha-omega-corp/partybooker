@@ -7,7 +7,6 @@
         : url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-category')"
     method="POST">
 
-
     <?php $cat = 1; ?>
     @foreach($partnerPlanOptions as $k => $option)
         <div class="option-{{$cat}} text-dark">

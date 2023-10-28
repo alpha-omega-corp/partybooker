@@ -1,6 +1,5 @@
 <div>
     <div class="col-md-12">
-        <label for="map_address" class="form-label">{{ __('become_partner.address') }}</label>
         <input type="text" class="form-control mb-4" id="map_address" name="map[address]"
                placeholder="{{__('become_partner.location')}}" value="{{$location['address']}}" autocomplete="off">
     </div>

@@ -2,7 +2,6 @@
 
 $i = 1; ?>
 @foreach($categoryImages as $category => $data)
-
     @php
         $images = count($data['images']);
         $allowed = $data['count'];
@@ -13,8 +12,6 @@ $i = 1; ?>
             <span>{{$images . ' / ' . $allowed}}</span>
         </div>
     </div>
-
-    <hr>
 
     <div class="row">
         <div class="gallery">

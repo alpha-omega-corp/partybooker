@@ -248,6 +248,8 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::get('/partner-cp/{id_partner}/statistics', '\App\Http\Controllers\Web\ProfileController@statistics')->name('statistics');
         Route::get('/partner-cp/{id_partner}/profile', '\App\Http\Controllers\Web\ProfileController@profile')->name('profile');
         Route::get('/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@plans')->name('profile-plans');
+        Route::get('/partner-cp/{id_partner}/advert', '\App\Http\Controllers\Web\ProfileController@advert')->name('profile-advert');
+
 
         Route::get('/partner-cp/{id_partner}/faq', '\App\Http\Controllers\Web\ProfileController@faq');
         Route::get('/partner-cp/{id_partner}/terms', '\App\Http\Controllers\Web\ProfileController@terms');

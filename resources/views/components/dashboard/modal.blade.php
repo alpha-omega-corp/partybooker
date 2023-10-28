@@ -6,9 +6,13 @@
     'method' => 'POST',
     'hasFiles' => false
 ])
-<button type="button" class="btn btn-primary row-cc-button" data-bs-toggle="modal" data-bs-target="{{'#'. $id}}">
-    {{$button}}
-</button>
+
+<a type="button" class="dashboard-modal-button" id="{{$id . '-button'}}"
+   data-bs-toggle="modal"
+   data-bs-target="{{'#'. $id}}"
+   data-tippy-content="{{$button}}">
+    @svg('heroicon-o-cog-6-tooth')
+</a>
 
 <div class="modal fade" id="{{$id}}" tabindex="-1" aria-labelledby="{{$id . 'ModalLabel'}}" aria-hidden="true">
     <form

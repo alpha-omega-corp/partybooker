@@ -2835,9 +2835,6 @@ html {
     }
 }
 
-.nav-active {
-    border-bottom: 2px solid $primary;
-}
 
 .dashboard-input-card {
     border: 1px solid $gray-300;
@@ -3094,11 +3091,19 @@ html {
 
     .dashboard-card {
         border: 2px solid $gray-300;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+        position: relative;
         padding: 20px;
         border-radius: 20px;
+        margin-bottom: 20px;
+
+
+        h2 {
+            font-size: large;
+        }
+
+        .dashboard-card-badge {
+            margin-left: 10px;
+        }
 
         .collapse {
             max-height: 100% !important;
@@ -3113,17 +3118,20 @@ html {
     .dashboard-card-info {
         padding-bottom: 5px;
         color: $gray-700;
-        border-bottom: 2px solid $cyan-600;
-        margin: 10px 0;
+        margin: 10px;
+        border: 1px solid $gray-300;
+        padding: 10px 0;
+        border-radius: 20px;
         font-family: monospace;
         font-size: medium;
         font-weight: bold;
+        text-align: start;
 
         svg {
-            margin-right: 10px;
-            width: 25px;
-            height: 25px;
-            color: $cyan-600;
+            margin: 0 10px 10px;
+            width: 30px;
+            height: 30px;
+            color: $red-400;
         }
 
         .card-info-content {
@@ -3134,23 +3142,6 @@ html {
 
     li {
         list-style-type: none;
-    }
-
-    .partner-nav {
-        margin-bottom: 20px;
-
-        li {
-            padding: 0;
-
-            a {
-                background-color: #fff;
-                display: flex;
-                padding: 10px;
-                width: 100%;
-                color: $gray-700;
-                text-transform: uppercase;
-            }
-        }
     }
 
 
@@ -3381,25 +3372,6 @@ html {
     margin-bottom: 10px;
 }
 
-.row-cc {
-    .dashboard-card {
-        height: 100%;
-
-        .dashboard-card-body {
-            position: relative;
-            height: 100%;
-
-            .row-cc-button {
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-            }
-
-        }
-
-    }
-}
-
 
 .dashboard-stat-card {
     border: 1px solid $gray-300;
@@ -3442,8 +3414,6 @@ html {
     height: 100%;
 
 
-    .dashboard-card {
-    }
 }
 
 .del {
@@ -3507,3 +3477,123 @@ html {
     background: transparent;
     z-index: 1000;
 }
+
+.partner-nav {
+    border: 2px solid $gray-300;
+    display: flex;
+    justify-content: center;
+    width: 80px;
+    padding: 20px 0;
+    border-radius: 50px;
+
+
+    .nav-active {
+        svg {
+            width: 45px;
+            height: 45px;
+            color: $primary;
+        }
+    }
+
+    .cp-nav-item {
+        color: $gray;
+        margin: 10px;
+
+        svg {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
+
+.plan-option {
+    height: 100%;
+    padding: 10px;
+    border: 2px solid $gray-300;
+    text-align: center;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.plan-option-active {
+    padding: 0 !important;
+    overflow: hidden;
+    width: 100%;
+
+    h6 {
+        font-size: small;
+    }
+
+    .plan-active-icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 20px;
+    }
+
+    .plan-option-content {
+        border-radius: 20px;
+    }
+}
+
+.plan-option-inactive {
+    cursor: pointer;
+    border: 1px solid $gray-300;
+    font-weight: bold;
+    font-size: small;
+
+
+    svg {
+        margin: 10px;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.plan-option-inactive:hover {
+    transform: scale(1.05);
+    transition: .2s;
+    border: 1px solid $accent;
+}
+
+.options-selected {
+    ul {
+
+        li {
+            list-style-type: square;
+        }
+    }
+}
+
+.option-inactive-content {
+    position: absolute;
+    bottom: 10px;
+}
+
+.dashboard-modal-button {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+}
+
+.option-active-content {
+
+    padding: 20px;
+    border: 1px solid $gray-300;
+    border-radius: 20px;
+    width: 90%;
+
+    ul {
+        margin: 0;
+
+
+        li {
+            list-style-type: square;
+            color: $gray;
+        }
+
+        li::marker {
+            color: $primary;
+        }
+    }
+}
+

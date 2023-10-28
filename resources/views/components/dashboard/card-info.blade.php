@@ -1,6 +1,8 @@
 <div class="dashboard-card-info">
     <div class="d-flex">
-        @svg('heroicon-o-information-circle')
+        <div class="d-flex justify-content-center">
+            @svg('heroicon-o-information-circle')
+        </div>
         <div class="card-info-content text-uppercase">
             {{$slot}}
         </div>

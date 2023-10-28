@@ -79,6 +79,13 @@ tippy('.dashboard-stat-card', {
     theme: 'stats'
 });
 
+tippy('.cp-nav-item', {
+    placement: 'left',
+    animation: 'scale',
+    inertia: true,
+    theme: 'stats'
+});
+
 
 tippy.setDefaultProps({
     delay: 50,

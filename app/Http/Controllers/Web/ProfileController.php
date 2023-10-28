@@ -19,6 +19,7 @@ use App\Models\ServiceImage;
 use App\User;
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -133,7 +134,6 @@ class ProfileController extends Controller
         $user = User::where('id_partner', $id)->with(['partnerInfo', 'partnerInfo.planOptions'])->first();
         $user->has_free_options = (bool)$user->partnerInfo->planOptions()->whereNull('active')->count();
 
-        $adverts = Advert::where('partners_info_id', $user->partnerInfo->id)->with(['service'])->orderBy('status')->get();
 
         $plan = $user->partnerInfo->currentPlan;
 
@@ -157,7 +157,6 @@ class ProfileController extends Controller
             'partnerPlanOptions' => $partnerPlanOptions,
             'categoriesList' => $categoriesList,
             'currentCategories' => $currentCategories,
-            'adverts' => $adverts,
             'categoryImages' => $tempImages,
             'eventTypes' => EventType::all(),
             'partnerEventTypes' => $pet,
@@ -223,23 +222,43 @@ class ProfileController extends Controller
             $plan->options = $temp;
         }
 
-        $partnerPlanOptions = PartnerPlanOption::where('partners_info_id', $user->partnerInfo->id)->get();
 
-        $select = AdvertCategory::where('id_partner', $user->id_partner)->get();
+        return view('web.partner.pages.plans', [
+            'user' => $user,
+            'plans' => $plans,
+            'intent' => Auth::user()->createSetupIntent(),
+        ]);
+    }
+
+    public function advert(string $id_partner): View
+    {
+        $user = Auth::user();
+        $partnerInfo = PartnersInfo::where('id_partner', $id_partner)->first();
+        $partnerPlanOptions = PartnerPlanOption::where('partners_info_id', $partnerInfo->id)->get();
+
+
+        $select = AdvertCategory::where('id_partner', $partnerInfo->id_partner)->get();
         $hash = $select->pluck('category_id', 'sub_category_id')->toArray();
         $categoriesList = Category::whereNull('parent_id')->with(['subCategories', 'subCategories.lang'])->get();
         $currentCategories = Category::with(["subCategories" => function ($q) use ($hash) {
             $q->whereIn('id', array_keys($hash));
         }])->whereNull('parent_id')->whereIn('id', array_values($hash))->get();
 
-        return view('web.partner.pages.plans', [
-            'user' => $user,
-            'plans' => $plans,
-            'intent' => Auth::user()->createSetupIntent(),
-            'planOptions' => $this->getPlanOptions($user->partnerInfo->plans_id),
+        $adverts = Advert::where('partners_info_id', $user->partnerInfo->id)->with(['service'])->orderBy('status')->get();
+
+        $tempImages['cat'] = [
+            'count' => $plan->photos_num ?? 1,
+            'images' => ServiceImage::where('id_partner', $user->id_partner)->orderBy('is_main', 'DESC')->get()
+        ];
+
+        return view('web.partner.pages.advert', [
+            'user' => Auth::user(),
+            'planOptions' => $this->getPlanOptions($partnerInfo->plans_id),
             'partnerPlanOptions' => $partnerPlanOptions,
             'categoriesList' => $categoriesList,
             'currentCategories' => $currentCategories,
+            'categoryImages' => $tempImages,
+            'adverts' => $adverts,
         ]);
     }
 

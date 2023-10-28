@@ -29,7 +29,7 @@
         @else
 
             <div class="row">
-                <div class="col-lg-4 col-md-12">
+                <div class="col-lg-8 col-md-12">
                     <x-dashboard.card :title="__('partner.plan_options')">
                         <div class="active-plan">
                             @include('web.partner.partials.dashboard.active-plan')
@@ -38,16 +38,9 @@
                     </x-dashboard.card>
                 </div>
 
-                <div class="col-lg-4 col-md-12">
-                    <x-dashboard.card title="Options">
-                        @include('web.partner.profile.plan-options')
-                    </x-dashboard.card>
-                </div>
 
                 <div class="col-lg-4 col-md-12">
-                    <x-dashboard.card :title="__('partner.category')">
-                        @include('web.partner.profile.category')
-                    </x-dashboard.card>
+                   
                 </div>
             </div>
         @endif

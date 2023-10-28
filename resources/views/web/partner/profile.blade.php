@@ -1,36 +1,11 @@
 @php use App\Models\Advert; @endphp
 
 <div class="profile-info">
-
-    @if ($user->partnerInfo->currentPlan &&
-     $user->partnerInfo->categories->count() > 0 &&
-      !in_array(strtolower($user->partnerInfo->currentPlan->name), ['basic', 'commission']))
-
-        <x-dashboard.card :title="__('partner.service_details')">
-            @include('web.partner.profile.service-details')
-        </x-dashboard.card>
-    @endif
-
-    <hr>
-
     <div class="row">
         <div class="col-lg-6 col-md-12">
-            <div class="row">
-                <x-dashboard.card :title="__('partner.status')">
-                    @include('web.partner.partials.dashboard.advert-status')
-                </x-dashboard.card>
-            </div>
-
-            <div class="row">
-                <x-dashboard.card :title="__('partner.image')">
-                    <div class="serviceDetails">
-                        @include('web.partner.profile.category-images')
-                    </div>
-                </x-dashboard.card>
-            </div>
-        </div>
-
-        <div class="col-lg-6 col-md-12">
+            <x-dashboard.card :title="__('become_partner.contact_details')">
+                @include('web.partner.profile.contacts')
+            </x-dashboard.card>
 
             <x-dashboard.card title="Location">
                 <form method="POST" id="editLocation" action="{{
@@ -44,34 +19,13 @@
                     <button type="submit" class="btn btn-primary w-100">Save</button>
                 </form>
             </x-dashboard.card>
-
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-6 col-md-12">
-
-            <div class="row">
-                <x-dashboard.card :title="__('become_partner.contact_details')">
-                    @include('web.partner.profile.contacts')
-                </x-dashboard.card>
-            </div>
-
-
-            <div class="row">
-                <x-dashboard.card :title="__('partner.socials')">
-                    @include('web.partner.profile.www')
-                </x-dashboard.card>
-            </div>
-
-
-        </div>
         <div class="col-lg-6 col-md-12">
             <x-dashboard.card :title="__('become_partner.company_info')">
                 @include('web.partner.profile.company')
             </x-dashboard.card>
         </div>
-
     </div>
 
     @if (Auth::user()->type == 'admin')
@@ -106,15 +60,12 @@
 </div>
 
 @push('header')
-    <link rel="stylesheet" href="{{ asset('/plugins/kendo/kendo.common.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/plugins/kendo/kendo.default.min.css') }}">
     <script src="https://cdn.tiny.cloud/1/{{ env('TINYMCE_API_KEY') }}/tinymce/5/tinymce.min.js"
             referrerpolicy="origin">
     </script>
 @endpush
 
 @push('footer')
-    <script src="{{ asset('/plugins/kendo/kendo.all.min.js') }}"></script>
     <script>
         tinymce.init({
             selector: '.textarea-wysiwyg',

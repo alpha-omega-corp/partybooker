@@ -12,6 +12,7 @@
     <script src="{{ asset('/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('/js/script.js') }}" defer></script>
     <script src="{{ asset('/js/jquery.mask.js') }}"></script>
+    
     @vite(['resources/js/app.js'])
 
 </head>
@@ -23,88 +24,30 @@
 
     <section class="general-section partner-cp" data-type="{{Auth::user()->type}}">
 
-        @if (Auth::user()->type == 'admin')
-            @if (app()->getLocale() == 'en')
-                <h1 class="text-uppercase text-center fw-bold display-4 mb-5">{{$user->partnerInfo->en_company_name}}</h1>
-            @else
-                <h1 class="text-uppercase text-center fw-bold display-4 mb-5">{{$user->partnerInfo->fr_company_name}}</h1>
-            @endif
 
-        @else
-            <h1 class="text-uppercase text-center fw-bold display-4 mb-5">Dashboard</h1>
-        @endif
+        <x-app-notifications/>
+        <x-dashboard.title/>
 
 
         <div class="container">
+            <div class="d-flex">
+                <x-dashboard.navigation/>
 
-            @if ($errors->any())
-                <div class="alert alert-danger alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                <div class="dashboard-container w-100">
+                    @if(!Auth::user()->subscribed('PartyBooker'))
+                        <div>
+                            <h2>
+                                Choose a plan to start
+                            </h2>
+                        </div>
+                    @endif
+
+                    @yield('content')
+                    @include('common.footer')
                 </div>
-            @endif
-
-            <x-app-notifications/>
-
-            @php
-                function isActive($segment): string {
-                    $active = collect(request()->segments())->last();
-                    return $active === $segment ? 'nav-active' : '';
-                }
-            @endphp
-
-            <div class="d-flex justify-content-center partner-nav">
-                @if(Auth::user()->type == 'admin')
-                    <li class="{{isActive('statistics')}}">
-                        <a
-                            href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/statistics">{{__('partner.home_page')}}</a>
-                    </li>
-                    <li class="{{isActive('profile')}}">
-                        <a
-                            href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/profile">{{__('partner.profile')}}</a>
-                    </li>
-                    <li class="{{isActive('plans')}}">
-                        <a
-                            href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/plans">{{__('partner.my_plan')}}</a>
-                    </li>
-                @else
-                    <li class="{{isActive('statistics')}}">
-                        <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/statistics">{{__('partner.home_page')}}</a>
-                    </li>
-                    <li class="{{isActive('profile')}}">
-                        <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/profile">{{__('partner.profile')}}</a>
-                    </li>
-                    <li class="{{isActive('plans')}}">
-                        <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/plans">{{__('partner.my_plan')}}</a>
-                    </li>
-
-                    <li class="{{isActive('contacts')}}">
-                        <a href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/contacts">{{__('partner.contacts')}}</a>
-                    </li>
-                @endif
             </div>
-
-            <div class="dashboard-container">
-
-                @if(!Auth::user()->subscribed('PartyBooker'))
-                    <div>
-                        <h2>
-                            Choose a plan to start
-                        </h2>
-                    </div>
-                @endif
-
-                @yield('content')
-                @include('common.footer')
-            </div>
-
         </div>
     </section>
-
 </div>
 </body>
 
