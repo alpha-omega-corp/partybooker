@@ -3446,11 +3446,6 @@ html {
             }
         }
 
-        .input-group-text {
-            background-color: $accent;
-            color: #fff;
-        }
-
         label {
             color: $gray-700;
             text-transform: uppercase;
@@ -3733,7 +3728,7 @@ html {
 }
 
 .option-active-content {
-    padding: 10px;
+    margin: 20px;
 
 
     .category-option-card {
@@ -3779,7 +3774,7 @@ html {
 }
 
 .advert-review {
-    padding: 20px;
+    margin: 20px;
 
     .stars {
         margin: 0;
@@ -4056,7 +4051,7 @@ html {
     border: 1px solid $gray-300;
     width: 100%;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
 
     svg {
         width: 20px;
@@ -4066,7 +4061,7 @@ html {
 }
 
 .company-info-item {
-    padding: 10px;
+    padding: 0 10px 5px 0;
 }
 
 .company-description-card {
@@ -4261,8 +4256,11 @@ html {
 }
 
 .edit-location {
-    padding-top: 20px;
-    padding-right: 20px;
+
+    input[type="text"] {
+        padding: 20px 10px;
+        line-height: 28px;
+    }
 }
 
 .edit-logo {

@@ -334,8 +334,8 @@ $('.status-button').on('click', function (e) {
     console.log('fuck');
     e.preventDefault();
     if (!$(this).hasClass('disabled')) {
-        $('.dashboard-card-badge .status-badge').removeClass('text-bg-accent').removeClass('text-bg-danger');
-        $('.status-button').removeClass('text-danger').removeClass('text-accent');
+        $('.dashboard-card-badge .status-badge').removeClass('text-bg-primary').removeClass('text-bg-danger');
+        $('.status-button').removeClass('text-danger').removeClass('text-primary');
 
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         var id = $(this).data('id');
@@ -357,11 +357,11 @@ $('.status-button').on('click', function (e) {
                 $('.dashboard-card-badge .status-badge').html(data.stat);
 
                 if (data.status) {
-                    $('.dashboard-card-badge .status-badge').addClass('text-bg-accent');
+                    $('.dashboard-card-badge .status-badge').addClass('text-bg-primary');
                     $('.status-button').addClass('text-danger');
                 } else {
                     $('.dashboard-card-badge .status-badge').addClass('text-bg-danger');
-                    $('.status-button').addClass('text-accent');
+                    $('.status-button').addClass('text-primary');
 
                 }
 

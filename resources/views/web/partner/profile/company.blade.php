@@ -1,32 +1,40 @@
-<img src="{{ asset('/storage/logos/'.$user->partnerInfo->logo)}}" alt="logo" width="100"
-     class="mt-2 cp-company-logo">
+@if($user->partnerInfo->logo)
+
+    <div class="d-flex align-items-center">
+        <img src="{{ asset('/storage/logos/'.$user->partnerInfo->logo)}}" alt="logo" width="100"
+             class="cp-company-logo">
+
+        <div>
+            <x-dashboard.company-info :tooltip="__('become_partner.company_name')" icon="heroicon-o-home-modern">
+                @if (app()->getLocale() == 'en')
+                    {{$user->partnerInfo->en_company_name}}
+                @else
+                    {{$user->partnerInfo->fr_company_name}}
+                @endif
+            </x-dashboard.company-info>
+
+            <x-dashboard.company-info :tooltip="__('become_partner.phone')" icon="heroicon-o-phone">
+                {{$user->partnerInfo->company_phone}}
+            </x-dashboard.company-info>
+        </div>
+    </div>
+@else
+    <x-dashboard.company-info :tooltip="__('become_partner.company_name')" icon="heroicon-o-home-modern">
+        @if (app()->getLocale() == 'en')
+            {{$user->partnerInfo->en_company_name}}
+        @else
+            {{$user->partnerInfo->fr_company_name}}
+        @endif
+    </x-dashboard.company-info>
+
+    <x-dashboard.company-info :tooltip="__('become_partner.phone')" icon="heroicon-o-phone">
+        {{$user->partnerInfo->company_phone}}
+    </x-dashboard.company-info>
+@endif
+
+
 
 <hr>
-
-
-<x-dashboard.company-info :tooltip="__('become_partner.company_name')" icon="heroicon-o-home-modern">
-    @if (app()->getLocale() == 'en')
-        {{$user->partnerInfo->en_company_name}}
-    @else
-        {{$user->partnerInfo->fr_company_name}}
-    @endif
-</x-dashboard.company-info>
-
-<x-dashboard.company-info :tooltip="__('become_partner.phone')" icon="heroicon-o-phone">
-    {{$user->partnerInfo->company_phone}}
-</x-dashboard.company-info>
-
-<x-dashboard.company-info :tooltip="__('partner.link')" icon="heroicon-o-globe-alt">
-    {{'partybooker.ch/' . __('urls.listing') . '/' . $user->partnerInfo->slug}}
-</x-dashboard.company-info>
-
-<x-dashboard.company-info :tooltip="__('become_partner.location')" icon="heroicon-o-map-pin">
-    @if($user->partnerInfo->address)
-        {{$user->partnerInfo->address}}
-    @else
-        @svg('heroicon-o-no-symbol')
-    @endif
-</x-dashboard.company-info>
 
 
 <div class="company-details">

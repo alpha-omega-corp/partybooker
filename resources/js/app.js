@@ -92,6 +92,12 @@ tippy('.company-info-item', {
     theme: 'tab-cat-tippy'
 });
 
+tippy('.user-info-item', {
+    placement: 'right',
+    animation: 'scale',
+    inertia: true,
+    theme: 'tab-cat-tippy'
+});
 
 tippy.setDefaultProps({
     delay: 50,

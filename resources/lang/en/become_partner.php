@@ -66,7 +66,7 @@ Partybooker in bringing a targeted platform achieves this goal.</p>
     'contact_phone' => 'Contact phone',
     'password' => 'Password',
     'repeat_password' => 'Repeat password',
-    'company_info' => 'Company main info',
+    'company_info' => 'Company',
     'company_name' => 'Company name',
     'location' => 'Location',
     'address' => 'Address, postcode',

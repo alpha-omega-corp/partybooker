@@ -68,7 +68,7 @@ Cette richesse en informations et en idées, ou votre expertise, vos concepts so
     'contact_phone' => 'Téléphone',
     'password' => 'Mot de passe',
     'repeat_password' => 'Confirmation du mot de passe',
-    'company_info' => 'Informations sur la société',
+    'company_info' => 'Entreprise',
     'company_name' => 'Nom de l\'entreprise',
     'location' => 'Lieu',
     'address' => 'Adresse, code postal',

@@ -54,7 +54,7 @@
             <label class="label-underline">
                 {{__('become_partner.company_info')}}
             </label>
-            <div class="p-1">
+            <div class="p-4 pt-0">
                 <x-dashboard.input name="company_name"
                                    :value="$user->partnerInfo->en_company_name"
                                    :placeholder="__('partybooker-cp.company_name')"

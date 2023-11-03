@@ -25,6 +25,7 @@ return [
     'send' => 'send',
     'name' => 'Name',
     'email' => 'Email',
+    'mobile' => 'Mobile',
     'message' => 'Message',
     'price_demand' => 'Price on demand',
     //FAQ

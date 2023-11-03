@@ -24,6 +24,7 @@ return [
     'send' => "Envoyer",
     'name' => "Nom",
     'email' => "E-mail",
+    'mobile' => 'Mobile',
     'message' => "Message",
     'price_demand' => 'Prix sur demande',
     //FAQ
