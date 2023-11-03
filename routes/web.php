@@ -245,10 +245,19 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::get('/partner-cp', '\App\Http\Controllers\Web\ProfileController@index');
 
         Route::get('/partner-cp/{id_partner}', '\App\Http\Controllers\Web\ProfileController@index');
-        Route::get('/partner-cp/{id_partner}/statistics', '\App\Http\Controllers\Web\ProfileController@statistics')->name('statistics');
-        Route::get('/partner-cp/{id_partner}/profile', '\App\Http\Controllers\Web\ProfileController@profile')->name('profile');
-        Route::get('/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@plans')->name('profile-plans');
-        Route::get('/partner-cp/{id_partner}/advert', '\App\Http\Controllers\Web\ProfileController@advert')->name('profile-advert');
+
+        Route::get('/partner-cp/{id_partner}/statistics', '\App\Http\Controllers\Web\ProfileController@statistics')
+            ->name('statistics');
+        Route::get('/partner-cp/{id_partner}/profile', '\App\Http\Controllers\Web\ProfileController@profile')
+            ->name('profile');
+        Route::get('/partner-cp/{id_partner}/advert', '\App\Http\Controllers\Web\ProfileController@advert')
+            ->name('profile-advert');
+
+        Route::get('/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@plans')
+            ->name('profile-plans');
+
+        Route::post('/partner-cp/{id_partner}/trial', '\App\Http\Controllers\Web\ProfileController@trial')
+            ->name('trial');
 
 
         Route::get('/partner-cp/{id_partner}/faq', '\App\Http\Controllers\Web\ProfileController@faq');
@@ -259,9 +268,10 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::post('/partner-cp/create-advert', '\App\Http\Controllers\Web\AdvertController@activateOption');
 
         //post
-        Route::post('/partner-form', 'ajaxController@partner');
+        Route::post('/partner-form', '\App\Http\Controllers\Web\ProfileController@partnerContact')->name('partner-contact');
         Route::post('/partner-cp/edit-contacts', '\App\Http\Controllers\Web\ProfileController@editContacts');
         Route::post('/partner-cp/edit-company', '\App\Http\Controllers\Web\ProfileController@editCompany');
+        Route::post('/partner-cp/edit-company-description', '\App\Http\Controllers\Web\ProfileController@editCompanyDescription');
         Route::post('/partner-cp/edit-company-location', '\App\Http\Controllers\Web\ProfileController@editCompanyLocation');
 
         Route::post('/partner-cp/edit-www', '\App\Http\Controllers\Web\ProfileController@editWww');

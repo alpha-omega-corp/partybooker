@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePaymentMethod;
-use App\Models\Plans;
+use App\Models\Plan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -42,7 +42,7 @@ class BillingController extends Controller
         }
 
         $planName = ucfirst($validated->name);
-        $plan = Plans::where('name', $planName)->firstOrFail();
+        $plan = Plan::where('name', $planName)->firstOrFail();
         $planOptionGroup = $plan->planOptions->first()->group;
 
         $user->partnerInfo->update([

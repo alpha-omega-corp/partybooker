@@ -331,12 +331,11 @@ $('.li.files .del').on('click', function (e) {
 
 //PUBLISH / DRAFT service
 $('.status-button').on('click', function (e) {
+    console.log('fuck');
     e.preventDefault();
     if (!$(this).hasClass('disabled')) {
-        $('.status .public span').removeClass('text-primary');
-        $('.status .public span').removeClass('text-danger');
-        $('.status .public .status-button').removeClass('text-danger');
-        $('.status .public .status-button').removeClass('text-primary');
+        $('.dashboard-card-badge .status-badge').removeClass('text-bg-accent').removeClass('text-bg-danger');
+        $('.status-button').removeClass('text-danger').removeClass('text-accent');
 
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         var id = $(this).data('id');
@@ -355,14 +354,14 @@ $('.status-button').on('click', function (e) {
             },
             success: function (data) {
                 $('.status-button').html(data.msg);
-                $('.status .public span').html(data.stat);
-                console.log(data.msg);
-                if (data.msg === 'Draft') {
-                    $('.status .public span').addClass('text-primary');
-                    $('.status .public .status-button').addClass('text-danger');
+                $('.dashboard-card-badge .status-badge').html(data.stat);
+
+                if (data.status) {
+                    $('.dashboard-card-badge .status-badge').addClass('text-bg-accent');
+                    $('.status-button').addClass('text-danger');
                 } else {
-                    $('.status .public span').addClass('text-danger');
-                    $('.status .public .status-button').addClass('text-primary');
+                    $('.dashboard-card-badge .status-badge').addClass('text-bg-danger');
+                    $('.status-button').addClass('text-accent');
 
                 }
 

@@ -21,6 +21,6 @@ class PartnerAdverts extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.partner-adverts');
+        return view('components.publication-matrix');
     }
 }

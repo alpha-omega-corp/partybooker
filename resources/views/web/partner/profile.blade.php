@@ -3,28 +3,7 @@
 <div class="profile-info">
     <div class="row">
         <div class="col-lg-6 col-md-12">
-            <x-dashboard.card :title="__('become_partner.contact_details')">
-                @include('web.partner.profile.contacts')
-            </x-dashboard.card>
-
-            <x-dashboard.card title="Location">
-                <form method="POST" id="editLocation" action="{{
-                Auth::user()->type == 'admin'
-                    ? url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/partner-cp/edit-company-location')
-                    : url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-company-location')
-                }}">
-                    @csrf
-                    @include('partial.map_company')
-                    <hr>
-                    <button type="submit" class="btn btn-primary w-100">Save</button>
-                </form>
-            </x-dashboard.card>
-        </div>
-
-        <div class="col-lg-6 col-md-12">
-            <x-dashboard.card :title="__('become_partner.company_info')">
-                @include('web.partner.profile.company')
-            </x-dashboard.card>
+            
         </div>
     </div>
 
@@ -38,7 +17,6 @@
 
     @include('web.partner.profile.vip')
     @include('web.partner.profile.event-types')
-
 
 
 
@@ -58,39 +36,4 @@
         @include('web.partner.popup.edit-image')
     @endif
 </div>
-
-@push('header')
-    <script src="https://cdn.tiny.cloud/1/{{ env('TINYMCE_API_KEY') }}/tinymce/5/tinymce.min.js"
-            referrerpolicy="origin">
-    </script>
-@endpush
-
-@push('footer')
-    <script>
-        tinymce.init({
-            selector: '.textarea-wysiwyg',
-            // plugins: 'print preview fullpage paste  save code fullscreen link template codesample table charmap hr  advlist lists wordcount noneditable charmap',
-            plugins: 'fullpage paste code fullscreen link template hr advlist lists wordcount noneditable charmap',
-            menubar: 'edit view format table',
-            toolbar: 'bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | removeformat | fullscreen  preview  | link anchor',
-            toolbar_sticky: true,
-            height: 300,
-            setup: function (editor) {
-                editor.on('change', function () {
-                    editor.save();
-                    var lang = $('div.lang-nav ul li.active').attr('lan');
-                    if ($('#' + editor.id + '_ifr').contents().find('body')[0].innerText.length > 1) {
-                        $('li.post.' + lang + ' span').addClass('ok').html('OK');
-                    } else {
-                        $('li.post.' + lang + ' span').removeClass('ok').html('NaN');
-                    }
-                });
-            }
-        });
-
-        $(document).ready(function () {
-            $('.tox-notification__dismiss').click();
-        });
-    </script>
-@endpush
 

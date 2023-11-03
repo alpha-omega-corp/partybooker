@@ -76,7 +76,7 @@ Cette richesse en informations et en idées, ou votre expertise, vos concepts so
     'fax' => 'Fax',
     'choose' => 'Choose a file',
     'drop' => 'Glissez-déposez le fichier ici ou choisissez un fichier',
-    'slogan' => 'Slogant de l\'entreprise',
+    'slogan' => 'Slogan de l\'entreprise',
     'short_descr' => 'Déscription courte',
     'full_descr' => 'Déscription longue',
     'languages' => 'Langues',

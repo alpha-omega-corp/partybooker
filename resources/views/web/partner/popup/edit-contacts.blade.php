@@ -18,16 +18,6 @@
 
     <x-dashboard.input-card>
         <x-dashboard.input
-            name="email"
-            type="email"
-            :value="$user->email"
-            :placeholder="__('partner.your_email')"
-            :label="__('partner.your_email')"
-            icon="heroicon-o-envelope"/>
-    </x-dashboard.input-card>
-
-    <x-dashboard.input-card>
-        <x-dashboard.input
             name="phone"
             type="tel"
             :value="$user->partnerInfo->phone"

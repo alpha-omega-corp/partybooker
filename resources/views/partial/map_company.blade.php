@@ -1,7 +1,18 @@
 <div>
     <div class="col-md-12">
-        <input type="text" class="form-control mb-4" id="map_address" name="map[address]"
-               placeholder="{{__('become_partner.location')}}" value="{{$location['address']}}" autocomplete="off">
+        <div class="m-3">
+            <div class="d-flex align-items-center">
+                <div class="d-flex justify-content-center">
+                    @svg('heroicon-o-map-pin')
+                </div>
+
+                <div class="w-100 company-location-input">
+                    <input type="text" class="form-control" id="map_address" name="map[address]"
+                           placeholder="{{__('become_partner.location')}}" value="{{$location['address']}}"
+                           autocomplete="off">
+                </div>
+            </div>
+        </div>
     </div>
     <input type="hidden" id="map_lat" name="map[lat]"/>
     <input type="hidden" id="map_lon" name="map[lon]"/>

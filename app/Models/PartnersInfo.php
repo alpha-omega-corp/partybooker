@@ -4,6 +4,9 @@ namespace App\Models;
 
 
 use App\User;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -55,182 +58,181 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $vimeo
  * @property string|null $main_img
  * @property string|null $images
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereAddress($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereAverageRate($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereBudget($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereCategory1($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereCategory2($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereCategory3($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereCompanyPhone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereEnCompanyName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereEnFullDescr($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereEnShortDescr($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereEnSlogan($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereExpirationDate($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereFacebook($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereFax($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereFrCompanyName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereFrFullDescr($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereFrShortDescr($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereFrSlogan($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereIdPartner($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereImages($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereInstagram($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereLanguage($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereLat($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereLinkedin($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereLocationCode($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereLogo($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereLon($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereMainImg($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereOtherLang($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo wherePayed($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo wherePaymentStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo wherePhone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo wherePlan($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo wherePlanOption($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo wherePrice($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo wherePublic($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereSubcat1($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereSubcat2($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereSubcat3($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereTwitter($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereVimeo($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereWaitingApprovePlan($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereWww($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereYoutube($value)
- * @mixin \Eloquent
+ * @method static Builder|PartnersInfo newModelQuery()
+ * @method static Builder|PartnersInfo newQuery()
+ * @method static Builder|PartnersInfo query()
+ * @method static Builder|PartnersInfo whereAddress($value)
+ * @method static Builder|PartnersInfo whereAverageRate($value)
+ * @method static Builder|PartnersInfo whereBudget($value)
+ * @method static Builder|PartnersInfo whereCategory1($value)
+ * @method static Builder|PartnersInfo whereCategory2($value)
+ * @method static Builder|PartnersInfo whereCategory3($value)
+ * @method static Builder|PartnersInfo whereCompanyPhone($value)
+ * @method static Builder|PartnersInfo whereEnCompanyName($value)
+ * @method static Builder|PartnersInfo whereEnFullDescr($value)
+ * @method static Builder|PartnersInfo whereEnShortDescr($value)
+ * @method static Builder|PartnersInfo whereEnSlogan($value)
+ * @method static Builder|PartnersInfo whereExpirationDate($value)
+ * @method static Builder|PartnersInfo whereFacebook($value)
+ * @method static Builder|PartnersInfo whereFax($value)
+ * @method static Builder|PartnersInfo whereFrCompanyName($value)
+ * @method static Builder|PartnersInfo whereFrFullDescr($value)
+ * @method static Builder|PartnersInfo whereFrShortDescr($value)
+ * @method static Builder|PartnersInfo whereFrSlogan($value)
+ * @method static Builder|PartnersInfo whereId($value)
+ * @method static Builder|PartnersInfo whereIdPartner($value)
+ * @method static Builder|PartnersInfo whereImages($value)
+ * @method static Builder|PartnersInfo whereInstagram($value)
+ * @method static Builder|PartnersInfo whereLanguage($value)
+ * @method static Builder|PartnersInfo whereLat($value)
+ * @method static Builder|PartnersInfo whereLinkedin($value)
+ * @method static Builder|PartnersInfo whereLocationCode($value)
+ * @method static Builder|PartnersInfo whereLogo($value)
+ * @method static Builder|PartnersInfo whereLon($value)
+ * @method static Builder|PartnersInfo whereMainImg($value)
+ * @method static Builder|PartnersInfo whereOtherLang($value)
+ * @method static Builder|PartnersInfo wherePayed($value)
+ * @method static Builder|PartnersInfo wherePaymentStatus($value)
+ * @method static Builder|PartnersInfo wherePhone($value)
+ * @method static Builder|PartnersInfo wherePlan($value)
+ * @method static Builder|PartnersInfo wherePlanOption($value)
+ * @method static Builder|PartnersInfo wherePrice($value)
+ * @method static Builder|PartnersInfo wherePublic($value)
+ * @method static Builder|PartnersInfo whereSlug($value)
+ * @method static Builder|PartnersInfo whereSubcat1($value)
+ * @method static Builder|PartnersInfo whereSubcat2($value)
+ * @method static Builder|PartnersInfo whereSubcat3($value)
+ * @method static Builder|PartnersInfo whereTwitter($value)
+ * @method static Builder|PartnersInfo whereVimeo($value)
+ * @method static Builder|PartnersInfo whereWaitingApprovePlan($value)
+ * @method static Builder|PartnersInfo whereWww($value)
+ * @method static Builder|PartnersInfo whereYoutube($value)
+ * @mixin Eloquent
  * @property int|null $plans_id
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo wherePlansId($value)
+ * @method static Builder|PartnersInfo wherePlansId($value)
  * @property int|null $plan_option_group
  * @property int|null $is_commission
  * @property int|null $commission_amount
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Rate[] $rates
- * @property-read \App\Models\Statistic $statistic
- * @property-read \App\User $user
- * @property-read \App\Models\PartnerVipPlan $vipPlan
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereCommissionAmount($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo whereIsCommission($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PartnersInfo wherePlanOptionGroup($value)
+ * @property-read Collection|Rate[] $rates
+ * @property-read Statistic $statistic
+ * @property-read User $user
+ * @property-read PartnerVipPlan $vipPlan
+ * @method static Builder|PartnersInfo whereCommissionAmount($value)
+ * @method static Builder|PartnersInfo whereIsCommission($value)
+ * @method static Builder|PartnersInfo wherePlanOptionGroup($value)
  */
 class PartnersInfo extends Model
 {
-	protected $table = "partners_info";
+    public $timestamps = false;
+    protected $table = "partners_info";
+    protected $fillable = [
+        "plan",
+        "plan_option",
+        "plans_id",
+        "public",
+        "category_1",
+        "category_2",
+        "category_3",
+        "subcat_1",
+        "subcat_2",
+        "subcat_3",
+        "id_partner",
+        "payed",
+        "expiration_date",
+        "payment_status",
+        "waiting_approve_plan",
+        'slug',
+        'en_company_name',
+        'fr_company_name',
+        'location_code',
+        'address',
+        'lat',
+        'lon',
+        'phone',
+        'company_phone',
+        'fax',
+        'logo',
+        'en_slogan',
+        'en_short_descr',
+        'en_full_descr',
+        'fr_slogan',
+        'fr_short_descr',
+        'fr_full_descr',
+        'language',
+        'other_lang',
+        'www',
+        'facebook',
+        'twitter',
+        'instagram',
+        'linkedin',
+        'youtube',
+        'vimeo',
+        'main_img',
+        'images',
+        'price',
+        'is_commission',
+        'commission_amount',
+        'plan_option_group',
+        'prev_plan_option_group',
+        'prev_plan_id',
+        'plans_id',
+        'priority',
+        'en_seo_desc',
+        'fr_seo_desc',
+        'en_seo_title',
+        'fr_seo_title',
+        'en_seo_keywords',
+        'fr_seo_keywords'
+    ];
 
-	public $timestamps = false;
+    public function currentPlan()
+    {
+        return $this->hasOne(Plan::class, 'id', 'plans_id');
+    }
 
-	protected $fillable = [
-		"plan",
-		"plan_option",
-		"plans_id",
-		"public",
-		"category_1",
-		"category_2",
-		"category_3",
-		"subcat_1",
-		"subcat_2",
-		"subcat_3",
-		"id_partner",
-		"payed",
-		"expiration_date",
-		"payment_status",
-		"waiting_approve_plan",
-		'slug',
-		'en_company_name',
-		'fr_company_name',
-		'location_code',
-		'address',
-		'lat',
-		'lon',
-		'phone',
-		'company_phone',
-		'fax',
-		'logo',
-		'en_slogan',
-		'en_short_descr',
-		'en_full_descr',
-		'fr_slogan',
-		'fr_short_descr',
-		'fr_full_descr',
-		'language',
-		'other_lang',
-		'www',
-		'facebook',
-		'twitter',
-		'instagram',
-		'linkedin',
-		'youtube',
-		'vimeo',
-		'main_img',
-		'images',
-		'price',
-		'is_commission',
-		'commission_amount',
-		'plan_option_group',
-		'prev_plan_option_group',
-		'prev_plan_id',
-		'plans_id',
-		'priority',
-                'en_seo_desc',
-                'fr_seo_desc',
-                'en_seo_title',
-                'fr_seo_title',
-                'en_seo_keywords',
-                'fr_seo_keywords'
-	];
+    public function vipPlan()
+    {
+        return $this->hasOne(PartnerVipPlan::class, 'partners_info_id', 'id');
+    }
 
-	public function currentPlan()
-	{
-		return $this->hasOne(Plans::class, 'id', 'plans_id');
-	}
+    public function images()
+    {
+        return $this->hasMany(ServiceImage::class);
+    }
 
-	public function vipPlan()
-	{
-		return $this->hasOne(PartnerVipPlan::class, 'partners_info_id', 'id');
-	}
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_partner', 'id_partner');
+    }
 
-	public function images()
-	{
-		return $this->hasMany(ServiceImage::class);
-	}
+    public function rates()
+    {
+        return $this->hasMany(Rate::class, 'id_partner', 'id_partner');
+    }
 
-	public function user()
-	{
-		return $this->belongsTo(User::class, 'id_partner', 'id_partner');
-	}
+    public function statistic()
+    {
+        return $this->hasOne(Statistic::class, 'id_partner', 'id_partner');
+    }
 
-	public function rates()
-	{
-		return $this->hasMany(Rate::class, 'id_partner', 'id_partner');
-	}
+    public function planOptions()
+    {
+        return $this->hasMany(PartnerPlanOption::class, 'partners_info_id', 'id');
+    }
 
-	public function statistic()
-	{
-		return $this->hasOne(Statistic::class, 'id_partner', 'id_partner');
-	}
+    public function categories()
+    {
+        return $this->hasMany(AdvertCategory::class, 'partners_info_id', 'id');
+    }
 
-	public function planOptions()
-	{
-		return $this->hasMany(PartnerPlanOption::class, 'partners_info_id', 'id');
-	}
-
-	public function categories()
-	{
-		return $this->hasMany(AdvertCategory::class, 'partners_info_id', 'id');
-	}
-
-	public function services()
-	{
-		return $this->hasMany(Advert::class, 'partners_info_id', 'id');
-	}
+    public function services()
+    {
+        return $this->hasMany(Advert::class, 'partners_info_id', 'id');
+    }
 
 
-	public function eventTypes(){
-		return $this->belongsToMany(EventType::class, 'partner_event_types');
-	}
+    public function eventTypes()
+    {
+        return $this->belongsToMany(EventType::class, 'partner_event_types');
+    }
 }

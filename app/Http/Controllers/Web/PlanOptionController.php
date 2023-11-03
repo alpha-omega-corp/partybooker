@@ -4,7 +4,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Interfaces\IPartnerPlanOptionService;
+use App\Interfaces\IPlanService;
 use App\Models\Advert;
 use App\Models\AdvertCategory;
 use App\Models\PartnersInfo;
@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\DB;
 
 class PlanOptionController extends Controller
 {
-    private $planOptionService;
+    private IPlanService $planService;
 
-    public function __construct(IPartnerPlanOptionService $planOptionService)
+    public function __construct(IPlanService $planService)
     {
-        $this->planOptionService = $planOptionService;
+        $this->planService = $planService;
     }
 
     public function getPlanOptionsAjax($idPartner, Request $request)
@@ -82,9 +82,12 @@ class PlanOptionController extends Controller
                 throw new Exception('Partner not found');
             }
 
-            $this->planOptionService->ApplyPlanOptions($partner->id, $partner->plans_id, $request->get('option'));
+            $this->planService->applyOptions($partner->id, $partner->plans_id, $request->get('option'));
             AdvertCategory::where('partners_info_id', $partner->id)->delete();
-            Advert::where('partners_info_id', $partner->id)->update(['status' => Advert::STATUS_INACTIVE]);
+
+            $advert = Advert::where('partners_info_id', $partner->id);
+            $advert->update(['status' => Advert::STATUS_INACTIVE]);
+
 
             $partner->plan_option_group = $request->get('option');
             $partner->public = 0;

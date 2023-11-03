@@ -45,7 +45,7 @@ class EventPlaceFactory extends Factory
                     'capacity' => '150',
                 ],
             ],
-            'reduced_mob' => 1,
+            'reduced_mob' => 'yes',
             'facilities' => '["bar","dance-floor","lighting"]',
             'oth_facilities' => 'Vue exceptionnelle sur le lac et les Alpes',
             'convenience' => '["cloakrooms","bathrooms"]',
@@ -67,8 +67,6 @@ class EventPlaceFactory extends Factory
             'other_services' => '["decoration","photographer","music","transport"]',
             'more_services' => null,
             'comment' => 'Commentaire',
-            'price' => "5000",
-            'budget' => '30000',
         ];
     }
 }

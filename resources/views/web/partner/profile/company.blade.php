@@ -1,83 +1,58 @@
-@if ($user->partnerInfo->logo)
-    <x-dashboard.card-item title="Logo">
-        <img src="{{ asset('/storage/logos/'.$user->partnerInfo->logo)}}" alt="logo" width="100"
-             class="mt-2 cp-company-logo">
-    </x-dashboard.card-item>
-@endif
+<img src="{{ asset('/storage/logos/'.$user->partnerInfo->logo)}}" alt="logo" width="100"
+     class="mt-2 cp-company-logo">
 
-<x-dashboard.card-item :title="__('become_partner.company_name')">
+<hr>
+
+
+<x-dashboard.company-info :tooltip="__('become_partner.company_name')" icon="heroicon-o-home-modern">
     @if (app()->getLocale() == 'en')
         {{$user->partnerInfo->en_company_name}}
     @else
         {{$user->partnerInfo->fr_company_name}}
     @endif
-</x-dashboard.card-item>
+</x-dashboard.company-info>
 
-<x-dashboard.card-item :title="__('partner.link')">
-    {{$user->partnerInfo->slug}}
-</x-dashboard.card-item>
+<x-dashboard.company-info :tooltip="__('become_partner.phone')" icon="heroicon-o-phone">
+    {{$user->partnerInfo->company_phone}}
+</x-dashboard.company-info>
 
-<x-dashboard.card-item :title="__('become_partner.location')">
+<x-dashboard.company-info :tooltip="__('partner.link')" icon="heroicon-o-globe-alt">
+    {{'partybooker.ch/' . __('urls.listing') . '/' . $user->partnerInfo->slug}}
+</x-dashboard.company-info>
+
+<x-dashboard.company-info :tooltip="__('become_partner.location')" icon="heroicon-o-map-pin">
     @if($user->partnerInfo->address)
         {{$user->partnerInfo->address}}
     @else
         @svg('heroicon-o-no-symbol')
     @endif
+</x-dashboard.company-info>
 
-</x-dashboard.card-item>
 
-<x-dashboard.card-item :title="__('become_partner.phone')">
-    {{$user->partnerInfo->company_phone}}
-</x-dashboard.card-item>
+<div class="company-details">
 
-<x-dashboard.card-item :title="__('become_partner.fax')">
-    @if($user->partnerInfo->fax)
-        {{$user->partnerInfo->fax}}
-    @else
-        @svg('heroicon-o-no-symbol')
-    @endif
 
-</x-dashboard.card-item>
-
-<x-dashboard.card-item :title="__('become_partner.slogan')">
-    @if (app()->getLocale() == 'en')
-        {{$user->partnerInfo->en_slogan}}
-    @else
-        {{$user->partnerInfo->fr_slogan}}
-    @endif
-</x-dashboard.card-item>
-
-<x-dashboard.card-item :title="__('become_partner.short_descr')">
-    <div class="description-preview">
-        <h6>
-            {{__('main.preview')}}
-        </h6>
-        @if (app()->getLocale() == 'en')
-            {!!$user->partnerInfo->en_short_descr!!}
-        @else
-            {!!$user->partnerInfo->fr_short_descr!!}
-        @endif
+    <div class="company-details-languages">
+        <h5 class="text-uppercase">
+            {{__('become_partner.languages')}}
+        </h5>
+        @foreach(json_decode($user->partnerInfo->language) as $language)
+            <img src="{{Vite::image($language . '.svg')}}" alt="{{$language}}" width="20"/>
+        @endforeach
     </div>
-</x-dashboard.card-item>
 
-<x-dashboard.card-item :title="__('become_partner.full_descr')">
-    <div class="description-preview">
-        <h6>
-            {{__('main.preview')}}
-        </h6>
-        @if (app()->getLocale() == 'en')
-            {!!$user->partnerInfo->en_full_descr!!}
-        @else
-            {!!$user->partnerInfo->fr_full_descr!!}
-        @endif
-
+    <div class="d-flex justify-content-end">
+        <small>
+            {{__('become_partner.fax')}}
+            @if($user->partnerInfo->fax)
+                {{$user->partnerInfo->fax}}
+            @else
+                @svg('heroicon-o-no-symbol')
+            @endif
+        </small>
     </div>
-</x-dashboard.card-item>
+</div>
 
-
-<x-dashboard.card-item :title="__('become_partner.languages')">
-    {{preg_replace('/[^a-zA-Z]/', ' ', $user->partnerInfo->language)}} {{$user->partnerInfo->other_lang}}
-</x-dashboard.card-item>
 
 @include('web.partner.popup.edit-company')
 

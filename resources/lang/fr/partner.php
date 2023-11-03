@@ -1,6 +1,14 @@
 <?php
 
 return [
+    'matrix_category_good' => 'Choix des catégories',
+    'matrix_service_good' => 'Informations du service',
+    'matrix_company_good' => 'Description de l\'entreprise',
+    'matrix_thumbnail_good' => 'Télécharger une miniature',
+    'matrix' => 'Détails mandataires',
+
+    'fill_company_details' => 'Veuillez remplir les détails de votre entreprise pour la publication en ligne',
+    'choose_thumbnail' => 'Téléchargez une miniature pour votre page de publicité',
 
     'extansion' => 'Détails de prolongation',
 
@@ -428,7 +436,8 @@ return [
     'lighting' => 'Eclairage',
     'stage' => 'Scène',
     'image_of' => 'sur',
-    'see-ad' => 'Voir page publicitaire',
+    'see-ad' => 'page publicitaire',
+    'start-trial' => 'Commencer la période d\'éssai',
 
 
     'home_page' => "Statistiques",
@@ -446,5 +455,15 @@ return [
 
     'event_types' => 'Types d\'événements',
     'choose_event_types' => 'Veuillez sélectionner les évènements idéal pour votre lieu et/ou pour vos prestations',
+    'trial_ends' => 'Votre période d\'essai se termine le :date',
+
+
+    'nav-gallery' => 'Gallerie',
+    'nav-option' => 'Formule',
+    'nav-ratings' => 'Votes',
+    'nav-views' => 'Vues',
+    'nav-coordinates' => 'Localisation'
+
+
 ];
 

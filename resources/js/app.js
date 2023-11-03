@@ -11,7 +11,6 @@ import.meta.glob([
     '../../public/storage/**',
 ]);
 
-
 window.Alpine = Alpine;
 Alpine.plugin(focus);
 Alpine.start();
@@ -76,14 +75,21 @@ tippy('.dashboard-stat-card', {
     placement: 'top',
     animation: 'scale',
     inertia: true,
-    theme: 'stats'
+    theme: 'cp-nav-theme'
 });
 
 tippy('.cp-nav-item', {
-    placement: 'left',
+    placement: 'top',
     animation: 'scale',
     inertia: true,
-    theme: 'stats'
+    theme: 'cp-nav-theme'
+});
+
+tippy('.company-info-item', {
+    placement: 'right',
+    animation: 'scale',
+    inertia: true,
+    theme: 'tab-cat-tippy'
 });
 
 
@@ -92,6 +98,16 @@ tippy.setDefaultProps({
     plugins: [
         animateFill
     ]
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const elems = document.querySelectorAll('[data-bs-toggle="popover"]');
+
+    const popovers = [...elems].map(el => new bootstrap.Popover(el, {
+        trigger: 'focus',
+        html: true,
+        content: document.getElementById(el.dataset.contentId)?.innerHTML || ''
+    }));
 });
 
 let cards = document.querySelectorAll('.card');

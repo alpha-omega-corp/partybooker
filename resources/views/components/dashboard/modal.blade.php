@@ -1,31 +1,49 @@
 @props([
     'id',
-    'title',
+    'title' => null,
     'button',
+    'color' => null,
     'action',
+    'icon' => null,
     'method' => 'POST',
-    'hasFiles' => false
+    'hasFiles' => false,
+    'size' => null,
 ])
 
-<a type="button" class="dashboard-modal-button" id="{{$id . '-button'}}"
+
+<a type="button" id="{{$id . '-button'}}"
    data-bs-toggle="modal"
    data-bs-target="{{'#'. $id}}"
    data-tippy-content="{{$button}}">
-    @svg('heroicon-o-cog-6-tooth')
+    <div class="dashboard-modal-button rounded-circle">
+        @if($icon)
+            @svg($icon)
+        @else
+            @svg('heroicon-o-cog-6-tooth')
+        @endif
+    </div>
 </a>
 
-<div class="modal fade" id="{{$id}}" tabindex="-1" aria-labelledby="{{$id . 'ModalLabel'}}" aria-hidden="true">
+
+<div class="modal fade" id="{{$id}}" tabindex="-1" aria-labelledby="{{$id . 'ModalLabel'}}" aria-hidden="true"
+     data-bs-backdrop="static" data-bs-keyboard="false">
     <form
         method="{{$method}}"
         action="{{$action}}"
         {{$hasFiles ? 'enctype=multipart/form-data' : ''}}
-        style="height: 100%;">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
+    >
+        <div class="modal-dialog {{$size ? $size : 'modal-xl'}} modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
 
                     <h1 class="modal-title fs-5 fw-bold text-uppercase" id="{{$id . 'ModalLabel'}}">
-                        {{$title}}
+                        @if(isset($image))
+                            <div class="d-flex align-items-center justify-content-center">
+                                {{$image}}
+                            </div>
+                        @else
+                            {{$title}}
+                        @endif
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
@@ -35,8 +53,10 @@
                     {{$slot}}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" id="{{$id . '-close'}}" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="{{$id . '-save'}}">Save changes</button>
                 </div>
             </div>
         </div>

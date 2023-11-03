@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use App\Helpers\SlugSanitizer;
 use App\Http\Middleware\LocaleMiddleware;
 use App\Http\Requests\AdminChangePlanRequest;
+use App\Interfaces\IPaymentTransactionService;
 use App\Models\Advert;
 use App\Models\AdvertCategory;
 use App\Models\Category;
+use App\Models\Caterer;
+use App\Models\Entertainment;
+use App\Models\Equipment;
+use App\Models\EventPlace;
 use App\Models\PartnersInfo;
-use App\Models\Plans;
-use App\Services\IPaymentTransactionService;
+use App\Models\Plan;
+use App\Models\Wine;
 use App\User;
 use Auth;
 use DB;
@@ -32,7 +37,7 @@ class partnerController extends Controller
     public function ChangePlanByAdmin(AdminChangePlanRequest $request)
     {
 
-        $plan = Plans::where("id", $request->input('plan_id'))->first();
+        $plan = Plan::where("id", $request->input('plan_id'))->first();
 
         $date = strtotime($request->input('start_date'));
         $plan_name = strtolower($plan->name);
@@ -70,7 +75,7 @@ class partnerController extends Controller
     {
 
         try {
-            $plan = Plans::where("id", $request->input('plan_id'))->first();
+            $plan = Plan::where("id", $request->input('plan_id'))->first();
             if (!$plan) {
                 throw new Exception("Plan not found");
             }
@@ -219,26 +224,45 @@ class partnerController extends Controller
             }
 
             $categoriesForms = Category::whereIn('id', $categories)->select('form_name')->distinct()->pluck('form_name')->toArray();
-
             Advert::where('partners_info_id', $partner->id)->update(['status' => Advert::STATUS_INACTIVE]);
             foreach ($categoriesForms as $form) {
+                $serviceType = match ($form) {
+                    'event-place' => EventPlace::class,
+                    'caterer' => Caterer::class,
+                    'wine' => Wine::class,
+                    'equipment' => Equipment::class,
+                    default => Entertainment::class,
+                };
 
-                $advert = Advert::where('partners_info_id', $partner->id)->where('view_name', $form)->first();
-                if ($advert) {
-                    $advert->status = $advert->service_id ? Advert::STATUS_ACTIVE : Advert::STATUS_DRAFT;
-                    $advert->save();
-                } else {
+                $serviceId = match ($form) {
+                    'event-place' => EventPlace::where('id_partner', $id_partner)->value('id'),
+                    'caterer' => Caterer::where('id_partner', $id_partner)->value('id'),
+                    'wine' => Wine::where('id_partner', $id_partner)->value('id'),
+                    'equipment' => Equipment::where('id_partner', $id_partner)->value('id'),
+                    default => Entertainment::where('id_partner', $id_partner)->value('id'),
+                };
+
+                $advert = Advert::where('partners_info_id', $partner->id)->where('view_name', $form);
+                if (!$advert->exists()) {
                     $advert = new Advert();
                     $advert->partners_info_id = $partner->id;
                     $advert->category_id = 1;
                     $advert->status = Advert::STATUS_DRAFT;
                     $advert->view_name = $form;
-                    $advert->save();
+                    $advert->service_type = $serviceType;
+                    $advert->service_id = $serviceId;
+                } else {
+                    $advert = $advert->first();
+                    $advert->service_type = $serviceType;
+                    $advert->view_name = $form;
+                    $advert->service_id = $serviceId;
+                    $advert->status = $advert->service_id ? Advert::STATUS_ACTIVE : Advert::STATUS_DRAFT;
                 }
+
+                $advert->save();
             }
 
             AdvertCategory::insert($temp);
-
             PartnersInfo::where('id_partner', $id_partner)->update(['public' => 0]);
             DB::commit();
         } catch (Exception $e) {
@@ -246,7 +270,7 @@ class partnerController extends Controller
             return redirect()->back()->with('error', $e->getMessage());
         }
 
-        return redirect()->back()->with('success', "Category successfully updated.");
+        return redirect()->back()->with('success', "Category updated");
 
     }
 

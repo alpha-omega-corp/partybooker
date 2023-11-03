@@ -1,6 +1,15 @@
 <?php
 
 return [
+    'matrix_category_good' => 'Choose categories',
+    'matrix_service_good' => 'Fill in service details',
+    'matrix_company_good' => 'Fill in company details',
+    'matrix_thumbnail_good' => 'Upload a thumbnail',
+    'matrix' => 'Mandatary details',
+
+    'fill_company_details' => 'Fill your company details before you can publish',
+    'choose_thumbnail' => 'Upload a thumbnail for your advertisement page',
+
     'extansion' => 'Prolongation details',
 
 
@@ -425,7 +434,8 @@ return [
     'sound-system' => 'Sound system',
     'lighting' => 'Lighting',
     'stage' => 'Stage',
-    'see-ad' => 'View advertisement page',
+    'see-ad' => 'advertisement page',
+    'start-trial' => 'Start trial period',
     'image_of' => 'of',
     'home_page' => "Statistics",
     'profile' => 'Profile',
@@ -435,11 +445,17 @@ return [
     'contacts' => 'Contacts',
     'back_to_list' => 'Back to list',
     'changes_applied' => 'Your changes were applied.',
-
+    'trial_ends' => 'Your trial period ends the :date',
     'create_new_service' => 'Create service',
     'from' => 'from',
     'to' => 'to',
 
     'event_types' => 'Event types',
     'choose_event_types' => 'Select the ideal event types for your venue and/or service',
+    'nav-gallery' => 'Gallery',
+    'nav-option' => 'Service',
+    'nav-ratings' => 'Ratings',
+    'nav-views' => 'Views',
+    'nav-coordinates' => 'Localization',
+
 ];

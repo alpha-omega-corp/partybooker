@@ -13,9 +13,9 @@ $orange: $orange-500;
 $yellow: $yellow-400;
 $gray: $gray-700;
 
-$standart: $cyan-500;
-$premium: $purple-500;
-$exclusif: $red-400;
+$standard: $blue-500;
+$premium: $orange-500;
+$exclusive: $red-400;
 
 $transparent: rgba(0, 0, 0, 0.4);
 
@@ -29,9 +29,9 @@ $theme-colors: (
     "success": $success,
     "light": $light,
     "dark": $dark,
-    "standart": $standart,
+    "standard": $standard,
     "premium": $premium,
-    "exclusif": $exclusif,
+    "exclusive": $exclusive,
     "opaque": $transparent,
     "orange": $orange,
     "yellow": $yellow,
@@ -121,6 +121,13 @@ $modal-content-color: $white;
     text-transform: uppercase;
 }
 
+.tippy-box[data-theme~='cp-nav-theme'] {
+    color: $gray;
+    font-size: small;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/bootstrap/scss/maps";
@@ -137,6 +144,8 @@ $modal-content-color: $white;
 @import "../../node_modules/bootstrap/scss/breadcrumb";
 @import "../../node_modules/bootstrap/scss/pagination";
 @import "../../node_modules/bootstrap/scss/tooltip";
+@import "../../node_modules/bootstrap/scss/popover";
+
 @import "../../node_modules/bootstrap/scss/carousel";
 @import "../../node_modules/bootstrap/scss/modal";
 

@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Enums\PlanEnum;
 use App\Models\Article;
 use App\Models\Caterer;
 use App\Models\Entertainment;
 use App\Models\Equipment;
 use App\Models\EventPlace;
 use App\Models\PartnerPlanOption;
-use App\Models\Wine;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -23,36 +23,40 @@ class DatabaseSeeder extends Seeder
         Article::factory()->count(10)->create();
 
         $standardId = $this->newPlan(
-            'Standart',
+            PlanEnum::STANDARD,
             '1',
             '0',
             '5',
             '1',
             '1',
             '300',
-            '365'
+            '365',
+            config('stripe.standard')
         );
 
         $premiumId = $this->newPlan(
-            'Premium',
+            PlanEnum::PREMIUM,
             '1',
             '0',
             '10',
             '0',
             '1',
             '500',
-            '365'
+            '365',
+            config('stripe.premium')
+
         );
 
         $exclusiveId = $this->newPlan(
-            'Exclusif',
+            PlanEnum::EXCLUSIVE,
             '3',
             '0',
             '15',
             '0',
             '1',
             '950',
-            '365'
+            '365',
+            config('stripe.exclusive')
         );
 
         // Basic
@@ -196,18 +200,19 @@ class DatabaseSeeder extends Seeder
     }
 
     private function newPlan(
-        string $name,
-        int    $positon,
-        bool   $listing,
-        int    $photos,
-        int    $videos,
-        int    $requests,
-        int    $price,
-        int    $duration
+        PlanEnum $plan,
+        int      $positon,
+        bool     $listing,
+        int      $photos,
+        int      $videos,
+        int      $requests,
+        int      $price,
+        int      $duration,
+        string   $planId,
     ): int
     {
         return DB::table('plans')->insertGetId([
-            'name' => $name,
+            'name' => $plan->value,
             'plan_created' => now(),
             'position' => $positon,
             'listing' => $listing,
@@ -216,6 +221,7 @@ class DatabaseSeeder extends Seeder
             'direct_request' => $requests,
             'price' => $price,
             'days_period' => $duration,
+            'stripe_plan_id' => $planId,
         ]);
 
 
@@ -273,8 +279,7 @@ class DatabaseSeeder extends Seeder
         PartnerPlanOption::factory([
             'partners_info_id' => $partnerId
         ])->create();
-        //$this->createServiceTabs($partnerId, $r);
-        $this->createServiceTabs($partnerId, $r, true);
+        $this->createServiceTabs($partnerId, $r);
 
         DB::table('statistics')->insert([
             'id_partner' => $partnerUid,
@@ -319,95 +324,70 @@ class DatabaseSeeder extends Seeder
 
     }
 
-    private function createServiceTabs(int $partnerId, $r, bool $single = false): void
+    private function createServiceTabs(int $partnerId, $r): void
     {
-        if (!$single) {
-            $wineId = Wine::factory([
-                'id_partner' => '120036190814-044' . $r
-            ])->create()->id;
-            DB::table('adverts')->insert([
-                'partners_info_id' => $partnerId,
-                'category_id' => 1,
-                'status' => 1,
-                'view_name' => 'wine',
-                'service_type' => 'App\Models\Wine',
-                'service_id' => $wineId,
-            ]);
+        $equipmentId = Equipment::factory([
+            'id_partner' => '120036190814-044' . $r
+        ])->create()->id;
+        DB::table('adverts')->insert([
+            'partners_info_id' => $partnerId,
+            'category_id' => 1,
+            'status' => 1,
+            'view_name' => 'equipment',
+            'service_type' => 'App\Models\Equipment',
+            'service_id' => $equipmentId,
+        ]);
 
-            $equipmentId = Equipment::factory([
-                'id_partner' => '120036190814-044' . $r
-            ])->create()->id;
-            DB::table('adverts')->insert([
-                'partners_info_id' => $partnerId,
-                'category_id' => 1,
-                'status' => 1,
-                'view_name' => 'equipment',
-                'service_type' => 'App\Models\Equipment',
-                'service_id' => $equipmentId,
-            ]);
+        $wineId = Equipment::factory([
+            'id_partner' => '120036190814-044' . $r
+        ])->create()->id;
+        DB::table('adverts')->insert([
+            'partners_info_id' => $partnerId,
+            'category_id' => 1,
+            'status' => 1,
+            'view_name' => 'wine',
+            'service_type' => 'App\Models\Wine',
+            'service_id' => $wineId,
+        ]);
 
-            $entertainmentId = Entertainment::factory([
-                'id_partner' => '120036190814-044' . $r
-            ])->create()->id;
-            DB::table('adverts')->insert([
-                'partners_info_id' => $partnerId,
-                'category_id' => 1,
-                'status' => 1,
-                'view_name' => 'entertainment',
-                'service_type' => 'App\Models\Entertainment',
-                'service_id' => $entertainmentId,
-            ]);
+        $entertainmentId = Entertainment::factory([
+            'id_partner' => '120036190814-044' . $r
+        ])->create()->id;
+        DB::table('adverts')->insert([
+            'partners_info_id' => $partnerId,
+            'category_id' => 1,
+            'status' => 1,
+            'view_name' => 'entertainment',
+            'service_type' => 'App\Models\Entertainment',
+            'service_id' => $entertainmentId,
+        ]);
 
-            $catererId = Caterer::factory([
-                'id_partner' => '120036190814-044' . $r
-            ])->create()->id;
-            DB::table('adverts')->insert([
-                'partners_info_id' => $partnerId,
-                'category_id' => 1,
-                'status' => 1,
-                'view_name' => 'caterer',
-                'service_type' => 'App\Models\Caterer',
-                'service_id' => $catererId,
-            ]);
+        $catererId = Caterer::factory([
+            'id_partner' => '120036190814-044' . $r
+        ])->create()->id;
+        DB::table('adverts')->insert([
+            'partners_info_id' => $partnerId,
+            'category_id' => 1,
+            'status' => 1,
+            'view_name' => 'caterer',
+            'service_type' => 'App\Models\Caterer',
+            'service_id' => $catererId,
 
-            $entertainmentId = Entertainment::factory([
-                'id_partner' => '120036190814-044' . $r
-            ])->create()->id;
-            DB::table('adverts')->insert([
-                'partners_info_id' => $partnerId,
-                'category_id' => 1,
-                'status' => 1,
-                'view_name' => 'entertainment',
-                'service_type' => 'App\Models\Entertainment',
-                'service_id' => $entertainmentId,
-            ]);
+        ]);
 
+        $epId = EventPlace::factory([
+            'id_partner' => '120036190814-044' . $r
+        ])->create()->id;
+        DB::table('adverts')->insert([
+            'partners_info_id' => $partnerId,
+            'category_id' => 1,
+            'status' => 1,
+            'view_name' => 'event-place',
+            'service_type' => 'App\Models\EventPlace',
+            'service_id' => $epId,
 
-        } else {
-            $epId = EventPlace::factory([
-                'id_partner' => '120036190814-044' . $r
-            ])->create()->id;
-            DB::table('adverts')->insert([
-                'partners_info_id' => $partnerId,
-                'category_id' => 1,
-                'status' => 1,
-                'view_name' => 'event-place',
-                'service_type' => 'App\Models\EventPlace',
-                'service_id' => $epId,
-            ]);
-            DB::table('advert_categories')->insert([
-                'category_id' => 1,
-                'sub_category_id' => 2,
-                'partners_info_id' => $partnerId,
-                'id_partner' => '120036190814-044' . $r,
-            ]);
-            DB::table('advert_categories')->insert([
-                'category_id' => 1,
-                'sub_category_id' => 3,
-                'partners_info_id' => $partnerId,
-                'id_partner' => '120036190814-044' . $r,
-            ]);
-        }
+        ]);
+
 
     }
 

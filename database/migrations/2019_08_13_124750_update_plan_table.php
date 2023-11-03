@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class UpdatePlanTable extends Migration
 {
@@ -13,11 +13,10 @@ class UpdatePlanTable extends Migration
      */
     public function up()
     {
-	    Schema::table('plans', function(Blueprint $table)
-	    {
-		    $table->integer('days_period')->nullable()->default(365);
-
-	    });
+        Schema::table('plans', function (Blueprint $table) {
+            $table->integer('days_period')->nullable()->default(365);
+            $table->string('stripe_plan_id')->nullable();
+        });
     }
 
     /**
@@ -27,10 +26,9 @@ class UpdatePlanTable extends Migration
      */
     public function down()
     {
-	    Schema::table('plans', function(Blueprint $table)
-	    {
-		    $table->dropColumn('days_period');
+        Schema::table('plans', function (Blueprint $table) {
+            $table->dropColumn('days_period');
 
-	    });
+        });
     }
 }

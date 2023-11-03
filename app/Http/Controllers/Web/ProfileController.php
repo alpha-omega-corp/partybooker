@@ -4,6 +4,9 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePartnerMessage;
+use App\Interfaces\IAdvertService;
+use App\Interfaces\IPlanService;
 use App\Models\Advert;
 use App\Models\AdvertCategory;
 use App\Models\Category;
@@ -14,7 +17,6 @@ use App\Models\PartnerEventType;
 use App\Models\PartnerPlanOption;
 use App\Models\PartnersInfo;
 use App\Models\PlanOption;
-use App\Models\Plans;
 use App\Models\ServiceImage;
 use App\User;
 use Carbon\Carbon;
@@ -29,6 +31,24 @@ use function json_encode;
 
 class ProfileController extends Controller
 {
+
+    private IPlanService $planService;
+    private IAdvertService $advertService;
+
+    public function __construct(IPlanService $planService, IAdvertService $advertService)
+    {
+        $this->planService = $planService;
+        $this->advertService = $advertService;
+    }
+
+
+    public function trial(Request $request)
+    {
+        $this->planService->startTrial($request->user());
+        return redirect()->route('profile-advert', ['id_partner' => $request->user()->id_partner])
+            ->with('success', 'You have successfully started a trial period');
+    }
+
     public function index(Request $request)
     {
         if (Auth::user()->type == 'admin') {
@@ -111,6 +131,21 @@ class ProfileController extends Controller
         return view('web.partner.pages.contact', ['user' => $user]);
     }
 
+    public function partnerContact(StorePartnerMessage $request)
+    {
+        $request->validated();
+        $date = date('Y-m-d H:i:s');
+
+        $user = $request->user();
+        $name = $user->name;
+        $email = $user->email;
+        $message = $request->input('message');
+        DB::insert('insert into messages (message_sent, contact_form, name, email, id_partner, message) value(?, ?, ?, ?, ?, ?)', [
+            $date, 'partner', $name, $email, $user->id_partner, $message]);
+
+        return redirect()->back()->with('success', "Message sent.");
+    }
+
     public function profile($id_partner)
     {
         if (Auth::user()->type == 'admin') {
@@ -160,11 +195,7 @@ class ProfileController extends Controller
             'categoryImages' => $tempImages,
             'eventTypes' => EventType::all(),
             'partnerEventTypes' => $pet,
-            'location' => [
-                'lat' => $user->partnerInfo->lat,
-                'lon' => $user->partnerInfo->lon,
-                'address' => $user->partnerInfo->address
-            ]
+
         ]);
     }
 
@@ -209,23 +240,10 @@ class ProfileController extends Controller
 
         $user = User::where('id_partner', $id)->first();
 
-        $plans = Plans::with('planOptions')->orderBy('price', 'ASC')->get();
-        foreach ($plans as $plan) {
-            $plan->name = strtolower($plan->name);
-        }
-
-        foreach ($plans as $plan) {
-            $temp = [];
-            foreach ($plan->planOptions as $option) {
-                $temp[$option->group][] = $option;
-            }
-            $plan->options = $temp;
-        }
-
 
         return view('web.partner.pages.plans', [
             'user' => $user,
-            'plans' => $plans,
+            'plans' => $this->planService->getPlans(),
             'intent' => Auth::user()->createSetupIntent(),
         ]);
     }
@@ -236,7 +254,6 @@ class ProfileController extends Controller
         $partnerInfo = PartnersInfo::where('id_partner', $id_partner)->first();
         $partnerPlanOptions = PartnerPlanOption::where('partners_info_id', $partnerInfo->id)->get();
 
-
         $select = AdvertCategory::where('id_partner', $partnerInfo->id_partner)->get();
         $hash = $select->pluck('category_id', 'sub_category_id')->toArray();
         $categoriesList = Category::whereNull('parent_id')->with(['subCategories', 'subCategories.lang'])->get();
@@ -245,9 +262,8 @@ class ProfileController extends Controller
         }])->whereNull('parent_id')->whereIn('id', array_values($hash))->get();
 
         $adverts = Advert::where('partners_info_id', $user->partnerInfo->id)->with(['service'])->orderBy('status')->get();
-
         $tempImages['cat'] = [
-            'count' => $plan->photos_num ?? 1,
+            'count' => $partnerInfo->currentPlan->photos_num ?? 1,
             'images' => ServiceImage::where('id_partner', $user->id_partner)->orderBy('is_main', 'DESC')->get()
         ];
 
@@ -259,6 +275,15 @@ class ProfileController extends Controller
             'currentCategories' => $currentCategories,
             'categoryImages' => $tempImages,
             'adverts' => $adverts,
+            'thumbnail' => ServiceImage::where('id_partner', $user->id_partner)
+                ->where('is_main', true)->first(),
+            'location' => [
+                'lat' => $user->partnerInfo->lat,
+                'lon' => $user->partnerInfo->lon,
+                'address' => $user->partnerInfo->address
+            ],
+            'canPublishMatrix' => $this->advertService->canPublishMatrix(),
+            'advertService' => $this->advertService,
         ]);
     }
 
@@ -321,6 +346,21 @@ class ProfileController extends Controller
         return redirect()->back()->with('success', "Location updated.");
     }
 
+    public function editCompanyDescription(Request $request)
+    {
+        $partner = PartnersInfo::where('id_partner', $request->input('id_partner'))->first();
+
+        $partner->en_slogan = $request->input('en_slogan');
+        $partner->fr_slogan = $request->input('fr_slogan');
+        $partner->en_short_descr = $request->input('en_short_descr');
+        $partner->fr_short_descr = $request->input('fr_short_descr');
+        $partner->en_full_descr = $request->input('en_full_descr');
+        $partner->fr_full_descr = $request->input('fr_full_descr');
+
+        $partner->save();
+        return redirect()->back()->with('success', "Description updated.");
+    }
+
     public function editCompany(Request $request)
     {
         if (Auth::user()->type == 'admin') {
@@ -345,25 +385,14 @@ class ProfileController extends Controller
             }
 
             $partner->company_phone = $request->company_phone;
-
             $partner->fax = $request->company_fax;
-
-            $partner->en_company_name = $request->en_company_name;
-            $partner->fr_company_name = $request->fr_company_name;
+            $partner->en_company_name = $request->company_name;
+            $partner->fr_company_name = $request->company_name;
 
             //$partner->slug = str_replace([' ', '.', ',', '"', '--'], '-', strtolower($en_company_name));
 
-            $partner->en_slogan = $request->en_slogan;
-            $partner->fr_slogan = $request->fr_slogan;
-
-            $partner->en_short_descr = $request->en_short_descr;
-            $partner->fr_short_descr = $request->fr_short_descr;
-
-            $partner->en_full_descr = $request->en_full_descr;
-            $partner->fr_full_descr = $request->fr_full_descr;
 
             $partner->language = json_encode($request->input('languages'));
-            $partner->other_lang = $request->input('other');
             if (!$partner->update()) {
                 return redirect()->back()->with('error', "Cant update company profile.");
             }

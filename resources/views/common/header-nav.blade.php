@@ -4,7 +4,6 @@
             <x-logo/>
         </a>
 
-
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar"
@@ -118,7 +117,7 @@
                                             @if (Auth::user()->id_partner)
                                                 <li>
                                                     <a class="dropdown-item"
-                                                       href="{{ route('profile', Auth::user()->id_partner) }}">
+                                                       href="{{ route('profile-advert', Auth::user()->id_partner) }}">
                                                         Dashboard
                                                     </a>
                                                 </li>

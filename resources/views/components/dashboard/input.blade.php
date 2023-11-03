@@ -11,9 +11,9 @@
     'label' => null,
 ])
 
-<div>
+<div class="dashboard-input">
     @if($label)
-        <label for="{{$id}}" class="form-label w-100 text-dark text-uppercase pt-2">{{$label}}</label>
+        <label for="{{$id}}" class="form-label text-dark text-uppercase pt-2">{{$label}}</label>
     @endif
 
     <div class="input-group">

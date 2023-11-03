@@ -9,7 +9,7 @@
 @endphp
 
 <div class="partner-nav">
-    <div class="d-flex flex-column">
+    <div class="d-flex">
         @if(Auth::user()->type == 'admin')
             <a class="{{isActive('statistics')}}"
                href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/statistics">{{__('partner.home_page')}}</a>
@@ -20,35 +20,15 @@
             <a class="{{isActive('plans')}}"
                href="{{url(LocaleMiddleware::getLocale().'/cp/partner-cp/'.$user->id_partner)}}/plans">{{__('partner.my_plan')}}</a>
         @else
-
-            <a class="{{isActive('statistics')}} cp-nav-item"
-               data-tippy-content="{{__('partner.home_page')}}"
-               href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/statistics">
-                @svg('heroicon-o-presentation-chart-bar')
-            </a>
-
-            <a class="{{isActive('profile')}} cp-nav-item"
+            <a class="{{isActive('advert')}} cp-nav-item"
                data-tippy-content="{{__('partner.profile')}}"
-               href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/profile">
-                @svg('heroicon-o-user-circle')
+               href="{{route('profile-advert', $user->id_partner)}}">
+                @svg('heroicon-o-identification')
             </a>
-
             <a class="{{isActive('plans')}} cp-nav-item"
                data-tippy-content="{{__('partner.my_plan')}}"
                href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/plans">
                 @svg('heroicon-o-swatch')
-            </a>
-
-            <a class="{{isActive('advert')}} cp-nav-item"
-               data-tippy-content="{{__('partner.see-ad')}}"
-               href="{{route('profile-advert', $user->id_partner)}}">
-                @svg('heroicon-o-identification')
-            </a>
-
-            <a class="{{isActive('contacts')}} cp-nav-item"
-               data-tippy-content="{{__('partner.contacts')}}"
-               href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/contacts">
-                @svg('heroicon-o-envelope')
             </a>
         @endif
     </div>

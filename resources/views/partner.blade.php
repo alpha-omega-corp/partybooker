@@ -23,13 +23,14 @@
 
                             @if(Auth::user()->type !== 'partner')
                                 @if (Auth::user() == null)
-                                    <a class="rainbow p-4 text-uppercase fw-bold fs-3" data-bs-toggle="modal"
+                                    <a class="rainbow p-4 text-uppercase fw-bold fs-3" id="becomePartnerButton"
+                                       data-bs-toggle="modal"
                                        href="#loginModalToggle" role="button">
                                         {{__('become_partner.register')}}
 
                                     </a>
                                 @else
-                                    <a class="rainbow p-4 text-uppercase fw-bold"
+                                    <a class="rainbow p-4 text-uppercase fw-bold" id="becomePartnerButton"
                                        href="{{url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner-register'))}}"
                                     >
                                         {{__('become_partner.register')}}
@@ -88,11 +89,13 @@
                         <p>{{ __('become_partner.yp_text') }}</p>
                     </div>
 
-                    <x-partner.packages :plans="$plans"/>
+                    <div onclick="document.getElementById('becomePartnerButton').click()">
+                        <x-partner.packages :plans="$plans"/>
+                    </div>
                 </div>
             </section>
         @endif
-      
+
 
         <section class="contactus">
             <div class="container">

@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\IPlanService;
 use App\Models\Category;
 use App\Models\PartnersInfo;
-use App\Models\Plans;
 use App\Models\SwisswinDirectory;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Input;
 
 class mainWebsite extends Controller
 {
     protected $categories;
+    private IPlanService $planService;
 
-    public function __construct()
+    public function __construct(IPlanService $planService)
     {
+        $this->planService = $planService;
+
         $categories = $value = Cache::get(App()->getLocale() . '_filter_categories');
         if ($categories) {
             $this->categories = $categories;
@@ -77,21 +79,8 @@ class mainWebsite extends Controller
 
     public function partner()
     {
-        $plans = Plans::with('planOptions')->orderBy('price', 'ASC')->get();
-        foreach ($plans as $plan) {
-            $plan->name = strtolower($plan->name);
-        }
-
-        foreach ($plans as $plan) {
-            $temp = [];
-            foreach ($plan->planOptions as $option) {
-                $temp[$option->group][] = $option;
-            }
-            $plan->options = $temp;
-        }
-
         return view('partner', [
-            'plans' => $plans,
+            'plans' => $this->planService->getPlans(),
         ]);
 
     }

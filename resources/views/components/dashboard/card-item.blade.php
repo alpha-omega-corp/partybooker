@@ -3,10 +3,10 @@
 ])
 
 <li>
-    <span class="text-uppercase fw-bold">
+    <h6 class="text-uppercase fw-bold">
         {{$title}}
-    </span>
-    <br>
+    </h6>
+
     {{$slot}}
 
     <hr>

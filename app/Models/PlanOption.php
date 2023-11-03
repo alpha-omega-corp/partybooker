@@ -3,6 +3,8 @@
 
 namespace App\Models;
 
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -13,31 +15,31 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $categories_count
  * @property int $sub_categories_count
  * @property int $group
- * @property-read \App\Models\Plans $plan
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PlanOption newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PlanOption newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PlanOption query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PlanOption whereCategoriesCount($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PlanOption whereGroup($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PlanOption whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PlanOption wherePlansId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\PlanOption whereSubCategoriesCount($value)
- * @mixin \Eloquent
+ * @property-read Plan $plan
+ * @method static Builder|PlanOption newModelQuery()
+ * @method static Builder|PlanOption newQuery()
+ * @method static Builder|PlanOption query()
+ * @method static Builder|PlanOption whereCategoriesCount($value)
+ * @method static Builder|PlanOption whereGroup($value)
+ * @method static Builder|PlanOption whereId($value)
+ * @method static Builder|PlanOption wherePlansId($value)
+ * @method static Builder|PlanOption whereSubCategoriesCount($value)
+ * @mixin Eloquent
  */
 class PlanOption extends Model
 {
-	public $timestamps = false;
+    public $timestamps = false;
 
-	protected $fillable = [
-		'plans_id',
-		'categories_count',
-		'sub_categories_count',
-		'group'
-	];
+    protected $fillable = [
+        'plans_id',
+        'categories_count',
+        'sub_categories_count',
+        'group'
+    ];
 
 
-	public function plan()
-	{
-		return $this->belongsTo(Plans::class);
-	}
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class);
+    }
 }

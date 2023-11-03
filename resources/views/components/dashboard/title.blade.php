@@ -6,5 +6,7 @@
     @endif
 
 @else
-    <h1 class="text-uppercase text-center fw-bold display-4 mb-5">Dashboard</h1>
+    <h1 class="text-uppercase text-start p-3 fw-bold display-4">
+        Dashboard
+    </h1>
 @endif

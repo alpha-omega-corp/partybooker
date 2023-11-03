@@ -29,25 +29,6 @@
         </div>
 
 
-        <div class="row">
-            <div class="col-md-8 col-sm-12">
-                <div class="dashboard-item">
-                    <x-dashboard.card :title="__('partner.statistics')">
-                        @include('web.partner.partials.dashboard.statistics')
-                    </x-dashboard.card>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-12">
-                <div class="row row-evaluation">
-                    <x-dashboard.card :title="__('partner.rating')">
-                        @include('web.partner.partials.dashboard.evaluation')
-                    </x-dashboard.card>
-                </div>
-            </div>
-        </div>
-
-
         <div class="card">
             @if ($user->partnerInfo->discount)
                 <ul>

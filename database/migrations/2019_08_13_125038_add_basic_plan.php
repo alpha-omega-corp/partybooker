@@ -1,8 +1,6 @@
 <?php
 
-use App\Models\Plans as PlansModel;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Plan as PlansModel;
 use Illuminate\Database\Migrations\Migration;
 
 class AddBasicPlan extends Migration

@@ -20,7 +20,6 @@
         type="{{ $type }}"
         name="{{ $name }}"
         class="form-control"
-        placeholder="{{ $label }}"
         aria-label="{{ $label }}"
         aria-describedby="{{$id}}"
         {{$required ? 'required' : ''}}

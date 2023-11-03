@@ -21,7 +21,6 @@
     x-id="['tab']"
     class="tabcat">
 
-    {{$title}}
 
     <!-- Tab List -->
     <ul
@@ -53,10 +52,18 @@
             </li>
         @endforeach
     </ul>
+    <div class="tabcat-card">
+        <div>
 
-    <!-- Panels -->
+            @if(isset($title))
+                {{$title}}
+            @endif
 
-    <div role="tabpanel" class="tab-content">
-        {{$slot}}
+
+            <!-- Panels -->
+            <div role="tabpanel" class="tab-content">
+                {{$slot}}
+            </div>
+        </div>
     </div>
 </div>

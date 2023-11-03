@@ -39,12 +39,8 @@ class ReceptionVenue extends Migration
 
             //RATES & CONDITIONS
             //Price
-            $table->integer('price');
             $table->string('price_for', 100);
             $table->string('other_price', 100)->nullable();
-
-            //Budget
-            $table->string('budget', 100);
 
             //Payment methods
             $table->string('paymeny', 300);
@@ -69,22 +65,21 @@ class ReceptionVenue extends Migration
             //Conference room include room name + capacity
             $table->string('room', 300);
 
-            //Reduced mobility access
-            $table->integer('reduced_mob');
+            $table->string('reduced_mob');
 
             //Car park
             $table->integer('car')->nullable();
 
             //Bar, dance floor
             $table->string('facilities', 300);
-            $table->string('oth_facilities', 100);
+            $table->string('oth_facilities', 100)->nullable();
 
             //Convenience
             $table->string('convenience');
 
             //Possibilty of bringing wine
-            $table->boolean('alcohole');
-            $table->string('alcohole_yes', 300);
+            $table->string('alcohole');
+            $table->string('alcohole_yes', 300)->nullable();
 
             //CATERING - STEWARDSHIP
             //Catering options
@@ -92,7 +87,7 @@ class ReceptionVenue extends Migration
             $table->string('meals');
 
             //affiliated caterers
-            $table->boolean('affiliate_caterer');
+            $table->string('affiliate_caterer');
             $table->string('yes_af_caterers', 1000)->nullable(); //JSON
 
             //free choice of caterer

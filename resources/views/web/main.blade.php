@@ -9,10 +9,22 @@
     @yield('title')
     @stack('header')
 
+    <script>
+        function openModalPrevent(modal) {
+            !$('#' + modal).is(':visible') ? document.getElementById(modal + '-button').click() : ''
+        }
+
+        function targetMany(targets) {
+            JSON.parse(targets).forEach(target => {
+                document.getElementById(target) !== null ? document.getElementById(target).click() : ''
+            })
+        }
+    </script>
+
     <script src="{{ asset('/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('/js/script.js') }}" defer></script>
     <script src="{{ asset('/js/jquery.mask.js') }}"></script>
-    
+
     @vite(['resources/js/app.js'])
 
 </head>
@@ -24,29 +36,39 @@
 
     <section class="general-section partner-cp" data-type="{{Auth::user()->type}}">
 
-
         <x-app-notifications/>
-        <x-dashboard.title/>
-
 
         <div class="container">
-            <div class="d-flex">
-                <x-dashboard.navigation/>
+            <div class="dashboard-container w-100 shadow-lg">
+                
 
-                <div class="dashboard-container w-100">
-                    @if(!Auth::user()->subscribed('PartyBooker'))
-                        <div>
-                            <h2>
-                                Choose a plan to start
-                            </h2>
-                        </div>
+                @if(!Auth::user()->subscribed('PartyBooker'))
+                    @if(!$user->onTrial())
+                        <x-dashboard.card-info>
+                            Choose a plan to start using the service
+                        </x-dashboard.card-info>
+
+                        <form method="POST"
+                              action="{{route('trial', [
+                                'id_partner' => Auth::user()->id_partner,
+                              ])
+                        }}">
+                            @csrf
+                            <button type="submit" class="btn btn-accent w-100 text-uppercase">
+                                {{ __('partner.start-trial') }}
+                            </button>
+
+                        </form>
+                        <hr>
                     @endif
+                @endif
 
-                    @yield('content')
-                    @include('common.footer')
-                </div>
+
+                @yield('content')
+                @include('common.footer')
             </div>
         </div>
+
     </section>
 </div>
 </body>

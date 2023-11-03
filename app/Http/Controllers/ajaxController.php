@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Caterer;
 use App\Models\DirectMessage;
+use App\Models\PartnersInfo;
 use App\Models\Rate;
 use App\Models\Statistic;
 use Auth;
@@ -173,20 +174,22 @@ class ajaxController extends Controller
     //Partner CP - publish service
     public function partnerPublish(Request $request)
     {
-        $id = $request->id_partner;
-        $st = DB::table('partners_info')->where('id_partner', $id)->value('public');
-        if ($st == 1) {
-            $st = 0;
-            $msg = 'Publish';
-            $stat = 'Not publish';
-        } else {
-            $st = 1;
-            $msg = 'Draft';
-            $stat = 'Published';
-        }
-        DB::table('partners_info')->where('id_partner', $id)->update(['public' => $st]);
+        $id = $request->input('id_partner');
+        $status = PartnersInfo::where('id_partner', $id)->value('public');
 
-        return response()->json(array('msg' => $msg, 'stat' => $stat));
+        if ($status) {
+            $msg = __('partner.published');
+            $stat = __('partner.draft');
+        } else {
+            $msg = __('partner.draft');
+            $stat = __('partner.published');
+        }
+
+        $status = !$status;
+        PartnersInfo::where('id_partner', $id)->update(['public' => $status]);
+
+        return response()
+            ->json(array('msg' => $msg, 'stat' => $stat, 'status' => $status));
     }
 
     //LEAVE A RATING
