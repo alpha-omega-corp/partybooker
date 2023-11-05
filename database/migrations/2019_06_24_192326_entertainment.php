@@ -18,11 +18,9 @@ class Entertainment extends Migration
             $table->string('id_partner', 30);
             $table->string('working_days');
             $table->string('duration');
-            $table->time('opening');
-            $table->time('closing');
             $table->string('holidays', 350)->nullable();
             $table->string('price_for', 250);
-            $table->string('other_price', 250);
+            $table->string('other_price', 250)->nullable();
             $table->string('extansion');
             $table->string('ext_true', 150)->nullable();
             $table->string('paymeny', 300);

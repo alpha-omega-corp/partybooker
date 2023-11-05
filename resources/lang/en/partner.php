@@ -28,6 +28,7 @@ return [
     'mobile' => 'Mobile',
     'message' => 'Message',
     'price_demand' => 'Price on demand',
+    'details' => 'Details',
     //FAQ
     'frequently_asked_question' => 'Frequently asked question',
 

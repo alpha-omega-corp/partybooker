@@ -1,121 +1,134 @@
-<div class="edit-schedule-{{$iterator}} popup popup-form editdetails partnerdetails popup-form-xl">
-	@if (Auth::user()->type == 'admin')
-		<form class="login" action="{{url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/adverts/'.$advert->id.'/edit-schedule')}}" method="POST" enctype="multipart/form-data">
-	@else
-		<form id="schedule-edit" class="login"
-		      action="{{url(App\Http\Middleware\LocaleMiddleware::getLocale().'/adverts/'.$advert->id.'/edit-schedule')}}"
-		      method="POST">
-			@endif
-
-			@csrf
-			<div class="close"></div>
-			<div class="form">
-				<h3>{{__('partner.edit_schedule')}}</h3>
-				@if (Auth::user()->type == 'admin')
-					<input type="text" name="id_partner" value="{{$user->id_partner}}" hidden/>
-				@else
-					<input type="text" name="id_partner" value="{{Auth::user()->id_partner}}" hidden/>
-				@endif
+<x-dashboard.modal
+    id="editSchedule{{$iterator}}"
+    :title="__('partner.edit_schedule')"
+    :button="__('partner.edit')"
+    :action="Auth::user()->type == 'admin'
+        ? url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/adverts/'.$advert->id.'/edit-schedule')
+        : url(App\Http\Middleware\LocaleMiddleware::getLocale().'/adverts/'.$advert->id.'/edit-schedule')"
+    :hasFiles="true"
+    method="POST">
 
 
-				<label>{{__('partner.working_days')}}<span>*</span></label>
-				@foreach(['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'] as $day)
-					<span class="checkbox-item">
-						<input type="checkbox" name="working_days[]" value="{{$day}}" @if(strpos($advert->service->working_days, $day) != false) checked @endif>
+    @if (Auth::user()->type == 'admin')
+        <input type="text" name="id_partner" value="{{$user->id_partner}}" hidden/>
+    @else
+        <input type="text" name="id_partner" value="{{Auth::user()->id_partner}}" hidden/>
+    @endif
+
+
+    <label>{{__('partner.working_days')}}<span>*</span></label>
+    @foreach(['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'] as $day)
+        <span class="checkbox-item">
+						<input type="checkbox" name="working_days[]" value="{{$day}}"
+                               @if(strpos($advert->service->working_days, $day) != false) checked @endif>
 						<span>{{__('days.'.$day)}}</span>
 					</span>
-				@endforeach
+    @endforeach
 
-				<div class="row" id="opening-time">
-					<label class="mt-10">{{__('partner.opening_time')}}<span>*</span></label>
-					@if($advert->service->working_time)
-						@foreach(json_decode($advert->service->working_time) ?? [] as $k => $time)
-							<div class="row opening-record">
-								<div class="col-md-4">
-									<label></label>
-									<input type="text" class="open time" name="opening[{{$k + 100}}][open]" value="{{$time->open}}"/>
-								</div>
-								<div class="col-md-4">
-									<label></label>
-									<input type="text" class="closing time" name="opening[{{$k + 100}}][close]" value="{{$time->close}}"/>
-								</div>
-								<div class="col-md-4">
-									<label></label>
-									<input type="text" class="desc" name="opening[{{$k + 100}}][description]" value="{{$time->description}}" title="{{$time->description}}"/>
-								</div>
-							</div>
-						@endforeach
-					@else
-						<div class="row opening-record">
-							<div class="col-md-4">
-								<label></label>
-								<input type="text" class="open time" name="opening[0][open]"/>
-							</div>
-							<div class="col-md-4">
-								<label></label>
-								<input type="text" class="closing time" name="opening[0][close]"/>
-							</div>
-							<div class="col-md-4">
-								<label></label>
-								<input type="text" class="desc" name="opening[0][description]"/>
-							</div>
-						</div>
-					@endif
-				</div>
+    <div class="row" id="opening-time">
+        <label class="mt-10">{{__('partner.opening_time')}}<span>*</span></label>
+        @if($advert->service->working_time)
+            @foreach(json_decode($advert->service->working_time) ?? [] as $k => $time)
+                <div class="row opening-record">
+                    <div class="col-md-4">
+                        <label></label>
+                        <input type="text" class="open time" name="opening[{{$k + 100}}][open]"
+                               value="{{$time->open}}"/>
+                    </div>
+                    <div class="col-md-4">
+                        <label></label>
+                        <input type="text" class="closing time"
+                               name="opening[{{$k + 100}}][close]" value="{{$time->close}}"/>
+                    </div>
+                    <div class="col-md-4">
+                        <label></label>
+                        <input type="text" class="desc"
+                               name="opening[{{$k + 100}}][description]"
+                               value="{{$time->description}}" title="{{$time->description}}"/>
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <div class="row opening-record">
+                <div class="col-md-4">
+                    <label></label>
+                    <input type="text" class="open time" name="opening[0][open]"/>
+                </div>
+                <div class="col-md-4">
+                    <label></label>
+                    <input type="text" class="closing time" name="opening[0][close]"/>
+                </div>
+                <div class="col-md-4">
+                    <label></label>
+                    <input type="text" class="desc" name="opening[0][description]"/>
+                </div>
+            </div>
+        @endif
+    </div>
 
-				<div class="row mt-10 offset-lg-5">
-					<div class="button add-opening-time">Add one more</div>
-				</div>
-				@push('footer')
-					<script>
-						$('.time').mask('00:00', {
-							placeholder: "00:00"
-						});
-						var i = 1;
-						$('div.add-opening-time').on('click', function(e){
-							e.preventDefault();
-							var row = $('#opening-time .opening-record:first').clone();
-							row.find('input').attr('value', '');
-							row.find('input.open').val('').attr('name', 'opening[' + i + '][open]');
-							row.find('input.closing').val('').attr('name', 'opening[' + i + '][close]');
-							row.find('input.desc').val('').attr('name', 'opening[' + i + '][description]');
-							$("#opening-time").append('<div class="row opening-record">' +  row.html() + '</div>');
+    <div class="row mt-10 offset-lg-5">
+        <div class="button add-opening-time">Add one more</div>
+    </div>
+    @push('footer')
+        <script>
+            $('.time').mask('00:00', {
+                placeholder: "00:00"
+            });
+            var i = 1;
+            $('div.add-opening-time').on('click', function (e) {
+                e.preventDefault();
+                var row = $('#opening-time .opening-record:first').clone();
+                row.find('input').attr('value', '');
+                row.find('input.open').val('').attr('name', 'opening[' + i + '][open]');
+                row.find('input.closing').val('').attr('name', 'opening[' + i + '][close]');
+                row.find('input.desc').val('').attr('name', 'opening[' + i + '][description]');
+                $("#opening-time").append('<div class="row opening-record">' + row.html() + '</div>');
 
-							$('.time').mask('00:00', {
-								placeholder: "00:00"
-							});
-							i++;
-							return false;
-						});
-					</script>
-				@endpush
+                $('.time').mask('00:00', {
+                    placeholder: "00:00"
+                });
+                i++;
+                return false;
+            });
+        </script>
+    @endpush
 
 
-				<label class="mt-10">{{__('partner.annual_holidays')}}</label>
-				<input name="holidays" maxlength="350" value="{{$advert->service->holidays}}">
+    <label class="mt-10">{{__('partner.annual_holidays')}}</label>
+    <input name="holidays" maxlength="350" value="{{$advert->service->holidays}}">
 
-				<label class="mt-10">{{__('partner.possibility_extend_time')}}<span>*</span></label>
-				<span class="radio-item">
+    <label class="mt-10">{{__('partner.possibility_extend_time')}}<span>*</span></label>
+    <span class="radio-item">
 
-				<input type="radio" name="extansion" class="has-field" field="extansion" value="yes" @if($advert->service->extansion == 'yes') checked @endif required>
+				<input type="radio" name="extansion" class="has-field" field="extansion" value="yes"
+                       @if($advert->service->extansion == 'yes') checked @endif required>
 				<span>{{__('partner.yes')}}</span>
 				</span>
 
-				<span class="radio-item"> <input type="radio" name="extansion" class="has-field" field="extansion" value="no" @if($advert->service->extansion == 'no') checked @endif>
+    <span class="radio-item"> <input type="radio" name="extansion" class="has-field"
+                                     field="extansion" value="no"
+                                     @if($advert->service->extansion == 'no') checked @endif>
 					<span>{{__('partner.no')}}</span>
 				</span>
-				@if($advert->service->extansion == 'yes')
-					<div class="for-extansion additional-field visible">
-						<input type="text" name="yes_extansion" maxlength="150" class="add-input-extansion" value="{{$advert->service->ext_true}}" required/>
-					</div>
-				@else
+    @if($advert->service->extansion == 'yes')
+        <div class="for-extansion additional-field visible">
+            <input type="text" name="yes_extansion" maxlength="150" class="add-input-extansion"
+                   value="{{$advert->service->ext_true}}" required/>
+        </div>
+    @else
 
-					<div class="for-extansion additional-field"></div>
-				@endif
+        <div class="for-extansion additional-field"></div>
+    @endif
 
-				<button type="submit" class="button">{{__('partner.save')}}</button>
-			</div>
-		@if(true)</form>@else</form>@endif
-</div>
+
+</x-dashboard.modal>
+
+
+
+
+
+
+
+
 
 

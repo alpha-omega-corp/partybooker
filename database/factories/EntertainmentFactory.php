@@ -17,9 +17,6 @@ class EntertainmentFactory extends Factory
         return [
             'working_days' => '["mon","tue","wed","thu","fri"]',
             'duration' => 'Un set dure 45 minutes. Possibilité de plusieurs sets possibles.',
-
-            'opening' => '20:00:00',
-            'closing' => '02:00:00',
             'holidays' => null,
             'price_for' => 'other',
             'other_price' => '4x CHF 0,70 / km pour événements privés (avec 1 RDV compris);2x CHF 0,70 / km pour prestation DJ seule;Le nombre de km est calculé depuis Villeneuve (FR)',

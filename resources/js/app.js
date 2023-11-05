@@ -64,12 +64,6 @@ tippy('.flag', {
     theme: 'flag'
 });
 
-tippy('.partner-advert-card', {
-    placement: 'top',
-    animation: 'scale',
-    inertia: true,
-    theme: 'partner-advert'
-});
 
 tippy('.dashboard-stat-card', {
     placement: 'top',

@@ -193,60 +193,7 @@
                                     </x-slot:title>
                                     @foreach ($services as $advert)
                                         <x-tab.item>
-                                            <div class="partner-advert">
-                                                <div class="partner-advert-card">
-                                                    <x-tab.index :tabs="[
-                                                    __('service.general_info'),
-                                                    __('service.schedule'),
-                                                    __('service.rates'),
-                                                    __('service.video')]" :icons="[
-                                                    'heroicon-o-information-circle',
-                                                    'heroicon-o-clock',
-                                                    'heroicon-o-currency-dollar',
-                                                    'heroicon-o-video-camera',
-                                                    ]">
-
-                                                        <!-- Information -->
-                                                        <x-tab.item>
-                                                            @include('service-tabs.' . $advert->view_name . '.general', [
-                                                                'details' => $advert->service,
-                                                            ])
-                                                        </x-tab.item>
-
-                                                        <x-tab.item>
-
-                                                            @include('service-tabs.' . $advert->view_name . '.schedule', [
-                                                                'details' => $advert->service,
-                                                            ])
-
-                                                        </x-tab.item>
-
-                                                        <x-tab.item>
-                                                            @include('service-tabs.' . $advert->view_name . '.rates', [
-                                                                'details' => $advert->service,
-                                                            ])
-                                                        </x-tab.item>
-
-                                                        <x-tab.item>
-
-                                                            <div class="p-4">
-                                                                @if ($partner->youtube)
-                                                                    <iframe
-                                                                        src="{{ 'https://www.youtube.com/embed/' . $partner->youtube }}"
-                                                                        style="width: 100%; height: 400px"></iframe>
-                                                                @endif
-                                                                @if ($partner->vimeo)
-                                                                    <iframe
-                                                                        src="{{ str_replace('https://vimeo.com/', 'https://player.vimeo.com/video/', $partner->vimeo) }}"
-                                                                        style="width: 100%; height: 400px">
-                                                                    </iframe>
-                                                                @endif
-                                                            </div>
-
-                                                        </x-tab.item>
-                                                    </x-tab.index>
-                                                </div>
-                                            </div>
+                                            <x-partner.service-details :advert="$advert" :partner="$partner"/>
                                         </x-tab.item>
                                     @endforeach
                                 </x-partner-category-tab>
@@ -255,8 +202,6 @@
                             <div class="col-lg-4 col-md-12">
 
                                 <!-- Rating -->
-
-
                                 <div class="row d-flex gallery">
                                     <?php $locale = app()->getLocale(); ?>
                                     @if(!$images->count())
@@ -280,7 +225,6 @@
                 </div>
 
                 @if (strtolower($partner->currentPlan->name) == 'commission')
-
                     <x-service.contact-modal
                         :partnerId="$partner->id"
                         name="contactModalToggle"
@@ -292,9 +236,7 @@
                             @include('partial.service.commission-form')
                         </x-slot:form>
                     </x-service.contact-modal>
-
                 @elseif(in_array('cat4_1', $subCategories) || in_array('cat4_2', $subCategories) || in_array('cat2_5', $subCategories))
-
                     <x-service.contact-modal
                         :partnerId="$partner->id"
                         :action="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/request/caterer')">
@@ -304,9 +246,7 @@
                             @include('partial.service.else-form')
                         </x-slot:form>
                     </x-service.contact-modal>
-
                 @else
-
                     <x-service.contact-modal
                         :partnerId="$partner->id"
                         :action="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/request/general')">
@@ -315,12 +255,9 @@
                             @include('partial.service.form')
                         </x-slot:form>
                     </x-service.contact-modal>
-
                 @endif
-
             </section>
         </div>
     </div>
-
     @include('common.footer')
 @endsection

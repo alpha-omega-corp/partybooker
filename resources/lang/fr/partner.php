@@ -27,6 +27,8 @@ return [
     'mobile' => 'Mobile',
     'message' => "Message",
     'price_demand' => 'Prix sur demande',
+    'details' => 'Détails',
+
     //FAQ
     'frequently_asked_question' => "Questions fréquemment posées",
 

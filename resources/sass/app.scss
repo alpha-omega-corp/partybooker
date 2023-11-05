@@ -807,258 +807,6 @@ a {
     }
 
 
-    li {
-        list-style-type: none;
-    }
-
-    .side {
-        margin-top: 100px;
-    }
-
-    .adverts {
-        overflow: scroll;
-
-        .card {
-            height: 200px;
-            margin: 20px;
-            overflow: hidden;
-            color: #fff;
-            font-weight: bold;
-
-
-            .card-title {
-                color: $primary;
-                padding: 10px;
-            }
-
-            .card-img-overlay {
-                padding: 0;
-            }
-
-            .card-text {
-                position: absolute;
-                bottom: 0;
-                padding: 20px;
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0.6);
-            }
-
-            img {
-                filter: brightness(90%);
-                object-fit: cover;
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
-
-    .tab-index {
-        padding: 0;
-
-        .book-btn {
-            border-bottom-left-radius: 0;
-        }
-
-        .partner-info-text {
-            border: 1px solid $gray-300;
-            border-top: 0;
-            border-bottom-right-radius: 20px;
-            border-bottom-left-radius: 20px;
-            width: 100%;
-        }
-
-        .tab-overflow {
-            overflow: scroll;
-        }
-
-
-        .partner-comment {
-            background-color: $white;
-            color: $black;
-            margin-bottom: 10px;
-        }
-
-    }
-
-    .tab {
-        overflow: scroll;
-
-        ul {
-            padding: 0;
-
-
-            li {
-                list-style-type: none;
-
-                svg {
-                    width: 30px;
-                    height: 30px;
-                }
-
-                button {
-
-                    svg {
-                        width: 40px;
-                    }
-                }
-
-
-                @media only screen and (max-width: 767px) {
-                    button {
-                        text-align: start;
-                        font-size: smaller;
-                        width: 100%;
-
-                        svg {
-                            width: 40px;
-                        }
-                    }
-                }
-            }
-        }
-
-        .tab-content {
-            text-align: justify;
-            width: 100%;
-            overflow: scroll;
-            margin-bottom: 48px;
-
-            section {
-                background-color: $white;
-            }
-
-            .list-group {
-                margin-left: 30px;
-            }
-
-            .service-bool {
-                svg {
-                    width: 20px;
-                }
-            }
-
-            .partner-comment {
-                margin-left: 10px;
-            }
-
-            .working-days {
-                margin-left: 10px;
-                margin-top: 4px;
-            }
-
-
-            .room-icon {
-                width: 20px;
-                height: 20px;
-                margin-right: 5px;
-            }
-
-            .max-guests-icon {
-                width: 20px;
-                height: 20px;
-                margin-right: 5px;
-            }
-
-            .wt-icon {
-                width: 20px;
-                height: 20px;
-                margin-right: 5px;
-            }
-
-            .parking-icon {
-                width: 30px;
-                margin-right: 5px;
-            }
-
-            .alcohol_yes {
-                margin-left: 5px;
-            }
-
-            .accommodation-icon {
-                width: 20px;
-
-            }
-
-            .payment-icon {
-                width: 30px;
-                margin-bottom: 10px;
-                margin-right: 15px;
-            }
-
-
-            .list-group-item {
-                border: 0;
-                border-bottom: 1px solid $gray-300;
-
-                .title {
-                    text-align: start;
-                    padding-top: 10px;
-                    color: $gray-700;
-                    width: 100%;
-                    text-transform: uppercase;
-                    font-size: medium;
-                    font-weight: bold;
-                }
-
-                .content {
-                    font-size: small;
-
-                    a {
-                        color: $accent;
-                        border-bottom: 1px solid;
-                    }
-                }
-            }
-
-            h4 {
-                font-weight: bolder;
-                text-transform: uppercase;
-                border-bottom: 2px solid;
-                padding-bottom: 10px;
-                margin-bottom: 10px;
-            }
-
-            h6 {
-                font-weight: bold;
-                text-transform: uppercase;
-                display: flex;
-                margin: 0;
-                font-size: xx-large;
-                background-color: $white;
-                color: $gray-700;
-                padding-top: 20px;
-                padding-bottom: 20px;
-
-                @media only screen and (max-width: 767px) {
-                    font-size: large;
-                }
-            }
-        }
-    }
-
-    .tabcat {
-        margin-top: 50px;
-        height: 100%;
-        padding: 10px;
-
-        .partner-services {
-            margin: 0;
-            padding: 10px;
-            border-bottom: 1px solid;
-        }
-
-
-        ul {
-            padding: 0;
-            margin: 0;
-
-            button {
-                padding: 10px;
-            }
-        }
-    }
-
-
     @media only screen and (max-width: 767px) {
         .tab-content {
             padding-bottom: 10px;
@@ -3368,37 +3116,6 @@ html {
             }
         }
 
-        .partner-advert-card {
-            border-top: 0;
-
-            .card:hover {
-                transform: scale(1.02);
-                transition: .2s;
-            }
-
-
-            .advert-ul {
-                padding: 5px;
-                margin-bottom: 10px;
-            }
-
-            .advert-body {
-                padding: 10px 10px 0;
-            }
-
-            ul {
-
-                li {
-                    list-style-type: square;
-                    color: $dark;
-                }
-
-                li::marker {
-                    color: $primary;
-                }
-            }
-        }
-
 
         .cp-plan-options {
             color: $gray-700;
@@ -3745,7 +3462,7 @@ html {
         }
     }
 
-    ul {
+    .category-option-ul {
         margin: 0;
         padding-left: 10px;
 
@@ -4283,4 +4000,281 @@ html {
 
 .company-location-input {
     margin-left: 10px;
+}
+
+
+.partner-advert-card {
+
+    li {
+        list-style-type: none;
+    }
+
+    .side {
+        margin-top: 100px;
+    }
+
+    .adverts {
+        overflow: scroll;
+
+        .card {
+            height: 200px;
+            margin: 20px;
+            overflow: hidden;
+            color: #fff;
+            font-weight: bold;
+
+
+            .card-title {
+                color: $primary;
+                padding: 10px;
+            }
+
+            .card-img-overlay {
+                padding: 0;
+            }
+
+            .card-text {
+                position: absolute;
+                bottom: 0;
+                padding: 20px;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+
+            img {
+                filter: brightness(90%);
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .tab-index {
+        padding: 0;
+
+        .book-btn {
+            border-bottom-left-radius: 0;
+        }
+
+        .partner-info-text {
+            border: 1px solid $gray-300;
+            border-top: 0;
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            width: 100%;
+        }
+
+        .tab-overflow {
+            overflow: scroll;
+        }
+
+
+        .partner-comment {
+            background-color: $white;
+            color: $black;
+            margin-bottom: 10px;
+        }
+
+    }
+
+    .tab {
+        overflow: scroll;
+
+        ul {
+            padding: 0;
+
+
+            li {
+                list-style-type: none;
+
+                svg {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                button {
+
+                    svg {
+                        width: 40px;
+                    }
+                }
+
+
+                @media only screen and (max-width: 767px) {
+                    button {
+                        text-align: start;
+                        font-size: smaller;
+                        width: 100%;
+
+                        svg {
+                            width: 40px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .tab-content {
+            text-align: justify;
+            width: 100%;
+            overflow: scroll;
+            margin-bottom: 48px;
+
+            section {
+                background-color: $white;
+            }
+
+            .list-group {
+                margin-left: 30px;
+            }
+
+            .service-bool {
+                svg {
+                    width: 20px;
+                }
+            }
+
+            .partner-comment {
+                margin-left: 10px;
+            }
+
+            .working-days {
+                margin-left: 10px;
+                margin-top: 4px;
+            }
+
+
+            .room-icon {
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+            }
+
+            .max-guests-icon {
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+            }
+
+            .wt-icon {
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+            }
+
+            .parking-icon {
+                width: 30px;
+                margin-right: 5px;
+            }
+
+            .alcohol_yes {
+                margin-left: 5px;
+            }
+
+            .accommodation-icon {
+                width: 20px;
+
+            }
+
+            .payment-icon {
+                width: 30px;
+                margin-bottom: 10px;
+                margin-right: 15px;
+            }
+
+
+            .list-group-item {
+                border: 0;
+                border-bottom: 1px solid $gray-300;
+
+                .title {
+                    text-align: start;
+                    padding-top: 10px;
+                    color: $gray-700;
+                    width: 100%;
+                    text-transform: uppercase;
+                    font-size: medium;
+                    font-weight: bold;
+                }
+
+                .content {
+                    font-size: small;
+
+                    a {
+                        color: $accent;
+                        border-bottom: 1px solid;
+                    }
+                }
+            }
+
+            h4 {
+                font-weight: bolder;
+                text-transform: uppercase;
+                border-bottom: 2px solid;
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+            }
+
+            h6 {
+                font-weight: bold;
+                text-transform: uppercase;
+                display: flex;
+                margin: 0;
+                font-size: xx-large;
+                background-color: $white;
+                color: $gray-700;
+                padding-top: 20px;
+                padding-bottom: 20px;
+
+                @media only screen and (max-width: 767px) {
+                    font-size: large;
+                }
+            }
+        }
+    }
+
+    .tabcat {
+        margin-top: 50px;
+        height: 100%;
+        padding: 10px;
+
+        .partner-services {
+            margin: 0;
+            padding: 10px;
+            border-bottom: 1px solid;
+        }
+
+
+        ul {
+            padding: 0;
+            margin: 0;
+
+            button {
+                padding: 10px;
+            }
+        }
+    }
+    
+    border-top: 0;
+
+    .card:hover {
+        transform: scale(1.02);
+        transition: .2s;
+    }
+
+
+    .advert-ul {
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    .advert-body {
+        padding: 10px 10px 0;
+    }
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
 }

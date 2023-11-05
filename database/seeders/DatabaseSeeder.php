@@ -338,18 +338,7 @@ class DatabaseSeeder extends Seeder
             'service_id' => $equipmentId,
         ]);
 
-        $wineId = Equipment::factory([
-            'id_partner' => '120036190814-044' . $r
-        ])->create()->id;
-        DB::table('adverts')->insert([
-            'partners_info_id' => $partnerId,
-            'category_id' => 1,
-            'status' => 1,
-            'view_name' => 'wine',
-            'service_type' => 'App\Models\Wine',
-            'service_id' => $wineId,
-        ]);
-
+        
         $entertainmentId = Entertainment::factory([
             'id_partner' => '120036190814-044' . $r
         ])->create()->id;
