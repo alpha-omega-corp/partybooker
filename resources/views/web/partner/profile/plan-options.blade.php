@@ -8,7 +8,7 @@
     @endphp
 
     @if($option['group'] == $user->partnerInfo->plan_option_group)
-        <div class="{{$user->partnerInfo->currentPlan->name === 'standard' ? 'col-md-12' : 'col-md-8 order-first'}}">
+        <div class="col-12">
             <div class="plan-option plan-option-active">
                 <div class="bg-accent d-flex option-active-header" @click="openModalPrevent('editCategory')">
                     <div class="d-flex justify-content-center align-items-center text-white position-relative">

@@ -731,14 +731,14 @@
     "src": "resources/js/app.js"
   },
   "resources/js/dashboard.css": {
-    "file": "assets/dashboard-1922186a.css",
+    "file": "assets/dashboard-c3b4f9c6.css",
     "src": "resources/js/dashboard.css"
   },
   "resources/js/dashboard.js": {
     "css": [
-      "assets/dashboard-1922186a.css"
+      "assets/dashboard-c3b4f9c6.css"
     ],
-    "file": "assets/dashboard-17e4e382.js",
+    "file": "assets/dashboard-8ba9745e.js",
     "isEntry": true,
     "src": "resources/js/dashboard.js"
   },

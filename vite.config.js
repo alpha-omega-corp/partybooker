@@ -6,9 +6,9 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/js/app.js',
-                'resources/js/dashboard.js',
-                'resources/sass/admin/admin.scss',
+                './resources/js/app.js',
+                './resources/js/dashboard.js',
+                './resources/sass/admin/admin.scss',
             ],
             refresh: [
                 ...refreshPaths,
