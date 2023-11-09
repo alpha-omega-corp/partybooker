@@ -64,6 +64,7 @@ $modal-content-color: $white;
     padding-bottom: 5px;
     font-size: small;
 
+
     @media only screen and (max-width: 767px) {
         display: none;
     }
@@ -75,7 +76,7 @@ $modal-content-color: $white;
 }
 
 .tippy-box[data-theme~='tab-cat-tippy'] {
-    color: $gray-700;
+    color: #fff;
     border-bottom: 2px solid $primary;
     font-size: smaller;
     text-transform: uppercase;
@@ -122,7 +123,7 @@ $modal-content-color: $white;
 }
 
 .tippy-box[data-theme~='cp-nav-theme'] {
-    color: $gray;
+    color: #fff;
     font-size: small;
     font-weight: bold;
     text-transform: uppercase;

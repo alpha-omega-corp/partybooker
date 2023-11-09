@@ -24,6 +24,41 @@
       'Captcha' => 'Buzz\\LaravelGoogleCaptcha\\CaptchaFacade',
     ),
   ),
+  'filament/actions' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Filament\\Actions\\ActionsServiceProvider',
+    ),
+  ),
+  'filament/forms' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Filament\\Forms\\FormsServiceProvider',
+    ),
+  ),
+  'filament/infolists' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Filament\\Infolists\\InfolistsServiceProvider',
+    ),
+  ),
+  'filament/notifications' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Filament\\Notifications\\NotificationsServiceProvider',
+    ),
+  ),
+  'filament/support' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Filament\\Support\\SupportServiceProvider',
+    ),
+  ),
   'intervention/image' => 
   array (
     'providers' => 
@@ -81,6 +116,17 @@
       0 => 'Laravel\\Ui\\UiServiceProvider',
     ),
   ),
+  'livewire/livewire' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Livewire\\LivewireServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Livewire' => 'Livewire\\Livewire',
+    ),
+  ),
   'nesbot/carbon' => 
   array (
     'providers' => 
@@ -100,6 +146,17 @@
     'providers' => 
     array (
       0 => 'Termwind\\Laravel\\TermwindServiceProvider',
+    ),
+  ),
+  'ryangjchandler/blade-capture-directive' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'RyanChandler\\BladeCaptureDirective\\BladeCaptureDirectiveServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'BladeCaptureDirective' => 'RyanChandler\\BladeCaptureDirective\\Facades\\BladeCaptureDirective',
     ),
   ),
   'spatie/laravel-ignition' => 

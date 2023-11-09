@@ -309,8 +309,7 @@ class ProfileController extends Controller
             }
 
             User::where('id', $user->id)->update([
-                'name' => strip_tags($request->get('name')),
-                'email' => strip_tags($request->get('email')),
+                'name' => $request->get('name'),
             ]);
 
             PartnersInfo::where('id', $user->partnerInfo->id)->update([

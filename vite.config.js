@@ -1,7 +1,21 @@
 import {defineConfig} from 'vite';
-import laravel from 'laravel-vite-plugin';
+import laravel, {refreshPaths} from 'laravel-vite-plugin';
 
 export default defineConfig({
+
+    plugins: [
+        laravel({
+            input: [
+                'resources/js/app.js',
+                'resources/js/dashboard.js',
+                'resources/sass/admin/admin.scss',
+            ],
+            refresh: [
+                ...refreshPaths,
+                'app/Livewire/**',
+            ],
+        }),
+    ],
     css: {
         preprocessorOptions: {
             scss: {
@@ -13,13 +27,4 @@ export default defineConfig({
             },
         },
     },
-    plugins: [
-        laravel({
-            input: [
-                'resources/js/app.js',
-                'resources/sass/admin/admin.scss',
-            ],
-            refresh: true,
-        }),
-    ],
 });

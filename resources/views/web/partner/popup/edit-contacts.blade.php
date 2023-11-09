@@ -7,24 +7,26 @@
             : url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-contacts')"
     method="POST">
 
-    <x-dashboard.input-card>
-        <x-dashboard.input
-            name="name"
-            :value="$user->name"
-            :placeholder="__('partner.your_name')"
-            :label="__('partner.your_name')"
-            icon="heroicon-o-user-circle"/>
-    </x-dashboard.input-card>
 
-    <x-dashboard.input-card>
-        <x-dashboard.input
-            name="phone"
-            type="tel"
-            :value="$user->partnerInfo->phone"
-            :placeholder="__('partner.your_phone_number')"
-            :label="__('partner.your_phone_number')"
-            icon="heroicon-m-device-phone-mobile"/>
-    </x-dashboard.input-card>
+    <x-dashboard.input
+        name="name"
+        :value="$user->name"
+        :placeholder="__('partner.your_name')"
+        icon="heroicon-o-identification"/>
+
+    <x-dashboard.input
+        name="phone"
+        type="tel"
+        :value="$user->partnerInfo->phone"
+        :placeholder="__('partner.your_phone_number')"
+        icon="heroicon-m-device-phone-mobile"/>
+
+    <x-dashboard.input
+        name="email"
+        type="email"
+        :value="$user->email"
+        :disabled="true"
+        icon="heroicon-o-envelope"/>
 
 
     <input type="text" name="id_partner" value="{{$user->partnerInfo->id_partner}}" hidden/>

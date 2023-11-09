@@ -16,8 +16,8 @@
                             <p class="border-bottom">{{$time->description}}</p>
 
                             <span>
-                        {{$time->open}} -
-                        {{$time->close}}
+                        {{$time->opening}} -
+                        {{$time->closing}}
                     </span>
                         </div>
                     </div>

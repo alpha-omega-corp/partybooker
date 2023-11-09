@@ -40,9 +40,7 @@
         :has-files="in_array($advert->view_name, ['equipment', 'event-place', 'wine'])"
         method="POST">
 
-        <div class="cp-advert-create-form partnerdetails">
-            @include('web.partner.advert.create-forms.' . $advert->view_name)
-        </div>
+        @include('web.partner.advert.create-forms.' . $advert->view_name)
 
     </x-dashboard.modal>
 </div>

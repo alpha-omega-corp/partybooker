@@ -82,4 +82,33 @@ class PlanService implements IPlanService
 
         PartnerPlanOption::insert($temp);
     }
+
+    public function formatOptions(\Illuminate\Database\Eloquent\Collection $options): array
+    {
+        $currentOption = [];
+        foreach ($options as $option) {
+            $currentOption[$option->group][] = $option;
+        }
+
+        $list = [];
+        foreach ($currentOption as $id => $opt) {
+            $name = "";
+            $j = 0;
+            foreach ($opt as $item) {
+                $name = $name . "{$item->categories_count} cat. ({$item->sub_categories_count} sub.cat. per cat.)";
+                $j++;
+                if ($j != count($opt)) {
+                    $name = $name . " and ";
+                } else {
+                    $list[] = [
+                        'group' => $id,
+                        'name' => rtrim($name, "")
+                    ];
+                    $name = '';
+                }
+            }
+        }
+
+        return $list;
+    }
 }

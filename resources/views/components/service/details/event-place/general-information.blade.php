@@ -25,8 +25,8 @@
     @if(json_decode($details->sitting))
         <x-service.list-item :title="__('partner.sitting_schema')">
             <div class="d-flex">
-                @foreach(json_decode($details->sitting) as $sitting)
-                    <p>{{$sitting}} @svg('heroicon-o-user-group', 'room-icon') </p>
+                @foreach(json_decode($details->sitting) as $item)
+                    <p>{{$item->sitting}} @svg('heroicon-o-user-group', 'room-icon') </p>
                 @endforeach
             </div>
         </x-service.list-item>
@@ -38,8 +38,8 @@
                 <x-service.ul>
                     @foreach($details->room as $key => $room)
                         <div class="d-flex flex-column">
-                            <li>{{$room['name']}}</li>
-                            <p>@svg('heroicon-o-user-group', 'room-icon') {{strtolower($room['capacity'])}} </p>
+                            <li>{{$room['roomName']}}</li>
+                            <p>@svg('heroicon-o-user-group', 'room-icon') {{strtolower($room['roomCapacity'])}} </p>
                         </div>
                     @endforeach
                 </x-service.ul>

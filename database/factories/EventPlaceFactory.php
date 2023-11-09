@@ -15,6 +15,7 @@ class EventPlaceFactory extends Factory
     public function definition(): array
     {
         return [
+            'price' => 100,
             'working_days' => '["mon", "tue", "wed", "thu", "fri", "sat", "sun"]',
             'opening' => '8:00',
             'closing' => '23:00',

@@ -33,10 +33,11 @@
             <x-service.list-bool :value="$details->free_caterer"/>
         </div>
 
-        @foreach (isset($details->yes_free_caterers) ? json_decode($details->yes_free_caterers) : [] as $yes_free_caterers)
-            @if (strlen($yes_free_caterers) > 0)
-                {{$yes_free_caterers}}
-            @endif
+        @foreach (isset($details->yes_free_caterers) ? json_decode($details->yes_free_caterers) : [] as $item)
+
+            {{$item->name}}
+            {{$item->link}}
+
         @endforeach
     </x-service.list-item>
 

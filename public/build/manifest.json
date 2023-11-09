@@ -708,42 +708,52 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-8f22caa8.css",
+    "file": "assets/app-76aae9b5.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "assets": [
-      "assets/right-arrow-126f8b6c.svg",
-      "assets/check-1-3d223e12.png",
-      "assets/upload-00dc4252.png"
+      "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-8f22caa8.css"
+      "assets/app-76aae9b5.css"
     ],
-    "file": "assets/app-1f2e437a.js",
+    "file": "assets/app-f4644bc8.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
+  "resources/js/dashboard.css": {
+    "file": "assets/dashboard-0eb351e9.css",
+    "src": "resources/js/dashboard.css"
+  },
+  "resources/js/dashboard.js": {
+    "css": [
+      "assets/dashboard-0eb351e9.css"
+    ],
+    "file": "assets/dashboard-3402fc90.js",
+    "isEntry": true,
+    "src": "resources/js/dashboard.js"
+  },
   "resources/sass/admin/admin.scss": {
-    "file": "assets/admin-15f35c79.css",
+    "file": "assets/admin-c74fcd95.css",
     "isEntry": true,
     "src": "resources/sass/admin/admin.scss"
   },
   "storage/app/public/articles/031952231105-2501-nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698225774_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698226060_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698226166_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698226183_dny-dns.png": {
     "file": "assets/1698226183_dny-dns-9a38cfc5.png",
@@ -751,23 +761,23 @@
   },
   "storage/app/public/images/1698226191_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698226669_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698226752_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698226812_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698242016_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698247074_alphomega.png": {
     "file": "assets/1-alphomega-c4c8e83a.png",
@@ -775,43 +785,43 @@
   },
   "storage/app/public/images/1698256791_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698341526_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698342163_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698483735_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698490144_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698587196_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698587881_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698597732_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698598025_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698653791_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698674188_alphomega.png": {
     "file": "assets/1-alphomega-c4c8e83a.png",
@@ -819,7 +829,7 @@
   },
   "storage/app/public/images/1698674188_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698674213_fixmap.png": {
     "file": "assets/1698674213_fixmap-1755e69c.png",
@@ -835,7 +845,7 @@
   },
   "storage/app/public/images/1698759411_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698759451_alphomega.png": {
     "file": "assets/1-alphomega-c4c8e83a.png",
@@ -843,43 +853,43 @@
   },
   "storage/app/public/images/1698765350_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698765359_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698831654_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698844361_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698849106_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698849577_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698849795_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698850058_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698852356_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698852637_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698856576_alphomega.png": {
     "file": "assets/1-alphomega-c4c8e83a.png",
@@ -903,7 +913,7 @@
   },
   "storage/app/public/images/1698864139_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698864604_nice.png": {
     "file": "assets/1698864604_nice-381cf6d0.png",
@@ -911,19 +921,19 @@
   },
   "storage/app/public/images/1698924588_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698929388_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698950174_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698950595_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1698950595_nice.png": {
     "file": "assets/1698864604_nice-381cf6d0.png",
@@ -931,7 +941,7 @@
   },
   "storage/app/public/images/1699005972_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1699016315_sudoeat.jpeg": {
     "file": "assets/1698856577_sudoeat-81f22f71.jpeg",
@@ -939,11 +949,11 @@
   },
   "storage/app/public/images/1699018303_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1699019761_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1699020873_nice.png": {
     "file": "assets/1698864604_nice-381cf6d0.png",
@@ -951,19 +961,35 @@
   },
   "storage/app/public/images/1699096956_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/1699097529_nanstis.png": {
     "file": "assets/1698225774_nanstis-6372614e.png",
-    "src": "storage/app/public/images/1699097529_nanstis.png"
+    "src": "storage/app/public/images/1699462293_nanstis.png"
+  },
+  "storage/app/public/images/1699280863_nanstis.png": {
+    "file": "assets/1698225774_nanstis-6372614e.png",
+    "src": "storage/app/public/images/1699462293_nanstis.png"
+  },
+  "storage/app/public/images/1699435826_nanstis.png": {
+    "file": "assets/1698225774_nanstis-6372614e.png",
+    "src": "storage/app/public/images/1699462293_nanstis.png"
+  },
+  "storage/app/public/images/1699458122_nanstis.png": {
+    "file": "assets/1698225774_nanstis-6372614e.png",
+    "src": "storage/app/public/images/1699462293_nanstis.png"
+  },
+  "storage/app/public/images/1699462293_nanstis.png": {
+    "file": "assets/1698225774_nanstis-6372614e.png",
+    "src": "storage/app/public/images/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698225774_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698226060_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698226198_dny-dns.png": {
     "file": "assets/1698226198_dny-dns-9b396198.png",
@@ -971,63 +997,63 @@
   },
   "storage/app/public/images/thumbnails/1698226812_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698242016_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698247030_alphomega.png": {
     "file": "assets/1698247030_alphomega-7ffd43c9.png",
-    "src": "storage/app/public/images/thumbnails/1698950595_alphomega.png"
+    "src": "storage/app/public/images/thumbnails/1698856584_alphomega.png"
   },
   "storage/app/public/images/thumbnails/1698247030_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698247074_alphomega.png": {
     "file": "assets/1698247030_alphomega-7ffd43c9.png",
-    "src": "storage/app/public/images/thumbnails/1698950595_alphomega.png"
+    "src": "storage/app/public/images/thumbnails/1698856584_alphomega.png"
   },
   "storage/app/public/images/thumbnails/1698256791_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698342163_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698490144_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698588663_alphomega.png": {
     "file": "assets/1698247030_alphomega-7ffd43c9.png",
-    "src": "storage/app/public/images/thumbnails/1698950595_alphomega.png"
+    "src": "storage/app/public/images/thumbnails/1698856584_alphomega.png"
   },
   "storage/app/public/images/thumbnails/1698588663_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698662024_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698665987_alphomega.png": {
     "file": "assets/1698247030_alphomega-7ffd43c9.png",
-    "src": "storage/app/public/images/thumbnails/1698950595_alphomega.png"
+    "src": "storage/app/public/images/thumbnails/1698856584_alphomega.png"
   },
   "storage/app/public/images/thumbnails/1698665987_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698674188_alphomega.png": {
     "file": "assets/1698247030_alphomega-7ffd43c9.png",
-    "src": "storage/app/public/images/thumbnails/1698950595_alphomega.png"
+    "src": "storage/app/public/images/thumbnails/1698856584_alphomega.png"
   },
   "storage/app/public/images/thumbnails/1698674188_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698674213_fixmap.png": {
     "file": "assets/1698674213_fixmap-df346991.png",
@@ -1055,59 +1081,59 @@
   },
   "storage/app/public/images/thumbnails/1698759411_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698759451_alphomega.png": {
     "file": "assets/1698247030_alphomega-7ffd43c9.png",
-    "src": "storage/app/public/images/thumbnails/1698950595_alphomega.png"
+    "src": "storage/app/public/images/thumbnails/1698856584_alphomega.png"
   },
   "storage/app/public/images/thumbnails/1698765350_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698765359_alphomega.png": {
     "file": "assets/1698247030_alphomega-7ffd43c9.png",
-    "src": "storage/app/public/images/thumbnails/1698950595_alphomega.png"
+    "src": "storage/app/public/images/thumbnails/1698856584_alphomega.png"
   },
   "storage/app/public/images/thumbnails/1698765359_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698831654_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698844361_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698849106_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698849577_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698849795_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698850058_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698852356_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698852637_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698856576_alphomega.png": {
     "file": "assets/1698247030_alphomega-7ffd43c9.png",
-    "src": "storage/app/public/images/thumbnails/1698950595_alphomega.png"
+    "src": "storage/app/public/images/thumbnails/1698856584_alphomega.png"
   },
   "storage/app/public/images/thumbnails/1698856577_bleyo_Klaus_Schwab_flying_in_hell_with_demons_controlling_the_w_21438412-e308-4a1d-bfa9-55ec088a7c16.png": {
     "file": "assets/1698856577_bleyo_Klaus_Schwab_flying_in_hell_with_demons_controlling_the_w_21438412-e308-4a1d-bfa9-55ec088a7c16-9a56d1ec.png",
@@ -1119,7 +1145,7 @@
   },
   "storage/app/public/images/thumbnails/1698856584_alphomega.png": {
     "file": "assets/1698247030_alphomega-7ffd43c9.png",
-    "src": "storage/app/public/images/thumbnails/1698950595_alphomega.png"
+    "src": "storage/app/public/images/thumbnails/1698856584_alphomega.png"
   },
   "storage/app/public/images/thumbnails/1698856584_sudoeat.jpeg": {
     "file": "assets/1698856577_sudoeat-5a2ce924.jpeg",
@@ -1127,11 +1153,11 @@
   },
   "storage/app/public/images/thumbnails/1698864139_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698864604_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698864604_nice.png": {
     "file": "assets/1698864604_nice-62a40630.png",
@@ -1139,23 +1165,23 @@
   },
   "storage/app/public/images/thumbnails/1698924588_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698929388_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698950174_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698950595_alphomega.png": {
     "file": "assets/1698247030_alphomega-7ffd43c9.png",
-    "src": "storage/app/public/images/thumbnails/1698950595_alphomega.png"
+    "src": "storage/app/public/images/thumbnails/1698856584_alphomega.png"
   },
   "storage/app/public/images/thumbnails/1698950595_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1698950595_nice.png": {
     "file": "assets/1698864604_nice-62a40630.png",
@@ -1163,7 +1189,7 @@
   },
   "storage/app/public/images/thumbnails/1699005972_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1699016315_sudoeat.jpeg": {
     "file": "assets/1698856577_sudoeat-5a2ce924.jpeg",
@@ -1171,11 +1197,11 @@
   },
   "storage/app/public/images/thumbnails/1699018303_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1699019761_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1699020873_nice.png": {
     "file": "assets/1698864604_nice-62a40630.png",
@@ -1183,11 +1209,27 @@
   },
   "storage/app/public/images/thumbnails/1699096956_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/images/thumbnails/1699097529_nanstis.png": {
     "file": "assets/1698225774_nanstis-2cb5c26a.png",
-    "src": "storage/app/public/images/thumbnails/1699097529_nanstis.png"
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
+  },
+  "storage/app/public/images/thumbnails/1699280863_nanstis.png": {
+    "file": "assets/1698225774_nanstis-2cb5c26a.png",
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
+  },
+  "storage/app/public/images/thumbnails/1699435826_nanstis.png": {
+    "file": "assets/1698225774_nanstis-2cb5c26a.png",
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
+  },
+  "storage/app/public/images/thumbnails/1699458122_nanstis.png": {
+    "file": "assets/1698225774_nanstis-2cb5c26a.png",
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
+  },
+  "storage/app/public/images/thumbnails/1699462293_nanstis.png": {
+    "file": "assets/1698225774_nanstis-2cb5c26a.png",
+    "src": "storage/app/public/images/thumbnails/1699462293_nanstis.png"
   },
   "storage/app/public/logos/1-alphomega.png": {
     "file": "assets/1-alphomega-c4c8e83a.png",

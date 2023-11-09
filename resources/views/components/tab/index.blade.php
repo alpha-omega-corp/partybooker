@@ -30,7 +30,8 @@
         @keydown.left.prevent.stop="$focus.wrap().prev()"
         @keydown.end.prevent.stop="$focus.last()"
         @keydown.page-down.prevent.stop="$focus.last()"
-        role="tablist">
+        role="tablist"
+        class="vertical-tab-menu">
         @foreach($tabs as $key => $tab)
             <li>
                 <button

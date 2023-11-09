@@ -7,62 +7,43 @@
 @php use App\Helpers\EventsStaffTranslatorHelper; @endphp
 @php use App\Helpers\OtherServicesTranslatorHelper; @endphp
 
-
 @if(Auth::user()->type == 'admin')
     <input type="text" name="id_partner" value="{{$user->id_partner}}" hidden/>
 @endif
 
 
 <x-dashboard.card :title="__('partner.working_schedule')">
-    <div>
-        <div class="row">
-            <div class="col-md-2">
-                <div class="row">
-                    <div class="event-schedule">
-                        <label class="text-center">{{__('partner.working_days')}}<span>*</span>
-                            <div class="explanation">{{__('partner.working_days_expl')}}</div>
-                        </label>
-                        @foreach(['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'] as $day)
-                            <span class="checkbox-item">
-							<input type="checkbox" name="working_days[]" value="{{$day}}" required>
-							<span>{{__('days.'.$day)}}</span>
-						</span>
-                        @endforeach
-                    </div>
-                </div>
 
-            </div>
-            <div class="col-md-10">
-                <div class="row mt-10" id="opening-time">
-                    <div class="row opening-record">
-                        <div class="col-md-2">
-                            <label>{{__('partner.opening_time')}}
-                                <div class="explanation top">{{__('partner.opening_time_expl')}}</div>
-                            </label>
-                            <input type="text" class="open time" name="opening[0][open]"/>
-                        </div>
-                        <div class="col-md-2">
-                            <label>{{__('partner.closing_time')}}</label>
-                            <input type="text" class="closing time" name="opening[0][close]"/>
-                        </div>
-
-                        <div class="col-md-8">
-                            <label>{{__('become_partner.short_descr')}}</label>
-                            <input type="text" class="desc" name="opening[0][description]"/>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row mt-4">
-                    <hr>
-                    <div
-                        class="add-opening-time-create btn btn-primary text-uppercase">{{__('partner.add_one_more')}}</div>
-                </div>
-
-
-            </div>
+    <div class="row">
+        <div class="col-md-2">
+            @foreach(['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'] as $day)
+                <x-dashboard.checkbox
+                    name="working_days[]"
+                    label="{{__('days.'.$day)}}"
+                    value="{{$day}}">
+                </x-dashboard.checkbox>
+            @endforeach
         </div>
 
+        <div class="col-md-10">
+        </div>
+    </div>
+
+
+    <div>
+        {{__('partner.annual_holidays')}}
+        <x-dashboard.input
+            name="holidays[]"
+            icon="heroicon-o-clock"
+            type="date"/>
+        <x-dashboard.input
+            name="holidays[]"
+            icon="heroicon-o-clock"
+            type="date"/>
+    </div>
+
+
+    <div>
         <hr>
 
         <div class="row" x-data="{ extension: '' }">
@@ -146,6 +127,7 @@
                 <div class="col-6">
                     <label>{{__('partner.price')}}<span>*</span>
                         <div class="explanation top">{{__('partner.price_expl')}}</div>
+
                     </label>
                     <input type="number" name="price" min="0" required/>
                 </div>
@@ -509,8 +491,14 @@
 </x-dashboard.card>
 
 @push('footer')
+
     <script>
+        $('#addSchedule').click(function () {
+
+        })
+
         $(function () {
+
             var requiredCheckboxes = $('.event-schedule :checkbox[required]');
             requiredCheckboxes.change(function () {
                 if (requiredCheckboxes.is(':checked')) {

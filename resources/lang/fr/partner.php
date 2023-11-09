@@ -6,7 +6,7 @@ return [
     'matrix_company_good' => 'Description de l\'entreprise',
     'matrix_thumbnail_good' => 'Télécharger une miniature',
     'matrix' => 'Détails mandataires',
-
+    'other' => 'Autre',
     'fill_company_details' => 'Veuillez remplir les détails de votre entreprise pour la publication en ligne',
     'choose_thumbnail' => 'Téléchargez une miniature pour votre page de publicité',
 
@@ -177,7 +177,6 @@ return [
     'other_services' => "Autres services",
     'logistics_service' => "Services logistique",
     'staff' => "Personnel(le)",
-    'other' => '',
 
     //Payment methods
     'cash' => "Cash",

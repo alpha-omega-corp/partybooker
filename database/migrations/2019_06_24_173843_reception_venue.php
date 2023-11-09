@@ -39,6 +39,7 @@ class ReceptionVenue extends Migration
 
             //RATES & CONDITIONS
             //Price
+            $table->integer('price');
             $table->string('price_for', 100);
             $table->string('other_price', 100)->nullable();
 

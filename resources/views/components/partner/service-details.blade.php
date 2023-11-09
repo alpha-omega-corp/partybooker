@@ -18,35 +18,20 @@
                 <div class="position-relative">
                     @switch($advert->view_name)
                         @case('event-place')
-                            <x-service.event-place.general :details="$advert->service">
-                                <x-slot:editGeneral>
-                                    @include('web.partner.advert.popups.event-places.edit-general', [
-                                    'iterator' => $iterator,
-                                    'advert' => $advert
-                                    ])
-                                </x-slot:editGeneral>
-
-                                <x-slot:editCatering>
-                                    @include('web.partner.advert.popups.event-places.edit-catering', ['advert' => $advert])
-                                </x-slot:editCatering>
-
-                                <x-slot:editOther>
-                                    @include('web.partner.advert.popups.event-places.edit-other', ['iterator' => $iterator])
-                                </x-slot:editOther>
-                            </x-service.event-place.general>
+                            <x-service.details.event-place.general :details="$advert->service"/>
                             @break
                         @case('entertainment')
-                            <x-service.entertainment.general :details="$advert->service">
+                            <x-service.details.entertainment.general :details="$advert->service">
                                 <x-slot:editGeneral>
                                     @include('web.partner.advert.popups.entertainment.edit-general', [
                                     'iterator' => $iterator,
                                     'advert' => $advert
                                     ])
                                 </x-slot:editGeneral>
-                            </x-service.entertainment.general>
+                            </x-service.details.entertainment.general>
                             @break
                         @case('caterer')
-                            <x-service.caterer.general :details="$advert->service">
+                            <x-service.details.caterer.general :details="$advert->service">
                                 <x-slot:editGeneral>
                                     @include('web.partner.advert.popups.caterer.edit-general', [
                                     'iterator' => $iterator,
@@ -67,23 +52,23 @@
                                     'advert' => $advert
                                     ])
                                 </x-slot:editOther>
-                            </x-service.caterer.general>
+                            </x-service.details.caterer.general>
                             @break
                         @case('equipment')
-                            <x-service.equipment.general :details="$advert->service">
+                            <x-service.details.equipment.general :details="$advert->service">
                                 @include('web.partner.advert.popups.equipment.edit-general', [
                                 'iterator' => $iterator,
                                 'advert' => $advert
                                 ])
-                            </x-service.equipment.general>
+                            </x-service.details.equipment.general>
                             @break
                         @case('wine')
-                            <x-service.wine.general :details="$advert->service">
+                            <x-service.details.wine.general :details="$advert->service">
                                 @include('web.partner.advert.popups.wine.edit-general', [
                                 'iterator' => $iterator,
                                 'advert' => $advert
                                 ])
-                            </x-service.wine.general>
+                            </x-service.details.wine.general>
                             @break
                     @endswitch
 
@@ -94,32 +79,31 @@
             <x-tab.item>
                 @switch($advert->view_name)
                     @case('event-place')
-                        <x-service.event-place.schedule :details="$advert->service">
-                            @include('web.partner.advert.popups.event-places.edit-schedule', ['advert' => $advert])
-                        </x-service.event-place.schedule>
+                        <x-service.details.event-place.schedule :details="$advert->service">
+                        </x-service.details.event-place.schedule>
                         @break
                     @case('entertainment')
-                        <x-service.entertainment.schedule :details="$advert->service">
+                        <x-service.details.entertainment.schedule :details="$advert->service">
                             @include('web.partner.advert.popups.entertainment.edit-schedule', ['advert' => $advert])
-                        </x-service.entertainment.schedule>
+                        </x-service.details.entertainment.schedule>
                         @break
                     @case('caterer')
-                        <x-service.caterer.schedule :details="$advert->service">
+                        <x-service.details.caterer.schedule :details="$advert->service">
                             @include('web.partner.advert.popups.caterer.edit-schedule', ['advert' => $advert])
-                        </x-service.caterer.schedule>
+                        </x-service.details.caterer.schedule>
                         @break
                     @case('equipment')
-                        <x-service.equipment.schedule :details="$advert->service">
+                        <x-service.details.equipment.schedule :details="$advert->service">
                             @include('web.partner.advert.popups.equipment.edit-schedule', ['advert' => $advert])
-                        </x-service.equipment.schedule>
+                        </x-service.details.equipment.schedule>
                         @break
                     @case('wine')
-                        <x-service.wine.schedule :details="$advert->service">
+                        <x-service.details.wine.schedule :details="$advert->service">
                             @include('web.partner.advert.popups.wine.edit-schedule', [
                             'iterator' => $iterator,
                             'advert' => $advert
                             ])
-                        </x-service.wine.schedule>
+                        </x-service.details.wine.schedule>
                         @break
                 @endswitch
             </x-tab.item>
@@ -128,32 +112,31 @@
             <x-tab.item>
                 @switch($advert->view_name)
                     @case('event-place')
-                        <x-service.event-place.rates :details="$advert->service">
-                            @include('web.partner.advert.popups.event-places.edit-rates', ['advert' => $advert])
-                        </x-service.event-place.rates>
+                        <x-service.details.event-place.rates :details="$advert->service">
+                        </x-service.details.event-place.rates>
                         @break
                     @case('entertainment')
-                        <x-service.entertainment.rates :details="$advert->service">
+                        <x-service.details.entertainment.rates :details="$advert->service">
                             @include('web.partner.advert.popups.entertainment.edit-rates', ['advert' => $advert])
-                        </x-service.entertainment.rates>
+                        </x-service.details.entertainment.rates>
                         @break
                     @case('caterer')
-                        <x-service.caterer.rates :details="$advert->service">
+                        <x-service.details.caterer.rates :details="$advert->service">
                             @include('web.partner.advert.popups.caterer.edit-rates', ['advert' => $advert])
-                        </x-service.caterer.rates>
+                        </x-service.details.caterer.rates>
                         @break
                     @case('equipment')
-                        <x-service.equipment.rates :details="$advert->service">
+                        <x-service.details.equipment.rates :details="$advert->service">
                             @include('web.partner.advert.popups.equipment.edit-rates', ['advert' => $advert])
-                        </x-service.equipment.rates>
+                        </x-service.details.equipment.rates>
                         @break
                     @case('wine')
-                        <x-service.wine.rates :details="$advert->service">
+                        <x-service.details.wine.rates :details="$advert->service">
                             @include('web.partner.advert.popups.wine.edit-rates', [
                             'iterator' => $iterator,
                             'advert' => $advert
                             ])
-                        </x-service.wine.rates>
+                        </x-service.details.wine.rates>
                         @break
                 @endswitch
             </x-tab.item>

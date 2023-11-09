@@ -94,7 +94,7 @@ return [
     'image' => 'Image Service',
     'url_website' => 'Comany website',
     'edit' => 'Edit',
-    'other' => 'other',
+    'other' => 'Other',
     'see-all' => 'See all',
     'edit_main_image' => 'Edit thumbnail image',
     // Plan options

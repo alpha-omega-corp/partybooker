@@ -24,15 +24,6 @@ use Laravel\Cashier\Cashier;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public function register(): void
-    {
-        $this->app->bind(IPaymentTransactionService::class, PaymentTransactionService::class);
-        $this->app->bind(IPartnerPlanOptionService::class, PartnerPlanOptionService::class);
-        $this->app->bind(IImageService::class, ImageService::class);
-        $this->app->bind(IPlanService::class, PlanService::class);
-        $this->app->bind(IAdvertService::class, AdvertService::class);
-    }
-
     public function boot(): void
     {
         Cashier::useCustomerModel(User::class);
@@ -56,5 +47,14 @@ class AppServiceProvider extends ServiceProvider
             Cache::put($lang . '_footer_categories', $categories, 60000);
         }
         return $categories;
+    }
+
+    public function register(): void
+    {
+        $this->app->bind(IPaymentTransactionService::class, PaymentTransactionService::class);
+        $this->app->bind(IPartnerPlanOptionService::class, PartnerPlanOptionService::class);
+        $this->app->bind(IImageService::class, ImageService::class);
+        $this->app->bind(IPlanService::class, PlanService::class);
+        $this->app->bind(IAdvertService::class, AdvertService::class);
     }
 }

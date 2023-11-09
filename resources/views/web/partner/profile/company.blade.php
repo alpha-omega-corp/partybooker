@@ -44,9 +44,11 @@
         <h5 class="text-uppercase">
             {{__('become_partner.languages')}}
         </h5>
-        @foreach(json_decode($user->partnerInfo->language) as $language)
-            <img src="{{Vite::image($language . '.svg')}}" alt="{{$language}}" width="20"/>
-        @endforeach
+        <div class="d-flex">
+            @foreach(json_decode($user->partnerInfo->language) as $language)
+                <img src="{{Vite::image($language . '.svg')}}" alt="{{$language}}" width="20"/>
+            @endforeach
+        </div>
     </div>
 
     <div class="d-flex justify-content-end">

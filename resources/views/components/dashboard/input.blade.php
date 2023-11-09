@@ -9,6 +9,7 @@
     'required' => true,
     'max' => null,
     'label' => null,
+    'disabled' => false
 ])
 
 <div class="dashboard-input">
@@ -30,6 +31,7 @@
             name="{{ $name }}"
             value="{{ $value }}"
             class="form-control"
+            {{$disabled ? 'disabled' : ''}}
             id="{{$id}}"
             placeholder="{{ $placeholder }}"
             aria-label="{{ $placeholder }}"

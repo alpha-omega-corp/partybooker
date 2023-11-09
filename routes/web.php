@@ -250,6 +250,8 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
             ->name('statistics');
         Route::get('/partner-cp/{id_partner}/profile', '\App\Http\Controllers\Web\ProfileController@profile')
             ->name('profile');
+
+
         Route::get('/partner-cp/{id_partner}/advert', '\App\Http\Controllers\Web\ProfileController@advert')
             ->name('profile-advert');
 

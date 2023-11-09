@@ -26,7 +26,7 @@
     <script src="{{ asset('/js/jquery.mask.js') }}"></script>
 
     @vite(['resources/js/app.js'])
-
+    @filamentStyles
 </head>
 <body class="body">
 @include('common.header-nav')
@@ -40,7 +40,7 @@
 
         <div class="container">
             <div class="dashboard-container w-100 shadow-lg">
-                
+
 
                 @if(!Auth::user()->subscribed('PartyBooker'))
                     @if(!$user->onTrial())
