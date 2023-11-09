@@ -7,4 +7,6 @@ return [
     'detail' => 'Spécification',
     'table_capacity' => 'Personnes assises',
     'nearby' => 'A proximité',
+    'item' => 'Valeur',
+
 ];

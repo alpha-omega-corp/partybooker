@@ -73,6 +73,12 @@ class CreateEventPlace extends Component implements HasForms
     public $sittingConfiguration;
     public $accommodationDescription;
     public $comments;
+    public $technicalEquipmentMore;
+    public $eventStaffValuesMore;
+    public $otherServicesValuesMore;
+    public $roomInstallationsMore;
+    public $allowedPaymentsMore;
+
 
     public $workingDays;
     public $paymentMethods;
@@ -114,7 +120,6 @@ class CreateEventPlace extends Component implements HasForms
             $this->cocktailCapacity = $eventPlace->coctail;
             $this->standingCapacity = $eventPlace->banquet;
             $this->outsideCapacity = $eventPlace->outdoor;
-            $this->sittingConfiguration = json_decode($eventPlace->sitting, true);
             $this->hasParking = $eventPlace->car != null ? 'yes' : 'no';
             $this->parkingCapacity = $eventPlace->car;
             $this->mobilityAccess = $eventPlace->reduced_mob;
@@ -134,6 +139,29 @@ class CreateEventPlace extends Component implements HasForms
             $this->accommodation = $eventPlace->accomodation;
             $this->otherServicesValues = json_decode($eventPlace->other_services);
             $this->comments = $eventPlace->comment;
+            $this->accommodationDescription = $eventPlace->number_questrooms;
+            $this->rateTypeOther = $eventPlace->price_for == 'other' ? $eventPlace->other_price : null;
+            $this->technicalEquipmentMore = collect(json_decode($eventPlace->other_eq, true))->mapWithKeys(
+                fn($item) => [$item => ['name' => $item]]
+            )->toArray();
+
+            $this->eventStaffValuesMore = collect(json_decode($eventPlace->other_staff, true))->mapWithKeys(
+                fn($item) => [$item => ['name' => $item]]
+            )->toArray();
+            $this->otherServicesValuesMore = collect(json_decode($eventPlace->more_services, true))->mapWithKeys(
+                fn($item) => [$item => ['name' => $item]]
+            )->toArray();
+            $this->sittingConfiguration = collect(json_decode($eventPlace->sitting, true))->mapWithKeys(
+                fn($item) => [$item => ['sitting' => $item]]
+            )->toArray();
+            $this->allowedPaymentsMore = collect(json_decode($eventPlace->other_payment, true))->mapWithKeys(
+                fn($item) => [$item => ['name' => $item]]
+            )->toArray();
+            $this->roomInstallationsMore = collect(json_decode($eventPlace->oth_facilities, true))->mapWithKeys(
+                fn($item) => [$item => ['name' => $item]]
+            )->toArray();
+
+
         }
     }
 
@@ -195,12 +223,13 @@ class CreateEventPlace extends Component implements HasForms
                         Select::make('rateType')
                             ->required()
                             ->label(__('form.rate_type'))
+                            ->reactive()
                             ->options([
                                 'space_rental_price_per_hour' => ucfirst(__('partner.space_rental_price_per_hour')),
                                 'fixed_price_per_person' => ucfirst(__('partner.fixed_price_per_person')),
                                 'flat_rate_for_service' => ucfirst(__('partner.flat_rate_for_service')),
                                 'other' => __('become_partner.other')
-                            ])->native(false)->reactive(),
+                            ])->native(false),
                         TextInput::make('rateTypeOther')
                             ->label(__('become_partner.other'))
                             ->type('text')
@@ -227,23 +256,35 @@ class CreateEventPlace extends Component implements HasForms
                             ->hidden(fn(Get $get) => $get('deposit') !== 'yes')
                             ->reactive(),
                         Fieldset::make()
-                            ->columns(1)
+                            ->columns(2)
                             ->schema([
                                 CheckboxList::make('allowedPayments')
                                     ->required()
                                     ->label(__('partner.payment_methods'))
                                     ->options($this->paymentMethods)
                                     ->gridDirection('row')
-                                    ->columns(6)
+                                    ->columns(3)
+                                    ->reactive()
                                     ->hint(__('partner.payment_methods_expl'))
                                     ->bulkToggleable(),
+
+                                Repeater::make('allowedPaymentsMore')
+                                    ->label(__('form.detail') . ' ' . strtolower(__('partner.payment_methods')))
+                                    ->reactive()
+                                    ->hidden(fn(Get $get): bool => !in_array('other', $get('allowedPayments')))
+                                    ->schema([
+                                        TextInput::make('name')
+                                            ->label(__('form.item'))
+                                            ->type('text')
+                                            ->required(),
+                                    ]),
                             ])
                     ]),
                 Section::make(__('partner.service_general_info'))
                     ->columns(3)
                     ->schema([
                         Fieldset::make()
-                            ->columns(3)
+                            ->columns(2)
                             ->schema([
                                 Repeater::make('conferenceRooms')
                                     ->label(__('partner.conference_room'))
@@ -255,18 +296,30 @@ class CreateEventPlace extends Component implements HasForms
                                         TextInput::make('capacity')->type('number')->numeric()->required(),
                                     ]),
 
-                                CheckboxList::make('roomInstallations')
-                                    ->required()
-                                    ->label(__('partner.Bar_dance_floor_stage'))
-                                    ->options($this->installations)
-                                    ->hint(__('partner.Bar_dance_floor_stage_expl'))
-                                    ->bulkToggleable(),
                                 CheckboxList::make('roomCommodities')
                                     ->required()
                                     ->label(__('partner.conveniences'))
                                     ->options($this->commodities)
                                     ->hint(__('partner.conveniences_expl'))
-                                    ->bulkToggleable()
+                                    ->bulkToggleable(),
+                                CheckboxList::make('roomInstallations')
+                                    ->required()
+                                    ->columns(3)
+                                    ->label(__('partner.Bar_dance_floor_stage'))
+                                    ->options($this->installations)
+                                    ->reactive()
+                                    ->hint(__('partner.Bar_dance_floor_stage_expl'))
+                                    ->bulkToggleable(),
+                                Repeater::make('roomInstallationsMore')
+                                    ->label(__('form.detail') . ' ' . strtolower(__('partner.Bar_dance_floor_stage')))
+                                    ->reactive()
+                                    ->hidden(fn(Get $get): bool => !in_array('other', $get('roomInstallations')))
+                                    ->schema([
+                                        TextInput::make('name')
+                                            ->label(__('form.item'))
+                                            ->type('text')
+                                            ->required(),
+                                    ]),
                             ]),
                         TextInput::make('cocktailCapacity')
                             ->required()
@@ -416,43 +469,94 @@ class CreateEventPlace extends Component implements HasForms
                                         TextInput::make('url')->type('text')->required(),
                                     ])->defaultItems(1),
                             ]),
-                        CheckboxList::make('furnitureEquipment')
-                            ->required()
-                            ->label(__('partner.available_furniture_equipment'))
-                            ->options($this->furniture)
-                            ->columns(3)
-                            ->hintIcon('heroicon-o-information-circle')
-                            ->hintIconTooltip(__('partner.available_furniture_equipment_expl'))
-                            ->bulkToggleable(),
-                        CheckboxList::make('technicalEquipment')
-                            ->required()
-                            ->label(__('partner.technical_equipment'))
-                            ->options($this->technical)
-                            ->columns(3)
-                            ->hintIcon('heroicon-o-information-circle')
-                            ->hintIconTooltip(__('partner.technical_equipment_expl'))
-                            ->bulkToggleable(),
 
+                        Fieldset::make()
+                            ->columns(1)
+                            ->schema([
+                                CheckboxList::make('furnitureEquipment')
+                                    ->required()
+                                    ->label(__('partner.available_furniture_equipment'))
+                                    ->options($this->furniture)
+                                    ->columns(4)
+                                    ->reactive()
+                                    ->hintIcon('heroicon-o-information-circle')
+                                    ->hintIconTooltip(__('partner.available_furniture_equipment_expl'))
+                                    ->bulkToggleable(),
+                            ]),
+
+                        Fieldset::make()
+                            ->columns(2)
+                            ->schema([
+                                CheckboxList::make('technicalEquipment')
+                                    ->label(__('partner.technical_equipment'))
+                                    ->options($this->technical)
+                                    ->columns(3)
+                                    ->hintIcon('heroicon-o-information-circle')
+                                    ->hintIconTooltip(__('partner.technical_equipment_expl'))
+                                    ->reactive()
+                                    ->bulkToggleable(),
+
+
+                                Repeater::make('technicalEquipmentMore')
+                                    ->label(__('form.detail') . ' ' . strtolower(__('partner.available_furniture_equipment')))
+                                    ->reactive()
+                                    ->hidden(fn(Get $get): bool => !in_array('other', $get('technicalEquipment')))
+                                    ->schema([
+                                        TextInput::make('name')
+                                            ->label(__('form.item'))
+                                            ->type('text')
+                                            ->required(),
+                                    ]),
+
+                            ])
                     ]),
 
                 Section::make(__('partner.other_services'))
                     ->icon('heroicon-m-shopping-bag')
                     ->columns(2)
                     ->schema([
-                        CheckboxList::make('eventStaffValues')
-                            ->required()
-                            ->label(__('partner.staff'))
-                            ->options($this->eventStaff)
-                            ->columns(2)
-                            ->bulkToggleable(),
 
-                        CheckboxList::make('otherServicesValues')
-                            ->required()
-                            ->label(__('partner.other_services'))
-                            ->hint(__('partner.staf_expl'))
-                            ->options($this->otherServices)
+                        Fieldset::make()
                             ->columns(2)
-                            ->bulkToggleable(),
+                            ->schema([
+                                CheckboxList::make('eventStaffValues')
+                                    ->required()
+                                    ->label(__('partner.staff'))
+                                    ->options($this->eventStaff)
+                                    ->reactive()
+                                    ->columns(2)
+                                    ->bulkToggleable(),
+
+                                CheckboxList::make('otherServicesValues')
+                                    ->required()
+                                    ->reactive()
+                                    ->label(__('partner.other_services'))
+                                    ->hint(__('partner.staf_expl'))
+                                    ->options($this->otherServices)
+                                    ->columns(2)
+                                    ->bulkToggleable(),
+
+                                Repeater::make('eventStaffValuesMore')
+                                    ->label(__('form.detail') . ' ' . strtolower(__('partner.staff')))
+                                    ->reactive()
+                                    ->hidden(fn(Get $get): bool => !in_array('other', $get('eventStaffValues')))
+                                    ->schema([
+                                        TextInput::make('name')
+                                            ->label(__('form.item'))
+                                            ->type('text')
+                                            ->required(),
+                                    ]),
+                                Repeater::make('otherServicesValuesMore')
+                                    ->label(__('form.detail') . ' ' . strtolower(__('partner.other_services')))
+                                    ->reactive()
+                                    ->hidden(fn(Get $get): bool => !in_array('other', $get('otherServicesValues')))
+                                    ->schema([
+                                        TextInput::make('name')
+                                            ->label(__('form.item'))
+                                            ->type('text')
+                                            ->required(),
+                                    ]),
+                            ]),
 
                         Fieldset::make()
                             ->columns(1)
@@ -465,8 +569,8 @@ class CreateEventPlace extends Component implements HasForms
                                     ->reactive()
                                     ->options([
                                         'yes' => __('form.yes'),
-                                        'no' => __('form.no'),
-                                        'nearby' => __('form.nearby')
+                                        'not-available' => __('form.no'),
+                                        'yes-nearby' => __('form.nearby')
                                     ]),
                                 TextInput::make('accommodationDescription')
                                     ->label(__('form.detail'))
@@ -560,7 +664,7 @@ class CreateEventPlace extends Component implements HasForms
         $eventPlace = EventPlace::where('id', $advert->service_id)->first();
         $data = $this->form->getState();
 
-        if ($eventPlace->exists()) {
+        if ($eventPlace) {
             $item = $eventPlace;
         } else {
             $item = new EventPlace();
@@ -579,7 +683,7 @@ class CreateEventPlace extends Component implements HasForms
         $item->coctail = $data['cocktailCapacity'];
         $item->banquet = $data['standingCapacity'];
         $item->outdoor = $data['outsideCapacity'];
-        $item->sitting = json_encode($data['sittingConfiguration']);
+        $item->sitting = json_encode(array_column($data['sittingConfiguration'], 'sitting'));
         $item->room = $data['conferenceRooms'];
         $item->reduced_mob = $data['mobilityAccess'];
         $item->car = $data['hasParking'] === 'yes' ? $data['parkingCapacity'] : null;
@@ -600,6 +704,15 @@ class CreateEventPlace extends Component implements HasForms
         $item->other_services = json_encode($data['otherServicesValues']);
         $item->comment = $data['comments'];
         $item->number_questrooms = $data['accommodationDescription'];
+        $item->budget = $data['budget'];
+
+        $item->oth_facilities = isset($data['roomInstallationsMore']) ? json_encode(array_column($data['roomInstallationsMore'], 'name')) : null;
+        $item->other_eq = isset($data['technicalEquipmentMore']) ? json_encode(array_column($data['technicalEquipmentMore'], 'name')) : null;
+        $item->other_staff = isset($data['eventStaffValuesMore']) ? json_encode(array_column($data['eventStaffValuesMore'], 'name')) : null;
+        $item->more_services = isset($data['otherServicesValuesMore']) ? json_encode(array_column($data['otherServicesValuesMore'], 'name')) : null;
+        $item->other_payment = isset($data['allowedPaymentsMore']) ? json_encode(array_column($data['allowedPaymentsMore'], 'name')) : null;
+        $item->other_price = $data['rateTypeOther'];
+
         $item->id_partner = $this->partnerId;
         $item->save();
 

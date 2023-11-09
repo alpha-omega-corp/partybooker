@@ -7,4 +7,5 @@ return [
     'detail' => 'Specification',
     'table_capacity' => 'Sitting capacity',
     'nearby' => 'Nearby',
+    'item' => 'Item',
 ];

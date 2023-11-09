@@ -1151,6 +1151,8 @@ a {
                 transform: scale(1.1);
                 margin: 5px;
                 transition: 0.2s;
+                background-color: #fff;
+                border: 2px solid $primary;
 
                 .package-credit-card {
                     width: 40px;
@@ -1193,6 +1195,7 @@ a {
             border-radius: 40px;
             cursor: pointer;
             position: relative;
+
 
             .package-price {
                 font-size: small;
@@ -2759,11 +2762,21 @@ html {
     .profile-info {
 
         .matrix-card {
+            margin-top: 20px;
             border-radius: 20px 20px 0 0;
             width: 100%;
+            padding-bottom: 40px;
+
+            .matrix-warning {
+                width: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
             h2 {
-                padding-left: 20px;
+                display: flex;
+                align-items: center;
             }
 
             .publish-matrix-check {
@@ -3226,7 +3239,7 @@ html {
 
     .category-option-card {
         padding: 10px 20px;
-        border: 1px solid $gray-300;
+        border: 1px dashed $accent;
         border-radius: 20px;
         cursor: pointer;
         position: relative;
@@ -3431,7 +3444,7 @@ html {
     margin-bottom: 20px;
 
     img {
-        width: 400px;
+        width: 100%;
         height: 200px;
         object-fit: cover;
         border-radius: 20px;
@@ -3928,7 +3941,7 @@ html {
             .room-icon {
                 width: 20px;
                 height: 20px;
-                margin-right: 5px;
+                margin-left: 10px;
             }
 
             .max-guests-icon {
@@ -3956,13 +3969,6 @@ html {
                 width: 20px;
 
             }
-
-            .payment-icon {
-                width: 30px;
-                margin-bottom: 10px;
-                margin-right: 15px;
-            }
-
 
             .list-group-item {
                 border: 0;
@@ -4090,4 +4096,26 @@ html {
         display: flex;
         align-items: center;
     }
+}
+
+.rooms-yes {
+    margin-left: 10px;
+}
+
+.advert-payment-method-item {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    border: 1px solid $gray-300;
+    border-radius: 10px;
+    padding: 10px;
+
+    img {
+        margin-right: 10px;
+    }
+}
+
+.dashboard-body {
+    border-top: 1px solid $accent;
+    padding: 20px;
 }

@@ -11,38 +11,8 @@
         </div>
     </x-service.list-item>
 
-    @if(isset($details->yes_af_caterers))
-        <x-service.list-item :title="__('partner.works_with_affiliated_partners')">
-
-            <x-service.ul>
-                @foreach(json_decode($details->yes_af_caterers) as $caterer)
-                    @if($caterer->name > 0)
-                        <li>
-                            <a href="{{$caterer->url ?? "#"}}" target="_blank">{{$caterer->name}}</a>
-                        </li>
-                    @endif
-                @endforeach
-            </x-service.ul>
-
-        </x-service.list-item>
-    @endif
-
-    <x-service.list-item :title="__('partner.free_choice_of_caterer')">
-
-        <div class="d-flex">
-            <x-service.list-bool :value="$details->free_caterer"/>
-        </div>
-
-        @foreach (isset($details->yes_free_caterers) ? json_decode($details->yes_free_caterers) : [] as $item)
-
-            {{$item->name}}
-            {{$item->link}}
-
-        @endforeach
-    </x-service.list-item>
-
     <x-service.list-item :title="__('partner.external_food_allowed')">
-        <x-service.list-bool :value="$details->external_food"/>
+        <x-service.list-bool :value="$details->ext_food"/>
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.available_furniture_equipment')">
@@ -63,16 +33,61 @@
         @if(isset($details->equipment))
             <x-service.ul>
                 @foreach(json_decode($details->equipment) as $equipment)
-                    @if (strlen($equipment) > 0)
+                    @if (strlen($equipment) > 0 && $equipment != 'other')
                         <li>
+
                             {{ucfirst(TechnicalEquipmentTranslatorHelper::translate($equipment))}}
+
                         </li>
                     @endif
                 @endforeach
             </x-service.ul>
         @endif
 
+        @if(isset($details->other_eq))
+            <x-service.ul>
+                @foreach(json_decode($details->other_eq) as $equipment)
+                    @if (strlen($equipment) > 0)
+                        <li>
+                            {{ucfirst($equipment)}}
+                        </li>
+                    @endif
+                @endforeach
+            </x-service.ul>
+        @endif
 
-        {{$details->other_eq ?? ''}}
+    </x-service.list-item>
+
+    @if(isset($details->yes_af_caterers))
+        <x-service.list-item :title="__('partner.works_with_affiliated_partners')">
+
+            <x-service.ul>
+                @foreach(json_decode($details->yes_af_caterers) as $caterer)
+                    @if($caterer->name > 0)
+                        <li>
+                            <a href="{{$caterer->url ?? "#"}}" target="_blank">{{$caterer->name}}</a>
+                        </li>
+                    @endif
+                @endforeach
+            </x-service.ul>
+
+        </x-service.list-item>
+    @endif
+
+    <x-service.list-item :title="__('partner.free_choice_of_caterer')">
+        @if(!$details->yes_free_caterers)
+            <x-service.list-bool :value="false"/>
+        @endif
+
+        <x-service.ul>
+            @if($details->yes_free_caterers)
+                @foreach(json_decode($details->yes_free_caterers) as $caterer)
+                    <li>
+                        <a href="{{$caterer->url ?? "#"}}" target="_blank">{{$caterer->name}}</a>
+                    </li>
+                @endforeach
+            @endif
+
+        </x-service.ul>
     </x-service.list-item>
 </div>

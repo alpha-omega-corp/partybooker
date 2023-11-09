@@ -11,9 +11,14 @@
 <div class="card">
     <div class="d-flex">
         <div class="matrix-card">
-            <h2 class="text-uppercase fw-bold fs-5 mt-3">
-                {{__('partner.matrix')}}
-            </h2>
+            <div class="d-flex">
+                <div class="matrix-warning">
+                    @svg('heroicon-s-exclamation-triangle', 'text-orange')
+                </div>
+                <h2 class="text-uppercase fw-bold fs-5">
+                    {{__('partner.matrix')}}
+                </h2>
+            </div>
             <hr>
             <div class="d-flex flex-column">
 

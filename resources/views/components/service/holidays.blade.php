@@ -2,11 +2,19 @@
 
 
 <x-service.list-item :title="__('partner.annual_holidays')">
-    @if(strlen($details > 0))
-        <p>{{$details}}</p>
+    @foreach(json_decode($details) as $item)
+        <div class="d-flex">
+            @svg('heroicon-o-arrows-pointing-out', 'text-primary mt-1')
 
-    @else
-        <x-service.list-bool :value="false"/>
+            <div class="p-1">
+                <span>{{$item->holiday_start}}</span>
+                -
+                <span>{{$item->holiday_end}}</span>
+            </div>
+        </div>
+        <br>
+        @break
 
-    @endif
+    @endforeach
+
 </x-service.list-item>

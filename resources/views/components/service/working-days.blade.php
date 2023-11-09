@@ -1,11 +1,15 @@
 @props(['days'])
 
 <x-service.list-item :title="__('partner.working_days')">
-    <p>
+    <div class="d-flex">
         @foreach (json_decode($days)??[] as $day)
-            @if (strlen($day) > 0)
-                {{__('days.'.$day)}}
-            @endif
+            <p class="p-1">
+
+                @if (strlen($day) > 0)
+                    {{__('days.'.$day)}}
+                @endif
+
+            </p>
         @endforeach
-    </p>
+    </div>
 </x-service.list-item>

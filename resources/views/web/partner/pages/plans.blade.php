@@ -26,7 +26,9 @@
 
     <section class="mt-5">
         @if(!$user->subscribed('PartyBooker'))
-            <x-partner.packages :plans="$plans"/>
+            <div class="p-4">
+                <x-partner.packages :plans="$plans"/>
+            </div>
         @else
             <div class="row">
                 <div class="col-lg-8 col-md-12">
@@ -35,11 +37,6 @@
                             @include('web.partner.partials.dashboard.active-plan')
                         </div>
                     </x-dashboard.card>
-                </div>
-
-
-                <div class="col-lg-4 col-md-12">
-
                 </div>
             </div>
         @endif

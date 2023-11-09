@@ -4,8 +4,10 @@
 <x-service.list-item :title="__('partner.possibility_extend_time')">
     @if (!is_null($details->ext_true))
         <div class="d-flex">
-            <x-service.list-bool :value="true"/>
-            <p class="p-1">
+            <div class="mt-1">
+                <x-service.list-bool :value="true"/>
+            </div>
+            <p class="p-1 m-0">
                 {{$details->ext_true}}
             </p>
         </div>

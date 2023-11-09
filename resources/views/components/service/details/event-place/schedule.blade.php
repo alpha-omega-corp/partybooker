@@ -8,21 +8,14 @@
 
         <x-service.list-item :title="__('partner.opening_hours')">
             @if($details->working_time)
-                <br>
                 @foreach(json_decode($details->working_time) as $time)
-                    <div class="text-uppercase d-flex">
-                        @svg('heroicon-m-adjustments-vertical', 'wt-icon text-primary')
-                        <div class="d-flex flex-column">
-                            <p class="border-bottom">{{$time->description}}</p>
-
-                            <span>
-                        {{$time->opening}} -
-                        {{$time->closing}}
-                    </span>
+                    <div class="d-flex">
+                        @svg('heroicon-m-adjustments-vertical', 'text-primary mt-1')
+                        <div class="p-1">
+                            <span>{{$time->open}} - {{$time->close}} : {{$time->description}}</span>
                         </div>
                     </div>
                     <br>
-
                 @endforeach
             @endif
         </x-service.list-item>

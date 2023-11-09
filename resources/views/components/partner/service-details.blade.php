@@ -158,6 +158,7 @@
                 </div>
 
             </x-tab.item>
+
         </x-tab.index>
     </div>
 </div>

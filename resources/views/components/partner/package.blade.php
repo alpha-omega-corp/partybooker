@@ -7,14 +7,14 @@
      x-data="{plan: '{{$plan->stripe_price_id}}', name: '{{$plan->name}}'}"
      @click="subscribe(plan, name)">
     <div class="text-uppercase text-center">
-        <h3 class="fw-bold p-2 {{ 'text-' . $plan->name }}">{{ __('plan.' . $plan->name) }}</h3>
+        <h3 class="fw-bold p-2 {{ 'text-' . $plan->name }} fw-bold">{{ __('plan.' . $plan->name) }}</h3>
     </div>
     <hr>
 
     <ul>
         <li>
             <img src="{{ Vite::image('network.svg') }}" alt="network"/>
-            <div class="package-categories {{ 'text-' . $plan->name }}">
+            <div class="package-categories {{ 'text-' . $plan->name }} fw-bold">
                 {{ __('become_partner.direct_request') }}
             </div>
         </li>
@@ -22,7 +22,7 @@
         <li>
             <img src="{{ Vite::image('picture.svg') }}" alt="picture"/>
 
-            <div class="package-categories {{ 'text-' . $plan->name }}">
+            <div class="package-categories {{ 'text-' . $plan->name }} fw-bold">
                 {{ $plan->photos_num }}
                 {{ __('become_partner.photos') }}
             </div>

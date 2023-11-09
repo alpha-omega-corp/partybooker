@@ -5,7 +5,7 @@
 
 <x-service.list-item :title="__('partner.budget')">
     @if(strlen($details) > 0)
-        <p>{{BudgetsHelper::getDescription($details)}} CHF</p>
+        <p>{{BudgetsHelper::getDescription($details)}}</p>
     @else
         <x-service.list-bool :value="false"/>
     @endif
