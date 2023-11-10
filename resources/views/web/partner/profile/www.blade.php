@@ -1,82 +1,37 @@
-<div class="d-flex flex-column">
-
-    <div class="cp-socials-item">
-        <h6 class="text-uppercase fw-bold">{{__('partner.url_website')}}</h6>
+<div class="dashboard-socials" x-data="{modal: 'editSocials'}" @click="openModalPrevent(modal)">
+    <div class="cp-socials-item d-flex">
+        <div>
+            <h6 class="text-uppercase fw-bold">{{__('partner.url_website')}}</h6>
+        </div>
         <a href="{{$user->partnerInfo->www}}" target="_blank">
             {{$user->partnerInfo->www}}
         </a>
     </div>
+
     <hr>
+    <div class="d-flex flex-wrap">
 
+        <x-dashboard.social-network
+            network="instagram" :value="$user->partnerInfo->instagram"/>
 
-    <div class="cp-socials-item">
-        <img src="{{Vite::image('instagram.svg')}}" alt="Instagram">
-        @if($user->partnerInfo->instagram)
-            <a href="{{$user->partnerInfo->instagram}}" target="_blank">
-                {{$user->partnerInfo->instagram}}
-            </a>
-        @else
-            @svg('heroicon-o-no-symbol')
-        @endif
+        <x-dashboard.social-network
+            network="facebook" :value="$user->partnerInfo->facebook"/>
+
+        <x-dashboard.social-network
+            network="youtube" :value="$user->partnerInfo->youtube"/>
+
+        <x-dashboard.social-network
+            network="twitter" :value="$user->partnerInfo->twitter"/>
+
+        <x-dashboard.social-network
+            network="linkedin" :value="$user->partnerInfo->linkedin"/>
+
+        <x-dashboard.social-network
+            network="vimeo" :value="$user->partnerInfo->vimeo"/>
+
     </div>
 
-    <div class="cp-socials-item">
-        <img src="{{Vite::image('facebook.svg')}}" alt="Facebook">
-        @if($user->partnerInfo->facebook)
-            <a href="{{$user->partnerInfo->facebook}}" target="_blank">
-                {{$user->partnerInfo->facebook}}
-            </a>
-        @else
-            @svg('heroicon-o-no-symbol')
-        @endif
-    </div>
-
-    <div class="cp-socials-item">
-        <img src="{{Vite::image('youtube.svg')}}" alt="Youtube">
-        @if($user->partnerInfo->youtube)
-            <a href="{{$user->partnerInfo->youtube}}" target="_blank">
-                {{$user->partnerInfo->youtube}}
-            </a>
-        @else
-            @svg('heroicon-o-no-symbol')
-        @endif
-    </div>
-
-    <div class="cp-socials-item">
-        <img src="{{Vite::image('twitter.svg')}}" alt="Twitter">
-        @if($user->partnerInfo->twitter)
-            <a href="{{$user->partnerInfo->twitter}}" target="_blank">
-                {{$user->partnerInfo->twitter}}
-            </a>
-        @else
-            @svg('heroicon-o-no-symbol')
-        @endif
-    </div>
-
-    <div class="cp-socials-item">
-        <img src="{{Vite::image('linkedin.svg')}}" alt="Linkedin">
-        @if($user->partnerInfo->linkedin)
-            <a href="{{$user->partnerInfo->linkedin}}" target="_blank">
-                {{$user->partnerInfo->linkedin}}
-            </a>
-        @else
-            @svg('heroicon-o-no-symbol')
-        @endif
-    </div>
-
-    <div class="cp-socials-item">
-        <img src="{{Vite::image('vimeo.svg')}}" alt="Vimeo">
-        @if($user->partnerInfo->vimeo)
-            <a href="{{$user->partnerInfo->vimeo}}" target="_blank">
-                {{$user->partnerInfo->vimeo}}
-            </a>
-        @else
-            @svg('heroicon-o-no-symbol')
-        @endif
-    </div>
+    @include('web.partner.popup.edit-www')
 </div>
 
-<hr>
-
-@include('web.partner.popup.edit-www')
 

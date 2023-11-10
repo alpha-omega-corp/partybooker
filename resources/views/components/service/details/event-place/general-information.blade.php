@@ -65,7 +65,7 @@
             </x-service.ul>
         @endif
 
-        @if($details->oth_facilities)
+        @if(json_decode($details->oth_facilities))
             <x-service.ul>
                 @foreach (json_decode($details->oth_facilities) as $item)
                     <li>

@@ -9,61 +9,55 @@
         <div class="container">
             <section data-id="{{ $partner->id_partner }}" class="partner-details">
 
-                <div class="partner-logo">
-                    @if ($partner->logo)
-                        <img src="{{ '/storage/logos/' . $partner->logo }}"
-                             alt="Rejoindre notre sélection pour augmenter votre chiffre d'affaire"
-                             class="logo"/>
-                    @else
-                        <img src="{{Vite::image('logoPB.png')}}" alt="logo" class="logo"/>
-                    @endif
-                </div>
+                <div class="service-header">
 
-                <div>
-
-                    <h1 class="display-3 fw-bold text-uppercase mt-2">
-
-                        @if (app()->getLocale() == 'en')
-                            {{ $partner->en_company_name }}
-                        @else
-                            {{ $partner->fr_company_name }}
-                        @endif
-                    </h1>
-
-                </div>
-
-
-                <div class="d-flex partner-contacts">
-                    @if ($partner->is_commission)
-                        <div class="details">
-                            <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/contacts') }}"
-                               class="btn btn-orange">{{ __('service.contact') }}</a>
+                    <div class="d-flex flex-column w-100">
+                        <div>
+                            <h1 class="display-3 fw-bold text-uppercase">
+                                @if (app()->getLocale() == 'en')
+                                    {{ $partner->en_company_name }}
+                                @else
+                                    {{ $partner->fr_company_name }}
+                                @endif
+                            </h1>
                         </div>
-                    @else
-                        <x-partner-info
-                            icon="heroicon-o-phone"
-                            tooltip="phone"
-                            content="{{$partner->company_phone}}"
-                            type="tel"/>
+                        <div class="d-flex partner-contacts">
+                            <x-partner-info
+                                icon="heroicon-o-phone"
+                                tooltip="phone"
+                                content="{{$partner->company_phone}}"
+                                type="tel"/>
 
-                        <x-partner-info
-                            icon="heroicon-o-envelope"
-                            tooltip="email"
-                            content="{{$partner->user->email}}"
-                            type="email"/>
+                            <x-partner-info
+                                icon="heroicon-o-envelope"
+                                tooltip="email"
+                                content="{{$partner->user->email}}"
+                                type="email"/>
 
-                        <x-partner-info
-                            icon="heroicon-o-globe-alt"
-                            tooltip="website"
-                            content="{{$partner->fr_company_name}}"
-                            type="web"/>
+                            <x-partner-info
+                                icon="heroicon-o-globe-alt"
+                                tooltip="website"
+                                content="{{$partner->fr_company_name}}"
+                                type="web"/>
 
-                        <x-partner-info
-                            icon="heroicon-o-map-pin"
-                            tooltip="address"
-                            content="{{$partner->address}}"
-                            type="loc"/>
-                    @endif
+                            <x-partner-info
+                                icon="heroicon-o-map-pin"
+                                tooltip="address"
+                                content="{{$partner->address}}"
+                                type="loc"/>
+                        </div>
+                    </div>
+
+
+                    <div class="partner-logo d-flex justify-content-end align-items-center w-100">
+                        @if ($partner->logo)
+                            <img src="{{ '/storage/logos/' . $partner->logo }}"
+                                 alt="Rejoindre notre sélection pour augmenter votre chiffre d'affaire"
+                            />
+                        @else
+                            <img src="{{Vite::image('logoPB.png')}}" alt="logo"/>
+                        @endif
+                    </div>
                 </div>
 
 
@@ -162,9 +156,6 @@
 
                                 <x-partner-category-tab :tabs="$cats">
                                     <x-slot:title>
-                                        <h2 class="text-uppercase partner-services fw-bold">
-                                            Services
-                                        </h2>
                                         <div class="partner-languages d-flex justify-content-end">
 
                                             @php
@@ -191,9 +182,10 @@
                                             {{ $partner->other_lang ? ', ' . $partner->other_lang : '' }}
                                         </div>
                                     </x-slot:title>
-                                    @foreach ($services as $advert)
+                                    @foreach ($services as $iterator => $advert)
                                         <x-tab.item>
-                                            <x-partner.service-details :advert="$advert" :partner="$partner"/>
+                                            <x-partner.service-details :advert="$advert" :partner="$partner"
+                                                                       :iterator="$iterator"/>
                                         </x-tab.item>
                                     @endforeach
                                 </x-partner-category-tab>

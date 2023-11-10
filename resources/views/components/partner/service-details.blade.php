@@ -32,26 +32,7 @@
                             @break
                         @case('caterer')
                             <x-service.details.caterer.general :details="$advert->service">
-                                <x-slot:editGeneral>
-                                    @include('web.partner.advert.popups.caterer.edit-general', [
-                                    'iterator' => $iterator,
-                                    'advert' => $advert
-                                    ])
-                                </x-slot:editGeneral>
-
-                                <x-slot:editSpecialties>
-                                    @include('web.partner.advert.popups.caterer.edit-specialties', [
-                                    'iterator' => $iterator,
-                                    'advert' => $advert
-                                    ])
-                                </x-slot:editSpecialties>
-
-                                <x-slot:editOther>
-                                    @include('web.partner.advert.popups.caterer.edit-other', [
-                                    'iterator' => $iterator,
-                                    'advert' => $advert
-                                    ])
-                                </x-slot:editOther>
+                                
                             </x-service.details.caterer.general>
                             @break
                         @case('equipment')

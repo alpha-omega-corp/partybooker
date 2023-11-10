@@ -36,6 +36,7 @@
     <script src="{{ asset('/js/jquery.mask.js') }}"></script>
 
     @vite(['resources/js/app.js'])
+    @filamentStyles
 </head>
 
 <body>

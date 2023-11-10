@@ -614,6 +614,7 @@ a {
         border-radius: 20px;
         padding: 30px;
         margin-top: 10px;
+        margin-bottom: 100px;
         @media only screen and (max-width: 767px) {
             margin-top: 20px;
         }
@@ -646,6 +647,7 @@ a {
         border-bottom: 2px solid $accent;
 
         li {
+            list-style-type: none;
             margin-right: 5px;
 
             button {
@@ -767,19 +769,6 @@ a {
         }
     }
 
-    .partner-logo {
-
-        img {
-            height: 80px;
-            margin-top: 100px;
-
-            @media only screen and (max-width: 767px) {
-                margin-top: 100px;
-                height: 40px;
-            }
-        }
-    }
-
     .star-img {
         margin: 4px;
     }
@@ -816,7 +805,7 @@ a {
     }
 
     .partner-contacts {
-        margin-bottom: 50px;
+        margin-bottom: 10px;
     }
 
     .info-element {
@@ -2941,14 +2930,20 @@ html {
 
 
         .cp-socials-item {
+            display: flex;
+            flex-direction: column;
+
+            svg {
+                display: flex;
+                justify-content: center;
+            }
+
             a {
-                color: $gray-700;
-                border-bottom: 1px solid $gray-700;
+                color: $blue;
             }
 
             a:hover {
-                color: $primary;
-                border-bottom: 1px solid $primary;
+                text-decoration: underline;
             }
 
             img {
@@ -3284,6 +3279,8 @@ html {
 
     .stars {
         margin: 0;
+
+
     }
 
     .rating-stat {
@@ -3847,9 +3844,6 @@ html {
     .tab-index {
         padding: 0;
 
-        .book-btn {
-            border-bottom-left-radius: 0;
-        }
 
         .partner-info-text {
             border: 1px solid $gray-300;
@@ -4036,6 +4030,7 @@ html {
             padding: 0;
             margin: 0;
 
+
             button {
                 padding: 10px;
             }
@@ -4118,4 +4113,41 @@ html {
 .dashboard-body {
     border-top: 1px solid $accent;
     padding: 20px;
+}
+
+.star {
+    list-style-type: none;
+}
+
+.service-header {
+    margin-top: 100px;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    border: 1px solid $gray-300;
+
+    img {
+        margin-right: 20px;
+    }
+}
+
+.book-btn {
+    margin-top: 20px;
+}
+
+.dashboard-socials {
+    position: relative;
+    margin: 20px;
+    border: 1px solid $gray-300;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.dashboard-socials:hover {
+    cursor: pointer;
+
+    .dashboard-modal-button {
+        background-color: $accent;
+    }
 }

@@ -225,6 +225,13 @@
                         </x-tab.item>
 
                         <x-tab.item>
+                            <x-dashboard.profile-section icon="heroicon-o-globe-alt">
+                                <x-slot name="title">
+                                    {{ __('partner.socials') }}
+                                    <br>
+                                    {{__('partner.url_website')}}
+                                </x-slot>
+                            </x-dashboard.profile-section>
                             @include('web.partner.profile.www')
                         </x-tab.item>
 

@@ -7,23 +7,10 @@
 
 <x-service.list>
 
-    <x-service.caterer.general-information :details="$details">
-        @if(isset($editGeneral))
-            {{$editGeneral}}
-        @endif
-    </x-service.caterer.general-information>
+    <x-service.details.caterer.general-information :details="$details"/>
+    <x-service.details.caterer.general-specialties :details="$details"/>
+    <x-service.details.caterer.general-other :details="$details"/>
 
-    <x-service.caterer.general-specialties :details="$details">
-        @if(isset($editSpecialties))
-            {{$editSpecialties}}
-        @endif
-    </x-service.caterer.general-specialties>
-
-    <x-service.caterer.general-other :details="$details">
-        @if(isset($editOther))
-            {{$editOther}}
-        @endif
-    </x-service.caterer.general-other>
 
 </x-service.list>
 

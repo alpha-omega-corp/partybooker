@@ -716,7 +716,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-64a9ce12.css",
+    "file": "assets/app-1e4884a9.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -724,9 +724,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-64a9ce12.css"
+      "assets/app-1e4884a9.css"
     ],
-    "file": "assets/app-2e9f7b02.js",
+    "file": "assets/app-5f62f53b.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
@@ -743,7 +743,7 @@
     "src": "resources/js/dashboard.js"
   },
   "resources/sass/admin/admin.scss": {
-    "file": "assets/admin-c74fcd95.css",
+    "file": "assets/admin-adc74296.css",
     "isEntry": true,
     "src": "resources/sass/admin/admin.scss"
   },

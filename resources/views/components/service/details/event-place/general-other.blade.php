@@ -36,17 +36,11 @@
                 @break
             @case('yes-nearby')
                 <div class="d-flex">
-                    <x-service.list-bool :value="'yes'"/>
-                    <div class="d-flex flex-column m-1">
+                    <div class="m-1">
+                        <x-service.list-bool :value="'yes'"/>
+                    </div>
+                    <div class="d-flex flex-column p-1">
                         <span>A proximiter</span>
-
-                        @if(strlen($details->number_questrooms))
-                            <span class="d-flex">
-                            <img src="{{Vite::image('double-bed.svg')}}" class="accommodation-icon" alt="guest room">
-
-                            <span class="p-1">{{$details->number_questrooms}}</span>
-                        </span>
-                        @endif
                     </div>
                 </div>
                 @break
