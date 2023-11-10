@@ -16,7 +16,7 @@
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.available_furniture_equipment')">
-        @if($details->furniture)
+        @if(json_decode($details->furniture))
 
             <x-service.ul>
                 @foreach(json_decode($details->furniture) as $furniture)
@@ -30,7 +30,7 @@
     </x-service.list-item>
 
     <x-service.list-item :title="__('partner.technical_equipment')">
-        @if($details->equipment)
+        @if(json_decode($details->equipment))
             <x-service.ul>
                 @foreach(json_decode($details->equipment) as $equipment)
                     @if (strlen($equipment) > 0 && $equipment != 'other')
@@ -44,7 +44,7 @@
             </x-service.ul>
         @endif
 
-        @if($details->other_eq)
+        @if(json_decode($details->other_eq))
             <x-service.ul>
                 @foreach(json_decode($details->other_eq) as $equipment)
                     @if (strlen($equipment) > 0)
@@ -58,7 +58,7 @@
 
     </x-service.list-item>
 
-    @if($details->yes_af_caterers)
+    @if(json_decode($details->yes_af_caterers))
         <x-service.list-item :title="__('partner.works_with_affiliated_partners')">
 
             <x-service.ul>
