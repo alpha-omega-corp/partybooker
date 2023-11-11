@@ -8,4 +8,6 @@ return [
     'table_capacity' => 'Sitting capacity',
     'nearby' => 'Nearby',
     'item' => 'Item',
+    'delivery-service' => 'Delivery service',
+    'caterer-menu' => 'Menu(s)',
 ];

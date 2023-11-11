@@ -209,6 +209,8 @@
 
 <div class="row">
     <div class="col-lg-10 offset-lg-1">
+
+        
         <label>{{__('partner.your_comment')}}</label>
         <textarea maxlength="500" name="comment"></textarea>
     </div>

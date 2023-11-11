@@ -168,8 +168,8 @@ return [
     'geographical_limit' => "Limite géographique",
     'min_max_guests' => "Capacité Invités",
     'min_max_guests_expl' => "Veuillez indiquer le montant minimum et maximum de repas",
-    'smood_ch_link' => "Lien Smood.ch",
-    'smood_ch_link_expl' => "Êtes-vous partenaire de smood.ch? Veuillez indiquer le lien vers votre annonce smood.",
+    'smood_ch_link' => "Plateformes de livraison",
+    'smood_ch_link_expl' => "Veuillez indiquer le lien vers votre annonce smood, just-eat, uber-eats, etc...",
     'specialties' => "Spécialités",
     'indicate_specialties' => "Indiquer vos spécialités",
     'browse' => "parcourir",
@@ -214,7 +214,7 @@ return [
     'tents' => "Tantes",
 
     //Decoration elements
-    'decoration_elements' => "éléments de décoration",
+    'decoration_elements' => "Eléments de décoration",
     'tablecloths' => "Nappage",
     'towels' => "Serviettes",
     'chair-covers' => "Housses de chaise",

@@ -13,19 +13,18 @@
             display: none !important;
         }
     </style>
-
-    @filamentStyles
     @livewireStyles
+    @filamentStyles
 </head>
 
 <body class="antialiased">
+@vite('resources/js/dashboard.js')
 @filamentScripts
 @livewireScripts
-@vite('resources/js/dashboard.js')
-
 <div class="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8"
      style="background: url({{Vite::image('blob-scene.svg')}}) fixed; background-size: 100% 100%; background-color: teal;">
     <div>
+
         {{ $slot }}
     </div>
 </div>

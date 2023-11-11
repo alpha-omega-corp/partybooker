@@ -8,5 +8,6 @@ return [
     'table_capacity' => 'Personnes assises',
     'nearby' => 'A proximité',
     'item' => 'Valeur',
-
+    'delivery-service' => 'Service de livraison',
+    'caterer-menu' => 'Menu(s)',
 ];

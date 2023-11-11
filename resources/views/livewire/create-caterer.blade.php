@@ -1,3 +1,8 @@
 <div>
-    {{-- Care about people's approval and you will be their prisoner. --}}
+    <form>
+        {{$this->form}}
+        @include('livewire.partials.submit')
+    </form>
+
+    <x-filament-actions::modals/>
 </div>

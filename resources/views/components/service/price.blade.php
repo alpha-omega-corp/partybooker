@@ -7,5 +7,7 @@
         @else
             {{ucfirst(__('partner.'.$details->price_for))}}
         @endif
+
+        <span>: {{$details->price}}</span>
     </p>
 </x-service.list-item>

@@ -7,7 +7,6 @@
 @props(['details'])
 
 <div class="position-relative">
-    {{$slot}}
     <h6 class="text-uppercase">{{__('partner.other_services')}}</h6>
 
     <x-service.list-item :title="__('partner.logistics_service')">
@@ -72,7 +71,7 @@
     <x-service.list-item :title="__('partner.office_equipment')">
         <x-service.ul>
             @foreach (json_decode($details->office) ?? [] as $office)
-                @if (strlen($office) > 0)
+                @if($office != 'other')
                     <li>
                         {{OfficeEquipmentTranslatorHelper::translate($office)}}
                     </li>
@@ -80,10 +79,15 @@
             @endforeach
         </x-service.ul>
 
-    </x-service.list-item>
-
-    <x-service.list-item :title="__('partner.other_service_facilities')">
-        <p>{{$details ? $details->other_services : ""}}</p>
+        @if(json_encode($details->other_services))
+            <x-service.ul>
+                @foreach (json_decode($details->other_services) as $item)
+                    <li>
+                        {{$item}}
+                    </li>
+                @endforeach
+            </x-service.ul>
+        @endif
     </x-service.list-item>
 
     <x-service.comment :value="$details->comment"/>

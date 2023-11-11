@@ -1,3 +1,8 @@
 <div>
-    {{-- If you look to others for fulfillment, you will never truly be fulfilled. --}}
+    <form>
+        {{$this->form}}
+        @include('livewire.partials.submit')
+    </form>
+
+    <x-filament-actions::modals/>
 </div>

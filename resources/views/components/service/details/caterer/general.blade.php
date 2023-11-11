@@ -6,12 +6,9 @@
 @php use App\Helpers\OfficeEquipmentTranslatorHelper; @endphp
 
 <x-service.list>
-
     <x-service.details.caterer.general-information :details="$details"/>
     <x-service.details.caterer.general-specialties :details="$details"/>
     <x-service.details.caterer.general-other :details="$details"/>
-
-
 </x-service.list>
 
 

@@ -21,6 +21,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@alpinejs/intersect": "^3.13.2",
         "@glidejs/glide": "^3.6.0",
         "@googlemaps/js-api-loader": "^1.16.2",
         "@popperjs/core": "^2.11.8",

@@ -8,9 +8,9 @@
                 @svg('heroicon-o-arrows-pointing-out', 'text-primary mt-1')
 
                 <div class="p-1">
-                    <span>{{$item->holiday_start}}</span>
+                    <span>{{$item->start}}</span>
                     -
-                    <span>{{$item->holiday_end}}</span>
+                    <span>{{$item->end}}</span>
                 </div>
             </div>
             <br>

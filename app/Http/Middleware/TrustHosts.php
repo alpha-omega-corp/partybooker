@@ -8,7 +8,7 @@ class TrustHosts extends \Illuminate\Http\Middleware\TrustHosts
     public function hosts(): array
     {
         return [
-            'laravel.test',
+            '^(127.0.0.1|localhost|partybooker.ch)$',
             $this->allSubdomainsOfApplicationUrl(),
         ];
     }

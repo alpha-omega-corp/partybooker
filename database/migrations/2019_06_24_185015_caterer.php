@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class Caterer extends Migration
 {
@@ -14,71 +14,73 @@ class Caterer extends Migration
     public function up()
     {
         Schema::create('caterers', function (Blueprint $table) {
-			$table->increments('id');
+            $table->increments('id');
 
-			//SERVICE PROVIDER ID:
-			$table->string('id_partner', 30);
+            //SERVICE PROVIDER ID:
+            $table->string('id_partner', 30);
 
-			//WORKING SCHEDULE
-			//Annual holidays
-			$table->string('holidays', 350)->nullable();
+            //WORKING SCHEDULE
+            //Annual holidays
+            $table->string('holidays', 350)->nullable();
 
-			//Price
+            //Price
+            $table->integer('price');
+            $table->string('budget', 250);
             $table->string('price_for', 250);
 
-			//Payment methods
-			$table->string('paymeny',300);
-			$table->string('other_payment',100)->nullable();
+            //Payment methods
+            $table->string('paymeny', 300);
+            $table->string('other_payment', 100)->nullable();
 
-			//Deposit on booking
-			$table->string('deposit',300);
+            //Deposit on booking
+            $table->string('deposit', 300);
 
-			//Payment terms & conditions
-			$table->string('p_terms',1000)->nullable();
+            //Payment terms & conditions
+            $table->string('p_terms', 1000)->nullable();
 
-			//GENERAL INFO
-			//Geographocal limit
-			$table->string('geo',350);
+            //GENERAL INFO
+            //Geographocal limit
+            $table->string('geo', 350);
 
-			//Min/max guests
-			$table->integer('min_guests');
-			$table->integer('max_guests');
+            //Min/max guests
+            $table->integer('min_guests');
+            $table->integer('max_guests');
 
-			//Smood.ch link
-			$table->string('smood',100)->nullable();
+            //Smood.ch link
+            $table->string('smood', 100)->nullable();
 
-			//SPECIALITIES
-			//Specialities
-			$table->string('specialities',1000);
+            //SPECIALITIES
+            //Specialities
+            $table->string('specialities', 1000);
 
-			//Menu samples
-			$table->string('menu',500)->nullable();
+            //Menu samples
+            $table->string('menu', 500)->nullable();
 
-			//OTHER SERVICES
-			//Logistic service
-			$table->string('logistic')->nullable();
+            //OTHER SERVICES
+            //Logistic service
+            $table->string('logistic')->nullable();
 
-			//Staff
-			$table->string('staff')->nullable();
+            //Staff
+            $table->string('staff')->nullable();
 
-			//Tableware
-			$table->string('tableware')->nullable();
+            //Tableware
+            $table->string('tableware')->nullable();
 
-			//Furnishing equipment
-			$table->string('furnishing')->nullable();
+            //Furnishing equipment
+            $table->string('furnishing')->nullable();
 
-			//Decoration elements
-			$table->string('decoration')->nullable();
+            //Decoration elements
+            $table->string('decoration')->nullable();
 
-			//Office
-			$table->string('office')->nullable();
+            //Office
+            $table->string('office')->nullable();
 
-			//Other services
-			$table->string('other_services',500)->nullable();
+            //Other services
+            $table->string('other_services', 500)->nullable();
 
-			//COMMENT
-			$table->string('comment',500)->options();
-		});
+            //COMMENT
+            $table->string('comment', 500)->options();
+        });
     }
 
     /**

@@ -92,8 +92,6 @@ class CreateEventPlace extends Component implements HasForms
     public $advertId;
     public $partnerId;
 
-    public $eventPlace = null;
-
     public function mount(int $advertId): void
     {
         $this->form->fill();
@@ -198,8 +196,6 @@ class CreateEventPlace extends Component implements HasForms
 
     public function form(Form $form): Form
     {
-
-
         return $form
             ->schema([
                 Section::make(__('partner.working_schedule'))
@@ -218,8 +214,7 @@ class CreateEventPlace extends Component implements HasForms
                             ->numeric()
                             ->prefixIcon('heroicon-o-currency-dollar')
                             ->hint(__('partner.price_expl'))
-                            ->type('number')
-                            ->step(100),
+                            ->type('number'),
                         Select::make('rateType')
                             ->required()
                             ->label(__('form.rate_type'))
@@ -621,10 +616,10 @@ class CreateEventPlace extends Component implements HasForms
                 ->label(__('partner.annual_holidays'))
                 ->columns(2)
                 ->schema([
-                    DatePicker::make('holiday_start')
+                    DatePicker::make('start')
                         ->native(false)
                         ->required(),
-                    DatePicker::make('holiday_end')
+                    DatePicker::make('end')
                         ->native(false)
                         ->required(),
                 ]),
@@ -654,7 +649,7 @@ class CreateEventPlace extends Component implements HasForms
         ];
     }
 
-    public function create(): Application|\Illuminate\Foundation\Application|RedirectResponse|Redirector
+    public function submit(): Application|\Illuminate\Foundation\Application|RedirectResponse|Redirector
     {
 
         $advert = Advert::where('id', $this->advertId)
@@ -723,8 +718,8 @@ class CreateEventPlace extends Component implements HasForms
         $advert->status = Advert::STATUS_ACTIVE;
         $item->advert()->save($advert);
 
-        return redirect('/partner-cp/' . $this->partnerId . '/advert')
-            ->with('success', 'Event place created successfully.');
+        return redirect()->to('/partner-cp/' . $this->partnerId . '/advert')
+            ->with('success', 'EventPlace advertisement updated.');
     }
 
     public function render(): View

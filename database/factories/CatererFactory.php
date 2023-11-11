@@ -15,6 +15,8 @@ class CatererFactory extends Factory
     public function definition(): array
     {
         return [
+            'price' => 100,
+            'budget' => '1000 CHF',
             'holidays' => 'Samedi, dimanche et jours fériés ; fermeture du 22 décembre au 6 janvier inclus (à confirmer)',
             'price_for' => 'fixed_price_per_person',
             'paymeny' => '["cash","invoice"]',

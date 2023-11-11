@@ -1,3 +1,3 @@
 <div>
-    <livewire:create-event-place/>
+    Hi
 </div>

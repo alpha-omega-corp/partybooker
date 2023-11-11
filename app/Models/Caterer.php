@@ -5,9 +5,11 @@ namespace App\Models;
 
 
 use Database\Factories\CatererFactory;
-use Database\Factories\EntertainmentFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use ReflectionClass;
 
 /**
  * App\Models\Caterer
@@ -34,60 +36,63 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $office
  * @property string|null $other_services
  * @property string|null $comment
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereComment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereDecoration($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereDeposit($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereFurnishing($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereGeo($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereHolidays($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereIdPartner($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereLogistic($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereMaxGuests($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereMenu($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereMinGuests($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereOffice($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereOtherPayment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereOtherServices($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer wherePTerms($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer wherePaymeny($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer wherePriceFor($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereSmood($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereSpecialities($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereStaff($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Caterer whereTableware($value)
- * @mixin \Eloquent
+ * @method static Builder|Caterer newModelQuery()
+ * @method static Builder|Caterer newQuery()
+ * @method static Builder|Caterer query()
+ * @method static Builder|Caterer whereComment($value)
+ * @method static Builder|Caterer whereDecoration($value)
+ * @method static Builder|Caterer whereDeposit($value)
+ * @method static Builder|Caterer whereFurnishing($value)
+ * @method static Builder|Caterer whereGeo($value)
+ * @method static Builder|Caterer whereHolidays($value)
+ * @method static Builder|Caterer whereId($value)
+ * @method static Builder|Caterer whereIdPartner($value)
+ * @method static Builder|Caterer whereLogistic($value)
+ * @method static Builder|Caterer whereMaxGuests($value)
+ * @method static Builder|Caterer whereMenu($value)
+ * @method static Builder|Caterer whereMinGuests($value)
+ * @method static Builder|Caterer whereOffice($value)
+ * @method static Builder|Caterer whereOtherPayment($value)
+ * @method static Builder|Caterer whereOtherServices($value)
+ * @method static Builder|Caterer wherePTerms($value)
+ * @method static Builder|Caterer wherePaymeny($value)
+ * @method static Builder|Caterer wherePriceFor($value)
+ * @method static Builder|Caterer whereSmood($value)
+ * @method static Builder|Caterer whereSpecialities($value)
+ * @method static Builder|Caterer whereStaff($value)
+ * @method static Builder|Caterer whereTableware($value)
+ * @mixin Eloquent
  */
-class Caterer extends Model {
+class Caterer extends Model
+{
     use HasFactory;
-	public $timestamps = false;
 
-	protected $fillable = [
-		"id_partner",
-		"holidays",
-//		"price_for",
-		"paymeny",
-		"other_payment",
-		"deposit",
-		"p_terms",
-		"geo",
-		"min_guests",
-		"max_guests",
-		"smood",
-		"specialities",
-		"menu",
-		"logistic",
-		"staff",
-		"tableware",
-		"furnishing",
-		"decoration",
-		"office",
-		"other_services",
-		"comment",
-	];
+    public $timestamps = false;
+
+    protected $fillable = [
+        "id_partner",
+        "holidays",
+        "price",
+        "budget",
+        "paymeny",
+        "other_payment",
+        "deposit",
+        "p_terms",
+        "geo",
+        "min_guests",
+        "max_guests",
+        "smood",
+        "specialities",
+        "menu",
+        "logistic",
+        "staff",
+        "tableware",
+        "furnishing",
+        "decoration",
+        "office",
+        "other_services",
+        "comment",
+    ];
 
     protected static function newFactory(): CatererFactory
     {
@@ -96,13 +101,13 @@ class Caterer extends Model {
 
 
     public function advert()
-	{
-		return $this->morphOne(Advert::class, 'service', 'service_type', 'service_id');
-	}
+    {
+        return $this->morphOne(Advert::class, 'service', 'service_type', 'service_id');
+    }
 
-	public function getMorphObjectAttribute()
-	{
-		return (new \ReflectionClass($this))->getShortName();
-	}
+    public function getMorphObjectAttribute()
+    {
+        return (new ReflectionClass($this))->getShortName();
+    }
 
 }
