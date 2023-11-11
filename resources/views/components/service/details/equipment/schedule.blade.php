@@ -1,6 +1,5 @@
 <x-service.list>
     <div class="position-relative">
-        {{$slot}}
         <h6 class="text-uppercase">{{__('service.schedule')}}</h6>
 
         <x-service.working-days :days="$details->working_days"/>

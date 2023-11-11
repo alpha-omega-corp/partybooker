@@ -12,6 +12,9 @@ class Equipment extends Migration
             $table->increments('id');
             $table->string('id_partner', 30);
             $table->string('working_days');
+            $table->string('working_time', 1000);
+            $table->integer('price');
+            $table->string('budget');
             $table->time('opening');
             $table->time('closing');
             $table->string('holidays', 350)->nullable();
@@ -22,7 +25,7 @@ class Equipment extends Migration
             $table->string('paymeny', 300);
             $table->string('other_payment', 100)->nullable();
             $table->string('deposit', 300);
-            $table->string('delivery', 300);
+            $table->string('delivery', 300)->nullable();
             $table->string('expences', 300);
             $table->string('geo', 350);
             $table->string('complim_services', 500);

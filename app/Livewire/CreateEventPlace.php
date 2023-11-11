@@ -8,10 +8,10 @@ use App\Helpers\ConveniencesTranslatorHelper;
 use App\Helpers\EventsStaffTranslatorHelper;
 use App\Helpers\FurnitureTranslatorHelper;
 use App\Helpers\OtherServicesTranslatorHelper;
-use App\Helpers\PaymentMethodsTranslatorHelper;
 use App\Helpers\TechnicalEquipmentTranslatorHelper;
 use App\Models\Advert;
 use App\Models\EventPlace;
+use App\Services\FormService;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Fieldset;
@@ -25,10 +25,7 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Routing\Redirector;
 use Livewire\Component;
 
 
@@ -81,7 +78,6 @@ class CreateEventPlace extends Component implements HasForms
 
 
     public $workingDays;
-    public $paymentMethods;
     public $installations;
     public $commodities;
     public $furniture;
@@ -168,11 +164,6 @@ class CreateEventPlace extends Component implements HasForms
         $this->workingDays = collect(['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'])
             ->mapWithKeys(fn($day) => [$day => __('days.' . $day)]);
 
-
-        $this->paymentMethods = collect(PaymentMethodsTranslatorHelper::$_methods)
-            ->mapWithKeys(fn($method) => [$method => PaymentMethodsTranslatorHelper::translate($method)]);
-
-
         $this->installations = collect(BarDanceFloorTranslatorHelper::$_items)
             ->mapWithKeys(fn($item) => [$item => BarDanceFloorTranslatorHelper::translate($item)]);
 
@@ -250,30 +241,7 @@ class CreateEventPlace extends Component implements HasForms
                             ->type('text')
                             ->hidden(fn(Get $get) => $get('deposit') !== 'yes')
                             ->reactive(),
-                        Fieldset::make()
-                            ->columns(2)
-                            ->schema([
-                                CheckboxList::make('allowedPayments')
-                                    ->required()
-                                    ->label(__('partner.payment_methods'))
-                                    ->options($this->paymentMethods)
-                                    ->gridDirection('row')
-                                    ->columns(3)
-                                    ->reactive()
-                                    ->hint(__('partner.payment_methods_expl'))
-                                    ->bulkToggleable(),
-
-                                Repeater::make('allowedPaymentsMore')
-                                    ->label(__('form.detail') . ' ' . strtolower(__('partner.payment_methods')))
-                                    ->reactive()
-                                    ->hidden(fn(Get $get): bool => !in_array('other', $get('allowedPayments')))
-                                    ->schema([
-                                        TextInput::make('name')
-                                            ->label(__('form.item'))
-                                            ->type('text')
-                                            ->required(),
-                                    ]),
-                            ])
+                        (new FormService())->PaymentFieldset(),
                     ]),
                 Section::make(__('partner.service_general_info'))
                     ->columns(3)
@@ -578,6 +546,7 @@ class CreateEventPlace extends Component implements HasForms
                     ->columns(1)
                     ->schema([
                         Textarea::make('comments')
+                            ->required()
                             ->label(__('partner.your_comment'))
                             ->hint(__('partner.want_to_add_something_expl'))
                             ->maxLength(1024)
@@ -649,7 +618,7 @@ class CreateEventPlace extends Component implements HasForms
         ];
     }
 
-    public function submit(): Application|\Illuminate\Foundation\Application|RedirectResponse|Redirector
+    public function submit(): void
     {
 
         $advert = Advert::where('id', $this->advertId)
@@ -664,6 +633,7 @@ class CreateEventPlace extends Component implements HasForms
         } else {
             $item = new EventPlace();
         }
+        $item->id_partner = $this->partnerId;
         $item->working_days = json_encode($data['days']);
         $item->opening = $data['timetable'][0]['open'];
         $item->closing = $data['timetable'][0]['close'];
@@ -707,19 +677,10 @@ class CreateEventPlace extends Component implements HasForms
         $item->more_services = isset($data['otherServicesValuesMore']) ? json_encode(array_column($data['otherServicesValuesMore'], 'name')) : null;
         $item->other_payment = isset($data['allowedPaymentsMore']) ? json_encode(array_column($data['allowedPaymentsMore'], 'name')) : null;
         $item->other_price = $data['rateTypeOther'];
-
-        $item->id_partner = $this->partnerId;
         $item->save();
-
-        $advert = Advert::where('id', $this->advertId)
-            ->where('partners_info_id', auth()->user()->partnerInfo->id)
-            ->first();
 
         $advert->status = Advert::STATUS_ACTIVE;
         $item->advert()->save($advert);
-
-        return redirect()->to('/partner-cp/' . $this->partnerId . '/advert')
-            ->with('success', 'EventPlace advertisement updated.');
     }
 
     public function render(): View

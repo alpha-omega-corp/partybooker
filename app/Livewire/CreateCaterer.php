@@ -328,7 +328,7 @@ class CreateCaterer extends Component implements HasForms
             ]);
     }
 
-    public function submit()
+    public function submit(): void
     {
         $advert = Advert::where('id', $this->advertId)
             ->where('partners_info_id', auth()->user()->partnerInfo->id)
@@ -343,6 +343,7 @@ class CreateCaterer extends Component implements HasForms
             $item = new Caterer();
         }
 
+        $item->id_partner = $this->partnerId;
         $item->holidays = json_encode($data['holidays']);
         $item->price_for = 'fixed_price_per_person';
         $item->paymeny = json_encode($data['allowedPayments']);
@@ -370,14 +371,8 @@ class CreateCaterer extends Component implements HasForms
             ? json_encode(array_column($data['officeEquipmentMore'], 'name'))
             : null;
 
-        $item->id_partner = $this->partnerId;
-
-
-        $advert = Advert::where('id', $this->advertId)
-            ->where('partners_info_id', auth()->user()->partnerInfo->id)
-            ->first();
-
         $item->save();
+
         $advert->status = Advert::STATUS_ACTIVE;
         $item->advert()->save($advert);
     }

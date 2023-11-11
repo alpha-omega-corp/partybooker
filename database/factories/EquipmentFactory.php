@@ -11,9 +11,13 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class EquipmentFactory extends Factory
 {
     protected $model = Equipment::class;
+
     public function definition(): array
     {
         return [
+            'working_time' => '[{"open":"12:00","close":"14:30","description":"Salle Doo"},{"open":"19:00","close":"22:45","description":"Salle Boo"}]',
+            'price' => 100,
+            'budget' => '1000 CHF',
             'working_days' => '["mon", "tue", "wed", "thu", "fri", "sat", "sun"]',
             'opening' => '8:00:00',
             'closing' => '23:00:00',

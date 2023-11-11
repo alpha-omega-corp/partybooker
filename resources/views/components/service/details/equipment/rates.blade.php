@@ -1,6 +1,5 @@
 <x-service.list>
     <div class="position-relative">
-        {{$slot}}
         <h6 class="text-uppercase">{{__('service.rates')}}</h6>
 
         <x-service.price :details="$details"/>
@@ -13,7 +12,13 @@
         </x-service.list-item>
 
         <x-service.list-item :title="__('partner.additional_expenses')">
-            <p>{{$details->expences}}</p>
+            @if(json_decode($details->expences))
+                <x-service.ul>
+                    @foreach(json_decode($details->expences) as $x)
+                        <li>{{$x}}</li>
+                    @endforeach
+                </x-service.ul>
+            @endif
         </x-service.list-item>
     </div>
 </x-service.list>
