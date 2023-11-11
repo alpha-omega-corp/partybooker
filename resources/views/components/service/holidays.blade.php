@@ -8,9 +8,13 @@
                 @svg('heroicon-o-arrows-pointing-out', 'text-primary mt-1')
 
                 <div class="p-1">
-                    <span>{{$item->start}}</span>
+                    @if(isset($item->start))
+                        <span>{{$item->start}}</span>
+                    @endif
                     -
-                    <span>{{$item->end}}</span>
+                    @if(isset($item->end))
+                        <span>{{$item->end}}</span>
+                    @endif
                 </div>
             </div>
             <br>
