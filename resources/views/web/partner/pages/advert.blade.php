@@ -96,7 +96,7 @@
                     __('partner.nav-gallery'),
                     __('partner.nav-option'),
                     'Description',
-                    'Socials',
+                    __('partner.socials'),
                     __('partner.nav-ratings'),
                     __('partner.nav-coordinates'),
                     'Contact']">

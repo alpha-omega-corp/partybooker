@@ -5,9 +5,11 @@ namespace App\Models;
 
 
 use Database\Factories\EntertainmentFactory;
-use Database\Factories\WineFactory;
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use ReflectionClass;
 
 /**
  * App\Models\Entertainment
@@ -34,77 +36,81 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $biography
  * @property string|null $reference
  * @property string|null $comment
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereAdditionalExp($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereBiography($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereComment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereDeposit($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereDuration($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereEqNotIncl($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereEquipment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereExtTrue($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereExtansion($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereGeo($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereHolidays($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereIdPartner($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereOtherPayment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereOtherPrice($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereParticipants($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment wherePaymeny($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment wherePriceFor($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereReference($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereServices($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereTravellingExp($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Entertainment whereWorkingDays($value)
- * @mixin \Eloquent
+ * @method static Builder|Entertainment newModelQuery()
+ * @method static Builder|Entertainment newQuery()
+ * @method static Builder|Entertainment query()
+ * @method static Builder|Entertainment whereAdditionalExp($value)
+ * @method static Builder|Entertainment whereBiography($value)
+ * @method static Builder|Entertainment whereComment($value)
+ * @method static Builder|Entertainment whereDeposit($value)
+ * @method static Builder|Entertainment whereDuration($value)
+ * @method static Builder|Entertainment whereEqNotIncl($value)
+ * @method static Builder|Entertainment whereEquipment($value)
+ * @method static Builder|Entertainment whereExtTrue($value)
+ * @method static Builder|Entertainment whereExtansion($value)
+ * @method static Builder|Entertainment whereGeo($value)
+ * @method static Builder|Entertainment whereHolidays($value)
+ * @method static Builder|Entertainment whereId($value)
+ * @method static Builder|Entertainment whereIdPartner($value)
+ * @method static Builder|Entertainment whereOtherPayment($value)
+ * @method static Builder|Entertainment whereOtherPrice($value)
+ * @method static Builder|Entertainment whereParticipants($value)
+ * @method static Builder|Entertainment wherePaymeny($value)
+ * @method static Builder|Entertainment wherePriceFor($value)
+ * @method static Builder|Entertainment whereReference($value)
+ * @method static Builder|Entertainment whereServices($value)
+ * @method static Builder|Entertainment whereTravellingExp($value)
+ * @method static Builder|Entertainment whereWorkingDays($value)
+ * @mixin Eloquent
  */
 class Entertainment extends Model
 {
     use HasFactory;
-	public $table = 'entertainment';
 
-	public $timestamps = false;
+    public $table = 'entertainment';
 
-	protected $fillable = [
-		'id_partner',
-		'working_days',
-		'duration',
-		'holidays',
-//		'price_for',
-//		'other_price',
-		'extansion',
-		'ext_true',
-		'paymeny',
-		'other_payment',
-		'deposit',
-		'travelling_exp',
-		'additional_exp',
-		'geo',
-		'services',
-		'participants',
-		'equipment',
-		'eq_not_incl',
-		'biography',
-		'reference',
-		'comment',
-	];
+    public $timestamps = false;
+
+    protected $fillable = [
+        'id_partner',
+        'working_days',
+        'working_time',
+        'duration',
+        'holidays',
+        'price_for',
+        'other_price',
+        'extansion',
+        'ext_true',
+        'paymeny',
+        'other_payment',
+        'deposit',
+        'travelling_exp',
+        'additional_exp',
+        'geo',
+        'services',
+        'participants',
+        'equipment',
+        'eq_not_incl',
+        'biography',
+        'reference',
+        'price',
+        'budget',
+        'comment',
+    ];
 
     protected static function newFactory(): EntertainmentFactory
     {
         return EntertainmentFactory::new();
     }
 
-	public function advert()
-	{
-		return $this->morphOne(Advert::class, 'service', 'service_type', 'service_id');
-	}
+    public function advert()
+    {
+        return $this->morphOne(Advert::class, 'service', 'service_type', 'service_id');
+    }
 
-	public function getMorphObjectAttribute()
-	{
-		return (new \ReflectionClass($this))->getShortName();
-	}
+    public function getMorphObjectAttribute()
+    {
+        return (new ReflectionClass($this))->getShortName();
+    }
 
 }

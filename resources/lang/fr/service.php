@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'activity' => 'Activité',
     'coord' => 'Coordonnées',
     'listings' => 'Annonces',
     'leave_rating' => 'Laisser une note',

@@ -2,17 +2,14 @@
 
 namespace App\Livewire;
 
-use App\Helpers\BudgetsHelper;
 use App\Models\Advert;
 use App\Models\Equipment;
 use App\Services\FormService;
-use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -51,8 +48,6 @@ class CreateEquipment extends Component implements HasForms
 
     public $advertId;
     public $partnerId;
-    public $workingDays;
-
 
     public function mount(int $advertId): void
     {
@@ -106,25 +101,13 @@ class CreateEquipment extends Component implements HasForms
         }
     }
 
-    public function boot(): void
-    {
-        $this->workingDays = collect(['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'])
-            ->mapWithKeys(fn($day) => [$day => __('days.' . $day)]);
-    }
-
     public function form(Form $form): Form
     {
         return $form
             ->schema([
                 Section::make(__('partner.working_schedule'))
                     ->schema([
-                        CheckboxList::make('days')
-                            ->required()
-                            ->label(__('partner.working_days'))
-                            ->options($this->workingDays)
-                            ->gridDirection('row')
-                            ->columns(7)
-                            ->bulkToggleable(),
+                        (new FormService())->WorkingDays(),
                         Fieldset::make()
                             ->columns(2)
                             ->schema([
@@ -173,56 +156,7 @@ class CreateEquipment extends Component implements HasForms
                 Section::make(__('partner.rates_conditions'))
                     ->columns(3)
                     ->schema([
-                        Fieldset::make()
-                            ->columns(3)
-                            ->schema([
-                                TextInput::make('rate')
-                                    ->required()
-                                    ->label(__('partner.price'))
-                                    ->numeric()
-                                    ->prefixIcon('heroicon-o-currency-dollar')
-                                    ->hint(__('partner.price_expl'))
-                                    ->type('number'),
-                                Select::make('rateType')
-                                    ->required()
-                                    ->label(__('form.rate_type'))
-                                    ->reactive()
-                                    ->options([
-                                        'space_rental_price_per_hour' => ucfirst(__('partner.space_rental_price_per_hour')),
-                                        'fixed_price_per_person' => ucfirst(__('partner.fixed_price_per_person')),
-                                        'flat_rate_for_service' => ucfirst(__('partner.flat_rate_for_service')),
-                                        'other' => __('become_partner.other')
-                                    ])->native(false),
-                                TextInput::make('rateTypeOther')
-                                    ->label(__('become_partner.other'))
-                                    ->type('text')
-                                    ->hidden(fn(Get $get) => $get('rateType') !== 'other')
-                                    ->reactive(),
-                            ]),
-                        Fieldset::make()
-                            ->columns(3)
-                            ->schema([
-                                Select::make('budget')
-                                    ->required()
-                                    ->label(__('partner.budget'))
-                                    ->options(BudgetsHelper::$_budgets)
-                                    ->native(false),
-                                Radio::make('deposit')
-                                    ->required()
-                                    ->label(__('partner.booking_deposit'))
-                                    ->options([
-                                        'yes' => __('form.yes'),
-                                        'no' => __('form.no'),
-                                    ])
-                                    ->descriptions([
-                                        'yes' => __('partner.booking_deposit_expl'),
-                                    ])->reactive(),
-                                TextInput::make('depositDescription')
-                                    ->label(__('form.detail'))
-                                    ->type('text')
-                                    ->hidden(fn(Get $get) => $get('deposit') !== 'yes')
-                                    ->reactive(),
-                            ]),
+
                         (new FormService())->PaymentFieldset(),
                         Repeater::make('expensesMore')
                             ->label(__('partner.additional_expenses'))

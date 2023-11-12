@@ -15,6 +15,9 @@ class EntertainmentFactory extends Factory
     public function definition(): array
     {
         return [
+            'working_time' => '[{"open":"12:00","close":"14:30","description":"Salle Doo"},{"open":"19:00","close":"22:45","description":"Salle Boo"}]',
+            'price' => 100,
+            'budget' => '199 CHF',
             'working_days' => '["mon","tue","wed","thu","fri"]',
             'duration' => 'Un set dure 45 minutes. Possibilité de plusieurs sets possibles.',
             'holidays' => null,

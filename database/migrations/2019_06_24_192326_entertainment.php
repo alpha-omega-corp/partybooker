@@ -16,8 +16,11 @@ class Entertainment extends Migration
         Schema::create('entertainment', function (Blueprint $table) {
             $table->increments('id');
             $table->string('id_partner', 30);
+            $table->integer('price');
+            $table->string('budget', 250);
             $table->string('working_days');
-            $table->string('duration');
+            $table->string('working_time', 1000);
+            $table->string('duration', 1000);
             $table->string('holidays', 350)->nullable();
             $table->string('price_for', 250);
             $table->string('other_price', 250)->nullable();

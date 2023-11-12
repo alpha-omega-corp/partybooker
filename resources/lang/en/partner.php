@@ -12,7 +12,6 @@ return [
 
     'extansion' => 'Prolongation details',
 
-
     'Become a partner' => 'Become a partner',
     'Register' => 'Register',
     'Our benefits' => 'Our benefits',
@@ -123,7 +122,7 @@ return [
 
     //Company details
     'link' => 'Link URL',
-    'socials' => 'Social Networks',
+    'socials' => 'Networks',
     //details
     'service_details' => 'Service details',
     'fill_service_details' => 'Please fill your service details for publishing.',

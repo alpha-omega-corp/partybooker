@@ -123,7 +123,7 @@ return [
 
     //Company details
     'link' => "Lien URL",
-    'socials' => 'Réseaux Sociaux',
+    'socials' => 'Réseaux',
 
     //details
     'service_details' => "Service(s) détaillé(s)",
