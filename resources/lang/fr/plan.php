@@ -9,5 +9,6 @@ return [
     'commission' => 'Commission',
     'per_month' => '/ mois',
     'supported_credit_cards' => 'Cartes de crédit prises en charge',
-    'payment_processing_by' => 'Traitement des paiements par'
+    'payment_processing_by' => 'Traitement des paiements par',
+    'choose' => 'Choisir un plan',
 ];

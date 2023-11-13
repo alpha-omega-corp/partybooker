@@ -89,8 +89,6 @@
                 </x-dashboard.header>
 
                 <div class="profile-info advert-info mt-5">
-
-
                     <x-partner-category-tab
                         :tabs="[
                     __('partner.nav-gallery'),
@@ -99,7 +97,9 @@
                     __('partner.socials'),
                     __('partner.nav-ratings'),
                     __('partner.nav-coordinates'),
-                    'Contact']">
+                      'Plan',
+                    'Contact'
+                  ]">
                         <x-slot name="title">
                             <div>
                                 <div class="serviceDetails">
@@ -271,8 +271,29 @@
                                     <button type="submit" class="btn btn-accent w-100">Save</button>
                                 </form>
                             </x-dashboard.profile-section>
+                        </x-tab.item>
 
+                        <x-tab.item>
+                            <x-dashboard.profile-section icon="heroicon-o-home-modern">
+                                <x-slot name="title">
+                                    Plan
+                                    <span class="{{'bg-' . $user->partnerInfo->plan}} p-1 m-1 rounded">
+                                    {{$user->partnerInfo->plan}}
+                                    </span>
+                                </x-slot>
 
+                                <div class="p-4">
+                                    @if($user->subscribed('PartyBooker'))
+                                        <x-dashboard.card :title="__('partner.plan_options')">
+                                            <div class="active-plan">
+                                                @include('web.partner.partials.dashboard.active-plan')
+                                            </div>
+                                        </x-dashboard.card>
+                                    @else
+                                        <x-dashboard.trial :user="$user"/>
+                                    @endif
+                                </div>
+                            </x-dashboard.profile-section>
                         </x-tab.item>
 
                         <x-tab.item>
@@ -331,6 +352,7 @@
 
                             </section>
                         </x-tab.item>
+
                     </x-partner-category-tab>
                 </div>
             </div>

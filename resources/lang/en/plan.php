@@ -9,5 +9,7 @@ return [
     'commission' => 'Commission',
     'per_month' => '/ month',
     'supported_credit_cards' => 'Supported credit cards',
-    'payment_processing_by' => 'Payment processing by'
+    'payment_processing_by' => 'Payment processing by',
+    'choose' => 'Choose a plan',
+
 ];

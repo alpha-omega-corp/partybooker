@@ -6,11 +6,10 @@
     <div class="row">
         <div class="d-flex">
             <div>
-                <h2 class="fw-bold text-uppercase {{'text-' . \Illuminate\Support\Facades\Auth::user()->partnerInfo->currentPlan->name}}">
+                <h2 class="fw-bold text-uppercase text-standard">
                     {{$title}}
                 </h2>
             </div>
-
 
             <div class="d-flex align-items-start justify-content-start">
                 <div class="dashboard-card-badge">

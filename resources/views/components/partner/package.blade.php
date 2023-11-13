@@ -32,7 +32,7 @@
             <li>
                 <img src="{{ Vite::image('video-player.svg') }}" alt="video"/>
 
-                <div class="package-categories {{ 'text-' . $plan->name }}">
+                <div class="package-categories {{ 'text-' . $plan->name }} fw-bold">
                     {{ __('become_partner.video') }}
                 </div>
             </li>

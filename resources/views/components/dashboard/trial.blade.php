@@ -1,3 +1,4 @@
+@php use App\Http\Middleware\LocaleMiddleware; @endphp
 @props([
     'user'
 ])
@@ -10,4 +11,11 @@
             {{__('partner.trial_ends', ['date' => $user->trial_ends_at->format('d M Y')])}}
         </x-dashboard.card-info>
     </div>
+    <hr>
+    <a class="choose-plan"
+       data-tippy-content="{{__('partner.my_plan')}}"
+       href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/plans">
+        @svg('heroicon-o-swatch')
+        {{__('plan.choose')}}
+    </a>
 @endif
