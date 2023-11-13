@@ -77,6 +77,7 @@
                     </button>
 
                     <button class="btn btn-secondary"
+                            type="button"
                             x-data="{target: 'editCompanyDescription-close'}"
                             @click="document.getElementById(target).click()">
                         Close

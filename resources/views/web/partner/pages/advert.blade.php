@@ -135,7 +135,7 @@
                                             $allowed = $data['count'];
                                         @endphp
 
-                                        <div class="d-flex flex-wrap justify-content-start">
+                                        <div class="d-flex flex-wrap justify-content-center">
 
                                             @if(count($data['images']) > 0)
                                                 @foreach($data['images'] as $img)
@@ -185,35 +185,43 @@
                                 <div class="company-description-card" x-data="{modal: 'editCompanyDescription'}"
                                      @click="openModalPrevent(modal)">
                                     <div class="d-flex justify-content-start">
-                                        <img src="{{Vite::image('icons/france.svg')}}" alt="french">
-                                        <x-dashboard.company-description-item
-                                            :title="__('become_partner.slogan')"
-                                            :item="$user->partnerInfo->fr_slogan"/>
+                                        <div class="company-description-flag">
+                                            <img src="{{Vite::image('icons/france.svg')}}" alt="french">
+                                        </div>
+                                        <div class="company-description-row">
+                                            <x-dashboard.company-description-item
+                                                :title="__('become_partner.slogan')"
+                                                :item="$user->partnerInfo->fr_slogan"/>
 
-                                        <x-dashboard.company-description-item
-                                            :title="__('become_partner.short_descr')"
-                                            :item="$user->partnerInfo->fr_short_descr"/>
+                                            <x-dashboard.company-description-item
+                                                :title="__('become_partner.short_descr')"
+                                                :item="$user->partnerInfo->fr_short_descr"/>
 
-                                        <x-dashboard.company-description-item
-                                            :title="__('become_partner.full_descr')"
-                                            :item="$user->partnerInfo->fr_full_descr"/>
+                                            <x-dashboard.company-description-item
+                                                :title="__('become_partner.full_descr')"
+                                                :item="$user->partnerInfo->fr_full_descr"/>
+                                        </div>
                                     </div>
                                     <!-- English -->
-                                    <div class="d-flex justify-content-start">
-                                        <img src="{{Vite::image('icons/uk-flag.svg')}}" alt="english">
+                                    <div class="d-flex justify-content-start mt-5">
+                                        <div class="company-description-flag">
+                                            <img src="{{Vite::image('icons/uk-flag.svg')}}" alt="english">
+                                        </div>
 
-                                        <x-dashboard.company-description-item
-                                            :title="__('become_partner.slogan')"
-                                            :item="$user->partnerInfo->en_slogan"/>
+                                        <div class="company-description-row">
 
-                                        <x-dashboard.company-description-item
-                                            :title="__('become_partner.short_descr')"
-                                            :item="$user->partnerInfo->en_short_descr"/>
+                                            <x-dashboard.company-description-item
+                                                :title="__('become_partner.slogan')"
+                                                :item="$user->partnerInfo->en_slogan"/>
 
-                                        <x-dashboard.company-description-item
-                                            :title="__('become_partner.full_descr')"
-                                            :item="$user->partnerInfo->en_full_descr"/>
+                                            <x-dashboard.company-description-item
+                                                :title="__('become_partner.short_descr')"
+                                                :item="$user->partnerInfo->en_short_descr"/>
 
+                                            <x-dashboard.company-description-item
+                                                :title="__('become_partner.full_descr')"
+                                                :item="$user->partnerInfo->en_full_descr"/>
+                                        </div>
 
                                         @include('web.partner.popup.edit-company-description')
 
@@ -267,8 +275,10 @@
                                 }}">
                                     @csrf
                                     @include('partial.map_company')
-                                    <hr>
-                                    <button type="submit" class="btn btn-accent w-100">Save</button>
+
+                                    <button type="submit"
+                                            class="btn text-accent w-100  p-4">Save
+                                    </button>
                                 </form>
                             </x-dashboard.profile-section>
                         </x-tab.item>

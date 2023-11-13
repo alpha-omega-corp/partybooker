@@ -3014,9 +3014,12 @@ html {
     cursor: pointer;
     border: 1px solid $gray-300;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
 
     .stat-card-title {
-        padding: 10px;
 
         svg {
             color: $accent;
@@ -3036,7 +3039,6 @@ html {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-right: 20px;
     }
 }
 
@@ -3550,7 +3552,7 @@ html {
 .rating-stat-votes {
     border: 1px solid $gray-300;
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     border-radius: 20px;
 
     svg {
@@ -3570,15 +3572,27 @@ html {
 }
 
 .company-description-card {
-    border: 1px solid $gray-300;
-    border-radius: 20px;
-    margin: 20px;
     position: relative;
+    padding: 20px;
 
+    .company-description-row {
+        display: flex;
+        align-items: baseline;
+
+        @media only screen and (max-width: 1220px) {
+            flex-direction: row;
+        }
+    }
+
+    .company-description-flag {
+        display: flex;
+        align-items: start;
+        margin-left: 20px;
+    }
 
     img {
-        width: 40px;
-        margin-left: 20px;
+        width: 20px;
+
     }
 
     .modal-content {
@@ -3599,8 +3613,8 @@ html {
         flex-direction: column;
         justify-content: start;
         align-items: start;
-        border-bottom: 1px solid $gray-300;
-        padding: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
 
         h5 {
             text-align: start;
@@ -3656,6 +3670,7 @@ html {
         .tab-overflow {
             padding: 0;
             border-bottom: 0;
+            overflow-x: scroll;
 
             button {
                 background-color: #fff !important;
@@ -4158,4 +4173,8 @@ html {
 
 .capacity-description {
     margin-left: 20px;
+}
+
+.tab-overflow {
+    overflow-x: scroll !important;
 }

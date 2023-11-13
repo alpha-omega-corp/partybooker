@@ -5,7 +5,7 @@
     'image' => null,
 ])
 
-<div class="dashboard-stat-card" data-tippy-content="{{ $title }}">
+<div class="dashboard-stat-card d-flex flex-column" data-tippy-content="{{ $title }}">
     <div class="stat-card-title">
         @if($icon)
             @svg($icon)
@@ -14,7 +14,9 @@
         @if($image)
             <img src="{{ Vite::image($image) }}" alt="{{ $title }}"/>
         @endif
+
+        <div class="stat-value d-flex justify-content-center w-100">{{ $value }}</div>
+
     </div>
-    <div class="stat-value w-100">{{ $value }}</div>
 
 </div>

@@ -5,6 +5,7 @@
     :action="Auth::user()->type == 'admin'
             ? url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/partner-cp/edit-contacts')
             : url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-contacts')"
+    size="modal-md"
     method="POST">
 
 

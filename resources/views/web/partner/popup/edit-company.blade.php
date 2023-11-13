@@ -6,6 +6,7 @@
         ? url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/partner-cp/edit-company')
         : url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-company')"
     :hasFiles="true"
+    size="modal-md"
     method="POST">
 
 
@@ -28,7 +29,7 @@
     </div>
 
 
-    <div id="filename" class="m-2 text-dark d-flex align-items-center logo-edit"
+    <div id="filename" class="m-2 text-dark d-flex align-items-center justify-content-center logo-edit"
          x-data="{target: 'logo-btn'}" @click="document.getElementById(target).click()">
         @if ($user->partnerInfo->logo)
             <div class="d-flex flex-column edit-logo">
@@ -50,11 +51,11 @@
     </div>
 
     <div class="d-flex p-3">
-        <div class="edit-company-details w-100">
+        <div class="edit-company-details w-100 p-2">
             <label class="label-underline">
                 {{__('become_partner.company_info')}}
             </label>
-            <div class="p-4 pt-0">
+            <div class="pt-1">
                 <x-dashboard.input name="company_name"
                                    :value="$user->partnerInfo->en_company_name"
                                    :placeholder="__('partybooker-cp.company_name')"
@@ -77,7 +78,7 @@
             </div>
         </div>
 
-        <div class="languages w-100">
+        <div class="languages p-2">
             <label>{{ __('partybooker-cp.languages')}}</label>
 
             <div class="p-1">
