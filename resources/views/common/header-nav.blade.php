@@ -38,18 +38,14 @@
                 </div>
             </div>
 
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" data-bs-scroll="true"
+                 data-bs-backdrop="false"
                  aria-labelledby="offcanvasNavbarLabel">
 
                 <div class="offcanvas-body">
                     <div class="navigation h-full">
-                        <div class="nav-logo-container">
-                            <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}"
-                               class="nav-logo">
-                                <img src="{{ Vite::image('logoPB.png') }}"
-                                     alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande.">
+                        <div class="nav-logo-container mt-5">
 
-                            </a>
                             <div class="position-absolute close-container">
                                 <button type="button" class="btn-close btn-close-white nav-sm-close"
                                         data-bs-dismiss="offcanvas" aria-label="Close"></button>

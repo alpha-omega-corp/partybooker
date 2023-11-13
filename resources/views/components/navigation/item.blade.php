@@ -6,17 +6,22 @@
 ])
 
 <li class="nav-item" data-tippy-content="{{ $tooltip }}">
-    <a page="{{$page}}" href="{{ $href }}"
-       class="nav-link d-flex align-items-center justify-content-center
-        {{$page == 'listing' ? 'bg-accent' : ''}}
-       "
+    <div class="d-flex justify-content-center align-items-center">
+        <a page="{{$page}}" href="{{ $href }}"
+           class="nav-link d-flex align-items-center justify-content-center bg-accent m-2"
 
-       aria-current="{{$page}}">
+           aria-current="{{$page}}">
+            <div class="rounded-circle bg-accent p-2">
 
-        @svg($icon, 'nav-icon')
-        <span class="nav-sm-text">
-            {{ $tooltip }}
-        </span>
 
-    </a>
+                @svg($icon, 'nav-icon')
+                <span class="nav-sm-text">
+                    {{ $tooltip }}
+                </span>
+
+
+            </div>
+        </a>
+
+    </div>
 </li>

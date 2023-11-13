@@ -1914,9 +1914,6 @@ a {
 
 
     .offcanvas-body {
-        width: 140px;
-        padding: 0;
-
         @media only screen and (max-width: 767px) {
             width: 300px;
 
@@ -1949,17 +1946,18 @@ a {
         margin-top: 20px;
 
         .nav-item {
-            height: 60px;
-            background-color: $primary;
 
             a {
-                padding: 0;
-                height: 100%;
+                border-radius: 50%;
+
+                padding: 10px;
 
                 .nav-icon {
-                    color: $gray-100;
-                    width: 30px;
-                    height: 30px;
+                    color: #fff;
+                    width: 20px;
+                    height: 20px;
+                    display: flex;
+                    align-items: center;
                 }
             }
 
