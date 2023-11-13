@@ -115,6 +115,10 @@
     "file": "assets/bluesky-964e5401.png",
     "src": "resources/images/bluesky.png"
   },
+  "resources/images/bronze-medal.svg": {
+    "file": "assets/bronze-medal-fa618c16.svg",
+    "src": "resources/images/bronze-medal.svg"
+  },
   "resources/images/bushes.png": {
     "file": "assets/bushes-e61ccd3d.png",
     "src": "resources/images/bushes.png"
@@ -294,6 +298,10 @@
   "resources/images/german.svg": {
     "file": "assets/german-e0a5a75e.svg",
     "src": "resources/images/german.svg"
+  },
+  "resources/images/gold-medal.svg": {
+    "file": "assets/gold-medal-d002dc81.svg",
+    "src": "resources/images/gold-medal.svg"
   },
   "resources/images/google.svg": {
     "file": "assets/google-cd62522b.svg",
@@ -595,6 +603,10 @@
     "file": "assets/shuttle-4a93f726.svg",
     "src": "resources/images/shuttle.svg"
   },
+  "resources/images/silver-medal.svg": {
+    "file": "assets/silver-medal-936099d3.svg",
+    "src": "resources/images/silver-medal.svg"
+  },
   "resources/images/sky.png": {
     "file": "assets/sky-87d29565.png",
     "src": "resources/images/sky.png"
@@ -716,7 +728,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-28a47e3f.css",
+    "file": "assets/app-268b1123.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -724,9 +736,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-28a47e3f.css"
+      "assets/app-268b1123.css"
     ],
-    "file": "assets/app-7ebbe199.js",
+    "file": "assets/app-388cff6a.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
@@ -746,6 +758,70 @@
     "file": "assets/admin-adc74296.css",
     "isEntry": true,
     "src": "resources/sass/admin/admin.scss"
+  },
+  "storage/app/public/articles/01HF22BKK7MJ4R012RBV6WGAMS.png": {
+    "file": "assets/1699546617_nice-381cf6d0.png",
+    "src": "storage/app/public/menus/wFCgH5Q7skcR8gpIA9uLdyfOYoSbtAQ0pImWfzjn.png"
+  },
+  "storage/app/public/articles/01HF22HSD3SQBTZEF6MB18ZGG3.png": {
+    "file": "assets/1699546617_nice-381cf6d0.png",
+    "src": "storage/app/public/menus/wFCgH5Q7skcR8gpIA9uLdyfOYoSbtAQ0pImWfzjn.png"
+  },
+  "storage/app/public/articles/01HF23DXS8YBXW4NDQQPWB6YZV.png": {
+    "file": "assets/1699546628_nanstis-6372614e.png",
+    "src": "storage/app/public/menus/SGGVKTklJloq9HtDBv5NajpiBu97XfWG3MIGfOUF.png"
+  },
+  "storage/app/public/articles/01HF23R0AEAKSTEEV7MR5VC90K.png": {
+    "file": "assets/1699546617_nice-381cf6d0.png",
+    "src": "storage/app/public/menus/wFCgH5Q7skcR8gpIA9uLdyfOYoSbtAQ0pImWfzjn.png"
+  },
+  "storage/app/public/articles/01HF23W455BS5VH03BEHH4X9YN.png": {
+    "file": "assets/1699546617_nice-381cf6d0.png",
+    "src": "storage/app/public/menus/wFCgH5Q7skcR8gpIA9uLdyfOYoSbtAQ0pImWfzjn.png"
+  },
+  "storage/app/public/articles/01HF251RBQ7XNK54YAD263G751.png": {
+    "file": "assets/1699546617_nice-381cf6d0.png",
+    "src": "storage/app/public/menus/wFCgH5Q7skcR8gpIA9uLdyfOYoSbtAQ0pImWfzjn.png"
+  },
+  "storage/app/public/articles/01HF25962AQ33NGX28CMQB7F7K.png": {
+    "file": "assets/1699546628_nanstis-6372614e.png",
+    "src": "storage/app/public/menus/SGGVKTklJloq9HtDBv5NajpiBu97XfWG3MIGfOUF.png"
+  },
+  "storage/app/public/articles/01HF26D6JMKJ5E6FG57M0NNX02.png": {
+    "file": "assets/1699546617_nice-381cf6d0.png",
+    "src": "storage/app/public/menus/wFCgH5Q7skcR8gpIA9uLdyfOYoSbtAQ0pImWfzjn.png"
+  },
+  "storage/app/public/articles/01HF27BDRZJNVRHH76Z030Q78S.png": {
+    "file": "assets/1699546617_nice-381cf6d0.png",
+    "src": "storage/app/public/menus/wFCgH5Q7skcR8gpIA9uLdyfOYoSbtAQ0pImWfzjn.png"
+  },
+  "storage/app/public/articles/01HF289AJNVT2TY6PDV8TBFQ5R.png": {
+    "file": "assets/1699546628_nanstis-6372614e.png",
+    "src": "storage/app/public/menus/SGGVKTklJloq9HtDBv5NajpiBu97XfWG3MIGfOUF.png"
+  },
+  "storage/app/public/articles/01HF299A399JTRCRXYXHGTS5PE.png": {
+    "file": "assets/1699546628_nanstis-6372614e.png",
+    "src": "storage/app/public/menus/SGGVKTklJloq9HtDBv5NajpiBu97XfWG3MIGfOUF.png"
+  },
+  "storage/app/public/articles/01HF2FF97DVFFRB3PMCBQW2H60.png": {
+    "file": "assets/1699546628_nanstis-6372614e.png",
+    "src": "storage/app/public/menus/SGGVKTklJloq9HtDBv5NajpiBu97XfWG3MIGfOUF.png"
+  },
+  "storage/app/public/articles/01HF2G1SBYDFKM3NXF44EE696H.png": {
+    "file": "assets/1699546628_nanstis-6372614e.png",
+    "src": "storage/app/public/menus/SGGVKTklJloq9HtDBv5NajpiBu97XfWG3MIGfOUF.png"
+  },
+  "storage/app/public/articles/01HF2G4NWADRW4YTF6HFZA6FM4.png": {
+    "file": "assets/1699546628_nanstis-6372614e.png",
+    "src": "storage/app/public/menus/SGGVKTklJloq9HtDBv5NajpiBu97XfWG3MIGfOUF.png"
+  },
+  "storage/app/public/articles/01HF2GH37JT93ZJ3X8098RN65T.png": {
+    "file": "assets/1699546628_nanstis-6372614e.png",
+    "src": "storage/app/public/menus/SGGVKTklJloq9HtDBv5NajpiBu97XfWG3MIGfOUF.png"
+  },
+  "storage/app/public/articles/01HF2GM5H9BF3NJB4T4NVH1ZKA.png": {
+    "file": "assets/1699546628_nanstis-6372614e.png",
+    "src": "storage/app/public/menus/SGGVKTklJloq9HtDBv5NajpiBu97XfWG3MIGfOUF.png"
   },
   "storage/app/public/images/1699546617_nice.png": {
     "file": "assets/1699546617_nice-381cf6d0.png",
@@ -922,6 +998,14 @@
   "storage/app/public/menus/01HEZ7Z9GPVAX9HERDRWM9R8KX.png": {
     "file": "assets/22-alphomega-c4c8e83a.png",
     "src": "storage/app/public/menus/01HEZ7Z9GPVAX9HERDRWM9R8KX.png"
+  },
+  "storage/app/public/menus/01HF25DE2JNA0XZ631FEJ7P1WR.png": {
+    "file": "assets/1699546617_nice-381cf6d0.png",
+    "src": "storage/app/public/menus/wFCgH5Q7skcR8gpIA9uLdyfOYoSbtAQ0pImWfzjn.png"
+  },
+  "storage/app/public/menus/01HF25KC78QZTZC2SMT8CRZM7Q.png": {
+    "file": "assets/1699546617_nice-381cf6d0.png",
+    "src": "storage/app/public/menus/wFCgH5Q7skcR8gpIA9uLdyfOYoSbtAQ0pImWfzjn.png"
   },
   "storage/app/public/menus/SGGVKTklJloq9HtDBv5NajpiBu97XfWG3MIGfOUF.png": {
     "file": "assets/1699546628_nanstis-6372614e.png",

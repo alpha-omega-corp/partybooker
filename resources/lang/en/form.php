@@ -10,4 +10,5 @@ return [
     'item' => 'Item',
     'delivery-service' => 'Delivery service',
     'caterer-menu' => 'Menu(s)',
+    'guests' => 'Guests',
 ];

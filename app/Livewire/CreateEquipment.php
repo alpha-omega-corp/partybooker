@@ -4,7 +4,6 @@ namespace App\Livewire;
 
 use App\Models\Advert;
 use App\Models\Equipment;
-use App\Services\FormService;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Radio;
@@ -157,7 +156,7 @@ class CreateEquipment extends Component implements HasForms
                     ->columns(3)
                     ->schema([
 
-                        (new FormService())->PaymentFieldset(),
+                        (new FormService())->PaymentMethods(),
                         Repeater::make('expensesMore')
                             ->label(__('partner.additional_expenses'))
                             ->hintIcon('heroicon-o-information-circle')

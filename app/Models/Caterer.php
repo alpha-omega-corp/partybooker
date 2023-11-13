@@ -99,7 +99,6 @@ class Caterer extends Model
         return CatererFactory::new();
     }
 
-
     public function advert()
     {
         return $this->morphOne(Advert::class, 'service', 'service_type', 'service_id');

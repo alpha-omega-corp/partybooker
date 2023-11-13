@@ -15,6 +15,9 @@ class WineFactory extends Factory
     public function definition(): array
     {
         return [
+            'price' => 100,
+            'budget' => '1000 CHF',
+            'working_time' => '[{"open":"12:00","close":"14:30","description":"Salle Doo"},{"open":"19:00","close":"22:45","description":"Salle Boo"}]',
             'working_days' => '["mon", "tue", "wed", "thu", "fri", "sat", "sun"]',
             'opening' => '8:00:00',
             'closing' => '23:00:00',

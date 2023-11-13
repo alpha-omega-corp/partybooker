@@ -1,0 +1,4 @@
+Object { report: {…}, shareableReport: {…}, config: {…}, solutions: [], updateConfigEndpoint: "/_ignition/update-config" }
+
+{ frames: (56) […], context_items: {…}, custom_context_items: [], type: "web", entry_point: "http://localhost:8000/85/wine", exception_class: "ErrorException", exception_message: 'Undefined array key "rewards"', application_path: "/home/nanstis/PhpstormProjects/pb-live", application_version: null, language_version: "8.2.10", … }
+

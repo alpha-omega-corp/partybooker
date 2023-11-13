@@ -11,7 +11,6 @@ use App\Helpers\OtherServicesTranslatorHelper;
 use App\Helpers\TechnicalEquipmentTranslatorHelper;
 use App\Models\Advert;
 use App\Models\EventPlace;
-use App\Services\FormService;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Fieldset;
@@ -241,7 +240,7 @@ class CreateEventPlace extends Component implements HasForms
                             ->type('text')
                             ->hidden(fn(Get $get) => $get('deposit') !== 'yes')
                             ->reactive(),
-                        (new FormService())->PaymentFieldset(),
+                        (new FormService())->PaymentMethods(),
                     ]),
                 Section::make(__('partner.service_general_info'))
                     ->columns(3)
@@ -402,7 +401,6 @@ class CreateEventPlace extends Component implements HasForms
                                         'yes' => __('form.yes'),
                                         'no' => __('form.no'),
                                     ]),
-
                             ]),
 
                         Fieldset::make()

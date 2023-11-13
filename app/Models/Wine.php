@@ -4,11 +4,12 @@
 namespace App\Models;
 
 
-use Database\Factories\EventPlaceFactory;
 use Database\Factories\WineFactory;
 use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use ReflectionClass;
 
 /**
  * App\Models\Wine
@@ -45,41 +46,41 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $caterer_aff
  * @property string|null $caterers_aff
  * @property string|null $comment
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereAffiliation($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereArtD($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereArtL($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereArticle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereCatererAff($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereCaterersAff($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereCatering($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereClosing($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereComment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereDeposit($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereEquipment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereExtTrue($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereExtansion($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereFoodOnSite($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereFurniture($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereHolidays($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereIdPartner($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereOpening($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereOpeningUpon($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereOtherEquipment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereOtherFurniture($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereOtherPayment($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereOtherPrice($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereParticipant($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine wherePaymeny($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine wherePriceFor($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereReward($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereService($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereWine($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereWorkingDays($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Wine whereYesFood($value)
+ * @method static Builder|Wine newModelQuery()
+ * @method static Builder|Wine newQuery()
+ * @method static Builder|Wine query()
+ * @method static Builder|Wine whereAffiliation($value)
+ * @method static Builder|Wine whereArtD($value)
+ * @method static Builder|Wine whereArtL($value)
+ * @method static Builder|Wine whereArticle($value)
+ * @method static Builder|Wine whereCatererAff($value)
+ * @method static Builder|Wine whereCaterersAff($value)
+ * @method static Builder|Wine whereCatering($value)
+ * @method static Builder|Wine whereClosing($value)
+ * @method static Builder|Wine whereComment($value)
+ * @method static Builder|Wine whereDeposit($value)
+ * @method static Builder|Wine whereEquipment($value)
+ * @method static Builder|Wine whereExtTrue($value)
+ * @method static Builder|Wine whereExtansion($value)
+ * @method static Builder|Wine whereFoodOnSite($value)
+ * @method static Builder|Wine whereFurniture($value)
+ * @method static Builder|Wine whereHolidays($value)
+ * @method static Builder|Wine whereId($value)
+ * @method static Builder|Wine whereIdPartner($value)
+ * @method static Builder|Wine whereOpening($value)
+ * @method static Builder|Wine whereOpeningUpon($value)
+ * @method static Builder|Wine whereOtherEquipment($value)
+ * @method static Builder|Wine whereOtherFurniture($value)
+ * @method static Builder|Wine whereOtherPayment($value)
+ * @method static Builder|Wine whereOtherPrice($value)
+ * @method static Builder|Wine whereParticipant($value)
+ * @method static Builder|Wine wherePaymeny($value)
+ * @method static Builder|Wine wherePriceFor($value)
+ * @method static Builder|Wine whereReward($value)
+ * @method static Builder|Wine whereService($value)
+ * @method static Builder|Wine whereWine($value)
+ * @method static Builder|Wine whereWorkingDays($value)
+ * @method static Builder|Wine whereYesFood($value)
  * @mixin Eloquent
  */
 class  Wine extends Model
@@ -87,61 +88,65 @@ class  Wine extends Model
     use HasFactory;
 
 
-	public $timestamps = false;
+    public $timestamps = false;
 
-	protected $table = 'wine';
+    protected $table = 'wine';
 
-	protected $fillable = [
-		'id_partner',
-		'working_days',
-		'opening',
-		'closing',
-		'opening_upon',
-		'holidays',
-		'extansion',
-		'ext_true',
-//		'price_for',
-//		'other_price',
-		'paymeny',
-		'other_payment',
-		'deposit',
-		'service',
-		'participant',
-		'wine',
-		'affiliation',
-		'reward',
-		'article',
-		'art_d',
-		'art_l',
-		'furniture',
-		'other_furniture',
-		'equipment',
-		'other_equipment',
-		'food_on_site',
-		'yes_food',
-		'catering',
-		'caterer_aff',
-		'caterers_aff',
-		'comment'
-	];
+    protected $fillable = [
+        'id_partner',
+        'budget',
+        'price',
+        'working_time',
+        'working_days',
+        'opening',
+        'closing',
+        'opening_upon',
+        'holidays',
+        'extansion',
+        'ext_true',
+        'price_for',
+        'other_price',
+        'paymeny',
+        'other_payment',
+        'deposit',
+        'service',
+        'participant',
+        'wine',
+        'affiliation',
+        'reward',
+        'article',
+        'art_d',
+        'art_l',
+        'furniture',
+        'other_furniture',
+        'equipment',
+        'other_equipment',
+        'food_on_site',
+        'yes_food',
+        'catering',
+        'caterer_aff',
+        'caterers_aff',
+        'comment'
+    ];
 
-	protected $casts = [
-		'service' => 'array'
-	];
+    protected $casts = [
+        'service' => 'array',
+        'reward' => 'array',
+    ];
 
     protected static function newFactory(): WineFactory
     {
         return WineFactory::new();
     }
 
-	public function advert()
-	{
-		return $this->morphOne(Advert::class, 'service', 'service_type', 'service_id');
-	}
+    public function advert()
+    {
+        return $this->morphOne(Advert::class, 'service', 'service_type', 'service_id');
+    }
 
-	public function getMorphObjectAttribute()
-	{
-		return (new \ReflectionClass($this))->getShortName();
-	}
+    public function getMorphObjectAttribute()
+    {
+        return (new ReflectionClass($this))->getShortName();
+    }
 
 }

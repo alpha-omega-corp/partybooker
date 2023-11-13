@@ -1,12 +1,15 @@
 <?php
 
 return [
+    'medal' => 'Medal',
+    'available' => 'Available',
     'matrix_category_good' => 'Choose categories',
     'matrix_service_good' => 'Fill in service details',
     'matrix_company_good' => 'Fill in company details',
     'matrix_thumbnail_good' => 'Upload a thumbnail',
     'matrix' => 'Mandatary details',
-
+    'service_name' => 'Service',
+    'service_description' => 'Informations',
     'fill_company_details' => 'Fill your company details before you can publish',
     'choose_thumbnail' => 'Upload a thumbnail for your advertisement page',
 

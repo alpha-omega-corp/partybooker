@@ -4,14 +4,12 @@ namespace App\Providers;
 
 use App\Http\Middleware\LocaleMiddleware;
 use App\Interfaces\IAdvertService;
-use App\Interfaces\IFormService;
 use App\Interfaces\IImageService;
 use App\Interfaces\IPartnerPlanOptionService;
 use App\Interfaces\IPaymentTransactionService;
 use App\Interfaces\IPlanService;
 use App\Models\Category;
 use App\Services\AdvertService;
-use App\Services\FormService;
 use App\Services\ImageService;
 use App\Services\PartnerPlanOptionService;
 use App\Services\PaymentTransactionService;
@@ -58,6 +56,5 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IImageService::class, ImageService::class);
         $this->app->bind(IPlanService::class, PlanService::class);
         $this->app->bind(IAdvertService::class, AdvertService::class);
-        $this->app->bind(IFormService::class, FormService::class);
     }
 }

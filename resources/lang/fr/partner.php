@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'medal' => 'Médaille',
+    'available' => 'Disponible',
     'matrix_category_good' => 'Choix des catégories',
     'matrix_service_good' => 'Informations du service',
     'matrix_company_good' => 'Description de l\'entreprise',
@@ -9,7 +11,8 @@ return [
     'other' => 'Autre',
     'fill_company_details' => 'Veuillez remplir les détails de votre entreprise pour la publication en ligne',
     'choose_thumbnail' => 'Téléchargez une miniature pour votre page de publicité',
-
+    'service_name' => 'Service',
+    'service_description' => 'Informations',
     'extansion' => 'Détails de prolongation',
 
     'Become a partner' => "Devenir partenaire",

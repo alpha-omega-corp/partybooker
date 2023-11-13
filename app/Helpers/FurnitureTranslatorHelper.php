@@ -19,6 +19,7 @@ class FurnitureTranslatorHelper
         'buffet',
         'cleaning-eq',
         'outdoor-heating',
+        'other'
     ];
 
     public static function translate($key)

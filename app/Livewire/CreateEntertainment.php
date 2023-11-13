@@ -4,9 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Advert;
 use App\Models\Entertainment;
-use App\Services\FormService;
 use Filament\Forms\Components\Fieldset;
-use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
@@ -15,7 +13,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
-use Filament\Forms\Get;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
@@ -120,41 +117,21 @@ class CreateEntertainment extends Component implements HasForms
                     ->columns(2)
                     ->schema([
                         (new FormService())->WorkingDays(),
-                        Fieldset::make()
+                        (new FormService())->Extension(),
+                        Repeater::make('duration')
                             ->columns(3)
+                            ->label(__('partner.duration'))
+                            ->hintIcon('heroicon-o-information-circle')
+                            ->hintIconTooltip(__('partner.duration_expl'))
                             ->schema([
-                                Repeater::make('duration')
-                                    ->columns(3)
-                                    ->label(__('partner.duration'))
-                                    ->hintIcon('heroicon-o-information-circle')
-                                    ->hintIconTooltip(__('partner.duration_expl'))
-                                    ->schema([
-                                        TextInput::make('start')
-                                            ->type('time')
-                                            ->required(),
-                                        TextInput::make('end')->type('time')->required(),
-                                        TextInput::make('description')->type('text')->required(),
-                                    ]),
-
-                                Radio::make('extension')
-                                    ->required()
-                                    ->label(__('partner.possibility_extend_time'))
-                                    ->options([
-                                        'yes' => __('form.yes'),
-                                        'no' => __('form.no'),
-                                    ])
-                                    ->descriptions([
-                                        'yes' => __('partner.possibility_extend_time_expl'),
-                                    ])->reactive(),
-                                TextInput::make('extensionDescription')
-                                    ->label(__('partner.extansion'))
-                                    ->type('text')
-                                    ->hidden(fn(Get $get) => $get('extension') !== 'yes')
-                                    ->reactive()
+                                TextInput::make('start')
+                                    ->type('time')
+                                    ->required(),
+                                TextInput::make('end')->type('time')->required(),
+                                TextInput::make('description')->type('text')->required(),
                             ]),
                         (new FormService())->Timetable(),
                         (new FormService())->Holidays(),
-
                     ]),
 
                 Section::make(__('partner.rates_conditions'))
@@ -162,7 +139,7 @@ class CreateEntertainment extends Component implements HasForms
                     ->schema([
                         (new FormService())->Rates(),
                         (new FormService())->Budget(),
-                        (new FormService())->PaymentFieldset(),
+                        (new FormService())->PaymentMethods(),
                         Repeater::make('travelExpenses')
                             ->label(__('partner.travelling_expenses'))
                             ->schema([
@@ -308,7 +285,7 @@ class CreateEntertainment extends Component implements HasForms
         $item->other_payment = isset($data['allowedPaymentsMore']) ? json_encode(array_column($data['allowedPaymentsMore'], 'name')) : null;
         $item->holidays = json_encode($data['holidays']);
         $item->extansion = $data['extension'];
-        $item->ext_true = $data['extensionDescription'];
+        $item->ext_true = $data['extension'] === 'yes' ? $data['extensionDescription'] : null;
         $item->deposit = $data['deposit'] === 'no' ? 'Non' : $data['depositDescription'];
         $item->geo = strip_tags($data['geoLimitations']);
         $item->other_price = $data['rateTypeOther'] ?? null;
