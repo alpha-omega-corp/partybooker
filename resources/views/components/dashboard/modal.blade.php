@@ -2,16 +2,18 @@
     'id',
     'title' => null,
     'button',
+    'hasButton' => true,
     'color' => null,
     'action',
     'icon' => null,
     'method' => 'POST',
     'hasFiles' => false,
     'size' => null,
+    'saveLabel' => 'Save',
 ])
 
 
-<a type="button" id="{{$id . '-button'}}"
+<a type="button" id="{{$id . '-button'}}" class="{{!$hasButton ? 'd-none' : ''}}"
    data-bs-toggle="modal"
    data-bs-target="{{'#'. $id}}"
    data-tippy-content="{{$button}}">
@@ -54,9 +56,11 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" id="{{$id . '-close'}}" data-bs-dismiss="modal">
-                        Close
+                        {{__('form.close')}}
                     </button>
-                    <button type="submit" class="btn btn-primary" id="{{$id . '-save'}}">Save changes</button>
+                    <button type="submit" class="btn btn-primary" id="{{$id . '-save'}}">
+                        {{$saveLabel}}
+                    </button>
                 </div>
             </div>
         </div>

@@ -2,12 +2,13 @@
     'title',
     'item',
 ])
-<div class="company-description-item">
-    <h5>
-        {{$title}}
-    </h5>
+<div class="company-description-item d-flex">
 
-    <div>
+
+    <div class="d-flex">
+        <div class="description-language-preview">
+            {{$title}}
+        </div>
         @if($item)
             <div class="company-description-preview">
                 @svg('heroicon-o-check-circle', 'text-primary')

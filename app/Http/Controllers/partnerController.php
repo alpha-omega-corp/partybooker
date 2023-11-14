@@ -168,14 +168,11 @@ class partnerController extends Controller
                 ]);
 
                 $user = $request->user();
-                $stripeCustomer = $user->createOrGetStripeCustomer();
 
                 $user->update([
                     'id_partner' => $id_partner,
                     'type' => 'partner',
-                    'stripe_id' => $stripeCustomer->id
                 ]);
-
 
                 $event = 'Service provider registration';
                 $description = 'New service provider:' . $name . ', ID:' . $id_partner;

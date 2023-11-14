@@ -27,6 +27,7 @@
             </a>
             <a class="{{isActive('plans')}} cp-nav-item"
                data-tippy-content="{{__('partner.my_plan')}}"
+               id="plan-navigation-button"
                href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/plans">
                 @svg('heroicon-o-swatch')
             </a>

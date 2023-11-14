@@ -3,13 +3,18 @@
 
 namespace App\Services;
 
-use App\Enums\PlanEnum;
+use App\Http\Requests\StorePaymentMethod;
 use App\Interfaces\IPlanService;
 use App\Models\PartnerPlanOption;
 use App\Models\Plan;
 use App\Models\PlanOption;
 use App\User;
+use Exception;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\App;
+use Laravel\Cashier\Cashier;
+use Stripe\Customer;
 
 class PlanService implements IPlanService
 {
@@ -34,20 +39,53 @@ class PlanService implements IPlanService
         })->reverse();
     }
 
-    public function startTrial(User $user): bool
+    public function startPlan(User $user, Customer $customer, StorePaymentMethod $request): bool
     {
-        $partnerInfo = $user->partnerInfo;
-        $plan = Plan::where('name', PlanEnum::STANDARD)->firstOrFail();
+        $validated = (object)$request->validated();
+        $paymentId = $validated->method;
 
-        $user->trial_ends_at = now()->addDays(7);
+        $user->update([
+            'stripe_id' => $customer->id
+        ]);
+
+        Cashier::findBillable($customer->id)
+            ->updateDefaultPaymentMethod($paymentId);
+
+        // 100% discount for dev environment
+        if (App::environment('dev') || $user->email === 'bleyo@alphomega.org') {
+            $intent = $user
+                ->newSubscription('PartyBooker', $validated->plan)
+                ->withCoupon('cb1Rq5FS');
+        } else {
+            $intent = $user
+                ->newSubscription('PartyBooker', $validated->plan);
+        }
+
+        if ($validated->name === 'trial') {
+            $trialDays = Carbon::now()->addDays(10);
+            $intent->trialUntil($trialDays);
+            $user->trial_ends_at = $trialDays;
+        }
+
+        try {
+            $intent->create($paymentId);
+        } catch (Exception $e) {
+            dd($e);
+        }
+
+        $planName = strtolower($validated->name);
+        $plan = Plan::where('name', $planName)->firstOrFail();
+
         $this->applyOptions(
-            $partnerInfo->id,
+            $user->partnerInfo->id,
             $plan->id,
             $plan->planOptions->first()->group
         );
 
+        $partnerInfo = $user->partnerInfo;
         $partnerInfo->plan = $plan->name;
         $partnerInfo->plans_id = $plan->id;
+        $partnerInfo->plan_option = 1;
         $partnerInfo->plan_option_group = $plan->planOptions->first()->group;
         $partnerInfo->prev_plan_id = $partnerInfo->plans_id;
         $partnerInfo->prev_plan_option_group = $partnerInfo->plan_option_group;

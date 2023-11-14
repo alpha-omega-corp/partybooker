@@ -11,7 +11,7 @@
 <div class="card">
     <div class="d-flex">
         <div class="matrix-card">
-            <div class="d-flex">
+            <div class="d-flex mb-4">
                 <div class="matrix-warning">
                     @svg('heroicon-s-exclamation-triangle', 'text-orange')
                 </div>
@@ -19,7 +19,6 @@
                     {{__('partner.matrix')}}
                 </h2>
             </div>
-            <hr>
             <div class="d-flex flex-column">
 
                 @if(!$matrix['chooseThumbnail'])

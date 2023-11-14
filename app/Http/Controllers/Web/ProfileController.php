@@ -310,11 +310,9 @@ class ProfileController extends Controller
 
             User::where('id', $user->id)->update([
                 'name' => $request->get('name'),
+                'phone' => $request->get('phone'),
             ]);
 
-            PartnersInfo::where('id', $user->partnerInfo->id)->update([
-                'phone' => $request->get('phone')
-            ]);
             DB::commit();
             return redirect()->back()->with('success', "Contact info updated");
         } catch (Exception $e) {

@@ -21,83 +21,48 @@
 
 
 @section('content')
-    <div class="advert-preview profile-info advert-info">
-        @if(!$advertService->canPublish())
-            <x-partner.publication-matrix :partner="$user->partnerInfo" :matrix="$canPublishMatrix"/>
-        @endif
-    </div>
 
+    @php
+        $planUrl = url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner) . '/plans'
+    @endphp
+
+    <div class="p-4 d-flex justify-content-around">
+        <div class="d-flex align-items-center">
+            <h3 class="text-uppercase fw-bold">{{__('partner.statistics')}}</h3>
+        </div>
+        <x-dashboard.profile.statistics :statistics="$user->partnerInfo->statistic"/>
+    </div>
     <div class="dashboard-body">
         <div class="row">
-            <div class="col-lg-8 col-md-12">
+            <div class="col-xl-8 col-lg-7 col-md-12">
                 <x-dashboard.header>
-                    <div class="statistics">
-
-                        <div class="d-flex">
-                            <x-dashboard.stat-card
-                                :title="__('partner.views')"
-                                :value="$user->partnerInfo->statistic->view"
-                                icon="heroicon-o-eye"
-                            />
-
-                            <x-dashboard.stat-card
-                                :title="__('become_partner.phone')"
-                                :value="$user->partnerInfo->statistic->view"
-                                icon="heroicon-o-phone"
-                            />
-
-                            <x-dashboard.stat-card
-                                :title="__('partner.email')"
-                                :value="$user->partnerInfo->statistic->email"
-                                icon="heroicon-o-envelope"
-                            />
-
-                            <x-dashboard.stat-card
-                                :title="__('become_partner.website')"
-                                :value="$user->partnerInfo->statistic->website"
-                                icon="heroicon-o-globe-alt"
-                            />
-
-
-                            <x-dashboard.stat-card
-                                :title="__('become_partner.address')"
-                                :value="$user->partnerInfo->statistic->address"
-                                icon="heroicon-o-map-pin"
-                            />
-
-
-                            <x-dashboard.stat-card
-                                :title="__('partner.direct_requests')"
-                                :value="$user->partnerInfo->statistic->direct"
-                                icon="heroicon-o-archive-box"
-                            />
-                        </div>
-
-                        <div class="d-flex">
-                            <?php $networks = ['Facebook', 'Twitter', 'Instagram', 'Linkedin', 'Vimeo', 'Youtube']; ?>
-                            @foreach ($networks as $network)
-                                    <?php $lc = strtolower($network); ?>
-
-                                <x-dashboard.stat-card
-                                    :title="$network"
-                                    :value="$user->partnerInfo->statistic->$lc"
-                                    :image="$lc . '.svg'"
-                                />
-                            @endforeach
-                        </div>
+                    <div class="advert-preview profile-info advert-info">
+                        @if(!$advertService->canPublish())
+                            <x-partner.publication-matrix :partner="$user->partnerInfo" :matrix="$canPublishMatrix"/>
+                        @endif
                     </div>
+                    <x-dashboard.profile.options
+                        :partner="$user->partnerInfo"
+                        :partner-options="$partnerPlanOptions"
+                        :options="$planOptions"
+                    />
                 </x-dashboard.header>
+
+
+                <x-dashboard.card :title="__('partner.categories')">
+                    <x-dashboard.profile.category
+                        :partner="$user->partnerInfo"
+                        :partner-categories="$currentCategories"
+                        :active-options="$planOptions"
+                        :partner-options="$partnerPlanOptions"
+                        :categories="$categoriesList"/>
+                </x-dashboard.card>
+
 
                 <div class="profile-info advert-info mt-5">
                     <x-partner-category-tab
                         :tabs="[
                     __('partner.nav-gallery'),
-                    __('partner.nav-option'),
-                    'Description',
-                    __('partner.socials'),
-                    __('partner.nav-ratings'),
-                    __('partner.nav-coordinates'),
-                      'Plan',
                     'Contact'
                   ]">
                         <x-slot name="title">
@@ -109,258 +74,11 @@
                         </x-slot>
 
                         <x-tab.item>
-
-                            <x-dashboard.profile-section icon="heroicon-o-photo" modal="galleryModal">
-                                <x-slot:title>
-                                    Gallery
-                                    <br>
-                                    Uploaded photos
-                                </x-slot:title>
-
-                                <x-slot:edit>
-                                    <a type="button" class="dashboard-modal-button rounded-circle shadow-lg"
-                                       data-bs-toggle="modal"
-                                       id="galleryModal-button"
-                                       data-bs-target="#galleryModal">
-                                        @svg('heroicon-o-photo')
-                                    </a>
-                                </x-slot:edit>
-
-                                <div class="gallery">
-                                    <?php $locale = app()->getLocale(); ?>
-                                    @foreach($categoryImages as $category => $data)
-
-                                        @php
-                                            $images = count($data['images']) === 0 ? count($data['images']) : count($data['images']) - 1;
-                                            $allowed = $data['count'];
-                                        @endphp
-
-                                        <div class="d-flex flex-wrap justify-content-center">
-
-                                            @if(count($data['images']) > 0)
-                                                @foreach($data['images'] as $img)
-                                                    @if(!$img['is_main'])
-                                                        <div class="gallery-item">
-                                                            <img src="{{ asset('storage/images/'.$img['image_name'])}}"
-                                                                 data-imageId="{{$img['id']}}"
-                                                                 alt="{{$img['image_alt_'.$locale]}}"
-                                                            />
-
-                                                            <div class="delete-gallery-image">
-                                                                <div class="del btn btn-danger"
-                                                                     data-img="{{$img['image_name']}}"
-                                                                     data-image-id="{{$img['id']}}"
-                                                                     data-id="{{$user->id_partner}}">
-                                                                    @svg('heroicon-o-trash')
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    @endif
-                                                @endforeach
-                                            @endif
-                                        </div>
-
-                                        <hr>
-                                        <div class="imgNumber" data-max="{{$data['count'] - 1}}">
-                                            <p class="fw-bold">{{$images . ' / ' . $allowed}}</p>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </x-dashboard.profile-section>
-
+                            <x-dashboard.profile.gallery :gallery="$categoryImages"/>
                         </x-tab.item>
 
                         <x-tab.item>
-                            @include('web.partner.profile.plan-options')
-                        </x-tab.item>
-
-                        <x-tab.item>
-                            <x-dashboard.profile-section icon="heroicon-o-home-modern">
-                                <x-slot name="title">
-                                    Description
-                                    <br>
-                                    {{ __('become_partner.slogan') }}
-                                </x-slot>
-
-                                <div class="company-description-card" x-data="{modal: 'editCompanyDescription'}"
-                                     @click="openModalPrevent(modal)">
-                                    <div class="d-flex justify-content-start">
-                                        <div class="company-description-flag">
-                                            <img src="{{Vite::image('icons/france.svg')}}" alt="french">
-                                        </div>
-                                        <div class="company-description-row">
-                                            <x-dashboard.company-description-item
-                                                :title="__('become_partner.slogan')"
-                                                :item="$user->partnerInfo->fr_slogan"/>
-
-                                            <x-dashboard.company-description-item
-                                                :title="__('become_partner.short_descr')"
-                                                :item="$user->partnerInfo->fr_short_descr"/>
-
-                                            <x-dashboard.company-description-item
-                                                :title="__('become_partner.full_descr')"
-                                                :item="$user->partnerInfo->fr_full_descr"/>
-                                        </div>
-                                    </div>
-                                    <!-- English -->
-                                    <div class="d-flex justify-content-start mt-5">
-                                        <div class="company-description-flag">
-                                            <img src="{{Vite::image('icons/uk-flag.svg')}}" alt="english">
-                                        </div>
-
-                                        <div class="company-description-row">
-
-                                            <x-dashboard.company-description-item
-                                                :title="__('become_partner.slogan')"
-                                                :item="$user->partnerInfo->en_slogan"/>
-
-                                            <x-dashboard.company-description-item
-                                                :title="__('become_partner.short_descr')"
-                                                :item="$user->partnerInfo->en_short_descr"/>
-
-                                            <x-dashboard.company-description-item
-                                                :title="__('become_partner.full_descr')"
-                                                :item="$user->partnerInfo->en_full_descr"/>
-                                        </div>
-
-                                        @include('web.partner.popup.edit-company-description')
-
-                                    </div>
-                                </div>
-
-
-                            </x-dashboard.profile-section>
-                        </x-tab.item>
-
-                        <x-tab.item>
-                            <x-dashboard.profile-section icon="heroicon-o-globe-alt">
-                                <x-slot name="title">
-                                    {{ __('partner.socials') }}
-                                    <br>
-                                    {{__('partner.url_website')}}
-                                </x-slot>
-                            </x-dashboard.profile-section>
-                            @include('web.partner.profile.www')
-                        </x-tab.item>
-
-                        <x-tab.item>
-                            <x-dashboard.profile-section icon="heroicon-o-hand-raised">
-                                <x-slot name="title">
-                                    {{ __('partner.based_on') }}
-                                    <br>
-                                    {{ $user->partnerInfo->votes ?? 0 }}
-                                    {{ __('partner.rates') }}
-
-                                </x-slot>
-                            </x-dashboard.profile-section>
-                            <div class="advert-review">
-                                @include('web.partner.partials.dashboard.evaluation')
-                            </div>
-                        </x-tab.item>
-
-                        <x-tab.item>
-
-                            <x-dashboard.profile-section icon="heroicon-o-map-pin">
-                                <x-slot name="title">
-                                    {{__('partner.nav-coordinates')}}
-                                    <br>
-                                    {{$user->partnerInfo->address}}
-                                </x-slot>
-
-                                <div id="editLocation" class="edit-location"></div>
-                                <form method="POST" id="editLocation" action="{{
-                                Auth::user()->type == 'admin'
-                                    ? url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/partner-cp/edit-company-location')
-                                    : url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-company-location')
-                                }}">
-                                    @csrf
-                                    @include('partial.map_company')
-
-                                    <button type="submit"
-                                            class="btn text-accent w-100  p-4">Save
-                                    </button>
-                                </form>
-                            </x-dashboard.profile-section>
-                        </x-tab.item>
-
-                        <x-tab.item>
-                            <x-dashboard.profile-section icon="heroicon-o-home-modern">
-                                <x-slot name="title">
-                                    Plan
-                                    <span class="{{'bg-' . $user->partnerInfo->plan}} p-1 m-1 rounded">
-                                    {{$user->partnerInfo->plan}}
-                                    </span>
-                                </x-slot>
-
-                                <div class="p-4">
-                                    @if($user->subscribed('PartyBooker'))
-                                        <x-dashboard.card :title="__('partner.plan_options')">
-                                            <div class="active-plan">
-                                                @include('web.partner.partials.dashboard.active-plan')
-                                            </div>
-                                        </x-dashboard.card>
-                                    @else
-                                        <x-dashboard.trial :user="$user"/>
-                                    @endif
-                                </div>
-                            </x-dashboard.profile-section>
-                        </x-tab.item>
-
-                        <x-tab.item>
-                            <section class="contact-section mt-4">
-                                <div class="d-flex justify-content-center">
-                                    <div class="contact-card">
-                                        <div class="d-flex">
-                                            <div class="d-flex align-items-center justify-content-center">
-                                                <img src="{{Vite::image('contacts.svg')}}" alt="" width="120">
-                                            </div>
-
-                                            <div class="w-100">
-                                                <form method="POST"
-                                                      action="{{route('partner-contact')}}">
-                                                    @csrf
-                                                    <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="contact-message">
-                                                        @svg('heroicon-o-chat-bubble-bottom-center-text')
-                                                    </span>
-
-                                                        <textarea name="message"
-                                                                  class="form-control"
-                                                                  placeholder="{{__('main.contacts_message')}}"
-                                                                  aria-label="{{__('main.contacts_message')}}"
-                                                                  aria-describedby="contact-message"></textarea>
-                                                    </div>
-
-                                                    <button class="btn btn-accent w-100">
-                                                        @svg('heroicon-o-arrow-right')
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <hr>
-                                <div class="d-flex justify-content-center">
-                                    <div>
-
-                                        <ul>
-                                            <li>
-                                                <a href="mailto:contact@partybooker.ch" class="email">
-                                                    {{$settings[0]->email}}
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="tel:{{$settings[0]->phone}}" class="phone">
-                                                    {{$settings[0]->phone}}
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </section>
+                            <x-dashboard.profile.contact/>
                         </x-tab.item>
 
                     </x-partner-category-tab>
@@ -368,7 +86,7 @@
             </div>
 
 
-            <div class="col-lg-4 col-md-12">
+            <div class="col-xl-4 col-lg-5 col-md-12">
                 <div class="no-thumbnail-container">
                     @if(!$user->partnerInfo->main_img)
 
@@ -440,6 +158,13 @@
                     @endif
                 </x-dashboard.card>
 
+                <x-dashboard.card
+                    :title="__('partner.based_on') . ' ' . ($user->partnerInfo->votes ?? 0) . ' ' . __('partner.rates')">
+                    <div class="advert-review">
+                        @include('web.partner.partials.dashboard.evaluation')
+                    </div>
+                </x-dashboard.card>
+
 
                 <div class="company-card" x-data="{modal: 'editCompany'}"
                      @click="openModalPrevent(modal)">
@@ -448,29 +173,24 @@
                     </x-dashboard.card>
                 </div>
 
-                <div x-data="{modal: 'editContacts'}"
-                     @click="openModalPrevent(modal)" class="coordinates-card">
-                    <x-dashboard.card :title="__('become_partner.contact_details')">
+                <x-dashboard.card title="Description">
+                    <x-dashboard.profile.company-description/>
+                </x-dashboard.card>
 
-                        <div class="user-info-item" data-tippy-content="{{__('partner.name')}}">
-                            @svg('heroicon-o-identification')
-                            {{$user->name}}
-                        </div>
-
-                        <div class="user-info-item" data-tippy-content="{{__('partner.mobile')}}">
-                            @svg('heroicon-m-device-phone-mobile')
-                            {{$user->partnerInfo->phone}}
-                        </div>
-                        <hr>
-
-                        <div class="user-info-item" data-tippy-content="{{__('partner.email')}}">
-                            @svg('heroicon-o-envelope')
-                            {{$user->email}}
-                        </div>
+                <x-dashboard.card :title="__('partner.socials')">
+                    <x-dashboard.profile.networks :partner="$user->partnerInfo"/>
+                </x-dashboard.card>
 
 
-                        @include('web.partner.popup.edit-contacts')
-                    </x-dashboard.card>
+                <x-dashboard.card :title="__('become_partner.contact_details')">
+                    <x-dashboard.profile.contact-details :user="$user"/>
+                </x-dashboard.card>
+
+
+                <div class="locale-card">
+                    <x-dashboard.profile.locale
+                        :location="$location"
+                        :partner="$user->partnerInfo"/>
                 </div>
 
 

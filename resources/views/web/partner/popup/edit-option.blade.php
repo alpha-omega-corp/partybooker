@@ -1,33 +1,42 @@
 <x-dashboard.modal
     id="editOption"
-    :title="__('partner.choose_option_of_your_plan')"
+    title="Configuration"
     :button="__('partner.edit')"
     :action="url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-option')"
+    :has-button="false"
+    size="modal-sm"
+    :save-label="__('form.yes')"
     method="POST">
 
-    <div class="cp-plan-options d-flex flex-column">
-        @foreach($planOptions as $option)
+    <input type="hidden" id="optionChoice">
+
+    <x-dashboard.card-info>
+        {{ucfirst(__('form.edit-option-warning'))}}
+    </x-dashboard.card-info>
+
+    <div class="d-none" x-data="{option: document.getElementById('optionChoice').value}">
+        @foreach($options as $k => $option)
             <span class="radio-item">
-                <label for="option_{{$option['group']}}"></label>
-                <input id="option_{{$option['group']}}" type="radio"
+                {{$partner->plan_option_group}}
+                <label for="option_{{$k}}"></label>
+                <input id="option_{{$k}}" type="radio"
                        name="option"
-                       value="{{$option['group']}}">
+                       value="{{$option['group']}}"
+                       x-model="option"/>
                 <span class="text-gray">{{$option['name']}}</span>
             </span>
         @endforeach
     </div>
 
 
-    <label>
-        <input type="text" name="id_partner" value="{{Auth::user()->id_partner}}" hidden/>
-    </label>
+    <input type="hidden" name="id_partner" value="{{Auth::user()->id_partner}}"/>
 
 </x-dashboard.modal>
 
 
 @push('footer')
     <script>
-        let groupCurrent = '{{$user->partnerInfo->plan_option_group}}';
+        let groupCurrent = '{{$partner->plan_option_group}}';
         $('#editOption .btn-primary').on('click', function () {
             $('.radio-item').append('<span class="checkmark"></span>');
             $('div.options #option_' + groupCurrent).click();

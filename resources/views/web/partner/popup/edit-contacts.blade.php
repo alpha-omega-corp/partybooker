@@ -18,7 +18,7 @@
     <x-dashboard.input
         name="phone"
         type="tel"
-        :value="$user->partnerInfo->phone"
+        :value="$user->phone"
         :placeholder="__('partner.your_phone_number')"
         icon="heroicon-m-device-phone-mobile"/>
 

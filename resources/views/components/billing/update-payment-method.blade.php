@@ -6,39 +6,35 @@
 <div class="container">
     <div class="d-flex justify-content-center">
         <div class="update-payment-container">
-            <x-dashboard.input-card>
-                <div class="mt-3">
-                    <x-dashboard.input
-                        type="url"
-                        name="holder"
-                        id="card-holder-name"
-                        placeholder="Name on card"
-                        icon="heroicon-o-user"/>
-                </div>
-            </x-dashboard.input-card>
+
 
             <div class="mt-2">
-                <x-dashboard.input-card>
-                    <br>
-                    <div class="p-2 pt-3 pb-5">
-                        <div id="card-element"></div>
-                    </div>
-                    <button id="card-button" class="btn btn-primary w-100" type="button"
-                            data-secret="{{ $intent->client_secret }}">
-                        Subscribe
+
+
+                <x-dashboard.input
+                    type="url"
+                    name="holder"
+                    id="card-holder-name"
+                    placeholder="Name on card"
+                    icon="heroicon-o-user-circle"/>
+
+                <div class="p-2 pt-3 pb-5">
+                    <div id="card-element"></div>
+                </div>
+                <button id="card-button" class="btn btn-primary w-100" type="button"
+                        data-secret="{{ $intent->client_secret }}">
+                    Subscribe
+                </button>
+
+                <form method="POST" action="{{route('payment-method')}}">
+                    <input type="hidden" id="payment-method" name="method" value="">
+                    <input type="hidden" id="plan" name="plan">
+                    <input type="hidden" id="plan-name" name="name">
+                    @csrf
+                    <button type="submit" class="d-none" id="submit">
+                        Submit
                     </button>
-
-                    <form method="POST" action="{{route('payment-method')}}">
-                        <input type="hidden" id="payment-method" name="method" value="">
-                        <input type="hidden" id="plan" name="plan">
-                        <input type="hidden" id="plan-name" name="name">
-                        @csrf
-                        <button type="submit" class="d-none" id="submit">
-                            Submit
-                        </button>
-                    </form>
-
-                </x-dashboard.input-card>
+                </form>
             </div>
 
         </div>
@@ -69,15 +65,8 @@
                 }
             }
         );
-
-        if (error) {
-            console.log('hmmm')
-        } else {
-            const validIntent = setupIntent.payment_method;
-            console.log(validIntent);
-            document.getElementById('payment-method').value = validIntent;
-            document.getElementById('submit').click();
-        }
+        document.getElementById('payment-method').value = setupIntent.payment_method;
+        document.getElementById('submit').click();
     });
 </script>
 

@@ -13,42 +13,45 @@
     </x-slot:image>
 
     <?php $cat = 1; ?>
-    @foreach($partnerPlanOptions as $k => $option)
-        <div class="option-{{$cat}} text-dark">
-            <div class="categories cat">
-                <label class="select">{{__('partner.category')}}<span>*</span></label>
-                <select option="{{$cat}}" required class="form-select">
-                    <option selected disabled></option>
-                    @foreach($categoriesList as $categ)
-                        <option value="{{$categ->code}}">{{$categ->lang->name}}</option>
-                    @endforeach
-                </select>
-            </div>
+    <div class="edit-category">
+        @foreach($partnerOptions as $k => $option)
+            <div class="option-{{$cat}} text-dark">
+                <div class="categories cat">
+                    <label class="select">{{__('partner.category')}}<span>*</span></label>
+                    <select option="{{$cat}}" required class="form-select">
+                        <option value="" disabled></option>
+                        @foreach($categories as $categ)
+                            <option value="{{$categ->code}}">{{$categ->lang->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
 
-            <hr>
+                <hr>
 
-            <div class="d-flex">
-                @for($i = 1; $i <= $option->sub_categories_count; $i++)
-                    @foreach($categoriesList as $categ)
-                        <div class="categories subcat w-100 {{$categ->code}}" style="display: none;">
-                            <div class="d-flex flex-column w-100">
-                                <label class="select">{{__('partner.subcategory')}}<span>*</span></label>
-                                <select name="category[{{$categ->id}}][]" class="form-select">
-                                    <option selected disabled></option>
-                                    @foreach($categ->subCategories as $sub)
-                                        <option value="{{$sub->id}}">{{$sub->lang->name}}</option>
-                                    @endforeach
-                                </select>
+
+                <div class="d-flex flex-column">
+
+                    <label class="select">{{__('partner.subcategory')}}<span>*</span></label>
+                    @for($i = 1; $i <= $option->sub_categories_count; $i++)
+
+                        @foreach($categories as $categ)
+                            <div class="categories subcat w-100 {{$categ->code}}" style="display: none;">
+                                <div class="d-flex flex-column w-100">
+                                    <select name="category[{{$categ->id}}][]" class="form-select">
+                                        <option selected disabled></option>
+                                        @foreach($categ->subCategories as $sub)
+                                            <option value="{{$sub->id}}">{{$sub->lang->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
-                @endfor
+                        @endforeach
+                    @endfor
+                </div>
             </div>
-        </div>
-            <?php $cat++; ?>
-    @endforeach
-
-
+                <?php $cat++; ?>
+        @endforeach
+    </div>
 
 
     @if (Auth::user()->type == 'admin')

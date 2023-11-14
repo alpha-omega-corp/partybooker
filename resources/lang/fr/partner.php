@@ -463,7 +463,7 @@ return [
     'trial_ends' => 'Votre période d\'essai se termine le :date',
 
 
-    'nav-gallery' => 'Gallerie',
+    'nav-gallery' => 'Galerie',
     'nav-option' => 'Formule',
     'nav-ratings' => 'Votes',
     'nav-views' => 'Vues',

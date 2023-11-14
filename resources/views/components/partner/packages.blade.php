@@ -5,7 +5,6 @@
 @php
     $priceId = null;
 @endphp
-<x-dashboard.payment-methods/>
 
 <div class="d-flex justify-content-between">
     @foreach($plans as $plan)

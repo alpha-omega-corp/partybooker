@@ -11,4 +11,7 @@ return [
     'delivery-service' => 'Service de livraison',
     'caterer-menu' => 'Menu(s)',
     'guests' => 'Invités',
+    'edit-option-warning' => 'êtes-vous sûr de vouloir modifier la configuration de votre page publicitaire ?',
+    'close' => 'Fermer',
+    'switch' => 'Basculer',
 ];

@@ -6,7 +6,7 @@
 
 <div class="cp-socials-item">
     <img src="{{Vite::image($network . '.svg')}}" alt="{{ucfirst($network)}}">
-    <div class="d-flex align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center mt-2">
         @if($value)
             @svg('heroicon-o-check-circle', 'text-primary')
         @else

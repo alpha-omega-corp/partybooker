@@ -40,30 +40,6 @@
 
         <div class="container">
             <div class="dashboard-container w-100 shadow-lg">
-
-
-                @if(!Auth::user()->subscribed('PartyBooker'))
-                    @if(!$user->onTrial())
-                        <x-dashboard.card-info>
-                            Choose a plan to start using the service
-                        </x-dashboard.card-info>
-
-                        <form method="POST"
-                              action="{{route('trial', [
-                                'id_partner' => Auth::user()->id_partner,
-                              ])
-                        }}">
-                            @csrf
-                            <button type="submit" class="btn btn-accent w-100 text-uppercase">
-                                {{ __('partner.start-trial') }}
-                            </button>
-
-                        </form>
-                        <hr>
-                    @endif
-                @endif
-
-
                 @yield('content')
                 @include('common.footer')
             </div>

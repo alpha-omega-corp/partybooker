@@ -253,14 +253,10 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
 
 
         Route::get('/partner-cp/{id_partner}/advert', '\App\Http\Controllers\Web\ProfileController@advert')
-            ->name('profile-advert');
+            ->name('profile-advert')->middleware('subscribed');
 
         Route::get('/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@plans')
             ->name('profile-plans');
-
-        Route::post('/partner-cp/{id_partner}/trial', '\App\Http\Controllers\Web\ProfileController@trial')
-            ->name('trial');
-
 
         Route::get('/partner-cp/{id_partner}/faq', '\App\Http\Controllers\Web\ProfileController@faq');
         Route::get('/partner-cp/{id_partner}/terms', '\App\Http\Controllers\Web\ProfileController@terms');

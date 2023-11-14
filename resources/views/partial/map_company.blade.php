@@ -1,9 +1,15 @@
 <div>
     <div class="col-md-12">
-        <div class="edit-location">
-            <input type="text" class="form-control" id="map_address" name="map[address]"
-                   placeholder="{{__('become_partner.location')}}" value="{{$location['address']}}"
-                   autocomplete="off">
+        <div class="d-flex flex-column">
+            <div class="edit-location" data-tippy-content="{{__('become_partner.location')}}">
+                <input type="text" class="form-control" id="map_address" name="map[address]"
+                       placeholder="{{__('become_partner.location')}}" value="{{$location['address']}}"
+                       autocomplete="off">
+            </div>
+            <button type="submit"
+                    class="btn text-accent">
+                {{__('partner.save')}}
+            </button>
         </div>
     </div>
     <input type="hidden" id="map_lat" name="map[lat]"/>

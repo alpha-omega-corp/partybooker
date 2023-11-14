@@ -6,7 +6,7 @@
 
 <div class="main-notifications">
     <div class="app-notification shadow-lg">
-        <div class="notification-title">
+        <div class="notification-title {{$type === 'error' ? 'bg-danger' : 'bg-primary'}}">
             @if($type === 'success')
                 @svg('heroicon-o-check-circle')
             @elseif($type === 'error')

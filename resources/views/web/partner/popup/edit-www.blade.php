@@ -6,18 +6,19 @@
         ? url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/partner-cp/edit-www')
         : url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-www')"
     :hasFiles="true"
+    size="modal-md"
     method="POST">
 
-    <input type="url" name="current_www" value="{{$user->partnerInfo->www}}" hidden/>
+    <input type="url" name="current_www" value="{{$partner->www}}" hidden/>
 
 
-    <div class="edit-www-container d-flex flex-wrap ">
+    <div class="edit-www-container">
 
         <x-dashboard.input
             type="url"
             name="www"
             :required="false"
-            :value="$user->partnerInfo->www"
+            :value="$partner->www"
             :label="__('partner.your_website')"
             icon="heroicon-o-globe-alt"/>
 
@@ -26,9 +27,8 @@
             type="url"
             name="facebook"
             :required="false"
-            :value="$user->partnerInfo->facebook"
-            placeholder="Facebook link"
-            label="Facebook"
+            :value="$partner->facebook"
+            placeholder="Facebook"
             image="facebook"/>
 
 
@@ -36,9 +36,8 @@
             type="url"
             name="twitter"
             :required="false"
-            :value="$user->partnerInfo->twitter"
-            placeholder="Twitter link"
-            label="Twitter"
+            :value="$partner->twitter"
+            placeholder="Twitter"
             image="twitter"/>
 
 
@@ -46,18 +45,16 @@
             type="url"
             name="instagram"
             :required="false"
-            :value="$user->partnerInfo->instagram"
-            placeholder="Instagram link"
-            label="Instagram"
+            :value="$partner->instagram"
+            placeholder="Instagram"
             image="instagram"/>
 
         <x-dashboard.input
             type="url"
             name="linkedin"
             :required="false"
-            :value="$user->partnerInfo->linkedin"
-            placeholder="LinkedIn link"
-            label="LinkedIn"
+            :value="$partner->linkedin"
+            placeholder="LinkedIn"
             image="linkedin"/>
 
 
@@ -65,18 +62,16 @@
             type="url"
             name="youtube"
             :required="false"
-            :value="$user->partnerInfo->youtube"
-            placeholder="Youtube link"
-            label="Youtube"
+            :value="$partner->youtube"
+            placeholder="Youtube"
             image="youtube"/>
 
         <x-dashboard.input
             type="url"
             name="vimeo"
             :required="false"
-            :value="$user->partnerInfo->vimeo"
-            placeholder="Vimeo link"
-            label="Vimeo"
+            :value="$partner->vimeo"
+            placeholder="Vimeo"
             image="vimeo"/>
 
 

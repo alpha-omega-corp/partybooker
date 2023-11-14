@@ -1,11 +1,11 @@
-@if (Lang::has('plan.' . strtolower($user->partnerInfo->plan)))
-    <div class="fw-bold {{'text-' . strtolower($user->partnerInfo->plan)}}">
-        {{ strtoupper(trans($user->partnerInfo->plan)) }}
+@if (Lang::has('plan.' . strtolower($partner->plan)))
+    <div class="fw-bold text-start {{'text-' . strtolower($partner->plan)}}">
+        {{ strtoupper(trans($partner->plan)) }}
     </div>
 @endif
 
-<table>
-    @foreach ($user->invoices() as $invoice)
+<table class="text-start">
+    @foreach (auth()->user()->invoices() as $invoice)
         <tr>
             <td>@svg('heroicon-o-newspaper')</td>
             <td>{{ $invoice->id }}</td>

@@ -15,6 +15,22 @@ window.Alpine = Alpine;
 Alpine.plugin(focus);
 Alpine.start();
 
+
+tippy('.plan-option-item', {
+    placement: 'top',
+    animation: 'scale',
+    inertia: true,
+    theme: 'tab-cat-tippy'
+});
+
+tippy('.edit-location', {
+    placement: 'right',
+    animation: 'scale',
+    inertia: true,
+    theme: 'tab-cat-tippy'
+});
+
+
 tippy('.nav-item', {
     placement: 'right',
     animation: 'scale',

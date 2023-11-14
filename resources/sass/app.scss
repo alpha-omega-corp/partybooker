@@ -1911,26 +1911,9 @@ a {
             transition: .2s;
         }
     }
-
-
-    .offcanvas-body {
-        @media only screen and (max-width: 767px) {
-            width: 300px;
-
-            .nav-link {
-                display: flex;
-                justify-content: start !important;
-                color: #fff !important;
-            }
-        }
-    }
 }
 
 .navigation {
-    .offcanvas {
-        border: 0;
-        background-color: transparent;
-    }
 
     .dropdown {
         position: absolute;
@@ -1946,11 +1929,13 @@ a {
         margin-top: 20px;
 
         .nav-item {
-
             a {
-                border-radius: 50%;
+                @media only screen and (min-width: 1200px) {
+                    border-radius: 50%;
+                    padding: 10px;
+                    margin: 0 !important;
+                }
 
-                padding: 10px;
 
                 .nav-icon {
                     color: #fff;
@@ -1960,8 +1945,6 @@ a {
                     align-items: center;
                 }
             }
-
-
         }
     }
 
@@ -2235,31 +2218,6 @@ html {
     }
 }
 
-// Applies Up To Medium
-@media only screen and (max-width: 1200px) {
-
-    .navigation {
-        width: 100%;
-        height: 100%;
-
-        .close-container {
-            right: 20px;
-            top: 15px;
-        }
-
-        .nav-item {
-            a {
-                font-size: large;
-            }
-        }
-
-        svg {
-            margin: 20px;
-        }
-    }
-
-}
-
 
 // Applies After Medium
 @media only screen and (min-width: 1200px) {
@@ -2350,35 +2308,6 @@ html {
 
 // Applies Before Medium
 @media only screen and (max-width: 1200px) {
-
-    .navigation {
-        .container {
-            padding-top: 10px;
-
-
-            .nav-sm-text {
-                margin-bottom: 0px !important;
-                text-transform: uppercase;
-            }
-
-            .nav-sm-close {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-            }
-
-            .nav-link {
-                i {
-                    width: 16px;
-                    height: 16px;
-                }
-            }
-
-            .nav {
-                margin-top: 20px;
-            }
-        }
-    }
 
 
     .cookies {
@@ -2537,7 +2466,6 @@ html {
 }
 
 .dashboard-container {
-    border-radius: 20px;
 }
 
 .dashboard-title {
@@ -2552,27 +2480,30 @@ html {
 
 .main-notifications {
     position: fixed;
-    bottom: 40px;
-    left: 40px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid $gray-300;
 
 
     .app-notification {
-        border: 2px solid $primary;
         border-radius: 20px;
         overflow: hidden;
 
         .notification-title {
             display: flex;
             color: #fff;
-            border-bottom: 1px solid #fff;
-            padding: 10px;
-            background-color: $primary;
+            padding: 10px 10px 10px 20px;
 
 
             h6 {
                 color: #fff;
-                margin-left: 10px;
+                margin-left: 5px;
                 font-weight: bold;
+                margin-bottom: 0;
             }
         }
 
@@ -2818,8 +2749,7 @@ html {
 
             .input-group {
                 span {
-                    background: $accent;
-                    color: #fff;
+                    color: $gray;
                 }
             }
         }
@@ -2930,6 +2860,7 @@ html {
         .cp-socials-item {
             display: flex;
             flex-direction: column;
+            margin: 10px;
 
             svg {
                 display: flex;
@@ -2945,8 +2876,7 @@ html {
             }
 
             img {
-                margin: 10px;
-                width: 30px;
+                width: 20px;
             }
         }
 
@@ -3085,10 +3015,20 @@ html {
         color: $gray-600;
     }
 
-    input {
-        border-radius: 20px;
-    }
+    .input-group {
+        span {
+            border: 0;
 
+            svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        input {
+            border: 0;
+        }
+    }
 
     input:focus {
         box-shadow: none;
@@ -3158,10 +3098,7 @@ html {
     .option-active-header:hover {
         cursor: pointer;
 
-        .dashboard-modal-button {
-            transform: scale(2.2);
-            transition: .2s;
-        }
+
     }
 
     h6 {
@@ -3171,7 +3108,7 @@ html {
     .plan-active-icon {
         width: 30px;
         height: 30px;
-        margin-left: 20px;
+        margin-left: 40px;
     }
 
     .plan-option-content {
@@ -3234,7 +3171,7 @@ html {
 
     .category-option-card {
         padding: 10px 20px;
-        border: 1px dashed $accent;
+        border: 1px solid $gray-300;
         border-radius: 20px;
         position: relative;
     }
@@ -3274,12 +3211,8 @@ html {
 }
 
 .advert-review {
-    margin: 20px;
-
     .stars {
         margin: 0;
-
-
     }
 
     .rating-stat {
@@ -3550,10 +3483,7 @@ html {
 }
 
 .rating-stat-votes {
-    border: 1px solid $gray-300;
     width: 100%;
-    padding: 20px;
-    border-radius: 20px;
 
     svg {
         width: 20px;
@@ -3565,14 +3495,21 @@ html {
 .company-info-item {
     padding: 0 10px 5px 0;
     display: flex;
+    align-items: center;
 
     svg {
+        margin-top: 2px;
         margin-right: 10px;
     }
 }
 
+.company-info-item:hover {
+    svg {
+        color: $primary;
+    }
+}
+
 .company-description-card {
-    position: relative;
     padding: 20px;
 
     .company-description-row {
@@ -3587,7 +3524,6 @@ html {
     .company-description-flag {
         display: flex;
         align-items: start;
-        margin-left: 20px;
     }
 
     img {
@@ -3616,11 +3552,9 @@ html {
         padding-left: 10px;
         padding-right: 10px;
 
-        h5 {
+        p {
             text-align: start;
-            text-transform: uppercase;
             margin: 0;
-            font-size: small;
             padding-bottom: 5px;
             border-bottom: 1px solid $gray-300;
         }
@@ -3671,10 +3605,6 @@ html {
             padding: 0;
             border-bottom: 0;
             overflow-x: scroll;
-
-            button {
-                background-color: #fff !important;
-            }
 
         }
 
@@ -3780,6 +3710,14 @@ html {
     input[type="text"] {
         padding: 20px 10px;
         line-height: 28px;
+    }
+}
+
+.edit-location:hover {
+
+    input[type="text"] {
+        text-decoration: underline;
+        cursor: pointer !important;
     }
 }
 
@@ -4151,10 +4089,12 @@ html {
 
 .dashboard-socials {
     position: relative;
-    margin: 20px;
-    border: 1px solid $gray-300;
     border-radius: 20px;
-    padding: 20px;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 .dashboard-socials:hover {
@@ -4177,4 +4117,158 @@ html {
 
 .tab-overflow {
     overflow-x: scroll !important;
+}
+
+.trial {
+    margin: 20px;
+    border-radius: 40px;
+
+    img {
+        border-left: 1px solid $standard;
+        width: 700px;
+        object-fit: cover;
+    }
+
+    .trial-choose-plan {
+        padding: 40px;
+        border: 1px solid $gray-300;
+        margin-top: 20px;
+        margin-right: 20px;
+        border-radius: 40px;
+
+        .trial-prices {
+            margin-left: 20px;
+            font-size: small;
+        }
+    }
+
+    .trial-details {
+        padding: 40px;
+        border: 1px solid $gray-300;
+        margin-top: 20px;
+        margin-right: 20px;
+        border-radius: 40px;
+    }
+}
+
+.active-plan {
+    margin: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid $gray-300;
+}
+
+.advert-tabs {
+    position: relative;
+
+    .advert-tabs-absolute {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+    }
+
+
+    .advert-tabs-header {
+        background-color: $accent;
+        display: flex;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        padding: 20px;
+    }
+
+    .advert-tabs-header:hover {
+        cursor: pointer;
+
+        .dashboard-modal-button {
+            transform: scale(1.5);
+            transition: .2s;
+        }
+    }
+
+    .advert-tabs-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        svg {
+            width: 30px;
+            height: 30px;
+            color: #fff;
+            margin-right: 10px;
+        }
+    }
+
+    .advert-tabs-edit {
+        position: relative;
+    }
+}
+
+.plan-options-item-card {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid $gray-300;
+
+    .plan-option-item {
+        width: 200px;
+        padding: 10px;
+
+        p {
+            font-size: smaller;
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .plan-option-item:hover {
+        cursor: pointer;
+        border-bottom: 1px solid $accent;
+
+        svg {
+            transform: scale(1.3);
+            transition: .1s;
+        }
+    }
+
+    .plan-options-item-active {
+        border-bottom: 1px solid $accent;
+
+        p {
+            font-weight: bold;
+        }
+
+        svg {
+            color: $primary;
+        }
+    }
+
+}
+
+
+.dashboard-card-socials {
+    width: 100%;
+    margin-left: 20px;
+
+    .dashboard-card {
+        height: 100%;
+    }
+}
+
+.dashboard-card-description {
+    .dashboard-card {
+        height: 100%;
+    }
+}
+
+.option-description {
+    font-size: smaller;
+    padding-top: 5px;
+}
+
+.description-language-preview {
+    margin-right: 5px;
 }

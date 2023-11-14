@@ -7,11 +7,11 @@ use App\Http\Middleware\CheckForMaintenanceMode;
 use App\Http\Middleware\EmailVerification;
 use App\Http\Middleware\EmailVerified;
 use App\Http\Middleware\EncryptCookies;
+use App\Http\Middleware\EnsureUserSubscribed;
 use App\Http\Middleware\LocaleMiddleware;
 use App\Http\Middleware\PartnerAdmin;
 use App\Http\Middleware\PartybookerAdmin;
 use App\Http\Middleware\RedirectIfAuthenticated;
-use App\Http\Middleware\Subscription;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustHosts;
 use App\Http\Middleware\TrustProxies;
@@ -93,7 +93,7 @@ class Kernel extends HttpKernel
         'partner' => PartnerAdmin::class,
         'email' => EmailVerification::class,
         'email-ok' => EmailVerified::class,
-        'subscription' => Subscription::class,
+        'subscribed' => EnsureUserSubscribed::class,
     ];
 
     /**
