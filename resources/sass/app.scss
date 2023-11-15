@@ -1929,10 +1929,29 @@ a {
         margin-top: 20px;
 
         .nav-item {
+            display: flex;
+            justify-content: start;
+            margin: 5px;
+            align-items: center;
+            @media only screen and (max-width: 1200px) {
+                margin: 0;
+                width: 100%;
+                background-color: $accent;
+
+                a {
+
+                    color: #fff;
+                }
+
+                svg {
+
+                }
+            }
+
             a {
                 @media only screen and (min-width: 1200px) {
                     border-radius: 50%;
-                    padding: 10px;
+                    padding: 5px;
                     margin: 0 !important;
                 }
 
@@ -3715,6 +3734,9 @@ html {
 }
 
 .edit-location:hover {
+    svg {
+        color: $primary;
+    }
 
     input[type="text"] {
         text-decoration: underline;
@@ -4275,4 +4297,11 @@ html {
 
 .dashboard-top-options {
     padding: 20px;
+}
+
+.credit-card-card {
+    border: 1px solid $gray-300;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
 }

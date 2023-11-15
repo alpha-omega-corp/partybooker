@@ -61,14 +61,16 @@ class PlanService implements IPlanService
                 ->newSubscription('PartyBooker', $validated->plan);
         }
 
-        if ($validated->name === 'trial') {
-            $trialDays = Carbon::now()->addDays(10);
-            $intent->trialUntil($trialDays);
-            $user->trial_ends_at = $trialDays;
-        }
+        $trialDays = Carbon::now()->addDays(10);
+        $intent->trialUntil($trialDays);
+        $user->trial_ends_at = $trialDays;
 
         try {
-            $intent->create($paymentId);
+            $intent->create($paymentId, [
+                'email' => $user->email,
+                'name' => $user->partnerInfo->fr_company_name,
+                'phone' => $user->partnerInfo->phone,
+            ]);
         } catch (Exception $e) {
             dd($e);
         }

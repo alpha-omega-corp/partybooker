@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 */
 
+use App\Http\Controllers\BillingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -250,10 +251,10 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
             ->name('statistics');
         Route::get('/partner-cp/{id_partner}/profile', '\App\Http\Controllers\Web\ProfileController@profile')
             ->name('profile');
-
-
         Route::get('/partner-cp/{id_partner}/advert', '\App\Http\Controllers\Web\ProfileController@advert')
             ->name('profile-advert')->middleware('subscribed');
+
+        Route::post('/partner-cp/cancel', [BillingController::class, 'cancel'])->name('subscription.cancel');
 
         Route::get('/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@plans')
             ->name('profile-plans');

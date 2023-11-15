@@ -31,6 +31,23 @@
 
     @if($user->subscribed('PartyBooker'))
         <x-dashboard.profile.plan :partner="$user->partnerInfo"/>
+
+        <x-dashboard.modal
+            id="unsubscribe"
+            title="Configuration"
+            :button="__('partner.edit')"
+            :action="route('subscription.cancel')"
+            :has-button="false"
+            size="modal-sm"
+            :save-label="__('form.yes')"
+            method="POST">
+        </x-dashboard.modal>
+
+        <button type="button" class="btn btn-danger m-4" x-data="{target: 'unsubscribe-button'}"
+                @click="document.getElementById(target).click()">
+            Cancel Subscription
+        </button>
+
     @else
         <input type="hidden" id="trialPlan"/>
         <input type="hidden" id="trialPlanName"/>
@@ -75,13 +92,11 @@
             </div>
 
             <div class="shadow-lg">
-                <img src="{{Vite::image('trial-showcase.png')}}" alt="trial-showcase  rounded-circle">
+                <img src="{{Vite::image('trial-picture-main.png')}}" alt="trial-showcase  rounded-circle">
             </div>
 
         </div>
     @endif
-
-
 
     <hr>
     <section class="mt-5">

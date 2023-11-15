@@ -7,6 +7,6 @@
 
 @else
     <h1 class="text-uppercase text-start p-3 fw-bold display-4">
-        Dashboard
+        {{__('partner.dashboard')}}
     </h1>
 @endif

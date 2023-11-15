@@ -1,4 +1,5 @@
-
+stripe_hook:
+	stripe listen --forward-to localhost:8000/stripe/webhook
 db_create:
 	docker-compose up -d
 

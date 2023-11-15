@@ -29,14 +29,14 @@
     <div class="dashboard-top-options">
         <div class="d-flex justify-content-between">
             <div class="d-flex align-items-center">
-                <h3 class="text-uppercase fw-bold">{{__('partner.statistics')}}</h3>
+                <h5 class="text-uppercase fw-bold">{{__('partner.statistics')}}</h5>
             </div>
             <x-dashboard.profile.statistics :statistics="$user->partnerInfo->statistic"/>
         </div>
 
         <div class="d-flex justify-content-between">
             <div class="d-flex align-items-center">
-                <h3 class="text-uppercase fw-bold">{{__('partner.plan_options')}}</h3>
+                <h5 class="text-uppercase fw-bold">{{__('partner.plan_options')}}</h5>
             </div>
             <x-dashboard.profile.options
                 :partner="$user->partnerInfo"

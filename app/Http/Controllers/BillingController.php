@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePaymentMethod;
 use App\Interfaces\IPlanService;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 
 class BillingController extends Controller
 {
@@ -19,12 +20,23 @@ class BillingController extends Controller
     public function updatePaymentMethod(StorePaymentMethod $request)
     {
         $request->validated();
-        $this->planService->startPlan($request->user(), $request->user()->createAsStripeCustomer(), $request);
+        $this->planService->startPlan($request->user(), $request->user()->createOrGetStripeCustomer(), $request);
 
         return redirect()
             ->route('profile-advert', Auth::user()->id_partner)
             ->with([
                 'success' => 'Your subscription is now active!'
+            ]);
+    }
+
+    public function cancel(Request $request)
+    {
+        auth()->user()->subscription('PartyBooker')->cancelNow();
+
+        return redirect()
+            ->route('profile-advert', Auth::user()->id_partner)
+            ->with([
+                'success' => 'Your subscription is now cancelled!'
             ]);
     }
 

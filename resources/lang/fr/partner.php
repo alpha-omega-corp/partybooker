@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'dashboard' => 'Tableau de bord',
     'medal' => 'Médaille',
     'available' => 'Disponible',
     'matrix_category_good' => 'Choix des catégories',

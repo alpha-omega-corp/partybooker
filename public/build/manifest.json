@@ -663,6 +663,10 @@
     "file": "assets/traiteur-daac6e40.png",
     "src": "resources/images/traiteur.png"
   },
+  "resources/images/trial-picture-main.png": {
+    "file": "assets/trial-picture-main-0f6985e6.png",
+    "src": "resources/images/trial-picture-main.png"
+  },
   "resources/images/trial-showcase.png": {
     "file": "assets/trial-showcase-6c39eeef.png",
     "src": "resources/images/trial-showcase.png"
@@ -732,7 +736,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-54ac944c.css",
+    "file": "assets/app-03605faa.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -740,21 +744,21 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-54ac944c.css"
+      "assets/app-03605faa.css"
     ],
-    "file": "assets/app-d55f03fc.js",
+    "file": "assets/app-7089bba4.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "resources/js/dashboard.css": {
-    "file": "assets/dashboard-5854a31d.css",
+    "file": "assets/dashboard-211104e3.css",
     "src": "resources/js/dashboard.css"
   },
   "resources/js/dashboard.js": {
     "css": [
-      "assets/dashboard-5854a31d.css"
+      "assets/dashboard-211104e3.css"
     ],
-    "file": "assets/dashboard-149a1db0.js",
+    "file": "assets/dashboard-10f9cc25.js",
     "isEntry": true,
     "src": "resources/js/dashboard.js"
   },

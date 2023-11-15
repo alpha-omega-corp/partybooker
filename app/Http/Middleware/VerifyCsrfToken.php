@@ -21,7 +21,8 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         '/cp/service-images/*',
         '/service-images/*',
-	    '/cp/partner-remove',
-	    '/adverts/del-file'
+        '/cp/partner-remove',
+        '/adverts/del-file',
+        'stripe/*',
     ];
 }

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'dashboard' => 'Dashboard',
     'medal' => 'Medal',
     'available' => 'Available',
     'matrix_category_good' => 'Choose categories',
