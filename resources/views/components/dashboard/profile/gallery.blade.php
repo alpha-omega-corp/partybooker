@@ -36,7 +36,7 @@
                                 <div class="del btn btn-danger"
                                      data-img="{{$img['image_name']}}"
                                      data-image-id="{{$img['id']}}"
-                                     data-id="{{$user->id_partner}}">
+                                     data-id="{{auth()->user()->id_partner}}">
                                     @svg('heroicon-o-trash')
                                 </div>
                             </div>
