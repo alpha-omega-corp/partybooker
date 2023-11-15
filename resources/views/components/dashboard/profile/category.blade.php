@@ -74,7 +74,7 @@
                         @else
 
                             <hr>
-                            <x-partner.service-details :advert="$advert" :partner="$user->partnerInfo"
+                            <x-partner.service-details :advert="$advert" :partner="auth()->user()->partnerInfo"
                                                        :iterator="$iterator"/>
 
                             <div class="edit-service">

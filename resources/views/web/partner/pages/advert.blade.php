@@ -26,12 +26,27 @@
         $planUrl = url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner) . '/plans'
     @endphp
 
-    <div class="p-4 d-flex justify-content-around">
-        <div class="d-flex align-items-center">
-            <h3 class="text-uppercase fw-bold">{{__('partner.statistics')}}</h3>
+    <div class="dashboard-top-options">
+        <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <h3 class="text-uppercase fw-bold">{{__('partner.statistics')}}</h3>
+            </div>
+            <x-dashboard.profile.statistics :statistics="$user->partnerInfo->statistic"/>
         </div>
-        <x-dashboard.profile.statistics :statistics="$user->partnerInfo->statistic"/>
+
+        <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <h3 class="text-uppercase fw-bold">{{__('partner.plan_options')}}</h3>
+            </div>
+            <x-dashboard.profile.options
+                :partner="$user->partnerInfo"
+                :partner-options="$partnerPlanOptions"
+                :options="$planOptions"
+            />
+        </div>
     </div>
+
+
     <div class="dashboard-body">
         <div class="row">
             <div class="col-xl-8 col-lg-7 col-md-12">
@@ -41,11 +56,8 @@
                             <x-partner.publication-matrix :partner="$user->partnerInfo" :matrix="$canPublishMatrix"/>
                         @endif
                     </div>
-                    <x-dashboard.profile.options
-                        :partner="$user->partnerInfo"
-                        :partner-options="$partnerPlanOptions"
-                        :options="$planOptions"
-                    />
+
+
                 </x-dashboard.header>
 
 
@@ -58,31 +70,8 @@
                         :categories="$categoriesList"/>
                 </x-dashboard.card>
 
+                <x-dashboard.profile.pages :gallery-images="$categoryImages"/>
 
-                <div class="profile-info advert-info mt-5">
-                    <x-partner-category-tab
-                        :tabs="[
-                    __('partner.nav-gallery'),
-                    'Contact'
-                  ]">
-                        <x-slot name="title">
-                            <div>
-                                <div class="serviceDetails">
-                                    @include('web.partner.profile.category-images')
-                                </div>
-                            </div>
-                        </x-slot>
-
-                        <x-tab.item>
-                            <x-dashboard.profile.gallery :gallery="$categoryImages"/>
-                        </x-tab.item>
-
-                        <x-tab.item>
-                            <x-dashboard.profile.contact/>
-                        </x-tab.item>
-
-                    </x-partner-category-tab>
-                </div>
             </div>
 
 
@@ -166,12 +155,10 @@
                 </x-dashboard.card>
 
 
-                <div class="company-card" x-data="{modal: 'editCompany'}"
-                     @click="openModalPrevent(modal)">
-                    <x-dashboard.card :title="__('become_partner.company_info')">
-                        @include('web.partner.profile.company')
-                    </x-dashboard.card>
-                </div>
+                <x-dashboard.card :title="__('become_partner.company_info')">
+                    <x-dashboard.profile.company :partner="$user->partnerInfo" :location="$location"/>
+                </x-dashboard.card>
+
 
                 <x-dashboard.card title="Description">
                     <x-dashboard.profile.company-description/>
@@ -185,13 +172,6 @@
                 <x-dashboard.card :title="__('become_partner.contact_details')">
                     <x-dashboard.profile.contact-details :user="$user"/>
                 </x-dashboard.card>
-
-
-                <div class="locale-card">
-                    <x-dashboard.profile.locale
-                        :location="$location"
-                        :partner="$user->partnerInfo"/>
-                </div>
 
 
             </div>

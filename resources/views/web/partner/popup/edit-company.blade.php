@@ -31,9 +31,9 @@
 
     <div id="filename" class="m-2 text-dark d-flex align-items-center justify-content-center logo-edit"
          x-data="{target: 'logo-btn'}" @click="document.getElementById(target).click()">
-        @if ($user->partnerInfo->logo)
+        @if ($partner->logo)
             <div class="d-flex flex-column edit-logo">
-                <img src="{{ asset('/storage/logos/'.$user->partnerInfo->logo)}}" alt="logo"
+                <img src="{{ asset('/storage/logos/'.$partner->logo)}}" alt="logo"
                      class="cp-company-logo"
                      width="100">
 
@@ -57,21 +57,21 @@
             </label>
             <div class="pt-1">
                 <x-dashboard.input name="company_name"
-                                   :value="$user->partnerInfo->en_company_name"
+                                   :value="$partner->en_company_name"
                                    :placeholder="__('partybooker-cp.company_name')"
                                    icon="heroicon-o-home-modern"
                                    :max="50"/>
 
                 <x-dashboard.input
                     name="company_phone"
-                    :value="$user->partnerInfo->company_phone"
+                    :value="$partner->company_phone"
                     :placeholder="__('partybooker-cp.phone')"
                     icon="heroicon-o-phone"/>
 
 
                 <x-dashboard.input
                     name="company_fax"
-                    :value="$user->partnerInfo->fax"
+                    :value="$partner->fax"
                     :placeholder="__('become_partner.fax')"
                     :required="false"
                     icon="heroicon-o-paper-airplane"/>
@@ -87,7 +87,7 @@
                         name="languages[]"
                         value="french"
                         :label="__('partybooker-cp.french')"
-                        :checked="str_contains($user->partnerInfo->language, 'french')">
+                        :checked="str_contains($partner->language, 'french')">
                         <img src="{{Vite::image('french.svg')}}" alt="french"/>
                     </x-dashboard.checkbox>
 
@@ -95,7 +95,7 @@
                         name="languages[]"
                         value="english"
                         :label="__('partybooker-cp.english')"
-                        :checked="str_contains($user->partnerInfo->language, 'english')">
+                        :checked="str_contains($partner->language, 'english')">
                         <img src="{{Vite::image('english.svg')}}" alt="english"/>
                     </x-dashboard.checkbox>
 
@@ -103,7 +103,7 @@
                         name="languages[]"
                         value="german"
                         :label="__('partybooker-cp.german')"
-                        :checked="str_contains($user->partnerInfo->language, 'german')">
+                        :checked="str_contains($partner->language, 'german')">
                         <img src="{{Vite::image('german.svg')}}" alt="german"/>
                     </x-dashboard.checkbox>
 
@@ -111,7 +111,7 @@
                         name="languages[]"
                         value="italian"
                         :label="__('partybooker-cp.italian')"
-                        :checked="str_contains($user->partnerInfo->language, 'italian')">
+                        :checked="str_contains($partner->language, 'italian')">
                         <img src="{{Vite::image('italian.svg')}}" alt="italian"/>
                     </x-dashboard.checkbox>
                 </div>
@@ -121,13 +121,13 @@
 
 
     @if (Auth::user()->type == 'admin')
-        <input type="text" name="id_partner" value="{{$user->partnerInfo->id_partner}}" hidden/>
+        <input type="text" name="id_partner" value="{{$partner->id_partner}}" hidden/>
     @else
         <input type="text" name="id_partner" value="{{Auth::user()->id_partner}}" hidden/>
     @endif
 
-    <input type="text" name="current_logo" value="{{$user->partnerInfo->logo}}" hidden/>
-    <input type="text" name="current_loc" value="{{$user->partnerInfo->location_code}}" hidden/>
+    <input type="text" name="current_logo" value="{{$partner->logo}}" hidden/>
+    <input type="text" name="current_loc" value="{{$partner->location_code}}" hidden/>
 
 </x-dashboard.modal>
 

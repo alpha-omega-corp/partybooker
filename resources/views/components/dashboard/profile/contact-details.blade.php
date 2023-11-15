@@ -1,9 +1,8 @@
 @props([
-    'user'
+    'user',
 ])
 
-<div x-data="{modal: 'editContacts'}"
-     @click="openModalPrevent(modal)" class="coordinates-card">
+<div>
     <div class="user-info-item" data-tippy-content="{{__('partner.name')}}">
         @svg('heroicon-o-identification')
         {{$user->name}}

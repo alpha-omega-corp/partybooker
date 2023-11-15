@@ -2,12 +2,15 @@
     <div class="col-md-12">
         <div class="d-flex flex-column">
             <div class="edit-location" data-tippy-content="{{__('become_partner.location')}}">
-                <input type="text" class="form-control" id="map_address" name="map[address]"
-                       placeholder="{{__('become_partner.location')}}" value="{{$location['address']}}"
-                       autocomplete="off">
+                <div class="d-flex align-items-center">
+                    @svg('heroicon-o-map-pin')
+                    <input type="text" class="form-control" id="map_address" name="map[address]"
+                           placeholder="{{__('become_partner.location')}}" value="{{$location['address']}}"
+                           autocomplete="off">
+                </div>
             </div>
             <button type="submit"
-                    class="btn text-accent">
+                    class="btn btn-accent">
                 {{__('partner.save')}}
             </button>
         </div>
@@ -24,7 +27,7 @@
 
 </div>
 
-<div id="map" style="width: 100%; height: 400px;"></div>
+<div id="map" style="width: 100%; height: 200px;"></div>
 
 @push('footer')
 

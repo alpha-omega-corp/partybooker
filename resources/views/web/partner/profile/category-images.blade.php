@@ -1,7 +1,7 @@
 <?php use App\Models\Category;
 
 $i = 1; ?>
-@foreach($categoryImages as $category => $data)
+@foreach($galleryImages as $category => $data)
     @php
         $images = count($data['images']);
         $allowed = $data['count'];
@@ -84,7 +84,7 @@ $i = 1; ?>
                 $("#main_image_{{$category}}").kendoUpload({
                     "multiple": false,
                     async: {
-                        saveUrl: "{{auth()->user()->type == 'admin' ? '/cp/' : '/'}}service-images/upload-main/{{$user->id_partner . '/' . $category}}",
+                        saveUrl: "{{auth()->user()->type == 'admin' ? '/cp/' : '/'}}service-images/upload-main/{{auth()->user()->id_partner . '/' . $category}}",
                         removeUrl: "remove",
                         autoUpload: false
                     },
@@ -99,7 +99,7 @@ $i = 1; ?>
                     },
                     multiple: true,
                     async: {
-                        saveUrl: "{{auth()->user()->type == 'admin' ? '/cp/' : '/'}}service-images/upload/{{$user->id_partner . '/' . $category}}",
+                        saveUrl: "{{auth()->user()->type == 'admin' ? '/cp/' : '/'}}service-images/upload/{{auth()->user()->id_partner . '/' . $category}}",
                         removeUrl: "remove",
                         autoUpload: false
                     },

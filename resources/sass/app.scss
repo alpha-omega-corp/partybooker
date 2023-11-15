@@ -3708,8 +3708,9 @@ html {
 .edit-location {
 
     input[type="text"] {
-        padding: 20px 10px;
-        line-height: 28px;
+        border: 0;
+        padding: 10px 10px;
+        line-height: 10px;
     }
 }
 
@@ -4205,7 +4206,6 @@ html {
 }
 
 .plan-options-item-card {
-    margin: 20px;
     padding: 20px;
     border-radius: 20px;
     border: 1px solid $gray-300;
@@ -4271,4 +4271,8 @@ html {
 
 .description-language-preview {
     margin-right: 5px;
+}
+
+.dashboard-top-options {
+    padding: 20px;
 }
