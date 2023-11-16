@@ -4,25 +4,6 @@
 ])
 
 
-@php
-    $paymentMethod = auth()->user()->defaultPaymentMethod();
-@endphp
-<div class="credit-card-card">
-    <p>
-        {{ucfirst($paymentMethod->card->brand)}}
-        {{ucfirst($paymentMethod->card->funding)}}
-
-    </p>
-
-    <span>
-        {{$paymentMethod->card->exp_month}}/{{$paymentMethod->card->exp_year}}
-    </span>
-
-    {{$paymentMethod->card->last4}}
-    {{$paymentMethod->card->network}}
-
-</div>
-
 <div class="active-plan">
     @if (Lang::has('plan.' . strtolower($partner->plan)))
         <div class="fw-bold text-start {{'text-' . strtolower($partner->plan)}}">

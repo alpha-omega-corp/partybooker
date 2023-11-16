@@ -161,7 +161,7 @@ class DatabaseSeeder extends Seeder
             'id_partner' => null,
             'email_verification' => 1,
             'password' => bcrypt('password'),
-            'type' => null,
+            'type' => 'admin',
             'provider' => null,
             'provider_id' => null,
         ]);
@@ -338,7 +338,7 @@ class DatabaseSeeder extends Seeder
             'service_id' => $equipmentId,
         ]);
 
-        
+
         $entertainmentId = Entertainment::factory([
             'id_partner' => '120036190814-044' . $r
         ])->create()->id;
