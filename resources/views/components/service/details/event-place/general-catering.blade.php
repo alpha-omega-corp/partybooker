@@ -78,11 +78,11 @@
     <x-service.ul>
         @if($details->yes_free_caterers)
             @foreach(json_decode($details->yes_free_caterers) as $caterer)
-                <x-service.migration-guard :check="$caterer">
+                @if($caterer instanceof stdClass && isset($caterer->url) && isset($caterer->name))
                     <li>
-                        <a href="{{$caterer->url ?? "#"}}" target="_blank">{{$caterer->name}}</a>
+                        <a href="{{$caterer->url}}" target="_blank">{{$caterer->name}}</a>
                     </li>
-                </x-service.migration-guard>
+                @endif
             @endforeach
         @endif
     </x-service.ul>
