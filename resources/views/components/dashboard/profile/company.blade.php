@@ -46,8 +46,6 @@
 </div>
 
 <div class="company-details">
-
-
     <div class="company-details-languages">
         <h5 class="text-uppercase">
             {{__('become_partner.languages')}}

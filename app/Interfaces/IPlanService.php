@@ -15,6 +15,8 @@ interface IPlanService
 
     public function startPlan(User $user, Customer $customer, StorePaymentMethod $request): bool;
 
+    public function activatePlan(string $name): bool;
+
     public function applyOptions($partnerInfoId, $planId, $planGroup): void;
 
     public function formatOptions(Collection $options): array;

@@ -11,7 +11,7 @@
 <div class="card">
     <div class="d-flex">
         <div class="matrix-card">
-            <div class="d-flex mb-4">
+            <div class="d-flex mb-4 matrix-card-header">
                 <div class="matrix-warning">
                     @svg('heroicon-s-exclamation-triangle', 'text-orange')
                 </div>

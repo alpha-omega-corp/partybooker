@@ -4,6 +4,7 @@
 namespace App\Services;
 
 use App\Http\Requests\StorePaymentMethod;
+use App\Interfaces\ILocaleService;
 use App\Interfaces\IPlanService;
 use App\Models\PartnerPlanOption;
 use App\Models\Plan;
@@ -18,6 +19,13 @@ use Stripe\Customer;
 
 class PlanService implements IPlanService
 {
+    private ILocaleService $localeService;
+
+    public function __construct(ILocaleService $localeService)
+    {
+        $this->localeService = $localeService;
+    }
+
     public function getPlans(): Collection
     {
         $plans = Plan::with('planOptions')
@@ -65,18 +73,33 @@ class PlanService implements IPlanService
         $intent->trialUntil($trialDays);
         $user->trial_ends_at = $trialDays;
 
+        $geoLocale = $this->localeService->addressValues($user->partnerInfo->address);
         try {
             $intent->create($paymentId, [
                 'email' => $user->email,
                 'name' => $user->partnerInfo->fr_company_name,
                 'phone' => $user->partnerInfo->phone,
+                'id_partner' => $user->partnerInfo->id,
+                'address' => [
+                    'city' => $geoLocale['locality'],
+                    'country' => $geoLocale['country'],
+                    'line1' => $geoLocale['administrative_area_level_2'],
+                    'line2' => $geoLocale['route'],
+                    'postal_code' => $geoLocale['postal_code'],
+                    'state' => $geoLocale['administrative_area_level_1'],
+                ]
             ]);
         } catch (Exception $e) {
             dd($e);
         }
 
-        $planName = strtolower($validated->name);
-        $plan = Plan::where('name', $planName)->firstOrFail();
+        return $this->activatePlan(strtolower($validated->name));
+    }
+
+    public function activatePlan(string $name): bool
+    {
+        $user = auth()->user();
+        $plan = Plan::where('name', $name)->firstOrFail();
 
         $this->applyOptions(
             $user->partnerInfo->id,

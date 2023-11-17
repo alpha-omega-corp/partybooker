@@ -166,6 +166,17 @@
       'BladeCaptureDirective' => 'RyanChandler\\BladeCaptureDirective\\Facades\\BladeCaptureDirective',
     ),
   ),
+  'spatie/geocoder' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Spatie\\Geocoder\\GeocoderServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Geocoder' => 'Spatie\\Geocoder\\Facades\\Geocoder',
+    ),
+  ),
   'spatie/laravel-ignition' => 
   array (
     'providers' => 

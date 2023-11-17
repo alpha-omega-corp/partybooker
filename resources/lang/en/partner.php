@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'trial_ending' => 'Your trial period ends the :date',
     'dashboard' => 'Dashboard',
     'medal' => 'Medal',
     'available' => 'Available',

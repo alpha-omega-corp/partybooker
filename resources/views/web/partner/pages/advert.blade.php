@@ -27,12 +27,6 @@
     @endphp
 
     <div class="dashboard-top-options">
-        <div class="d-flex justify-content-between">
-            <div class="d-flex align-items-center">
-                <h5 class="text-uppercase fw-bold">{{__('partner.statistics')}}</h5>
-            </div>
-            <x-dashboard.profile.statistics :statistics="$user->partnerInfo->statistic"/>
-        </div>
 
         <div class="d-flex justify-content-between">
             <div class="d-flex align-items-center">
@@ -44,6 +38,14 @@
                 :options="$planOptions"
             />
         </div>
+
+        <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <h5 class="text-uppercase fw-bold">{{__('partner.statistics')}}</h5>
+            </div>
+            <x-dashboard.profile.statistics :statistics="$user->partnerInfo->statistic"/>
+        </div>
+
     </div>
 
 
@@ -153,7 +155,6 @@
                         @include('web.partner.partials.dashboard.evaluation')
                     </div>
                 </x-dashboard.card>
-
 
                 <x-dashboard.card :title="__('become_partner.company_info')">
                     <x-dashboard.profile.company :partner="$user->partnerInfo" :location="$location"/>

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'trial_ending' => 'Votre période d\'éssai se termine le :date',
     'dashboard' => 'Tableau de bord',
     'medal' => 'Médaille',
     'available' => 'Disponible',

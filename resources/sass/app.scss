@@ -2704,6 +2704,10 @@ html {
             width: 100%;
             padding-bottom: 40px;
 
+            .matrix-card-header {
+                padding-left: 10px;
+            }
+
             .matrix-warning {
                 width: 40px;
                 display: flex;
@@ -4228,9 +4232,7 @@ html {
 }
 
 .plan-options-item-card {
-    padding: 20px;
-    border-radius: 20px;
-    border: 1px solid $gray-300;
+    padding-bottom: 20px;
 
     .plan-option-item {
         width: 200px;
@@ -4304,4 +4306,22 @@ html {
     padding: 20px;
     margin: 20px;
     border-radius: 20px;
+}
+
+.plan-buttons {
+    display: flex;
+    flex-direction: column;
+
+    button {
+        font-size: smaller;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+}
+
+.credit-card {
+    border: 1px solid $gray-300;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
 }

@@ -39,6 +39,7 @@
         <x-app-notifications/>
 
         <div class="container">
+            
             <div class="dashboard-container w-100 shadow-lg">
                 @yield('content')
                 @include('common.footer')

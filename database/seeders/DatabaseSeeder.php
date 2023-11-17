@@ -161,7 +161,7 @@ class DatabaseSeeder extends Seeder
             'id_partner' => null,
             'email_verification' => 1,
             'password' => bcrypt('password'),
-            'type' => 'admin',
+            'type' => null,
             'provider' => null,
             'provider_id' => null,
         ]);

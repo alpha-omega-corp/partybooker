@@ -6,11 +6,7 @@
 <div class="container">
     <div class="d-flex justify-content-center">
         <div class="update-payment-container">
-
-
             <div class="mt-2">
-
-
                 <x-dashboard.input
                     type="url"
                     name="holder"
@@ -27,7 +23,7 @@
                 </button>
 
                 <form method="POST" action="{{route('payment-method')}}">
-                    <input type="hidden" id="payment-method" name="method" value="">
+                    <input type="hidden" id="payment-method" name="method">
                     <input type="hidden" id="plan" name="plan">
                     <input type="hidden" id="plan-name" name="name">
                     @csrf

@@ -7,16 +7,17 @@
             $planNameLocale = __('plan.' . $planName);
             $class = 'text-' . $planName;
         @endphp
-        <div class="form-check" x-data="{plan: '{{$planId}}', name: '{{$planName}}'}"
-             @click="trialIntent(plan, name)">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{$key}}">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="plan" id="flexRadioDefault{{$key}}" value="{{$planId}}"
+                   x-data="{plan: '{{$planId}}', name: '{{$planName}}'}"
+                   @click="trialIntent(plan, name)">
             <label class="form-check-label d-flex justify-content-between" for="flexRadioDefault{{$key}}">
                 <span @class($class)>
                     {{$planNameLocale}}
                 </span>
 
-                <span class="trial-prices">
-                    {{$plan->price}} {{__('become_partner.per_year')}}
+                <span class="trial-prices text-gray">
+                    {{$plan->price}} CHF {{__('become_partner.per_year')}}
                 </span>
             </label>
         </div>

@@ -14,4 +14,11 @@ return [
     'edit-option-warning' => 'Are you sure you want to edit your plan\'s option?',
     'close' => 'Close',
     'switch' => 'Switch',
+    'subscription_cancel' => 'Cancel Subscription',
+    'subscription_reactivate' => 'Reactivate Subscription',
+    'subscription_switch' => 'Change Plan',
+    'subscription_cancel_warning' => 'Are you sure you want to cancel your subscription?',
+    'subscription_access_ending' => 'Your access will be revoked on :date',
+    'subscription_reactivate_warning' => 'Are you sure you want to reactivate your subscription\'s billing cycle?',
+    'subscription_switch_warning' => 'Changing your plan will cancel your trial period, and you will be charged immediately. Are you sure you want to continue?',
 ];

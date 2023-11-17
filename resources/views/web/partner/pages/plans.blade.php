@@ -22,35 +22,144 @@
         function trialIntent(plan, name) {
             document.getElementById('trialPlan').value = plan
             document.getElementById('trialPlanName').value = name
+            document.getElementById('switchPlan').value = name
+        }
+
+        function openSubscribe() {
+            document.getElementById('add-card').click()
+            document.getElementById('plan').value = document.getElementById('trialPlan').value
+            document.getElementById('plan-name').value = document.getElementById('trialPlanName').value
         }
     </script>
 @endpush
 
 @section('content')
     <x-dashboard.header/>
+    <x-billing.payment-intent :intent="$intent"/>
+
+    <input type="hidden" id="trialPlan"/>
+    <input type="hidden" id="trialPlanName"/>
+
 
     @if($user->subscribed('PartyBooker'))
-        <x-dashboard.profile.plan :partner="$user->partnerInfo"/>
+        <div class="d-flex">
+            <div>
+
+                @if($user->pm_type)
+                    <div class="credit-card-card">
+
+                        @if (Lang::has('plan.' . strtolower($user->partnerInfo->plan)))
+                            <h5 class="{{'text-' . strtolower($user->partnerInfo->plan)}} fw-bold">{{ strtoupper(trans($user->partnerInfo->plan)) }}</h5>
+                        @endif
+
+                        <br>
+
+                        <div class="credit-card" data-tippy-content="{{ucfirst($user->pm_type)}}">
+
+                            <div class="d-flex justify-content-around">
+
+                                <div class="d-flex flex-column">
+                                    @svg('heroicon-o-credit-card', 'me-1 mt-1')
+                                </div>
+
+                                <div class="fw-bold">
+                                    <span class="text-danger">****</span>
+                                    <span>{{$user->pm_last_four}}</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <hr>
+                        <div class="plan-buttons">
+                            <button type="button" class="btn btn-accent" x-data="{target: 'switch-button'}"
+                                    @click="document.getElementById(target).click()">
+                                {{__('form.subscription_switch')}}
+                            </button>
+                            @if(!$user->subscription('PartyBooker')->onGracePeriod())
+                                <button type="button" class="btn btn-danger pb-1"
+                                        x-data="{target: 'unsubscribe-button'}"
+                                        @click="document.getElementById(target).click()">
+                                    {{__('form.subscription_cancel')}}
+                                </button>
+                            @else
+                                <button type="button" class="btn btn-primary pb-1" x-data="{target: 'resume-button'}"
+                                        @click="document.getElementById(target).click()">
+                                    {{__('form.subscription_reactivate')}}
+                                </button>
+                            @endif
+
+                        </div>
+                    </div>
+                @endif
+
+
+            </div>
+
+            <x-dashboard.profile.plan :partner="$user->partnerInfo" :user="$user"/>
+        </div>
+
+        <x-dashboard.modal
+            id="switch"
+            :title="__('form.subscription_switch')"
+            :button="__('partner.edit')"
+            :action="route('subscription.switch')"
+            :has-button="false"
+            size="modal-md"
+            :save-label="__('form.yes')"
+            method="POST">
+
+            <input type="hidden" name="name" id="switchPlan">
+            <x-billing.trial-options :plans="$plans"/>
+
+            <hr>
+            <x-dashboard.card-info>
+                {{__('form.subscription_switch_warning')}}
+            </x-dashboard.card-info>
+        </x-dashboard.modal>
 
         <x-dashboard.modal
             id="unsubscribe"
-            title="Configuration"
+            :title="__('form.subscription_cancel')"
             :button="__('partner.edit')"
             :action="route('subscription.cancel')"
             :has-button="false"
-            size="modal-sm"
+            size="modal-md"
             :save-label="__('form.yes')"
             method="POST">
+
+            <x-dashboard.card-info>
+                {{__('form.subscription_cancel_warning')}}
+            </x-dashboard.card-info>
+
+            @if($user->onTrial())
+                <x-dashboard.card-info>
+                    {{__('form.subscription_access_ending', [
+                        'date' => $user->subscription('PartyBooker')->trial_ends_at->format('d/m/Y'),
+                    ])}}
+                </x-dashboard.card-info>
+
+            @endif
+
         </x-dashboard.modal>
 
-        <button type="button" class="btn btn-danger m-4" x-data="{target: 'unsubscribe-button'}"
-                @click="document.getElementById(target).click()">
-            Cancel Subscription
-        </button>
+        <x-dashboard.modal
+            id="resume"
+            :title="__('form.subscription_reactivate')"
+            :button="__('partner.edit')"
+            :action="route('subscription.resume')"
+            :has-button="false"
+            size="modal-md"
+            :save-label="__('form.yes')"
+            method="POST">
 
+            <x-dashboard.card-info>
+                {{__('form.subscription_reactivate_warning')}}
+            </x-dashboard.card-info>
+
+        </x-dashboard.modal>
     @else
-        <input type="hidden" id="trialPlan"/>
-        <input type="hidden" id="trialPlanName"/>
+
         <div class="trial d-flex justify-content-between">
 
             <div class="w-100 d-flex align-items-start justify-content-center">
@@ -81,8 +190,8 @@
                         </div>
                         <hr>
                         <button class="fw-bold text-uppercase mt-3 btn btn-accent w-100"
-                                x-data="{plan: document.getElementById('trialPlan').value, name: document.getElementById('trialPlanName').value}"
-                                @click="subscribe(plan, name)">
+                                x-data="{}"
+                                @click="openSubscribe()">
                             {{__('plan.subscribe_trial')}}
                         </button>
                     </div>
@@ -104,7 +213,6 @@
             <x-partner.packages :plans="$plans"/>
         </div>
 
-        <x-billing.payment-intent :intent="$intent"/>
 
     </section>
 @endsection

@@ -11,6 +11,7 @@
 */
 
 use App\Http\Controllers\BillingController;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -254,8 +255,6 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::get('/partner-cp/{id_partner}/advert', '\App\Http\Controllers\Web\ProfileController@advert')
             ->name('profile-advert')->middleware('subscribed');
 
-        Route::post('/partner-cp/cancel', [BillingController::class, 'cancel'])->name('subscription.cancel');
-
         Route::get('/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@plans')
             ->name('profile-plans');
 
@@ -328,26 +327,24 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
 
     Route::post("/contacts/claim-requests", 'ContactsController@SendClaimOrDeleteRequest');
 
-    Route::get('/billing-portal', function (Request $request) {
-        return $request->user()->redirectToBillingPortal(route('billing'));
-    });
     Route::get('/user/invoice/{invoice}', function (Request $request, string $invoiceId) {
+        $settings = Setting::all()->first();
+
         return $request->user()->downloadInvoice($invoiceId, [
-            'vendor' => 'Your Company',
-            'product' => 'Your Product',
-            'street' => 'Main Str. 1',
-            'location' => '2000 Antwerp, Belgium',
-            'phone' => '+32 499 00 00 00',
-            'email' => 'info@example.com',
-            'url' => 'https://example.com',
+            'vendor' => config('app.name'),
+            'location' => $settings->address,
+            'phone' => $settings->phone,
+            'email' => $settings->email,
+            'url' => 'https://partybooker.ch',
             'vendorVat' => 'BE123456789',
+            'product' => ucfirst($request->user()->partnerInfo->plan) . ' ' . config('app.name'),
         ]);
     })->name('invoice');
 
     Route::post('/payment-method', '\App\Http\Controllers\BillingController@updatePaymentMethod')->name('payment-method');
-
-    Route::post('billing', 'BillingController@index')->name('billing');
-
+    Route::post('/partner-cp/cancel', [BillingController::class, 'cancel'])->name('subscription.cancel');
+    Route::post('/partner-cp/resume', [BillingController::class, 'resume'])->name('subscription.resume');
+    Route::post('/partner-cp/switch', [BillingController::class, 'switchSubscription'])->name('subscription.switch');
 });
 
 //language switch
