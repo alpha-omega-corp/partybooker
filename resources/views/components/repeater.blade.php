@@ -7,7 +7,7 @@
 <div class="row mb-4 mt-2" x-data="handler()"
      x-init="loadFields('{{$lang === 'fr' ? $partner->fr_seo_keywords : $partner->en_seo_keywords}}')">
     <div class="mt-2">
-        <div class="d-flex align-items-center justify-content-between w-100 p-2"
+        <div class="d-flex align-items-center justify-content-between w-100 p-2 mb-2"
              style="border-radius: 5px;">
 
             <div>

@@ -6,7 +6,7 @@
 <br>
 
 
-<h6 class="seo-info text-start text-uppercase fw-bold mt-2">{{__('form.seo')}}</h6>
+<label class="seo-info text-start text-uppercase fw-bold mt-5 mb-4">{{__('form.seo')}}</label>
 
 <x-dashboard.card-info>
     {{__('form.seo_info_1')}}
@@ -16,10 +16,10 @@
     {{__('form.seo_info_2')}}
 </x-dashboard.card-info>
 
-<div class="description-card-seo">
+<div class="description-card-seo mt-4">
 
 
-    <div class="input-group mt-2">
+    <div class="input-group">
         <span class="input-group-text seo-input-title ">
             {{__('form.seo_title')}}
         </span>

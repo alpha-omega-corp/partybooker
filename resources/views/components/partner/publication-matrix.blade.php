@@ -76,8 +76,7 @@
                 @endif
                 @if(!$matrix['companyDetails'])
                     <x-dashboard.card-info :targets="[
-                        'tab-1-3',
-                        'editCompanyDescription-button',
+                        'tab-1-2',
                     ]">
                         {{__('partner.fill_company_details')}}
                     </x-dashboard.card-info>

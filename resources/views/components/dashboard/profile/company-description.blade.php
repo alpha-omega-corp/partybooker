@@ -17,10 +17,6 @@
                         <img src="{{Vite::image('icons/france.svg')}}" alt="english" class="me-2"/>
                     </div>
 
-                    <x-dashboard.textarea name="fr_slogan"
-                                          :label="__('partybooker-cp.slogan')"
-                                          icon="heroicon-o-chat-bubble-bottom-center-text"
-                                          :max="250">{{$partnerInfo->fr_slogan}}</x-dashboard.textarea>
 
                     <div class="mt-2">
                         <div>
@@ -40,6 +36,12 @@
                         </div>
                     </div>
 
+                    <x-dashboard.textarea name="fr_slogan"
+                                          :label="__('partybooker-cp.slogan')"
+                                          icon="heroicon-o-chat-bubble-bottom-center-text"
+                                          :max="250">{{$partnerInfo->fr_slogan}}
+                    </x-dashboard.textarea>
+
                     <x-dashboard.profile.seo lang="fr" :partner="$partnerInfo"/>
                 </div>
             </x-tab.item>
@@ -51,10 +53,6 @@
                         <img src="{{Vite::image('icons/uk-flag.svg')}}" alt="english"/>
                     </div>
 
-                    <x-dashboard.textarea name="en_slogan"
-                                          :label="__('partybooker-cp.slogan')"
-                                          icon="heroicon-o-chat-bubble-bottom-center-text"
-                                          :max="250">{{$partnerInfo->en_slogan}}</x-dashboard.textarea>
 
                     <div class="mt-2">
                         <label for="en_short_descr">{{__('partybooker-cp.short_description')}}</label>
@@ -66,6 +64,11 @@
                                   class="textarea-wysiwyg">{{$partnerInfo->en_full_descr}}</textarea>
 
                     </div>
+
+                    <x-dashboard.textarea name="en_slogan"
+                                          :label="__('partybooker-cp.slogan')"
+                                          icon="heroicon-o-chat-bubble-bottom-center-text"
+                                          :max="250">{{$partnerInfo->en_slogan}}</x-dashboard.textarea>
 
                     <x-dashboard.profile.seo lang="en" :partner="$partnerInfo"/>
                 </div>
@@ -81,7 +84,7 @@
 
 
     <div class="d-flex">
-        <button type="submit" class="btn btn-accent mx-3 mb-3 w-100">{{__('partybooker-cp.save')}}</button>
+        <button type="submit" class="btn btn-accent mx-3 mb-3 w-100">{{__('partner.save')}}</button>
     </div>
 </form>
 

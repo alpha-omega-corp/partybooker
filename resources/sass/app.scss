@@ -2900,12 +2900,12 @@ html {
         }
 
         label {
-            color: $gray-700;
             text-transform: uppercase;
             text-align: start;
             margin-bottom: 5px;
             font-weight: bold;
-            font-size: small;
+            font-size: medium;
+            color: #000 !important;
             padding-bottom: 5px;
             display: flex;
         }
@@ -4353,6 +4353,7 @@ html {
         font-weight: bold;
         margin-bottom: 5px;
         margin-top: 20px;
+
     }
 
     .description-card-title {
@@ -4390,4 +4391,6 @@ html {
     padding: 10px;
 }
 
-
+.seo-info {
+    border-bottom: 1px solid $blue-500;
+}

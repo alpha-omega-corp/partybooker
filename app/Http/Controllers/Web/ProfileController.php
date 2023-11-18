@@ -242,19 +242,19 @@ class ProfileController extends Controller
     {
         $partner = PartnersInfo::where('id_partner', $request->input('id_partner'))->first();
 
-        $partner->en_slogan = $request->input('en_slogan');
+        $partner->en_slogan = strip_tags($request->input('en_slogan'));
         $partner->en_short_descr = $request->input('en_short_descr');
         $partner->en_full_descr = $request->input('en_full_descr');
 
-        $partner->en_seo_desc = $request->input('en_seo_desc');
-        $partner->en_seo_title = $request->input('en_seo_title');
-        $partner->en_seo_keywords = json_encode($request->input('en_seo_keywords'));
-
-        $partner->fr_slogan = $request->input('fr_slogan');
+        $partner->fr_slogan = strip_tags($request->input('fr_slogan'));
         $partner->fr_short_descr = $request->input('fr_short_descr');
         $partner->fr_full_descr = $request->input('fr_full_descr');
 
-        $partner->fr_seo_desc = $request->input('fr_seo_desc');
+        $partner->en_seo_desc = strip_tags($request->input('en_seo_desc'));
+        $partner->en_seo_title = $request->input('en_seo_title');
+        $partner->en_seo_keywords = json_encode($request->input('en_seo_keywords'));
+
+        $partner->fr_seo_desc = strip_tags($request->input('fr_seo_desc'));
         $partner->fr_seo_title = $request->input('fr_seo_title');
         $partner->fr_seo_keywords = json_encode($request->input('fr_seo_keywords'));
 
