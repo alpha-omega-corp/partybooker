@@ -16,23 +16,28 @@
         </x-service.list-item>
 
         <x-service.list-item :title="__('partner.equipment_provided')">
-            <x-service.ul>
-                @foreach(json_decode($details->equipment) as $item)
-                    <li>
-                        {{$item}}
-                    </li>
-                @endforeach
-            </x-service.ul>
+            @if(json_decode($details->equipment))
+                <x-service.ul>
+                    @foreach(json_decode($details->equipment) as $item)
+                        <li>
+                            {{$item}}
+                        </li>
+                    @endforeach
+                </x-service.ul>
+            @endif
         </x-service.list-item>
 
         <x-service.list-item :title="__('partner.equipment_not_included')">
-            <x-service.ul>
-                @foreach(json_decode($details->eq_not_incl) as $item)
-                    <li>
-                        {{$item}}
-                    </li>
-                @endforeach
-            </x-service.ul>
+            @if(json_decode($details->eq_not_incl))
+                <x-service.ul>
+                    @foreach(json_decode($details->eq_not_incl) as $item)
+                        <li>
+                            {{$item}}
+                        </li>
+                    @endforeach
+                </x-service.ul>
+            @endif
+
         </x-service.list-item>
 
 
