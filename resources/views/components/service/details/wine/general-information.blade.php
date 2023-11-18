@@ -82,9 +82,11 @@
     @if(json_decode($details->affiliation))
         <x-service.ul>
             @foreach (json_decode($details->affiliation) as $item)
-                <li>
-                    <a href="{{$item->url ?? "#"}}" target="_blank">{{$item->name}}</a>
-                </li>
+                @if($item instanceof stdClass)
+                    <li>
+                        <a href="{{$item->url ?? "#"}}" target="_blank">{{$item->name}}</a>
+                    </li>
+                @endif
             @endforeach
         </x-service.ul>
     @endif
