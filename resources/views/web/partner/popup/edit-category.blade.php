@@ -41,7 +41,7 @@
                     @for($i = 1; $i <= $option->sub_categories_count; $i++)
                         @foreach($categories as $categ)
                             <div class="categories subcat w-100 {{$categ->code}}" style="display: none;">
-                                <div class="d-flex flex-column w-100">
+                                <div class="d-flex flex-column w-100 mb-2">
                                     <div class="d-flex">
                                         <span class="text-bg-accent p-1 rounded text-center me-2 w-100">#{{$k}}</span>
                                         <select name="category[{{$categ->id}}][]" class="form-select">

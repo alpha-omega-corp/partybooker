@@ -85,13 +85,14 @@
                     <x-dashboard.profile.company :partner="$user->partnerInfo" :location="$location"/>
                 </x-dashboard.card>
 
+                <x-dashboard.card :title="__('partner.socials')">
+                    <x-dashboard.profile.networks :partner="$user->partnerInfo"/>
+                </x-dashboard.card>
+
                 <x-dashboard.card :title="__('become_partner.contact_details')">
                     <x-dashboard.profile.contact-details :user="$user"/>
                 </x-dashboard.card>
 
-                <x-dashboard.card :title="__('partner.socials')">
-                    <x-dashboard.profile.networks :partner="$user->partnerInfo"/>
-                </x-dashboard.card>
             </div>
         </div>
     </div>

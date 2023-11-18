@@ -20,7 +20,8 @@
                         ->where('view_name', $category->form_name)->first();
                     @endphp
 
-                    <div class="category-option-card position-relative">
+                    <div class="category-option-card position-relative mt-3"
+                         x-data="{show: false}" @click="show = !show">
 
                         <div class="text-uppercase fw-bold text-start w-100 p-2">
                             {{$category->lang->name}}
@@ -74,8 +75,15 @@
                         @else
 
                             <hr>
-                            <x-partner.service-details :advert="$advert" :partner="auth()->user()->partnerInfo"
-                                                       :iterator="$iterator"/>
+
+                            <div x-show="show">
+                                <x-partner.service-details :advert="$advert" :partner="auth()->user()->partnerInfo"
+                                                           :iterator="$iterator"/>
+                            </div>
+
+                            <a class="show">
+                                {{__('form.show')}}
+                            </a>
 
                             <div class="edit-service">
                                 <a id="{{'create' . $iterator}}"

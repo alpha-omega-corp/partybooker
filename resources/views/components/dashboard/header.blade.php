@@ -25,9 +25,6 @@
         @endif
     @endif
 
-
-    <hr>
     {{$slot}}
 </div>
 
-<hr>

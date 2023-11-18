@@ -29,4 +29,5 @@ return [
     'seo-description' => 'Description',
     'seo-keywords' => 'Keywords',
     'seo' => 'SEO Optimisations',
+    'show' => 'See',
 ];

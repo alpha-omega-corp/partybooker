@@ -4,7 +4,7 @@
 ])
 
 
-<div class="d-flex flex-column network-pill shadow-lg">
+<div class="d-flex flex-column network-pill">
     <img src="{{Vite::image($network . '.svg')}}" alt="{{ucfirst($network)}}">
     <div class="d-flex align-items-center justify-content-center mt-2">
         @if($value)

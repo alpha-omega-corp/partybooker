@@ -146,7 +146,7 @@ return [
     'edit_links' => "Modifier les liens",
     'your_website' => "Votre site internet",
     'link_must_be' => "Le lien vers votre vidéo Youtube doit  être",
-    'categories' => "Catégories",
+    'categories' => "Catégorie(s)",
     'choose_file' => "Choisir un fichier",
     'upload_banner' => "Télécharger l'image de la bannière",
     'upload_file' => "Télécharger un fichier",

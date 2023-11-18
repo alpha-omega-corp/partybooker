@@ -35,12 +35,12 @@
                     <div class="option-description">
                         <small>
                             {{$indexOption->categories_count}}
-                            {{__('partner.categories')}}
+                            {{Str::plural(__('partner.category'), $indexOption->categories_count)}}
                         </small>
 
                         <small>
                             {{$indexOption->sub_categories_count}}
-                            {{__('partner.subcategory')}}
+                            {{Str::plural(__('partner.subcategory'), $indexOption->sub_categories_count)}}
                         </small>
                     </div>
                 </div>

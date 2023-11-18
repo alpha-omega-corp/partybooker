@@ -29,4 +29,5 @@ return [
     'seo_title' => 'Titre',
     'seo_description' => 'Description',
     'seo_keywords' => 'Mots-clés',
+    'show' => 'Voir',
 ];
