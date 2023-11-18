@@ -7,24 +7,27 @@
     <x-service.deposit :details="$details->deposit"/>
 
     <x-service.list-item :title="__('partner.travelling_expenses')">
-
-        <x-service.ul>
-            @foreach(json_decode($details->travelling_exp) as $item)
-                <li>
-                    {{$item}}
-                </li>
-            @endforeach
-        </x-service.ul>
-
+        @if(json_decode($details->travelling_exp))
+            <x-service.ul>
+                @foreach(json_decode($details->travelling_exp) as $item)
+                    <li>
+                        {{$item}}
+                    </li>
+                @endforeach
+            </x-service.ul>
+        @endif
     </x-service.list-item>
+
     <x-service.list-item :title="__('partner.additional_expenses')">
-        <x-service.ul>
-            @foreach(json_decode($details->additional_exp) as $item)
-                <li>
-                    {{$item}}
-                </li>
-            @endforeach
-        </x-service.ul>
+        @if(json_decode($details->additional_exp))
+            <x-service.ul>
+                @foreach(json_decode($details->additional_exp) as $item)
+                    <li>
+                        {{$item}}
+                    </li>
+                @endforeach
+            </x-service.ul>
+        @endif
     </x-service.list-item>
 
 </x-service.list>
