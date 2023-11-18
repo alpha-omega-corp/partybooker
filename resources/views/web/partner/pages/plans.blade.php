@@ -33,13 +33,18 @@
     </script>
 @endpush
 
+
+
 @section('content')
     <x-dashboard.header/>
-    <x-billing.payment-intent :intent="$intent"/>
+    @if($user->subscribed('PartyBooker'))
+        <x-billing.payment-update :intent="$intent"/>
+    @else
+        <x-billing.payment-intent :intent="$intent"/>
+    @endif
 
     <input type="hidden" id="trialPlan"/>
     <input type="hidden" id="trialPlanName"/>
-
 
     @if($user->subscribed('PartyBooker'))
         <div class="d-flex">
@@ -72,28 +77,30 @@
 
                         <hr>
                         <div class="plan-buttons">
+                            <button type="button" class="btn btn-info" x-data="{target: 'update-card'}"
+                                    @click="document.getElementById(target).click()">
+                                {{__('form.change_card')}}
+                            </button>
                             <button type="button" class="btn btn-accent" x-data="{target: 'switch-button'}"
                                     @click="document.getElementById(target).click()">
                                 {{__('form.subscription_switch')}}
                             </button>
-                            @if(!$user->subscription('PartyBooker')->onGracePeriod())
+                            @if($user->subscription('PartyBooker')->onGracePeriod())
+                                <button type="button" class="btn btn-primary pb-1" x-data="{target: 'resume-button'}"
+                                        @click="document.getElementById(target).click()">
+                                    {{__('form.subscription_reactivate')}}
+                                </button>
+                            @else
                                 <button type="button" class="btn btn-danger pb-1"
                                         x-data="{target: 'unsubscribe-button'}"
                                         @click="document.getElementById(target).click()">
                                     {{__('form.subscription_cancel')}}
-                                </button>
-                            @else
-                                <button type="button" class="btn btn-primary pb-1" x-data="{target: 'resume-button'}"
-                                        @click="document.getElementById(target).click()">
-                                    {{__('form.subscription_reactivate')}}
                                 </button>
                             @endif
 
                         </div>
                     </div>
                 @endif
-
-
             </div>
 
             <x-dashboard.profile.plan :partner="$user->partnerInfo" :user="$user"/>
@@ -215,7 +222,39 @@
 
 
     </section>
+
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <script>
+        const stripe = Stripe('{{ env("STRIPE_KEY") }}');
+
+        const elements = stripe.elements();
+        const cardElement = elements.create('card');
+
+        cardElement.mount('#card-element');
+
+        const cardHolderName = document.getElementById('card-holder-name');
+        const cardButton = document.getElementById('card-button');
+        const clientSecret = cardButton.dataset.secret;
+
+        cardButton.addEventListener('click', async (e) => {
+            const {setupIntent, error} = await stripe.confirmCardSetup(
+                clientSecret, {
+                    payment_method: {
+                        card: cardElement,
+                        billing_details: {name: cardHolderName.value}
+                    }
+                }
+            );
+            document.getElementById('payment-method').value = setupIntent.payment_method;
+            document.getElementById('submit').click();
+        });
+    </script>
 @endsection
+
+
+
 
 
 

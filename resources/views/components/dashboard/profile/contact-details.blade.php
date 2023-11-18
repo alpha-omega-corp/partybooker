@@ -10,7 +10,11 @@
 
     <div class="user-info-item" data-tippy-content="{{__('partner.mobile')}}">
         @svg('heroicon-m-device-phone-mobile')
-        {{$user->phone}}
+        @if($user->phone)
+            {{$user->phone}}
+        @else
+            @svg('heroicon-o-no-symbol')
+        @endif
     </div>
     <hr>
 

@@ -22,4 +22,11 @@ return [
     'subscription_reactivate_warning' => 'Êtes-vous sûr de vouloir réactiver le cycle de facturation de votre abonnement ?',
     'subscription_switch_warning' => 'Changer de plan annulera votre période d\'essai et vous serez facturé immédiatement. Êtes-vous sûr de vouloir continuer ?',
     'change_categories' => 'Vos catégories précédentes seront enregistrées et vous pourrez les réactiver à tout moment à partir de ce menu.',
+    'change_card' => 'Changer de carte',
+    'seo_info_1' => 'Ces informations seront utilisées pour améliorer le référencement de votre page et ne seront pas visible sur votre page publicitaire. Vous pouvez laisser ces champs vides si vous ne souhaitez pas les remplir.',
+    'seo_info_2' => 'Il est recommandé d\'utiliser des mots-clés pertinents pour votre entreprise.',
+    'seo' => 'Optimisations SEO',
+    'seo_title' => 'Titre',
+    'seo_description' => 'Description',
+    'seo_keywords' => 'Mots-clés',
 ];

@@ -22,4 +22,11 @@ return [
     'subscription_reactivate_warning' => 'Are you sure you want to reactivate your subscription\'s billing cycle?',
     'subscription_switch_warning' => 'Changing your plan will cancel your trial period, and you will be charged immediately. Are you sure you want to continue?',
     'change_categories' => 'Your previous categories will be saved and you can reactivate them at any time from this menu.',
+    'change_card' => 'Change Card',
+    'seo-info-1' => 'This information will be used to improve your page\'s SEO and will not be visible on your advert page. You can leave these fields empty if you do not wish to fill them.',
+    'seo-info-2' => 'It is recommended to use relevant keywords for your business.',
+    'seo-title' => 'Title',
+    'seo-description' => 'Description',
+    'seo-keywords' => 'Keywords',
+    'seo' => 'SEO Optimisations',
 ];

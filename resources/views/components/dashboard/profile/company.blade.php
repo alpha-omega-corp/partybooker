@@ -4,7 +4,7 @@
 ])
 
 @if($partner->logo)
-    <div class="d-flex align-items-center">
+    <div class="">
         <img src="{{ asset('/storage/logos/'.$partner->logo)}}" alt="logo" width="100"
              class="cp-company-logo">
 

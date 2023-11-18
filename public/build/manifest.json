@@ -736,7 +736,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/app.css": {
-    "file": "assets/app-33b7304a.css",
+    "file": "assets/app-3ad107aa.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -744,21 +744,21 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-33b7304a.css"
+      "assets/app-3ad107aa.css"
     ],
-    "file": "assets/app-eabe4432.js",
+    "file": "assets/app-d2042de6.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "resources/js/dashboard.css": {
-    "file": "assets/dashboard-89d04189.css",
+    "file": "assets/dashboard-6f82e1b3.css",
     "src": "resources/js/dashboard.css"
   },
   "resources/js/dashboard.js": {
     "css": [
-      "assets/dashboard-89d04189.css"
+      "assets/dashboard-6f82e1b3.css"
     ],
-    "file": "assets/dashboard-c0fa35e4.js",
+    "file": "assets/dashboard-08887a9e.js",
     "isEntry": true,
     "src": "resources/js/dashboard.js"
   },

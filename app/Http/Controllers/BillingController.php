@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePaymentMethod;
 use App\Interfaces\IPlanService;
 use App\Models\Setting;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -70,7 +71,7 @@ class BillingController extends Controller
             ]);
     }
 
-    public function switchSubscription(Request $request)
+    public function switch(Request $request)
     {
         $request->user()->subscription('PartyBooker')
             ->endTrial()
@@ -78,7 +79,7 @@ class BillingController extends Controller
             ->swap($request->input('plan'));
 
         $this->planService->activatePlan($request->input('name'));
-        $request->user()->update([
+        User::where('id', $request->user()->id)->update([
             'trial_ends_at' => null,
         ]);
 
@@ -86,6 +87,16 @@ class BillingController extends Controller
             ->route('profile-plans', Auth::user()->id_partner)
             ->with([
                 'success' => 'Plan changed!'
+            ]);
+    }
+
+    public function updatePayment(Request $request)
+    {
+        $request->user()->updateDefaultPaymentMethod($request->input('method'));
+        return redirect()
+            ->route('profile-plans', Auth::user()->id_partner)
+            ->with([
+                'success' => 'Payment details updated!'
             ]);
     }
 

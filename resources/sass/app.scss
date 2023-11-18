@@ -2860,11 +2860,6 @@ html {
             border: 1px solid $gray-700;
         }
 
-        .edit-www-container {
-            img {
-                width: 20px;
-            }
-        }
 
         .description-preview {
             border: 1px solid $gray-700;
@@ -2910,19 +2905,9 @@ html {
             margin-bottom: 5px;
             font-weight: bold;
             font-size: small;
-            border-bottom: 1px solid $primary;
             padding-bottom: 5px;
             display: flex;
         }
-
-        .tox-menubar {
-            background-color: $accent;
-
-            button {
-                color: #fff;
-            }
-        }
-
 
         .company-edit-map {
             z-index: 1000 !important;
@@ -3599,15 +3584,21 @@ html {
 }
 
 .edit-company-section {
-    padding: 20px;
+    padding: 10px;
     height: 100%;
 
     img {
-        width: 100%;
         height: 50px;
-        position: absolute;
-        top: 10px;
-        left: 0;
+    }
+
+    .description-card-seo {
+        padding-top: 20px;
+        border-top: 1px solid $blue-500;
+
+        .input-group-text {
+            width: 200px;
+            background: transparent;
+        }
     }
 }
 
@@ -3636,7 +3627,6 @@ html {
             border: 0;
             margin: 0;
             border-radius: 0 0 20px 20px;
-            position: relative;
 
             hr {
                 margin: 0;
@@ -4330,4 +4320,52 @@ html {
     border: 1px solid $gray-300;
     padding: 10px;
     border-radius: 40px;
+}
+
+.edit-category {
+    .dashboard-card-info {
+        border-bottom: 1px solid $gray-300;
+        margin-bottom: 40px;
+    }
+}
+
+.edit-www-container {
+    img {
+        width: 20px;
+    }
+}
+
+.description-card {
+    label {
+        text-transform: uppercase;
+        color: $gray;
+        font-weight: bold;
+        margin-bottom: 5px;
+        margin-top: 20px;
+    }
+
+    .description-card-title {
+
+        img {
+            position: absolute;
+            top: -5px;
+            left: 20px;
+        }
+    }
+
+
+    .tabcat {
+        position: relative;
+    }
+
+    .tab-overflow {
+        justify-content: end !important;
+        padding-right: 20px !important;
+        border-bottom: 1px solid $blue-500 !important;
+
+        button {
+            border-top-right-radius: 20px !important;
+            border-top-left-radius: 20px !important;
+        }
+    }
 }

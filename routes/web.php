@@ -326,6 +326,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     Route::post('/partner-cp/switch', [BillingController::class, 'switch'])->name('subscription.switch');
     Route::post('/partner-cp/cancel', [BillingController::class, 'cancel'])->name('subscription.cancel');
     Route::post('/partner-cp/resume', [BillingController::class, 'resume'])->name('subscription.resume');
+    Route::post('/partner-cp/update-payment', [BillingController::class, 'updatePayment'])->name('payment.update');
 });
 
 //language switch

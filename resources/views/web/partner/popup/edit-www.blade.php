@@ -19,9 +19,8 @@
             name="www"
             :required="false"
             :value="$partner->www"
-            :label="__('partner.your_website')"
+            :placeholder="__('partner.your_website')"
             icon="heroicon-o-globe-alt"/>
-
 
         <x-dashboard.input
             type="url"
