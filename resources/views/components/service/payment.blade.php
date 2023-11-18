@@ -7,7 +7,7 @@
 <x-service.list-item :title="__('partner.payment_methods')">
 
     <div class="d-flex flex-wrap mb-1">
-        @if($details->paymeny)
+        @if(json_decode($details->paymeny))
             @foreach (json_decode($details->paymeny) as $payment)
                 @if($payment !== 'other')
                     <div class="advert-payment-method-item">
@@ -22,7 +22,7 @@
                 @endif
             @endforeach
         @endif
-        @if($details->other_payment)
+        @if(json_decode($details->other_payment))
             @foreach (json_decode($details->other_payment) as $payment)
                 <div class="advert-payment-method-item">
                     <div>
