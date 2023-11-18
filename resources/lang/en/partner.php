@@ -452,7 +452,7 @@ return [
     'back_to_list' => 'Back to list',
     'changes_applied' => 'Your changes were applied.',
     'trial_ends' => 'Your trial period ends the :date',
-    'create_new_service' => 'Create service',
+    'create_new_service' => 'Create',
     'from' => 'from',
     'to' => 'to',
 

@@ -6,7 +6,7 @@
     $priceId = null;
 @endphp
 
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-around flex-wrap">
     @foreach($plans as $plan)
         <div class="become-partner">
             <div class="packages">

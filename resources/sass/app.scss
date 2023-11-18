@@ -1138,10 +1138,11 @@ a {
         @media only screen and (min-width: 767px) {
             .package:hover {
                 transform: scale(1.1);
+                width: 400px;
                 margin: 5px;
                 transition: 0.2s;
                 background-color: #fff;
-                border: 2px solid $primary;
+                border: 2px solid $accent;
 
                 .package-credit-card {
                     width: 40px;
@@ -1178,9 +1179,9 @@ a {
         }
 
         .package {
-            width: 400px;
+            width: 300px;
             height: 700px;
-            margin-bottom: 10px;
+            margin-bottom: 40px;
             border-radius: 40px;
             cursor: pointer;
             position: relative;

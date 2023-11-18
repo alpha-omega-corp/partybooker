@@ -456,7 +456,7 @@ return [
     'back_to_list' => 'Retour à la liste',
     'changes_applied' => 'Vos modifications ont été appliquées.',
 
-    'create_new_service' => 'Create service',
+    'create_new_service' => 'Créer',
     'from' => 'de',
     'to' => 'à',
 
