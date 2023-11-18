@@ -3189,10 +3189,10 @@ html {
 
     .category-option-card:hover {
         padding-bottom: 20px;
-        cursor: pointer;
         transition: .3s;
 
         .show {
+            cursor: pointer;
             text-decoration: underline;
         }
     }
