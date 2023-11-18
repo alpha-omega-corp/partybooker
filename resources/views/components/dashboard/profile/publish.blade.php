@@ -1,3 +1,4 @@
+@php use App\Http\Middleware\LocaleMiddleware; @endphp
 @props([
     'partner',
     'service'
