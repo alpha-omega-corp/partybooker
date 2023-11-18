@@ -52,13 +52,15 @@
         </x-service.list-item>
 
         <x-service.list-item :title="__('partner.references')">
-            <x-service.ul>
-                @foreach(json_decode($details->reference) as $item)
-                    <li>
-                        {{$item}}
-                    </li>
-                @endforeach
-            </x-service.ul>
+            @if(json_decode($details->reference))
+                <x-service.ul>
+                    @foreach(json_decode($details->reference) as $item)
+                        <li>
+                            {{$item}}
+                        </li>
+                    @endforeach
+                </x-service.ul>
+            @endif
         </x-service.list-item>
 
         <x-service.list-item :title="__('partner.geographical_limit')">
