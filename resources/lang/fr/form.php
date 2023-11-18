@@ -30,4 +30,5 @@ return [
     'seo_description' => 'Description',
     'seo_keywords' => 'Mots-clés',
     'show' => 'Voir',
+    'hide' => 'Cacher',
 ];

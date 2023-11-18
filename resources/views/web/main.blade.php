@@ -39,18 +39,17 @@
     @php use App\Http\Middleware\LocaleMiddleware; @endphp
 
     <section class="general-section partner-cp" data-type="{{Auth::user()->type}}">
-
         <x-app-notifications/>
 
         <div class="container">
-
             <div class="dashboard-container w-100 shadow-lg">
                 @yield('content')
-                @include('common.footer')
             </div>
         </div>
-
     </section>
+
+    @include('common.footer')
+
 </div>
 </body>
 

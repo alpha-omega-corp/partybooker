@@ -2485,6 +2485,7 @@ html {
 }
 
 .dashboard-container {
+    border-radius: 40px;
 }
 
 .dashboard-title {
@@ -3598,12 +3599,16 @@ html {
     }
 
     .description-card-seo {
-        padding-top: 20px;
+        padding-top: 10px;
         border-top: 1px solid $blue-500;
 
         .input-group-text {
             width: 200px;
             background: transparent;
+            font-weight: bold;
+            font-size: smaller;
+            text-transform: uppercase;
+            color: $gray;
         }
     }
 }
@@ -4353,6 +4358,7 @@ html {
     .description-card-title {
 
         img {
+            width: 30px;
             position: absolute;
             top: -5px;
             left: 20px;
@@ -4375,3 +4381,13 @@ html {
         }
     }
 }
+
+.seo-keywords {
+    border: 1px solid $gray-300;
+    display: flex;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 10px;
+}
+
+

@@ -30,7 +30,7 @@
                                 <span class="fw-bold">
                                     {{ isset($user->partnerInfo->rateGroup[$i]) ? $user->partnerInfo->rateGroup[$i] : 0 }}
                                 </span>
-                                {{ __('partner.rates') }}
+                                {{ Str::plural(__('partner.rates'), isset($user->partnerInfo->rateGroup[$i]) ? $user->partnerInfo->rateGroup[$i] : 0)}}
                             </div>
                         </div>
                     </li>

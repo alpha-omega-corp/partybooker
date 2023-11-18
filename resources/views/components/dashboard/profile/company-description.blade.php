@@ -81,7 +81,7 @@
 
 
     <div class="d-flex">
-        <button type="submit" class="btn btn-accent mx-3 mb-2 w-100">{{__('partybooker-cp.save')}}</button>
+        <button type="submit" class="btn btn-accent mx-3 mb-3 w-100">{{__('partybooker-cp.save')}}</button>
     </div>
 </form>
 

@@ -5,7 +5,9 @@
 
 <br>
 
-<label>{{__('form.seo')}}</label>
+
+<h6 class="seo-info text-start text-uppercase fw-bold mt-2">{{__('form.seo')}}</h6>
+
 <x-dashboard.card-info>
     {{__('form.seo_info_1')}}
 </x-dashboard.card-info>
@@ -15,8 +17,10 @@
 </x-dashboard.card-info>
 
 <div class="description-card-seo">
+
+
     <div class="input-group mt-2">
-        <span class="input-group-text seo-input-title shadow-sm">
+        <span class="input-group-text seo-input-title ">
             {{__('form.seo_title')}}
         </span>
         <input name="{{$lang}}_seo_title" class="form-control" value="{{
@@ -27,7 +31,7 @@
     </div>
 
     <div class="input-group mt-2">
-        <span class="input-group-text seo-input-title shadow-sm">
+        <span class="input-group-text seo-input-title">
             {{__('form.seo_description')}}
         </span>
         <textarea name="{{$lang}}_seo_desc" class="form-control">{{$lang === 'fr'

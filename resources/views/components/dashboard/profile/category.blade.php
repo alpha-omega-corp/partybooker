@@ -21,7 +21,7 @@
                     @endphp
 
                     <div class="category-option-card position-relative mt-3"
-                         x-data="{show: false}" @click="show = !show">
+                         x-data="{show: false}">
 
                         <div class="text-uppercase fw-bold text-start w-100 p-2">
                             {{$category->lang->name}}
@@ -81,8 +81,14 @@
                                                            :iterator="$iterator"/>
                             </div>
 
-                            <a class="show">
-                                {{__('form.show')}}
+                            <a class="show" @click="show = !show">
+                                <span x-show="!show">
+                                    {{__('form.show')}}
+                                </span>
+
+                                <span x-show="show">
+                                    {{__('form.hide')}}
+                                </span>
                             </a>
 
                             <div class="edit-service">

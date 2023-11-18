@@ -51,7 +51,7 @@ return [
     'statistics' => "Statistiques",
     'rating' => "Evaluation",
     'based_on' => "Basé sur",
-    'rates' => "vote(s)",
+    'rates' => "vote",
     'choose_yearly_plan' => "Veuillez choisir une formule annuelle pour continuer.",
     'pay_for_plan' => "Veuillez payer votre formule pour pour être répertorié",
     'you_not_published' => "Non publié",

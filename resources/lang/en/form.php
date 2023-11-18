@@ -30,4 +30,5 @@ return [
     'seo-keywords' => 'Keywords',
     'seo' => 'SEO Optimisations',
     'show' => 'See',
+    'hide' => 'Hide',
 ];

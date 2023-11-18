@@ -50,7 +50,7 @@ return [
     'statistics' => 'Statistics',
     'rating' => 'Rating',
     'based_on' => 'Based on',
-    'rates' => 'vote(s)',
+    'rates' => 'vote',
     'choose_yearly_plan' => 'You must choose a yearly plan to continue.',
     'pay_for_plan' => 'Not published.',
     'you_not_published' => 'You are not published.',
