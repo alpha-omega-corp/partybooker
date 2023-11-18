@@ -21,7 +21,7 @@
                     @endphp
 
                     <div class="category-option-card position-relative mt-3"
-                         x-data="{show: false}">
+                         x-data="{show: false}" wire:key="{{$iterator}}">
 
                         <div class="text-uppercase fw-bold text-start w-100 p-2">
                             {{$category->lang->name}}
