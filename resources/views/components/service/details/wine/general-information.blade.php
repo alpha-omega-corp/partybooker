@@ -25,9 +25,9 @@
 </div>
 
 <x-service.list-item :title="__('partner.service_details')">
-    @if(json_decode($details->service))
+    @if(is_array($details->service))
         <x-service.ul>
-            @foreach (json_decode($details->service) as $item)
+            @foreach ($details->service as $item)
                 @if($item instanceof stdClass)
                     <li>
                         {{$item->name}} : {{$item->description}}
