@@ -36,9 +36,6 @@
     </x-dashboard.company-info>
 @endif
 
-
-
-<hr>
 <div class="locale-card">
     <x-dashboard.profile.locale
         :location="$location"

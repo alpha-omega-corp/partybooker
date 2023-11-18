@@ -5,11 +5,9 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Interfaces\IPaymentTransactionService;
-use App\Models\Advert;
 use App\Models\PartnerPlanOption;
 use App\Models\PartnersInfo;
 use App\Models\Plan;
-use App\User;
 use DB;
 use Exception;
 use Illuminate\Http\Request;
@@ -24,25 +22,6 @@ class PartnerController extends Controller
     {
         $this->_transactionService = $transactionService;
     }
-
-
-    public function adverts(Request $request)
-    {
-
-        if (Auth::user()->type == 'admin') {
-            $id = $request->id_partner;
-        } else {
-            $id = Auth::user()->id_partner;
-        }
-
-        $user = User::where('id_partner', $id)->with(['partnerInfo', 'partnerInfo.planOptions'])->first();
-        $user->has_free_options = $user->partnerInfo->planOptions()->whereNull('active')->count() ? true : false;
-
-        $adverts = Advert::where('partners_info_id', $user->partnerInfo->id)->with(['service'])->orderBy('status')->get();
-
-        return view('web.partner.adverts', ['user' => $user, 'adverts' => $adverts]);
-    }
-
 
     public function getOptionsAjax(Request $request)
     {

@@ -11,8 +11,7 @@
 */
 
 use App\Http\Controllers\BillingController;
-use App\Models\Setting;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Web\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -244,25 +243,20 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
 
     //ACCESS to PARTNER CP
     Route::middleware(['auth', 'partner', 'email'])->group(function () {
-        Route::get('/partner-cp', '\App\Http\Controllers\Web\ProfileController@index');
 
-        Route::get('/partner-cp/{id_partner}', '\App\Http\Controllers\Web\ProfileController@index');
+        Route::get(
+            '/partner-cp/{id_partner}/advert',
+            [ProfileController::class, 'advert'])
+            ->name('profile-advert')
+            ->middleware('subscribed');
 
-        Route::get('/partner-cp/{id_partner}/statistics', '\App\Http\Controllers\Web\ProfileController@statistics')
-            ->name('statistics');
-        Route::get('/partner-cp/{id_partner}/profile', '\App\Http\Controllers\Web\ProfileController@profile')
-            ->name('profile');
-        Route::get('/partner-cp/{id_partner}/advert', '\App\Http\Controllers\Web\ProfileController@advert')
-            ->name('profile-advert')->middleware('subscribed');
-
-        Route::get('/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@plans')
+        Route::get('/partner-cp/{id_partner}/plans',
+            [ProfileController::class, 'plans'])
             ->name('profile-plans');
 
         Route::get('/partner-cp/{id_partner}/faq', '\App\Http\Controllers\Web\ProfileController@faq');
         Route::get('/partner-cp/{id_partner}/terms', '\App\Http\Controllers\Web\ProfileController@terms');
-        Route::get('/partner-cp/{id_partner}/contacts', '\App\Http\Controllers\Web\ProfileController@contacts');
 
-        Route::get('/partner-cp/{id_partner}/adverts', '\App\Http\Controllers\Web\PartnerController@adverts');
         Route::post('/partner-cp/create-advert', '\App\Http\Controllers\Web\AdvertController@activateOption');
 
         //post
@@ -327,24 +321,11 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
 
     Route::post("/contacts/claim-requests", 'ContactsController@SendClaimOrDeleteRequest');
 
-    Route::get('/user/invoice/{invoice}', function (Request $request, string $invoiceId) {
-        $settings = Setting::all()->first();
-
-        return $request->user()->downloadInvoice($invoiceId, [
-            'vendor' => config('app.name'),
-            'location' => $settings->address,
-            'phone' => $settings->phone,
-            'email' => $settings->email,
-            'url' => 'https://partybooker.ch',
-            'vendorVat' => 'BE123456789',
-            'product' => ucfirst($request->user()->partnerInfo->plan) . ' ' . config('app.name'),
-        ]);
-    })->name('invoice');
-
-    Route::post('/payment-method', '\App\Http\Controllers\BillingController@updatePaymentMethod')->name('payment-method');
+    Route::get('/user/invoice/{invoice}', [BillingController::class, 'invoice'])->name('invoice');
+    Route::post('/partner-cp/subscribe', [BillingController::class, 'subscribe'])->name('subscription.start');
+    Route::post('/partner-cp/switch', [BillingController::class, 'switch'])->name('subscription.switch');
     Route::post('/partner-cp/cancel', [BillingController::class, 'cancel'])->name('subscription.cancel');
     Route::post('/partner-cp/resume', [BillingController::class, 'resume'])->name('subscription.resume');
-    Route::post('/partner-cp/switch', [BillingController::class, 'switchSubscription'])->name('subscription.switch');
 });
 
 //language switch

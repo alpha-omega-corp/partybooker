@@ -22,7 +22,7 @@
                     Subscribe
                 </button>
 
-                <form method="POST" action="{{route('payment-method')}}">
+                <form method="POST" action="{{route('subscription.start')}}">
                     <input type="hidden" id="payment-method" name="method">
                     <input type="hidden" id="plan" name="plan">
                     <input type="hidden" id="plan-name" name="name">

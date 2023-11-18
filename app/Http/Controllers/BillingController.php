@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePaymentMethod;
 use App\Interfaces\IPlanService;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +18,21 @@ class BillingController extends Controller
         $this->planService = $planService;
     }
 
-    public function updatePaymentMethod(StorePaymentMethod $request)
+    public function invoice(Request $request, string $invoiceId)
+    {
+        $settings = Setting::all()->first();
+        return $request->user()->downloadInvoice($invoiceId, [
+            'vendor' => config('app.name'),
+            'location' => $settings->address,
+            'phone' => $settings->phone,
+            'email' => $settings->email,
+            'url' => 'https://partybooker.ch',
+            'vendorVat' => 'BE123456789',
+            'product' => ucfirst($request->user()->partnerInfo->plan) . ' ' . config('app.name'),
+        ]);
+    }
+
+    public function subscribe(StorePaymentMethod $request)
     {
         $request->validated();
         $this->planService->startPlan(

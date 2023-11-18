@@ -21,4 +21,5 @@ return [
     'subscription_access_ending' => 'Votre accès sera révoqué le :date',
     'subscription_reactivate_warning' => 'Êtes-vous sûr de vouloir réactiver le cycle de facturation de votre abonnement ?',
     'subscription_switch_warning' => 'Changer de plan annulera votre période d\'essai et vous serez facturé immédiatement. Êtes-vous sûr de vouloir continuer ?',
+    'change_categories' => 'Vos catégories précédentes seront enregistrées et vous pourrez les réactiver à tout moment à partir de ce menu.',
 ];

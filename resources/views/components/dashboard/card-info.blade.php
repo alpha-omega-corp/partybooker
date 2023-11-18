@@ -1,5 +1,7 @@
 @props([
     'targets' => null,
+    'icon' => 'heroicon-o-information-circle',
+    'color' => 'text-danger'
 ])
 
 <div class="dashboard-card-info" x-data="{targets: '{{json_encode($targets)}}'}"
@@ -7,7 +9,7 @@
     <div class="card-info-content">
         <div class="d-flex">
             <div class="d-flex justify-content-center align-items-center">
-                @svg('heroicon-o-information-circle', 'm-0')
+                @svg($icon, 'm-0 ' . $color)
             </div>
             <div class="d-flex">
                 <p class="d-flex align-items-center m-0">

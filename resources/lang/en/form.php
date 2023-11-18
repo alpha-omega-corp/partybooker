@@ -21,4 +21,5 @@ return [
     'subscription_access_ending' => 'Your access will be revoked on :date',
     'subscription_reactivate_warning' => 'Are you sure you want to reactivate your subscription\'s billing cycle?',
     'subscription_switch_warning' => 'Changing your plan will cancel your trial period, and you will be charged immediately. Are you sure you want to continue?',
+    'change_categories' => 'Your previous categories will be saved and you can reactivate them at any time from this menu.',
 ];

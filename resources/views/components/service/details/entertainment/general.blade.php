@@ -1,21 +1,18 @@
 <x-service.list>
     <div class="position-relative">
-        @if(isset($editGeneral))
-            {{$editGeneral}}
-        @endif
         <h6 class="text-uppercase">{{__('service.general_info')}}</h6>
 
 
         <x-service.list-item :title="__('partner.list_of_your_services')">
-
-            <x-service.ul>
-                @foreach(json_decode($details->services) as $item)
-                    <li>
-                        {{$item}}
-                    </li>
-                @endforeach
-            </x-service.ul>
-
+            @if(json_decode($details->services))
+                <x-service.ul>
+                    @foreach(json_decode($details->services) as $item)
+                        <li>
+                            {{$item}}
+                        </li>
+                    @endforeach
+                </x-service.ul>
+            @endif
         </x-service.list-item>
 
         <x-service.list-item :title="__('partner.equipment_provided')">

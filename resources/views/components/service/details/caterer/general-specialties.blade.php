@@ -15,6 +15,9 @@
 </x-service.list-item>
 
 <x-service.list-item :title="__('partner.specialties')">
-    {!! json_decode($details->specialities) !!}
+    @if(is_string(json_decode($details->specialities)))
+        {!! json_decode($details->specialities) !!}
+    @endif
+
 </x-service.list-item>
 

@@ -4,7 +4,7 @@
 ])
 
 
-<div class="cp-socials-item">
+<div class="d-flex flex-column network-pill shadow-lg">
     <img src="{{Vite::image($network . '.svg')}}" alt="{{ucfirst($network)}}">
     <div class="d-flex align-items-center justify-content-center mt-2">
         @if($value)
@@ -14,3 +14,4 @@
         @endif
     </div>
 </div>
+

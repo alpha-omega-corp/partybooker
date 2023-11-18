@@ -78,7 +78,7 @@
         @endforeach
     </x-service.ul>
 
-    @if(json_encode($details->other_services))
+    @if(json_decode($details->other_services))
         <x-service.ul>
             @foreach (json_decode($details->other_services) as $item)
                 <li>

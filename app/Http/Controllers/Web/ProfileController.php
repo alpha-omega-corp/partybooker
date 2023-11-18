@@ -19,8 +19,8 @@ use App\Models\PartnersInfo;
 use App\Models\PlanOption;
 use App\Models\ServiceImage;
 use App\User;
-use Carbon\Carbon;
 use Exception;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,70 +39,6 @@ class ProfileController extends Controller
     {
         $this->planService = $planService;
         $this->advertService = $advertService;
-    }
-
-
-    public function trial(Request $request)
-    {
-        $this->planService->startTrial($request->user());
-        return redirect()->route('profile-advert', ['id_partner' => $request->user()->id_partner])
-            ->with('success', 'You have successfully started a trial period');
-    }
-
-    public function index(Request $request)
-    {
-        if (Auth::user()->type == 'admin') {
-            $id = $request->id_partner;
-        } else {
-            $id = Auth::user()->id_partner;
-        }
-
-        $user = User::where('id_partner', $id)->with(['partnerInfo', 'partnerInfo.vipPlan', 'partnerInfo.rates'])->first();
-
-        $payed = $user->partnerInfo->payed ? Carbon::parse($user->partnerInfo->payed) : '';
-        $exp_date = $user->partnerInfo->expiration_date ? Carbon::parse($user->partnerInfo->expiration_date) : '';
-        $user->partnerInfo->planExpirationDays = $payed ? $payed->diffInDays($exp_date) : 0;
-
-        $grouped = $user->partnerInfo->rates->groupBy('rate');
-        $groupCount = $grouped->map(function ($item, $key) {
-            return collect($item)->count();
-        })->sort();
-
-        $user->partnerInfo->votes = $user->partnerInfo->rates->count();
-        $user->partnerInfo->avarageRate = $user->partnerInfo->rates->avg('rate');
-        $user->partnerInfo->rateGroup = $groupCount;
-
-        $user->subCategoriesList = json_encode(AdvertCategory::where('partners_info_id', $user->partnerInfo->id)->pluck('sub_category_id')->toArray());
-
-        return view('web.partner-cp', ['user' => $user, 'tabView' => 'main']);
-    }
-
-    public function statistics(Request $request)
-    {
-        if (Auth::user()->type == 'admin') {
-            $id = $request->id_partner;
-        } else {
-            $id = Auth::user()->id_partner;
-        }
-
-        $user = User::where('id_partner', $id)->with(['partnerInfo', 'partnerInfo.vipPlan', 'partnerInfo.rates'])->first();
-
-        $payed = $user->partnerInfo->payed ? Carbon::parse($user->partnerInfo->payed) : '';
-        $exp_date = $user->partnerInfo->expiration_date ? Carbon::parse($user->partnerInfo->expiration_date) : '';
-        $user->partnerInfo->planExpirationDays = $payed ? $payed->diffInDays($exp_date) : 0;
-
-        $grouped = $user->partnerInfo->rates->groupBy('rate');
-        $groupCount = $grouped->map(function ($item, $key) {
-            return collect($item)->count();
-        })->sort();
-
-        $user->partnerInfo->votes = $user->partnerInfo->rates->count();
-        $user->partnerInfo->avarageRate = $user->partnerInfo->rates->avg('rate');
-        $user->partnerInfo->rateGroup = $groupCount;
-
-        $user->subCategoriesList = json_encode(AdvertCategory::where('partners_info_id', $user->partnerInfo->id)->pluck('sub_category_id')->toArray());
-
-        return view('web.partner.pages.main', ['user' => $user, 'tabView' => 'main']);
     }
 
     public function faq($id_partner)
@@ -125,12 +61,6 @@ class ProfileController extends Controller
         return view('web.partner.pages.terms', ['user' => $user]);
     }
 
-    public function contacts()
-    {
-        $user = User::where('id_partner', Auth::user()->id_partner)->with(['partnerInfo'])->first();
-        return view('web.partner.pages.contact', ['user' => $user]);
-    }
-
     public function partnerContact(StorePartnerMessage $request)
     {
         $request->validated();
@@ -144,90 +74,6 @@ class ProfileController extends Controller
             $date, 'partner', $name, $email, $user->id_partner, $message]);
 
         return redirect()->back()->with('success', "Message sent.");
-    }
-
-    public function profile($id_partner)
-    {
-        if (Auth::user()->type == 'admin') {
-            $id = $id_partner;
-        } else {
-            $id = Auth::user()->id_partner;
-        }
-
-        $user = User::where('id_partner', $id)->with(['partnerInfo', 'partnerInfo.vipPlan', 'partnerInfo.currentPlan', 'partnerInfo.rates', 'partnerInfo.eventTypes'])->first();
-
-        $partnerPlanOptions = PartnerPlanOption::where('partners_info_id', $user->partnerInfo->id)->get();
-
-        $categoriesList = Category::whereNull('parent_id')->with(['subCategories', 'subCategories.lang'])->get();
-
-        $sel = AdvertCategory::where('id_partner', $user->id_partner)->get();
-        $hash = $sel->pluck('category_id', 'sub_category_id')->toArray();
-        $currentCategories = Category::with(["subCategories" => function ($q) use ($hash) {
-            $q->whereIn('id', array_keys($hash));
-        }])->whereNull('parent_id')->whereIn('id', array_values($hash))->get();
-
-        $user = User::where('id_partner', $id)->with(['partnerInfo', 'partnerInfo.planOptions'])->first();
-        $user->has_free_options = (bool)$user->partnerInfo->planOptions()->whereNull('active')->count();
-
-
-        $plan = $user->partnerInfo->currentPlan;
-
-        $payed = $user->partnerInfo->payed ? Carbon::parse($user->partnerInfo->payed) : '';
-        $exp_date = $user->partnerInfo->expiration_date ? Carbon::parse($user->partnerInfo->expiration_date) : '';
-        $user->partnerInfo->planExpirationDays = $payed ? $payed->diffInDays($exp_date) : 0;
-
-        $tempImages['cat'] = [
-            'count' => $plan->photos_num ?? 1,
-            'images' => ServiceImage::where('id_partner', $user->id_partner)->orderBy('is_main', 'DESC')->get()
-        ];
-
-        $pet = [];
-        foreach ($user->partnerInfo->eventTypes as $e) {
-            $pet[] = $e->id;
-        }
-
-        return view('web.partner.pages.profile', [
-            'user' => $user,
-            'planOptions' => $this->getPlanOptions($user->partnerInfo->plans_id),
-            'partnerPlanOptions' => $partnerPlanOptions,
-            'categoriesList' => $categoriesList,
-            'currentCategories' => $currentCategories,
-            'categoryImages' => $tempImages,
-            'eventTypes' => EventType::all(),
-            'partnerEventTypes' => $pet,
-
-        ]);
-    }
-
-    private function getPlanOptions($planId)
-    {
-        $options = PlanOption::where('plans_id', $planId)->get();
-        $temp = [];
-        foreach ($options as $option) {
-            $temp[$option->group][] = $option;
-        }
-
-        $list = [];
-
-        foreach ($temp as $id => $opt) {
-            $name = "";
-            $j = 0;
-            foreach ($opt as $item) {
-                $name = $name . "{$item->categories_count} cat. ({$item->sub_categories_count} sub.cat. per cat.)";
-                $j++;
-                if ($j != count($opt)) {
-                    $name = $name . " and ";
-                } else {
-                    $list[] = [
-                        'group' => $id,
-                        'name' => rtrim($name, "")
-                    ];
-                    $name = '';
-                }
-            }
-        }
-
-        return $list;
     }
 
     public function plans($id_partner)
@@ -267,6 +113,8 @@ class ProfileController extends Controller
             'images' => ServiceImage::where('id_partner', $user->id_partner)->orderBy('is_main', 'DESC')->get()
         ];
 
+        $this->defineRateGroup($user);
+
         return view('web.partner.pages.advert', [
             'user' => Auth::user(),
             'planOptions' => $this->getPlanOptions($partnerInfo->plans_id),
@@ -285,6 +133,53 @@ class ProfileController extends Controller
             'canPublishMatrix' => $this->advertService->canPublishMatrix(),
             'advertService' => $this->advertService,
         ]);
+    }
+
+    /**
+     * @param User|Authenticatable|null $user
+     * @return void
+     */
+    public function defineRateGroup(User|Authenticatable|null $user): void
+    {
+        $grouped = $user->partnerInfo->rates->groupBy('rate');
+        $groupCount = $grouped->map(function ($item, $key) {
+            return collect($item)->count();
+        })->sort();
+
+        $user->partnerInfo->votes = $user->partnerInfo->rates->count();
+        $user->partnerInfo->avarageRate = $user->partnerInfo->rates->avg('rate');
+        $user->partnerInfo->rateGroup = $groupCount;
+    }
+
+    private function getPlanOptions($planId)
+    {
+        $options = PlanOption::where('plans_id', $planId)->get();
+        $temp = [];
+        foreach ($options as $option) {
+            $temp[$option->group][] = $option;
+        }
+
+        $list = [];
+
+        foreach ($temp as $id => $opt) {
+            $name = "";
+            $j = 0;
+            foreach ($opt as $item) {
+                $name = $name . "{$item->categories_count} cat. ({$item->sub_categories_count} sub.cat. per cat.)";
+                $j++;
+                if ($j != count($opt)) {
+                    $name = $name . " and ";
+                } else {
+                    $list[] = [
+                        'group' => $id,
+                        'name' => rtrim($name, "")
+                    ];
+                    $name = '';
+                }
+            }
+        }
+
+        return $list;
     }
 
     public function editContacts(Request $request)
@@ -582,7 +477,6 @@ class ProfileController extends Controller
 
         return redirect()->back()->with('success', "Changes saved.");
     }
-
 
     public function updateEventTypes(Request $request)
     {
