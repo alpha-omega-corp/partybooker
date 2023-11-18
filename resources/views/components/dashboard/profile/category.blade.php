@@ -80,14 +80,14 @@
                                                                :iterator="$iterator"/>
                                 </div>
 
-                                <a class="show" @click="show = !show">
-                                <span x-show="!show">
+                                <a class="show" x-show="!show"
+                                   @click="show = true">
                                     {{__('form.show')}}
-                                </span>
+                                </a>
 
-                                    <span x-show="show">
-                                    {{__('form.hide')}}
-                                </span>
+                                <a class="show" x-show="show"
+                                   @click="show = false;">
+                                    <span>{{__('form.hide')}}</span>
                                 </a>
 
                                 <div class="edit-service">

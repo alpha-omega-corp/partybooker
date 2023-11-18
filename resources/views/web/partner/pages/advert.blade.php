@@ -75,7 +75,7 @@
                 <x-dashboard.profile.publish :partner="$user->partnerInfo" :service="$advertService"/>
 
                 <x-dashboard.card
-                    :title="__('partner.based_on') . ' ' . ($user->partnerInfo->votes ?? 0) . ' ' . __('partner.rates')">
+                    :title="__('partner.based_on') . ' ' . ($user->partnerInfo->votes ?? 0) . ' ' . Str::plural(__('partner.rates'), $user->partnerInfo->votes ? $user->partnerInfo->votes : 1)">
                     <div class="advert-review">
                         @include('web.partner.partials.dashboard.evaluation')
                     </div>
