@@ -21,11 +21,13 @@
                 </li>
             @endif
         @endforeach
-        @foreach (json_decode($details->other_furniture) as $item)
-            <li>
-                {{$item}}
-            </li>
-        @endforeach
+        @if(json_decode($details->other_furniture))
+            @foreach (json_decode($details->other_furniture) as $item)
+                <li>
+                    {{$item}}
+                </li>
+            @endforeach
+        @endif
     </x-service.ul>
 </x-service.list-item>
 
@@ -38,11 +40,13 @@
                 </li>
             @endif
         @endforeach
-        @foreach (json_decode($details->other_equipment) as $item)
-            <li>
-                {{$item}}
-            </li>
-        @endforeach
+        @if(json_decode($details->other_equipment))
+            @foreach (json_decode($details->other_equipment) as $item)
+                <li>
+                    {{$item}}
+                </li>
+            @endforeach
+        @endif
     </x-service.ul>
 </x-service.list-item>
 
