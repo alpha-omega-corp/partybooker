@@ -19,7 +19,7 @@
 
                             <img src="{{ Vite::image('benefits1.jpg') }}" class="become-partner-img"
                                  alt="Devenir partenaire pour rendre votre présence web plus impactante. Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande."
-                                 width="100">
+                                 width="100"/>
 
                             @if(Auth::user()->type !== 'partner')
                                 @if (Auth::user() == null)
