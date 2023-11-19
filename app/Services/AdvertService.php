@@ -7,20 +7,18 @@ use App\Interfaces\IAdvertService;
 use App\Models\Advert;
 use App\Models\AdvertCategory;
 use App\Models\PartnersInfo;
-use Illuminate\Support\Facades\Auth;
 
 class AdvertService implements IAdvertService
 {
-    public function canPublish(): bool
+    public function canPublish(string $partnerUid): bool
     {
-        return !in_array(false, $this->canPublishMatrix());
+        return !in_array(false, $this->canPublishMatrix($partnerUid));
     }
 
-    public function canPublishMatrix(): array
+    public function canPublishMatrix(string $partnerUid): array
     {
-        $user = Auth::user();
-        $partnerInfo = PartnersInfo::where('id_partner', $user->id_partner)->first();
-        $advertCategory = AdvertCategory::where('id_partner', $user->id_partner);
+        $partnerInfo = PartnersInfo::where('id_partner', $partnerUid)->first();
+        $advertCategory = AdvertCategory::where('id_partner', $partnerInfo->id_partner);
         $advert = Advert::where('partners_info_id', $partnerInfo->id);
 
         $requiredCompanyDetails = [

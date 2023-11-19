@@ -4,7 +4,7 @@ namespace App\Interfaces;
 
 interface IAdvertService
 {
-    public function canPublishMatrix();
+    public function canPublishMatrix(string $partnerUid);
 
-    public function canPublish();
+    public function canPublish(string $partnerUid);
 }

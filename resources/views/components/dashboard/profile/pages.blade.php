@@ -1,5 +1,6 @@
 @props([
-    'galleryImages'
+    'galleryImages',
+    'user',
 ])
 <div class="profile-info advert-info mt-5">
     <x-partner-category-tab
@@ -21,7 +22,7 @@
 
         <x-tab.item>
             <div class="description-card">
-                <x-dashboard.profile.company-description/>
+                <x-dashboard.profile.company-description :partner="$user->partnerInfo"/>
             </div>
         </x-tab.item>
 

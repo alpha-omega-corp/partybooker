@@ -96,7 +96,7 @@ class ProfileController extends Controller
 
     public function advert(string $id_partner): View
     {
-        $user = Auth::user();
+        $user = User::where('id_partner', $id_partner)->first();
         $partnerInfo = PartnersInfo::where('id_partner', $id_partner)->first();
         $partnerPlanOptions = PartnerPlanOption::where('partners_info_id', $partnerInfo->id)->get();
 
@@ -107,7 +107,7 @@ class ProfileController extends Controller
             $q->whereIn('id', array_keys($hash));
         }])->whereNull('parent_id')->whereIn('id', array_values($hash))->get();
 
-        $adverts = Advert::where('partners_info_id', $user->partnerInfo->id)->with(['service'])->orderBy('status')->get();
+        $adverts = Advert::where('partners_info_id', $id_partner)->with(['service'])->orderBy('status')->get();
         $tempImages['cat'] = [
             'count' => $partnerInfo->currentPlan->photos_num ?? 1,
             'images' => ServiceImage::where('id_partner', $user->id_partner)->orderBy('is_main', 'DESC')->get()
@@ -116,7 +116,7 @@ class ProfileController extends Controller
         $this->defineRateGroup($user);
 
         return view('web.partner.pages.advert', [
-            'user' => Auth::user(),
+            'user' => User::where('id_partner', $id_partner)->first(),
             'planOptions' => $this->getPlanOptions($partnerInfo->plans_id),
             'partnerPlanOptions' => $partnerPlanOptions,
             'categoriesList' => $categoriesList,
@@ -130,7 +130,7 @@ class ProfileController extends Controller
                 'lon' => $user->partnerInfo->lon,
                 'address' => $user->partnerInfo->address
             ],
-            'canPublishMatrix' => $this->advertService->canPublishMatrix(),
+            'canPublishMatrix' => $this->advertService->canPublishMatrix($user->id_partner),
             'advertService' => $this->advertService,
         ]);
     }
@@ -141,14 +141,17 @@ class ProfileController extends Controller
      */
     public function defineRateGroup(User|Authenticatable|null $user): void
     {
-        $grouped = $user->partnerInfo->rates->groupBy('rate');
-        $groupCount = $grouped->map(function ($item, $key) {
-            return collect($item)->count();
-        })->sort();
+        if ($user->partnerInfo) {
+            $grouped = $user->partnerInfo->rates->groupBy('rate');
+            $groupCount = $grouped->map(function ($item, $key) {
+                return collect($item)->count();
+            })->sort();
 
-        $user->partnerInfo->votes = $user->partnerInfo->rates->count();
-        $user->partnerInfo->avarageRate = $user->partnerInfo->rates->avg('rate');
-        $user->partnerInfo->rateGroup = $groupCount;
+            $user->partnerInfo->votes = $user->partnerInfo->rates->count();
+            $user->partnerInfo->avarageRate = $user->partnerInfo->rates->avg('rate');
+            $user->partnerInfo->rateGroup = $groupCount;
+        }
+
     }
 
     private function getPlanOptions($planId)

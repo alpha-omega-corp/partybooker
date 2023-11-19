@@ -15,7 +15,7 @@
         @foreach($options as $key => $option)
             @php
                 $indexOption = PlanOption::where('group', $option['group'])
-                    ->where('plans_id', \Illuminate\Support\Facades\Auth::user()->partnerInfo->plans_id)
+                    ->where('plans_id', $partner->plans_id)
                     ->first();
             @endphp
 

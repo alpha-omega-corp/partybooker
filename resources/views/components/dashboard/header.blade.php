@@ -1,11 +1,12 @@
-@php($user = auth()->user())
-
+@props([
+    'user',
+])
 <div class="dashboard-title">
 
     <div class="d-flex align-items-center justify-content-start">
 
-        <x-dashboard.title/>
-        <x-dashboard.navigation/>
+        <x-dashboard.title :user="$user"/>
+        <x-dashboard.navigation :user="$user"/>
     </div>
     @if($user->subscription('PartyBooker'))
         @if($user->onTrial())

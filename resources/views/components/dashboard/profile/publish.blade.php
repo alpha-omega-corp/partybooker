@@ -15,7 +15,7 @@
         @endif
     </x-slot:badge>
 
-    @if($service->canPublish())
+    @if($service->canPublish($partner->id_partner))
 
         <div class="d-flex flex-column m-0">
             @if ($partner->public == 0)

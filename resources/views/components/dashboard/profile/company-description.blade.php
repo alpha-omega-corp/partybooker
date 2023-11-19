@@ -1,6 +1,6 @@
-@php
-    $partnerInfo = auth()->user()->partnerInfo;
-@endphp
+@props([
+    'partner'
+])
 
 <form method="POST"
       action="{{url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-company-description')}}">
@@ -24,14 +24,14 @@
                                 <label for="fr_short_descr">{{__('partybooker-cp.short_description')}}</label>
                                 <textarea name="fr_short_descr" id="fr_short_descr" maxlength="350"
                                           rows="10" required
-                                          class="textarea-wysiwyg">{{$partnerInfo->fr_short_descr}}</textarea>
+                                          class="textarea-wysiwyg">{{$partner->fr_short_descr}}</textarea>
                             </div>
 
                             <div class="w-100">
                                 <label for="fr_full_descr">{{__('partybooker-cp.full_description')}}</label>
                                 <textarea name="fr_full_descr" id="fr_full_descr" maxlength="3000"
                                           rows="10" required
-                                          class="textarea-wysiwyg">{{$partnerInfo->fr_full_descr}}</textarea>
+                                          class="textarea-wysiwyg">{{$partner->fr_full_descr}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -39,10 +39,10 @@
                     <x-dashboard.textarea name="fr_slogan"
                                           :label="__('partybooker-cp.slogan')"
                                           icon="heroicon-o-chat-bubble-bottom-center-text"
-                                          :max="250">{{$partnerInfo->fr_slogan}}
+                                          :max="250">{{$partner->fr_slogan}}
                     </x-dashboard.textarea>
 
-                    <x-dashboard.profile.seo lang="fr" :partner="$partnerInfo"/>
+                    <x-dashboard.profile.seo lang="fr" :partner="$partner"/>
                 </div>
             </x-tab.item>
 
@@ -57,27 +57,27 @@
                     <div class="mt-2">
                         <label for="en_short_descr">{{__('partybooker-cp.short_description')}}</label>
                         <textarea name="en_short_descr" id="en_short_descr" maxlength="350" required
-                                  class="textarea-wysiwyg">{{$partnerInfo->en_short_descr}}</textarea>
+                                  class="textarea-wysiwyg">{{$partner->en_short_descr}}</textarea>
 
                         <label for="en_full_descr">{{__('partybooker-cp.full_description')}}</label>
                         <textarea name="en_full_descr" id="en_full_descr" maxlength="3000" required
-                                  class="textarea-wysiwyg">{{$partnerInfo->en_full_descr}}</textarea>
+                                  class="textarea-wysiwyg">{{$partner->en_full_descr}}</textarea>
 
                     </div>
 
                     <x-dashboard.textarea name="en_slogan"
                                           :label="__('partybooker-cp.slogan')"
                                           icon="heroicon-o-chat-bubble-bottom-center-text"
-                                          :max="250">{{$partnerInfo->en_slogan}}</x-dashboard.textarea>
+                                          :max="250">{{$partner->en_slogan}}</x-dashboard.textarea>
 
-                    <x-dashboard.profile.seo lang="en" :partner="$partnerInfo"/>
+                    <x-dashboard.profile.seo lang="en" :partner="$partner"/>
                 </div>
             </x-tab.item>
         </x-partner-category-tab>
     </div>
 
     @if (Auth::user()->type == 'admin')
-        <input type="text" name="id_partner" value="{{$partnerInfo->id_partner}}" hidden/>
+        <input type="text" name="id_partner" value="{{$partner->id_partner}}" hidden/>
     @else
         <input type="text" name="id_partner" value="{{Auth::user()->id_partner}}" hidden/>
     @endif

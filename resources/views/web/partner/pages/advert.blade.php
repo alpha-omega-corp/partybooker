@@ -47,9 +47,9 @@
     <div class="dashboard-body">
         <div class="row">
             <div class="col-xl-8 col-lg-7 col-md-12">
-                <x-dashboard.header>
+                <x-dashboard.header :user="$user">
                     <div class="advert-preview profile-info advert-info">
-                        @if(!$advertService->canPublish())
+                        @if(!$advertService->canPublish($user->id_partner))
                             <x-partner.publication-matrix :partner="$user->partnerInfo" :matrix="$canPublishMatrix"/>
                         @endif
                     </div>
@@ -64,7 +64,7 @@
                         :categories="$categoriesList"/>
                 </x-dashboard.card>
 
-                <x-dashboard.profile.pages :gallery-images="$categoryImages"/>
+                <x-dashboard.profile.pages :gallery-images="$categoryImages" :user="$user"/>
 
 
             </div>

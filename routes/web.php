@@ -167,7 +167,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::post('/cp/blog/remove/{postid}', 'newPost@remove');
         Route::post('/cp/blog/edit-post', 'newPost@edit');
 
-        Route::get('/cp/partner-cp/{id_partner}/statistics', '\App\Http\Controllers\Web\ProfileController@statistics');
+        Route::get('/cp/partner-cp/{id_partner}/advert', '\App\Http\Controllers\Web\ProfileController@advert');
         Route::get('/cp/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@plans');
         Route::get('/cp/partner-cp/{id_partner}/profile', '\App\Http\Controllers\Web\ProfileController@profile');
         Route::get('/cp/partner-cp/{id_partner}/adverts', '\App\Http\Controllers\Web\PartnerController@adverts');
