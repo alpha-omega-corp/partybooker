@@ -6,7 +6,6 @@ namespace App\Interfaces;
 
 use App\Http\Requests\StorePaymentMethod;
 use App\User;
-use Illuminate\Database\Eloquent\Collection;
 use Stripe\Customer;
 
 interface IPlanService
@@ -17,8 +16,8 @@ interface IPlanService
 
     public function activatePlan(string $name): bool;
 
-    public function applyOptions($partnerInfoId, $planId, $planGroup): void;
+    public function applyOptions(int $partnerInfoId, int $planId, int $planGroup): void;
 
-    public function formatOptions(Collection $options): array;
+    public function getPlanOptions(int $planId): array;
 
 }

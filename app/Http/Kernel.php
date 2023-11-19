@@ -7,6 +7,7 @@ use App\Http\Middleware\CheckForMaintenanceMode;
 use App\Http\Middleware\EmailVerification;
 use App\Http\Middleware\EmailVerified;
 use App\Http\Middleware\EncryptCookies;
+use App\Http\Middleware\EnsureAdOwnership;
 use App\Http\Middleware\EnsureUserSubscribed;
 use App\Http\Middleware\LocaleMiddleware;
 use App\Http\Middleware\PartnerAdmin;
@@ -94,6 +95,7 @@ class Kernel extends HttpKernel
         'email' => EmailVerification::class,
         'email-ok' => EmailVerified::class,
         'subscribed' => EnsureUserSubscribed::class,
+        'advertisement' => EnsureAdOwnership::class
     ];
 
     /**

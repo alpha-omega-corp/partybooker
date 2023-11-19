@@ -5,7 +5,8 @@
     'activeOptions',
     'partnerCategories',
     'categories',
-    'partnerOptions'
+    'partnerOptions',
+    'user',
 ])
 
 <div>
@@ -16,7 +17,7 @@
             <div class="option-active-content">
                 @foreach($partnerCategories as $iterator => $category)
                     @php
-                        $advert = Advert::where('partners_info_id', \Illuminate\Support\Facades\Auth::user()->partnerInfo->id)
+                        $advert = Advert::where('partners_info_id', $partner->id)
                         ->where('view_name', $category->form_name)->first();
                     @endphp
                     <div wire:key="{{$iterator}}">
@@ -67,7 +68,10 @@
                                 @endswitch
 
                                 <a class="show" id="{{'create' . $iterator}}"
-                                   href="{{route('create-' . $advert->view_name, $advert->id)}}">
+                                   href="{{route('create-' . $advert->view_name, [
+                                   'partnerId' => $partner->id,
+                                   'advertId' => $advert->id
+                                   ])}}">
                                     {{__('partner.create_new_service')}}
                                 </a>
 
@@ -76,7 +80,7 @@
                                 <hr>
 
                                 <div x-show="show">
-                                    <x-partner.service-details :advert="$advert" :partner="auth()->user()->partnerInfo"
+                                    <x-partner.service-details :advert="$advert" :partner="$partner"
                                                                :iterator="$iterator"/>
                                 </div>
 
@@ -92,7 +96,10 @@
 
                                 <div class="edit-service">
                                     <a id="{{'create' . $iterator}}"
-                                       href="{{route('create-' . $advert->view_name, $advert->id)}}">
+                                       href="{{route('create-' . $advert->view_name, [
+                                   'partnerId' => $partner->id_partner,
+                                   'advertId' => $advert->id
+                                   ])}}">
                                         @svg('heroicon-o-cog-6-tooth')
                                     </a>
                                 </div>
@@ -100,7 +107,6 @@
                             @endif
                         </div>
                     </div>
-
 
                     @if(!$loop->last)
                         <hr>

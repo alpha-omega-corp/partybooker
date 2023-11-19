@@ -1,8 +1,3 @@
 <div>
-    <form>
-        {{$this->form}}
-        @include('livewire.partials.submit')
-    </form>
-
-    <x-filament-actions::modals/>
+    @include('livewire.partials.form')
 </div>

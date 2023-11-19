@@ -11,6 +11,7 @@ use App\Helpers\OtherServicesTranslatorHelper;
 use App\Helpers\TechnicalEquipmentTranslatorHelper;
 use App\Models\Advert;
 use App\Models\EventPlace;
+use App\Models\PartnersInfo;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Fieldset;
@@ -86,21 +87,25 @@ class CreateEventPlace extends Component implements HasForms
 
     public $advertId;
     public $partnerId;
+    public $partnerInfoId;
 
-    public function mount(int $advertId): void
+    public function mount(string $partnerId, int $advertId): void
     {
         $this->form->fill();
+
         $this->advertId = $advertId;
-        $this->partnerId = auth()->user()->id_partner;
+        $this->partnerId = $partnerId;
+        $partner = PartnersInfo::where('id_partner', $this->partnerId)->first();
+        $this->partnerInfoId = $partner->id;
 
         $advert = Advert::where('id', $this->advertId)
-            ->where('partners_info_id', auth()->user()->partnerInfo->id)
+            ->where('partners_info_id', $this->partnerInfoId)
             ->first();
         if ($advert->status === Advert::STATUS_ACTIVE) {
             $eventPlace = EventPlace::where('id', $advert->service_id)->first();
             $this->days = json_decode($eventPlace->working_days);
-            $this->timetable = json_decode($eventPlace->working_time, true);
-            $this->holidays = json_decode($eventPlace->holidays, true);
+            $this->timetable = $eventPlace->working_time ? json_decode($eventPlace->working_time, true) : [];
+            $this->holidays = is_array($eventPlace->holidays) ? json_decode($eventPlace->holidays, true) : [];
             $this->extension = $eventPlace->extansion;
             $this->extensionDescription = $eventPlace->ext_true;
             $this->rate = $eventPlace->price;
@@ -620,7 +625,7 @@ class CreateEventPlace extends Component implements HasForms
     {
 
         $advert = Advert::where('id', $this->advertId)
-            ->where('partners_info_id', auth()->user()->partnerInfo->id)
+            ->where('partners_info_id', $this->partnerInfoId)
             ->first();
 
         $eventPlace = EventPlace::where('id', $advert->service_id)->first();
@@ -666,7 +671,7 @@ class CreateEventPlace extends Component implements HasForms
         $item->accomodation = $data['accommodation'];
         $item->other_services = json_encode($data['otherServicesValues']);
         $item->comment = $data['comments'];
-        $item->number_questrooms = $data['accommodationDescription'];
+        $item->number_questrooms = $data['accommodation'] === 'yes' ? $data['accommodationDescription'] : null;
         $item->budget = $data['budget'];
 
         $item->oth_facilities = isset($data['roomInstallationsMore']) ? json_encode(array_column($data['roomInstallationsMore'], 'name')) : null;
@@ -674,7 +679,7 @@ class CreateEventPlace extends Component implements HasForms
         $item->other_staff = isset($data['eventStaffValuesMore']) ? json_encode(array_column($data['eventStaffValuesMore'], 'name')) : null;
         $item->more_services = isset($data['otherServicesValuesMore']) ? json_encode(array_column($data['otherServicesValuesMore'], 'name')) : null;
         $item->other_payment = isset($data['allowedPaymentsMore']) ? json_encode(array_column($data['allowedPaymentsMore'], 'name')) : null;
-        $item->other_price = $data['rateTypeOther'];
+        $item->other_price = $data['rateType'] === 'other' ? $data['rateTypeOther'] : null;
         $item->save();
 
         $advert->status = Advert::STATUS_ACTIVE;

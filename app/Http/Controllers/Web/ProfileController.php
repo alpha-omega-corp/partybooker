@@ -16,7 +16,6 @@ use App\Models\FrequentlyAskedQuestion;
 use App\Models\PartnerEventType;
 use App\Models\PartnerPlanOption;
 use App\Models\PartnersInfo;
-use App\Models\PlanOption;
 use App\Models\ServiceImage;
 use App\User;
 use Exception;
@@ -117,7 +116,7 @@ class ProfileController extends Controller
 
         return view('web.partner.pages.advert', [
             'user' => User::where('id_partner', $id_partner)->first(),
-            'planOptions' => $this->getPlanOptions($partnerInfo->plans_id),
+            'planOptions' => $this->planService->getPlanOptions($partnerInfo->plans_id),
             'partnerPlanOptions' => $partnerPlanOptions,
             'categoriesList' => $categoriesList,
             'currentCategories' => $currentCategories,
@@ -152,37 +151,6 @@ class ProfileController extends Controller
             $user->partnerInfo->rateGroup = $groupCount;
         }
 
-    }
-
-    private function getPlanOptions($planId)
-    {
-        $options = PlanOption::where('plans_id', $planId)->get();
-        $temp = [];
-        foreach ($options as $option) {
-            $temp[$option->group][] = $option;
-        }
-
-        $list = [];
-
-        foreach ($temp as $id => $opt) {
-            $name = "";
-            $j = 0;
-            foreach ($opt as $item) {
-                $name = $name . "{$item->categories_count} cat. ({$item->sub_categories_count} sub.cat. per cat.)";
-                $j++;
-                if ($j != count($opt)) {
-                    $name = $name . " and ";
-                } else {
-                    $list[] = [
-                        'group' => $id,
-                        'name' => rtrim($name, "")
-                    ];
-                    $name = '';
-                }
-            }
-        }
-
-        return $list;
     }
 
     public function editContacts(Request $request)
