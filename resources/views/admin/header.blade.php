@@ -22,9 +22,9 @@
                         </form>
                     </li>
                     <li class="lang"><a href="<?= route('setlocale', ['lang' => 'en']) ?>"><img
-                                src="{{ Vite::image('images/en.png') }}" alt="en"/></a></li>
+                                src="{{ Vite::image('en.png') }}" alt="en"/></a></li>
                     <li class="lang"><a href="<?= route('setlocale', ['lang' => 'fr']) ?>"><img
-                                src="{{ Vite::image('images/fr.png') }}" alt="fr"/></a></li>
+                                src="{{ Vite::image('fr.png') }}" alt="fr"/></a></li>
                 </ul>
             </div>
             <div class="header-navigation">

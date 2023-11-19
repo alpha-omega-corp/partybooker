@@ -85,12 +85,12 @@
                         <h4>{{ __('partybooker-cp.company_main_info') }}</h4>
                     </div>
                     <div class="col-md-4">
-                        <label class="padding-l-25"><img src="{{ Vite::image('images/en.png') }}"
+                        <label class="padding-l-25"><img src="{{ Vite::image('en.png') }}"
                                                          alt="en"/>{{ __('partybooker-cp.company_name') }}</label>
                         <input type="text" value="{{ old('en_company_name') }}" name="en_company_name"
                                placeholder="{{ __('partybooker-cp.enter_company_name') }}" maxlength="50" required>
 
-                        <label class="padding-l-25"><img src="{{ Vite::image('images/fr.png') }}"
+                        <label class="padding-l-25"><img src="{{ Vite::image('fr.png') }}"
                                                          alt="fr"/>{{ __('partybooker-cp.company_name') }}</label>
                         <input type="text" value="{{ old('fr_company_name') }}" name="fr_company_name"
                                placeholder="{{ __('partybooker-cp.enter_company_name') }}" maxlength="50" required>
@@ -130,38 +130,38 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label class="padding-l-25"><img src="{{ Vite::image('images/en.png') }}"
+                        <label class="padding-l-25"><img src="{{ Vite::image('en.png') }}"
                                                          alt="en"/>{{ __('partybooker-cp.slogan') }}</label>
                         <textarea name="en_slogan" maxlength="250"
                                   placeholder="{{ __('partybooker-cp.activity_slogan') }}"
                                   rows="3">{{ old('en_slogan') }}</textarea>
 
-                        <label class="padding-l-25"><img src="{{ Vite::image('images/en.png') }}"
+                        <label class="padding-l-25"><img src="{{ Vite::image('en.png') }}"
                                                          alt="en"/>{{ __('partybooker-cp.short_description') }}</label>
                         <textarea name="en_short_descr" maxlength="350"
                                   placeholder="{{ __('partybooker-cp.short_description_pl') }}"
                                   rows="4" required class="textarea-wysiwyg">{{ old('en_short_descr') }}</textarea>
 
-                        <label class="padding-l-25"><img src="{{ Vite::image('images/en.png') }}"
+                        <label class="padding-l-25"><img src="{{ Vite::image('en.png') }}"
                                                          alt="en"/>{{ __('partybooker-cp.full_description') }}</label>
                         <textarea name="en_full_descr" maxlength="3000"
                                   placeholder="{{ __('partybooker-cp.full_description_pl') }}"
                                   rows="6" required class="textarea-wysiwyg">{{ old('en_full_descr') }}</textarea>
                     </div>
                     <div class="col-md-6">
-                        <label class="padding-l-25"><img src="{{ Vite::image('images/fr.png') }}"
+                        <label class="padding-l-25"><img src="{{ Vite::image('fr.png') }}"
                                                          alt="en"/>{{ __('partybooker-cp.slogan') }}</label>
                         <textarea name="fr_slogan" maxlength="250"
                                   placeholder="{{ __('partybooker-cp.activity_slogan') }}"
                                   rows="3">{{ old('fr_slogan') }}</textarea>
 
-                        <label class="padding-l-25"><img src="{{ Vite::image('images/fr.png') }}"
+                        <label class="padding-l-25"><img src="{{ Vite::image('fr.png') }}"
                                                          alt="en"/>{{ __('partybooker-cp.short_description') }}</label>
                         <textarea name="fr_short_descr" maxlength="350"
                                   placeholder="{{ __('partybooker-cp.short_description_pl') }}"
                                   rows="4" required class="textarea-wysiwyg">{{ old('fr_short_descr') }}</textarea>
 
-                        <label class="padding-l-25"><img src="{{ Vite::image('images/fr.png') }}"
+                        <label class="padding-l-25"><img src="{{ Vite::image('fr.png') }}"
                                                          alt="en"/>{{ __('partybooker-cp.full_description') }}</label>
                         <textarea name="fr_full_descr" maxlength="3000"
                                   placeholder="{{ __('partybooker-cp.full_description_pl') }}"
