@@ -39,10 +39,11 @@
 
                                 @endif
                             @else
-                                <a class="rainbow p-4 text-uppercase fw-bold" id="becomePartnerButton"
-                                   href="{{url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner-register'))}}"
-                                >
+                                <a class="rainbow p-4 text-uppercase fw-bold fs-3" id="becomePartnerButton"
+                                   data-bs-toggle="modal"
+                                   href="#loginModalToggle" role="button">
                                     {{__('become_partner.register')}}
+
                                 </a>
                             @endif
                         </div>
