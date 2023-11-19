@@ -21,8 +21,8 @@
                                  alt="Devenir partenaire pour rendre votre présence web plus impactante. Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande."
                                  width="100"/>
 
-                            @if(Auth::user()->type !== 'partner')
-                                @if (Auth::user() == null)
+                            @if(Auth::user())
+                                @if(Auth::user()->type !== 'partner')
                                     <a class="rainbow p-4 text-uppercase fw-bold fs-3" id="becomePartnerButton"
                                        data-bs-toggle="modal"
                                        href="#loginModalToggle" role="button">
@@ -34,8 +34,6 @@
                                        href="{{url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner-register'))}}"
                                     >
                                         {{__('become_partner.register')}}
-
-
                                     </a>
                                 @endif
                             @else
@@ -44,7 +42,6 @@
                                     Our Plans
                                 </a>
                             @endif
-
                         </div>
                     </div>
 
