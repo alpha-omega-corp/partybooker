@@ -79,21 +79,23 @@
         </section>
 
 
-        @if(Auth::user()->type !== 'partner')
-            <section class="packages">
-                <div class="container">
-                    <div class="heading">
-                        <h2 class="display-4 fw-bold text-uppercase">
-                            {{ __('become_partner.yearly_packages') }}
-                        </h2>
-                        <p>{{ __('become_partner.yp_text') }}</p>
-                    </div>
+        @if(Auth::user())
+            @if(Auth::user()->type !== 'partner')
+                <section class="packages">
+                    <div class="container">
+                        <div class="heading">
+                            <h2 class="display-4 fw-bold text-uppercase">
+                                {{ __('become_partner.yearly_packages') }}
+                            </h2>
+                            <p>{{ __('become_partner.yp_text') }}</p>
+                        </div>
 
-                    <div onclick="document.getElementById('becomePartnerButton').click()">
-                        <x-partner.packages :plans="$plans"/>
+                        <div onclick="document.getElementById('becomePartnerButton').click()">
+                            <x-partner.packages :plans="$plans"/>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            @endif
         @endif
 
 
