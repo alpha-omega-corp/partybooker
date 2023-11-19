@@ -20,7 +20,7 @@ class EnsureAdOwnership
             return $next($request);
         }
 
-        return redirect()->to('profile-advert', $partnerId)->with('error', 'Unauthorized');
+        return redirect()->route('profile-advert', $partnerId)->with('error', 'Unauthorized');
 
     }
 }
