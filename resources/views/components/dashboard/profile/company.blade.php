@@ -38,8 +38,8 @@
 
 <div class="locale-card">
     <x-dashboard.profile.locale
-        :location="$location"
-        :partner="$partner"/>
+            :location="$location"
+            :partner="$partner"/>
 </div>
 
 <div class="company-details">
@@ -49,7 +49,9 @@
         </h5>
         <div class="d-flex">
             @foreach(json_decode($partner->language) as $language)
-                <img src="{{Vite::image($language . '.svg')}}" alt="{{$language}}" width="20"/>
+                @if($language != 'other')
+                    <img src="{{Vite::image($language . '.svg')}}" alt="{{$language}}" width="20"/>
+                @endif
             @endforeach
         </div>
     </div>
