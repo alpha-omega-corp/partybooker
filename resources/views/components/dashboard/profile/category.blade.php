@@ -18,7 +18,6 @@
             {{__('partner.choose_category')}}
         </x-dashboard.card-info>
     @endif
-    {{json_encode($partnerCategories)}}
     @foreach($activeOptions as $key => $item)
         @if($item['group'] === $partner->plan_option_group)
             {{json_encode($partnerCategories)}}
@@ -28,6 +27,7 @@
                         $advert = Advert::where('partners_info_id', $partner->id)
                         ->where('view_name', $category->form_name)->first();
                     @endphp
+                    {{dd($advert)}}
                     @if($advert)
 
                         <div wire:key="{{$iterator}}">
