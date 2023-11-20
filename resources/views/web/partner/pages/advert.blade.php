@@ -30,9 +30,9 @@
                 <h5 class="text-uppercase fw-bold">{{__('partner.plan_options')}}</h5>
             </div>
             <x-dashboard.profile.options
-                :partner="$user->partnerInfo"
-                :partner-options="$partnerPlanOptions"
-                :options="$planOptions"
+                    :partner="$user->partnerInfo"
+                    :partner-options="$partnerPlanOptions"
+                    :options="$planOptions"
             />
         </div>
 
@@ -57,12 +57,13 @@
 
                 <x-dashboard.card :title="__('partner.categories')">
                     <x-dashboard.profile.category
-                        :partner="$user->partnerInfo"
-                        :partner-categories="$currentCategories"
-                        :active-options="$planOptions"
-                        :partner-options="$partnerPlanOptions"
-                        :categories="$categoriesList"/>
+                            :partner="$user->partnerInfo"
+                            :partner-categories="$currentCategories"
+                            :active-options="$planOptions"
+                            :partner-options="$partnerPlanOptions"
+                            :categories="$categoriesList"/>
                 </x-dashboard.card>
+
 
                 <x-dashboard.profile.pages :gallery-images="$categoryImages" :user="$user"/>
 
@@ -75,15 +76,17 @@
                 <x-dashboard.profile.publish :partner="$user->partnerInfo" :service="$advertService"/>
 
                 <x-dashboard.card
-                    :title="__('partner.based_on') . ' ' . ($user->partnerInfo->votes ?? 0) . ' ' . Str::plural(__('partner.rates'), $user->partnerInfo->votes ? $user->partnerInfo->votes : 1)">
+                        :title="__('partner.based_on') . ' ' . ($user->partnerInfo->votes ?? 0) . ' ' . Str::plural(__('partner.rates'), $user->partnerInfo->votes ? $user->partnerInfo->votes : 1)">
                     <div class="advert-review">
                         @include('web.partner.partials.dashboard.evaluation')
                     </div>
                 </x-dashboard.card>
 
-                <x-dashboard.card :title="__('become_partner.company_info')">
-                    <x-dashboard.profile.company :partner="$user->partnerInfo" :location="$location"/>
-                </x-dashboard.card>
+                <div class="company-card-top">
+                    <x-dashboard.card :title="__('become_partner.company_info')">
+                        <x-dashboard.profile.company :partner="$user->partnerInfo" :location="$location"/>
+                    </x-dashboard.card>
+                </div>
 
                 <x-dashboard.card :title="__('partner.socials')">
                     <x-dashboard.profile.networks :partner="$user->partnerInfo"/>

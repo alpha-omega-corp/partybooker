@@ -31,4 +31,5 @@ return [
     'seo' => 'SEO Optimisations',
     'show' => 'See',
     'hide' => 'Hide',
+    'edit-company-modal' => 'Company Information\'s',
 ];

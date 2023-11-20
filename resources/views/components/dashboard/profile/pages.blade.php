@@ -2,9 +2,9 @@
     'galleryImages',
     'user',
 ])
-<div class="profile-info advert-info mt-5">
+<div class="profile-info advert-info advert-pages">
     <x-partner-category-tab
-        :tabs="[
+            :tabs="[
         __('partner.nav-gallery'),
         'Description',
         'Contact']">

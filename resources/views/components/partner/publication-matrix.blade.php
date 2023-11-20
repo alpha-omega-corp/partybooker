@@ -11,16 +11,7 @@
 <div class="card">
     <div class="d-flex">
         <div class="matrix-card">
-            <div class="d-flex mb-4 matrix-card-header">
-                <div class="matrix-warning">
-                    @svg('heroicon-s-exclamation-triangle', 'text-orange')
-                </div>
-                <h2 class="text-uppercase fw-bold fs-5">
-                    {{__('partner.matrix')}}
-                </h2>
-            </div>
             <div class="d-flex flex-column">
-
                 @if(!$matrix['chooseThumbnail'])
                     <x-dashboard.card-info :targets="[
                         'editMainImageModel-button',

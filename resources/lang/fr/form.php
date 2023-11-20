@@ -31,4 +31,6 @@ return [
     'seo_keywords' => 'Mots-clés',
     'show' => 'Voir',
     'hide' => 'Cacher',
+    'edit-company-modal' => 'Informations de l\'entreprise',
+
 ];
