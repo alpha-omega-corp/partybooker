@@ -99,7 +99,7 @@ class ProfileController extends Controller
             $q->whereIn('id', array_keys($hash));
         }])->whereNull('parent_id')->whereIn('id', array_values($hash))->get();
 
-        $adverts = Advert::where('partners_info_id', $id_partner)->with(['service'])->orderBy('status')->get();
+        $adverts = Advert::where('partners_info_id', $partnerInfo->id)->with(['service'])->orderBy('status')->get();
         $tempImages['cat'] = [
             'count' => $partnerInfo->currentPlan->photos_num ?? 1,
             'images' => ServiceImage::where('id_partner', $user->id_partner)->orderBy('is_main', 'DESC')->get()
