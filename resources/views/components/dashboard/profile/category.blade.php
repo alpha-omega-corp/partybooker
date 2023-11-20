@@ -18,6 +18,7 @@
             {{__('partner.choose_category')}}
         </x-dashboard.card-info>
     @endif
+    {{json_encode($partnerCategories)}}
     @foreach($activeOptions as $key => $item)
         @if($item['group'] === $partner->plan_option_group)
 
