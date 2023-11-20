@@ -2960,11 +2960,13 @@ html {
   padding: 10px;
 
   .stat-card-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
     svg {
       color: $accent;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     img {
