@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Cashier::useCustomerModel(User::class);
-        Vite::macro('image', fn(string $img) => $this->asset("resources/images/{$img}"));
+        Vite::macro('image', fn(string $img) => $this->asset(trim("resources/images/$img")));
 
         Schema::defaultStringLength(191);
         $settings = DB::select('select * from settings');

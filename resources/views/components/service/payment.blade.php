@@ -11,10 +11,10 @@
             @foreach (json_decode($details->paymeny) as $payment)
                 @if($payment !== 'other' && strlen($payment) > 0)
                     <div class="advert-payment-method-item">
-                       
+
                         <div>
                             <p class="m-0">
-                                {{PaymentMethodsTranslatorHelper::translate($payment)}}
+                                {{ucfirst(PaymentMethodsTranslatorHelper::translate($payment))}}
                             </p>
                         </div>
                     </div>
