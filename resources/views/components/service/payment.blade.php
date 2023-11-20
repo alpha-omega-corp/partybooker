@@ -11,9 +11,7 @@
             @foreach (json_decode($details->paymeny) as $payment)
                 @if($payment !== 'other' && strlen($payment) > 0)
                     <div class="advert-payment-method-item">
-                        <img src="{{Vite::image(strtolower($payment) . '.svg')}}"
-                             alt="{{PaymentMethodsTranslatorHelper::translate($payment)}}"
-                             class="payment-icon"/>
+                       
                         <div>
                             <p class="m-0">
                                 {{PaymentMethodsTranslatorHelper::translate($payment)}}
