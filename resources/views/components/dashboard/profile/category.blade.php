@@ -21,7 +21,7 @@
     {{json_encode($partnerCategories)}}
     @foreach($activeOptions as $key => $item)
         @if($item['group'] === $partner->plan_option_group)
-
+            {{json_encode($partnerCategories)}}
             <div class="option-active-content">
                 @foreach($partnerCategories as $iterator => $category)
                     @php
