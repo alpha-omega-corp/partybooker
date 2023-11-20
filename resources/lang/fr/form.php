@@ -33,6 +33,6 @@ return [
     'hide' => 'Cacher',
     'edit-company-modal' => 'Informations de l\'entreprise',
     'unknown_count' => 'Vous avez :count annonces, dont aucune n\'est active.',
-    'unknown_active_category' => 'Cliquez sur le bouton ci-dessus pour activer vos catégories'
+    'unknown_active_category' => 'Aucune catégorie active trouvée. Cliquez sur le bouton ci-dessus pour activer les détails de votre service.'
 
 ];

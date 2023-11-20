@@ -19,7 +19,6 @@
         </x-dashboard.card-info>
     @endif
 
-    {{json_encode($activeOptions)}}
     @foreach($activeOptions as $key => $item)
         @if($item['group'] === $partner->plan_option_group)
             <div class="option-active-content">
@@ -30,9 +29,7 @@
                     @endphp
 
                     @if(!$advert)
-                        <x-dashboard.card-info>
-                            {{__('form.unknown_count', ['count' => count($partnerCategories)])}}
-                        </x-dashboard.card-info>
+               
                         <x-dashboard.card-info>
                             {{__('form.unknown_active_category')}}
                         </x-dashboard.card-info>
