@@ -18,16 +18,22 @@
             {{__('partner.choose_category')}}
         </x-dashboard.card-info>
     @endif
+
+    @if(count($activeOptions) === 0)
+        <br>
+        <x-dashboard.card-info>
+            PLAN INACTIF
+        </x-dashboard.card-info>
+    @endif
     @foreach($activeOptions as $key => $item)
         @if($item['group'] === $partner->plan_option_group)
-            {{json_encode($partnerCategories)}}
             <div class="option-active-content">
                 @foreach($partnerCategories as $iterator => $category)
                     @php
                         $advert = Advert::where('partners_info_id', $partner->id)
                         ->where('view_name', $category->form_name)->first();
                     @endphp
-                    {{dd($advert)}}
+
                     @if($advert)
 
                         <div wire:key="{{$iterator}}">

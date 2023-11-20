@@ -90,6 +90,7 @@ class ProfileController extends Controller
     {
         $user = User::where('id_partner', $id_partner)->first();
         $partnerInfo = PartnersInfo::where('id_partner', $id_partner)->first();
+        $partnerInfoId = $partnerInfo->id;
         $partnerPlanOptions = PartnerPlanOption::where('partners_info_id', $partnerInfo->id)->get();
 
         $select = AdvertCategory::where('id_partner', $partnerInfo->id_partner)->get();
@@ -97,8 +98,9 @@ class ProfileController extends Controller
         $categoriesList = Category::whereNull('parent_id')->with(['subCategories', 'subCategories.lang'])->get();
         $currentCategories = Category::with(["subCategories" => function ($q) use ($hash) {
             $q->whereIn('id', array_keys($hash));
-        }])->whereNull('parent_id')->whereIn('id', array_values($hash))->get();
-
+        }])->whereNull('parent_id')->whereIn('id', array_values($hash))
+            ->get();
+        
         $adverts = Advert::where('partners_info_id', $partnerInfo->id)->with(['service'])->orderBy('status')->get();
         $tempImages['cat'] = [
             'count' => $partnerInfo->currentPlan->photos_num ?? 1,
