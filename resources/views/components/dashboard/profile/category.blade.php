@@ -19,12 +19,7 @@
         </x-dashboard.card-info>
     @endif
 
-    @if(count($activeOptions) === 0)
-        <br>
-        <x-dashboard.card-info>
-            PLAN INACTIF
-        </x-dashboard.card-info>
-    @endif
+    {{json_encode($activeOptions)}}
     @foreach($activeOptions as $key => $item)
         @if($item['group'] === $partner->plan_option_group)
             <div class="option-active-content">
