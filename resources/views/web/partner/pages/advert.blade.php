@@ -55,14 +55,16 @@
                     </div>
                 </x-dashboard.header>
 
-                <x-dashboard.card :title="__('partner.categories')">
-                    <x-dashboard.profile.category
-                            :partner="$user->partnerInfo"
-                            :partner-categories="$currentCategories"
-                            :active-options="$planOptions"
-                            :partner-options="$partnerPlanOptions"
-                            :categories="$categoriesList"/>
-                </x-dashboard.card>
+                <div class="category-card">
+                    <x-dashboard.card :title="__('partner.categories')">
+                        <x-dashboard.profile.category
+                                :partner="$user->partnerInfo"
+                                :partner-categories="$currentCategories"
+                                :active-options="$planOptions"
+                                :partner-options="$partnerPlanOptions"
+                                :categories="$categoriesList"/>
+                    </x-dashboard.card>
+                </div>
 
 
                 <x-dashboard.profile.pages :gallery-images="$categoryImages" :user="$user"/>

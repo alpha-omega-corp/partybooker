@@ -11,8 +11,13 @@
 
 <div>
     @include('web.partner.popup.edit-category')
-    {{json_encode($activeOptions)}}
-    {{$partner->plan_option_group}}
+
+    @if(count($partnerCategories) === 0)
+        <br>
+        <x-dashboard.card-info>
+            {{__('partner.choose_category')}}
+        </x-dashboard.card-info>
+    @endif
     @foreach($activeOptions as $key => $item)
         @if($item['group'] === $partner->plan_option_group)
 
