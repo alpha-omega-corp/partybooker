@@ -39,11 +39,11 @@
                         <div class="card-body">
                             <a href="/cp/swisswin/remove/{{ $item->id }}" class="btn button btn-remove">Remove</a>
                             <a href="#" id="edit-button" data-id="{{ $item->id }}" class="btn button"
-                                data-toggle="modal" data-target="#modal-edit">Edit</a>
+                               data-toggle="modal" data-target="#modal-edit">Edit</a>
                         </div>
                         <a href="{{ $item->url }}" target="_blank">
                             <img src="{{ Vite::image('storage/swisswine_directories/' . $item->image) }}"
-                                class="card-img-top">
+                                 class="card-img-top">
                             <h5 class="card-title">{{ $item->title }}</h5>
                         </a>
 
@@ -112,7 +112,7 @@
 
                         <label>Select image</label>
                         <input type="file" name="image">
-                        <img id="image" src="{{ Vite::image('storage/swisswin_directories/') }}">
+
 
                         <label>Image ALT</label>
                         <input type="text" name="image_alt" id="image_alt">
@@ -138,14 +138,14 @@
 
 @push('footer')
     <script>
-        $('a#edit-button').on('click', function() {
+        $('a#edit-button').on('click', function () {
 
             var id = $(this).data('id');
 
             $.ajax({
                 url: '/cp/swisswin/' + id,
                 type: 'GET',
-                success: function(data) {
+                success: function (data) {
                     var form = $('form#form-edit');
                     form.find('input#id').val(data.id);
                     form.find('input#title').val(data.title);
@@ -155,7 +155,7 @@
                     form.find('img#image').attr('src',
                         '{{ asset('storage/swisswine_directories') }}/' + data.image);
                 },
-                error: function(r) {
+                error: function (r) {
                     var data = JSON.parse(r.responseText);
                     alert(data.message);
                     return false;
