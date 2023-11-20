@@ -25,16 +25,12 @@
 
             <div class="d-flex flex-column">
                 <div class="language">
-
-
                     <a href="<?= route('setlocale', ['lang' => 'fr']) ?>" lan="fr">
                         <img src="{{ Vite::image('switzerland.svg') }}" alt="Partybooker French"/>
                     </a>
                     <a href="<?= route('setlocale', ['lang' => 'en']) ?>" lan="en">
                         <img src="{{ Vite::image('united-kingdom.svg') }}" alt="Partybooker English"/>
                     </a>
-
-
                 </div>
             </div>
 
@@ -56,49 +52,49 @@
                         <ul class="nav nav-flush flex-column text-center">
 
                             <x-navigation.item
-                                page="home"
-                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/')"
-                                icon="heroicon-o-home"
-                                :tooltip="__('main.home_page')"/>
+                                    page="home"
+                                    :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/')"
+                                    icon="heroicon-o-home"
+                                    :tooltip="__('main.home_page')"/>
 
                             <x-navigation.item
-                                page="listing"
-                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings'))"
-                                icon="heroicon-o-queue-list"
-                                :tooltip="__('main.listing_page')"/>
+                                    page="listing"
+                                    :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings'))"
+                                    icon="heroicon-o-queue-list"
+                                    :tooltip="__('main.listing_page')"/>
 
                             <x-navigation.item
-                                page="partner"
-                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner'))"
-                                icon="heroicon-o-identification"
-                                :tooltip="__('main.become_partner_page')"/>
+                                    page="partner"
+                                    :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner'))"
+                                    icon="heroicon-o-identification"
+                                    :tooltip="__('main.become_partner_page')"/>
                             <hr>
 
                             <x-navigation.item
-                                page="aboutus"
-                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus')) "
-                                icon="heroicon-o-information-circle"
-                                :tooltip="__('main.aboutus_page')"/>
+                                    page="aboutus"
+                                    :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus')) "
+                                    icon="heroicon-o-information-circle"
+                                    :tooltip="__('main.aboutus_page')"/>
 
 
                             <x-navigation.item
-                                page="blog"
-                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/blog')"
-                                icon="heroicon-o-book-open"
-                                :tooltip="__('main.blog_page')"/>
+                                    page="blog"
+                                    :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/blog')"
+                                    icon="heroicon-o-book-open"
+                                    :tooltip="__('main.blog_page')"/>
 
                             <x-navigation.item
-                                page="faqs"
-                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/faq')"
-                                icon="heroicon-o-question-mark-circle"
-                                :tooltip="__('main.faqs_page')"/>
+                                    page="faqs"
+                                    :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/faq')"
+                                    icon="heroicon-o-question-mark-circle"
+                                    :tooltip="__('main.faqs_page')"/>
 
 
                             <x-navigation.item
-                                page="comments"
-                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.comments'))"
-                                icon="heroicon-o-chat-bubble-bottom-center-text"
-                                :tooltip="__('main.comments_page')"/>
+                                    page="comments"
+                                    :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.comments'))"
+                                    icon="heroicon-o-chat-bubble-bottom-center-text"
+                                    :tooltip="__('main.comments_page')"/>
 
                             <div class="dropdown dropup border-top bg-primary dropdown-user">
                                 @if (Auth::user())
@@ -110,20 +106,29 @@
                                         </button>
                                         <ul class="dropdown-menu">
 
-                                            @if (Auth::user()->id_partner)
+                                            @if(Auth::user()->type === 'admin')
                                                 <li>
                                                     <a class="dropdown-item"
-                                                       href="{{ route('profile-advert', Auth::user()->id_partner) }}">
-                                                        Dashboard
+                                                       href="{{ route('admin') }}">
+                                                        Administration
                                                     </a>
                                                 </li>
                                             @else
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                       href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
-                                                        {{ __('main.become_partner_page') }}
-                                                    </a>
-                                                </li>
+                                                @if (Auth::user()->id_partner)
+                                                    <li>
+                                                        <a class="dropdown-item"
+                                                           href="{{ route('profile-advert', Auth::user()->id_partner) }}">
+                                                            Dashboard
+                                                        </a>
+                                                    </li>
+                                                @else
+                                                    <li>
+                                                        <a class="dropdown-item"
+                                                           href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner')) }}">
+                                                            {{ __('main.become_partner_page') }}
+                                                        </a>
+                                                    </li>
+                                                @endif
                                             @endif
                                             <li>
                                                 <hr class="dropdown-divider">

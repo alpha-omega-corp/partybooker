@@ -6,7 +6,9 @@
     <div class="d-flex align-items-center justify-content-start">
 
         <x-dashboard.title :user="$user"/>
-        <x-dashboard.navigation :user="$user"/>
+        @if(Auth::user()->type !== 'admin')
+            <x-dashboard.navigation :user="$user"/>
+        @endif
     </div>
     @if($user->subscription('PartyBooker'))
         @if($user->onTrial())

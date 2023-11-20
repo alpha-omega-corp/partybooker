@@ -116,7 +116,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::get('/cp/partner-cp/{id_partner}/advert', '\App\Http\Controllers\Web\ProfileController@advert')->name('profile-advert-admin');
         Route::get('/cp/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@plans')->name('profile-plans-admin');
 
-        Route::get('/cp', 'adminController@index');
+        Route::get('/cp', 'adminController@index')->name('admin');
         Route::get('/cp/messages', 'adminController@messages');
         Route::get('/cp/listing', 'adminController@listing');
         Route::get('/cp/blog', 'adminController@blog');

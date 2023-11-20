@@ -117,13 +117,16 @@
                         </div>
                         <div class="row">
                             <div class="offset-md-1 col-md-4">
+
                                 <span class="title">{{ __('partybooker-cp.contacts')}}</span>
                                 <p><span>ID:</span> {{$service->id_partner}}</p>
                                 <p>
-                                    <span>{{ __('partybooker-cp.name')}}</span> {{isset($service->name) ?? $service->name}}
+                                    <span>{{ __('partybooker-cp.name')}}</span>
+                                    {{isset($service->name) ? $service->name : 'Unknown'}}
                                 </p>
                                 <p>
-                                    <span>{{ __('partybooker-cp.email')}}</span> {{isset($service->email) ?? $service->email}}
+                                    <span>{{ __('partybooker-cp.email')}}</span>
+                                    {{isset($service->email) ? $service->email : 'Unknown'}}
                                 </p>
                             </div>
                             <div class="col-md-3">
