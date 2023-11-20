@@ -29,10 +29,14 @@
                         ->where('view_name', $category->form_name)->first();
                     @endphp
 
-                    {{json_encode($category)}}
-                    {{json_encode($advert)}}
-                    @if($advert)
-
+                    @if(!$advert)
+                        <x-dashboard.card-info>
+                            {{__('form.unknown_count', ['count' => count($partnerCategories)])}}
+                        </x-dashboard.card-info>
+                        <x-dashboard.card-info>
+                            {{__('form.unknown_active_category')}}
+                        </x-dashboard.card-info>
+                    @else
                         <div wire:key="{{$iterator}}">
                             <div class="category-option-card position-relative mt-3"
                                  x-data="{show: false}">

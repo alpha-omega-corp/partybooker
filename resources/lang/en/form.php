@@ -32,4 +32,6 @@ return [
     'show' => 'See',
     'hide' => 'Hide',
     'edit-company-modal' => 'Company Information\'s',
+    'unknown_count' => 'You have :count advertisements, none of which are active.',
+    'unknown_active_category' => 'Click on the button above to activate your categories'
 ];
