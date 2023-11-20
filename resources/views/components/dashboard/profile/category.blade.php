@@ -29,6 +29,8 @@
                         ->where('view_name', $category->form_name)->first();
                     @endphp
 
+                    {{json_encode($category)}}
+                    {{json_encode($advert)}}
                     @if($advert)
 
                         <div wire:key="{{$iterator}}">
