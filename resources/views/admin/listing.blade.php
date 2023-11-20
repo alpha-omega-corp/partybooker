@@ -94,6 +94,7 @@
                     </div>
                 @endif
                 @foreach($info as $key=>$service)
+                    {{dd($service)}}
                     <div class="service-block" num="{{$key+1}}" data-name="{{$service->en_company_name}}"
                          data-location="{{$service->location_code}}"
                          data-plan="{{$service->plan}}" data-status="{{$service->payment_status}}"
@@ -119,8 +120,12 @@
                             <div class="offset-md-1 col-md-4">
                                 <span class="title">{{ __('partybooker-cp.contacts')}}</span>
                                 <p><span>ID:</span> {{$service->id_partner}}</p>
-                                <p><span>{{ __('partybooker-cp.name')}}</span> {{$service->name}}</p>
-                                <p><span>{{ __('partybooker-cp.email')}}</span> {{$service->email}}</p>
+                                <p>
+                                    <span>{{ __('partybooker-cp.name')}}</span> {{isset($service->name) ?? $service->name}}
+                                </p>
+                                <p>
+                                    <span>{{ __('partybooker-cp.email')}}</span> {{isset($service->email) ?? $service->email}}
+                                </p>
                             </div>
                             <div class="col-md-3">
                                 <span class="title">{{ __('partybooker-cp.status')}}</span>
