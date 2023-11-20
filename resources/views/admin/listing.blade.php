@@ -94,7 +94,6 @@
                     </div>
                 @endif
                 @foreach($info as $key=>$service)
-                    {{dd($service)}}
                     <div class="service-block" num="{{$key+1}}" data-name="{{$service->en_company_name}}"
                          data-location="{{$service->location_code}}"
                          data-plan="{{$service->plan}}" data-status="{{$service->payment_status}}"
