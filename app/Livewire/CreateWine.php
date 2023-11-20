@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Advert;
+use App\Models\PartnersInfo;
 use App\Models\Wine;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\FileUpload;
@@ -55,15 +56,18 @@ class CreateWine extends Component implements HasForms
 
     public $advertId;
     public $partnerId;
+    public $partnerInfoId;
 
-    public function mount(int $advertId): void
+    public function mount(string $partnerId, int $advertId): void
     {
         $this->form->fill();
         $this->advertId = $advertId;
-        $this->partnerId = auth()->user()->id_partner;
+        $this->partnerId = $partnerId;
+        $partner = PartnersInfo::where('id_partner', $this->partnerId)->first();
+        $this->partnerInfoId = $partner->id;
 
         $advert = Advert::where('id', $this->advertId)
-            ->where('partners_info_id', auth()->user()->partnerInfo->id)
+            ->where('partners_info_id', $this->partnerInfoId)
             ->first();
 
         if ($advert->status === Advert::STATUS_ACTIVE) {
@@ -248,7 +252,7 @@ class CreateWine extends Component implements HasForms
     public function submit(): void
     {
         $advert = Advert::where('id', $this->advertId)
-            ->where('partners_info_id', auth()->user()->partnerInfo->id)
+            ->where('partners_info_id', $this->partnerInfoId)
             ->first();
 
         $wine = Wine::where('id', $advert->service_id)->first();

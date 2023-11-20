@@ -9,6 +9,7 @@ use App\Models\Entertainment;
 use App\Models\Equipment;
 use App\Models\EventPlace;
 use App\Models\PartnerPlanOption;
+use App\Models\Wine;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -338,6 +339,18 @@ class DatabaseSeeder extends Seeder
             'service_id' => $equipmentId,
         ]);
 
+        $wineId = Wine::factory([
+            'id_partner' => '120036190814-044' . $r
+        ])->create()->id;
+        DB::table('adverts')->insert([
+            'partners_info_id' => $partnerId,
+            'category_id' => 1,
+            'status' => 1,
+            'view_name' => 'wine',
+            'service_type' => 'App\Models\Wine',
+            'service_id' => $wineId,
+        ]);
+
 
         $entertainmentId = Entertainment::factory([
             'id_partner' => '120036190814-044' . $r
@@ -374,7 +387,6 @@ class DatabaseSeeder extends Seeder
             'view_name' => 'event-place',
             'service_type' => 'App\Models\EventPlace',
             'service_id' => $epId,
-
         ]);
 
 

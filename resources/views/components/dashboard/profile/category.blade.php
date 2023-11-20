@@ -69,7 +69,7 @@
 
                                 <a class="show" id="{{'create' . $iterator}}"
                                    href="{{route('create-' . $advert->view_name, [
-                                   'partnerId' => $partner->id,
+                                   'partnerId' => $partner->id_partner,
                                    'advertId' => $advert->id
                                    ])}}">
                                     {{__('partner.create_new_service')}}

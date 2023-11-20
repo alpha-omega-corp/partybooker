@@ -6,13 +6,13 @@
     <div class="d-flex">
         <a class="cp-nav-item"
            data-tippy-content="{{__('partner.profile')}}"
-           href="{{route('profile-advert', $user->id_partner)}}">
+           href="{{route(\Illuminate\Support\Facades\Auth::user()->type === 'admin' ? 'profile-advert-admin' : 'profile-advert', $user->id_partner)}}">
             @svg('heroicon-o-identification')
         </a>
         <a class="cp-nav-item"
            data-tippy-content="{{__('partner.my_plan')}}"
            id="plan-navigation-button"
-           href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner)}}/plans">
+           href="{{route(\Illuminate\Support\Facades\Auth::user()->type === 'admin' ? 'profile-plans-admin' : 'profile-plans', $user->id_partner)}}">
             @svg('heroicon-o-swatch')
         </a>
     </div>

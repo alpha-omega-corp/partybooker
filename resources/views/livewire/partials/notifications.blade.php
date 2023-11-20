@@ -69,7 +69,7 @@
                     <!-- Text -->
                     <div class="ml-3 w-0 flex-1 pt-0.5">
                         @if(count($errors->all()) !== 0)
-                            <p x-text="'Missing field'" class="text-sm font-medium leading-5 text-gray-900"></p>
+                            <p x-text="'Missing fields!'" class="text-sm font-medium leading-5 text-gray-900"></p>
                         @else
                             <p x-text="notification.content" class="text-sm font-medium leading-5 text-gray-900"></p>
                         @endif

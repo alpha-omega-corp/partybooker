@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Advert;
 use App\Models\Equipment;
+use App\Models\PartnersInfo;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Radio;
@@ -47,16 +48,20 @@ class CreateEquipment extends Component implements HasForms
 
     public $advertId;
     public $partnerId;
+    public $partnerInfoId;
 
-    public function mount(int $advertId): void
+    public function mount(string $partnerId, int $advertId): void
     {
         $this->form->fill();
         $this->advertId = $advertId;
-        $this->partnerId = auth()->user()->id_partner;
+        $this->partnerId = $partnerId;
+        $partner = PartnersInfo::where('id_partner', $this->partnerId)->first();
+        $this->partnerInfoId = $partner->id;
 
         $advert = Advert::where('id', $this->advertId)
-            ->where('partners_info_id', auth()->user()->partnerInfo->id)
+            ->where('partners_info_id', $this->partnerInfoId)
             ->first();
+
 
         if ($advert->status === Advert::STATUS_ACTIVE) {
             $equipment = Equipment::where('id', $advert->service_id)->first();
@@ -157,6 +162,8 @@ class CreateEquipment extends Component implements HasForms
                     ->schema([
 
                         (new FormService())->PaymentMethods(),
+                        (new FormService())->Rates(),
+                        (new FormService())->Budget(),
                         Repeater::make('expensesMore')
                             ->label(__('partner.additional_expenses'))
                             ->hintIcon('heroicon-o-information-circle')
@@ -240,7 +247,7 @@ class CreateEquipment extends Component implements HasForms
     public function submit(): void
     {
         $advert = Advert::where('id', $this->advertId)
-            ->where('partners_info_id', auth()->user()->partnerInfo->id)
+            ->where('partners_info_id', $this->partnerInfoId)
             ->first();
 
         $equipment = Equipment::where('id', $advert->service_id)->first();
@@ -264,7 +271,7 @@ class CreateEquipment extends Component implements HasForms
         $item->other_payment = isset($data['allowedPaymentsMore']) ? json_encode(array_column($data['allowedPaymentsMore'], 'name')) : null;
         $item->holidays = json_encode($data['holidays']);
         $item->extansion = $data['extension'];
-        $item->ext_true = $data['extensionDescription'];
+        $item->ext_true = $data['extension'] === 'yes' ? $data['extensionDescription'] : null;
         $item->deposit = $data['deposit'] === 'no' ? 'Non' : $data['depositDescription'];
         $item->geo = strip_tags($data['geoLimitations']);
         $item->delivery = $data['canDeliver'] === 'no' ? null : $data['deliveryCharge'];
@@ -279,7 +286,6 @@ class CreateEquipment extends Component implements HasForms
 
         $advert->status = Advert::STATUS_ACTIVE;
         $item->advert()->save($advert);
-
     }
 
     public function render(): View

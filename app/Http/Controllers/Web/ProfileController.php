@@ -77,14 +77,7 @@ class ProfileController extends Controller
 
     public function plans($id_partner)
     {
-        if (Auth::user()->type == 'admin') {
-            $id = $id_partner;
-        } else {
-            $id = Auth::user()->id_partner;
-        }
-
-        $user = User::where('id_partner', $id)->first();
-
+        $user = User::where('id_partner', $id_partner)->first();
 
         return view('web.partner.pages.plans', [
             'user' => $user,
