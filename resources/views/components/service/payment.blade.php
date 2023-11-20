@@ -9,7 +9,7 @@
     <div class="d-flex flex-wrap mb-1">
         @if(json_decode($details->paymeny))
             @foreach (json_decode($details->paymeny) as $payment)
-                @if($payment !== 'other')
+                @if($payment !== 'other' && strlen($payment) > 0)
                     <div class="advert-payment-method-item">
                         <img src="{{Vite::image(strtolower($payment) . '.svg')}}" alt="{{$payment}}"
                              class="payment-icon"/>
