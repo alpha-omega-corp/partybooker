@@ -11,8 +11,9 @@
 
 <div>
     @include('web.partner.popup.edit-category')
+    {{json_encode($activeOptions)}}
     @foreach($activeOptions as $key => $item)
-        @if($item['group'] === $partner->plan_option_group )
+        @if($item['group'] === $partner->plan_option_group)
 
             <div class="option-active-content">
                 @foreach($partnerCategories as $iterator => $category)

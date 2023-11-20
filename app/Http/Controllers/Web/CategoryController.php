@@ -11,15 +11,16 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-	public function getCategoriesAjax(Request $request){
-		if(!$request->ajax()){
-			return response()->json([], 200);
-		}
+    public function getCategoriesAjax(Request $request)
+    {
+        if (!$request->ajax()) {
+            return response()->json([], 200);
+        }
 
-		$data = Category::whereNull('parent_id')->with(['lang','subCategories', 'subCategories.lang'])->get();
+        $data = Category::whereNull('parent_id')->with(['lang', 'subCategories', 'subCategories.lang'])->get();
 
-		return response()->json($data, 200);
-	}
+        return response()->json($data, 200);
+    }
 
 }
-g
+
