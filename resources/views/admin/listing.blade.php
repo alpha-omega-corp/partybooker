@@ -48,7 +48,7 @@
                         <option>{{ __('partybooker-cp.display_all')}}</option>
                         @foreach($plans as $plan)
                             <option
-                                value="{{strtolower($plan->name)}}">{{Lang::has('plan.' . strtolower($plan->name)) ? trans('plan.' . strtolower($plan->name)) : $plan->name }}</option>
+                                    value="{{strtolower($plan->name)}}">{{Lang::has('plan.' . strtolower($plan->name)) ? trans('plan.' . strtolower($plan->name)) : $plan->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -95,7 +95,7 @@
                 @endif
                 @foreach($info as $key=>$service)
                     <div class="service-block" num="{{$key+1}}" data-name="{{$service->en_company_name}}"
-                         data-location="{{$service->location_code}}" data-date="{{$service->created_at}}"
+                         data-location="{{$service->location_code}}"
                          data-plan="{{$service->plan}}" data-status="{{$service->payment_status}}"
                          data-expiration="{{$service->expiration_date}}"
                          data-category="{{$service->category_1}} {{$service->category_2}} {{$service->category_3}}">
@@ -124,7 +124,7 @@
                             </div>
                             <div class="col-md-3">
                                 <span class="title">{{ __('partybooker-cp.status')}}</span>
-                                <p><span>{{ __('partybooker-cp.created_at')}}</span> {{$service->created_at}}</p>
+                                <p><span>{{ __('partybooker-cp.created_at')}}</span></p>
                                 <p>
                                     <span>{{ __('partybooker-cp.yearly_plan')}}</span> {{ Lang::has('plan.' . $service->plan) ? trans('plan.' . $service->plan) : $service->plan }}
                                 </p>
