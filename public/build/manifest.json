@@ -219,6 +219,10 @@
     "file": "assets/facebook-d1e1ae42.svg",
     "src": "resources/images/facebook.svg"
   },
+  "resources/images/facture.svg": {
+    "file": "assets/facture-458196d6.svg",
+    "src": "resources/images/invoice.svg"
+  },
   "resources/images/famous.svg": {
     "file": "assets/famous-f75ca54e.svg",
     "src": "resources/images/famous.svg"
@@ -368,7 +372,7 @@
     "src": "resources/images/instagram.svg"
   },
   "resources/images/invoice.svg": {
-    "file": "assets/invoice-458196d6.svg",
+    "file": "assets/facture-458196d6.svg",
     "src": "resources/images/invoice.svg"
   },
   "resources/images/italian.svg": {
