@@ -22,7 +22,6 @@
                                  width="100"/>
 
                             @if(Auth::user())
-
                                 @if(Auth::user()->type !== 'partner')
                                     <a class="rainbow p-4 text-uppercase fw-bold fs-3" id="becomePartnerButton"
                                        data-bs-toggle="modal"
@@ -31,19 +30,16 @@
 
                                     </a>
                                 @else
-
                                     <a class="rainbow p-4 text-uppercase fw-bold"
                                        href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.Auth::user()->id_partner)}}/plans">
                                         Our Plans
                                     </a>
-
                                 @endif
                             @else
                                 <a class="rainbow p-4 text-uppercase fw-bold fs-3" id="becomePartnerButton"
                                    data-bs-toggle="modal"
                                    href="#loginModalToggle" role="button">
                                     {{__('become_partner.register')}}
-
                                 </a>
                             @endif
                         </div>

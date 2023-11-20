@@ -12,6 +12,7 @@ use App\Helpers\StaffTranslatorHelper;
 use App\Helpers\TablewareTranslatorHelper;
 use App\Models\Advert;
 use App\Models\Caterer;
+use App\Models\PartnersInfo;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Fieldset;
@@ -54,8 +55,7 @@ class CreateCaterer extends Component implements HasForms
     public $officeEquipmentMore;
     public $staffValues;
     public $comment;
-    public $partnerId;
-    public $advertId;
+
     public $paymentMethods;
     public $logistics;
     public $tableware;
@@ -64,14 +64,22 @@ class CreateCaterer extends Component implements HasForms
     public $staff;
     public $officeEquipment;
 
-    public function mount(int $advertId): void
+    public $partnerId;
+    public $advertId;
+    public $partnerInfoId;
+
+    public function mount(string $partnerId, int $advertId): void
     {
         $this->form->fill();
         $this->advertId = $advertId;
-        $this->partnerId = auth()->user()->id_partner;
+        $this->partnerId = $partnerId;
+        $partner = PartnersInfo::where('id_partner', $this->partnerId)->first();
+        $this->partnerInfoId = $partner->id;
+
         $advert = Advert::where('id', $this->advertId)
-            ->where('partners_info_id', auth()->user()->partnerInfo->id)
+            ->where('partners_info_id', $this->partnerInfoId)
             ->first();
+
         if ($advert->status === Advert::STATUS_ACTIVE) {
             $caterer = Caterer::where('id', $advert->service_id)->first();
             $this->holidays = json_decode($caterer->holidays, true);
@@ -84,7 +92,7 @@ class CreateCaterer extends Component implements HasForms
             $this->minimumCapacity = $caterer->min_guests;
             $this->maximumCapacity = $caterer->max_guests;
             $this->delivery = json_decode($caterer->smood, true);
-            $this->specialties = json_decode($caterer->specialities, true);
+            $this->specialties = is_array(json_decode($caterer->specialities)) ? '' : json_decode($caterer->specialities);
             $this->menuFiles = json_decode($caterer->menu, true);
             $this->logisticsValues = json_decode($caterer->logistic, true);
             $this->tablewareValues = json_decode($caterer->tableware, true);
@@ -331,8 +339,9 @@ class CreateCaterer extends Component implements HasForms
     public function submit(): void
     {
         $advert = Advert::where('id', $this->advertId)
-            ->where('partners_info_id', auth()->user()->partnerInfo->id)
+            ->where('partners_info_id', $this->partnerInfoId)
             ->first();
+
 
         $caterer = Caterer::where('id', $advert->service_id)->first();
         $data = $this->form->getState();

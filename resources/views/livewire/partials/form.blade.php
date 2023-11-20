@@ -1,14 +1,16 @@
 <div>
-    @include('livewire.partials.notifications')
-    <form
-        x-data="{
-        content: 'Updated',
-        type: 'success',
-    }"
+    <form>
 
-        x-on:submit.prevent="$dispatch('notify', { content, type })"
-    >
-        {{$this->form}}
-        @include('livewire.partials.submit')
+        @include('livewire.partials.notifications')
+
+        <div>
+
+            {{$this->form}}
+            @if(count($errors->all()) !== 0)
+                <div
+                        x-init="$dispatch('notify', { content: '{{$errors->first()}}', type: 'error' })"></div>
+            @endif
+            @include('livewire.partials.submit')
+        </div>
     </form>
 </div>

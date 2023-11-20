@@ -16,8 +16,9 @@ class EnsureAdOwnership
     public function handle(Request $request, Closure $next): Response
     {
         $partnerId = $request->input('id_partner');
-        dd($partnerId);
-        if ($request->user()->type === 'admin' || $request->user()->id_partner === $partnerId) {
+        $params = $request->route()->parameters();
+
+        if ($request->user()->type === 'admin' || $request->user()->id_partner === $params['partnerId']) {
             return $next($request);
         }
 

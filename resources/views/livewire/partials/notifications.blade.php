@@ -1,6 +1,6 @@
 <div>
     <div
-        x-data="{
+            x-data="{
         notifications: [],
         add(e) {
             this.notifications.push({
@@ -13,15 +13,15 @@
             this.notifications = this.notifications.filter(i => i.id !== notification.id)
         },
     }"
-        @notify.window="add($event)"
-        class="fixed top-0 right-0 flex w-full max-w-xs flex-col space-y-4 pr-4 pb-4 sm:justify-start"
-        role="status"
-        aria-live="polite"
+            @notify.window="add($event)"
+            class="fixed top-0 right-0 flex w-full max-w-xs flex-col space-y-4 pr-4 pb-4 sm:justify-start"
+            role="status"
+            aria-live="polite"
     >
         <!-- Notification -->
         <template x-for="notification in notifications" :key="notification.id">
             <div
-                x-data="{
+                    x-data="{
                 show: false,
                 init() {
                     this.$nextTick(() => this.show = true)
@@ -34,9 +34,9 @@
                     setTimeout(() => this.remove(this.notification), 500)
                 },
             }"
-                x-show="show"
-                x-transition.duration.500ms
-                class="pointer-events-auto relative w-full max-w-sm rounded-md border border-gray-200 bg-white py-4 pl-6 pr-4 shadow-lg"
+                    x-show="show"
+                    x-transition.duration.500ms
+                    class="pointer-events-auto relative w-full max-w-sm rounded-md border border-gray-200 bg-white py-4 pl-6 pr-4 shadow-lg"
             >
                 <div class="flex items-start">
                     <!-- Icons -->
@@ -46,10 +46,18 @@
                         <span class="sr-only">Information:</span>
                     </div>
 
-                    <div x-show="notification.type === 'success'" class="flex-shrink-0">
-                    <span aria-hidden="true"
-                          class="inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-green-600 text-lg font-bold text-green-600">&check;</span>
-                        <span class="sr-only">Success:</span>
+                    <div x-show="notification.type === 'success'"
+                         class="flex-shrink-0">
+                        @if(count($errors->all()) !== 0)
+                            <span aria-hidden="true"
+                                  class="inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-red-600 text-lg font-bold text-red-600">&times;</span>
+                            <span class="sr-only">Error:</span>
+                        @else
+                            <span aria-hidden="true"
+                                  class="inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-green-600 text-lg font-bold text-green-600">&check;</span>
+                            <span class="sr-only">Success:</span>
+                        @endif
+
                     </div>
 
                     <div x-show="notification.type === 'error'" class="flex-shrink-0">
@@ -60,7 +68,11 @@
 
                     <!-- Text -->
                     <div class="ml-3 w-0 flex-1 pt-0.5">
-                        <p x-text="notification.content" class="text-sm font-medium leading-5 text-gray-900"></p>
+                        @if(count($errors->all()) !== 0)
+                            <p x-text="'Missing field'" class="text-sm font-medium leading-5 text-gray-900"></p>
+                        @else
+                            <p x-text="notification.content" class="text-sm font-medium leading-5 text-gray-900"></p>
+                        @endif
                     </div>
 
                     <!-- Remove button -->

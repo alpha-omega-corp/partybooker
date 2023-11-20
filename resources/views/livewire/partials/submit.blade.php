@@ -1,5 +1,5 @@
 <div class="flex fixed bottom-0 left-0 w-full">
-    <button wire:click="submit"
+    <button wire:click.prevent="submit" @click="$dispatch('notify', { content: 'Updated', type: 'success' })"
             class="inline-flex w-full text-center bg-purple-600 text-white px-5 py-2.5">
         {{__('partner.save')}}
     </button>
