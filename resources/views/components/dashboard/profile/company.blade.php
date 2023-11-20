@@ -50,7 +50,7 @@
         <div class="d-flex">
             @foreach(json_decode($partner->language) as $language)
                 @if($language != 'other')
-                    <img src="{{Vite::image($language . '.svg')}}" alt="{{$language}}" width="20"/>
+                    <img src="{{Vite::image(trim($language . '.svg'))}}" alt="{{$language}}" width="20"/>
                 @endif
             @endforeach
         </div>
