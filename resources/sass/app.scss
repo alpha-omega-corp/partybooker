@@ -1881,6 +1881,7 @@ a {
   justify-content: center;
 }
 
+
 .navbar-toggler:focus,
 .navbar-toggler:active,
 .navbar-toggler-icon:focus {
@@ -1914,6 +1915,13 @@ a {
   }
 }
 
+@media only screen and (max-width: 1200px) {
+  .offcanvas-body {
+    background: #fff !important;
+    border-right: 1px solid $gray-300;
+  }
+}
+
 .navigation {
 
   .dropdown {
@@ -1935,18 +1943,30 @@ a {
       margin: 5px;
       align-items: center;
       @media only screen and (max-width: 1200px) {
-        margin: 0;
         width: 100%;
         background-color: $accent;
+        padding: 10px;
+        border-radius: 20px;
+        margin: 5px 0;
+
 
         a {
-
           color: #fff;
+          padding: 0;
+          text-align: center;
+
+          svg {
+            margin-top: 3px;
+            margin-right: 20px;
+          }
+
+          span {
+            display: flex;
+            align-items: center;
+          }
         }
 
-        svg {
 
-        }
       }
 
       a {

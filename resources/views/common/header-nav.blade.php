@@ -41,6 +41,8 @@
                 <div class="offcanvas-body">
                     <div class="navigation h-full">
                         <div class="nav-logo-container mt-5">
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                    aria-label="Close"></button>
 
                             <div class="position-absolute close-container">
                                 <button type="button" class="btn-close btn-close-white nav-sm-close"
