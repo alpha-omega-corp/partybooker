@@ -6,7 +6,7 @@
 <br>
 
 
-<label class="seo-info text-start text-uppercase fw-bold mt-5 mb-4">{{__('form.seo')}}</label>
+<label class="seo-info text-start text-uppercase fw-bold mt-5 mb-4 w-100">{{__('form.seo')}}</label>
 
 <x-dashboard.card-info>
     {{__('form.seo_info_1')}}
@@ -17,8 +17,6 @@
 </x-dashboard.card-info>
 
 <div class="description-card-seo mt-4">
-
-
     <div class="input-group">
         <span class="input-group-text seo-input-title ">
             {{__('form.seo_title')}}

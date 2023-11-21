@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\SlugSanitizer;
+use App\Http\Requests\StoreTopServices;
 use App\Models\Advert;
 use App\Models\AdvertCategory;
 use App\Models\Caterer;
@@ -14,6 +15,7 @@ use App\Models\PartnerPlanOption;
 use App\Models\PartnersInfo;
 use App\Models\PartnerVipPlan;
 use App\Models\ServiceImage;
+use App\Models\TopService;
 use App\Models\Wine;
 use App\User;
 use Exception;
@@ -31,6 +33,48 @@ class adminController extends Controller
         $notifications = collect(DB::select('select * from notification'))->sortByDesc('id')->take(10);
         $messages = collect(DB::select('select * from messages'))->sortByDesc('id')->take(10);
         return view('admin.partybooker-cp', ['notifications' => $notifications, 'messages' => $messages]);
+    }
+
+    public function topServices()
+    {
+
+        $partners = PartnersInfo::all()->map(function ($e) {
+            return (object)[
+                'value' => $e->id_partner,
+                'label' => str_replace([' ', '.', ',', '"', '--', "'"], '', strtolower(trim($e->slug)))
+            ];
+        });
+
+        return view('admin.top-services', [
+            'partners' => $partners->toArray(),
+            'topServices' => TopService::all(),
+            'topServicesId' => TopService::all()->map(function ($e) {
+                return $e->partner->id_partner;
+            })->toArray()
+        ]);
+    }
+
+    public function updateTopServices(StoreTopServices $request)
+    {
+        $validated = $request->validated();
+        $topPartners = $validated['top'];
+        $currentTop = TopService::all()->map(fn($e) => $e->partner->id_partner)->toArray();
+
+        $newTop = array_diff($topPartners, $currentTop);
+        $toDelete = array_diff($currentTop, $topPartners);
+        foreach ($newTop as $partnerId) {
+            $service = new TopService();
+            $service->id_partner = PartnersInfo::where('id_partner', $partnerId)->first()->id;
+            $service->save();
+        }
+
+
+        foreach (collect($toDelete)->flatten() as $partnerId) {
+            $service = TopService::where('id_partner', PartnersInfo::where('id_partner', $partnerId)->first()->id)->first();
+            $service->delete();
+        }
+
+        return redirect()->back()->with('success', 'Top services updated');
     }
 
     public function messages()

@@ -7,7 +7,7 @@ return [
     'title-2' => 'Susciter l’intérêt',
     'text-2' => 'Le degré de corrélation perçu par vos visiteurs entre, d’une part, ce qu’ils sont en train de chercher et, d’autre part, ce que votre site web propose est déterminant. Un surfer Google se pose une question précise. Lorsqu’il atterrit sur un site, il va évaluer en quelques secondes si son contenu correspond à ce qu’il cherche. Le challenge est de savoir conserver les visiteurs en 10 secondes statistiquement. (Taux de rétention). L’organisation spatiale de vos contenus, constitue le cœur de ce que nous appelons l’ergonomie sémantique et c’est une des forces de Partybooker.',
 
-    'title-3' => 'De visiteurs anonymes à clients; la conversion',
+    'title-3' => 'De visiteurs anonymes à clients',
     'text-3' => 'Votre site web doit comporter une partie commerciale qui présente vos services, afin d’avoir le meilleur taux de conversion possible. Elle présente ce que vous faites, pourquoi vous le faites mieux ou autrement que votre concurrence. Partybooker en apportant une plateforme ciblée atteint ce but.',
 
     'title-4' => 'La visibilité',

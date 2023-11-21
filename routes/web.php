@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 */
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\BillingController;
+use App\Http\Controllers\mainWebsite;
 use App\Http\Controllers\Web\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -91,7 +93,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     //POST
     Route::post('/partner/reg', 'partnerController@register');
     Route::post('/subscribe', 'ajaxController@subscribe');
-    Route::post('/leave-phone', 'ajaxController@phone');
+    Route::post('/leave-phone', [mainWebsite::class, 'phoneQuestion'])->name('question.phone');
     Route::post('/contact-form', 'ajaxController@contact');
     Route::post('/rate', 'ajaxController@rate');
     Route::post('/stat', 'ajaxController@statClicks');
@@ -115,8 +117,12 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
 
         Route::get('/cp/partner-cp/{id_partner}/advert', '\App\Http\Controllers\Web\ProfileController@advert')->name('profile-advert-admin');
         Route::get('/cp/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@plans')->name('profile-plans-admin');
+        Route::post('/cp/partner-cp/edit-event-types', '\App\Http\Controllers\Web\ProfileController@updateEventTypes')->name('update-et-admin');
+
+        Route::post('/cp/partner-cp/top-services', [adminController::class, 'updateTopServices'])->name('top-service.update');
 
         Route::get('/cp', 'adminController@index')->name('admin');
+        Route::get('/cp/top-services', [adminController::class, 'topServices'])->name('top-services');
         Route::get('/cp/messages', 'adminController@messages');
         Route::get('/cp/listing', 'adminController@listing');
         Route::get('/cp/blog', 'adminController@blog');
@@ -194,7 +200,6 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
 
         Route::post('/cp/partner-cp/edit-option', '\App\Http\Controllers\Web\PlanOptionController@editOption');
         Route::post('/cp/partner-cp/edit-category', 'partnerController@editCategory');
-        Route::post('/cp/partner-cp/edit-event-types', '\App\Http\Controllers\Web\ProfileController@updateEventTypes');
 
         Route::post('/cp/partner-cp/edit-schedule', 'partnerController@editSchedule');
         Route::post('/cp/partner-cp/edit-specialties', 'partnerController@editSpecialties');
@@ -253,6 +258,8 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::get('/partner-cp/{id_partner}/plans',
             [ProfileController::class, 'plans'])
             ->name('profile-plans');
+        Route::post('/partner-cp/edit-event-types', '\App\Http\Controllers\Web\ProfileController@updateEventTypes')->name('update-et');
+
 
         Route::get('/partner-cp/{id_partner}/faq', '\App\Http\Controllers\Web\ProfileController@faq');
         Route::get('/partner-cp/{id_partner}/terms', '\App\Http\Controllers\Web\ProfileController@terms');
@@ -268,7 +275,6 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
 
         Route::post('/partner-cp/edit-www', '\App\Http\Controllers\Web\ProfileController@editWww');
         Route::post('/partner-cp/edit-option', '\App\Http\Controllers\Web\PlanOptionController@editOption');
-        Route::post('/partner-cp/edit-event-types', '\App\Http\Controllers\Web\ProfileController@updateEventTypes');
 
         Route::post('/partner-cp/edit-category', 'partnerController@editCategory');
         Route::post('/partner-cp/edit-images', 'partnerController@editImages');

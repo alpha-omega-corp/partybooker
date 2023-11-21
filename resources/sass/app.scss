@@ -2901,17 +2901,6 @@ html {
       }
     }
 
-    label {
-      text-transform: uppercase;
-      text-align: start;
-      margin-bottom: 5px;
-      font-weight: bold;
-      font-size: medium;
-      color: #000 !important;
-      padding-bottom: 5px;
-      display: flex;
-    }
-
     .company-edit-map {
       z-index: 1000 !important;
     }
@@ -4423,4 +4412,20 @@ html {
   .card-info-content {
     padding: 0 !important;
   }
+}
+
+
+.event-types-card {
+  margin: 20px;
+
+  .event-type-item {
+    font-size: smaller;
+    display: flex;
+    align-items: center;
+
+    padding: 10px 20px;
+    border: 1px solid $gray-300;
+    border-radius: 40px;
+  }
+
 }

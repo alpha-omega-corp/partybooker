@@ -55,17 +55,7 @@ class ajaxController extends Controller
     //Partner phone form
     public function phone(Request $request)
     {
-        $date = date('Y-m-d H:i:s');
-        $form = 'question';
-        $phone = $request->phone;
-        $lang = $request->lang;
-        DB::insert('insert into messages (message_sent, contact_form, phone) value(?, ?, ?)', [$date, $form, $phone]);
-        if ($lang == 'en') {
-            $msg = "Thank you! We will phone you as soon as possible";
-        } else {
-            $msg = "Je vous remercie! Nous vous téléphonerons dès que possible";
-        }
-        return response()->json(array('msg' => $msg));
+
     }
 
     //Subscribe form

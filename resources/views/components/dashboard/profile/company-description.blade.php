@@ -76,11 +76,7 @@
         </x-partner-category-tab>
     </div>
 
-    @if (Auth::user()->type == 'admin')
-        <input type="text" name="id_partner" value="{{$partner->id_partner}}" hidden/>
-    @else
-        <input type="text" name="id_partner" value="{{Auth::user()->id_partner}}" hidden/>
-    @endif
+    <input type="hidden" name="id_partner" value="{{$partner->id_partner}}" hidden/>
 
 
     <div class="d-flex">

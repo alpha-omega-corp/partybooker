@@ -24,6 +24,8 @@ return [
     'option_1' => '1 categorie (2 sous-catégories) ou 2 categories (1 sous-catégories de chaque)',
     'option_2' => '3 catégories (1 sous-catégorie dans chaque catégorie) ou 2 catégories (2 sous-catégories, plus une sous-catégorie) or 1 categories (3 sous-catégories)',
     'per_year' => '/ année',
+    'any_questions_title' => 'Vous avez une question?',
+    'any_questions_text' => 'Laisser nous votre numéro de téléphone et nous vous contacterons dès que possible.',
     'any_questions' => 'POUR TOUTES QUESTIONS - VEUILLEZ INDIQUER VOTRE NUMERO DE TELELPHONE ET NOUS VOUS CONTACTERONS.',
     'contact' => 'Prendre contact',
     'become_info_title' => "L’USP DE PARTYBOOKER",

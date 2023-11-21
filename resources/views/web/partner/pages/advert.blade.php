@@ -66,10 +66,11 @@
                     </x-dashboard.card>
                 </div>
 
-
-                <x-dashboard.profile.pages :gallery-images="$categoryImages" :user="$user"/>
-
-
+                <x-dashboard.profile.pages
+                        :gallery-images="$categoryImages"
+                        :event-types="$eventTypes"
+                        :partner-et="$partnerEventTypes"
+                        :user="$user"/>
             </div>
 
             <div class="col-xl-4 col-lg-5 col-md-12">

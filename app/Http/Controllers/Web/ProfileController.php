@@ -100,7 +100,7 @@ class ProfileController extends Controller
             $q->whereIn('id', array_keys($hash));
         }])->whereNull('parent_id')->whereIn('id', array_values($hash))
             ->get();
-        
+
         $adverts = Advert::where('partners_info_id', $partnerInfo->id)->with(['service'])->orderBy('status')->get();
         $tempImages['cat'] = [
             'count' => $partnerInfo->currentPlan->photos_num ?? 1,
@@ -108,6 +108,8 @@ class ProfileController extends Controller
         ];
 
         $this->defineRateGroup($user);
+        $partnerEventTypes = PartnerEventType::where('partners_info_id', $partnerInfoId)
+            ->get()->map(fn($e) => $e->event_type_id)->toArray();
 
         return view('web.partner.pages.advert', [
             'user' => User::where('id_partner', $id_partner)->first(),
@@ -126,6 +128,8 @@ class ProfileController extends Controller
             ],
             'canPublishMatrix' => $this->advertService->canPublishMatrix($user->id_partner),
             'advertService' => $this->advertService,
+            'eventTypes' => EventType::all(),
+            'partnerEventTypes' => $partnerEventTypes
         ]);
     }
 
@@ -312,45 +316,38 @@ class ProfileController extends Controller
         }
     }
 
-    public function editSeo(Request $request)
+    public function updateEventTypes(Request $request)
     {
-        if (Auth::user()->type == 'admin') {
-            $id = $request->id_partner;
-        } else {
-            return redirect()->back()->with(['error' => 'Only admin can update SEO']);
+        $partnerId = $request->input('partnerId');
+        $partner = PartnersInfo::where('id_partner', $partnerId)->first();
+        if (!$partner) {
+            return redirect()->back()->with('error', 'Partner not found');
         }
 
-
-        $partner = PartnersInfo::where('id_partner', $id)->first();
-
-        //		$validator = Validator::make($request->all(), [
-        //			'www' => 'nullable|unique:partners_info,www,' . $partner->id,
-        //		]);
-        //
-        //		if ($validator->fails()) {
-        //			return redirect()->back()->withErrors($validator->errors());
-        //		}
-        $en_seo_title = $request->input('en_seo_title', null);
-        $fr_seo_title = $request->input('fr_seo_title', null);
-        $en_seo_desc = $request->input('en_seo_desc', null);
-        $fr_seo_desc = $request->input('fr_seo_desc', null);
-        $en_seo_keywords = $request->input('en_seo_keywords', null);
-        $fr_seo_keywords = $request->input('fr_seo_keywords', null);
+        DB::beginTransaction();
         try {
+            $eventTypes = EventType::whereIn('id', $request->input('eventTypes'))->get();
+            if (!$eventTypes) {
+                return redirect()->back()->with('success', "Changes saved.");
+            }
 
-            PartnersInfo::where('id', $partner->id)
-                ->update([
-                    'en_seo_title' => $en_seo_title,
-                    'fr_seo_title' => $fr_seo_title,
-                    'en_seo_desc' => $en_seo_desc,
-                    'fr_seo_desc' => $fr_seo_desc,
-                    'en_seo_keywords' => $en_seo_keywords,
-                    'fr_seo_keywords' => $fr_seo_keywords
-                ]);
-            return redirect()->back()->with(['success' => "SEO data updated"]);
+            PartnerEventType::where('partners_info_id', $partner->id)->delete();
+            $data = [];
+            foreach ($eventTypes as $e) {
+                $data[] = [
+                    'partners_info_id' => $partner->id,
+                    'event_type_id' => $e->id,
+                ];
+            }
+            PartnerEventType::insert($data);
+
+            DB::commit();
         } catch (Exception $e) {
-            return redirect()->back()->with(['error' => $e->getMessage()]);
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage());
         }
+
+        return redirect()->back()->with('success', "Changes saved.");
     }
 
     public function editImagesAlt(Request $request)
@@ -454,42 +451,5 @@ class ProfileController extends Controller
         return redirect()->back()->with('success', "Changes saved.");
     }
 
-    public function updateEventTypes(Request $request)
-    {
-        if (Auth::user()->type == 'admin') {
-            $id = $request->id_partner;
-        } else {
-            $id = Auth::user()->id_partner;
-        }
 
-        $partner = PartnersInfo::where('id_partner', $id)->first();
-        if (!$partner) {
-            return redirect()->back()->with('error', 'Partner not found');
-        }
-
-        DB::beginTransaction();
-        try {
-            $eventTypes = EventType::whereIn('id', $request->get('event_type'))->get();
-            if (!$eventTypes) {
-                return redirect()->back()->with('success', "Changes saved.");
-            }
-
-            PartnerEventType::where('partners_info_id', $partner->id)->delete();
-            $data = [];
-            foreach ($eventTypes as $e) {
-                $data[] = [
-                    'partners_info_id' => $partner->id,
-                    'event_type_id' => $e->id,
-                ];
-            }
-            PartnerEventType::insert($data);
-
-            DB::commit();
-        } catch (Exception $e) {
-            DB::rollBack();
-            return redirect()->back()->with('error', $e->getMessage());
-        }
-
-        return redirect()->back()->with('success', "Changes saved.");
-    }
 }
