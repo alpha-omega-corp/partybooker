@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePartnerMessage;
+use App\Http\Requests\UpdateImageAlt;
 use App\Interfaces\IAdvertService;
 use App\Interfaces\IPlanService;
 use App\Models\Advert;
@@ -350,36 +351,21 @@ class ProfileController extends Controller
         return redirect()->back()->with('success', "Changes saved.");
     }
 
-    public function editImagesAlt(Request $request)
+    public function editImagesAlt(UpdateImageAlt $request)
     {
-        if (Auth::user()->type == 'admin') {
-            $id = $request->id_partner;
-        } else {
-            return redirect()->back()->with(['error' => 'Only admin can update images alts']);
-        }
+        $validated = $request->validated();
+        $imageId = $validated['imageId'];
+        $partnerId = $validated['partnerId'];
 
+        $altFrench = $validated['alt_fr'];
+        $altEnglish = $validated['alt_en'];
 
-        //		$partner = PartnersInfo::where('id_partner', $id)->first();
+        $image = ServiceImage::where('id', $imageId)->where('id_partner', $partnerId)->first();
+        $image->image_alt_fr = $altFrench;
+        $image->image_alt_en = $altEnglish;
 
-        $alts = $request->input('image_alt') ?? [];
-
-        //		$validator = Validator::make($request->all(), [
-        //			'www' => 'nullable|unique:partners_info,www,' . $partner->id,
-        //		]);
-        //
-        //		if ($validator->fails()) {
-        //			return redirect()->back()->withErrors($validator->errors());
-        //		}
-
-        try {
-
-            foreach ($alts as $key => $value) {
-                ServiceImage::whereId($key)->update($value);
-            }
-            return redirect()->back()->with(['success' => "Alts data updated"]);
-        } catch (Exception $e) {
-            return redirect()->back()->with(['error' => $e->getMessage()]);
-        }
+        $image->save();
+        return redirect()->back()->with('success', "Image alt updated.");
     }
 
     public function getCategories(Request $request)
@@ -450,6 +436,4 @@ class ProfileController extends Controller
 
         return redirect()->back()->with('success', "Changes saved.");
     }
-
-
 }

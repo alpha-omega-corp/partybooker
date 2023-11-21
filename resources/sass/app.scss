@@ -2831,6 +2831,13 @@ html {
       display: none;
     }
 
+    .edit-gallery-image {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: none;
+    }
+
     .imgNumber {
       text-align: start;
       padding-left: 20px;
@@ -2857,6 +2864,10 @@ html {
       cursor: pointer;
 
       .delete-gallery-image {
+        display: block;
+      }
+
+      .edit-gallery-image {
         display: block;
       }
     }
@@ -4446,6 +4457,28 @@ html {
     padding: 10px 20px;
     border: 1px solid $gray-300;
     border-radius: 40px;
+
+    label {
+      cursor: pointer;
+    }
+  }
+
+  .event-type-item:hover {
+    cursor: pointer;
+    border: 1px solid $accent;
+  }
+
+}
+
+.image-alt-card {
+  .flag-alt {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  .dashboard-input {
+    width: 100%;
   }
 
 }

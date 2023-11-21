@@ -23,6 +23,13 @@ tippy('.plan-option-item', {
     theme: 'tab-cat-tippy'
 });
 
+tippy('.edit-gallery-button', {
+    placement: 'left',
+    animation: 'scale',
+    inertia: true,
+    theme: 'tab-cat-tippy'
+});
+
 tippy('.credit-card', {
     placement: 'left',
     animation: 'scale',

@@ -11,7 +11,7 @@
 
 @section('content')
     <div class="become-partner">
-        <section class="benefits">
+        <section class="benefits mb-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">

@@ -28,10 +28,6 @@ class ServiceImageController extends Controller
         }
 
         $partner = PartnersInfo::where('id_partner', $id_partner)->first();
-        if (!$partner) {
-            return response()->json(['message' => 'partner not found'], 400);
-        }
-
 
         if ($request->has('main_image')) {
             $file = $request->file('main_image');

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -13,33 +15,34 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $category
  * @property string $image_name
  * @property int|null $is_main
- * @property-read \App\Models\PartnersInfo $partner
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ServiceImage newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ServiceImage newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ServiceImage query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ServiceImage whereCategory($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ServiceImage whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ServiceImage whereIdPartner($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ServiceImage whereImageName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ServiceImage whereIsMain($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ServiceImage wherePartnersInfoId($value)
- * @mixin \Eloquent
+ * @property-read PartnersInfo $partner
+ * @method static Builder|ServiceImage newModelQuery()
+ * @method static Builder|ServiceImage newQuery()
+ * @method static Builder|ServiceImage query()
+ * @method static Builder|ServiceImage whereCategory($value)
+ * @method static Builder|ServiceImage whereId($value)
+ * @method static Builder|ServiceImage whereIdPartner($value)
+ * @method static Builder|ServiceImage whereImageName($value)
+ * @method static Builder|ServiceImage whereIsMain($value)
+ * @method static Builder|ServiceImage wherePartnersInfoId($value)
+ * @mixin Eloquent
  */
 class ServiceImage extends Model
 {
-	public $timestamps = false;
+    public $timestamps = false;
 
-	protected $fillable = [
-		'partners_info_id',
-		'id_partner',
-		'category',
-		'image_name',
-		'is_main',
-                'image_alt_en',
-                'image_alt_fr'
-	];
+    protected $fillable = [
+        'partners_info_id',
+        'id_partner',
+        'category',
+        'image_name',
+        'is_main',
+        'image_alt_en',
+        'image_alt_fr'
+    ];
 
-	public function partner(){
-		return $this->belongsTo(PartnersInfo::class);
-	}
+    public function partner()
+    {
+        return $this->belongsTo(PartnersInfo::class);
+    }
 }

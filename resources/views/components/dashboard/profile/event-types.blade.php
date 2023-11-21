@@ -9,7 +9,7 @@
 
     <div class="d-flex flex-wrap justify-content-between">
         @foreach($eventTypes as $key => $eventType)
-            <div class="event-type-item mt-3">
+            <div class="event-type-item mt-3 {{in_array($eventType->id, $partnerEt) ? 'shadow-lg border-accent' : ''}}">
                 <div class="form-check">
                     <input
                             name="eventTypes[]"

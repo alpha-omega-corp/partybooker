@@ -20,7 +20,7 @@
         </x-slot>
 
         <x-tab.item>
-            <x-dashboard.profile.gallery :gallery="$galleryImages"/>
+            <x-dashboard.profile.gallery :gallery="$galleryImages" :user="$user"/>
         </x-tab.item>
 
         <x-tab.item>

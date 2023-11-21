@@ -73,48 +73,48 @@ $i = 1; ?>
         </div>
     </div>
 
+    <script>
+        $(document).ready(function () {
 
-
-
-
-    @push('footer')
-        <script>
-            $(document).ready(function () {
-
-                $("#main_image_{{$category}}").kendoUpload({
-                    "multiple": false,
-                    async: {
-                        saveUrl: "{{auth()->user()->type == 'admin' ? '/cp/' : '/'}}service-images/upload-main/{{auth()->user()->id_partner . '/' . $category}}",
-                        removeUrl: "remove",
-                        autoUpload: false
-                    },
-                    validation: {
-                        allowedExtensions: [".jpg", ".png", '.jpeg'],
-                    }
-                });
-
-                $("#files_image_{{$category}}").kendoUpload({
-                    validation: {
-                        allowedExtensions: [".jpg", ".png", '.jpeg'],
-                    },
-                    multiple: true,
-                    async: {
-                        saveUrl: "{{auth()->user()->type == 'admin' ? '/cp/' : '/'}}service-images/upload/{{auth()->user()->id_partner . '/' . $category}}",
-                        removeUrl: "remove",
-                        autoUpload: false
-                    },
-                    success: onComplete,
-                    complete: onSelect
-                });
-
-                function onSelect(e) {
-                }
-
-                function onComplete(e) {
-                    window.location = window.location;
+            $("#main_image_{{$category}}").kendoUpload({
+                multiple: false,
+                async: {
+                    saveUrl: "{{auth()->user()->type == 'admin' ? '/cp/' : '/'}}service-images/upload-main/{{$user->id_partner . '/' . $category}}",
+                    removeUrl: "remove",
+                    autoUpload: false
+                },
+                validation: {
+                    allowedExtensions: [".jpg", ".png", '.jpeg'],
                 }
             });
-        </script>
-    @endpush
+
+            $("#files_image_{{$category}}").kendoUpload({
+                validation: {
+                    allowedExtensions: [".jpg", ".png", '.jpeg'],
+                },
+                multiple: true,
+                async: {
+                    saveUrl: "{{auth()->user()->type == 'admin' ? '/cp/' : '/'}}service-images/upload/{{$user->id_partner . '/' . $category}}",
+                    removeUrl: "remove",
+                    autoUpload: false
+                },
+                success: onComplete,
+                complete: onSelect
+            });
+
+            function onSelect(e) {
+            }
+
+            function onComplete(e) {
+                window.location = window.location;
+            }
+        });
+    </script>
+
+
+
+
         <?php $i++ ?>
 @endforeach
+
+

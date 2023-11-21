@@ -120,6 +120,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::post('/cp/partner-cp/edit-event-types', '\App\Http\Controllers\Web\ProfileController@updateEventTypes')->name('update-et-admin');
 
         Route::post('/cp/partner-cp/top-services', [adminController::class, 'updateTopServices'])->name('top-service.update');
+        Route::post('/cp/partner-cp/edit-image-alt', [ProfileController::class, 'editImagesAlt'])->name('alt.update.admin');
 
         Route::get('/cp', 'adminController@index')->name('admin');
         Route::get('/cp/top-services', [adminController::class, 'topServices'])->name('top-services');
@@ -213,7 +214,6 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::post('/cp/partner-cp/publish', 'ajaxController@partnerPublish');
         Route::post("/cp/partner-cp/vip-plan-set", "VipPlanPaymentController@setVipStatusAdmin");
 
-
         //Images controls
         Route::post('/cp/service-images/upload/{id_partner}/{category}', 'ServiceImageController@upload');
         Route::post('/cp/service-images/upload-main/{id_partner}/{category}', 'ServiceImageController@uploadMainImage');
@@ -258,8 +258,8 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::get('/partner-cp/{id_partner}/plans',
             [ProfileController::class, 'plans'])
             ->name('profile-plans');
-        Route::post('/partner-cp/edit-event-types', '\App\Http\Controllers\Web\ProfileController@updateEventTypes')->name('update-et');
-
+        Route::post('/partner-cp/edit-event-types', [ProfileController::class, 'updateEventTypes'])->name('update-et');
+        Route::post('/partner-cp/edit-image-alt', [ProfileController::class, 'editImagesAlt'])->name('alt.update');
 
         Route::get('/partner-cp/{id_partner}/faq', '\App\Http\Controllers\Web\ProfileController@faq');
         Route::get('/partner-cp/{id_partner}/terms', '\App\Http\Controllers\Web\ProfileController@terms');
