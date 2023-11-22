@@ -1481,7 +1481,6 @@ label .zone:before {
 }
 
 @media only screen and (max-width: 1200px) {
-
     .st {
         width: 50%;
         float: left;
