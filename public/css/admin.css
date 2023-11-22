@@ -1,17 +1,17 @@
 /* FONTS START */
 @font-face {
     font-family: 'GothamPro';
-    src: url('/fonts/GothamPro.ttf');
+    src: url('../../resources/fonts/GothamPro.ttf');
 }
 
 @font-face {
     font-family: 'GothamPro-Bold';
-    src: url('/fonts/GothamPro-Bold.ttf');
+    src: url('../../resources/fonts/GothamPro-Bold.ttf');
 }
 
 @font-face {
     font-family: 'GothamPro-Italic';
-    src: url('/fonts/GothamPro-Italic.ttf');
+    src: url('../../resources/fonts/GothamPro-Italic.ttf');
 }
 
 /* FONTS END */
