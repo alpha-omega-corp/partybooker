@@ -11,7 +11,7 @@ return [
     'matrix_thumbnail_good' => 'Télécharger une miniature',
     'matrix' => 'Détails mandataires',
     'other' => 'Autre',
-    'fill_company_details' => 'Veuillez remplir les détails de votre entreprise pour la publication en ligne',
+    'fill_company_details' => 'Veuillez remplir les détails de votre entreprise.',
     'choose_thumbnail' => 'Téléchargez une miniature pour votre page de publicité',
     'service_name' => 'Service',
     'service_description' => 'Informations',
@@ -117,7 +117,7 @@ return [
     //Info
     'category' => "Catégorie",
     'subcategory' => "Sous-catégorie",
-    'choose_category' => "Vous devez choisir une catégorie et une sous-catégorie pour continuer.",
+    'choose_category' => "Vous devez choisir une catégorie et une sous-catégorie.",
 
     // Images
     'you_uploaded' => "Vous avez téléchargé",
@@ -132,7 +132,7 @@ return [
 
     //details
     'service_details' => "Service(s) détaillé(s)",
-    'fill_service_details' => "Veuillez remplir les détails de vos services pour la publication en ligne",
+    'fill_service_details' => "Veuillez remplir les détails de vos services.",
 
     //popups
     'choose_cat_and_subcat' => "Veuillez choisir une catégorie et une sous-catégorie",

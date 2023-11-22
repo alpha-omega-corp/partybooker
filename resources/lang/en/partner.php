@@ -12,7 +12,7 @@ return [
     'matrix' => 'Mandatary details',
     'service_name' => 'Service',
     'service_description' => 'Informations',
-    'fill_company_details' => 'Fill your company details before you can publish',
+    'fill_company_details' => 'Fill your company details.',
     'choose_thumbnail' => 'Upload a thumbnail for your advertisement page',
 
     'extansion' => 'Prolongation details',
@@ -116,7 +116,7 @@ return [
     //Info
     'category' => 'Category',
     'subcategory' => 'Sub-category',
-    'choose_category' => 'You have not chosen the category & subcategory. Choose to continue',
+    'choose_category' => 'You have not chosen the category & subcategory.',
 
     // Images
     'you_uploaded' => 'You uploaded',
@@ -130,7 +130,7 @@ return [
     'socials' => 'Networks',
     //details
     'service_details' => 'Service details',
-    'fill_service_details' => 'Please fill your service details for publishing.',
+    'fill_service_details' => 'Please fill your service details.',
 
     //popups
     'choose_cat_and_subcat' => 'Please choose a category & a sub-category',

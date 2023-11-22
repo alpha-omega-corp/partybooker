@@ -13,7 +13,7 @@
             <!-- French -->
             <x-tab.item>
                 <div class="edit-company-section">
-                    <div class="description-card-title">
+                    <div class="description-card-title" id="companyDescription">
                         <img src="{{Vite::image('icons/france.svg')}}" alt="english" class="me-2"/>
                     </div>
 
