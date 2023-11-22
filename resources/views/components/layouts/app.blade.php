@@ -15,12 +15,15 @@
     </style>
     @livewireStyles
     @filamentStyles
+    @vite('resources/js/dashboard.js')
+
+    @livewireScripts
+    @filamentScripts
 </head>
 
 <body class="antialiased">
-@vite('resources/js/dashboard.js')
-@filamentScripts
-@livewireScripts
+
+
 <div class="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8"
      style="background: url({{Vite::image('blob-scene.svg')}}) fixed; background-size: 100% 100%; background-color: teal;">
     <div>
