@@ -14,8 +14,11 @@ $yellow: $yellow-400;
 $gray: $gray-700;
 
 $standard: $blue-500;
+$standart: $blue-500;
+
 $premium: $orange-500;
 $exclusive: $red-400;
+$exclusif: $red-400;
 
 $transparent: rgba(0, 0, 0, 0.4);
 
@@ -36,6 +39,8 @@ $theme-colors: (
     "orange": $orange,
     "yellow": $yellow,
     "gray": $gray,
+    "standart": $standart,
+    "exclusif": $exclusif,
 );
 
 $offcanvas-horizontal-width: auto;

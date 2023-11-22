@@ -6,6 +6,8 @@ return [
     'vip' => 'VIP',
     'premium' => 'PREMIUM',
     'exclusive' => 'Exclusive',
+    'standart' => 'Standard',
+    'exclusif' => 'Exclusive',
     'commission' => 'Commission',
     'per_month' => '/ month',
     'supported_credit_cards' => 'Supported credit cards',

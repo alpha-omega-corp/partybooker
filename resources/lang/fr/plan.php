@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'standard' => 'Standard',
+    'standart' => 'Standart',
+    'premium' => 'Premium',
+    'exclusif' => 'Exclusif',
     'basic' => 'Basic',
     'vip' => 'VIP',
-    'premium' => 'Premium',
-    'exclusive' => 'Exclusif',
     'commission' => 'Commission',
     'per_month' => '/ mois',
     'supported_credit_cards' => 'Cartes de crédit prises en charge',
