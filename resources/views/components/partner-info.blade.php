@@ -18,7 +18,7 @@
             </div>
 
             <div x-show="show" class="w-100">
-                <a class="text-nowrap m-2 text-lowercase" href="{{ $type . ':' . $content }}">
+                <a class="text-nowrap m-2 text-lowercase" href="{{$content}}">
                     {{ $content }}
                 </a>
             </div>
