@@ -90,7 +90,7 @@ return [
     'select_all' => 'Select all',
 
     'info-block-1' => 'The ultimate destination for individuals and organisations seeking to craft unforgettable events infused with exceptional quality and creativity.',
-    'info-block-1-1' => 'Based in the picturesque heart of Suisse Romande, PartyBooker is your trusted partner, bringing together innovative service providers and those with a passion for crafting one-of-a-kind experiences',
+    'info-block-1-1' => 'Based in the picturesque heart of Suisse Romande, Partybooker is your trusted partner, bringing together innovative service providers and those with a passion for crafting one-of-a-kind experiences',
     'info-block-2' => 'Our mission is to empower you to',
     'info-block-2-1' => 'transform your event dreams into reality',
     'info-block-2-2' => 'by connecting you with a curated selection of top-tier service providers who share your desire for excellence.',

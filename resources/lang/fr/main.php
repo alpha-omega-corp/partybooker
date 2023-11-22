@@ -90,7 +90,7 @@ return [
     'select_all' => 'Tous',
 
     'info-block-1' => 'La destination ultime pour les particuliers et les organisations qui souhaitent organiser des événements inoubliables empreints d\'une qualité et d\'une créativité exceptionnelles',
-    'info-block-1-1' => 'Basé dans le cœur pittoresque de la Suisse Romande, PartyBooker est votre partenaire de confiance, réunissant des prestataires de services innovants et des personnes passionnées par la création d\'expériences uniques.',
+    'info-block-1-1' => 'Basé dans le cœur pittoresque de la Suisse Romande, Partybooker est votre partenaire de confiance, réunissant des prestataires de services innovants et des personnes passionnées par la création d\'expériences uniques.',
     'info-block-2' => 'Notre mission est de vous permettre de',
     'info-block-2-1' => 'transformer vos rêves d\'événements en réalité',
     'info-block-2-2' => 'en vous mettant en contact avec une sélection de fournisseurs de services de premier plan qui partagent votre désir d\'excellence',

@@ -48,7 +48,7 @@
                         <option>{{ __('partybooker-cp.display_all')}}</option>
                         @foreach($plans as $plan)
                             <option
-                                    value="{{strtolower($plan->name)}}">{{Lang::has('plan.' . strtolower($plan->name)) ? trans('plan.' . strtolower($plan->name)) : $plan->name }}</option>
+                                value="{{strtolower($plan->name)}}">{{Lang::has('plan.' . strtolower($plan->name)) ? trans('plan.' . strtolower($plan->name)) : $plan->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -135,7 +135,7 @@
                                 <p>
                                     <span>{{ __('partybooker-cp.yearly_plan')}}</span> {{ Lang::has('plan.' . $service->plan) ? trans('plan.' . $service->plan) : $service->plan }}
                                 </p>
-                                @if ($service->payment_status == 0)
+                                @if ($service->payment_status)
                                     <p><span>{{ __('partybooker-cp.payment_status')}}</span> Not Payed</p>
                                 @else
                                     <p><span>{{ __('partybooker-cp.payment_status')}}</span> Payed</p>

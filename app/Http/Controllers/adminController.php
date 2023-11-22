@@ -20,6 +20,7 @@ use App\Models\Wine;
 use App\User;
 use Exception;
 use Geocode;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -33,6 +34,18 @@ class adminController extends Controller
         $notifications = collect(DB::select('select * from notification'))->sortByDesc('id')->take(10);
         $messages = collect(DB::select('select * from messages'))->sortByDesc('id')->take(10);
         return view('admin.partybooker-cp', ['notifications' => $notifications, 'messages' => $messages]);
+    }
+
+    public function stripe(): View
+    {
+
+        $payedUsers = PartnersInfo::where('plan', '!=', 'basic')
+            ->orWhere('plan', '!=', 'commission')
+            ->orWhere('plan', '!=', null)
+            ->get()->map(fn($p) => $p->user);
+        return view('admin.stripe', [
+            'payedUsers' => $payedUsers,
+        ]);
     }
 
     public function topServices()

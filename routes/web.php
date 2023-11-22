@@ -130,6 +130,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::get('/cp/blog/post/{post_slug}', 'adminController@post');
         Route::get('/cp/blog/new-post', 'adminController@newpost');
         Route::get('/cp/faq', 'adminController@faq');
+        Route::get('/cp/payments', [adminController::class, 'stripe'])->name('cp-stripe');
 
         //CREATE/EDIT PARTNER PAGES
         //get

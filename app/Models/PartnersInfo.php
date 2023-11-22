@@ -5,12 +5,16 @@ namespace App\Models;
 
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class PartnersInfo extends Model
 {
     public $timestamps = false;
     protected $table = "partners_info";
-    
+
     protected $fillable = [
         "plan",
         "plan_option",
@@ -71,53 +75,53 @@ class PartnersInfo extends Model
         'fr_seo_keywords'
     ];
 
-    public function currentPlan()
+    public function currentPlan(): HasOne
     {
         return $this->hasOne(Plan::class, 'id', 'plans_id');
     }
 
-    public function vipPlan()
+    public function vipPlan(): HasOne
     {
         return $this->hasOne(PartnerVipPlan::class, 'partners_info_id', 'id');
     }
 
-    public function images()
+    public function images(): HasMany
     {
         return $this->hasMany(ServiceImage::class);
     }
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'id_partner', 'id_partner');
     }
 
-    public function rates()
+    public function rates(): HasMany
     {
         return $this->hasMany(Rate::class, 'id_partner', 'id_partner');
     }
 
-    public function statistic()
+    public function statistic(): HasOne
     {
         return $this->hasOne(Statistic::class, 'id_partner', 'id_partner');
     }
 
-    public function planOptions()
+    public function planOptions(): HasMany
     {
         return $this->hasMany(PartnerPlanOption::class, 'partners_info_id', 'id');
     }
 
-    public function categories()
+    public function categories(): HasMany
     {
         return $this->hasMany(AdvertCategory::class, 'partners_info_id', 'id');
     }
 
-    public function services()
+    public function services(): HasMany
     {
         return $this->hasMany(Advert::class, 'partners_info_id', 'id');
     }
 
 
-    public function eventTypes()
+    public function eventTypes(): BelongsToMany
     {
         return $this->belongsToMany(EventType::class, 'partner_event_types');
     }
