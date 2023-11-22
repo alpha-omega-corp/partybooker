@@ -1,10 +1,11 @@
 import './bootstrap';
 import '../sass/app.scss';
 import Alpine from 'alpinejs';
+import focus from '@alpinejs/focus';
+
 import tippy, {animateFill} from 'tippy.js';
 import 'tippy.js/animations/scale.css';
 import Glide, {Autoplay, Breakpoints, Controls} from '@glidejs/glide/dist/glide.modular.esm'
-import focus from '@alpinejs/focus';
 
 import.meta.glob([
     '../images/**',
@@ -14,7 +15,6 @@ import.meta.glob([
 window.Alpine = Alpine;
 Alpine.plugin(focus);
 Alpine.start();
-
 
 tippy('.plan-option-item', {
     placement: 'top',

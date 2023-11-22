@@ -12,7 +12,6 @@
 
     <!-- Styles -->
 
-    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
     @yield('summernote-css')
 
     <!-- Scripts -->
@@ -22,7 +21,7 @@
     @yield('bootstrap-js')
     <script src="{{ asset('js/jquery.mask.js') }}"></script>
     @stack('head')
-    @vite('resources/js/app.js')
+    @vite('resources/js/admin.js')
 </head>
 <body class="body">
 

@@ -1,4 +1,29 @@
 {
+  "_module.esm-473e093b.js": {
+    "assets": [
+      "assets/right-arrow-126f8b6c.svg"
+    ],
+    "css": [
+      "assets/module-2372c9a3.css"
+    ],
+    "file": "assets/module.esm-473e093b.js"
+  },
+  "module.css": {
+    "file": "assets/module-2372c9a3.css",
+    "src": "module.css"
+  },
+  "resources/fonts/GothamPro-Bold.ttf": {
+    "file": "assets/GothamPro-Bold-7bc28964.ttf",
+    "src": "resources/fonts/GothamPro-Bold.ttf"
+  },
+  "resources/fonts/GothamPro-Italic.ttf": {
+    "file": "assets/GothamPro-Italic-7ca3658f.ttf",
+    "src": "resources/fonts/GothamPro-Italic.ttf"
+  },
+  "resources/fonts/GothamPro.ttf": {
+    "file": "assets/GothamPro-e02da845.ttf",
+    "src": "resources/fonts/GothamPro.ttf"
+  },
   "resources/images/404.svg": {
     "file": "assets/404-e4ef3bdc.svg",
     "src": "resources/images/404.svg"
@@ -747,18 +772,38 @@
     "file": "assets/youtube-fda9fe16.svg",
     "src": "resources/images/youtube.svg"
   },
+  "resources/js/admin.css": {
+    "file": "assets/admin-46beb700.css",
+    "src": "resources/js/admin.css"
+  },
+  "resources/js/admin.js": {
+    "assets": [
+      "assets/GothamPro-e02da845.ttf",
+      "assets/GothamPro-Bold-7bc28964.ttf",
+      "assets/GothamPro-Italic-7ca3658f.ttf"
+    ],
+    "css": [
+      "assets/admin-46beb700.css"
+    ],
+    "file": "assets/admin-e13ffffe.js",
+    "imports": [
+      "_module.esm-473e093b.js"
+    ],
+    "isEntry": true,
+    "src": "resources/js/admin.js"
+  },
   "resources/js/app.css": {
-    "file": "assets/app-6d44579c.css",
+    "file": "assets/app-f0675783.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
-    "assets": [
-      "assets/right-arrow-126f8b6c.svg"
-    ],
     "css": [
-      "assets/app-6d44579c.css"
+      "assets/app-f0675783.css"
     ],
-    "file": "assets/app-0aad7938.js",
+    "file": "assets/app-a0e112dd.js",
+    "imports": [
+      "_module.esm-473e093b.js"
+    ],
     "isEntry": true,
     "src": "resources/js/app.js"
   },
@@ -773,10 +818,5 @@
     "file": "assets/dashboard-ff4f6c1b.js",
     "isEntry": true,
     "src": "resources/js/dashboard.js"
-  },
-  "resources/sass/admin/admin.scss": {
-    "file": "assets/admin-f55ebdc5.css",
-    "isEntry": true,
-    "src": "resources/sass/admin/admin.scss"
   }
 }

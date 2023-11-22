@@ -14,7 +14,7 @@ export default defineConfig({
             input: [
                 './resources/js/app.js',
                 './resources/js/dashboard.js',
-                './resources/sass/admin/admin.scss',
+                './resources/js/admin.js',
             ],
             refresh: [
                 ...refreshPaths,
