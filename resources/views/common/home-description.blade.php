@@ -6,7 +6,7 @@
     <div class="d-sm-flex flex-sm-column d-lg-flex flex-lg-row">
         <div class="home-description shadow-lg">
             <h4 class="fw-bold text-uppercase text-center">
-                <img src="{{Vite::image('who-icon.svg')}}" alt="{{ __('main.info-block-title-1') }}"/>
+                <img src="{{Vite::image('organization.svg')}}" alt="{{ __('main.info-block-title-1') }}"/>
                 {{ __('main.info-block-title-1') }}
             </h4>
             <hr>
@@ -15,7 +15,7 @@
 
         <div class="home-description shadow-lg">
             <h4 class="fw-bold text-uppercase text-nowrap text-center">
-                <img src="{{Vite::image('swiss-army-knife.svg')}}" alt="{{ __('main.info-block-title-1') }}"/>
+                <img src="{{Vite::image('group-new.svg')}}" alt="{{ __('main.info-block-title-1') }}"/>
                 {{ __('main.info-block-title-1-1') }}
             </h4>
             <hr>
