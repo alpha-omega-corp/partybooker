@@ -5,9 +5,9 @@ namespace App\Enums;
 enum PlanEnum: string
 {
     case VIP = 'vip';
-    case STANDARD = 'standard';
+    case STANDARD = 'standart';
     case PREMIUM = 'premium';
-    case EXCLUSIVE = 'exclusive';
+    case EXCLUSIVE = 'exclusif';
 
     case COMMISSION = 'commission';
     case BASIC = 'basic';

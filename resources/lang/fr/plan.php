@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'standart' => 'Standart',
+    'standart' => 'Standard',
     'premium' => 'Premium',
-    'exclusif' => 'Exclusif',
+    'exclusif' => 'Exclusive',
     'basic' => 'Basic',
     'vip' => 'VIP',
     'commission' => 'Commission',
