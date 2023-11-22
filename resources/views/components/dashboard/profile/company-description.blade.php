@@ -21,14 +21,16 @@
                     <div class="mt-2">
                         <div>
                             <div class="w-100">
-                                <label for="fr_short_descr">{{__('partybooker-cp.short_description')}}</label>
+                                <label for="fr_short_descr">{{__('partybooker-cp.short_description')}}
+                                    <span class="text-danger">*</span></label>
                                 <textarea name="fr_short_descr" id="fr_short_descr" maxlength="350"
                                           rows="10" required
                                           class="textarea-wysiwyg">{{$partner->fr_short_descr}}</textarea>
                             </div>
 
                             <div class="w-100">
-                                <label for="fr_full_descr">{{__('partybooker-cp.full_description')}}</label>
+                                <label for="fr_full_descr">{{__('partybooker-cp.full_description')}}
+                                    <span class="text-danger">*</span></label>
                                 <textarea name="fr_full_descr" id="fr_full_descr" maxlength="3000"
                                           rows="10" required
                                           class="textarea-wysiwyg">{{$partner->fr_full_descr}}</textarea>
@@ -39,6 +41,7 @@
                     <x-dashboard.textarea name="fr_slogan"
                                           :label="__('partybooker-cp.slogan')"
                                           icon="heroicon-o-chat-bubble-bottom-center-text"
+                                          :r
                                           :max="250">{{$partner->fr_slogan}}
                     </x-dashboard.textarea>
 
@@ -55,11 +58,13 @@
 
 
                     <div class="mt-2">
-                        <label for="en_short_descr">{{__('partybooker-cp.short_description')}}</label>
+                        <label for="en_short_descr">{{__('partybooker-cp.short_description')}}
+                            <span class="text-danger">*</span></label>
                         <textarea name="en_short_descr" id="en_short_descr" maxlength="350" required
                                   class="textarea-wysiwyg">{{$partner->en_short_descr}}</textarea>
 
-                        <label for="en_full_descr">{{__('partybooker-cp.full_description')}}</label>
+                        <label for="en_full_descr">{{__('partybooker-cp.full_description')}}
+                            <span class="text-danger">*</span></label>
                         <textarea name="en_full_descr" id="en_full_descr" maxlength="3000" required
                                   class="textarea-wysiwyg">{{$partner->en_full_descr}}</textarea>
 

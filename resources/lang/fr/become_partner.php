@@ -10,7 +10,7 @@ return [
     'b2_text' => 'Nous vous offrons la présence en ligne la plus percutante: Partybooker améliore la visibilité de vos services grâce à son expertise technique et marketing spécifique. Nous positionnons et démarquons  l’image digitale de votre entreprise pour faire la différence.',
     'b3' => 'Une présence web plus percutante',
     'b3_text' => 'Nos partenaires sont des professionnels chevronnés dans leurs domaines. Etre spécialiste en marketing et promotion digitale nécessite des ressources très ciblées et couteuses qui doivent être constamment optimisées et ajustées en fonction du marché et des algorithmes. Partybooker vous apporte ces ressources sur un plateau en vous fournissant une visibilité unique à un prix très compétitif car nous mutualisons nos coûts.',
-    'yearly_packages' => 'FORMULES ANNUELLE',
+    'yearly_packages' => 'FORMULES ANNUELLES',
     'yp_text' => 'Choisissez votre formule pour augmenter votre visibilité auprès de nombreux clients potentiels',
     'category' => 'category',
     'categories' => 'categories',

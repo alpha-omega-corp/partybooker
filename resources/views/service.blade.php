@@ -37,7 +37,7 @@
                             <x-partner-info
                                 icon="heroicon-o-globe-alt"
                                 tooltip="website"
-                                content="{{$partner->fr_company_name}}"
+                                content="{{$partner->www}}"
                                 type="web"/>
 
                             <x-partner-info
