@@ -44,14 +44,16 @@
                             @endif
                         </h1>
 
-                        @if(\Illuminate\Support\Facades\Auth::user()->type === 'admin')
-                            <a href="{{route('profile-advert-admin', ['id_partner' => $partner->id_partner])}}">
-                                {{__('partner.dashboard')}}
-                            </a>
-                        @elseif(\Illuminate\Support\Facades\Auth::user()->id_partner === $partner->id_partner)
-                            <a href="{{route('profile-advert', ['id_partner' => $partner->id_partner])}}">
-                                {{__('partner.dashboard')}}
-                            </a>
+                        @if(\Illuminate\Support\Facades\Auth::user())
+                            @if(\Illuminate\Support\Facades\Auth::user()->type === 'admin')
+                                <a href="{{route('profile-advert-admin', ['id_partner' => $partner->id_partner])}}">
+                                    {{__('partner.dashboard')}}
+                                </a>
+                            @elseif(\Illuminate\Support\Facades\Auth::user()->id_partner === $partner->id_partner)
+                                <a href="{{route('profile-advert', ['id_partner' => $partner->id_partner])}}">
+                                    {{__('partner.dashboard')}}
+                                </a>
+                            @endif
                         @endif
 
 
