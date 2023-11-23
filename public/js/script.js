@@ -330,45 +330,7 @@ $('.li.files .del').on('click', function (e) {
 });
 
 //PUBLISH / DRAFT service
-$('.status-button').on('click', function (e) {
-    e.preventDefault();
-    if (!$(this).hasClass('disabled')) {
-        $('.dashboard-card-badge .status-badge').removeClass('text-bg-primary').removeClass('text-bg-danger');
-        $('.status-button').removeClass('text-danger').removeClass('text-primary');
 
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        var id = $(this).data('id');
-        var admin = $('.partner-cp').data('type');
-        if (admin == 'admin') {
-            var url = '/cp/partner-cp/publish';
-        } else {
-            var url = '/partner-cp/publish';
-        }
-        $.ajax({
-            url: url,
-            type: 'POST',
-            data: {
-                _token: CSRF_TOKEN,
-                id_partner: id
-            },
-            success: function (data) {
-                $('.status-button').html(data.msg);
-                $('.dashboard-card-badge .status-badge').html(data.stat);
-
-                if (data.status) {
-                    $('.dashboard-card-badge .status-badge').addClass('text-bg-primary');
-                    $('.status-button').addClass('text-danger');
-                } else {
-                    $('.dashboard-card-badge .status-badge').addClass('text-bg-danger');
-                    $('.status-button').addClass('text-primary');
-
-                }
-
-
-            }
-        });
-    }
-});
 
 //partner details
 $('.partner-cp .gallery .del').on('click', function (e) {

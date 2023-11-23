@@ -322,10 +322,6 @@
             height: 300,
 
         });
-
-        $(document).ready(function () {
-            $('.tox-notification__dismiss').click();
-        });
     </script>
 <?php $__env->stopPush(); ?>
 

@@ -1,5 +1,6 @@
 import {defineConfig} from 'vite';
 import laravel, {refreshPaths} from 'laravel-vite-plugin';
+import inject from "@rollup/plugin-inject";
 
 export default defineConfig({
     css: {
@@ -10,6 +11,10 @@ export default defineConfig({
         },
     },
     plugins: [
+        inject({
+            $: 'jquery',
+            jQuery: 'jquery',
+        }),
         laravel({
             input: [
                 './resources/js/app.js',
