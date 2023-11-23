@@ -1,66 +1,62 @@
-<p>
-	Request for service: <a href="{{url('fr/listing/' . $partner->slug)}}">{{$partner->fr_company_name}}</a>
-</p>
-<p>
-    Veuillez SVP copier contact@partybooker.ch sur votre première offre au client.
-</p>
-<p>Request from info:</p>
-<ul>
-	<li>
-		Nom: {{$data['name']}}
-	</li>
-	<li>
-		E-mail: {{$data['email']}}
-	</li>
-	<li>
-		Téléphone: {{$data['phone']}}
-	</li>
+<div>
+    <h1>{{strtoupper('Demande de service')}}</h1>
 
-	<li>
-		Date de l'événement: {{$data['event_date']}}
-	</li>
-	<li>
-		Date alternative: {{$data['alternative_date']}}
-	</li>
-        <li>
-		Nombre de participants?: {{$data['participant']}}
-	</li>
+    <p>Veuillez s.v.p mettre contact@partybooker.ch en copie sur votre première offre au client.</p>
+    <a href="{{url('annonce/' . $partner->slug)}}">Votre Page Publicitaire</a>
+    <hr>
 
-	<li>
-		Nombre d'invités: {{$data['message']}}
-	</li>
-</ul>
+    <table style="width: 100%">
+        <thead>
+        <th>Nom</th>
+        <th>Téléphone</th>
+        <th>Type d'événement</th>
+        <th>Date de l'événement</th>
+        <th>Date alternative</th>
+        <th>Nombre de participants</th>
+        <th>Message</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{$data['name']}}</td>
+            <td>{{$data['phone']}}</td>
+            <td>{{$data['event']}}</td>
+            <td>{{$data['event-date']}}</td>
+            <td>{{$data['alternative-date']}}</td>
+            <td>{{$data['participants']}}</td>
+            <td>{{$data['message']}}</td>
+        </tr>
+        </tbody>
+    </table>
 
-<hr>
+    <br>
+    <br>
 
-<p>
-	Request for service: <a href="{{url('en/listing/' . $partner->slug)}}">{{$partner->en_company_name}}</a>
-</p>
-<p>
-    Kindly copy contact@partybooker.ch on your initial offer
-</p>
-<p>Request from info:</p>
-<ul>
-	<li>
-		Name: {{$data['name']}}
-	</li>
-	<li>
-		Email: {{$data['email']}}
-	</li>
-	<li>
-		Phone: {{$data['phone']}}
-	</li>
 
-	<li>
-		Date of Event: {{$data['event_date']}}
-	</li>
-	<li>
-		Alternative date: {{$data['alternative_date']}}
-	</li>
-        <li>
-		Amount of participants: {{$data['participant']}}
-	</li>
-	<li>
-		Message: {{$data['message']}}
-	</li>
-</ul>
+    <h1>{{strtoupper('Service Request')}}</h1>
+    <p>Please add contact@partybooker.ch as copy in your first client's offer</p>
+    <a href="{{url('en/listing/' . $partner->slug)}}">Your Advertisement Page</a>
+    <hr>
+
+    <table style="width: 100%">
+        <thead>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Event Type</th>
+        <th>Event Date</th>
+        <th>Alternative Date</th>
+        <th>Participants</th>
+        <th>Message</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{$data['name']}}</td>
+            <td>{{$data['phone']}}</td>
+            <td>{{$data['event']}}</td>
+            <td>{{$data['event-date']}}</td>
+            <td>{{$data['alternative-date']}}</td>
+            <td>{{$data['participants']}}</td>
+            <td>{{$data['message']}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

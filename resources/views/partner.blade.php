@@ -76,13 +76,16 @@
 
         <section class="packages mt-5">
             <div class="container">
-                <div class="heading text-center">
+                <div class="heading text-center ">
                     <h2 class="display-4 fw-bold text-uppercase">
                         {{ __('become_partner.yearly_packages') }}
                     </h2>
                     <p>{{ __('become_partner.yp_text') }}</p>
                 </div>
-                <x-partner.packages :plans="$plans"/>
+                <br>
+                <div class="mt-4">
+                    <x-partner.packages :plans="$plans"/>
+                </div>
 
 
             </div>

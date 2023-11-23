@@ -76,12 +76,6 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
 
 
     Route::get('/', 'mainWebsite@home')->name('home');
-
-    // Request Forms
-    Route::post('/request/partner', 'ServiceRequestController@commissionFormAction');
-    Route::post('/request/caterer', 'ServiceRequestController@catererFormAction');
-    Route::post('/request/general', 'ServiceRequestController@requestFormAction');
-
     Route::get('/user-terms', 'mainWebsite@userterms');
     Route::get('/faq', 'mainWebsite@faq');
     Route::get('/contacts', 'mainWebsite@contacts');
@@ -324,16 +318,24 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::post('/adverts/{advertId}/edit-specialties', '\App\Http\Controllers\Web\CatererController@editSpecialties');
         Route::post('/adverts/{advertId}/edit-food', '\App\Http\Controllers\Web\WineController@editFood');
         Route::post('/adverts/del-menu', '\App\Http\Controllers\Web\CatererController@removeMenu');
+
+        Route::get('/user/invoice/{invoice}', [BillingController::class, 'invoice'])->name('invoice');
+        Route::post('/partner-cp/subscribe', [BillingController::class, 'subscribe'])->name('subscription.start');
+        Route::post('/partner-cp/switch', [BillingController::class, 'switch'])->name('subscription.switch');
+        Route::post('/partner-cp/cancel', [BillingController::class, 'cancel'])->name('subscription.cancel');
+        Route::post('/partner-cp/resume', [BillingController::class, 'resume'])->name('subscription.resume');
+        Route::post('/partner-cp/update-payment', [BillingController::class, 'updatePayment'])->name('payment.update');
+
     });
 
     Route::post("/contacts/claim-requests", 'ContactsController@SendClaimOrDeleteRequest');
 
-    Route::get('/user/invoice/{invoice}', [BillingController::class, 'invoice'])->name('invoice');
-    Route::post('/partner-cp/subscribe', [BillingController::class, 'subscribe'])->name('subscription.start');
-    Route::post('/partner-cp/switch', [BillingController::class, 'switch'])->name('subscription.switch');
-    Route::post('/partner-cp/cancel', [BillingController::class, 'cancel'])->name('subscription.cancel');
-    Route::post('/partner-cp/resume', [BillingController::class, 'resume'])->name('subscription.resume');
-    Route::post('/partner-cp/update-payment', [BillingController::class, 'updatePayment'])->name('payment.update');
+
+    // Request Forms
+    Route::post('/request/partner', 'ServiceRequestController@commissionFormAction')->name('request.commission');
+    Route::post('/request/caterer', 'ServiceRequestController@catererFormAction')->name('request.caterer');
+    Route::post('/request/general', 'ServiceRequestController@requestFormAction')->name('request.general');
+
 });
 
 //language switch

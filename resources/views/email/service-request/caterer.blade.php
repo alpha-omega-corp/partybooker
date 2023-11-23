@@ -1,90 +1,82 @@
-<p>
-	Request for service: <a href="{{url('fr/listing/' . $partner->slug)}}">{{$partner->fr_company_name}}</a>
-</p>
-<p>
-    Veuillez SVP copier contact@partybooker.ch sur votre première offre au client.
-</p>
+<div>
 
-<p>Request from info:</p>
-<ul>
-	<li>
-		Nom: {{$data['name']}}
-	</li>
-	<li>
-		E-mail: {{$data['email']}}
-	</li>
-	<li>
-		Téléphone: {{$data['phone']}}
-	</li>
-	<li>
-                Type d'événement: {{$data['event']}}
-        </li>
-	<li>
-		Date de l'événement: {{$data['event_date']}}
-	</li>
-	<li>
-		Date alternative: {{$data['alternative_date']}}
-	</li>
-	<li>
-		Nombre d'invités: {{$data['participant']}}
-	</li>
-	<li>
-		Nombre de d'invités: {{$data['guests']}}
-	</li>
-	<li>
-		Langue: {{$data['language']}}
-	</li>
-	<li>
-		Zone géographique: {{$data['zone']}}
-	</li>
-	<li>
-		Besoin d'un service traiteur: {{$data['caterer']}}
-	</li>
-	<li>
-		Budget approxmatif: {{$data['budget']}}
-	</li>
-</ul>
-<hr>
-<p>
-	Request for service: <a href="{{url('en/listing/' . $partner->slug)}}">{{$partner->en_company_name}}</a>
-</p>
-<p>
-    Kindly copy contact@partybooker.ch on your initial offer
-</p>
-<p>Request from info:</p>
-<ul>
-	<li>
-		Name: {{$data['name']}}
-	</li>
-	<li>
-		Mail: {{$data['email']}}
-	</li>
-	<li>
-		Phone: {{$data['phone']}}
-	</li>
-	<li>Type of event: {{$data['event']}}</li>
-	<li>
-		Date of Event: {{$data['event_date']}}
-	</li>
-	<li>
-		Alternative date: {{$data['alternative_date']}}
-	</li>
-	<li>
-		Amount of participants: {{$data['participant']}}
-	</li>
-	<li>
-		Number of guests: {{$data['guests']}}
-	</li>
-	<li>
-		Language: {{$data['language']}}
-	</li>
-	<li>
-		Geographic Zone: {{$data['zone']}}
-	</li>
-	<li>
-		Need a Caterer: {{$data['caterer']}}
-	</li>
-	<li>
-		Approximate budget: {{$data['budget']}}
-	</li>
-</ul>
+    <h1>{{strtoupper('Demande de service')}}</h1>
+
+    <p>Veuillez s.v.p mettre contact@partybooker.ch en copie sur votre première offre au client.</p>
+    <a href="{{url('annonce/' . $partner->slug)}}">Votre Page Publicitaire</a>
+    <hr>
+    
+    <table style="width: 100%">
+        <thead>
+        <th>Nom</th>
+        <th>Téléphone</th>
+        <th>Type d'événement</th>
+        <th>Date de l'événement</th>
+        <th>Date alternative</th>
+        <th>Nombre de participants</th>
+        <th>Type de clients</th>
+        <th>Langue</th>
+        <th>Zone Géographique</th>
+        <th>Budget</th>
+        <th>Traiteur</th>
+        <th>Message</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{$data['name']}}</td>
+            <td>{{$data['phone']}}</td>
+            <td>{{$data['event']}}</td>
+            <td>{{$data['event-date']}}</td>
+            <td>{{$data['alternative-date']}}</td>
+            <td>{{$data['participants']}}</td>
+            <td>{{$data['guests']}}</td>
+            <td>{{$data['language']}}</td>
+            <td>{{$data['zone']}}</td>
+            <td>{{$data['budget']}}</td>
+            <td>{{ucfirst($data['caterer'])}}</td>
+            <td>{{$data['message']}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+
+    <h1>{{strtoupper('Service Request')}}</h1>
+    <p>Please add contact@partybooker.ch as copy in your first client's offer</p>
+    <a href="{{url('en/listing/' . $partner->slug)}}">Your Advertisement Page</a>
+    <hr>
+
+    <table style="width: 100%">
+        <thead>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Event Type</th>
+        <th>Event Date</th>
+        <th>Alternative Date</th>
+        <th>Participants</th>
+        <th>Guests Type</th>
+        <th>Language</th>
+        <th>Geographical Zone</th>
+        <th>Budget</th>
+        <th>Caterer</th>
+        <th>Message</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{$data['name']}}</td>
+            <td>{{$data['phone']}}</td>
+            <td>{{$data['event']}}</td>
+            <td>{{$data['event-date']}}</td>
+            <td>{{$data['alternative-date']}}</td>
+            <td>{{$data['participants']}}</td>
+            <td>{{$data['guests']}}</td>
+            <td>{{$data['language']}}</td>
+            <td>{{$data['zone']}}</td>
+            <td>{{$data['budget']}}</td>
+            <td>{{ucfirst($data['caterer'])}}</td>
+            <td>{{$data['message']}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -156,17 +156,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        DB::table('users')->insert([
-            'name' => 'Nicholas',
-            'email' => 'bleyo@alphomega.org',
-            'id_partner' => null,
-            'email_verification' => 1,
-            'password' => bcrypt('password'),
-            'type' => 'admin',
-            'provider' => null,
-            'provider_id' => null,
-        ]);
-        //$this->newPartner('alphomega', 0, 'bleyo');
+        $this->newPartner('alphomega', 0, 'bleyo');
         $this->newPartner('dynam-event', 1);
         $this->newPartner('chillfood', 2);
         $this->newPartner('la-cave-geneve-vieille-ville', 3);
@@ -305,7 +295,7 @@ class DatabaseSeeder extends Seeder
                 'id_partner' => '120036190814-044' . $r,
                 'email_verification' => 1,
                 'password' => bcrypt('password'),
-                'type' => 'partner',
+                'type' => 'admin',
                 'provider' => null,
                 'provider_id' => null,
             ]);
