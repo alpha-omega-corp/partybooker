@@ -70,7 +70,7 @@
                             <div class="col-lg-8 col-md-12">
                                 @if($partner->logo)
                                     <div class="d-flex align-items-center justify-content-center">
-                                        <img src="{{ asset('/storage/logos/'.$partner->logo)}}" alt="logo" width="100"
+                                        <img src="{{ asset('/storage/logos/'.$partner->logo)}}" width="100"
                                              class="cp-company-logo">
                                     </div>
                                 @endif
