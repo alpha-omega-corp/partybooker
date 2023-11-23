@@ -331,7 +331,6 @@ $('.li.files .del').on('click', function (e) {
 
 //PUBLISH / DRAFT service
 $('.status-button').on('click', function (e) {
-    console.log('fuck');
     e.preventDefault();
     if (!$(this).hasClass('disabled')) {
         $('.dashboard-card-badge .status-badge').removeClass('text-bg-primary').removeClass('text-bg-danger');
