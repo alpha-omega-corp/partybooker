@@ -55,12 +55,13 @@
 
                         <div class="image-alt-card">
                             <x-dashboard.modal
-                                    id="editImageSeo{{$key}}"
-                                    :button="__('partner.edit')"
-                                    size="modal-md"
-                                    title="SEO Image"
-                                    :action="route(\Illuminate\Support\Facades\Auth::user()->type == 'admin' ? 'alt.update.admin' : 'alt.update')"
-                                    method="POST">
+                                id="editImageSeo{{$key}}"
+                                :button="__('partner.edit')"
+                                size="modal-md"
+                                title="SEO Image"
+                                :has-button="false"
+                                :action="route(\Illuminate\Support\Facades\Auth::user()->type == 'admin' ? 'alt.update.admin' : 'alt.update')"
+                                method="POST">
                                 <div class="text-gray">
 
                                     <div class="d-flex justify-content-center">
@@ -79,19 +80,19 @@
                                     <div class="d-flex align-items-center">
                                         <img src="{{Vite::image('icons/uk-flag.svg')}}" class="flag-alt" alt="SEO"/>
                                         <x-dashboard.input
-                                                name="alt_fr"
-                                                placeholder="Description"
-                                                :value="$img['image_alt_en']"
-                                                icon="heroicon-o-megaphone"/>
+                                            name="alt_fr"
+                                            placeholder="Description"
+                                            :value="$img['image_alt_en']"
+                                            icon="heroicon-o-megaphone"/>
                                     </div>
 
                                     <div class="d-flex align-items-center">
                                         <img src="{{Vite::image('icons/france.svg')}}" class="flag-alt" alt="SEO"/>
                                         <x-dashboard.input
-                                                name="alt_en"
-                                                placeholder="Description"
-                                                :value="$img['image_alt_fr']"
-                                                icon="heroicon-o-megaphone"/>
+                                            name="alt_en"
+                                            placeholder="Description"
+                                            :value="$img['image_alt_fr']"
+                                            icon="heroicon-o-megaphone"/>
                                     </div>
 
                                 </div>
