@@ -236,49 +236,30 @@ class ProfileController extends Controller
 
     public function editCompany(Request $request)
     {
-        if (Auth::user()->type == 'admin') {
-            $id = $request->id_partner;
-        } else {
-            $id = Auth::user()->id_partner;
+        $oldImageName = null;
+
+        $partner = PartnersInfo::where('id_partner', $request->get('id_partner'))->first();
+        if ($request->file('logo')) {
+            $oldImageName = $request->input('current_logo');
+            $logo = trim($partner->id . '-' . $request->file('logo')->getClientOriginalName());
+            Storage::putFileAs('logos', $request->file('logo'), $logo);
+            $partner->logo = $logo;
         }
 
-        DB::beginTransaction();
-        try {
-            $partner = PartnersInfo::where('id_partner', $id)->first();
-            if (!$partner) {
-                throw new Exception("Partner not found");
-            }
+        $partner->company_phone = $request->company_phone;
+        $partner->fax = $request->company_fax;
+        $partner->en_company_name = $request->company_name;
+        $partner->fr_company_name = $request->company_name;
+        $partner->slug = str_replace([' ', '.', ',', '"', '--'], '-', strtolower($request->company_name));
 
-            $oldImageName = null;
-            if ($request->file('logo')) {
-                $oldImageName = $partner->logo;
-                $logo = $partner->id . '-' . $request->file('logo')->getClientOriginalName();
-                Storage::putFileAs('logos', $request->file('logo'), $logo);
-                $partner->logo = $logo;
-            }
+        $partner->language = json_encode($request->input('languages'));
+        $partner->update();
 
-            $partner->company_phone = $request->company_phone;
-            $partner->fax = $request->company_fax;
-            $partner->en_company_name = $request->company_name;
-            $partner->fr_company_name = $request->company_name;
-
-            //$partner->slug = str_replace([' ', '.', ',', '"', '--'], '-', strtolower($en_company_name));
-
-
-            $partner->language = json_encode($request->input('languages'));
-            if (!$partner->update()) {
-                return redirect()->back()->with('error', "Cant update company profile.");
-            }
-
-            DB::commit();
-            if (isset($oldImageName) && $oldImageName) {
-                Storage::delete('logos/' . $oldImageName);
-            }
-            return redirect()->back()->with('success', "Company profile updated");
-        } catch (Exception $e) {
-            DB::rollBack();
-            return redirect()->back()->with('error', $e->getMessage());
+        if ($oldImageName) {
+            Storage::delete('logos/' . $oldImageName);
         }
+        return redirect()->back()->with('success', "Company profile updated");
+
     }
 
     public function editWww(Request $request)

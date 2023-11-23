@@ -1,13 +1,13 @@
 <x-dashboard.modal
-        id="editCompany"
-        :title="__('form.edit-company-modal')"
-        :button="__('partner.edit')"
-        :action="Auth::user()->type == 'admin'
+    id="editCompany"
+    :title="__('form.edit-company-modal')"
+    :button="__('partner.edit')"
+    :action="Auth::user()->type == 'admin'
         ? url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/partner-cp/edit-company')
         : url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-company')"
-        :hasFiles="true"
-        size="modal-md"
-        method="POST">
+    :hasFiles="true"
+    size="modal-md"
+    method="POST">
 
 
     <div class="logo-file position-relative">
@@ -63,18 +63,18 @@
                                    :max="50"/>
 
                 <x-dashboard.input
-                        name="company_phone"
-                        :value="$partner->company_phone"
-                        :placeholder="__('partybooker-cp.phone')"
-                        icon="heroicon-o-phone"/>
+                    name="company_phone"
+                    :value="$partner->company_phone"
+                    :placeholder="__('partybooker-cp.phone')"
+                    icon="heroicon-o-phone"/>
 
 
                 <x-dashboard.input
-                        name="company_fax"
-                        :value="$partner->fax"
-                        :placeholder="__('become_partner.fax')"
-                        :required="false"
-                        icon="heroicon-o-paper-airplane"/>
+                    name="company_fax"
+                    :value="$partner->fax"
+                    :placeholder="__('become_partner.fax')"
+                    :required="false"
+                    icon="heroicon-o-paper-airplane"/>
             </div>
         </div>
 
@@ -84,34 +84,34 @@
             <div class="p-1">
                 <div class="language-list">
                     <x-dashboard.checkbox
-                            name="languages[]"
-                            value="french"
-                            :label="__('partybooker-cp.french')"
-                            :checked="str_contains($partner->language, 'french')">
+                        name="languages[]"
+                        value="french"
+                        :label="__('partybooker-cp.french')"
+                        :checked="str_contains($partner->language, 'french')">
                         <img src="{{Vite::image('french.svg')}}" alt="french"/>
                     </x-dashboard.checkbox>
 
                     <x-dashboard.checkbox
-                            name="languages[]"
-                            value="english"
-                            :label="__('partybooker-cp.english')"
-                            :checked="str_contains($partner->language, 'english')">
+                        name="languages[]"
+                        value="english"
+                        :label="__('partybooker-cp.english')"
+                        :checked="str_contains($partner->language, 'english')">
                         <img src="{{Vite::image('english.svg')}}" alt="english"/>
                     </x-dashboard.checkbox>
 
                     <x-dashboard.checkbox
-                            name="languages[]"
-                            value="german"
-                            :label="__('partybooker-cp.german')"
-                            :checked="str_contains($partner->language, 'german')">
+                        name="languages[]"
+                        value="german"
+                        :label="__('partybooker-cp.german')"
+                        :checked="str_contains($partner->language, 'german')">
                         <img src="{{Vite::image('german.svg')}}" alt="german"/>
                     </x-dashboard.checkbox>
 
                     <x-dashboard.checkbox
-                            name="languages[]"
-                            value="italian"
-                            :label="__('partybooker-cp.italian')"
-                            :checked="str_contains($partner->language, 'italian')">
+                        name="languages[]"
+                        value="italian"
+                        :label="__('partybooker-cp.italian')"
+                        :checked="str_contains($partner->language, 'italian')">
                         <img src="{{Vite::image('italian.svg')}}" alt="italian"/>
                     </x-dashboard.checkbox>
                 </div>
@@ -120,12 +120,7 @@
     </div>
 
 
-    @if (Auth::user()->type == 'admin')
-        <input type="text" name="id_partner" value="{{$partner->id_partner}}" hidden/>
-    @else
-        <input type="text" name="id_partner" value="{{Auth::user()->id_partner}}" hidden/>
-    @endif
-
+    <input type="text" name="id_partner" value="{{$partner->id_partner}}" hidden/>
     <input type="text" name="current_logo" value="{{$partner->logo}}" hidden/>
     <input type="text" name="current_loc" value="{{$partner->location_code}}" hidden/>
 
