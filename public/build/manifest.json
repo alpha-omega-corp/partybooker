@@ -818,5 +818,9 @@
     "file": "assets/dashboard-ff4f6c1b.js",
     "isEntry": true,
     "src": "resources/js/dashboard.js"
+  },
+  "storage/app/public/logos/1-alphomega.png": {
+    "file": "assets/1-alphomega-c4c8e83a.png",
+    "src": "storage/app/public/logos/1-alphomega.png"
   }
 }

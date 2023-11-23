@@ -32,10 +32,18 @@ class RequestService implements IRequestService
 
         switch ($type) {
             case DirectMessage::TYPE_GENERAL:
-                Mail::to($user->email)->send(new ServiceRequestGeneral($partner, $formData));
+                Mail::to($user->email)
+                    ->cc(config('mail.from.address'))
+                    ->send(new ServiceRequestGeneral($partner, $formData));
+
+                Mail::to($formData['email'])->send(new ServiceRequestGeneral($partner, $formData));
                 break;
             case DirectMessage::TYPE_CATERER:
-                Mail::to($user->email)->send(new ServiceRequestCaterer($partner, $formData));
+                Mail::to($user->email)
+                    ->cc(config('mail.from.address'))
+                    ->send(new ServiceRequestCaterer($partner, $formData));
+
+                Mail::to($formData['email'])->send(new ServiceRequestCaterer($partner, $formData));
                 break;
         }
     }

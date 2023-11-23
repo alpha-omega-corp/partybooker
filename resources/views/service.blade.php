@@ -8,19 +8,8 @@
     <div class="partner">
         <div class="container">
             <section data-id="{{ $partner->id_partner }}" class="partner-details">
-
                 <div class="service-header">
-
-                    <div class="d-flex flex-column w-100">
-                        <div>
-                            <h1 class="display-3 fw-bold text-uppercase">
-                                @if (app()->getLocale() == 'en')
-                                    {{ $partner->en_company_name }}
-                                @else
-                                    {{ $partner->fr_company_name }}
-                                @endif
-                            </h1>
-                        </div>
+                    <div class="d-flex flex-column">
                         <div class="d-flex partner-contacts">
                             <x-partner-info
                                 icon="heroicon-o-phone"
@@ -46,20 +35,28 @@
                                 content="{{$partner->address}}"
                                 type="loc"/>
                         </div>
-                    </div>
 
+                        <h1 class="display-3 fw-bold text-uppercase">
+                            @if (app()->getLocale() == 'en')
+                                {{ $partner->en_company_name }}
+                            @else
+                                {{ $partner->fr_company_name }}
+                            @endif
+                        </h1>
 
-                    <div class="partner-logo d-flex justify-content-end align-items-center w-100">
-                        @if ($partner->logo)
-                            <img src="{{ '/storage/logos/' . $partner->logo }}"
-                                 alt="Rejoindre notre sélection pour augmenter votre chiffre d'affaire"
-                            />
-                        @else
-                            <img src="{{Vite::image('logoPB.png')}}" alt="logo"/>
+                        @if(\Illuminate\Support\Facades\Auth::user()->type === 'admin')
+                            <a href="{{route('profile-advert-admin', ['id_partner' => $partner->id_partner])}}">
+                                {{__('partner.dashboard')}}
+                            </a>
+                        @elseif(\Illuminate\Support\Facades\Auth::user()->id_partner === $partner->id_partner)
+                            <a href="{{route('profile-advert', ['id_partner' => $partner->id_partner])}}">
+                                {{__('partner.dashboard')}}
+                            </a>
                         @endif
+
+
                     </div>
                 </div>
-
 
                 <div class="row">
                     @php
@@ -71,6 +68,12 @@
                     <div class="tab-index">
                         <div class="row">
                             <div class="col-lg-8 col-md-12">
+                                @if($partner->logo)
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <img src="{{ asset('/storage/logos/'.$partner->logo)}}" alt="logo" width="100"
+                                             class="cp-company-logo">
+                                    </div>
+                                @endif
                                 <a class="btn btn-primary w-100 book-btn text-uppercase" data-bs-toggle="modal"
                                    href="#contactModalToggle"
                                    role="button">

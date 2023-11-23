@@ -1,11 +1,9 @@
 <div>
 
     <h1>{{strtoupper('Demande de service')}}</h1>
-
-    <p>Veuillez s.v.p mettre contact@partybooker.ch en copie sur votre première offre au client.</p>
-    <a href="{{url('annonce/' . $partner->slug)}}">Votre Page Publicitaire</a>
+    <a href="{{url('annonce/' . $partner->slug)}}">Page Du Service</a>
     <hr>
-    
+
     <table style="width: 100%">
         <thead>
         <th>Nom</th>
@@ -43,8 +41,7 @@
     <br>
 
     <h1>{{strtoupper('Service Request')}}</h1>
-    <p>Please add contact@partybooker.ch as copy in your first client's offer</p>
-    <a href="{{url('en/listing/' . $partner->slug)}}">Your Advertisement Page</a>
+    <a href="{{url('en/listing/' . $partner->slug)}}">Service Page</a>
     <hr>
 
     <table style="width: 100%">
