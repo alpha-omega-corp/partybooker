@@ -13,5 +13,4 @@
     @include('partial.map_company')
     <input type="hidden" name="partnerId" value="{{ $partner->id_partner }}">
 
-
 </form>

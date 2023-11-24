@@ -31,7 +31,7 @@
 
     <script src="{{ asset('/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('/js/jquery.mask.js') }}"></script>
-    <script async src="{{ asset('/js/script.js') }}" defer></script>
+    <script src="{{ asset('/js/script.js') }}" defer></script>
 
     <script src="{{ asset('/plugins/kendo/kendo.all.min.js') }}"></script>
 
