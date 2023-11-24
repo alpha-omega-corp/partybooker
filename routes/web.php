@@ -196,7 +196,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::post('/cp/partner-cp/edit-seo', '\App\Http\Controllers\Web\ProfileController@editSeo');
         Route::post('/cp/partner-cp/edit-images-alt', '\App\Http\Controllers\Web\ProfileController@editImagesAlt');
 
-        Route::post('/cp/partner-cp/edit-option', '\App\Http\Controllers\Web\PlanOptionController@editOption');
+        Route::post('/cp/partner-cp/edit-option', '\App\Http\Controllers\Web\PlanOptionController@editOption')->name('option.update.admin');
         Route::post('/cp/partner-cp/edit-category', 'partnerController@editCategory');
 
         Route::post('/cp/partner-cp/edit-schedule', 'partnerController@editSchedule');
@@ -274,7 +274,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::post('/partner-cp/edit-company-location', '\App\Http\Controllers\Web\ProfileController@editCompanyLocation');
 
         Route::post('/partner-cp/edit-www', '\App\Http\Controllers\Web\ProfileController@editWww');
-        Route::post('/partner-cp/edit-option', '\App\Http\Controllers\Web\PlanOptionController@editOption');
+        Route::post('/partner-cp/edit-option', '\App\Http\Controllers\Web\PlanOptionController@editOption')->name('option.update');
 
         Route::post('/partner-cp/edit-category', 'partnerController@editCategory');
         Route::post('/partner-cp/edit-images', 'partnerController@editImages');

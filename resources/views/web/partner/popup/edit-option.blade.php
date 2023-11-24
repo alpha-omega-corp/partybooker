@@ -2,7 +2,9 @@
     id="editOption"
     title="Configuration"
     :button="__('partner.edit')"
-    :action="url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-option')"
+    :action="Auth::user()->type == 'admin'
+        ? route('option.update.admin')
+        : route('option.update')"
     :has-button="false"
     size="modal-sm"
     :save-label="__('form.yes')"
