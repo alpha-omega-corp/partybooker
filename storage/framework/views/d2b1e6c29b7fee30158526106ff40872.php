@@ -15,13 +15,18 @@
         }
 
         function targetMany(targets) {
-            JSON.parse(targets).forEach(target => {
-                document.getElementById(target) !== null ? document.getElementById(target).click() : ''
-            })
+            if (JSON.parse(targets)) {
+                JSON.parse(targets).forEach(target => {
+                    if (target) {
+                        document.getElementById(target) !== null ? document.getElementById(target).click() : ''
+                    }
+                })
+            }
+
         }
     </script>
 
-    <script src="https://cdn.tiny.cloud/1/vueqf1kbwjyutjefoeq3sb8spk94rjz6ycgjhtu7niw3qlni/tinymce/6/tinymce.min.js"
+    <script src="https://cdn.tiny.cloud/1/<?php echo e(config('app.tinymce')); ?>/tinymce/6/tinymce.min.js"
             referrerpolicy="origin"></script>
 
     <script src="<?php echo e(asset('/js/jquery-3.2.1.min.js')); ?>"></script>

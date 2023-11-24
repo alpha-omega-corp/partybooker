@@ -24,8 +24,8 @@
 
 <div>
     <?php if($partner->logo): ?>
-        <div class="d-flex align-items-center justify-content-center">
-            <img src="<?php echo e(asset('/storage/logos/'.$partner->logo)); ?>" alt="logo" width="100"
+        <div class="logo-image">
+            <img src="<?php echo e(asset('/storage/logos/'.$partner->logo)); ?>" alt="logo"
                  class="cp-company-logo">
         </div>
     <?php else: ?>

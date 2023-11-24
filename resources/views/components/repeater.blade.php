@@ -50,11 +50,18 @@
         return {
             fields: [],
             loadFields(fields) {
-                JSON.parse(fields).forEach((field) => {
-                    this.fields.push({
-                        keyword: field,
+                if (!fields) {
+                    return;
+                }
+
+                if (JSON.parse(fields)) {
+                    JSON.parse(fields).forEach((field) => {
+                        this.fields.push({
+                            keyword: field,
+                        });
                     });
-                });
+                }
+
             },
             addNewField() {
                 this.fields.push({

@@ -14,49 +14,47 @@ use Illuminate\Support\Facades\Storage;
 
 class ServiceImageController extends Controller
 {
-    private $imageService;
+    private IImageService $imageService;
 
     public function __construct(IImageService $imageService)
     {
         $this->imageService = $imageService;
     }
 
-    public function uploadMainImage($id_partner, $cat, Request $request)
+    public function thumbnail(Request $request)
     {
-        if (Auth::user()->type != 'admin') {
-            $id_partner = Auth::user()->id_partner;
-        }
+        $partner = PartnersInfo::where('id_partner', $request->input('partnerId'))->first();
+        if ($request->has('thumbnail')) {
 
-        $partner = PartnersInfo::where('id_partner', $id_partner)->first();
+            if ($partner->main_img) {
+                Storage::delete('images/' . $partner->main_img);
+                Storage::delete('images/thumbnails/' . $partner->main_img);
+            }
 
-        if ($request->has('main_image')) {
-            $file = $request->file('main_image');
+            $file = $request->file('thumbnail');
             $filename = time() . '_' . $file->getClientOriginalName();
-
-            Storage::putFileAs('images/', $file, $filename);
-
+            Storage::putFileAs('images', $file, $filename);
 
             ServiceImage::where('partners_info_id', $partner->id)->where('is_main', 1)->delete();
 
             $image = new ServiceImage;
             $image->partners_info_id = $partner->id;
             $image->id_partner = $partner->id_partner;
-            $image->category = $cat;
             $image->image_name = $filename;
             $image->is_main = 1;
+            $image->category = 'cat';
             $image->save();
 
-            PartnersInfo::where('id', $partner->id)->update(['main_img' => $filename]);
             $this->imageService->createThumbnail('images/' . $filename, 'images/thumbnails/' . $filename);
+            $partner->main_img = $filename;
+            $partner->save();
 
 
-            if ($partner->main_img) {
-                Storage::delete('images/' . $partner->main_img);
-                Storage::delete('images/thumbnails/' . $partner->main_img);
-            }
+            return redirect()->back()->with('success', 'Image uploaded successfully');
+
         }
+        return redirect()->back()->with('error', 'No image selected');
 
-        return redirect()->back()->with('success', 'Image uploaded successfully');
     }
 
     public function upload($id_partner, $cat, Request $request)

@@ -13,6 +13,7 @@
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\mainWebsite;
+use App\Http\Controllers\ServiceImageController;
 use App\Http\Controllers\Web\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -187,8 +188,9 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::post('/cp/set-categories', '\App\Http\Controllers\Web\ProfileController@setAdditionalCategories');
 
         Route::post('/cp/partner-cp/edit-contacts', '\App\Http\Controllers\Web\ProfileController@editContacts');
-        Route::post('/cp/partner-cp/edit-company', '\App\Http\Controllers\Web\ProfileController@editCompany');
+        Route::post('/cp/partner-cp/edit-company', '\App\Http\Controllers\Web\ProfileController@editCompany')->name('company.update.admin');
         Route::post('/cp/partner-cp/edit-company-location', '\App\Http\Controllers\Web\ProfileController@editCompanyLocation');
+        Route::post('/cp/partner-cp/edit-company-description', '\App\Http\Controllers\Web\ProfileController@editCompanyDescription')->name('company-description.update.admin');
 
         Route::post('/cp/partner-cp/edit-www', '\App\Http\Controllers\Web\ProfileController@editWww');
         Route::post('/cp/partner-cp/edit-seo', '\App\Http\Controllers\Web\ProfileController@editSeo');
@@ -211,8 +213,9 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
 
         //Images controls
         Route::post('/cp/service-images/upload/{id_partner}/{category}', 'ServiceImageController@upload');
-        Route::post('/cp/service-images/upload-main/{id_partner}/{category}', 'ServiceImageController@uploadMainImage');
-        Route::post('/cp/service-images/remove/{id_partner}/{image_id}', 'ServiceImageController@remove');
+        Route::post('/cp/service-images/thumbnail', [ServiceImageController::class, 'thumbnail'])->name('thumbnail.update.admin');
+
+        Route::post('/cp/service-images/remove/{image_id}', 'ServiceImageController@remove');
 
         // Swisswine
         Route::get('/cp/swisswin', 'SwisswinDirectoryController@swisswin');
@@ -255,6 +258,8 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
             ->name('profile-plans');
         Route::post('/partner-cp/edit-event-types', [ProfileController::class, 'updateEventTypes'])->name('update-et');
         Route::post('/partner-cp/edit-image-alt', [ProfileController::class, 'editImagesAlt'])->name('alt.update');
+        Route::post('/service-images/thumbnail', [ServiceImageController::class, 'thumbnail'])->name('thumbnail.update');
+
 
         Route::get('/partner-cp/{id_partner}/faq', '\App\Http\Controllers\Web\ProfileController@faq');
         Route::get('/partner-cp/{id_partner}/terms', '\App\Http\Controllers\Web\ProfileController@terms');
@@ -264,8 +269,8 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         //post
         Route::post('/partner-form', '\App\Http\Controllers\Web\ProfileController@partnerContact')->name('partner-contact');
         Route::post('/partner-cp/edit-contacts', '\App\Http\Controllers\Web\ProfileController@editContacts');
-        Route::post('/partner-cp/edit-company', '\App\Http\Controllers\Web\ProfileController@editCompany');
-        Route::post('/partner-cp/edit-company-description', '\App\Http\Controllers\Web\ProfileController@editCompanyDescription');
+        Route::post('/partner-cp/edit-company', '\App\Http\Controllers\Web\ProfileController@editCompany')->name('company.update');
+        Route::post('/partner-cp/edit-company-description', '\App\Http\Controllers\Web\ProfileController@editCompanyDescription')->name('company-description.update');
         Route::post('/partner-cp/edit-company-location', '\App\Http\Controllers\Web\ProfileController@editCompanyLocation');
 
         Route::post('/partner-cp/edit-www', '\App\Http\Controllers\Web\ProfileController@editWww');
@@ -299,8 +304,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
 
         //Images controls
         Route::post('/service-images/upload/{id_partner}/{category}', 'ServiceImageController@upload');
-        Route::post('/service-images/upload-main/{id_partner}/{category}', 'ServiceImageController@uploadMainImage');
-        Route::post('/service-images/remove/{id_partner}/{image_id}', 'ServiceImageController@remove');
+        Route::post('/service-images/remove/{image_id}', 'ServiceImageController@remove');
 
         //adverts
         Route::post('/adverts/{advertId}/event-places', '\App\Http\Controllers\Web\EventPlaceController@create');

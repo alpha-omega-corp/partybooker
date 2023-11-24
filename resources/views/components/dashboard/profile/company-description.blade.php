@@ -3,7 +3,9 @@
 ])
 
 <form method="POST"
-      action="{{url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-company-description')}}">
+      action="{{\Illuminate\Support\Facades\Auth::user()->type === 'admin'
+       ? route('company-description.update.admin')
+       : route('company-description.update')}}">
     @csrf
     <div class="edit-company-description">
         <x-partner-category-tab :tabs="[

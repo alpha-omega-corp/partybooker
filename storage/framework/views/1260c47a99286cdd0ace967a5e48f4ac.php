@@ -73,14 +73,14 @@
 
                         <div class="image-alt-card">
                             <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.modal','data' => ['id' => 'editImageSeo'.e($key).'','button' => __('partner.edit'),'size' => 'modal-md','title' => 'SEO Image','action' => route(\Illuminate\Support\Facades\Auth::user()->type == 'admin' ? 'alt.update.admin' : 'alt.update'),'method' => 'POST']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.modal','data' => ['id' => 'editImageSeo'.e($key).'','button' => __('partner.edit'),'size' => 'modal-md','title' => 'SEO Image','hasButton' => false,'action' => route(\Illuminate\Support\Facades\Auth::user()->type == 'admin' ? 'alt.update.admin' : 'alt.update'),'method' => 'POST']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('dashboard.modal'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['id' => 'editImageSeo'.e($key).'','button' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('partner.edit')),'size' => 'modal-md','title' => 'SEO Image','action' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route(\Illuminate\Support\Facades\Auth::user()->type == 'admin' ? 'alt.update.admin' : 'alt.update')),'method' => 'POST']); ?>
+<?php $component->withAttributes(['id' => 'editImageSeo'.e($key).'','button' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('partner.edit')),'size' => 'modal-md','title' => 'SEO Image','has-button' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(false),'action' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route(\Illuminate\Support\Facades\Auth::user()->type == 'admin' ? 'alt.update.admin' : 'alt.update')),'method' => 'POST']); ?>
                                 <div class="text-gray">
 
                                     <div class="d-flex justify-content-center">

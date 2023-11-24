@@ -178,5 +178,6 @@ return [
         'MetaTag' => Torann\LaravelMetaTags\Facades\MetaTag::class,
     ])->toArray(),
 
+    'tinymce' => env('TINYMCE_API_KEY'),
 
 ];

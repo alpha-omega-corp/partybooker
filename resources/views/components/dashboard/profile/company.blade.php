@@ -6,8 +6,8 @@
 
 <div>
     @if($partner->logo)
-        <div class="d-flex align-items-center justify-content-center">
-            <img src="{{ asset('/storage/logos/'.$partner->logo)}}" alt="logo" width="100"
+        <div class="logo-image">
+            <img src="{{ asset('/storage/logos/'.$partner->logo)}}" alt="logo"
                  class="cp-company-logo">
         </div>
     @else
@@ -38,8 +38,8 @@
 <hr>
 <div class="locale-card">
     <x-dashboard.profile.locale
-            :location="$location"
-            :partner="$partner"/>
+        :location="$location"
+        :partner="$partner"/>
 </div>
 
 <div class="company-details">

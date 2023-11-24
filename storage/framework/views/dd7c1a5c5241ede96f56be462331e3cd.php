@@ -158,14 +158,14 @@
 
             <div class="col-xl-4 col-lg-5 col-md-12">
                 <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.profile.thumbnail','data' => ['partner' => $user->partnerInfo,'images' => $categoryImages]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.profile.thumbnail','data' => ['partner' => $user->partnerInfo,'thumbnail' => $thumbnail]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('dashboard.profile.thumbnail'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['partner' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($user->partnerInfo),'images' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($categoryImages)]); ?>
+<?php $component->withAttributes(['partner' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($user->partnerInfo),'thumbnail' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute($thumbnail)]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>

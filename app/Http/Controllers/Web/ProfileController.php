@@ -130,7 +130,7 @@ class ProfileController extends Controller
             'canPublishMatrix' => $this->advertService->canPublishMatrix($user->id_partner),
             'advertService' => $this->advertService,
             'eventTypes' => EventType::all(),
-            'partnerEventTypes' => $partnerEventTypes
+            'partnerEventTypes' => $partnerEventTypes,
         ]);
     }
 
@@ -212,7 +212,6 @@ class ProfileController extends Controller
     public function editCompanyDescription(Request $request)
     {
         $partner = PartnersInfo::where('id_partner', $request->input('id_partner'))->first();
-
         $partner->en_slogan = strip_tags($request->input('en_slogan'));
         $partner->en_short_descr = $request->input('en_short_descr');
         $partner->en_full_descr = $request->input('en_full_descr');
@@ -236,14 +235,16 @@ class ProfileController extends Controller
 
     public function editCompany(Request $request)
     {
-        $oldImageName = null;
-
         $partner = PartnersInfo::where('id_partner', $request->get('id_partner'))->first();
-        if ($request->file('logo')) {
-            $oldImageName = $request->input('current_logo');
-            $logo = trim($partner->id . '-' . $request->file('logo')->getClientOriginalName());
-            Storage::putFileAs('logos', $request->file('logo'), $logo);
-            $partner->logo = $logo;
+        $logoFile = $request->file('logo_upload');
+        $currentLogo = $partner->logo;
+        if ($logoFile) {
+            if ($currentLogo) {
+                Storage::delete('logos/' . $currentLogo);
+            }
+            $logoFileName = trim($partner->id . '-' . $logoFile->getClientOriginalName());
+            Storage::putFileAs('logos', $logoFile, $logoFileName);
+            $partner->logo = $logoFileName;
         }
 
         $partner->company_phone = $request->company_phone;
@@ -253,13 +254,9 @@ class ProfileController extends Controller
         $partner->slug = str_replace([' ', '.', ',', '"', '--'], '-', strtolower($request->company_name));
 
         $partner->language = json_encode($request->input('languages'));
-        $partner->update();
+        $partner->save();
 
-        if ($oldImageName) {
-            Storage::delete('logos/' . $oldImageName);
-        }
         return redirect()->back()->with('success', "Company profile updated");
-
     }
 
     public function editWww(Request $request)

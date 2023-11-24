@@ -19,7 +19,9 @@
 <?php unset($__defined_vars); ?>
 
 <form method="POST"
-      action="<?php echo e(url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-company-description')); ?>">
+      action="<?php echo e(\Illuminate\Support\Facades\Auth::user()->type === 'admin'
+       ? route('company-description.update.admin')
+       : route('company-description.update')); ?>">
     <?php echo csrf_field(); ?>
     <div class="edit-company-description">
         <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>

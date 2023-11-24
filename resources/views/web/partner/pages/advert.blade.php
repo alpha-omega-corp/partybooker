@@ -74,7 +74,9 @@
             </div>
 
             <div class="col-xl-4 col-lg-5 col-md-12">
-                <x-dashboard.profile.thumbnail :partner="$user->partnerInfo" :images="$categoryImages"/>
+                <x-dashboard.profile.thumbnail
+                    :partner="$user->partnerInfo"
+                    :thumbnail="$thumbnail"/>
 
                 <x-dashboard.profile.publish :partner="$user->partnerInfo" :service="$advertService"/>
 
