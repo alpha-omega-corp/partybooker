@@ -191,15 +191,12 @@ class ProfileController extends Controller
     {
         $validated = Validator::make($request->all(), [
             'map' => 'required',
+            'partnerId' => 'required'
         ]);
         $map = $validated->getData()['map'];
-        if (Auth::user()->type == 'admin') {
-            $id = $request->id_partner;
-        } else {
-            $id = Auth::user()->id_partner;
-        }
+        $partnerId = $validated->getData()['partnerId'];
 
-        $partner = PartnersInfo::where('id_partner', $id)->first();
+        $partner = PartnersInfo::where('id_partner', $partnerId)->first();
         $partner->address = $map['address'];
         $partner->lat = $map['lat'];
         $partner->lon = $map['lon'];

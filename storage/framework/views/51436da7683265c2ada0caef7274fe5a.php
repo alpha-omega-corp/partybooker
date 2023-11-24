@@ -27,6 +27,7 @@
                                     : url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-company-location')); ?>">
     <?php echo csrf_field(); ?>
     <?php echo $__env->make('partial.map_company', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <input type="hidden" name="partnerId" value="<?php echo e($partner->id_partner); ?>">
 
 
 </form>
