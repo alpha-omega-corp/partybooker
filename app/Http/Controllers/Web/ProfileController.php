@@ -251,7 +251,8 @@ class ProfileController extends Controller
         $partner->fax = $request->company_fax;
         $partner->en_company_name = $request->company_name;
         $partner->fr_company_name = $request->company_name;
-        $partner->slug = str_replace([' ', '.', ',', '"', '--'], '-', strtolower($request->company_name));
+        $slug = str_replace([' ', '.', ',', '--'], '-', strtolower($request->company_name));
+        $partner->slug = str_replace(['(', ')', '"',], '', $slug);
 
         $partner->language = json_encode($request->input('languages'));
         $partner->save();
