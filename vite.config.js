@@ -22,14 +22,6 @@ export default defineConfig({
             ],
         }),
     ],
-    build: {
-        manifest: true,
-        rollupOptions: {
-            external: [
-                './storage/app/public',
-            ],
-        },
-    },
     css: {
         preprocessorOptions: {
             scss: {
