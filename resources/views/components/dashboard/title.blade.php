@@ -8,7 +8,7 @@
             {{$user->partnerInfo->fr_company_name}}
         </h1>
         <div>
-            <span class="badge text-bg-{{$user->partnerInfo->plan}} text-white">
+            <span class="badge text-bg-{{strtolower($user->partnerInfo->plan)}} text-white">
                 {{ucfirst($user->partnerInfo->plan)}}
             </span>
         </div>
