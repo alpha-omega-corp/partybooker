@@ -9,7 +9,7 @@
         </h1>
         <div>
             <span class="badge text-bg-{{strtolower($user->partnerInfo->plan)}} text-white">
-                {{ucfirst($user->partnerInfo->plan)}}
+                {{__('plan.'.strtolower($user->partnerInfo->plan))}}
             </span>
         </div>
     </div>
