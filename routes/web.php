@@ -111,7 +111,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     Route::middleware(['auth', 'admin', 'email'])->group(function () {
 
         Route::get('/cp/partner-cp/{id_partner}/advert', '\App\Http\Controllers\Web\ProfileController@advert')->name('profile-advert-admin');
-        Route::get('/cp/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@plans')->name('profile-plans-admin');
+        Route::get('/cp/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@adminPlans')->name('profile-plans-admin');
         Route::post('/cp/partner-cp/edit-event-types', '\App\Http\Controllers\Web\ProfileController@updateEventTypes')->name('update-et-admin');
 
         Route::post('/cp/partner-cp/top-services', [adminController::class, 'updateTopServices'])->name('top-service.update');

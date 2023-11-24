@@ -19,9 +19,9 @@
 <?php unset($__defined_vars); ?>
 <div class="dashboard-title">
 
-    <div class="d-flex align-items-center justify-content-start">
-
-        <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
+    <div class="dashboard-title-box">
+        <div class="d-flex align-items-center justify-content-between ">
+            <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.title','data' => ['user' => $user]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('dashboard.title'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -36,7 +36,6 @@
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
-        <?php if(Auth::user()->type !== 'admin'): ?>
             <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.navigation','data' => ['user' => $user]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('dashboard.navigation'); ?>
@@ -52,7 +51,11 @@
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
-        <?php endif; ?>
+        </div>
+        <div>
+            <?php echo e($slot); ?>
+
+        </div>
     </div>
     <?php if($user->subscription('PartyBooker')): ?>
         <?php if($user->onTrial()): ?>
@@ -99,8 +102,6 @@
 <?php endif; ?>
         <?php endif; ?>
     <?php endif; ?>
-
-    <?php echo e($slot); ?>
 
 </div>
 

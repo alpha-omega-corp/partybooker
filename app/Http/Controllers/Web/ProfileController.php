@@ -87,6 +87,14 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function adminPlans(string $id_partner)
+    {
+        $user = User::where('id_partner', $id_partner)->first();
+        return view('web.partner.pages.admin-plans', [
+            'user' => $user,
+        ]);
+    }
+
     public function advert(string $id_partner): View
     {
         $user = User::where('id_partner', $id_partner)->first();
@@ -297,10 +305,12 @@ class ProfileController extends Controller
     {
         $partnerId = $request->input('partnerId');
         $partner = PartnersInfo::where('id_partner', $partnerId)->first();
-        if (!$partner) {
-            return redirect()->back()->with('error', 'Partner not found');
-        }
 
+        $eventTypes = $request->input('eventTypes');
+        if (!$eventTypes) {
+            PartnerEventType::where('partners_info_id', $partner->id)->delete();
+            return redirect()->back()->with('success', "Changes saved.");
+        }
         DB::beginTransaction();
         try {
             $eventTypes = EventType::whereIn('id', $request->input('eventTypes'))->get();

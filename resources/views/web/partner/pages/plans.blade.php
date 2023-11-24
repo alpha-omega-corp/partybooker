@@ -36,7 +36,9 @@
 
 
 @section('content')
-    <x-dashboard.header :user="$user"/>
+    <div class="p-5">
+        <x-dashboard.header :user="$user"/>
+    </div>
     @if($user->subscribed('PartyBooker'))
         <x-billing.payment-update :intent="$intent"/>
     @else
@@ -107,14 +109,14 @@
         </div>
 
         <x-dashboard.modal
-                id="switch"
-                :title="__('form.subscription_switch')"
-                :button="__('partner.edit')"
-                :action="route('subscription.switch')"
-                :has-button="false"
-                size="modal-md"
-                :save-label="__('form.yes')"
-                method="POST">
+            id="switch"
+            :title="__('form.subscription_switch')"
+            :button="__('partner.edit')"
+            :action="route('subscription.switch')"
+            :has-button="false"
+            size="modal-md"
+            :save-label="__('form.yes')"
+            method="POST">
 
             <input type="hidden" name="name" id="switchPlan">
             <x-billing.trial-options :plans="$plans"/>
@@ -126,14 +128,14 @@
         </x-dashboard.modal>
 
         <x-dashboard.modal
-                id="unsubscribe"
-                :title="__('form.subscription_cancel')"
-                :button="__('partner.edit')"
-                :action="route('subscription.cancel')"
-                :has-button="false"
-                size="modal-md"
-                :save-label="__('form.yes')"
-                method="POST">
+            id="unsubscribe"
+            :title="__('form.subscription_cancel')"
+            :button="__('partner.edit')"
+            :action="route('subscription.cancel')"
+            :has-button="false"
+            size="modal-md"
+            :save-label="__('form.yes')"
+            method="POST">
 
             <x-dashboard.card-info>
                 {{__('form.subscription_cancel_warning')}}
@@ -151,14 +153,14 @@
         </x-dashboard.modal>
 
         <x-dashboard.modal
-                id="resume"
-                :title="__('form.subscription_reactivate')"
-                :button="__('partner.edit')"
-                :action="route('subscription.resume')"
-                :has-button="false"
-                size="modal-md"
-                :save-label="__('form.yes')"
-                method="POST">
+            id="resume"
+            :title="__('form.subscription_reactivate')"
+            :button="__('partner.edit')"
+            :action="route('subscription.resume')"
+            :has-button="false"
+            size="modal-md"
+            :save-label="__('form.yes')"
+            method="POST">
 
             <x-dashboard.card-info>
                 {{__('form.subscription_reactivate_warning')}}

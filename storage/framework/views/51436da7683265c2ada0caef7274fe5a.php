@@ -29,6 +29,5 @@
     <?php echo $__env->make('partial.map_company', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <input type="hidden" name="partnerId" value="<?php echo e($partner->id_partner); ?>">
 
-
 </form>
 <?php /**PATH /home/nanstis/PhpstormProjects/pb-live/resources/views/components/dashboard/profile/locale.blade.php ENDPATH**/ ?>

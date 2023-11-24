@@ -31,7 +31,7 @@
 
     <script src="<?php echo e(asset('/js/jquery-3.2.1.min.js')); ?>"></script>
     <script src="<?php echo e(asset('/js/jquery.mask.js')); ?>"></script>
-    <script async src="<?php echo e(asset('/js/script.js')); ?>" defer></script>
+    <script src="<?php echo e(asset('/js/script.js')); ?>" defer></script>
 
     <script src="<?php echo e(asset('/plugins/kendo/kendo.all.min.js')); ?>"></script>
 

@@ -3,12 +3,14 @@
 ])
 <div class="dashboard-title">
 
-    <div class="d-flex align-items-center justify-content-start">
-
-        <x-dashboard.title :user="$user"/>
-        @if(Auth::user()->type !== 'admin')
+    <div class="dashboard-title-box">
+        <div class="d-flex align-items-center justify-content-between ">
+            <x-dashboard.title :user="$user"/>
             <x-dashboard.navigation :user="$user"/>
-        @endif
+        </div>
+        <div>
+            {{$slot}}
+        </div>
     </div>
     @if($user->subscription('PartyBooker'))
         @if($user->onTrial())
@@ -28,6 +30,5 @@
         @endif
     @endif
 
-    {{$slot}}
 </div>
 

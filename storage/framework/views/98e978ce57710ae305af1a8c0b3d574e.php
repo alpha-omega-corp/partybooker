@@ -18,10 +18,20 @@
 } ?>
 <?php unset($__defined_vars); ?>
 <?php if(Auth::user()->type == 'admin'): ?>
-    <h1 class="text-uppercase text-start p-3 fw-bold display-6">
-        <?php echo e($user->partnerInfo->fr_company_name); ?>
 
-    </h1>
+    <div class="d-flex align-items-center">
+        <h1 class="text-uppercase text-start p-3 fw-bold display-6">
+            <?php echo e($user->partnerInfo->fr_company_name); ?>
+
+        </h1>
+        <div>
+            <span class="badge text-bg-<?php echo e($user->partnerInfo->plan); ?> text-white">
+                <?php echo e(ucfirst($user->partnerInfo->plan)); ?>
+
+            </span>
+        </div>
+    </div>
+
 <?php else: ?>
     <h1 class="text-uppercase text-start p-3 fw-bold display-4">
         <?php echo e(__('partner.dashboard')); ?>

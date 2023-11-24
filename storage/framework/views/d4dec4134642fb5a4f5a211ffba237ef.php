@@ -1,12 +1,16 @@
 <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.modal','data' => ['id' => 'editOption','title' => 'Configuration','button' => __('partner.edit'),'action' => url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-option'),'hasButton' => false,'size' => 'modal-sm','saveLabel' => __('form.yes'),'method' => 'POST']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.modal','data' => ['id' => 'editOption','title' => 'Configuration','button' => __('partner.edit'),'action' => Auth::user()->type == 'admin'
+        ? route('option.update.admin')
+        : route('option.update'),'hasButton' => false,'size' => 'modal-sm','saveLabel' => __('form.yes'),'method' => 'POST']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('dashboard.modal'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['id' => 'editOption','title' => 'Configuration','button' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('partner.edit')),'action' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(url(App\Http\Middleware\LocaleMiddleware::getLocale().'/partner-cp/edit-option')),'has-button' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(false),'size' => 'modal-sm','save-label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('form.yes')),'method' => 'POST']); ?>
+<?php $component->withAttributes(['id' => 'editOption','title' => 'Configuration','button' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('partner.edit')),'action' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(Auth::user()->type == 'admin'
+        ? route('option.update.admin')
+        : route('option.update')),'has-button' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(false),'size' => 'modal-sm','save-label' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('form.yes')),'method' => 'POST']); ?>
 
     <input type="hidden" id="optionChoice">
 
@@ -44,7 +48,7 @@
     </div>
 
 
-    <input type="hidden" name="id_partner" value="<?php echo e(Auth::user()->id_partner); ?>"/>
+    <input type="hidden" name="id_partner" value="<?php echo e($partner->id_partner); ?>"/>
 
  <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>

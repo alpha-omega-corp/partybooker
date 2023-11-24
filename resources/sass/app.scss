@@ -2512,6 +2512,10 @@ html {
 }
 
 .dashboard-title {
+    .dashboard-title-box {
+        border: 1px solid $gray-300;
+        border-radius: 10px;
+    }
 }
 
 .reset-password-container {
@@ -2723,10 +2727,8 @@ html {
     .profile-info {
 
         .matrix-card {
-            margin-top: 20px;
-            border-radius: 20px 20px 0 0;
+            margin-top: 10px;
             width: 100%;
-            padding-bottom: 40px;
 
             .matrix-card-header {
                 padding-left: 10px;
@@ -4442,6 +4444,8 @@ html {
 }
 
 .category-card {
+    margin-top: 40px;
+
     .card-info-content {
         padding: 0 !important;
     }

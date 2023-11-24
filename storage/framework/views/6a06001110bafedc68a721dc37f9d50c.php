@@ -26,12 +26,12 @@
     <?php ($canPublish[] = $value); ?>
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-<div class="card">
-    <div class="d-flex">
-        <div class="matrix-card">
-            <div class="d-flex flex-column">
-                <?php if(!$matrix['chooseThumbnail']): ?>
-                    <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
+
+<div class="d-flex mb-4">
+    <div class="matrix-card">
+        <div class="d-flex flex-column">
+            <?php if(!$matrix['chooseThumbnail']): ?>
+                <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.card-info','data' => ['targets' => [
                         'editMainImageModel-button',
                     ]]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
@@ -44,28 +44,28 @@
 <?php $component->withAttributes(['targets' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute([
                         'editMainImageModel-button',
                     ])]); ?>
-                        <?php echo e(__('partner.choose_thumbnail')); ?>
+                    <?php echo e(__('partner.choose_thumbnail')); ?>
 
-                     <?php echo $__env->renderComponent(); ?>
+                 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
-                <?php else: ?>
-                    <div class="publish-matrix-check">
-                        <div>
-                            <?php echo e(svg('heroicon-o-check-circle')); ?>
-                        </div>
-                        <div class="matrix-check-content">
-                            <span><?php echo e(__('partner.matrix_thumbnail_good')); ?></span>
-                        </div>
+            <?php else: ?>
+                <div class="publish-matrix-check">
+                    <div>
+                        <?php echo e(svg('heroicon-o-check-circle')); ?>
                     </div>
-                <?php endif; ?>
+                    <div class="matrix-check-content">
+                        <span><?php echo e(__('partner.matrix_thumbnail_good')); ?></span>
+                    </div>
+                </div>
+            <?php endif; ?>
 
 
-                <?php if(!$matrix['chooseCategory']): ?>
-                    <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
+            <?php if(!$matrix['chooseCategory']): ?>
+                <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.card-info','data' => ['targets' => [
                         'tab-1-2',
                         'editCategory-button',
@@ -80,27 +80,27 @@
                         'tab-1-2',
                         'editCategory-button',
                     ])]); ?>
-                        <?php echo e(__('partner.choose_category')); ?>
+                    <?php echo e(__('partner.choose_category')); ?>
 
-                     <?php echo $__env->renderComponent(); ?>
+                 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
-                <?php else: ?>
-                    <div class="publish-matrix-check">
-                        <div>
-                            <?php echo e(svg('heroicon-o-check-circle')); ?>
-                        </div>
-                        <div class="matrix-check-content">
-                            <span><?php echo e(__('partner.matrix_category_good')); ?></span>
-                        </div>
+            <?php else: ?>
+                <div class="publish-matrix-check">
+                    <div>
+                        <?php echo e(svg('heroicon-o-check-circle')); ?>
                     </div>
-                <?php endif; ?>
+                    <div class="matrix-check-content">
+                        <span><?php echo e(__('partner.matrix_category_good')); ?></span>
+                    </div>
+                </div>
+            <?php endif; ?>
 
-                <?php if(!$matrix['serviceDetails']): ?>
-                    <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
+            <?php if(!$matrix['serviceDetails']): ?>
+                <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.card-info','data' => ['targets' => [
                         'tab-1-2',
                         'create0'
@@ -115,26 +115,26 @@
                         'tab-1-2',
                         'create0'
                     ])]); ?>
-                        <?php echo e(__('partner.fill_service_details')); ?>
+                    <?php echo e(__('partner.fill_service_details')); ?>
 
-                     <?php echo $__env->renderComponent(); ?>
+                 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
-                <?php else: ?>
-                    <div class="publish-matrix-check">
-                        <div>
-                            <?php echo e(svg('heroicon-o-check-circle')); ?>
-                        </div>
-                        <div class="matrix-check-content">
-                            <span><?php echo e(__('partner.matrix_service_good')); ?></span>
-                        </div>
+            <?php else: ?>
+                <div class="publish-matrix-check">
+                    <div>
+                        <?php echo e(svg('heroicon-o-check-circle')); ?>
                     </div>
-                <?php endif; ?>
-                <?php if(!$matrix['companyDetails']): ?>
-                    <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
+                    <div class="matrix-check-content">
+                        <span><?php echo e(__('partner.matrix_service_good')); ?></span>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <?php if(!$matrix['companyDetails']): ?>
+                <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.card-info','data' => ['targets' => [
                         'tab-2-2',
                         'companyDescription'
@@ -149,27 +149,27 @@
                         'tab-2-2',
                         'companyDescription'
                     ])]); ?>
-                        <?php echo e(__('partner.fill_company_details')); ?>
+                    <?php echo e(__('partner.fill_company_details')); ?>
 
-                     <?php echo $__env->renderComponent(); ?>
+                 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
-                <?php else: ?>
-                    <div class="publish-matrix-check">
-                        <div>
-                            <?php echo e(svg('heroicon-o-check-circle')); ?>
-                        </div>
-                        <div class="matrix-check-content">
-                            <span><?php echo e(__('partner.matrix_company_good')); ?></span>
-                        </div>
+            <?php else: ?>
+                <div class="publish-matrix-check">
+                    <div>
+                        <?php echo e(svg('heroicon-o-check-circle')); ?>
                     </div>
-                <?php endif; ?>
-            </div>
+                    <div class="matrix-check-content">
+                        <span><?php echo e(__('partner.matrix_company_good')); ?></span>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>
+
 
 <?php /**PATH /home/nanstis/PhpstormProjects/pb-live/resources/views/components/partner/publication-matrix.blade.php ENDPATH**/ ?>
