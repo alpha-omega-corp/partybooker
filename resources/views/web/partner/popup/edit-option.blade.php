@@ -29,7 +29,7 @@
     </div>
 
 
-    <input type="hidden" name="id_partner" value="{{Auth::user()->id_partner}}"/>
+    <input type="hidden" name="id_partner" value="{{$partner->id_partner}}"/>
 
 </x-dashboard.modal>
 

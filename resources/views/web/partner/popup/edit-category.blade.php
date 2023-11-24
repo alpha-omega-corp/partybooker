@@ -64,7 +64,6 @@
         @endforeach
     </div>
 
-
     @if (Auth::user()->type == 'admin')
         <input type="text" name="id_partner" value="{{$partner->id_partner}}" hidden/>
     @else
