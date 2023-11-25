@@ -24,11 +24,30 @@
             <?php echo e($user->partnerInfo->fr_company_name); ?>
 
         </h1>
-        <div>
-            <span class="badge text-bg-<?php echo e($user->partnerInfo->plan); ?> text-white">
-                <?php echo e(ucfirst($user->partnerInfo->plan)); ?>
+        <div class="dashboard-plan-badge">
+            <span class="badge text-bg-<?php echo e(strtolower($user->partnerInfo->plan)); ?> text-white">
+                <?php echo e(__('plan.'.strtolower($user->partnerInfo->plan))); ?>
 
             </span>
+            <?php if(\Illuminate\Support\Facades\Auth::user()->type === 'admin'): ?>
+                <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.modal','data' => ['id' => 'editPlanAdmin','title' => __('partner.edit_links'),'button' => __('partner.edit'),'action' => route('plan.update.admin', ['id_partner' => $user->id_partner]),'hasFiles' => true,'hasButton' => true,'icon' => 'heroicon-o-pencil','size' => 'modal-md','method' => 'POST']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('dashboard.modal'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['id' => 'editPlanAdmin','title' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('partner.edit_links')),'button' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('partner.edit')),'action' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('plan.update.admin', ['id_partner' => $user->id_partner])),'hasFiles' => true,'has-button' => true,'icon' => 'heroicon-o-pencil','size' => 'modal-md','method' => 'POST']); ?>
+                    WAD
+                 <?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
+<?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
+<?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
+<?php endif; ?>
+            <?php endif; ?>
+
         </div>
     </div>
 

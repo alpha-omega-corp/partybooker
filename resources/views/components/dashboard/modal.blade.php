@@ -15,9 +15,8 @@
 
 <a type="button" id="{{$id . '-button'}}" class="{{!$hasButton ? 'd-none' : ''}}"
    data-bs-toggle="modal"
-   data-bs-target="{{'#'. $id}}"
-   data-tippy-content="{{$button}}">
-    <div class="dashboard-modal-button rounded-circle">
+   data-bs-target="{{'#'. $id}}">
+    <div class="dashboard-modal-button rounded-circle" data-tippy-content="{{$button}}">
         @if($icon)
             @svg($icon)
         @else

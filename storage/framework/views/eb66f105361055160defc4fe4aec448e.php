@@ -1,4 +1,5 @@
 <a class="dashboard-modal-button rounded-circle" style="cursor: pointer;"
+   data-tippy-content="<?php echo e(__('partner.edit')); ?>"
    data-bs-toggle="modal" data-bs-target="#editCompanyModal">
     <?php echo e(svg('heroicon-o-cog-6-tooth')); ?>
 </a>
@@ -35,7 +36,7 @@
                     <div>
                         <input type="file" id="logo-btn" name="logo_upload">
                     </div>
-                    
+
 
                     <div class="d-flex flex-column p-3">
                         <div class="edit-company-details w-100 p-2">

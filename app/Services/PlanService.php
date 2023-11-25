@@ -7,6 +7,7 @@ use App\Http\Requests\StorePaymentMethod;
 use App\Interfaces\ILocaleService;
 use App\Interfaces\IPlanService;
 use App\Models\PartnerPlanOption;
+use App\Models\PartnersInfo;
 use App\Models\Plan;
 use App\Models\PlanOption;
 use App\User;
@@ -93,30 +94,27 @@ class PlanService implements IPlanService
             dd($e);
         }
 
-        return $this->activatePlan(strtolower($validated->name));
+        return $this->activatePlan(strtolower($validated->name), $user->partnerInfo);
     }
 
-    public function activatePlan(string $name): bool
+    public function activatePlan(string $planName, PartnersInfo $partner): bool
     {
-        $user = auth()->user();
-        $plan = Plan::where('name', $name)->firstOrFail();
+        $plan = Plan::where('name', $planName)->firstOrFail();
 
         $this->applyOptions(
-            $user->partnerInfo->id,
+            $partner->id,
             $plan->id,
             $plan->planOptions->first()->group
         );
 
-        $partnerInfo = $user->partnerInfo;
-        $partnerInfo->plan = $plan->name;
-        $partnerInfo->plans_id = $plan->id;
-        $partnerInfo->plan_option = 1;
-        $partnerInfo->plan_option_group = $plan->planOptions->first()->group;
-        $partnerInfo->prev_plan_id = $partnerInfo->plans_id;
-        $partnerInfo->prev_plan_option_group = $partnerInfo->plan_option_group;
-        $partnerInfo->save();
-
-        return $user->save();
+        $partner->plan = $plan->name;
+        $partner->plans_id = $plan->id;
+        $partner->plan_option = 1;
+        $partner->plan_option_group = $plan->planOptions->first()->group;
+        $partner->prev_plan_id = $partner->plans_id;
+        $partner->prev_plan_option_group = $partner->plan_option_group;
+        
+        return $partner->save();
     }
 
     public function applyOptions($partnerInfoId, $planId, $planGroup): void

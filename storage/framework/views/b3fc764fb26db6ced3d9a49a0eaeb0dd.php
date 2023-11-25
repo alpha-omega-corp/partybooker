@@ -179,7 +179,7 @@
                                         <span><?php echo e(__('form.hide')); ?></span>
                                     </a>
 
-                                    <div class="edit-service">
+                                    <div class="edit-service" data-tippy-content="<?php echo e(__('partner.edit')); ?>">
                                         <a id="<?php echo e('create' . $iterator); ?>"
                                            href="<?php echo e(route('create-' . $advert->view_name, [
                                    'partnerId' => $partner->id_partner,

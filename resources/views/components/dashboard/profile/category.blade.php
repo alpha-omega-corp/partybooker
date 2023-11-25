@@ -109,7 +109,7 @@
                                         <span>{{__('form.hide')}}</span>
                                     </a>
 
-                                    <div class="edit-service">
+                                    <div class="edit-service" data-tippy-content="{{__('partner.edit')}}">
                                         <a id="{{'create' . $iterator}}"
                                            href="{{route('create-' . $advert->view_name, [
                                    'partnerId' => $partner->id_partner,

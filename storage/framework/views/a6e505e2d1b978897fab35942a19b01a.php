@@ -51,9 +51,8 @@
 
 <a type="button" id="<?php echo e($id . '-button'); ?>" class="<?php echo e(!$hasButton ? 'd-none' : ''); ?>"
    data-bs-toggle="modal"
-   data-bs-target="<?php echo e('#'. $id); ?>"
-   data-tippy-content="<?php echo e($button); ?>">
-    <div class="dashboard-modal-button rounded-circle">
+   data-bs-target="<?php echo e('#'. $id); ?>">
+    <div class="dashboard-modal-button rounded-circle" data-tippy-content="<?php echo e($button); ?>">
         <?php if($icon): ?>
             <?php echo e(svg($icon)); ?>
         <?php else: ?>

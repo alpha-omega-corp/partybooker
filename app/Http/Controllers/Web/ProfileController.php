@@ -92,6 +92,7 @@ class ProfileController extends Controller
         $user = User::where('id_partner', $id_partner)->first();
         return view('web.partner.pages.admin-plans', [
             'user' => $user,
+            'plans' => $this->planService->getPlans(),
         ]);
     }
 

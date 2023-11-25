@@ -23,7 +23,7 @@
 
 <div class="gallery position-relative">
     <?php $locale = app()->getLocale(); ?>
-    <a type="button" class="dashboard-modal-button rounded-circle shadow-lg"
+    <a type="button" class="dashboard-modal-button rounded-circle shadow-lg" data-tippy-content="<?php echo e(__('partner.edit')); ?>"
        data-bs-toggle="modal"
        id="galleryModal-button"
        data-bs-target="#galleryModal">

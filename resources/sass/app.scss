@@ -4504,3 +4504,12 @@ html {
         border-radius: 40px;
     }
 }
+
+.dashboard-plan-badge {
+    position: relative;
+
+    .dashboard-modal-button {
+        top: 0;
+        right: -40px;
+    }
+}

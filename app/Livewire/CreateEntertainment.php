@@ -305,6 +305,7 @@ class CreateEntertainment extends Component implements HasForms
         $item->save();
 
         $advert->status = Advert::STATUS_ACTIVE;
+        $advert->service_id = $item->id;
         $item->advert()->save($advert);
     }
 

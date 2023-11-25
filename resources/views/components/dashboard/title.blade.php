@@ -7,10 +7,25 @@
         <h1 class="text-uppercase text-start p-3 fw-bold display-6">
             {{$user->partnerInfo->fr_company_name}}
         </h1>
-        <div>
+        <div class="dashboard-plan-badge">
             <span class="badge text-bg-{{strtolower($user->partnerInfo->plan)}} text-white">
                 {{__('plan.'.strtolower($user->partnerInfo->plan))}}
             </span>
+            @if(\Illuminate\Support\Facades\Auth::user()->type === 'admin')
+                <x-dashboard.modal
+                    id="editPlanAdmin"
+                    :title="__('partner.edit_links')"
+                    :button="__('partner.edit')"
+                    :action="route('plan.update.admin', ['id_partner' => $user->id_partner])"
+                    :hasFiles="true"
+                    :has-button="true"
+                    icon="heroicon-o-pencil"
+                    size="modal-md"
+                    method="POST">
+                    WAD
+                </x-dashboard.modal>
+            @endif
+
         </div>
     </div>
 

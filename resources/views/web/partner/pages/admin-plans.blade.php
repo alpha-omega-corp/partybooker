@@ -38,6 +38,14 @@
 @section('content')
     <div class="p-5">
         <x-dashboard.header :user="$user"/>
+
+        @foreach($plans as $plan)
+            {{__('plan.'. $plan->name)}}
+        @endforeach
+
+        <div class="mb-4 position-relative">
+            
+        </div>
     </div>
 
 @endsection
