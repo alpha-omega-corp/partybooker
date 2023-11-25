@@ -1,12 +1,15 @@
 @props([
     'user',
+    'plans'
 ])
 <div class="dashboard-title">
 
     <div class="dashboard-title-box">
         <div class="d-flex align-items-center justify-content-between ">
-            <x-dashboard.title :user="$user"/>
-            <x-dashboard.navigation :user="$user"/>
+            <x-dashboard.title :user="$user" :plans="$plans"/>
+            @if(\Illuminate\Support\Facades\Auth::user()->type !== 'admin')
+                <x-dashboard.navigation :user="$user"/>
+            @endif
         </div>
         <div>
             {{$slot}}

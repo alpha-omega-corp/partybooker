@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePartnerMessage;
 use App\Http\Requests\UpdateImageAlt;
+use App\Http\Requests\UpdatePlanRequest;
 use App\Interfaces\IAdvertService;
 use App\Interfaces\IPlanService;
 use App\Models\Advert;
@@ -61,6 +62,16 @@ class ProfileController extends Controller
         return view('web.partner.pages.terms', ['user' => $user]);
     }
 
+    public function updatePlan(UpdatePlanRequest $request)
+    {
+        $validated = $request->validated();
+        $plan = $validated['plan'];
+        $partnerId = $validated['partnerId'];
+
+        $this->planService->activatePlan($plan, PartnersInfo::where('id_partner', $partnerId)->first());
+        return redirect()->back()->with('success', "Plan updated.");
+    }
+
     public function partnerContact(StorePartnerMessage $request)
     {
         $request->validated();
@@ -84,15 +95,6 @@ class ProfileController extends Controller
             'user' => $user,
             'plans' => $this->planService->getPlans(),
             'intent' => Auth::user()->createSetupIntent(),
-        ]);
-    }
-
-    public function adminPlans(string $id_partner)
-    {
-        $user = User::where('id_partner', $id_partner)->first();
-        return view('web.partner.pages.admin-plans', [
-            'user' => $user,
-            'plans' => $this->planService->getPlans(),
         ]);
     }
 
@@ -140,6 +142,7 @@ class ProfileController extends Controller
             'advertService' => $this->advertService,
             'eventTypes' => EventType::all(),
             'partnerEventTypes' => $partnerEventTypes,
+            'plans' => $this->planService->getPlans(),
         ]);
     }
 

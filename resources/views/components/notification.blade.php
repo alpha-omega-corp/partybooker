@@ -20,3 +20,9 @@
         </div>
     </div>
 </div>
+
+<script type="module">
+    setTimeout(function () {
+        $(".main-notifications").fadeOut();
+    }, 4000);
+</script>

@@ -47,7 +47,7 @@
     <div class="dashboard-body">
         <div class="row">
             <div class="col-xl-8 col-lg-7 col-md-12">
-                <x-dashboard.header :user="$user">
+                <x-dashboard.header :user="$user" :plans="$plans">
                     <div class="advert-preview profile-info advert-info">
                         @if(!$advertService->canPublish($user->id_partner))
                             <x-partner.publication-matrix :partner="$user->partnerInfo" :matrix="$canPublishMatrix"/>

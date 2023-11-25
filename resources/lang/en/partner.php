@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'gallery_info' => 'This partner cannot upload images.',
     'trial_ending' => 'Your trial period ends the :date',
     'dashboard' => 'Dashboard',
     'medal' => 'Medal',
@@ -98,6 +99,7 @@ return [
     'image' => 'Image Service',
     'url_website' => 'Comany website',
     'edit' => 'Edit',
+    'edit_plan' => 'Edit plan',
     'other' => 'Other',
     'see-all' => 'See all',
     'edit_main_image' => 'Edit thumbnail image',

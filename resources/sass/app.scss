@@ -2529,6 +2529,7 @@ html {
     position: fixed;
     bottom: 0;
     left: 50%;
+    width: 30%;
     transform: translate(-50%, -50%);
     z-index: 100;
     background: #fff;
@@ -4421,6 +4422,7 @@ html {
 }
 
 .seo-info {
+    padding-bottom: 10px;
     border-bottom: 1px solid $blue-500;
 }
 
@@ -4505,8 +4507,15 @@ html {
     }
 }
 
+.dashboard-title-text {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
 .dashboard-plan-badge {
     position: relative;
+    margin-left: 20px;
+    margin-bottom: 20px;
 
     .dashboard-modal-button {
         top: 0;

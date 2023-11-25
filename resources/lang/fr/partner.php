@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'gallery_info' => 'Ce partenaire ne peut pas télécharger d\'images',
     'trial_ending' => 'Votre période d\'éssai se termine le :date',
     'dashboard' => 'Tableau de bord',
     'medal' => 'Médaille',
@@ -99,6 +100,7 @@ return [
     'image' => "Géstion des images",
     'url_website' => "Site de l'entreprise",
     'edit' => "Modifier",
+    'edit_plan' => 'Modifier le plan',
     'see-all' => 'Voir tout',
     'edit_main_image' => 'Modifier l\'image de couverture',
 
