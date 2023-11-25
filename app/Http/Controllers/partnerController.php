@@ -21,7 +21,6 @@ use Auth;
 use DB;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use Mail;
 
 
@@ -114,19 +113,6 @@ class partnerController extends Controller
     public function register(Request $request)
     {
         if (Auth::user()) {
-            $validator = Validator::make($request->all(), [
-                'email' => 'unique:partners_info',
-                'phone' => 'unique:partners_info',
-                'company_phone' => 'unique:partners_info',
-                'www' => 'nullable|unique:partners_info,www',
-                'map' => 'required'
-            ]);
-
-            if ($validator->fails()) {
-                return redirect()->back()->withErrors($validator->errors())->withInput();
-            }
-
-
             DB::beginTransaction();
             try {
 
@@ -167,12 +153,23 @@ class partnerController extends Controller
                     'price' => 1,
                 ]);
 
-                $user = $request->user();
+                if (Auth::user()->type === 'admin') {
+                    $user = new User();
+                    $user->name = $request->input('user_name');
+                    $user->email = $request->input('user_email');
+                    $user->password = bcrypt($request->input('user_password'));
+                    $user->id_partner = $id_partner;
+                    $user->type = 'partner';
+                    $user->email_verification = 1;
+                    $user->save();
+                } else {
+                    $user = $request->user();
+                    $user->update([
+                        'id_partner' => $id_partner,
+                        'type' => 'partner',
+                    ]);
+                }
 
-                $user->update([
-                    'id_partner' => $id_partner,
-                    'type' => 'partner',
-                ]);
 
                 $event = 'Service provider registration';
                 $description = 'New service provider:' . $name . ', ID:' . $id_partner;
@@ -185,13 +182,19 @@ class partnerController extends Controller
                 DB::rollBack();
                 return redirect()->back()->with('error', $e->getMessage());
             }
+
+            if (Auth::user()->type === 'admin') {
+                return redirect()
+                    ->route('profile-advert-admin', $id_partner)
+                    ->with('success', 'Company account has been created!');
+            }
+
             return redirect()
                 ->route('profile-plans', Auth::user()->id_partner)
                 ->with('success', 'Your company account has been created!');
 
         }
         return redirect()->back();
-
     }
 
     public function editCategory(Request $request)

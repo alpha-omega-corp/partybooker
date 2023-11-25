@@ -31,6 +31,7 @@ class AdvertService implements IAdvertService
         ];
 
         return [
+            'choosePlan' => !in_array(strtolower($partnerInfo->plan), ['commission', 'basic']),
             'chooseThumbnail' => $partnerInfo->main_img !== null,
             'chooseCategory' => $advertCategory->exists(),
             'serviceDetails' => $advert->exists() && $advert->first()->status !== Advert::STATUS_DRAFT,

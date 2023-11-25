@@ -639,16 +639,6 @@ button {
     margin: 30px auto 0;
 }
 
-input[type=checkbox],
-input[type=radio] {
-    float: left;
-    width: 17px;
-    height: 17px;
-    opacity: 0;
-    margin: 0 10px 0 0;
-    position: relative;
-    z-index: 1;
-}
 
 .checkbox-item,
 .radio-item {
@@ -1841,4 +1831,31 @@ input#map_address {
 .button.btn-remove:hover,
 .card-block .card-body .btn-remove:hover {
     background-color: #c9302c;
+}
+
+.dashboard-input-card {
+    padding: 20px;
+}
+
+.partner-register {
+    .language-list {
+        img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+    }
+}
+
+.admin-nav {
+
+
+    ul {
+        padding-top: 60px;
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
 }

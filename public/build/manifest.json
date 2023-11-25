@@ -1,16 +1,6 @@
 {
-  "_module.esm-72a60402.js": {
-    "assets": [
-      "assets/right-arrow-126f8b6c.svg"
-    ],
-    "css": [
-      "assets/module-6971316f.css"
-    ],
-    "file": "assets/module.esm-72a60402.js"
-  },
-  "module.css": {
-    "file": "assets/module-6971316f.css",
-    "src": "module.css"
+  "_module.esm-5651ee04.js": {
+    "file": "assets/module.esm-5651ee04.js"
   },
   "resources/fonts/GothamPro-Bold.ttf": {
     "file": "assets/GothamPro-Bold-7bc28964.ttf",
@@ -773,7 +763,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/admin.css": {
-    "file": "assets/admin-46beb700.css",
+    "file": "assets/admin-7f1b780d.css",
     "src": "resources/js/admin.css"
   },
   "resources/js/admin.js": {
@@ -783,39 +773,42 @@
       "assets/GothamPro-Italic-7ca3658f.ttf"
     ],
     "css": [
-      "assets/admin-46beb700.css"
+      "assets/admin-7f1b780d.css"
     ],
-    "file": "assets/admin-6af6c514.js",
+    "file": "assets/admin-8186fa2d.js",
     "imports": [
-      "_module.esm-72a60402.js"
+      "_module.esm-5651ee04.js"
     ],
     "isEntry": true,
     "src": "resources/js/admin.js"
   },
   "resources/js/app.css": {
-    "file": "assets/app-f0675783.css",
+    "file": "assets/app-aeb0142d.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
-    "css": [
-      "assets/app-f0675783.css"
+    "assets": [
+      "assets/right-arrow-126f8b6c.svg"
     ],
-    "file": "assets/app-50f6d37f.js",
+    "css": [
+      "assets/app-aeb0142d.css"
+    ],
+    "file": "assets/app-05f33410.js",
     "imports": [
-      "_module.esm-72a60402.js"
+      "_module.esm-5651ee04.js"
     ],
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "resources/js/dashboard.css": {
-    "file": "assets/dashboard-a91b38d8.css",
+    "file": "assets/dashboard-5b634322.css",
     "src": "resources/js/dashboard.css"
   },
   "resources/js/dashboard.js": {
     "css": [
-      "assets/dashboard-a91b38d8.css"
+      "assets/dashboard-5b634322.css"
     ],
-    "file": "assets/dashboard-ff4f6c1b.js",
+    "file": "assets/dashboard-334c1103.js",
     "isEntry": true,
     "src": "resources/js/dashboard.js"
   }

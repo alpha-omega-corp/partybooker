@@ -44,7 +44,7 @@ class PlanService implements IPlanService
             $plan['options'] = $options;
             return $plan;
         })->filter(function (Plan $plan) {
-            return !in_array($plan->name, ['basic', 'commission', 'vip']);
+            return !in_array($plan->name, ['vip']);
         })->reverse();
     }
 
@@ -113,7 +113,7 @@ class PlanService implements IPlanService
         $partner->plan_option_group = $plan->planOptions->first()->group;
         $partner->prev_plan_id = $partner->plans_id;
         $partner->prev_plan_option_group = $partner->plan_option_group;
-        
+
         return $partner->save();
     }
 

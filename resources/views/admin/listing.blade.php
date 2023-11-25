@@ -65,8 +65,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1>{{ __('partybooker-cp.listing')}}</h1>
-                    <a href="{{url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/add-new-partner')}}"
-                       class="button list-btn">{{ __('partybooker-cp.add_new_partner')}}</a>
+                    
                     <div class="filter">
                         {{ __('partybooker-cp.filter')}}
                     </div>

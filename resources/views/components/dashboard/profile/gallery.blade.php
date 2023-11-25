@@ -3,9 +3,11 @@
 'user'
 ])
 @if(in_array(strtolower($user->partnerInfo->plan), ['basic', 'commission']))
-    <x-dashboard.card-info>
-        {{__('partner.gallery_info')}}
-    </x-dashboard.card-info>
+    <div class="pt-4 pb-3">
+        <x-dashboard.card-info>
+            {{__('partner.gallery_info')}}
+        </x-dashboard.card-info>
+    </div>
 @else
     <div class="gallery position-relative">
             <?php $locale = app()->getLocale(); ?>

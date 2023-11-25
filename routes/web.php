@@ -130,7 +130,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
 
         //CREATE/EDIT PARTNER PAGES
         //get
-        Route::get('/cp/add-new-partner', 'adminController@addPartner');
+        Route::get('/cp/add-new-partner', 'adminController@addPartner')->name('partner.create.admin');
         //post
         Route::post('/cp/create-new-partner', 'adminController@createPartner');
 

@@ -36,14 +36,15 @@
             </span>
             <?php if(\Illuminate\Support\Facades\Auth::user()->type === 'admin'): ?>
                 <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.modal','data' => ['id' => 'editPlanAdmin','title' => __('partner.edit_plan'),'button' => __('partner.edit'),'action' => route('plan.update.admin', ['id_partner' => $user->id_partner]),'hasFiles' => true,'hasButton' => true,'icon' => 'heroicon-o-pencil','size' => 'modal-md','method' => 'POST']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.modal','data' => ['id' => 'editPlanAdmin','title' => __('partner.edit_plan'),'button' => __('partner.edit'),'action' => route('plan.update.admin', ['id_partner' => $user->id_partner]),'hasFiles' => true,'hasButton' => true,'icon' => 'heroicon-o-cog-6-tooth','size' => 'modal-lg','method' => 'POST']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('dashboard.modal'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['id' => 'editPlanAdmin','title' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('partner.edit_plan')),'button' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('partner.edit')),'action' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('plan.update.admin', ['id_partner' => $user->id_partner])),'hasFiles' => true,'has-button' => true,'icon' => 'heroicon-o-pencil','size' => 'modal-md','method' => 'POST']); ?>
+<?php $component->withAttributes(['id' => 'editPlanAdmin','title' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('partner.edit_plan')),'button' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('partner.edit')),'action' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(route('plan.update.admin', ['id_partner' => $user->id_partner])),'hasFiles' => true,'has-button' => true,'icon' => 'heroicon-o-cog-6-tooth','size' => 'modal-lg','method' => 'POST']); ?>
+
 
                     <div class="d-flex justify-content-around">
                         <?php $__currentLoopData = $plans; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $plan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

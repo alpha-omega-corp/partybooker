@@ -17,7 +17,7 @@ class SlugSanitizer
         'û' => 'u',
     ];
 
-    public static function sanitize($slug)
+    public static function sanitize($slug): string
     {
         return str_replace(array_keys(self::$items), array_values(self::$items), $slug);
     }

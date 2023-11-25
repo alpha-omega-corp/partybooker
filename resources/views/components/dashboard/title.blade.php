@@ -22,9 +22,10 @@
                     :action="route('plan.update.admin', ['id_partner' => $user->id_partner])"
                     :hasFiles="true"
                     :has-button="true"
-                    icon="heroicon-o-pencil"
-                    size="modal-md"
+                    icon="heroicon-o-cog-6-tooth"
+                    size="modal-lg"
                     method="POST">
+
 
                     <div class="d-flex justify-content-around">
                         @foreach($plans as $key => $plan)

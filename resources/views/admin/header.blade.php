@@ -29,7 +29,6 @@
             </div>
             <div class="header-navigation">
                 <ul class="text-accent">
-
                     <li page="settings" class="hassub">
                         <a href="#" onclick="return false;">{{ __('partybooker-cp.settings') }}</a>
                         <ul class="submenu">
@@ -51,37 +50,43 @@
                         </ul>
                     </li>
                 </ul>
+
+
+            </div>
+            <div class="admin-nav">
+                <ul class="d-flex justify-content-around">
+                    <li page="main"><a
+                            href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/cp') }}">{{ __('partybooker-cp.main') }}</a>
+                    </li>
+                    <li page="messages"><a
+                            href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/cp/messages') }}">{{ __('partybooker-cp.messages') }}</a>
+                    </li>
+                    <li page="listing"><a
+                            href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/cp/listing') }}">{{ __('partybooker-cp.listing') }}</a>
+                    </li>
+                    <li page="topservices">
+                        <a href="{{route('top-services')}}">
+                            Top Services
+                        </a>
+                    </li>
+
+                    <li page="stripe">
+                        <a href="{{route('cp-stripe')}}">
+                            Stripe
+                        </a>
+                    </li>
+                    <li page="swisswine"><a
+                            href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/cp/swisswin') }}">{{ __('partybooker-cp.swisswine_directories') }}</a>
+                    </li>
+                    <li page="blog"><a
+                            href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/cp/blog') }}">{{ __('partybooker-cp.blog') }}</a>
+                    </li>
+                    <li page="faq"><a
+                            href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/cp/faq') }}">{{ __('partybooker-cp.faq') }}</a>
+                    </li>
+                </ul>
             </div>
 
-            <li page="main"><a
-                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/cp') }}">{{ __('partybooker-cp.main') }}</a>
-            </li>
-            <li page="messages"><a
-                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/cp/messages') }}">{{ __('partybooker-cp.messages') }}</a>
-            </li>
-            <li page="listing"><a
-                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/cp/listing') }}">{{ __('partybooker-cp.listing') }}</a>
-            </li>
-            <li page="topservices">
-                <a href="{{route('top-services')}}">
-                    Top Services
-                </a>
-            </li>
-
-            <li page="stripe">
-                <a href="{{route('cp-stripe')}}">
-                    Stripe
-                </a>
-            </li>
-            <li page="swisswine"><a
-                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/cp/swisswin') }}">{{ __('partybooker-cp.swisswine_directories') }}</a>
-            </li>
-            <li page="blog"><a
-                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/cp/blog') }}">{{ __('partybooker-cp.blog') }}</a>
-            </li>
-            <li page="faq"><a
-                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/cp/faq') }}">{{ __('partybooker-cp.faq') }}</a>
-            </li>
         </div>
     </div>
 </header>

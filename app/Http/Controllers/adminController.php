@@ -38,11 +38,8 @@ class adminController extends Controller
 
     public function stripe(): View
     {
-
-        $payedUsers = PartnersInfo::where('plan', '!=', 'basic')
-            ->orWhere('plan', '!=', 'commission')
-            ->orWhere('plan', '!=', null)
-            ->get()->map(fn($p) => $p->user);
+        $payedUsers = User::where('stripe_id', '!=', null)
+            ->get()->map(fn($p) => $p->partnerInfo);
         return view('admin.stripe', [
             'payedUsers' => $payedUsers,
         ]);
@@ -117,7 +114,7 @@ class adminController extends Controller
 
     public function addPartner()
     {
-        return view('admin.partner.create-partner');
+        return view('admin.partner-register');
     }
 
     public function createPartner(Request $request)

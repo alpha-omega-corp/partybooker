@@ -12,6 +12,24 @@
 <div class="d-flex mb-4">
     <div class="matrix-card">
         <div class="d-flex flex-column">
+
+            @if(!$matrix['choosePlan'])
+                <x-dashboard.card-info :targets="[
+                        'editPlanAdmin-button',
+                    ]">
+                    {{__('partner.choose_yearly_plan')}}
+                </x-dashboard.card-info>
+            @else
+                <div class="publish-matrix-check">
+                    <div>
+                        @svg('heroicon-o-check-circle')
+                    </div>
+                    <div class="matrix-check-content">
+                        <span>{{__('partner.matrix_thumbnail_good')}}</span>
+                    </div>
+                </div>
+            @endif
+
             @if(!$matrix['chooseThumbnail'])
                 <x-dashboard.card-info :targets="[
                         'editMainImageModel-button',

@@ -23,13 +23,20 @@
         $planUrl = url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner) . '/plans'
     ?>
 
-    <div class="dashboard-top-options">
+    <?php if(\Illuminate\Support\Facades\Auth::user()->type === 'admin'): ?>
+        <a href="/cp" class="btn btn-orange">
+            CP
+        </a>
+    <?php endif; ?>
 
-        <div class="d-flex justify-content-between">
-            <div class="d-flex align-items-center">
-                <h5 class="text-uppercase fw-bold"><?php echo e(__('partner.plan_options')); ?></h5>
-            </div>
-            <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
+    <div class="dashboard-top-options">
+        <?php if(!in_array(strtolower($user->partnerInfo->plan), ['basic', 'commission'])): ?>
+            <div class="d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h5 class="text-uppercase fw-bold"><?php echo e(__('partner.plan_options')); ?></h5>
+                </div>
+
+                <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dashboard.profile.options','data' => ['partner' => $user->partnerInfo,'partnerOptions' => $partnerPlanOptions,'options' => $planOptions]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('dashboard.profile.options'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -44,7 +51,8 @@
 <?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
-        </div>
+            </div>
+        <?php endif; ?>
 
         <div class="d-flex justify-content-between">
             <div class="d-flex align-items-center">

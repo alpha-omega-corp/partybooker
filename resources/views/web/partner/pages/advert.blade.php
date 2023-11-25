@@ -23,18 +23,26 @@
         $planUrl = url(LocaleMiddleware::getLocale().'/partner-cp/'.$user->id_partner) . '/plans'
     @endphp
 
-    <div class="dashboard-top-options">
+    @if(\Illuminate\Support\Facades\Auth::user()->type === 'admin')
+        <a href="/cp" class="btn btn-orange">
+            CP
+        </a>
+    @endif
 
-        <div class="d-flex justify-content-between">
-            <div class="d-flex align-items-center">
-                <h5 class="text-uppercase fw-bold">{{__('partner.plan_options')}}</h5>
+    <div class="dashboard-top-options">
+        @if(!in_array(strtolower($user->partnerInfo->plan), ['basic', 'commission']))
+            <div class="d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h5 class="text-uppercase fw-bold">{{__('partner.plan_options')}}</h5>
+                </div>
+
+                <x-dashboard.profile.options
+                    :partner="$user->partnerInfo"
+                    :partner-options="$partnerPlanOptions"
+                    :options="$planOptions"
+                />
             </div>
-            <x-dashboard.profile.options
-                :partner="$user->partnerInfo"
-                :partner-options="$partnerPlanOptions"
-                :options="$planOptions"
-            />
-        </div>
+        @endif
 
         <div class="d-flex justify-content-between">
             <div class="d-flex align-items-center">
