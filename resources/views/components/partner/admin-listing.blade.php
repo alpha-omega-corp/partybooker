@@ -23,7 +23,7 @@
             ];
         })->toArray();
     @endphp
-
+    {{json_encode($partnerValues)}}
     <div
         x-data="searchHandler()"
         x-init="loadPartners('{{json_encode($partnerValues)}}')">
