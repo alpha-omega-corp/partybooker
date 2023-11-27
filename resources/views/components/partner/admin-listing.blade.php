@@ -8,7 +8,7 @@
 
     @php
         $partnerValues = $partners->map(function ($partner) {
-            return [
+            return (object)[
                 'id' => $partner->id_partner,
                 'name' => $partner->user->name,
                 'email' => $partner->user->email,
