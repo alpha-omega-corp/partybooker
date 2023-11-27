@@ -49,6 +49,32 @@
         </div>
     </div>
 
+
+    <script type="module">
+        $(document).on('click', 'a#remove-partner', function (e) {
+            var $this = $(this);
+            if (confirm('Do yo want to delete this partner?')) {
+                $.ajax({
+                    url: '/cp/partner-remove',
+                    method: 'post',
+                    data: {
+                        id_partner: $(this).data('partner')
+                    },
+                    success: function () {
+                        $this.closest('div.partner-box').remove();
+                    },
+                    error: function (r) {
+                        var data = JSON.parse(r.responseText);
+                        alert(data.message);
+                    }
+                })
+            }
+            return false;
+        });
+    </script>
+@endsection
+
+@push('footer')
     <script>
         function searchHandler() {
             return {
@@ -57,7 +83,7 @@
                 filter: 'all',
                 sort: 'newest',
                 search: '',
-                async loadPartners(partners) {
+                loadPartners(partners) {
                     if (!partners) {
                         return;
                     }
@@ -147,42 +173,5 @@
                 }
             }
         }
-    </script>
-
-    <script type="module">
-        $(document).on('click', 'a#remove-partner', function (e) {
-            var $this = $(this);
-            if (confirm('Do yo want to delete this partner?')) {
-                $.ajax({
-                    url: '/cp/partner-remove',
-                    method: 'post',
-                    data: {
-                        id_partner: $(this).data('partner')
-                    },
-                    success: function () {
-                        $this.closest('div.partner-box').remove();
-                    },
-                    error: function (r) {
-                        var data = JSON.parse(r.responseText);
-                        alert(data.message);
-                    }
-                })
-            }
-            return false;
-        });
-    </script>
-@endsection
-@push('footer')
-    <script>
-        $('.filters').hide();
-        $(document).on('click', 'div.filter', function () {
-            if ($(this).hasClass('open')) {
-                $('.filters').show();
-            } else {
-                $('.filters').hide();
-            }
-        });
-
-
     </script>
 @endpush
