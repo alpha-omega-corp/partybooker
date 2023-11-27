@@ -321,7 +321,9 @@
         "payment_end": "2020-08-13",
         "company": "Viinup: commande de vin en ligne pour vos \u00e9v\u00e9nements",
         "location": "Avenue Th\u00e8odore Flournoy 5, 1211 Gen\u00e8ve 6, Suisse",
-        "categories": []
+        "categories": [
+            "None"
+        ]
     },
     {
         "id": "094414190820-0347",
