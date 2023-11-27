@@ -19,7 +19,7 @@
                 'location' => $partner->address,
                 'categories' => array_values($partner->categories->map(function ($category) {
                     return Category::where('parent_id', $category->category_id)->first()->form_name;
-                }))
+                })->toArray()),
             ];
         })->toArray();
 
