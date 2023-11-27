@@ -5,7 +5,6 @@
 ])
 
 <div>
-
     @php
         $partnerValues = $partners->map(function ($partner) {
             $categories = array_values($partner->categories->map(function ($category) {
@@ -19,7 +18,7 @@
                 'payment_start' => $partner->payed,
                 'payment_end' => $partner->expiration_date,
                 'company' => $partner->fr_company_name,
-                'location' => $partner->address,
+                'location' => utf8_encode($partner->address),
                 'categories' => count($categories) === 0 ? ['None'] : $categories,
             ];
         })->toArray();
@@ -166,3 +165,103 @@
         </ul>
     </div>
 </div>
+
+<script>
+    function searchHandler() {
+        return {
+            partners: [],
+            shownPartners: [],
+            filter: 'all',
+            sort: 'newest',
+            search: '',
+            loadPartners(partners) {
+                if (!partners) {
+                    return;
+                }
+
+                JSON.parse(partners).forEach((field) => {
+                    this.partners.push({
+                        id: field.id,
+                        name: field.name,
+                        email: field.email,
+                        payment_status: field.payment_status,
+                        payment_start: field.payment_start,
+                        payment_end: field.payment_end,
+                        company: field.company,
+                        location: field.location,
+                        url: '/cp/partner-cp/' + field.id + '/advert',
+                        categories: field.categories,
+                    });
+                });
+            },
+            filterPartner(partners) {
+                return partners.filter(
+                    partner => partner.company.toLowerCase().includes(this.search.toLowerCase())
+                );
+            },
+            filteredPartners() {
+                switch (this.filter) {
+                    case 'all':
+                        this.shownPartners = this.filterPartner(this.partners)
+                        break;
+                    case 'payed':
+                        this.shownPartners = this.filterPartner(this.filterPayed())
+                        break;
+                    case 'un-payed':
+                        this.shownPartners = this.filterPartner(this.filterUnPayed())
+                        break;
+                    case 'event-place':
+                        this.shownPartners = this.filterPartner(this.filterCategory('event-place'))
+                        break;
+                    case 'caterer':
+                        this.shownPartners = this.filterPartner(this.filterCategory('caterer'))
+                        break;
+                    case 'wine':
+                        this.shownPartners = this.filterPartner(this.filterCategory('wine'))
+                        break;
+                    case 'entertainment':
+                        this.shownPartners = this.filterPartner(this.filterCategory('entertainment'))
+                        break;
+                    case 'equipment':
+                        this.shownPartners = this.filterPartner(this.filterCategory('equipment'))
+                        break;
+                }
+
+                switch (this.sort) {
+                    case 'name':
+                        this.shownPartners.sort()
+                        break;
+
+                    case 'newest':
+                        this.shownPartners.sort((partner) => {
+                            return partner.id
+                        })
+                        break;
+
+                    case 'oldest':
+                        this.shownPartners.sort((partner) => {
+                            return partner.id
+                        }).reverse()
+                        break;
+                }
+
+                return this.shownPartners;
+            },
+            filterPayed() {
+                return this.partners.filter((partner) => {
+                    return partner.payment_status === 1;
+                });
+            },
+            filterUnPayed() {
+                return this.partners.filter((partner) => {
+                    return partner.payment_status === 0;
+                });
+            },
+            filterCategory(category) {
+                return this.partners.filter((partner) => {
+                    return partner.categories.includes(category);
+                });
+            }
+        }
+    }
+</script>
