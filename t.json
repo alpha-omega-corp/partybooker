@@ -8,7 +8,9 @@
         "payment_end": "2020-08-13",
         "company": "SB Nature Parc, St-George",
         "location": "Route du Marchairuz, Saint-George, Suisse",
-        "categories": "[\"entertainment\"]"
+        "categories": [
+            "entertainment"
+        ]
     },
     {
         "id": "120029190814-4882",
@@ -19,7 +21,9 @@
         "payment_end": "2020-08-13",
         "company": "Brin de Terre, Crassier",
         "location": "Route de la Rippe 4, 1263 Crassier, Suisse",
-        "categories": "[\"entertainment\"]"
+        "categories": [
+            "entertainment"
+        ]
     },
     {
         "id": "120038190814-1542",
@@ -30,7 +34,9 @@
         "payment_end": "2020-08-13",
         "company": "Videoentertainers: tournez votre propre film !",
         "location": "Hauptstrasse 76A, 4457 Diegten, Suisse",
-        "categories": "[\"entertainment\"]"
+        "categories": [
+            "entertainment"
+        ]
     },
     {
         "id": "120041190814-4872",
@@ -41,7 +47,9 @@
         "payment_end": "2020-08-13",
         "company": "Ballon M\u00fcller, Gen\u00e8ve, Bussigny et Villars-Ste-Croix",
         "location": "Croix-du-P\u00e9age 1, Villars-Sainte-Croix, Suisse",
-        "categories": "[\"entertainment\"]"
+        "categories": [
+            "entertainment"
+        ]
     },
     {
         "id": "120043190814-5982",
@@ -52,7 +60,9 @@
         "payment_end": "2020-08-13",
         "company": "Mixage D\u00e9guisements, Le Mont-sur-Lausanne",
         "location": "Chemin du Petit-Flon 24, 1052 Mont-sur-Lausanne, Suisse",
-        "categories": "[\"entertainment\"]"
+        "categories": [
+            "entertainment"
+        ]
     },
     {
         "id": "120052190814-2642",
@@ -63,7 +73,9 @@
         "payment_end": "2020-08-13",
         "company": "Conf\u00e9rence sur le d\u00e9passement de soi",
         "location": "Route des Marais 17, 1860 Aigle, Suisse",
-        "categories": "[\"entertainment\"]"
+        "categories": [
+            "entertainment"
+        ]
     },
     {
         "id": "120052190814-3752",
@@ -74,7 +86,9 @@
         "payment_end": "2020-08-13",
         "company": "Murder Parties, Suisse romande",
         "location": "suisse romande",
-        "categories": "[\"entertainment\"]"
+        "categories": [
+            "entertainment"
+        ]
     },
     {
         "id": "120100190814-3772",
@@ -85,7 +99,9 @@
         "payment_end": "2020-08-13",
         "company": "La Dr\u00f4lerie, Ornex (F)",
         "location": "65 Rue des Bois, 01210 Ornex, France",
-        "categories": "[\"equipment\"]"
+        "categories": [
+            "equipment"
+        ]
     },
     {
         "id": "120105190814-7102",
@@ -96,7 +112,9 @@
         "payment_end": "2020-08-13",
         "company": "Locaclim, Gen\u00e8ve",
         "location": "Route de Bardonnex 41, Plan-les-Ouates, Suisse",
-        "categories": "[\"event-place\"]"
+        "categories": [
+            "event-place"
+        ]
     },
     {
         "id": "120106190814-8212",
@@ -107,7 +125,9 @@
         "payment_end": "2020-08-13",
         "company": "Cuppin's, Lausanne & Gen\u00e8ve",
         "location": "Rue du Petit-Ch\u00eane 20, Lausanne, Suisse",
-        "categories": "[\"equipment\"]"
+        "categories": [
+            "equipment"
+        ]
     },
     {
         "id": "120109190814-0432",
@@ -118,7 +138,9 @@
         "payment_end": "2020-08-13",
         "company": "Canniballoon Team, Aigle",
         "location": "Route des Marais 17, 1860 Aigle, Suisse",
-        "categories": "[\"equipment\"]"
+        "categories": [
+            "equipment"
+        ]
     },
     {
         "id": "120808190814-1726",
@@ -129,7 +151,9 @@
         "payment_end": "2020-08-13",
         "company": "Ch\u00e2teau de la Tour-de-Peilz, Vevey",
         "location": "Mus\u00e9e du Jeu, 1814 La Tour-de-Peilz, Suisse",
-        "categories": "[\"event-place\"]"
+        "categories": [
+            "event-place"
+        ]
     },
     {
         "id": "120814190814-0606",
@@ -140,7 +164,9 @@
         "payment_end": "2020-08-13",
         "company": "Domaine des Bossons, Satigny",
         "location": "Route de Maison-Rouge 27, 1242 Satigny, Suisse",
-        "categories": "[\"event-place\"]"
+        "categories": [
+            "event-place"
+        ]
     },
     {
         "id": "120815190814-2826",
@@ -151,7 +177,9 @@
         "payment_end": "2020-08-13",
         "company": "Le K, F\u00e9chy",
         "location": "Route d'Allaman 14, 1173 F\u00e9chy, Suisse",
-        "categories": "[\"event-place\"]"
+        "categories": [
+            "event-place"
+        ]
     },
     {
         "id": "120816190814-3936",
@@ -162,7 +190,9 @@
         "payment_end": "2020-08-13",
         "company": "Croisi\u00e8re sur La Libert\u00e9, Morges et lac L\u00e9man",
         "location": "Rue de Lausanne 48, 1110 Morges",
-        "categories": "[\"event-place\"]"
+        "categories": [
+            "event-place"
+        ]
     },
     {
         "id": "120816190814-5046",
@@ -173,7 +203,9 @@
         "payment_end": "2020-08-13",
         "company": "La Clef d'Or, Bursinel",
         "location": "Route du Village 26, 1195 Bursinel, Suisse",
-        "categories": "[\"event-place\"]"
+        "categories": [
+            "event-place"
+        ]
     },
     {
         "id": "120821190814-2816",
@@ -184,7 +216,10 @@
         "payment_end": "2021-07-28",
         "company": "Le Domaine d'Aucr\u00eat, Cully",
         "location": "Chemin de Bahyse-Dessus 2, Cully",
-        "categories": "[\"event-place\",\"wine\"]"
+        "categories": [
+            "event-place",
+            "wine"
+        ]
     },
     {
         "id": "120827190814-1696",
@@ -195,7 +230,9 @@
         "payment_end": "2021-06-17",
         "company": "Domaine de Choully",
         "location": "Route du Cr\u00eat-de-Choully 34, 1242 Satigny, Suisse",
-        "categories": "[\"event-place\"]"
+        "categories": [
+            "event-place"
+        ]
     },
     {
         "id": "120828190814-2806",
@@ -206,7 +243,9 @@
         "payment_end": "2020-08-13",
         "company": "Beaulieu Events",
         "location": "Avenue des Bergi\u00e8res 10 1000 Lausanne",
-        "categories": "[\"event-place\"]"
+        "categories": [
+            "event-place"
+        ]
     },
     {
         "id": "121138190814-4353",
@@ -217,7 +256,9 @@
         "payment_end": "2021-06-17",
         "company": "Traiteur & Ev\u00e9nements ParisZurich",
         "location": "Zone Industrielle Larges Pi\u00e8ces, chemin de Pr\u00e9venoge 2, 1024 Ecublens, Suisse",
-        "categories": "[\"caterer\"]"
+        "categories": [
+            "caterer"
+        ]
     },
     {
         "id": "121139190814-5463",
@@ -228,7 +269,9 @@
         "payment_end": "2020-08-13",
         "company": "L' Arbre \u00e0 fondue",
         "location": "Route d'Allaman 14, 1173 F\u00e9chy, Suisse",
-        "categories": "[\"caterer\"]"
+        "categories": [
+            "caterer"
+        ]
     },
     {
         "id": "121139190814-7683",
@@ -239,7 +282,9 @@
         "payment_end": "2020-08-13",
         "company": "Events et Saveurs",
         "location": "Route d'Arzier 12, 1273 Le Muids, Suisse",
-        "categories": "[\"caterer\"]"
+        "categories": [
+            "caterer"
+        ]
     },
     {
         "id": "121140190814-8793",
@@ -250,7 +295,9 @@
         "payment_end": "2020-08-13",
         "company": "Catering Services, Gen\u00e8ve",
         "location": "Rue Alexandre-Gavard 35, 1227 Carouge, Suisse",
-        "categories": "[\"caterer\"]"
+        "categories": [
+            "caterer"
+        ]
     },
     {
         "id": "121140190814-9903",
@@ -261,7 +308,9 @@
         "payment_end": "2020-08-13",
         "company": "Mama's Prestige",
         "location": "2 Rampe Quidort, 1227 Les Acacias, Suisse",
-        "categories": "[\"caterer\"]"
+        "categories": [
+            "caterer"
+        ]
     },
     {
         "id": "121141190814-1013",
@@ -272,7 +321,7 @@
         "payment_end": "2020-08-13",
         "company": "Viinup: commande de vin en ligne pour vos \u00e9v\u00e9nements",
         "location": "Avenue Th\u00e8odore Flournoy 5, 1211 Gen\u00e8ve 6, Suisse",
-        "categories": "[]"
+        "categories": []
     },
     {
         "id": "094414190820-0347",
@@ -283,7 +332,9 @@
         "payment_end": "1970-01-01",
         "company": "TR Traiteurs",
         "location": "Rue de Veyrot 11, 1217 Meyrin",
-        "categories": "[\"caterer\"]"
+        "categories": [
+            "caterer"
+        ]
     },
     {
         "id": "110802190820-8157",
@@ -294,7 +345,9 @@
         "payment_end": "1970-01-01",
         "company": "paradelta.ch",
         "location": "Route de Bossey 21b CH-1256 Troinex",
-        "categories": "[\"entertainment\"]"
+        "categories": [
+            "entertainment"
+        ]
     },
     {
         "id": "094933190930-335",
@@ -305,7 +358,10 @@
         "payment_end": "2021-06-17",
         "company": "Le Labo de ParisZurich",
         "location": "ZI Larges Pi\u00e8ces C, Chemin de Pr\u00e9vonoge 2, 1024 Ecublens",
-        "categories": "[\"event-place\",\"event-place\"]"
+        "categories": [
+            "event-place",
+            "event-place"
+        ]
     },
     {
         "id": "125847191026-782",
@@ -316,7 +372,9 @@
         "payment_end": "2020-10-25",
         "company": "Jardin&Decoration",
         "location": "Chemin de la Charbonne, 1285 Avusy, Switzerland",
-        "categories": "[\"equipment\"]"
+        "categories": [
+            "equipment"
+        ]
     },
     {
         "id": "093224191119-6405",
@@ -327,7 +385,9 @@
         "payment_end": "2020-11-18",
         "company": "Bouvard Fleurs",
         "location": "Route de Base 74 1258 Perly Certoux",
-        "categories": "[\"equipment\"]"
+        "categories": [
+            "equipment"
+        ]
     },
     {
         "id": "094640200712-9431",
@@ -338,7 +398,9 @@
         "payment_end": "2021-07-12",
         "company": "BALLONS DU LEMAN",
         "location": "1180 ROLLE",
-        "categories": "[\"event-place\"]"
+        "categories": [
+            "event-place"
+        ]
     },
     {
         "id": "025739201029-7146",
@@ -349,7 +411,9 @@
         "payment_end": "2021-11-02",
         "company": "Our Happy Place",
         "location": "Gotthardstrasse 34, 8800 Thalwil",
-        "categories": "[\"entertainment\"]"
+        "categories": [
+            "entertainment"
+        ]
     },
     {
         "id": "042224201101-3392",
@@ -360,7 +424,9 @@
         "payment_end": "2021-11-01",
         "company": "Sweet Nights Teepee",
         "location": "1005",
-        "categories": "[\"entertainment\"]"
+        "categories": [
+            "entertainment"
+        ]
     },
     {
         "id": "051709201101-9109",
@@ -371,7 +437,9 @@
         "payment_end": "2021-11-01",
         "company": "Sara Imfeld Photography",
         "location": "8000",
-        "categories": "[\"equipment\"]"
+        "categories": [
+            "equipment"
+        ]
     },
     {
         "id": "065229201111-0146",
@@ -382,7 +450,9 @@
         "payment_end": "2021-11-11",
         "company": "Ben Delf le magicien",
         "location": "1201 Gen\u00e8ve",
-        "categories": "[\"entertainment\"]"
+        "categories": [
+            "entertainment"
+        ]
     },
     {
         "id": "040411201206-1566",
@@ -393,7 +463,9 @@
         "payment_end": "2021-12-06",
         "company": "Geneva Wine Society",
         "location": "Gen\u00e8ve 1201",
-        "categories": "[\"wine\"]"
+        "categories": [
+            "wine"
+        ]
     },
     {
         "id": "045511210317-0722",
@@ -404,6 +476,8 @@
         "payment_end": "2022-04-01",
         "company": "RSH Quality Food Concept SA",
         "location": "Chemin de la Colice 3 - 1023 Crissier",
-        "categories": "[\"caterer\"]"
+        "categories": [
+            "caterer"
+        ]
     }
 ]

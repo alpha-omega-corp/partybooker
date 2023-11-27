@@ -55,9 +55,9 @@
                 partners: [],
                 shownPartners: [],
                 filter: 'all',
-                sort: 'default',
+                sort: 'newest',
                 search: '',
-                loadPartners(partners) {
+                async loadPartners(partners) {
                     if (!partners) {
                         return;
                     }
