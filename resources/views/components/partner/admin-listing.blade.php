@@ -22,6 +22,8 @@
                 }),
             ];
         })->toArray();
+
+        $partnerValues = array_values($partnerValues);
     @endphp
     {{json_encode($partnerValues)}}
     <div
