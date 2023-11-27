@@ -763,7 +763,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/admin.css": {
-    "file": "assets/admin-7f1b780d.css",
+    "file": "assets/admin-f100d1f1.css",
     "src": "resources/js/admin.css"
   },
   "resources/js/admin.js": {
@@ -773,9 +773,9 @@
       "assets/GothamPro-Italic-7ca3658f.ttf"
     ],
     "css": [
-      "assets/admin-7f1b780d.css"
+      "assets/admin-f100d1f1.css"
     ],
-    "file": "assets/admin-8186fa2d.js",
+    "file": "assets/admin-954f2cdb.js",
     "imports": [
       "_module.esm-5651ee04.js"
     ],
@@ -801,14 +801,14 @@
     "src": "resources/js/app.js"
   },
   "resources/js/dashboard.css": {
-    "file": "assets/dashboard-5b634322.css",
+    "file": "assets/dashboard-5d899722.css",
     "src": "resources/js/dashboard.css"
   },
   "resources/js/dashboard.js": {
     "css": [
-      "assets/dashboard-5b634322.css"
+      "assets/dashboard-5d899722.css"
     ],
-    "file": "assets/dashboard-334c1103.js",
+    "file": "assets/dashboard-cd055d2f.js",
     "isEntry": true,
     "src": "resources/js/dashboard.js"
   }

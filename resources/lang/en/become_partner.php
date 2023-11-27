@@ -69,7 +69,7 @@ Partybooker in bringing a targeted platform achieves this goal.</p>
     'company_info' => 'Company',
     'company_name' => 'Company name',
     'location' => 'Location',
-    'address' => 'Address, postcode',
+    'address' => 'Address',
     'phone' => 'Phone',
     'fax' => 'Fax',
     'choose' => 'Choose a file',

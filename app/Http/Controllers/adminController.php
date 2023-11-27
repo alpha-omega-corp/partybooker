@@ -47,7 +47,6 @@ class adminController extends Controller
 
     public function topServices()
     {
-
         $partners = PartnersInfo::all()->map(function ($e) {
             return (object)[
                 'value' => $e->id_partner,
@@ -109,7 +108,19 @@ class adminController extends Controller
                 }
             }
         }
-        return view('admin.listing', ['info' => $info, 'plans' => $plans]);
+
+        $partners = PartnersInfo::all();
+
+        return view('admin.listing', [
+            'info' => $info,
+            'plans' => $plans,
+            'planTabs' => $plans->map(fn($e) => __('plan.' . strtolower($e->name)))->toArray(),
+            'basicPartners' => $partners->filter(fn($e) => $e->plan == 'basic'),
+            'commissionPartners' => $partners->filter(fn($e) => $e->plan == 'commission'),
+            'standardPartners' => $partners->filter(fn($e) => $e->plan == 'standart'),
+            'premiumPartners' => $partners->filter(fn($e) => $e->plan == 'premium'),
+            'exclusivePartners' => $partners->filter(fn($e) => $e->plan == 'exclusif'),
+        ]);
     }
 
     public function addPartner()
@@ -362,6 +373,7 @@ class adminController extends Controller
             PartnerPlanOption::where('partners_info_id', $partner->id)->delete();
             PartnersInfo::where('id_partner', $user->id_partner)->delete();
             User::where('id_partner', $user->id_partner)->delete();
+            TopService::where('id_partner', $partner->id)->delete();
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();

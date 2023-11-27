@@ -230,7 +230,7 @@ class DatabaseSeeder extends Seeder
             'plans_id' => 3,
             'plan' => 'premium',
             'plan_option_group' => 1,
-            'payment_status' => true,
+            'payment_status' => rand(0, 1),
             'public' => true,
             'payed' => '2020-09-18',
             'expiration_date' => '2024-09-18',

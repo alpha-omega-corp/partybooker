@@ -82,7 +82,6 @@
                         });
                     });
                 }
-
             },
             addNewField() {
                 this.fields.push({

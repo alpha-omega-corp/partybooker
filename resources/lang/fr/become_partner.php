@@ -73,7 +73,7 @@ Cette richesse en informations et en idées, ou votre expertise, vos concepts so
     'company_info' => 'Entreprise',
     'company_name' => 'Nom de l\'entreprise',
     'location' => 'Lieu',
-    'address' => 'Adresse, code postal',
+    'address' => 'Adresse',
     'phone' => 'Téléphone',
     'fax' => 'Fax',
     'choose' => 'Choose a file',

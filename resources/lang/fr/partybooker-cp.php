@@ -69,12 +69,12 @@ return [
     'status' => "Statut",
     'created_at' => "Créé à:",
     'yearly_plan' => "Plan annuel:",
-    'payment_status' => "Statut de paiement:",
+    'payment_status' => "Statut de paiement",
     'not_payed' => "Impayé",
     'payed' => "Payé",
     'payment' => "Paiement",
-    'payment_date' => "Date de paiement:",
-    'payment_exp_date' => "Date d'expiration du paiement:",
+    'payment_date' => "Date de paiement",
+    'payment_exp_date' => "Date d'expiration du paiement",
 
     //Blog page
     'show_all' => "Montre tout",
@@ -114,8 +114,8 @@ return [
     'click_to_edit' => "Votre mot de passe n'est pas affiché pour des raisons de sécurité. Pour modifier des détails (nom, adresse électronique ou mot de passe), cliquez sur le bouton 'MODIFIER les détails du profil'",
     'button_edit_profile' => "MODIFIER les détails du profil",
     'list_admins' => "Liste des administrateurs de Partybooker:",
-    'name' => "Prénom:",
-    'email' => "Email:",
+    'name' => "Prénom",
+    'email' => "Email",
     'current_password' => "Mot de passe actuel:",
     'new_password' => "Nouveau mot de passe",
     'repeat_password' => "Répéter le mot de passe",
@@ -218,7 +218,7 @@ return [
     'created' => "créé par",
 
     'swisswine_directories' => 'Guides & Annuaires Suisse',
-    'remove_partner' => 'Supprimer partenaire',
+    'remove_partner' => 'Supprimer',
 
     'discount' => 'Discount, %',
     'discount_amount' => 'Discount amount, %',

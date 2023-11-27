@@ -177,24 +177,6 @@ a,
     transition: all 500ms ease;
 }
 
-button,
-.button {
-    cursor: pointer;
-    padding: 10px 30px;
-    min-width: 150px;
-    max-width: fit-content;
-    text-align: center;
-    display: block;
-    margin: 50px 0;
-    border-radius: 25px;
-    height: 50px;
-    line-height: 30px;
-    background: #FE8A02;
-    color: #fff;
-    text-transform: uppercase;
-    border: none;
-    text-decoration: none;
-}
 
 #btn-terms {
     color: #fff !important;
@@ -613,8 +595,7 @@ footer a img {
 }
 
 label {
-    color: #FE8A02;
-    font-weight: bold;
+    color: $gray;
 }
 
 input,
@@ -1856,6 +1837,106 @@ input#map_address {
         a {
             text-decoration: none;
             color: #fff;
+        }
+    }
+}
+
+.listing-title {
+    .tab-content {
+        width: 100% !important;
+    }
+
+
+    .tabcat {
+        height: 100%;
+        padding: 10px;
+        margin-top: 20px;
+
+        .tab-overflow {
+            padding-left: 20px;
+
+            li {
+
+                button {
+                    border-top-right-radius: 20px !important;
+                    border-top-left-radius: 20px !important;
+                    background-color: transparent !important;
+                    color: $gray !important;
+                    margin-top: 0;
+                }
+            }
+
+        }
+
+        .tabcat-card {
+            border: 1px solid $gray-300;
+            padding: 40px;
+            border-radius: 20px;
+        }
+    }
+}
+
+.partner-box {
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0 0 60px 0;
+}
+
+
+.partner-item-box-content {
+    display: flex;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 1200px) {
+        flex-direction: column;
+    }
+}
+
+.partner-item-box {
+    padding: 20px;
+    border: 1px solid $gray-300;
+    border-radius: 10px;
+    @media only screen and (max-width: 1200px) {
+        margin-bottom: 20px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        max-width: 280px;
+    }
+
+    .partner-label {
+        padding: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $gray-300;
+        @media only screen and (max-width: 768px) {
+            flex-direction: column;
+            justify-content: start;
+            font-size: small;
+        }
+
+        b {
+            text-transform: uppercase;
+            font-size: small;
+        }
+    }
+}
+
+.accordion-item {
+    margin-left: 10px;
+
+    .accordion-header {
+        margin: 0 !important;
+        display: flex !important;
+
+        .accordion-button {
+            margin: 0 !important;
+            display: flex;
+        }
+
+        .accordion-button::after {
+            margin-left: 20px;
         }
     }
 }

@@ -13,6 +13,6 @@ class TopService extends Model
 
     public function partner(): BelongsTo
     {
-        return $this->belongsTo(PartnersInfo::class, 'id_partner');
+        return $this->belongsTo(PartnersInfo::class, 'id_partner', 'id');
     }
 }

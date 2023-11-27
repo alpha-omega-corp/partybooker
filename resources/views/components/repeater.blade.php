@@ -61,7 +61,6 @@
                         });
                     });
                 }
-
             },
             addNewField() {
                 this.fields.push({
