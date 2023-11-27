@@ -8,6 +8,9 @@
 
     @php
         $partnerValues = $partners->map(function ($partner) {
+            $categories = array_values($partner->categories->map(function ($category) {
+                    return Category::where('parent_id', $category->category_id)->first()->form_name;
+                })->toArray());
             return (object)[
                 'id' => $partner->id_partner,
                 'name' => $partner->user->name,
@@ -17,9 +20,7 @@
                 'payment_end' => $partner->expiration_date,
                 'company' => $partner->fr_company_name,
                 'location' => $partner->address,
-                'categories' => array_values($partner->categories->map(function ($category) {
-                    return Category::where('parent_id', $category->category_id)->first()->form_name;
-                })->toArray()),
+                'categories' => count($categories) === 0 ? ['None'] : $categories,
             ];
         })->toArray();
 
