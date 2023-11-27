@@ -17,9 +17,9 @@
                 'payment_end' => $partner->expiration_date,
                 'company' => $partner->fr_company_name,
                 'location' => $partner->address,
-                'categories' => json_encode($partner->categories->map(function ($category) {
+                'categories' => array_values($partner->categories->map(function ($category) {
                     return Category::where('parent_id', $category->category_id)->first()->form_name;
-                })),
+                }))
             ];
         })->toArray();
 
