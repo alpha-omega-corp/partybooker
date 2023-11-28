@@ -101,7 +101,7 @@
 
         </x-admin.listing.filters>
         <ul>
-            <template x-for="partner in filteredPartners()" :key="partner.name">
+            <template x-for="partner in filteredPartners()" :key="partner.id">
                 <div class="partner-box border border-{{$plan}} shadow-lg">
 
                     <div class="d-flex justify-content-between">
