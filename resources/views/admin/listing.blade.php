@@ -41,7 +41,7 @@
 
                 <x-tab.item>
                     <x-partner.admin-listing
-                        plan="premium"
+                        plan="exclusif"
                         :partners="$exclusivePartners"/>
                 </x-tab.item>
 

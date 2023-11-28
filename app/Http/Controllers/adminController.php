@@ -114,7 +114,7 @@ class adminController extends Controller
         return view('admin.listing', [
             'info' => $info,
             'plans' => $plans,
-            'planTabs' => $plans->map(fn($e) => __('plan.' . strtolower($e->name)))->toArray(),
+            'planTabs' => ['Basic', 'Commission', 'Standard', 'Premium', 'Exclusive'],
             'basicPartners' => $partners->filter(fn($e) => $e->plan == 'basic'),
             'commissionPartners' => $partners->filter(fn($e) => $e->plan == 'commission'),
             'standardPartners' => $partners->filter(fn($e) => $e->plan == 'standart'),
