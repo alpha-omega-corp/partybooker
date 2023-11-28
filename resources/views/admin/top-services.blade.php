@@ -9,7 +9,6 @@
 @endsection
 
 @push('head')
-
     <script>
         function topServiceHandler() {
             return {

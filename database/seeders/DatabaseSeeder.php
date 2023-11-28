@@ -290,7 +290,7 @@ class DatabaseSeeder extends Seeder
 
         if ($for) {
             DB::table('users')->insert([
-                'name' => $for,
+                'name' => $for . "'s Admin",
                 'email' => 'bleyo@alphomega.org',
                 'id_partner' => '120036190814-044' . $r,
                 'email_verification' => 1,
