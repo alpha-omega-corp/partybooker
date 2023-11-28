@@ -24,6 +24,8 @@
             ];
         })->toArray();
 
+        $partnerValues = array_values($partnerValues);
+
     @endphp
     <div
         x-data="searchHandler()"
