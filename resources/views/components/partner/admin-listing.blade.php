@@ -27,12 +27,20 @@
         $partnerValues = array_values($partnerValues);
 
     @endphp
+
     <div
         x-data="searchHandler()"
         x-init="loadPartners('{{json_encode($partnerValues)}}')">
         <x-admin.listing.filters>
 
             <x-slot:filter>
+                <x-admin.listing.filter-item
+                    plan="{{$plan}}"
+                    filterName="all"
+                    filterLabel="No filter"/>
+
+                <hr>
+
                 <x-admin.listing.filter-item
                     plan="{{$plan}}"
                     filterName="payed"
@@ -70,16 +78,20 @@
                     filterName="equipment"
                     filterLabel="Equipment"/>
 
-                <hr>
-
                 <x-admin.listing.filter-item
                     plan="{{$plan}}"
-                    filterName="all"
+                    filterName="none"
                     filterLabel="None"/>
+
 
             </x-slot:filter>
 
             <x-slot:sort>
+                <x-admin.listing.sort-item
+                    plan="{{$plan}}"
+                    sortName="default"
+                    sortLabel="Default"/>
+                <hr>
                 <x-admin.listing.sort-item
                     plan="{{$plan}}"
                     sortName="newest"
@@ -92,11 +104,8 @@
                     plan="{{$plan}}"
                     sortName="name"
                     sortLabel="Name"/>
-                <hr>
-                <x-admin.listing.sort-item
-                    plan="{{$plan}}"
-                    sortName="default"
-                    sortLabel="None"/>
+
+
             </x-slot:sort>
 
         </x-admin.listing.filters>
@@ -141,17 +150,18 @@
 
                         <div class="partner-label">
                             <b>{{ __('partner.categories')}}</b>
-                            <template x-for="category in partner.categories">
 
-                                <div x-show="category === 'none'">
-                                    @svg('heroicon-o-no-symbol', 'text-danger')
-                                </div>
 
-                                <div x-show="category !== 'none'">
-                                    <span x-text="category"></span>
-                                </div>
-                            </template>
+                            <div class="d-flex flex-column">
+                                <template x-for="category in partner.categories">
+                                    <div x-show="category !== 'none'" x-text="category" class="p-1"></div>
+                                </template>
+                            </div>
 
+
+                            <div x-show="partner.categories.includes('none')">
+                                @svg('heroicon-o-no-symbol', 'text-danger')
+                            </div>
                         </div>
 
                         <div class="partner-label">
@@ -205,7 +215,7 @@
                             company: field.company,
                             location: field.location,
                             url: '/cp/partner-cp/' + field.id + '/advert',
-                            categories: field.categories,
+                            categories: [...new Set(field.categories)],
                         });
                     });
                 },
@@ -239,6 +249,9 @@
                             break;
                         case 'equipment':
                             this.shownPartners = this.filterPartner(this.filterCategory('equipment'))
+                            break;
+                        case 'none':
+                            this.shownPartners = this.filterPartner(this.filterCategory('none'))
                             break;
                     }
 
