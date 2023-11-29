@@ -106,7 +106,6 @@
                             </template>
                         </div>
                     @endif
-
                 </a>
             </template>
 
