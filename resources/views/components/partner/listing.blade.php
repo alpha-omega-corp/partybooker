@@ -74,7 +74,7 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title text-uppercase fw-bold listing-card-title"
-                                        x-text="$('<div/>').text(partner.company).html()">
+                                        x-text="unEscape(partner.company)">
 
                                     </h5>
                                     <div class="card-text description" x-text="partner.shortDescription">
@@ -128,7 +128,7 @@
                             href: field.href,
                             hasThumbnail: field.hasThumbnail,
                             thumbnail: '/storage/images/thumbnails/' + field.thumbnail,
-                            shortDescription: field.shortDescription,
+                            shortDescription: this.unEscape(field.shortDescription),
                             canton: field.canton,
                             address: field.address,
                             eventTypes: field.eventTypes
@@ -141,6 +141,14 @@
                         partner => partner.company.toLowerCase().includes(this.search.toLowerCase())
                     );
                 },
+                unEscape(htmlStr) {
+                    htmlStr = htmlStr.replace(/&lt;/g, "<");
+                    htmlStr = htmlStr.replace(/&gt;/g, ">");
+                    htmlStr = htmlStr.replace(/&quot;/g, "\"");
+                    htmlStr = htmlStr.replace(/&#39;/g, "\'");
+                    htmlStr = htmlStr.replace(/&amp;/g, "&");
+                    return htmlStr;
+                }
             }
         }
     </script>
@@ -148,15 +156,15 @@
 
 <script type="module">
     $(window).scroll(function () {
-        if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
-            $('#return-to-top').fadeIn(200);    // Fade in the arrow
+        if ($(this).scrollTop() >= 50) {
+            $('#return-to-top').fadeIn(200);
         } else {
-            $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+            $('#return-to-top').fadeOut(200);
         }
     });
-    $('#return-to-top').click(function () {      // When arrow is clicked
+    $('#return-to-top').click(function () {
         $('body,html').animate({
-            scrollTop: 0                       // Scroll to top of body
+            scrollTop: 0
         }, 500);
     });
 </script>
