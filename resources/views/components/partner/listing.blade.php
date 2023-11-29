@@ -12,11 +12,11 @@
                 'name' => str_replace("'", '', $partner->user->name),
                 'email' => str_replace("'", '', $partner->user->email),
                 'company' => app()->getLocale() === 'en'
-                ? str_replace(["'", "\n", "\r"], '', $partner->en_company_name)
-                : str_replace(["'", "\n", "\r"], '', $partner->fr_company_name),
+                ? str_replace(["'"], '', $partner->en_company_name)
+                : str_replace("'", '', $partner->fr_company_name),
                 'shortDescription' => app()->getLocale() === 'en'
-                ? str_replace("'", '', $partner->en_short_descr)
-                : str_replace("'", '', $partner->fr_short_descr),
+                ? str_replace(["'", "\r", "\n"], '', $partner->en_short_descr)
+                : str_replace(["'", "\r", "\n"], '', $partner->fr_short_descr),
                 'location' => str_replace("'", '', $partner->address),
                 'hasThumbnail' => (bool)$partner->main_img,
                 'thumbnail' => str_replace("'", "",  $partner->main_img),
