@@ -14,10 +14,11 @@
                 'company' => app()->getLocale() === 'en'
                 ? str_replace("'", '', $partner->en_company_name)
                 : str_replace("'", '', $partner->fr_company_name),
-
+                'shortDescription' => app()->getLocale() === 'en'
+                ? $partner->en_short_descr
+                : $partner->fr_short_descr,
                 'location' => str_replace("'", '', $partner->address),
                 'hasThumbnail' => (bool)$partner->main_img,
-
                 'canton' => __('cantons.' . strtolower($partner->location_code) . '_loc'),
                 'address' => str_replace("'", '', $partner->address),
                 'eventTypes' => array_values($partner->eventTypes()->get()->map(function ($eventType) {
