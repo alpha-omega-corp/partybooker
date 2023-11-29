@@ -15,7 +15,7 @@
                 'company' => app()->getLocale() === 'en'
                 ? str_replace(["'"], '', $partner->en_company_name)
                 : str_replace("'", '', $partner->fr_company_name),
-                'href' => url(LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . str_replace("'", '', $partner->slug)),
+                'href' => url(LocaleMiddleware::getLocale() . '/' . __('urls.listing') . '/' . str_replace("'", '', $partner->slug)),
                 'shortDescription' => app()->getLocale() === 'en'
                 ? htmlspecialchars(str_replace(["'", "\r", "\n", ","], '', $partner->en_short_descr))
                 : htmlspecialchars(str_replace(["'", "\r", "\n", ","], '', $partner->fr_short_descr)),
