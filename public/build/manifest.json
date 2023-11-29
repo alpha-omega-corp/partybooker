@@ -783,7 +783,7 @@
     "src": "resources/js/admin.js"
   },
   "resources/js/app.css": {
-    "file": "assets/app-aeb0142d.css",
+    "file": "assets/app-8b131a88.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -791,9 +791,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-aeb0142d.css"
+      "assets/app-8b131a88.css"
     ],
-    "file": "assets/app-05f33410.js",
+    "file": "assets/app-36431769.js",
     "imports": [
       "_module.esm-5651ee04.js"
     ],
@@ -801,14 +801,14 @@
     "src": "resources/js/app.js"
   },
   "resources/js/dashboard.css": {
-    "file": "assets/dashboard-5d899722.css",
+    "file": "assets/dashboard-11c93185.css",
     "src": "resources/js/dashboard.css"
   },
   "resources/js/dashboard.js": {
     "css": [
-      "assets/dashboard-5d899722.css"
+      "assets/dashboard-11c93185.css"
     ],
-    "file": "assets/dashboard-cd055d2f.js",
+    "file": "assets/dashboard-2068b45c.js",
     "isEntry": true,
     "src": "resources/js/dashboard.js"
   }

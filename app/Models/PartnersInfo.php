@@ -4,6 +4,7 @@ namespace App\Models;
 
 
 use App\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -14,8 +15,10 @@ class PartnersInfo extends Model
 {
     public $timestamps = false;
     protected $table = "partners_info";
+    protected $primaryKey = 'id';
 
     protected $fillable = [
+        'id',
         "plan",
         "plan_option",
         "plans_id",
@@ -120,9 +123,17 @@ class PartnersInfo extends Model
         return $this->hasMany(Advert::class, 'partners_info_id', 'id');
     }
 
+    public function scopeListing(Builder $query): void
+    {
+        $query->where('public', 1)->where('payment_status', 1);
+    }
 
     public function eventTypes(): BelongsToMany
     {
-        return $this->belongsToMany(EventType::class, 'partner_event_types');
+        return $this->belongsToMany(EventType::class,
+            PartnerEventType::class,
+            'partners_info_id',
+            'event_type_id',
+            'id', 'id');
     }
 }

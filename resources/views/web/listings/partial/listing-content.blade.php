@@ -30,8 +30,7 @@
 
         <div class="col-lg-8 col-xs-12">
             <section class="partner-listing">
-                @include('web.listings.partial.partial-list')
-                @include('web.listings.partial.pagination')
+                <x-partner.listing :partners="$partners"/>
             </section>
         </div>
     </div>
@@ -48,10 +47,6 @@
 
     <div class="d-flex justify-content-end">
         @include('web.listings.partial.location-filter')
-    </div>
-
-    <div class="d-flex justify-content-end">
-        @include('web.listings.partial.budget-filter')
     </div>
 
     <div class="d-flex justify-content-end">

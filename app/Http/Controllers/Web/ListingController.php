@@ -51,46 +51,26 @@ class ListingController extends Controller
 
     public function index(Request $request)
     {
-        $query_params = [];
-        $query = PartnersInfo::where('public', 1)->where('payment_status', 1);
-
-        //		if ($request->has('min_price') && $request->has('max_price')) {
-        //			$query_params['min_price'] = $request->get('min_price');
-        //			$query_params['max_price'] = $request->get('max_price');
-        //			$query = $query->whereBetween('price', [$request->get('min_price'), $request->get('max_price')]);
-        //		}
-
-        if ($request->has('budget') && ((int)$request->get('budget') != 0 && $request->get('budget') != null && $request->get('budget') != 'null')) {
-            $query->where('budget', $request->get('budget'));
-        }
-
-
-        if ($request->has('order_by') && in_array($request->get('order_by'), ['name', 'price'])) {
-            $query_params['order_by'] = $request->get('order_by');
-            $query_params['order_type'] = $request->get('order_type') ?? 'asc';
-
-            if ($query_params['order_by'] == 'name') {
-                $query = $query->orderBy(app()->getLocale() . '_company_name', $query_params['order_type']);
-            }
-
-            if ($query_params['order_by'] == 'price') {
-                $query = $query->orderBy('price', $query_params['order_type']);
-            }
-        }
+        $etParams = $request->input('event_types');
+        $placeParam = $request->input('place');
+        $partners = PartnersInfo::listing();
 
         if ($request->has('event_types')) {
-            $query_params['event_types'] = $request->get('event_types');
-            $query->whereHas('currentPlan', function ($q) {
-                $q->where('name', 'Exclusif');
-            })->whereHas('eventTypes', function ($q) use ($request) {
-                $q->whereIn('en_slug', $request->get('event_types'))->orWhereIn('fr_slug', $request->get('event_types'));
+            $partners->whereHas('eventTypes', function ($q) use ($etParams) {
+                $q->whereIn(app()->getLocale() == 'en' ? 'en_slug' : 'fr_slug', $etParams);
             });
         }
 
-        $query = $query->orderBy('priority');
+        if ($request->has('place')) {
+            $partners->where('location_code', $placeParam);
+        }
 
+        return view('web.listings.index', [
+            'partners' => $partners->orderBy('priority')->get(),
+            'categories' => $this->categories,
+            'eventTypes' => $this->eventTypes
+        ]);
 
-        return view('web.listings.index', ['partners' => $query->paginate(8)->appends($query_params), 'categories' => $this->categories, 'eventTypes' => $this->eventTypes]);
     }
 
     public function category($category, Request $request)

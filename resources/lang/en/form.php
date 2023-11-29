@@ -33,5 +33,7 @@ return [
     'hide' => 'Hide',
     'edit-company-modal' => 'Company Information\'s',
     'unknown_count' => 'You have :count advertisements, none of which are active.',
-    'unknown_active_category' => 'No active category found. Click the button above to activate your service details.'
+    'unknown_active_category' => 'No active category found. Click the button above to activate your service details.',
+    'search_listing' => 'Search for an advertisement',
+
 ];

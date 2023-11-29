@@ -9,7 +9,7 @@
         </span>
     </button>
     <ul class="dropdown-menu">
-        <form action="{{ $partners->url(1) }}" class="event-types">
+        <form class="event-types">
             @foreach ($eventTypes as $key => $et)
                 <li class="dropdown-item">
                     <div class="form-check form-switch" x-data=""

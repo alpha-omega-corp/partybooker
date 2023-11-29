@@ -1,5 +1,5 @@
 @php use App\Helpers\BudgetsHelper; @endphp
-<div class="btn-group dropstart" data-url="{{ $partners->url($partners->currentPage()) }}">
+<div class="btn-group dropstart">
     <button type="button" class="btn btn-labeled btn-accent text-uppercase" data-bs-toggle="dropdown"
             data-bs-display="static" aria-expanded="false">
         <span class="btn-label">
@@ -16,7 +16,7 @@
     <ul class="dropdown-menu">
         @foreach (BudgetsHelper::$_budgets as $k => $v)
             <li class="dropdown-item p-2">
-                <a data-value="{{ $k }}" href="{{ $partners->url(1) . '&budget=' . $k }}" class="text-dark">
+                <a data-value="{{ $k }}" href="{{ request()->url() . '&budget=' . $k }}" class="text-dark">
                     {{ $v }}
                 </a>
             </li>
