@@ -16,9 +16,8 @@
                 : str_replace("'", '', $partner->fr_company_name),
 
                 'location' => str_replace("'", '', $partner->address),
-                'href' => url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listing') . '/' . $partner->slug),
                 'hasThumbnail' => (bool)$partner->main_img,
-                'thumbnail' => asset('storage/images/thumbnails/' . $partner->main_img),
+
                 'canton' => __('cantons.' . strtolower($partner->location_code) . '_loc'),
                 'address' => str_replace("'", '', $partner->address),
                 'eventTypes' => array_values($partner->eventTypes()->get()->map(function ($eventType) {
