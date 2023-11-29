@@ -14,9 +14,7 @@
                 'company' => app()->getLocale() === 'en'
                 ? str_replace("'", '', $partner->en_company_name)
                 : str_replace("'", '', $partner->fr_company_name),
-                'shortDescription' => app()->getLocale() === 'en'
-                ? $partner->en_short_descr
-                : $partner->fr_short_descr,
+
                 'location' => str_replace("'", '', $partner->address),
                 'href' => url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listing') . '/' . $partner->slug),
                 'hasThumbnail' => (bool)$partner->main_img,
