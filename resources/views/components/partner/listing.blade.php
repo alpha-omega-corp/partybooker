@@ -78,7 +78,7 @@
 
                                     </h5>
                                     <div class="card-text description"
-                                         x-text="$('<div/>').text(partner.shortDescription).html()">
+                                         x-html="unEscape(partner.shortDescription)">
                                     </div>
 
                                     <div class="d-flex location-box">
