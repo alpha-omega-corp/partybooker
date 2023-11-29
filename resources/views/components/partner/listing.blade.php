@@ -17,7 +17,7 @@
 
                 'location' => str_replace("'", '', $partner->address),
                 'hasThumbnail' => (bool)$partner->main_img,
-                'thumbnail' => $partner->main_img ? $partner->main_img : '',
+                'thumbnail' => json_encode($partner->main_img),
                 'canton' => __('cantons.' . strtolower($partner->location_code) . '_loc'),
                 'address' => str_replace("'", '', $partner->address),
                 'eventTypes' => array_values($partner->eventTypes()->get()->map(function ($eventType) {
