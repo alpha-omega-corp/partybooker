@@ -74,10 +74,11 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title text-uppercase fw-bold listing-card-title"
-                                        x-html="unEscape(partner.company)">
+                                        x-text="partner.company">
 
                                     </h5>
-                                    <div class="card-text description" x-text="partner.shortDescription">
+                                    <div class="card-text description"
+                                         x-text="$('<div/>').text(partner.shortDescription).html()">
                                     </div>
 
                                     <div class="d-flex location-box">
