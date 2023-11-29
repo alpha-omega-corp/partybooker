@@ -74,7 +74,7 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title text-uppercase fw-bold listing-card-title"
-                                        x-text="$('<div/>').text(unEscape(partner.company)).html()">
+                                        x-html="unEscape(partner.company)">
 
                                     </h5>
                                     <div class="card-text description" x-text="partner.shortDescription">
