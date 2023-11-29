@@ -98,13 +98,15 @@
                         </div>
                     </div>
 
-
-                    <div class="listing-tags">
-                        <template x-for="et in partner.eventTypes" :key="et">
+                    @if(Request::has('event_types'))
+                        <div class="listing-tags">
+                            <template x-for="et in partner.eventTypes" :key="et">
                             <span class="badge text-bg-accent me-3" x-text="et">
                             </span>
-                        </template>
-                    </div>
+                            </template>
+                        </div>
+                    @endif
+
                 </a>
             </template>
 
