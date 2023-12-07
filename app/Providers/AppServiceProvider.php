@@ -52,8 +52,6 @@ class AppServiceProvider extends ServiceProvider
         view()->share('settings', $settings);
 
         view()->share('footerCategories', $this->getFooterCategories());
-
-
     }
 
     private function getFooterCategories()

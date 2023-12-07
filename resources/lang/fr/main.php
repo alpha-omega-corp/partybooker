@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'with' => 'avec',
     'preview' => 'Apperçu',
     'made-by' => 'Développement',
     'rating-based' => "Avis basé sur",
@@ -56,7 +57,8 @@ return [
     'top_services' => "TOP SERVICES",
 
     //Homepage
-    'title_home_h1' => "ORGANISEZ VOTRE ÉVÉNEMENT EN QUELQUES CLICS!",
+    'title_home_h1' => "ORGANISEZ VOTRE ÉVÉNEMENT",
+    'title_home_h1-1' => "EN QUELQUES",
     'title_home_h2' => "BIENVENUE SUR PARTYBOOKER",
     'category' => 'Catégories',
     'place' => 'Lieu',

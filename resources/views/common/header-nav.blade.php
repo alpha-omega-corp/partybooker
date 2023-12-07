@@ -1,10 +1,6 @@
 <nav class="navbar fixed-top bg-white">
     <div class="d-flex">
-        <a href="{{url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/')}}">
-            <x-logo/>
-        </a>
-
-        <div class="container-fluid">
+        <div class="container-fluid p-2">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar"
                     aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -54,49 +50,49 @@
                         <ul class="nav nav-flush flex-column text-center">
 
                             <x-navigation.item
-                                    page="home"
-                                    :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/')"
-                                    icon="heroicon-o-home"
-                                    :tooltip="__('main.home_page')"/>
+                                page="home"
+                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/')"
+                                icon="heroicon-o-home"
+                                :tooltip="__('main.home_page')"/>
 
                             <x-navigation.item
-                                    page="listing"
-                                    :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings'))"
-                                    icon="heroicon-o-queue-list"
-                                    :tooltip="__('main.listing_page')"/>
+                                page="listing"
+                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings'))"
+                                icon="heroicon-o-queue-list"
+                                :tooltip="__('main.listing_page')"/>
 
                             <x-navigation.item
-                                    page="partner"
-                                    :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner'))"
-                                    icon="heroicon-o-identification"
-                                    :tooltip="__('main.become_partner_page')"/>
+                                page="partner"
+                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner'))"
+                                icon="heroicon-o-identification"
+                                :tooltip="__('main.become_partner_page')"/>
                             <hr>
 
                             <x-navigation.item
-                                    page="aboutus"
-                                    :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus')) "
-                                    icon="heroicon-o-information-circle"
-                                    :tooltip="__('main.aboutus_page')"/>
+                                page="aboutus"
+                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus')) "
+                                icon="heroicon-o-information-circle"
+                                :tooltip="__('main.aboutus_page')"/>
 
 
                             <x-navigation.item
-                                    page="blog"
-                                    :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/blog')"
-                                    icon="heroicon-o-book-open"
-                                    :tooltip="__('main.blog_page')"/>
+                                page="blog"
+                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/blog')"
+                                icon="heroicon-o-book-open"
+                                :tooltip="__('main.blog_page')"/>
 
                             <x-navigation.item
-                                    page="faqs"
-                                    :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/faq')"
-                                    icon="heroicon-o-question-mark-circle"
-                                    :tooltip="__('main.faqs_page')"/>
+                                page="faqs"
+                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/faq')"
+                                icon="heroicon-o-question-mark-circle"
+                                :tooltip="__('main.faqs_page')"/>
 
 
                             <x-navigation.item
-                                    page="comments"
-                                    :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.comments'))"
-                                    icon="heroicon-o-chat-bubble-bottom-center-text"
-                                    :tooltip="__('main.comments_page')"/>
+                                page="comments"
+                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.comments'))"
+                                icon="heroicon-o-chat-bubble-bottom-center-text"
+                                :tooltip="__('main.comments_page')"/>
 
                             <div class="dropdown dropup border-top bg-primary dropdown-user">
                                 @if (Auth::user())

@@ -1,24 +1,6 @@
 <nav class="navbar fixed-top bg-white">
     <div class="d-flex">
-        <a href="<?php echo e(url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/')); ?>">
-            <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.logo','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('logo'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
-<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
-<?php endif; ?>
-<?php $component->withAttributes([]); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
-<?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
-<?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
-<?php endif; ?>
-        </a>
-
-        <div class="container-fluid">
+        <div class="container-fluid p-2">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar"
                     aria-controls="offcanvasNavbar" aria-label="Toggle navigation">

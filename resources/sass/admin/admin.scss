@@ -599,7 +599,6 @@ label {
 }
 
 input,
-select,
 textarea {
     font-family: "GothamPro";
     width: 100%;
@@ -610,7 +609,6 @@ textarea {
     margin: 10px 0 20px;
 }
 
-select,
 textarea {
     border: none;
     border-bottom: 1px solid #333;
@@ -1940,3 +1938,62 @@ input#map_address {
         }
     }
 }
+
+.select2-selection__choice {
+    background-color: $accent !important;
+    border: 0 !important;
+    color: #fff !important;
+    padding: 10px !important;
+
+    button {
+        margin: 0;
+        background-color: $danger !important;
+        color: #fff !important;
+        padding: 10px !important;
+    }
+
+    .select2-selection__choice__display {
+        margin-left: 30px !important;
+    }
+}
+
+
+.main-notifications {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    width: 30%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid $gray-300;
+
+
+    .app-notification {
+        border-radius: 20px;
+        overflow: hidden;
+
+        .notification-title {
+            display: flex;
+            color: #fff;
+            padding: 10px 10px 10px 20px;
+
+
+            h6 {
+                color: #fff;
+                margin-left: 5px;
+                font-weight: bold;
+                margin-bottom: 0;
+            }
+        }
+
+        .notification-message {
+            margin-top: 10px;
+            padding: 0 20px 20px;
+        }
+
+
+    }
+}
+

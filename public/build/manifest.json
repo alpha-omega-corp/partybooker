@@ -362,9 +362,17 @@
     "file": "assets/heart-f307dda9.svg",
     "src": "resources/images/heart.svg"
   },
+  "resources/images/home-bg.jpg": {
+    "file": "assets/home-bg-d31529fb.jpg",
+    "src": "resources/images/home-bg.jpg"
+  },
   "resources/images/home-header-bg.jpg": {
     "file": "assets/home-header-bg-99796070.jpg",
     "src": "resources/images/home-header-bg.jpg"
+  },
+  "resources/images/icons/click.svg": {
+    "file": "assets/click-f74a8178.svg",
+    "src": "resources/images/icons/click.svg"
   },
   "resources/images/icons/france.svg": {
     "file": "assets/france-d5836816.svg",
@@ -686,6 +694,10 @@
     "file": "assets/terms-bg-eaa2271f.png",
     "src": "resources/images/terms-bg.png"
   },
+  "resources/images/top.svg": {
+    "file": "assets/top-1af9facb.svg",
+    "src": "resources/images/top.svg"
+  },
   "resources/images/traiteur.png": {
     "file": "assets/traiteur-daac6e40.png",
     "src": "resources/images/traiteur.png"
@@ -763,7 +775,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/admin.css": {
-    "file": "assets/admin-f100d1f1.css",
+    "file": "assets/admin-816b53e3.css",
     "src": "resources/js/admin.css"
   },
   "resources/js/admin.js": {
@@ -773,9 +785,9 @@
       "assets/GothamPro-Italic-7ca3658f.ttf"
     ],
     "css": [
-      "assets/admin-f100d1f1.css"
+      "assets/admin-816b53e3.css"
     ],
-    "file": "assets/admin-954f2cdb.js",
+    "file": "assets/admin-2155f8a0.js",
     "imports": [
       "_module.esm-5651ee04.js"
     ],
@@ -783,17 +795,18 @@
     "src": "resources/js/admin.js"
   },
   "resources/js/app.css": {
-    "file": "assets/app-8b131a88.css",
+    "file": "assets/app-1168cbae.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "assets": [
+      "assets/home-bg-d31529fb.jpg",
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-8b131a88.css"
+      "assets/app-1168cbae.css"
     ],
-    "file": "assets/app-36431769.js",
+    "file": "assets/app-29a05364.js",
     "imports": [
       "_module.esm-5651ee04.js"
     ],

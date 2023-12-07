@@ -100,7 +100,7 @@ h6 {
     img {
         margin: 10px;
         padding: 10px;
-        width: 80px;
+        width: 120px;
 
         @media only screen and (max-width: 767px) {
             width: 50px;
@@ -243,10 +243,9 @@ a {
 
 .main-content {
     height: 100%;
-    padding-top: 100px;
 
-    @media only screen and (min-width: 767px) {
-        padding-top: 140px;
+    @media only screen and (max-width: 767px) {
+        padding-top: 100px;
     }
 }
 
@@ -1352,6 +1351,8 @@ a {
     }
 
     .glide__track {
+        margin-top: 100px;
+
         .glide__slide:hover {
             transform: scale(1.04);
             transition: .2s;
@@ -1483,29 +1484,30 @@ a {
     }
 
     .glide__bullets {
+        margin-bottom: 100px;
+        margin-top: 20px;
+
+        .glide__bullet {
+            background-color: $primary;
+            border-radius: 50% !important;
+            padding: 10px;
+            margin: 0 20px;
+
+            svg {
+                display: flex;
+                align-items: center;
+            }
+        }
 
         button {
             border-radius: 0;
 
-            svg {
-                color: $gray-700;
-            }
+
         }
 
-    }
-
-    .glide__bullet--active {
-        opacity: 80;
-        border-bottom: 2px solid $accent;
-        padding-bottom: 5px;
-
-        svg {
-            color: $accent !important;
-        }
     }
 
     .glide__bullet:hover {
-        color: #fff;
         cursor: pointer;
     }
 
@@ -1570,7 +1572,7 @@ a {
         .card__face--front {
             position: relative;
             overflow-y: hidden;
-            border-radius: 20px;
+            border-radius: 10px;
 
 
             .title {
@@ -2056,6 +2058,9 @@ html {
 
 .home-section {
     overflow-x: hidden;
+    background-image: url("../images/home-bg.jpg");
+    background-size: contain;
+    position: relative;
 
     .home-about {
 
@@ -2079,10 +2084,10 @@ html {
 
 .home-description {
     border: 8px solid $primary;
-    border-radius: 100px;
-    padding: 40px;
-    width: 400px;
+    width: 100%;
+    padding: 20px;
     margin: 20px;
+    max-width: 450px;
 
     p {
         text-align: justify;
@@ -2144,7 +2149,6 @@ html {
                 border: 8px solid $primary;
                 cursor: pointer;
                 width: 400px;
-                background-color: transparent;
 
 
                 .card-body {
@@ -2508,6 +2512,7 @@ html {
 }
 
 .dashboard-container {
+    margin-top: 100px;
     border-radius: 40px;
 }
 
@@ -4527,4 +4532,60 @@ html {
     padding: 20px;
     border-bottom: 1px solid $gray-300;
     margin-bottom: 40px;
+}
+
+.top-services-title {
+    border-top: 1px solid $gray;
+    background-color: rgba(255, 157, 0, 0.54);
+
+    h2 {
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        margin: 0;
+    }
+
+    img {
+        margin-right: 20px;
+        width: 100px;
+    }
+}
+
+.click-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 20px;
+}
+
+
+.home-categories {
+    .container {
+        padding: 80px 0 0;
+        overflow: hidden;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+}
+
+.left-accordions {
+    position: absolute;
+    top: 100px;
+    left: 4%;
+}
+
+.right-accordions {
+    position: absolute;
+    top: 100px;
+    right: 4%;
+}
+
+.home-subtitle {
+    margin-top: 40px;
+    border: 2px dashed $accent;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.btn-close {
+    color: $danger !important;
 }

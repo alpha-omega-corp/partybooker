@@ -166,8 +166,9 @@ if (document.getElementsByClassName('glide').length > 0) {
     new Glide('.glide', {
         type: 'carousel',
         keyboard: true,
-        perView: 3,
+        perView: 5,
         focusAt: "center",
+        autoplay: 2000,
         breakpoints: {
             1500: {
                 perView: 2,
@@ -176,7 +177,7 @@ if (document.getElementsByClassName('glide').length > 0) {
                 perView: 1,
             },
         },
-    }).mount({Controls, Breakpoints});
+    }).mount({Controls, Breakpoints, Autoplay});
 }
 
 

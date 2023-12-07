@@ -8,7 +8,30 @@
     <title>{{ __('partybooker-cp.listing')}} | {{ __('partybooker-cp.www')}}</title>
 @endsection
 
-@push('head')
+@section('content')
+    <div class="container mt-5">
+        <div x-data="topServiceHandler()"
+             x-init="loadPartners('{{json_encode($partners)}}', '{{json_encode($topServicesId)}}')"
+             class="w-100">
+            <form method="POST" action="{{route('top-service.update')}}">
+                @csrf
+                <label for="top" class="mb-3 text-uppercase fw-bold">
+                    Select Partners
+                </label>
+
+                <select x-ref="select" name="top[]" id="top" class="w-100"></select>
+
+                <button type="submit" class="btn btn-primary text-white w-100">
+                    Save
+                </button>
+            </form>
+            <input type="hidden" :value="value.length" id="selectCount">
+
+        </div>
+    </div>
+@endsection
+
+@push('footer')
     <script>
         function topServiceHandler() {
             return {
@@ -65,29 +88,3 @@
         }
     </script>
 @endpush
-@section('content')
-    <div class="container mt-5">
-        <div x-data="topServiceHandler()"
-             x-init="loadPartners('{{json_encode($partners)}}', '{{json_encode($topServicesId)}}')"
-             class="max-w-sm w-full">
-            <form method="POST" action="{{route('top-service.update')}}">
-                @csrf
-                <select x-ref="select" name="top[]" class="w-full"></select>
-
-                <button type="submit">
-                    {{__('partner.save')}}
-                </button>
-            </form>
-        </div>
-
-        <hr>
-        <ul>
-            @foreach($topServices as $key => $item)
-                <li>
-                    {{$key}} {{$item->partner()->first()->fr_company_name}}
-                </li>
-            @endforeach
-        </ul>
-    </div>
-@endsection
-

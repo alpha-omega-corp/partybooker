@@ -28,28 +28,23 @@
 
 @section('content')
     <section class="home-section">
-        <h1 class="display-2 text-center fw-bold text-uppercase p-5">
-            {{__('main.title_home_h1')}}
-        </h1>
 
-        <div class="container">
+        <section>
+            @include('home.about')
+        </section>
 
-            <section>
-                @include('common.home-description')
-            </section>
+        <section class="home-categories">
+            @include('home.main')
+        </section>
 
-            <section class="top-services">
-                @include('common.top-services')
-            </section>
+        <section class="top-services">
+            @include('home.top-services')
+        </section>
 
-            <section class="home-about">
-                @include('common.home-about')
-            </section>
-
-            <section class="categories">
-                @include('common.home-categories')
-            </section>
-        </div>
 
     </section>
+    <section class="mb-5 mt-5">
+        @include('home.comments')
+    </section>
+
 @endsection
