@@ -101,11 +101,6 @@ h6 {
         margin: 10px;
         padding: 10px;
         width: 120px;
-
-        @media only screen and (max-width: 767px) {
-            width: 50px;
-            padding: 0;
-        }
     }
 }
 
@@ -245,7 +240,7 @@ a {
     height: 100%;
 
     @media only screen and (max-width: 767px) {
-        padding-top: 100px;
+        padding-top: 70px;
     }
 }
 
@@ -267,6 +262,9 @@ a {
 }
 
 .about {
+    background-image: url("../images/home-bg.jpg");
+    padding-top: 110px;
+
     .about-concept {
         border-bottom: 1px solid $primary;
         font-size: large;
@@ -339,12 +337,6 @@ a {
 
     }
 
-
-    h1 {
-        margin-top: 20px;
-    }
-
-
     .stats {
         img {
             width: 50px;
@@ -352,23 +344,17 @@ a {
         }
     }
 
-    .description {
-        text-align: justify;
-        margin-top: 20px;
-        margin-bottom: 20px;
-
-        .about-stats-card {
-            border: 1px solid $gray-300;
-            border-radius: 20px;
-            padding: 10px;
-            margin-top: 60px;
-            @media only screen and (max-width: 767px) {
-                margin-top: 20px;
-            }
+    .about-stats-card {
+        border: 1px solid $gray-300;
+        border-radius: 20px;
+        margin-bottom: 60px;
+        @media only screen and (max-width: 767px) {
+            margin-top: 20px;
         }
     }
 
     .all-advantages {
+        background-color: rgba(0, 0, 0, 0.5);
         @media only screen and (min-width: 767px) {
             padding: 40px;
         }
@@ -442,14 +428,6 @@ a {
         border: solid $primary 2px;
         border-bottom: 0;
 
-        @media only screen and (min-width: 767px) {
-            padding: 100px;
-        }
-
-        @media only screen and (max-width: 767px) {
-            padding: 80px 20px 60px;
-        }
-
         .become-partner-btn {
             margin-bottom: 40px;
         }
@@ -460,6 +438,7 @@ a {
         border-radius: 20px;
         margin-bottom: 20px;
         height: 200px;
+        background-color: #fff;
 
 
         @media only screen and (max-width: 767px) {
@@ -514,6 +493,10 @@ a {
 
 .blog-section {
 
+    @media only screen and (min-width: 767px) {
+        padding-top: 120px;
+    }
+
     .card:hover {
         transform: scale(1.02);
         transition: .1s;
@@ -553,6 +536,10 @@ a {
 }
 
 .faq {
+
+    @media only screen and (min-width: 767px) {
+        padding-top: 120px;
+    }
     @media only screen and (max-width: 767px) {
         h1 {
             margin-top: 100px;
@@ -999,6 +986,9 @@ a {
 
 .become-partner {
 
+    @media only screen and (min-width: 767px) {
+        padding-top: 120px;
+    }
 
     .form-check {
         padding: 20px;
@@ -1584,6 +1574,7 @@ a {
             transform: rotateY(180deg);
             overflow: scroll;
             border-radius: 20px;
+            background-color: #fff;
 
             .sub-categories {
 
@@ -1596,7 +1587,7 @@ a {
                         margin: 10px;
 
                         a {
-                            color: $gray-700;
+                            color: $gray;
                         }
                     ;
 
@@ -1623,6 +1614,9 @@ a {
 .listing {
 
     h1 {
+        @media only screen and (min-width: 767px) {
+            padding-top: 120px;
+        }
         margin-bottom: 10px;
     }
 
@@ -1714,7 +1708,7 @@ a {
     z-index: 300;
 
     @media only screen and (max-width: 767px) {
-        left: 9rem;
+        left: 5rem;
     }
 
     a {
@@ -1894,6 +1888,8 @@ a {
 }
 
 .navbar {
+    border-bottom: 1px solid $accent;
+
     .container-fluid {
         padding: 0;
         display: flex;
@@ -2157,8 +2153,8 @@ html {
 
                 img {
                     animation: tilt-n-move-shaking 2s infinite;
-                    width: 60px;
-                    height: 60px;
+                    width: 40px;
+                    height: 40px;
                     margin-left: 70px;
                 }
 
@@ -2411,6 +2407,7 @@ html {
     .listing {
 
         h1 {
+            margin-top: 20px;
             margin-bottom: 5px;
         }
 
@@ -4535,8 +4532,8 @@ html {
 }
 
 .top-services-title {
-    border-top: 1px solid $gray;
-    background-color: rgba(255, 157, 0, 0.54);
+    border-top: 1px solid #fff;
+    background-color: rgba(255, 157, 0, 0.6);
 
     h2 {
         color: #fff;
@@ -4560,32 +4557,135 @@ html {
 
 .home-categories {
     .container {
-        padding: 80px 0 0;
+        padding: 20px 0 0;
         overflow: hidden;
         border-bottom-right-radius: 20px;
         border-bottom-left-radius: 20px;
+        border: 1px solid #fff;
     }
 }
 
-.left-accordions {
-    position: absolute;
-    top: 100px;
-    left: 4%;
-}
+.accordion-section {
 
-.right-accordions {
-    position: absolute;
-    top: 100px;
-    right: 4%;
+    .accordion-container {
+        display: flex;
+        justify-content: center !important;
+
+        .accordion-container-items {
+            display: flex;
+            flex-wrap: wrap;
+
+            @media only screen and (max-width: 991px) {
+                flex-wrap: nowrap !important;
+                flex-direction: column;
+            }
+
+            .welcome {
+                padding: 10px;
+            }
+        }
+    }
 }
 
 .home-subtitle {
     margin-top: 40px;
-    border: 2px dashed $accent;
-    padding: 40px;
-    border-radius: 20px;
 }
 
 .btn-close {
     color: $danger !important;
+}
+
+.main-title {
+    margin-bottom: 100px;
+
+    .main-title-href {
+        text-decoration: underline;
+    }
+
+    @media only screen and (min-width: 1400px) {
+        padding: 100px 80px 0 80px;
+    }
+    @media only screen and (max-width: 1400px) {
+        padding-top: 100px;
+        flex-direction: column !important;
+
+        h1 {
+            font-size: 42px !important;
+        }
+
+        .pb-logo {
+            margin-bottom: 40px;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        h1 {
+            font-size: 30px !important;
+        }
+    }
+
+    @media only screen and (max-width: 529px) {
+        h1 {
+            font-size: 24px !important;
+        }
+
+        h4 {
+            font-size: 20px;
+        }
+    }
+
+    .main-title-flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #fff;
+        color: $gray;
+        padding: 20px;
+        border-radius: 10px;
+        @media only screen and (min-width: 1401px) {
+            border: 4px solid $primary;
+        }
+    }
+
+    .pb-logo {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 4px solid $primary;
+        margin-right: 20px;
+        background-color: rgba(0, 0, 0, 0.6);
+
+    }
+
+
+}
+
+.card-title-container {
+    width: 100%;
+}
+
+.home-main-container {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+}
+
+
+.aboutus-title {
+    background-color: #fff;
+    border-radius: 10px;
+    border: 4px solid $primary;
+    padding: 20px;
+    margin: 20px 60px;
+}
+
+.about-card-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
 }

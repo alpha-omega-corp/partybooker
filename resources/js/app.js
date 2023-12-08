@@ -170,10 +170,16 @@ if (document.getElementsByClassName('glide').length > 0) {
         focusAt: "center",
         autoplay: 2000,
         breakpoints: {
-            1500: {
+            1900: {
+                perView: 4,
+            },
+            1600: {
+                perView: 3,
+            },
+            1100: {
                 perView: 2,
             },
-            767: {
+            700: {
                 perView: 1,
             },
         },

@@ -5,7 +5,7 @@ return [
     'ABOUT_PARTYBOOKER' => 'À PROPOS DE PARTYBOOKER',
     'ABOUT_PARTYBOOKER_p1' => 'Planifier soi-même des fêtes pour tous les goûts et tous les budgets. Partybooker est le site référence de services événementiels en Suisse romande. Il permet d’organiser facilement et en quelques clics, son propre événement privé ou professionnel. Créer un véritable sur-mesure, adapté à la circonstance, au style, à ses envies tout en respectant son budget. Organiser un évènement devient simple et agréable.',
     'ABOUT_PARTYBOOKER_p2' => 'Partybooker est une plateforme gratuite; un guichet unique, le site offre un large choix de prestations et de prestataires aussi dynamiques qu’intransigeants sur la qualité de leurs services.',
-    'CONCEPT' => 'LE CONCEPT DE CETTE PLATEFORME',
+    'CONCEPT' => 'LE CONCEPT',
     'CONCEPT_expl' => 'Vous souhaitez organiser un évènement? Notre mission est de faire découvrir une sélection d’endroits et de prestataires qui interviennent dans l’organisation d’un événement professionnel ou privé. Nous souhaitons faciliter, inspirer et rendre agréables les préparatifs de ces moments marquants et importants. L\'équipe de Partybooker met tout en oeuvre pour offrir une large variété sur le site et visite chaque lieu, rencontre chaque prestataire pour s\'assurer de la qualité des services. Partybooker est une plateforme utilisée pour connecter clients et prestataires, il est possible d\'utiliser le site pour envoyer la première demande directement aux prestataires. Le reste de la procedure s\'effectue entre les deux partis sans intermédiaire ou l\'intervention d\'un tiers.',
     'become_a_partner' => 'Devenir partenaire',
     'our_team' => "L'équipe",

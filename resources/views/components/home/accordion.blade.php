@@ -1,6 +1,6 @@
 @props([
     'accordion',
-    'class'
+    'class' => '',
 ])
 
 <div class="welcome {{$class}}">
@@ -12,3 +12,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    function open(i) {
+        document.getElementById(i).click();
+    }
+</script>

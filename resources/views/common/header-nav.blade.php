@@ -70,7 +70,7 @@
 
                             <x-navigation.item
                                 page="aboutus"
-                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus')) "
+                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus'))"
                                 icon="heroicon-o-information-circle"
                                 :tooltip="__('main.aboutus_page')"/>
 
@@ -86,13 +86,6 @@
                                 :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/faq')"
                                 icon="heroicon-o-question-mark-circle"
                                 :tooltip="__('main.faqs_page')"/>
-
-
-                            <x-navigation.item
-                                page="comments"
-                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.comments'))"
-                                icon="heroicon-o-chat-bubble-bottom-center-text"
-                                :tooltip="__('main.comments_page')"/>
 
                             <div class="dropdown dropup border-top bg-primary dropdown-user">
                                 @if (Auth::user())

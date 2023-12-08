@@ -178,6 +178,10 @@
     "file": "assets/cnPhone-d3aeb81f.svg",
     "src": "resources/images/cnPhone.svg"
   },
+  "resources/images/concept.svg": {
+    "file": "assets/concept-773ff538.svg",
+    "src": "resources/images/concept.svg"
+  },
   "resources/images/conception.jpg": {
     "file": "assets/conception-14884777.jpg",
     "src": "resources/images/conception.jpg"
@@ -389,6 +393,10 @@
   "resources/images/icons/uk-flag.svg": {
     "file": "assets/uk-flag-b588b412.svg",
     "src": "resources/images/icons/uk-flag.svg"
+  },
+  "resources/images/information.svg": {
+    "file": "assets/information-df0c2cc9.svg",
+    "src": "resources/images/information.svg"
   },
   "resources/images/infrastructure.svg": {
     "file": "assets/infrastructure-1a6357fe.svg",
@@ -795,7 +803,7 @@
     "src": "resources/js/admin.js"
   },
   "resources/js/app.css": {
-    "file": "assets/app-1168cbae.css",
+    "file": "assets/app-27375723.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -804,9 +812,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-1168cbae.css"
+      "assets/app-27375723.css"
     ],
-    "file": "assets/app-29a05364.js",
+    "file": "assets/app-319b7ec3.js",
     "imports": [
       "_module.esm-5651ee04.js"
     ],

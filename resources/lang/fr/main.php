@@ -101,10 +101,13 @@ return [
     'info-block-3-1' => 'Alors qu\'attendez-vous, contactez Partybooker dès aujourd\'hui et commençons la fête.',
     'info-block-title-1' => 'Qui sommes nous?',
     'info-block-title-1-1' => 'Notre emplacement',
-    'info-block-title-2' => 'Notre mission',
+    'info-block-title-2' => 'Partybooker Notre mission',
     'info-block-title-3' => 'Devenez partenaire!',
     'info-block-register' => 'Devenir partenaire',
     'info-block-pb' => 'PartyBooker',
     'info-block-at' => 'Chez',
+    'organize' => 'Organisez',
+    'your' => 'Votre',
+    'event' => 'événement',
 
 ];

@@ -100,14 +100,14 @@
                             <hr>
 
                             <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.navigation.item','data' => ['page' => 'aboutus','href' => url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus')) ,'icon' => 'heroicon-o-information-circle','tooltip' => __('main.aboutus_page')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.navigation.item','data' => ['page' => 'aboutus','href' => url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus')),'icon' => 'heroicon-o-information-circle','tooltip' => __('main.aboutus_page')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('navigation.item'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['page' => 'aboutus','href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus')) ),'icon' => 'heroicon-o-information-circle','tooltip' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('main.aboutus_page'))]); ?>
+<?php $component->withAttributes(['page' => 'aboutus','href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus'))),'icon' => 'heroicon-o-information-circle','tooltip' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('main.aboutus_page'))]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
@@ -141,23 +141,6 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['page' => 'faqs','href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/faq')),'icon' => 'heroicon-o-question-mark-circle','tooltip' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('main.faqs_page'))]); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>
-<?php $component = $__componentOriginal71c6471fa76ce19017edc287b6f4508c; ?>
-<?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
-<?php endif; ?>
-
-
-                            <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.navigation.item','data' => ['page' => 'comments','href' => url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.comments')),'icon' => 'heroicon-o-chat-bubble-bottom-center-text','tooltip' => __('main.comments_page')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
-<?php $component->withName('navigation.item'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
-<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
-<?php endif; ?>
-<?php $component->withAttributes(['page' => 'comments','href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.comments'))),'icon' => 'heroicon-o-chat-bubble-bottom-center-text','tooltip' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('main.comments_page'))]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>

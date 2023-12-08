@@ -18,20 +18,9 @@
     @endif
 @endsection
 
-@push('header')
-    <script>
-        function open(i) {
-            document.getElementById(i).click();
-        }
-    </script>
-@endpush
-
 @section('content')
     <section class="home-section">
 
-        <section>
-            @include('home.about')
-        </section>
 
         <section class="home-categories">
             @include('home.main')
