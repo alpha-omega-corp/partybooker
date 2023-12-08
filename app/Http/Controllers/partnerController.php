@@ -151,6 +151,10 @@ class partnerController extends Controller
                     'public' => false,
                     'expiration_date' => null,
                     'price' => 1,
+                    'en_short_descr' => '',
+                    'en_full_descr' => '',
+                    'fr_short_descr' => '',
+                    'fr_full_descr' => '',
                 ]);
 
                 if (Auth::user()->type === 'admin') {
