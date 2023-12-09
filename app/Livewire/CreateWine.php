@@ -85,7 +85,7 @@ class CreateWine extends Component implements HasForms
             $this->allowedPaymentsMore = json_decode($wine->other_payment, true);
             $this->deposit = $wine->deposit != null ? 'yes' : 'no';
             $this->depositDescription = $wine->deposit;
-            $this->activities = is_array($wine->service) ? $wine->service : json_decode($wine->service, true);
+            $this->activities = json_decode($wine->service, true);
             $this->participants = json_decode($wine->participant, true);
             $this->affiliations = json_decode($wine->affiliation, true);
             $this->wines = json_decode($wine->wine, true);
