@@ -10,8 +10,6 @@
 
     <div x-ref="glide" class="glide-comments">
         <div class="glide__">
-
-
             <div class="glide__track" data-glide-el="track">
                 <ul class="glide__slides">
                     <li class="glide__slide ">

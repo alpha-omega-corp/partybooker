@@ -1421,7 +1421,7 @@ a {
 
     .glide__arrows {
         position: absolute;
-        top: 40px;
+        top: 60px;
         width: 100%;
 
         .btn-top {
@@ -1445,7 +1445,7 @@ a {
         }
 
         .glide__arrow--right {
-            right: 10px;
+            right: 20px;
 
             @media only screen and (max-width: 1000px) {
                 border: 1px solid #fff;
@@ -1453,7 +1453,7 @@ a {
         }
 
         .glide__arrow--left {
-            left: 10px;
+            left: 20px;
 
             @media only screen and (max-width: 1000px) {
                 background-color: rgba(0, 0, 0, .5);
@@ -4642,7 +4642,7 @@ html {
 
     @media only screen and (max-width: 529px) {
         h1 {
-            font-size: 24px !important;
+            font-size: 20px !important;
         }
 
         h4 {

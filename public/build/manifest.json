@@ -834,7 +834,7 @@
     "src": "resources/js/admin.js"
   },
   "resources/js/app.css": {
-    "file": "assets/app-2192d325.css",
+    "file": "assets/app-b9c114e5.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -843,9 +843,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-2192d325.css"
+      "assets/app-b9c114e5.css"
     ],
-    "file": "assets/app-d433975c.js",
+    "file": "assets/app-08d56acd.js",
     "imports": [
       "_module.esm-5651ee04.js"
     ],

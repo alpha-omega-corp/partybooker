@@ -3,9 +3,9 @@
     'text',
 ])
 
-<div class="reference ">
+<div class="reference">
     <div class="d-flex justify-content-center">
-        <div class="reference-card shadow-lg">
+        <div class="reference-card">
             <div class="reference-title">
                 <div class="d-flex">
 
