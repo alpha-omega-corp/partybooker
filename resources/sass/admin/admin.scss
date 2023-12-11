@@ -649,7 +649,7 @@ button {
 }
 
 .checkmark:after {
-    content: url(/images/check.png);
+    content: url("../../images/check.png");
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1269,7 +1269,7 @@ label .zone {
 }
 
 label .zone:before {
-    content: url(../images/upload.png);
+    content: url("../../images/upload.png");
     position: absolute;
     left: 35%;
     top: 25px;
@@ -1718,7 +1718,7 @@ label .zone:before {
 }
 
 input#map_address {
-    background: url(../images/map-marker.png);
+    background: url("../../images/map-marker.png");
     background-position-x: 8px;
     background-position-y: 50%;
     padding-left: 27px;

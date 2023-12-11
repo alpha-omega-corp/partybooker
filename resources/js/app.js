@@ -168,7 +168,7 @@ if (document.getElementsByClassName('glide').length > 0) {
         keyboard: true,
         perView: 5,
         focusAt: "center",
-        autoplay: 2000,
+        // autoplay: 2000,
         breakpoints: {
             1900: {
                 perView: 4,
