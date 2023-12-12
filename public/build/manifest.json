@@ -1,6 +1,6 @@
 {
-  "_module.esm-5651ee04.js": {
-    "file": "assets/module.esm-5651ee04.js"
+  "_module.esm-cf7e3671.js": {
+    "file": "assets/module.esm-cf7e3671.js"
   },
   "resources/fonts/GothamPro-Bold.ttf": {
     "file": "assets/GothamPro-Bold-7bc28964.ttf",
@@ -826,9 +826,9 @@
     "css": [
       "assets/admin-cb7a005f.css"
     ],
-    "file": "assets/admin-414a8545.js",
+    "file": "assets/admin-62f9f2e0.js",
     "imports": [
-      "_module.esm-5651ee04.js"
+      "_module.esm-cf7e3671.js"
     ],
     "isEntry": true,
     "src": "resources/js/admin.js"
@@ -845,22 +845,22 @@
     "css": [
       "assets/app-b9c114e5.css"
     ],
-    "file": "assets/app-08d56acd.js",
+    "file": "assets/app-ddab271b.js",
     "imports": [
-      "_module.esm-5651ee04.js"
+      "_module.esm-cf7e3671.js"
     ],
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "resources/js/dashboard.css": {
-    "file": "assets/dashboard-11c93185.css",
+    "file": "assets/dashboard-63cf8038.css",
     "src": "resources/js/dashboard.css"
   },
   "resources/js/dashboard.js": {
     "css": [
-      "assets/dashboard-11c93185.css"
+      "assets/dashboard-63cf8038.css"
     ],
-    "file": "assets/dashboard-2068b45c.js",
+    "file": "assets/dashboard-3ce68e85.js",
     "isEntry": true,
     "src": "resources/js/dashboard.js"
   }

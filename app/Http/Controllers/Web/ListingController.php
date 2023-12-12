@@ -66,7 +66,7 @@ class ListingController extends Controller
         }
 
         return view('web.listings.index', [
-            'partners' => $partners->orderBy('priority')->get(),
+            'partners' => $partners->orderBy('priority')->paginate(6)->fragment('partners'),
             'categories' => $this->categories,
             'eventTypes' => $this->eventTypes
         ]);

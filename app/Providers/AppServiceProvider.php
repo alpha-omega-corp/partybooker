@@ -19,6 +19,7 @@ use App\Services\PaymentTransactionService;
 use App\Services\PlanService;
 use App\Services\RequestService;
 use App\User;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -45,6 +46,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Cashier::useCustomerModel(User::class);
         Vite::macro('image', fn(string $img) => $this->asset(trim("resources/images/$img")));
+        Paginator::useBootstrapFive();
 
         Schema::defaultStringLength(191);
         $settings = DB::select('select * from settings');

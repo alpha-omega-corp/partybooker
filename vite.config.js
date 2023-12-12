@@ -1,6 +1,7 @@
 import {defineConfig} from 'vite';
 import laravel, {refreshPaths} from 'laravel-vite-plugin';
 import inject from "@rollup/plugin-inject";
+import Unlighthouse from '@unlighthouse/vite'
 
 export default defineConfig({
 
@@ -21,6 +22,10 @@ export default defineConfig({
                 'app/Livewire/**',
             ],
         }),
+        Unlighthouse({
+            debug: true,
+            site: "https://partybooker.ch",
+        })
     ],
     css: {
         preprocessorOptions: {

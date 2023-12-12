@@ -108,6 +108,8 @@
                     @endif
                 </a>
             </template>
+            <hr>
+            {{$partners->links()}}
 
         </div>
     </section>
