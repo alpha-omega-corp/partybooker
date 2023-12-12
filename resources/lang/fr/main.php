@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'more_info' => 'Un peu plus d\'informations sur nous ?',
     'with' => 'avec',
     'preview' => 'Apperçu',
     'made-by' => 'Développement',

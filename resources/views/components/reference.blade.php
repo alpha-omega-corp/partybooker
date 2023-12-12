@@ -6,6 +6,12 @@
 <div class="reference">
     <div class="d-flex justify-content-center">
         <div class="reference-card">
+            <div class="d-flex justify-content-center reference-bubble">
+                @svg('heroicon-o-chat-bubble-oval-left-ellipsis')
+            </div>
+
+            <p>{{$text}}</p>
+
             <div class="reference-title">
                 <div class="d-flex">
 
@@ -16,9 +22,6 @@
                     </h6>
                 </div>
             </div>
-
-
-            <p>{{$text}}</p>
         </div>
     </div>
 

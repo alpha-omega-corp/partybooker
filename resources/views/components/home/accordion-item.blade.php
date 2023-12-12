@@ -23,7 +23,7 @@
 
                     <div class="card-title-container">
                         <h3
-                            class="accordion-header text-uppercase fw-bold"
+                            class="accordion-header text-uppercase fw-bold text-pink"
                             id="{{'heading' . $name}}">
                             {{$title}}
                         </h3>

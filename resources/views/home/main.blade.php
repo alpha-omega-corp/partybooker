@@ -40,17 +40,13 @@
                                 $listId = $listKey . '-list';
                             @endphp
 
-                            <x-home.category :category="$category" />
+                            <x-home.category :category="$category"/>
                         @endforeach
                     </div>
                 </div>
             </div>
         </section>
     </div>
-
-    <section class="accordion-section">
-        @include('home.about')
-    </section>
 
     <div class="top-services-title">
         <div>

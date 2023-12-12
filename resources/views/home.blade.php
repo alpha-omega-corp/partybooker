@@ -20,8 +20,6 @@
 
 @section('content')
     <section class="home-section">
-
-
         <section class="home-categories">
             @include('home.main')
         </section>
@@ -29,9 +27,12 @@
         <section class="top-services">
             @include('home.top-services')
         </section>
-
-
     </section>
+    
+    <section class="accordion-section">
+        @include('home.about')
+    </section>
+
     <section class="mb-5 mt-5">
         @include('home.comments')
     </section>

@@ -811,7 +811,7 @@
     "src": "resources/images/youtube.svg"
   },
   "resources/js/admin.css": {
-    "file": "assets/admin-cb7a005f.css",
+    "file": "assets/admin-87de69f5.css",
     "src": "resources/js/admin.css"
   },
   "resources/js/admin.js": {
@@ -824,9 +824,9 @@
       "assets/map-marker-28ed7149.png"
     ],
     "css": [
-      "assets/admin-cb7a005f.css"
+      "assets/admin-87de69f5.css"
     ],
-    "file": "assets/admin-62f9f2e0.js",
+    "file": "assets/admin-56317b2b.js",
     "imports": [
       "_module.esm-cf7e3671.js"
     ],
@@ -834,7 +834,7 @@
     "src": "resources/js/admin.js"
   },
   "resources/js/app.css": {
-    "file": "assets/app-b9c114e5.css",
+    "file": "assets/app-6d2b9f0d.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -843,9 +843,9 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-b9c114e5.css"
+      "assets/app-6d2b9f0d.css"
     ],
-    "file": "assets/app-ddab271b.js",
+    "file": "assets/app-bf51e1d9.js",
     "imports": [
       "_module.esm-cf7e3671.js"
     ],

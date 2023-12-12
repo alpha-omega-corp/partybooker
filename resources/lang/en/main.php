@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'more_info' => 'A bit more information about us?',
     'with' => 'with',
     'title_home_h1-1' => 'IN A FEW',
     'preview' => 'Preview',

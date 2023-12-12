@@ -1,3 +1,7 @@
+<h2 class="text-uppercase fw-bold text-center p-5 text-standard display-4 more-information-title">
+    {{__('main.more_info')}}
+</h2>
+
 <div class="accordion-container">
     <div class="accordion-container-items">
         <x-home.accordion

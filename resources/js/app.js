@@ -12,6 +12,7 @@ import.meta.glob([
     '../../public/storage/**',
 ]);
 
+
 window.Alpine = Alpine;
 Alpine.plugin(focus);
 Alpine.start();
