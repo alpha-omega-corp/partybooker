@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Interfaces\IPlanService;
 use App\Models\Category;
 use App\Models\PartnersInfo;
-use App\Models\SwisswinDirectory;
 use App\Models\TopService;
 use DB;
 use Illuminate\Http\Request;
@@ -38,43 +37,10 @@ class mainWebsite extends Controller
             Cache::put(App()->getLocale() . '_home_page_services', $services, 600);
         }
 
-        $top = PartnersInfo::whereIn('slug', [
-            'dynam-event',
-            'le-chateau-de-l\'aile',
-            'best-western-chavannes-de-bogis',
-            'chillfood',
-            'la-cave-geneve-vieille-ville',
-            'moulin-du-creux-vich',
-            'chateau-de-coppet',
-            'twist-events-carouge-geneve',
-            'domaine-la-capitaine',
-            'domaine-des-esserts',
-            'la-caravane-passe-geneve',
-            'headphone-music--silent-disco',
-            'h2h',
-            'wtfunk',
-        ])->get();
-
-        $category = 'null';
-        $place = 'null';
-        $budget = 'null';
-        $name = 'null';
-
-
-        $swisswins = SwisswinDirectory::all();
-
-        $menuCategories = $this->categories;
-
         return view('home', [
             'top' => TopService::all()->map(fn($item) => $item->partner),
             'services' => $services,
-            'category' => $category,
-            'place' => $place,
-            'budget' => $budget,
-            'name' => $name,
-            'swisswins' => $swisswins,
             'categories' => $this->categories,
-            'menuCats' => $menuCategories
         ]);
     }
 

@@ -23,7 +23,7 @@
 
                                                     @if ($service->main_img)
                                                         <img
-                                                            src="{{ asset('/storage/images/thumbnails/' . $service->main_img) }}"
+                                                            src="{{$service->main_img}}"
                                                             alt="{{ $service->main_img }}" class="card-img-top">
                                                     @else
                                                         <img src="{{ Vite::image('placeholder.png') }}" width="500"

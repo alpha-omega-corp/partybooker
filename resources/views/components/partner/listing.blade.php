@@ -60,15 +60,14 @@
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-md-4">
-
                                 <div x-show="partner.hasThumbnail">
                                     <img :src="partner.thumbnail"
                                          :alt="partner.thumbnail" class="cover rounded">
                                 </div>
 
                                 <div x-show="!partner.hasThumbnail">
-                                    <img src="//via.placeholder.com/700x1000/fc0?text=6" class="cover rounded"
-                                         alt="...">
+                                    <img src="{{Vite::image('placeholder.png')}}" class="cover rounded"
+                                         alt="placeholder">
                                 </div>
                             </div>
                             <div class="col-md-8">

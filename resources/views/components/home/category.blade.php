@@ -10,27 +10,27 @@
                 <div class="d-flex justify-content-center">
                     @switch($category->form_name)
                         @case('event-place')
-                            @if(str_contains(strtolower($category->lang->name), 'pro'))
-                                <img src="{{Vite::image('icons/bubble.svg')}}" alt="location-pro" />
+                            @if(str_contains(strtolower($category->lang->name), 'pro') || str_contains(strtolower($category->lang->name), 'business'))
+                                <img src="{{Vite::image('icons/bubble.svg')}}" alt="location-pro"/>
                             @else
-                                <img src="{{Vite::image('icons/location.svg')}}" alt="location" />
+                                <img src="{{Vite::image('icons/location.svg')}}" alt="location"/>
                             @endif
                             @break
 
                         @case('caterer')
-                            <img src="{{Vite::image('icons/catering.svg')}}" alt="catering" />
+                            <img src="{{Vite::image('icons/catering.svg')}}" alt="catering"/>
                             @break
 
                         @case('wine')
-                            <img src="{{Vite::image('icons/wine.svg')}}" alt="catering" />
+                            <img src="{{Vite::image('icons/wine.svg')}}" alt="catering"/>
                             @break
 
                         @case('equipment')
-                            <img src="{{Vite::image('icons/maintenance.svg')}}" alt="catering" />
+                            <img src="{{Vite::image('icons/maintenance.svg')}}" alt="catering"/>
                             @break
 
                         @case('entertainment')
-                            <img src="{{Vite::image('icons/confetti.svg')}}" alt="catering" />
+                            <img src="{{Vite::image('icons/confetti.svg')}}" alt="catering"/>
                             @break
 
                     @endswitch

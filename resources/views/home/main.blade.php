@@ -34,7 +34,7 @@
                     </h2>
 
                     <div class="row d-sm-inline-flex justify-content-center mt-5 mb-5">
-                        @foreach ($menuCats as $key => $category)
+                        @foreach ($categories as $key => $category)
                             @php
                                 $listKey = 'list-category-' . $key;
                                 $listId = $listKey . '-list';
