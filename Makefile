@@ -11,3 +11,6 @@ run:
 
 dev:
     npm run dev
+
+seo:
+	npx unlighthouse --site partybooker.ch

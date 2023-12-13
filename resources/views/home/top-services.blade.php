@@ -23,7 +23,7 @@
 
                                                     @if ($service->main_img)
                                                         <img
-                                                            src="{{ '/storage/images/thumbnails/' . $service->main_img }}"
+                                                            src="{{ asset('/storage/images/thumbnails/' . $service->main_img) }}"
                                                             alt="{{ $service->main_img }}" class="card-img-top">
                                                     @else
                                                         <img src="//via.placeholder.com/700x1000/fc0?text=6" width="500"
