@@ -9,7 +9,6 @@ import Glide, {Autoplay, Breakpoints, Controls} from '@glidejs/glide/dist/glide.
 
 import.meta.glob([
     '../images/**',
-    '../../public/storage/**',
 ]);
 
 
