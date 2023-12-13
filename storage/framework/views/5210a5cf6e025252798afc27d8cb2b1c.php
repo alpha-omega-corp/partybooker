@@ -23,10 +23,12 @@
             <div class="d-flex flex-column">
                 <div class="language">
                     <a href="<?= route('setlocale', ['lang' => 'fr']) ?>" lan="fr">
-                        <img src="<?php echo e(Vite::image('switzerland.svg')); ?>" alt="Partybooker French"/>
+                        <img src="<?php echo e(Vite::image('switzerland.svg')); ?>"
+                             alt="Party Booker French"/>
                     </a>
                     <a href="<?= route('setlocale', ['lang' => 'en']) ?>" lan="en">
-                        <img src="<?php echo e(Vite::image('united-kingdom.svg')); ?>" alt="Partybooker English"/>
+                        <img src="<?php echo e(Vite::image('united-kingdom.svg')); ?>"
+                             alt="Party Booker English"/>
                     </a>
                 </div>
             </div>

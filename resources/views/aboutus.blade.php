@@ -155,11 +155,3 @@
     </section>
 
 @endsection
-
-@push('header')
-    <script>
-        function openMember(id) {
-            document.getElementById(id).click()
-        }
-    </script>
-@endpush

@@ -1,20 +1,14 @@
 import './bootstrap';
 import '../sass/app.scss'
-import Alpine from 'alpinejs';
-import focus from '@alpinejs/focus';
 
 import tippy, {animateFill} from 'tippy.js';
 import 'tippy.js/animations/scale.css';
 import Glide, {Autoplay, Breakpoints, Controls} from '@glidejs/glide/dist/glide.modular.esm'
 
+
 import.meta.glob([
     '../images/**',
 ]);
-
-
-window.Alpine = Alpine;
-Alpine.plugin(focus);
-Alpine.start();
 
 tippy('.dashboard-modal-button', {
     placement: 'top',

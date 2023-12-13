@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @if (env('APP_ENV') == 'production')
+    @if (config('app.env') == 'production')
         <!-- Google Analytics -->
         <script>
             (function (i, s, o, g, r, a, m) {
@@ -36,7 +36,6 @@
 
 <body>
 @include('common.header-nav')
-
 
 <div class="main-content">
     <x-app-notifications/>

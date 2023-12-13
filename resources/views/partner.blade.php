@@ -187,13 +187,13 @@
             </div>
         </section>
     </div>
-@endsection
 
-
-@push('header')
-    <script>
+    <script type="module">
         function contact() {
             document.getElementById('contactButton').click();
         }
     </script>
-@endpush
+@endsection
+
+
+
