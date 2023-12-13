@@ -367,7 +367,7 @@
     "src": "resources/images/heart.svg"
   },
   "resources/images/home-bg.jpg": {
-    "file": "assets/home-bg-d31529fb.jpg",
+    "file": "assets/home-bg-468f2995.jpg",
     "src": "resources/images/home-bg.jpg"
   },
   "resources/images/home-header-bg.jpg": {
@@ -606,6 +606,10 @@
     "file": "assets/pin-19427768.svg",
     "src": "resources/images/pin.svg"
   },
+  "resources/images/placeholder.png": {
+    "file": "assets/placeholder-5a646b1b.png",
+    "src": "resources/images/placeholder.png"
+  },
   "resources/images/postfinance.png": {
     "file": "assets/postfinance-5acede29.png",
     "src": "resources/images/postfinance.png"
@@ -834,18 +838,18 @@
     "src": "resources/js/admin.js"
   },
   "resources/js/app.css": {
-    "file": "assets/app-6d2b9f0d.css",
+    "file": "assets/app-1b005be7.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "assets": [
-      "assets/home-bg-d31529fb.jpg",
+      "assets/home-bg-468f2995.jpg",
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-6d2b9f0d.css"
+      "assets/app-1b005be7.css"
     ],
-    "file": "assets/app-bf51e1d9.js",
+    "file": "assets/app-9ac23a03.js",
     "imports": [
       "_module.esm-cf7e3671.js"
     ],

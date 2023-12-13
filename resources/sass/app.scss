@@ -267,7 +267,7 @@ a {
 }
 
 .about {
-    background-image: url("../images/home-bg.jpg");
+    background-image: url("/resources/images/home-bg.jpg");
     padding-top: 110px;
 
     .about-concept {
@@ -2087,7 +2087,7 @@ html {
 
 .home-section {
     overflow-x: hidden;
-    background-image: url("../images/home-bg.jpg");
+    background-image: url("/resources/images/home-bg.jpg");
     background-size: contain;
     position: relative;
 
@@ -4729,7 +4729,6 @@ html {
 }
 
 .more-information-title {
-    font-family: "GothamPro";
     border-top: 4px solid $accent;
     padding-top: 10px;
 }

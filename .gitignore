@@ -12,4 +12,5 @@ yarn-error.log
 /vendor
 /node_modules
 /public/hot
+/public/build
 .unlighthouse
