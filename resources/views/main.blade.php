@@ -32,6 +32,7 @@
     @stack('header')
 
     @vite(['resources/js/app.js'])
+    @filamentStyles
 </head>
 
 <body>

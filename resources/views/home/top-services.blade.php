@@ -1,13 +1,20 @@
 @if (count($top))
 
-    <div x-ref="glide" class="glide mt-5">
+    <div x-ref="glide" class="glide">
         <div class="glide__">
 
             <div class="top-services-container">
 
                 <div>
+                    <div class="top-services-title">
+                        <h2 class="text-white fw-bold text-uppercase">
+                            Top Services
+                        </h2>
+                    </div>
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
+
+
                             <!-- Carousel Item -->
                             @foreach ($top as $key => $service)
                                 <li class="glide__slide">

@@ -1,6 +1,14 @@
 <?php
 
 return [
+    'ideas-title' => 'Trouvez des idées',
+    'ideas-subtitle' => 'En toute simplicité',
+    'ideas-text-1' => 'Party Booker, le couteau suisse de vos événements.',
+    'ideas-text-2' => 'Trouvez le prestataire idéal en un clic.',
+    'ideas-text-3' => 'Contactez directement salles, traiteurs, DJs et plus encore.',
+    'ideas-text-4' => 'Nos équipes vous guident vers des options adaptées à votre budget pour une expérience inoubliable.',
+
+    'welcome' => 'Bievenu sur',
     'more_info' => 'Un peu plus d\'informations sur nous ?',
     'with' => 'avec',
     'preview' => 'Apperçu',

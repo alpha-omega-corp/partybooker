@@ -1,6 +1,16 @@
 <?php
 
 return [
+    'ideas-title' => 'Find ideas',
+    'ideas-subtitle' => 'In all simplicity',
+
+    'ideas-text-1' => 'Party Booker, the Swiss army knife for your events.',
+    'ideas-text-2' => 'Find the ideal provider in one click.',
+    'ideas-text-3' => 'Contact venues, caterers, DJs and more directly.',
+    'ideas-text-4' => 'Our teams guide you towards options adapted to your budget for an unforgettable experience.',
+
+    'welcome' => 'Welcome to',
+
     'more_info' => 'A bit more information about us?',
     'with' => 'with',
     'title_home_h1-1' => 'IN A FEW',

@@ -1,10 +1,11 @@
 @props([
     'name',
     'image',
-    'accordion'
+    'accordion',
+    'show' => false,
 ])
 
-<div class="card mb-5 shadow-lg">
+<div class="card mb-4 shadow-lg">
     <div class="card-body" x-data="{ c: '{{$name}}' }"
          @click="open(c)">
         <div class="card-text">
@@ -31,7 +32,7 @@
 
                 </div>
 
-                <div id="{{'collapse' . $name}}" class="accordion-collapse collapse"
+                <div id="{{'collapse' . $name}}" class="accordion-collapse collapse {{$show ? 'show' : ''}}"
                      aria-labelledby="{{'heading' . $name}}"
                      data-bs-parent="{{'#'. $accordion}}">
                     <div class="accordion-body">

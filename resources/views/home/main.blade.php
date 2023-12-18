@@ -24,29 +24,6 @@
             </div>
         </div>
     </div>
-    <div class="home-main-container">
-        <section class="categories">
-            <div class="items">
-                <div class="container">
-
-                    <h2 class="fw-bold text-uppercase text-center d-none">
-                        {{ __('main.category')}}
-                    </h2>
-
-                    <div class="row d-sm-inline-flex justify-content-center mt-5 mb-5">
-                        @foreach ($categories as $key => $category)
-                            @php
-                                $listKey = 'list-category-' . $key;
-                                $listId = $listKey . '-list';
-                            @endphp
-
-                            <x-home.category :category="$category"/>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
 
     <div class="top-services-title">
         <div>

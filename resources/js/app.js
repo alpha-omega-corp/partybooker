@@ -184,7 +184,17 @@ if (document.getElementsByClassName('glide').length > 0) {
 if (document.getElementsByClassName('glide-comments').length > 0) {
     const glide = new Glide('.glide-comments', {
         type: 'carousel',
-        autoplay: 8000
-    }).mount({Controls, Autoplay});
+        perView: 3,
+        breakpoints: {
+            1500: {
+                perView: 2,
+            },
+            1000: {
+                perView: 1,
+            },
+
+        },
+
+    }).mount({Controls, Autoplay, Breakpoints});
     glide.play()
 }

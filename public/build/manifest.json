@@ -1,6 +1,12 @@
 {
-  "_module.esm-cf7e3671.js": {
-    "file": "assets/module.esm-cf7e3671.js"
+  "_bootstrap-d04b02ea.js": {
+    "file": "assets/bootstrap-d04b02ea.js",
+    "imports": [
+      "_module.esm-34d27c62.js"
+    ]
+  },
+  "_module.esm-34d27c62.js": {
+    "file": "assets/module.esm-34d27c62.js"
   },
   "resources/fonts/GothamPro-Bold.ttf": {
     "file": "assets/GothamPro-Bold-7bc28964.ttf",
@@ -830,15 +836,16 @@
     "css": [
       "assets/admin-cf4f2287.css"
     ],
-    "file": "assets/admin-dd806213.js",
+    "file": "assets/admin-08f04066.js",
     "imports": [
-      "_module.esm-cf7e3671.js"
+      "_bootstrap-d04b02ea.js",
+      "_module.esm-34d27c62.js"
     ],
     "isEntry": true,
     "src": "resources/js/admin.js"
   },
   "resources/js/app.css": {
-    "file": "assets/app-b532cbc7.css",
+    "file": "assets/app-1488cb3e.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -847,11 +854,12 @@
       "assets/right-arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-b532cbc7.css"
+      "assets/app-1488cb3e.css"
     ],
-    "file": "assets/app-836d0ada.js",
+    "file": "assets/app-96968767.js",
     "imports": [
-      "_module.esm-cf7e3671.js"
+      "_bootstrap-d04b02ea.js",
+      "_module.esm-34d27c62.js"
     ],
     "isEntry": true,
     "src": "resources/js/app.js"
@@ -864,7 +872,10 @@
     "css": [
       "assets/dashboard-63cf8038.css"
     ],
-    "file": "assets/dashboard-3ce68e85.js",
+    "file": "assets/dashboard-11e4fc6d.js",
+    "imports": [
+      "_module.esm-34d27c62.js"
+    ],
     "isEntry": true,
     "src": "resources/js/dashboard.js"
   }
