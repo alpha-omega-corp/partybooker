@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'edit_slug' => 'Edit Hyperlink (URL)',
+
     'gallery_info' => 'This partner cannot upload images.',
     'trial_ending' => 'Your trial period ends the :date',
     'dashboard' => 'Dashboard',

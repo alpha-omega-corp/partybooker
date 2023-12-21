@@ -20,7 +20,7 @@
                             <x-partner-info
                                 icon="heroicon-o-envelope"
                                 tooltip="email"
-                                content="{{$partner->user->email}}"
+                                content="{{$partner->user->display_email ? $partner->user->display_email : $partner->user->email}}"
                                 type="email"/>
 
                             <x-partner-info

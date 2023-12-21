@@ -181,6 +181,9 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         //PARTNER profile
         //Route::get('/cp/partner-cp/{id_partner}', 'partnerController@index');
         //post
+        Route::post('/cp/partner-cp/edit-company-slug', [ProfileController::class, 'editSlug']);
+
+
         Route::post('/cp/partner-cp/change-plan', 'partnerController@ChangePlanByAdmin');
         Route::post('/cp/partner-cp/set-commission', '\App\Http\Controllers\Web\PartnerController@setCommission');
         Route::get('/cp/get-categories', '\App\Http\Controllers\Web\ProfileController@getCategories');
@@ -255,6 +258,10 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::get('/partner-cp/{id_partner}/plans',
             [ProfileController::class, 'plans'])
             ->name('profile-plans');
+
+        Route::post('/partner-cp/edit-company-slug', [ProfileController::class, 'editSlug']);
+
+
         Route::post('/partner-cp/edit-event-types', [ProfileController::class, 'updateEventTypes'])->name('update-et');
         Route::post('/partner-cp/edit-image-alt', [ProfileController::class, 'editImagesAlt'])->name('alt.update');
         Route::post('/service-images/thumbnail', [ServiceImageController::class, 'thumbnail'])->name('thumbnail.update');
@@ -268,6 +275,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         //post
         Route::post('/partner-form', '\App\Http\Controllers\Web\ProfileController@partnerContact')->name('partner-contact');
         Route::post('/partner-cp/edit-contacts', '\App\Http\Controllers\Web\ProfileController@editContacts');
+
         Route::post('/partner-cp/edit-company', '\App\Http\Controllers\Web\ProfileController@editCompany')->name('company.update');
         Route::post('/partner-cp/edit-company-description', '\App\Http\Controllers\Web\ProfileController@editCompanyDescription')->name('company-description.update');
         Route::post('/partner-cp/edit-company-location', '\App\Http\Controllers\Web\ProfileController@editCompanyLocation');

@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'edit_slug' => 'Modifier le lien hypertexte (URL)',
+    
     'gallery_info' => 'Ce partenaire ne peut pas télécharger d\'images',
     'trial_ending' => 'Votre période d\'éssai se termine le :date',
     'dashboard' => 'Tableau de bord',

@@ -10,7 +10,7 @@ use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\EnsureAdOwnership;
 use App\Http\Middleware\EnsureUserSubscribed;
 use App\Http\Middleware\LocaleMiddleware;
-use App\Http\Middleware\PartnerAdmin;
+use App\Http\Middleware\PartnerMiddleware;
 use App\Http\Middleware\PartybookerAdmin;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\TrimStrings;
@@ -91,11 +91,11 @@ class Kernel extends HttpKernel
         'throttle' => ThrottleRequests::class,
         'verified' => EnsureEmailIsVerified::class,
         'admin' => PartybookerAdmin::class,
-        'partner' => PartnerAdmin::class,
         'email' => EmailVerification::class,
         'email-ok' => EmailVerified::class,
         'subscribed' => EnsureUserSubscribed::class,
-        'advertisement' => EnsureAdOwnership::class
+        'advertisement' => EnsureAdOwnership::class,
+        'partner' => PartnerMiddleware::class,
     ];
 
     /**

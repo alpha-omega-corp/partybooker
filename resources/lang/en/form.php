@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'thumbnail' => 'Choose Thumbnail',
+
     'yes' => 'Yes',
     'no' => 'No',
     'rate_type' => 'Rate based on',

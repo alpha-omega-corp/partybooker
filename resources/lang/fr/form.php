@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'thumbnail' => 'Choisir Couverture',
+
     'yes' => 'Oui',
     'no' => 'Non',
     'rate_type' => 'Tarif basé sur',

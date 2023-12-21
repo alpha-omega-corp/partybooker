@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePartnerMessage;
 use App\Http\Requests\UpdateImageAlt;
 use App\Http\Requests\UpdatePlanRequest;
+use App\Http\Requests\UpdateSlugRequest;
 use App\Interfaces\IAdvertService;
 use App\Interfaces\IPlanService;
 use App\Models\Advert;
@@ -40,6 +41,18 @@ class ProfileController extends Controller
     {
         $this->planService = $planService;
         $this->advertService = $advertService;
+    }
+
+    public function editSlug(UpdateSlugRequest $request)
+    {
+        $partnerId = $request->input('partner_id');
+        $partner = PartnersInfo::where('id_partner', $partnerId)->first();
+
+        $slug = str_replace([' ', '.', ',', '--', '-'], '', strtolower($request->get('slug')));
+        $partner->slug = str_replace(['(', ')', '"', "'"], '', $slug);
+        $partner->save();
+
+        return redirect()->back()->with('success', "Slug updated.");
     }
 
     public function faq($id_partner)
@@ -189,6 +202,7 @@ class ProfileController extends Controller
             User::where('id', $user->id)->update([
                 'name' => $request->get('name'),
                 'phone' => $request->get('phone'),
+                'display_email' => $request->get('display_email'),
             ]);
 
             DB::commit();

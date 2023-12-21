@@ -4138,6 +4138,7 @@ html {
 
 .user-info-item {
     display: flex;
+    align-items: center;
 
     svg {
         margin-right: 10px;
@@ -4801,4 +4802,9 @@ html {
 
 .home-ideas {
     text-align: center;
+}
+
+.display-email-item {
+    color: $accent;
+    padding-right: 10px;
 }

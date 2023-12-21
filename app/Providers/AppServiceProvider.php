@@ -48,10 +48,11 @@ class AppServiceProvider extends ServiceProvider
         Vite::macro('image', fn(string $img) => $this->asset(trim("resources/images/$img")));
         Paginator::useBootstrapFive();
 
+        // Migrations mysql string length
         Schema::defaultStringLength(191);
+
         $settings = DB::select('select * from settings');
         view()->share('settings', $settings);
-
         view()->share('footerCategories', $this->getFooterCategories());
     }
 

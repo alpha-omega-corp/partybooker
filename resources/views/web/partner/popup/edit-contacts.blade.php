@@ -1,6 +1,6 @@
 <x-dashboard.modal
     id="editContacts"
-    :title="__('partner.edit_contacts')"
+    :title="$user->email"
     :button="__('partner.edit')"
     :action="Auth::user()->type == 'admin'
             ? url(App\Http\Middleware\LocaleMiddleware::getLocale().'/cp/partner-cp/edit-contacts')
@@ -23,10 +23,10 @@
         icon="heroicon-m-device-phone-mobile"/>
 
     <x-dashboard.input
-        name="email"
         type="email"
-        :value="$user->email"
-        :disabled="true"
+        name="display_email"
+        label="Display Email"
+        :value="$user->display_email"
         icon="heroicon-o-envelope"/>
 
 

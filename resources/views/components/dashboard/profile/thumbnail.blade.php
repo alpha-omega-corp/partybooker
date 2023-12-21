@@ -81,7 +81,7 @@
 
                     <input type="hidden" name="partnerId" value="{{$partner->id_partner}}"/>
 
-                    <button type="button" class="btn btn-accent w-100" x-data="{target: 'thumbnail'}"
+                    <button type="button" class="btn btn-accent w-100 text-uppercase" x-data="{target: 'thumbnail'}"
                             @click="document.getElementById(target).click()">
                         {{__('form.thumbnail')}}
                     </button>

@@ -39,6 +39,9 @@
             {{'partybooker.ch/' . __('urls.listing') . '/' . $partner->slug}}
         </a>
     </x-dashboard.company-info>
+
+    @include('web.partner.popup.edit-slug')
+
 </x-dashboard.card>
 
 <script type="module">

@@ -20,6 +20,7 @@ class User extends Authenticatable implements CanResetPassword
         'id_partner',
         'name',
         'email',
+        'display_email',
         'password',
         'email_verification',
         'type',
@@ -35,6 +36,19 @@ class User extends Authenticatable implements CanResetPassword
         'email_verified_at' => 'datetime',
         'trial_ends_at' => 'datetime',
     ];
+
+    public function isAdmin(): bool
+    {
+        return $this->type === 'admin';
+    }
+
+    public function sanitizeRoute(string $path): string
+    {
+        $isAdmin = $this->type === 'admin';
+        return $isAdmin
+            ? url('/cp/partner-cp' . $path)
+            : url('/partner-cp' . $path);
+    }
 
     public function partnerInfo(): HasOne
     {
