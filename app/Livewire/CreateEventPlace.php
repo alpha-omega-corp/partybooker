@@ -3,7 +3,6 @@
 namespace App\Livewire;
 
 use App\Helpers\BarDanceFloorTranslatorHelper;
-use App\Helpers\BudgetsHelper;
 use App\Helpers\ConveniencesTranslatorHelper;
 use App\Helpers\EventsStaffTranslatorHelper;
 use App\Helpers\FurnitureTranslatorHelper;
@@ -225,26 +224,7 @@ class CreateEventPlace extends Component implements HasForms
                             ->type('text')
                             ->hidden(fn(Get $get) => $get('rateType') !== 'other')
                             ->reactive(),
-                        Select::make('budget')
-                            ->required()
-                            ->label(__('partner.budget'))
-                            ->options(BudgetsHelper::$_budgets)
-                            ->native(false),
-                        Radio::make('deposit')
-                            ->required()
-                            ->label(__('partner.booking_deposit'))
-                            ->options([
-                                'yes' => __('form.yes'),
-                                'no' => __('form.no'),
-                            ])
-                            ->descriptions([
-                                'yes' => __('partner.booking_deposit_expl'),
-                            ])->reactive(),
-                        TextInput::make('depositDescription')
-                            ->label(__('form.detail'))
-                            ->type('text')
-                            ->hidden(fn(Get $get) => $get('deposit') !== 'yes')
-                            ->reactive(),
+                        (new FormService())->Budget(),
                         (new FormService())->PaymentMethods(),
                     ]),
                 Section::make(__('partner.service_general_info'))
