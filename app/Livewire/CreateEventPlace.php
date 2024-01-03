@@ -594,7 +594,6 @@ class CreateEventPlace extends Component implements HasForms
                         ->type('text')
                         ->hidden(fn(Get $get) => $get('extension') !== 'yes')
                         ->reactive()
-
                 ]),
 
 
@@ -603,7 +602,6 @@ class CreateEventPlace extends Component implements HasForms
 
     public function submit(): void
     {
-
         $advert = Advert::where('id', $this->advertId)
             ->where('partners_info_id', $this->partnerInfoId)
             ->first();
@@ -623,7 +621,7 @@ class CreateEventPlace extends Component implements HasForms
         $item->working_time = json_encode($data['timetable']);
         $item->holidays = json_encode($data['holidays']);
         $item->extansion = $data['extension'];
-        $item->ext_true = $data['extensionDescription'];
+        $item->ext_true = $item->extansion === 'yes' ? $data['extensionDescription'] : '';
         $item->price = $data['rate'];
         $item->price_for = $data['rateType'];
         $item->paymeny = json_encode($data['allowedPayments']);
