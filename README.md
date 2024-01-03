@@ -22,7 +22,7 @@ nano pblive/.env
 
 ### Database
 
-It is necessary to create a local copy of the production Database to run the app locally
+It is necessary to create a local copy of the production db to run the app locally
 
 1. Create Docker container
 
