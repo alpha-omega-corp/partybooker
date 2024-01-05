@@ -16,6 +16,8 @@
 
 html, body {
     height: 100%;
+    width: 100%;
+    position: relative;
     overflow-x: hidden;
 }
 
@@ -4806,4 +4808,7 @@ html {
 .display-email-item {
     color: $accent;
     padding-right: 10px;
+}
+
+.editor {
 }

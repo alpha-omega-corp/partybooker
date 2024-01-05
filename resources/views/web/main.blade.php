@@ -25,15 +25,11 @@
         }
     </script>
 
-    <script src="https://cdn.tiny.cloud/1/{{config('app.tinymce')}}/tinymce/6/tinymce.min.js"
-            referrerpolicy="origin"></script>
-
     <script src="{{ asset('/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('/js/jquery.mask.js') }}"></script>
     <script src="{{ asset('/js/script.js') }}" defer></script>
 
     <script src="{{ asset('/plugins/kendo/kendo.all.min.js') }}"></script>
-
     @vite(['resources/js/app.js'])
     @filamentStyles
 </head>
@@ -54,8 +50,8 @@
     </section>
 
     @include('common.footer')
-
 </div>
+
 </body>
 
 </html>

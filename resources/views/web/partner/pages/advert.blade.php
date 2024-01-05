@@ -113,21 +113,3 @@
         </div>
     </div>
 @endsection
-
-@push('footer')
-
-    <script>
-        tinymce.init({
-            selector: '.textarea-wysiwyg',
-            // plugins: 'print preview fullpage paste  save code fullscreen link template codesample table charmap hr  advlist lists wordcount noneditable charmap',
-            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
-            menubar: 'edit view format table',
-            toolbar: 'bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | removeformat | fullscreen  preview  | link anchor',
-            toolbar_sticky: true,
-            tinycomments_mode: 'embedded',
-            height: 300,
-
-        });
-    </script>
-@endpush
-
