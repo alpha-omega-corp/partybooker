@@ -115,11 +115,11 @@ class adminController extends Controller
             'info' => $info,
             'plans' => $plans,
             'planTabs' => ['Basic', 'Commission', 'Standard', 'Premium', 'Exclusive'],
-            'basicPartners' => $partners->filter(fn($e) => $e->plan == 'basic'),
-            'commissionPartners' => $partners->filter(fn($e) => $e->plan == 'commission'),
-            'standardPartners' => $partners->filter(fn($e) => $e->plan == 'standart'),
-            'premiumPartners' => $partners->filter(fn($e) => $e->plan == 'premium'),
-            'exclusivePartners' => $partners->filter(fn($e) => $e->plan == 'exclusif'),
+            'basicPartners' => $partners->filter(fn($e) => strtolower($e->plan) == 'basic'),
+            'commissionPartners' => $partners->filter(fn($e) => strtolower($e->plan) == 'commission'),
+            'standardPartners' => $partners->filter(fn($e) => strtolower($e->plan) == 'standart'),
+            'premiumPartners' => $partners->filter(fn($e) => strtolower($e->plan) == 'premium'),
+            'exclusivePartners' => $partners->filter(fn($e) => strtolower($e->plan) == 'exclusif'),
         ]);
     }
 
