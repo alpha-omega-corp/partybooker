@@ -118,7 +118,7 @@
                                 <div class="col-md-4">
                                     @if($partner->main_img)
                                         <div>
-                                            <img src="{{'storage/images/thumbnails/' . $partner->main_img}}"
+                                            <img src="{{'/storage/images/thumbnails/' . $partner->main_img}}"
                                                  alt="{{$partner->main_img}}" class="cover rounded">
                                         </div>
                                     @else
@@ -135,9 +135,9 @@
                                         </h5>
                                         <div class="card-text description">
                                             @if(app()->getLocale() === 'en')
-                                                {{$partner->en_short_descr}}
+                                                {!! $partner->en_short_descr !!}
                                             @else
-                                                {{$partner->fr_short_descr}}
+                                                {!! $partner->fr_short_descr !!}
                                             @endif
                                         </div>
 
