@@ -117,10 +117,10 @@
                         <div class="card">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    @if($partner->thumbnail)
+                                    @if($partner->main_img)
                                         <div>
-                                            <img src="{{$partner->thumbnail}}"
-                                                 alt="{{$partner->thumbnail}}" class="cover rounded">
+                                            <img src="{{$partner->main_img}}"
+                                                 alt="{{$partner->main_img}}" class="cover rounded">
                                         </div>
                                     @else
                                         <div>
