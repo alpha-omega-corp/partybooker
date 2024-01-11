@@ -111,7 +111,6 @@
 
             <div x-show="!search">
                 @foreach($partnersFragment as $partner)
-
                     <a href="{{url(LocaleMiddleware::getLocale() . '/' . __('urls.listing') . '/' . $partner->slug)}}"
                        class="list-item">
                         <div class="card">
@@ -119,7 +118,7 @@
                                 <div class="col-md-4">
                                     @if($partner->main_img)
                                         <div>
-                                            <img src="{{$partner->main_img}}"
+                                            <img src="{{'storage/images/thumbnails/' . $partner->main_img}}"
                                                  alt="{{$partner->main_img}}" class="cover rounded">
                                         </div>
                                     @else
