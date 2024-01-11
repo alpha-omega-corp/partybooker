@@ -71,7 +71,6 @@ class ListingController extends Controller
             'categories' => $this->categories,
             'eventTypes' => $this->eventTypes
         ]);
-
     }
 
     public function category($category, Request $request)
@@ -82,6 +81,7 @@ class ListingController extends Controller
                 $query->whereNull('parent_id');
             })
             ->with(['category'])->first();
+
         if (!$locale)
             return view('404');
 
@@ -90,47 +90,22 @@ class ListingController extends Controller
             return view('404');
         }
 
-        $query_params = [];
-        $query = PartnersInfo::where('public', 1)->where('payment_status', 1)->whereHas('categories', function ($q) use ($c) {
+        $etParams = $request->input('event_types');
+        $placeParam = $request->input('place');
+
+        $partners = PartnersInfo::listing()->whereHas('categories', function ($q) use ($c) {
             $q->where('category_id', $c->id);
         });
 
-        //		if ($request->has('min_price') && $request->has('max_price')) {
-        //			$query_params['min_price'] = $request->get('min_price');
-        //			$query_params['max_price'] = $request->get('max_price');
-        //			$query = $query->whereBetween('price', [$request->get('min_price'), $request->get('max_price')]);
-        //		}
-
-        if ($request->has('budget') && ((int)$request->get('budget') != 0 && $request->get('budget') != null && $request->get('budget') != 'null')) {
-            $query->where('budget', $request->get('budget'));
-            $query_params['budget'] = $request->get('budget');
-        } else {
-            unset($query_params['budget']);
-        }
-
-        if ($request->has('order_by') && in_array($request->get('order_by'), ['name', 'price'])) {
-            $query_params['order_by'] = $request->get('order_by');
-            $query_params['order_type'] = $request->get('order_type') ?? 'asc';
-
-            if ($query_params['order_by'] == 'name') {
-                $query = $query->orderBy(app()->getLocale() . '_company_name', $query_params['order_type']);
-            }
-
-            if ($query_params['order_by'] == 'price') {
-                $query = $query->orderBy('price', $query_params['order_type']);
-            }
-        }
-
         if ($request->has('event_types')) {
-            $query_params['event_types'] = $request->get('event_types');
-            $query->whereHas('currentPlan', function ($q) {
-                $q->where('name', 'Exclusif');
-            })->whereHas('eventTypes', function ($q) use ($request) {
-                $q->whereIn('en_slug', $request->get('event_types'))->orWhereIn('fr_slug', $request->get('event_types'));
+            $partners->whereHas('eventTypes', function ($q) use ($etParams) {
+                $q->whereIn(app()->getLocale() == 'en' ? 'en_slug' : 'fr_slug', $etParams);
             });
         }
 
-        $query = $query->orderBy('priority', 'asc');
+        if ($request->has('place')) {
+            $partners->where('location_code', $placeParam);
+        }
 
         FacadesMetaTag::set('title', $locale->meta_title ?? $locale->name . ' | Partybooker');
         if (!empty($locale->meta_description)) {
@@ -142,7 +117,8 @@ class ListingController extends Controller
 
 
         return view('web.listings.category', [
-            'partners' => $query->paginate(20)->appends($query_params),
+            'partners' => $partners->get(),
+            'partnersFragment' => $partners->orderBy('priority')->paginate(6)->fragment('partners'),
             'categories' => $this->categories,
             'current' => $c,
             'banners' => $this->getBanners($c->code),
@@ -182,50 +158,24 @@ class ListingController extends Controller
         if (!$category)
             return view('404');
 
-        $query_params = [];
-        $query = PartnersInfo::where('public', 1)->where('payment_status', 1)->whereHas('categories', function ($q) use ($category) {
+        $etParams = $request->input('event_types');
+        $placeParam = $request->input('place');
+
+        $partners = PartnersInfo::listing()->whereHas('categories', function ($q) use ($category) {
             $q->where('sub_category_id', $category->id);
         });
 
-        //		if ($request->has('min_price') && $request->has('max_price')) {
-        //			$query_params['min_price'] = $request->get('min_price');
-        //			$query_params['max_price'] = $request->get('max_price');
-        //			$query = $query->whereBetween('price', [$request->get('min_price'), $request->get('max_price')]);
-        //		}
-
-        if ($request->has('budget') && ((int)$request->get('budget') != 0 && $request->get('budget') != null && $request->get('budget') != 'null')) {
-            $query->where('budget', $request->get('budget'));
-            $query_params['budget'] = $request->get('budget');
-        } else {
-            unset($query_params['budget']);
-        }
-
-        if ($request->has('order_by') && in_array($request->get('order_by'), ['name', 'price'])) {
-            $query_params['order_by'] = $request->get('order_by');
-            $query_params['order_type'] = $request->get('order_type') ?? 'asc';
-
-            if ($query_params['order_by'] == 'name') {
-                $query = $query->orderBy(app()->getLocale() . '_company_name', $query_params['order_type']);
-            }
-
-            if ($query_params['order_by'] == 'price') {
-                $query = $query->orderBy('price', $query_params['order_type']);
-            }
-        }
-
         if ($request->has('event_types')) {
-            $query_params['event_types'] = $request->get('event_types');
-            $query->whereHas('currentPlan', function ($q) {
-                $q->where('name', 'Exclusif');
-            })->whereHas('eventTypes', function ($q) use ($request) {
-                $q->whereIn('en_slug', $request->get('event_types'))->orWhereIn('fr_slug', $request->get('event_types'));
+            $partners->whereHas('eventTypes', function ($q) use ($etParams) {
+                $q->whereIn(app()->getLocale() == 'en' ? 'en_slug' : 'fr_slug', $etParams);
             });
         }
 
-        $query = $query->orderBy('priority', 'asc');
+        if ($request->has('place')) {
+            $partners->where('location_code', $placeParam);
+        }
 
         FacadesMetaTag::set('title', $locale->meta_title ?? $locale->name . ' | Partybooker');
-
         if (!empty($locale->meta_description)) {
             FacadesMetaTag::set('description', $locale->meta_description);
         }
@@ -234,7 +184,8 @@ class ListingController extends Controller
         }
 
         return view('web.listings.sub-category', [
-            'partners' => $query->paginate(20)->appends($query_params),
+            'partners' => $partners->get(),
+            'partnersFragment' => $partners->orderBy('priority')->paginate(6)->fragment('partners'),
             'categories' => $this->categories,
             'current' => $category,
             'banners' => $this->getBanners($category->code),
