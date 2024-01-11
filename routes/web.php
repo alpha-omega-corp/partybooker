@@ -11,11 +11,11 @@
 */
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\mainWebsite;
 use App\Http\Controllers\ServiceImageController;
 use App\Http\Controllers\Web\ProfileController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -92,8 +92,9 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     Route::post('/stat', 'ajaxController@statClicks');
 
     Route::get('/sitemap_{lang}.xml', 'SiteMapController@sitemap');
-
     Auth::routes();
+    Route::post('/register', [RegisterController::class, 'register'])->name('user.register');
+
 
     //EMAIL VERIFICATION
     Route::middleware(['auth'])->group(function () {

@@ -1,5 +1,5 @@
 <div class="modal fade" id="registerModalToggle" aria-hidden="true" aria-labelledby="register" tabindex="-1">
-    <form method="POST" action="<?php echo e(route('register')); ?>">
+    <form method="POST" action="<?php echo e(route('user.register')); ?>">
 
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
