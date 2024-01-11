@@ -18,8 +18,9 @@ class RegisterController extends Controller
     {
         $validated = $request->validated();
         $validated['password'] = bcrypt($validated['password']);
-
+        $validated['email_verification'] = 1;
+        
         User::create($validated);
-        return redirect()->back()->with('success', 'User created successfully, you can now login.');
+        return redirect()->back()->with('success', 'Account created, you can now login.');
     }
 }

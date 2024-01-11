@@ -17,7 +17,7 @@
                     <div class="form-floating mb-3">
                         <input type="text" name="name"
                                class="form-control <?php echo e($errors->has('name') ? ' is-invalid' : ''); ?>" id="email"
-                               value="<?php echo e(old('name')); ?>" required autofocus>
+                               value="<?php echo e(old('name')); ?>" required>
                         <label for="name">
                             Username
                         </label>

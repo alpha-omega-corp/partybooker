@@ -1,5 +1,6 @@
 @php use App\Http\Middleware\LocaleMiddleware; @endphp
 @props([
+    'partnersFragment',
     'partners'
 ])
 
@@ -50,63 +51,135 @@
                 <div class="form-text" id="basic-addon4">
                     {{ __('form.search_listing')}}
                 </div>
-                <hr>
             </div>
 
-
-            <template x-for="partner in filteredPartners()" :key="partner.id">
-                <a :href="partner.href"
-                   class="list-item">
-                    <div class="card">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <div x-show="partner.hasThumbnail">
-                                    <img :src="partner.thumbnail"
-                                         :alt="partner.thumbnail" class="cover rounded">
-                                </div>
-
-                                <div x-show="!partner.hasThumbnail">
-                                    <img src="{{Vite::image('placeholder.png')}}" class="cover rounded"
-                                         alt="placeholder">
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title text-uppercase fw-bold listing-card-title"
-                                        x-text="partner.company">
-
-                                    </h5>
-                                    <div class="card-text description"
-                                         x-html="unEscape(partner.shortDescription)">
+            <div x-show="search">
+                <template x-for="partner in filteredPartners()" :key="partner.id">
+                    <a :href="partner.href"
+                       class="list-item">
+                        <div class="card">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <div x-show="partner.hasThumbnail">
+                                        <img :src="partner.thumbnail"
+                                             :alt="partner.thumbnail" class="cover rounded">
                                     </div>
 
-                                    <div class="d-flex location-box">
-                                        <div class="location">
-                                            <img src="{{ Vite::image('map.svg') }}"/>
+                                    <div x-show="!partner.hasThumbnail">
+                                        <img src="{{Vite::image('placeholder.png')}}" class="cover rounded"
+                                             alt="placeholder">
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-uppercase fw-bold listing-card-title"
+                                            x-text="partner.company">
+
+                                        </h5>
+                                        <div class="card-text description"
+                                             x-html="unEscape(partner.shortDescription)">
                                         </div>
 
-                                        <p class="w-full">
-                                            <span x-text="partner.canton"></span>
-                                            <span x-text="partner.address"></span>
-                                        </p>
+                                        <div class="d-flex location-box">
+                                            <div class="location">
+                                                <img src="{{ Vite::image('map.svg') }}"/>
+                                            </div>
+
+                                            <p class="w-full">
+                                                <span x-text="partner.canton"></span>
+                                                <span x-text="partner.address"></span>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    @if(Request::has('event_types'))
-                        <div class="listing-tags">
-                            <template x-for="et in partner.eventTypes" :key="et">
+                        @if(Request::has('event_types'))
+                            <div class="listing-tags">
+                                <template x-for="et in partner.eventTypes" :key="et">
                             <span class="badge text-bg-accent me-3" x-text="et">
                             </span>
-                            </template>
-                        </div>
-                    @endif
-                </a>
-            </template>
+                                </template>
+                            </div>
+                        @endif
+                    </a>
+                </template>
+            </div>
+
             <hr>
-            {{$partners->links()}}
+
+            <div x-show="!search">
+                @foreach($partnersFragment as $partner)
+
+                    <a href="{{url(LocaleMiddleware::getLocale() . '/' . __('urls.listing') . '/' . $partner->slug)}}"
+                       class="list-item">
+                        <div class="card">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    @if($partner->thumbnail)
+                                        <div>
+                                            <img src="{{$partner->thumbnail}}"
+                                                 alt="{{$partner->thumbnail}}" class="cover rounded">
+                                        </div>
+                                    @else
+                                        <div>
+                                            <img src="{{Vite::image('placeholder.png')}}" class="cover rounded"
+                                                 alt="placeholder">
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-uppercase fw-bold listing-card-title">
+                                            {{$partner->en_company_name}}
+                                        </h5>
+                                        <div class="card-text description">
+                                            @if(app()->getLocale() === 'en')
+                                                {{$partner->en_short_descr}}
+                                            @else
+                                                {{$partner->fr_short_descr}}
+                                            @endif
+                                        </div>
+
+                                        <div class="d-flex location-box">
+                                            <div class="location">
+                                                <img src="{{ Vite::image('map.svg') }}"/>
+                                            </div>
+
+                                            <p class="w-full">
+                                                <span>{{__('cantons.' . strtolower($partner->location_code) . '_loc')}}</span>
+                                                <span>{{$partner->address}}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @if(Request::has('event_types'))
+                            <div class="listing-tags">
+                                @php
+                                    $eventTypes = array_values($partner->eventTypes()->get()->map(function ($eventType) {
+                                        return app()->getLocale() === 'en'
+                                            ? $eventType->en_name
+                                            : $eventType->fr_name;
+                                    })->toArray())
+                                @endphp
+                                @foreach($eventTypes as $et)
+                                    <span class="badge text-bg-accent me-3">
+                                        {{$et}}
+                                    </span>
+                                @endforeach
+                            </div>
+                        @endif
+                    </a>
+                @endforeach
+                <div class="mt-4">
+                    {{$partnersFragment->links()}}
+                </div>
+
+            </div>
 
         </div>
     </section>

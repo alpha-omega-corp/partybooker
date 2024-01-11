@@ -125,7 +125,7 @@ class PartnersInfo extends Model
 
     public function scopeListing(Builder $query): void
     {
-        $query->where('public', 1)->where('payment_status', 1);
+        $query->where('public', 1)->orderBy('priority', 'desc');
     }
 
     public function eventTypes(): BelongsToMany

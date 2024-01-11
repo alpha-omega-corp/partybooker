@@ -16,7 +16,7 @@
                     <div class="form-floating mb-3">
                         <input type="text" name="name"
                                class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" id="email"
-                               value="{{ old('name') }}" required autofocus>
+                               value="{{ old('name') }}" required>
                         <label for="name">
                             Username
                         </label>

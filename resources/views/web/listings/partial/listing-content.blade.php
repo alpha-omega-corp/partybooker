@@ -30,7 +30,9 @@
 
         <div class="col-lg-8 col-xs-12">
             <section class="partner-listing">
-                <x-partner.listing :partners="$partners"/>
+                <x-partner.listing
+                    :partners="$partners"
+                    :partners-fragment="$partnersFragment"/>
             </section>
         </div>
     </div>
