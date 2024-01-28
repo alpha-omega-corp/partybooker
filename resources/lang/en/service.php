@@ -49,10 +49,10 @@ return [
     'speaks_lang' => 'service in',
 
     'event-place' => 'Event places',
-    'wine' => 'Wine lovers',
-    'equipment' => 'Equipment/Decoration',
+    'wine' => 'WineService lovers',
+    'equipment' => 'EquipmentService/Decoration',
     'caterer' => 'Catering',
-    'entertainment' => 'Entertainment',
+    'entertainment' => 'EntertainmentService',
 
     'yes' => 'YES',
     'no' => 'NO',

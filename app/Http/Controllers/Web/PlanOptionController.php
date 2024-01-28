@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Interfaces\IPlanService;
 use App\Models\Advert;
 use App\Models\AdvertCategory;
-use App\Models\PartnersInfo;
+use App\Models\Partner;
 use App\Models\PlanOption;
 use Exception;
 use Illuminate\Http\Request;
@@ -32,7 +32,7 @@ class PlanOptionController extends Controller
         if (Auth::user()->type != 'admin') {
             $idPartner = Auth::user()->id_partner;
         }
-        $partner = PartnersInfo::where('id_partner', $idPartner)->first();
+        $partner = Partner::where('id_partner', $idPartner)->first();
         if (!$partner) {
             return response()->json([]);
         }
@@ -77,7 +77,7 @@ class PlanOptionController extends Controller
 
         DB::beginTransaction();
         try {
-            $partner = PartnersInfo::where('id_partner', $id)->first();
+            $partner = Partner::where('id_partner', $id)->first();
             if (!$partner) {
                 throw new Exception('Partner not found');
             }

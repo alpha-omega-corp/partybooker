@@ -14,13 +14,13 @@ use App\Models\Advert;
 use App\Models\AdvertCategory;
 use App\Models\Category;
 use App\Models\CategoryLocale;
-use App\Models\EventType;
 use App\Models\FrequentlyAskedQuestion;
+use App\Models\Partner;
 use App\Models\PartnerEventType;
 use App\Models\PartnerPlanOption;
-use App\Models\PartnersInfo;
 use App\Models\ServiceImage;
-use App\User;
+use App\Models\Services\EventService;
+use App\Models\User;
 use Exception;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\View\View;
@@ -46,7 +46,7 @@ class ProfileController extends Controller
     public function editSlug(UpdateSlugRequest $request)
     {
         $partnerId = $request->input('partner_id');
-        $partner = PartnersInfo::where('id_partner', $partnerId)->first();
+        $partner = Partner::where('id_partner', $partnerId)->first();
 
         $slug = str_replace([' ', '.', ',', '--', '-'], '', strtolower($request->get('slug')));
         $partner->slug = str_replace(['(', ')', '"', "'"], '', $slug);
@@ -81,7 +81,7 @@ class ProfileController extends Controller
         $plan = $validated['plan'];
         $partnerId = $validated['partnerId'];
 
-        $this->planService->activatePlan($plan, PartnersInfo::where('id_partner', $partnerId)->first());
+        $this->planService->activatePlan($plan, Partner::where('id_partner', $partnerId)->first());
         return redirect()->back()->with('success', "Plan updated.");
     }
 
@@ -114,7 +114,7 @@ class ProfileController extends Controller
     public function advert(string $id_partner): View
     {
         $user = User::where('id_partner', $id_partner)->first();
-        $partnerInfo = PartnersInfo::where('id_partner', $id_partner)->first();
+        $partnerInfo = Partner::where('id_partner', $id_partner)->first();
         $partnerInfoId = $partnerInfo->id;
         $partnerPlanOptions = PartnerPlanOption::where('partners_info_id', $partnerInfo->id)->get();
 
@@ -153,7 +153,7 @@ class ProfileController extends Controller
             ],
             'canPublishMatrix' => $this->advertService->canPublishMatrix($user->id_partner),
             'advertService' => $this->advertService,
-            'eventTypes' => EventType::all(),
+            'eventTypes' => EventService::all(),
             'partnerEventTypes' => $partnerEventTypes,
             'plans' => $this->planService->getPlans(),
         ]);
@@ -222,7 +222,7 @@ class ProfileController extends Controller
         $map = $validated->getData()['map'];
         $partnerId = $validated->getData()['partnerId'];
 
-        $partner = PartnersInfo::where('id_partner', $partnerId)->first();
+        $partner = Partner::where('id_partner', $partnerId)->first();
         $partner->address = $map['address'];
         $partner->lat = $map['lat'];
         $partner->lon = $map['lon'];
@@ -234,7 +234,7 @@ class ProfileController extends Controller
 
     public function editCompanyDescription(Request $request)
     {
-        $partner = PartnersInfo::where('id_partner', $request->input('id_partner'))->first();
+        $partner = Partner::where('id_partner', $request->input('id_partner'))->first();
         $partner->en_slogan = strip_tags($request->input('en_slogan'));
         $partner->en_short_descr = $request->input('en_short_descr');
         $partner->en_full_descr = $request->input('en_full_descr');
@@ -258,7 +258,7 @@ class ProfileController extends Controller
 
     public function editCompany(Request $request)
     {
-        $partner = PartnersInfo::where('id_partner', $request->get('id_partner'))->first();
+        $partner = Partner::where('id_partner', $request->get('id_partner'))->first();
         $logoFile = $request->file('logo_upload');
         $currentLogo = $partner->logo;
         if ($logoFile) {
@@ -291,7 +291,7 @@ class ProfileController extends Controller
             $id = Auth::user()->id_partner;
         }
 
-        $partner = PartnersInfo::where('id_partner', $id)->first();
+        $partner = Partner::where('id_partner', $id)->first();
 
         $validator = Validator::make($request->all(), [
             'www' => 'nullable|unique:partners_info,www,' . $partner->id,
@@ -303,7 +303,7 @@ class ProfileController extends Controller
 
         try {
 
-            PartnersInfo::where('id', $partner->id)
+            Partner::where('id', $partner->id)
                 ->update([
                     'facebook' => $request->facebook,
                     'twitter' => $request->twitter,
@@ -322,7 +322,7 @@ class ProfileController extends Controller
     public function updateEventTypes(Request $request)
     {
         $partnerId = $request->input('partnerId');
-        $partner = PartnersInfo::where('id_partner', $partnerId)->first();
+        $partner = Partner::where('id_partner', $partnerId)->first();
 
         $eventTypes = $request->input('eventTypes');
         if (!$eventTypes) {
@@ -331,7 +331,7 @@ class ProfileController extends Controller
         }
         DB::beginTransaction();
         try {
-            $eventTypes = EventType::whereIn('id', $request->input('eventTypes'))->get();
+            $eventTypes = EventService::whereIn('id', $request->input('eventTypes'))->get();
             if (!$eventTypes) {
                 return redirect()->back()->with('success', "Changes saved.");
             }
@@ -391,7 +391,7 @@ class ProfileController extends Controller
 
     public function setAdditionalCategories(Request $request)
     {
-        $partner = PartnersInfo::find($request->get('partners_info_id'));
+        $partner = Partner::find($request->get('partners_info_id'));
         if (!$partner) {
             return redirect()->back()->with('error', 'Partner not found');
         }
@@ -431,7 +431,7 @@ class ProfileController extends Controller
 
             AdvertCategory::insert($temp);
 
-            PartnersInfo::where('id_partner', $partner->id_partner)->update(['public' => 0]);
+            Partner::where('id_partner', $partner->id_partner)->update(['public' => 0]);
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();

@@ -1,5 +1,8 @@
 <?php
 
+use App\Enums\DateType;
+use App\Enums\ModalSize;
+use App\Enums\ModalType;
 use Buzz\LaravelGoogleCaptcha\CaptchaServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Vite;
@@ -176,6 +179,10 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'MetaTag' => Torann\LaravelMetaTags\Facades\MetaTag::class,
+        'ModalType' => ModalType::class,
+        'ModalSize' => ModalSize::class,
+        'DateType' => DateType::class,
+
     ])->toArray(),
 
     'tinymce' => env('TINYMCE_API_KEY'),

@@ -3,10 +3,9 @@
 // ! Theme after default initialization !
 
 $primary: $teal-500;
-$info: $cyan-500;
+$info: $blue-400;
 $secondary: $gray-900;
 $accent: $purple-500;
-$warning: $orange-700;
 $danger: $red-500;
 $success: $green-400;
 $orange: $orange-500;
@@ -22,6 +21,7 @@ $exclusif: $red-400;
 $basic: $gray-600;
 $commission: $green-500;
 $pink: $pink-500;
+$warning: $yellow-400;
 
 $transparent: rgba(0, 0, 0, 0.4);
 
@@ -30,7 +30,6 @@ $theme-colors: (
     "secondary": $secondary,
     "accent": $accent,
     "info": $info,
-    "warning": $warning,
     "danger": $danger,
     "success": $success,
     "light": $light,
@@ -47,13 +46,24 @@ $theme-colors: (
     "basic": $basic,
     "commission": $commission,
     "pink": $pink,
+    "warning": $warning,
 );
 
 $offcanvas-horizontal-width: auto;
 $offcanvas-bg-color: transparant;
 $offcanvas-border-width: 0;
 $modal-content-bg: $white;
-$modal-content-color: $white;
+$modal-content-color: $gray;
+
+.tippy-box[data-theme~='tippy'] {
+    color: #fff;
+    border-bottom: 2px solid $primary;
+    font-size: smaller;
+    text-transform: uppercase;
+    @media only screen and (max-width: 767px) {
+        display: none;
+    }
+}
 
 .tippy-box[data-theme~='navigation'] {
     padding: 8px;
@@ -153,6 +163,8 @@ $modal-content-color: $white;
 @import "../../node_modules/bootstrap/scss/grid";
 @import "../../node_modules/bootstrap/scss/tables";
 @import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/forms/floating-labels";
+
 @import "../../node_modules/bootstrap/scss/pagination";
 @import "../../node_modules/bootstrap/scss/tooltip";
 @import "../../node_modules/bootstrap/scss/popover";

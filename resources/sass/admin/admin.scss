@@ -1,3 +1,15 @@
+@import "../components/tab";
+@import "../components/input";
+@import "../components/file";
+@import "../components/card";
+@import "../components/modal";
+@import "../components/button";
+@import "../components/icon";
+
+.btn:hover {
+    color: $gray;
+}
+
 /* FONTS START */
 @font-face {
     font-family: 'GothamPro';
@@ -129,7 +141,6 @@ html {
 }
 
 body {
-    font-family: 'GothamPro' !important;
     min-height: 100%;
     overflow-x: hidden;
     font-size: 16px !important;
@@ -147,11 +158,6 @@ q {
     quotes: none;
 }
 
-input {
-    margin: 0;
-    padding: 0;
-    border-width: 0;
-}
 
 img {
     max-width: 100%;
@@ -212,7 +218,6 @@ button:hover,
 }
 
 /* LINKS */
-a:hover,
 .active a {
     color: #FE8A02 !important;
 }
@@ -598,7 +603,6 @@ label {
     color: $gray;
 }
 
-input,
 textarea {
     font-family: "GothamPro";
     width: 100%;

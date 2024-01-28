@@ -1,44 +1,30 @@
 <?php
 
-
 namespace App\Models;
 
-use Eloquent;
-use Illuminate\Database\Eloquent\Builder;
+use Database\Factories\PlanOptionFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-/**
- * App\Models\PlanOption
- *
- * @property int $id
- * @property int $plans_id
- * @property int $categories_count
- * @property int $sub_categories_count
- * @property int $group
- * @property-read Plan $plan
- * @method static Builder|PlanOption newModelQuery()
- * @method static Builder|PlanOption newQuery()
- * @method static Builder|PlanOption query()
- * @method static Builder|PlanOption whereCategoriesCount($value)
- * @method static Builder|PlanOption whereGroup($value)
- * @method static Builder|PlanOption whereId($value)
- * @method static Builder|PlanOption wherePlansId($value)
- * @method static Builder|PlanOption whereSubCategoriesCount($value)
- * @mixin Eloquent
- */
 class PlanOption extends Model
 {
+    use HasFactory;
+
     public $timestamps = false;
 
     protected $fillable = [
-        'plans_id',
-        'categories_count',
-        'sub_categories_count',
-        'group'
+        'categories',
+        'children',
+        'plan_id',
     ];
 
+    protected static function newFactory(): PlanOptionFactory
+    {
+        return PlanOptionFactory::new();
+    }
 
-    public function plan()
+    public function plan(): BelongsTo
     {
         return $this->belongsTo(Plan::class);
     }

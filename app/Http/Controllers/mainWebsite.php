@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Interfaces\IPlanService;
 use App\Models\Category;
-use App\Models\PartnersInfo;
 use App\Models\TopService;
 use DB;
 use Illuminate\Http\Request;
@@ -23,6 +22,7 @@ class mainWebsite extends Controller
         if ($categories) {
             $this->categories = $categories;
         } else {
+
             $this->categories = Category::with(['subcategories', 'lang', 'subcategories.lang'])->whereNull('parent_id')->get();
             Cache::put(App()->getLocale() . '_filter_categories', $this->categories, 60000);
         }
@@ -30,16 +30,8 @@ class mainWebsite extends Controller
 
     public function home()
     {
-        $services = Cache::get(App()->getLocale() . '_home_page_services');
-        if (!$services) {
-            $services = PartnersInfo::where('payment_status', 1)->where('public', 1)
-                ->with(['categories', 'categories.primaryCategory', 'categories.primaryCategory.lang'])->get();
-            Cache::put(App()->getLocale() . '_home_page_services', $services, 600);
-        }
-
         return view('home', [
             'top' => TopService::all()->map(fn($item) => $item->partner),
-            'services' => $services,
             'categories' => $this->categories,
         ]);
     }
@@ -108,57 +100,5 @@ class mainWebsite extends Controller
         return view('contacts', ['settings' => $settings, 'category' => $category, 'place' => $place, 'budget' => $budget, 'name' => $name, 'categories' => $this->categories]);
     }
 
-    public function blog()
-    {
-        $blog = collect(DB::select('select * from blog'))->sortByDesc('updated')->all();
-        foreach ($blog as $post) {
-            $text_en = html_entity_decode(strip_tags($post->article_en));
-            $post->article_en = substr($text_en, 0, 150);
 
-            $text_fr = html_entity_decode(strip_tags($post->article_fr));
-            $post->article_fr = substr($text_fr, 0, 150);
-        }
-
-        return view('blog', ['blog' => $blog]);
-    }
-
-    public function post(Request $request, $post_slug)
-    {
-        $post = DB::table('blog')->where('slug', $post_slug)->get();
-        if (count($post) > 0) {
-            return view('post', ['post' => $post]);
-        } else {
-            return view('404');
-        }
-    }
-
-    private function getPlanOptions($options)
-    {
-        $temp = [];
-        foreach ($options as $option) {
-            $temp[$option->group][] = $option;
-        }
-
-        $list = [];
-
-        foreach ($temp as $id => $opt) {
-            $name = "";
-            $j = 0;
-            foreach ($opt as $item) {
-                $name = $name . "{$item->categories_count} category ({$item->sub_categories_count} subcategory)";
-                $j++;
-                if ($j != count($opt)) {
-                    $name = $name . " and ";
-                } else {
-                    $list[] = [
-                        'group' => $id,
-                        'name' => rtrim($name, "")
-                    ];
-                    $name = '';
-                }
-            }
-        }
-
-        return $list;
-    }
 }

@@ -2,15 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\Equipment;
+use App\Models\Services\EquipmentService;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Equipment>
+ * @extends Factory<EquipmentService>
  */
 class EquipmentFactory extends Factory
 {
-    protected $model = Equipment::class;
+    protected $model = EquipmentService::class;
 
     public function definition(): array
     {

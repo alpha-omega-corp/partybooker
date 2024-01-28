@@ -1,6 +1,8 @@
 <?php
+
 namespace Database\Seeders;
 
+use Closure;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -87,7 +89,7 @@ class CategoriesTableSeeder extends Seeder
         $this->newLocale(2, 'en', 'authentic', 'Authentic');
         $this->newLocale(2, 'fr', 'authentique', 'Authentique');
 
-        $this->newLocale(3, 'en', 'estate-wine-cellar', 'Estate & Wine Cellar');
+        $this->newLocale(3, 'en', 'estate-wine-cellar', 'Estate & WineService Cellar');
         $this->newLocale(3, 'fr', 'domaine-caveau', 'Domaine et caveau');
 
         $this->newLocale(4, 'en', 'original-venue', 'Original Venue');
@@ -129,7 +131,7 @@ class CategoriesTableSeeder extends Seeder
         $this->newLocale(16, 'en', 'incentive', 'Incentive');
         $this->newLocale(16, 'fr', 'incentive', 'Incentive');
 
-        $this->newLocale(17, 'en', 'catering', 'Caterer');
+        $this->newLocale(17, 'en', 'catering', 'CatererService');
         $this->newLocale(17, 'fr', 'traiteur', 'Traiteur');
 
         $this->newLocale(18, 'en', 'local-artisan', 'Local Artisan');
@@ -150,10 +152,10 @@ class CategoriesTableSeeder extends Seeder
         $this->newLocale(23, 'en', 'delivery', 'Delivery Service');
         $this->newLocale(23, 'fr', 'livraison', 'Service de livraison');
 
-        $this->newLocale(24, 'en', 'wine-lovers', 'Wine lovers');
+        $this->newLocale(24, 'en', 'wine-lovers', 'WineService lovers');
         $this->newLocale(24, 'fr', 'amoureux-vin', 'Amoureux du vin');
 
-        $this->newLocale(25, 'en', 'wine-tasting', 'Wine Tasting');
+        $this->newLocale(25, 'en', 'wine-tasting', 'WineService Tasting');
         $this->newLocale(25, 'fr', 'degustation-vins', 'Dégustation de vins');
 
         $this->newLocale(26, 'en', 'activities', 'Activities');
@@ -165,7 +167,7 @@ class CategoriesTableSeeder extends Seeder
         $this->newLocale(28, 'en', 'guide', 'Guide');
         $this->newLocale(28, 'fr', 'guide', 'Guide');
 
-        $this->newLocale(29, 'en', 'equipment', 'Equipment & Decoration');
+        $this->newLocale(29, 'en', 'equipment', 'EquipmentService & Decoration');
         $this->newLocale(29, 'fr', 'materiel-deco', 'Matériel & Déco');
 
         $this->newLocale(30, 'en', 'furniture', 'Furniture');
@@ -189,7 +191,7 @@ class CategoriesTableSeeder extends Seeder
         $this->newLocale(36, 'en', 'decoration', 'Decoration');
         $this->newLocale(36, 'fr', 'decoration', 'Décoration');
 
-        $this->newLocale(37, 'en', 'entertainment', 'Entertainment');
+        $this->newLocale(37, 'en', 'entertainment', 'EntertainmentService');
         $this->newLocale(37, 'fr', 'animations', 'Animation');
 
         $this->newLocale(38, 'en', 'animation', 'Animation');
@@ -208,7 +210,7 @@ class CategoriesTableSeeder extends Seeder
         $this->newLocale(42, 'fr', 'activites', 'Activités');
     }
 
-    private function newCategory(string $code, string $slug, string $form_name, \Closure $cb)
+    private function newCategory(string $code, string $slug, string $form_name, Closure $cb)
     {
         $id = DB::table('categories')->insertGetId([
             'code' => $code,

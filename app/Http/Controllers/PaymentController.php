@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Middleware\LocaleMiddleware;
 use App\Http\Requests\CashPaymentRequest;
 use App\Interfaces\IPaymentTransactionService;
-use App\Models\PartnersInfo;
+use App\Models\Partner;
 use App\Models\PaymentTransactions;
 use App\Models\Plan;
-use App\User;
+use App\Models\User;
 use Auth;
 use Config;
 use Exception;
@@ -56,7 +56,7 @@ class PaymentController extends Controller
     {
         try {
             $user = User::where("id", Auth::user()->id)->first();
-            $partner = PartnersInfo::where("id_partner", $user->id_partner)->first();
+            $partner = Partner::where("id_partner", $user->id_partner)->first();
             if ($partner == null) {
                 throw new Exception("Partner not found");
             }
@@ -77,7 +77,7 @@ class PaymentController extends Controller
                 });
             }
 
-            PartnersInfo::where("id_partner", $user->id_partner)->update([
+            Partner::where("id_partner", $user->id_partner)->update([
                 "waiting_approve_plan" => strtolower($plan->name)
             ]);
 
@@ -97,7 +97,7 @@ class PaymentController extends Controller
                 throw new Exception("Plan not found");
             }
 
-            $partner = PartnersInfo::where('id_partner', Auth::user()->id_partner)->first();
+            $partner = Partner::where('id_partner', Auth::user()->id_partner)->first();
             if (!$partner) {
                 throw new Exception("Partner not found");
             }
@@ -250,7 +250,7 @@ class PaymentController extends Controller
             $plan = Plan::find($request->plan_id);
             $user = User::where("id", Auth::user()->id)->first();
 
-            $partner = PartnersInfo::where('id_partner', Auth::user()->id_partner)->first();
+            $partner = Partner::where('id_partner', Auth::user()->id_partner)->first();
             if (!$partner) {
                 throw new Exception("Partner not found");
             }

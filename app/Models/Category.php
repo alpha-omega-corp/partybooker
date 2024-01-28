@@ -2,51 +2,43 @@
 
 namespace App\Models;
 
-use App\Http\Middleware\LocaleMiddleware;
+use Database\Factories\CategoryFactory;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-/**
- * App\Models\Category
- *
- * @property int $id
- * @property int|null $parent_id
- * @property string $code
- * @property string|null $slug
- * @property-read \App\Models\CategoryLocale $lang
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\CategoryLocale[] $locales
- * @property-read \App\Models\Category|null $parent
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Category[] $subCategories
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category whereCode($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category whereParentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category whereSlug($value)
- * @mixin \Eloquent
- */
+
 class Category extends Model
 {
-	public $timestamps = false;
+    use HasFactory;
 
-	public function subCategories()
-	{
-		return $this->hasMany(Category::class, 'parent_id', 'id');
-	}
+    public $timestamps = false;
 
-	public function parent()
-	{
-		return $this->belongsTo(Category::class, 'parent_id', 'id');
-	}
+    protected $fillable = [
+        'categorizable_id',
+        'categorizable_type',
+    ];
 
-	public function locales()
-	{
-		return $this->hasMany(CategoryLocale::class, 'categories_id', 'id');
-	}
+    protected static function newFactory(): CategoryFactory
+    {
+        return CategoryFactory::new();
+    }
 
-	public function lang()
-	{
-		$lang = LocaleMiddleware::getLocale() ? 'en' : 'fr';
-		return $this->hasOne(CategoryLocale::class, 'categories_id', 'id')->where('lang', $lang);
-	}
+    public function categorizable(): MorphTo
+    {
+        return $this->morphTo();
+    }
+
+    public function scopeParents(Builder $query): void
+    {
+        $query
+            ->whereNull('parent_id')
+            ->with(['subcategories', 'lang', 'subcategories.lang']);
+    }
+
+    public function scopeChildren(Builder $query): void
+    {
+        $query->whereNotNull('parent_id');
+    }
 }

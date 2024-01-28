@@ -2,15 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\EventPlace;
+use App\Models\Services\BusinessService;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<EventPlace>
+ * @extends Factory<BusinessService>
  */
 class EventPlaceFactory extends Factory
 {
-    protected $model = EventPlace::class;
+    protected $model = BusinessService::class;
 
     public function definition(): array
     {

@@ -5,7 +5,6 @@ namespace App\View\Composers;
 use App\Http\Middleware\LocaleMiddleware;
 use App\Models\Category;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class SettingsComposer
@@ -16,9 +15,11 @@ class SettingsComposer
 
     public function compose(View $view): void
     {
-        $settings = DB::select('select * from settings');
-        $view->with('settings', $settings);
-        $view->with('footerCategories', $this->getFooterCategories());
+        /*
+         *  $settings = DB::select('select * from settings');
+         $view->with('settings', $settings);
+         $view->with('footerCategories', $this->getFooterCategories());
+         */
     }
 
     private function getFooterCategories()

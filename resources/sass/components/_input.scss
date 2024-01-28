@@ -1,0 +1,15 @@
+.forms-input {
+    .input-group-text {
+        background-color: $accent;
+
+        svg {
+            color: #fff;
+        }
+    }
+
+    input:focus {
+        border-color: $accent;
+    }
+
+
+}

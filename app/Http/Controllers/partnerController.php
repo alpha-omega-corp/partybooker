@@ -9,14 +9,14 @@ use App\Interfaces\IPaymentTransactionService;
 use App\Models\Advert;
 use App\Models\AdvertCategory;
 use App\Models\Category;
-use App\Models\Caterer;
-use App\Models\Entertainment;
-use App\Models\Equipment;
-use App\Models\EventPlace;
-use App\Models\PartnersInfo;
+use App\Models\Partner;
 use App\Models\Plan;
-use App\Models\Wine;
-use App\User;
+use App\Models\Services\BusinessService;
+use App\Models\Services\CatererService;
+use App\Models\Services\EntertainmentService;
+use App\Models\Services\EquipmentService;
+use App\Models\Services\WineService;
+use App\Models\User;
 use Auth;
 use DB;
 use Exception;
@@ -206,7 +206,7 @@ class partnerController extends Controller
         DB::beginTransaction();
         try {
             $id_partner = $request->id_partner;
-            $partner = PartnersInfo::where('id_partner', $id_partner)->first();
+            $partner = Partner::where('id_partner', $id_partner)->first();
             if (!$partner) {
                 throw new Exception("Partner not found");
             }
@@ -231,19 +231,19 @@ class partnerController extends Controller
             Advert::where('partners_info_id', $partner->id)->update(['status' => Advert::STATUS_INACTIVE]);
             foreach ($categoriesForms as $form) {
                 $serviceType = match ($form) {
-                    'event-place' => EventPlace::class,
-                    'caterer' => Caterer::class,
-                    'wine' => Wine::class,
-                    'equipment' => Equipment::class,
-                    default => Entertainment::class,
+                    'event-place' => BusinessService::class,
+                    'caterer' => CatererService::class,
+                    'wine' => WineService::class,
+                    'equipment' => EquipmentService::class,
+                    default => EntertainmentService::class,
                 };
 
                 $serviceId = match ($form) {
-                    'event-place' => EventPlace::where('id_partner', $id_partner)->value('id'),
-                    'caterer' => Caterer::where('id_partner', $id_partner)->value('id'),
-                    'wine' => Wine::where('id_partner', $id_partner)->value('id'),
-                    'equipment' => Equipment::where('id_partner', $id_partner)->value('id'),
-                    default => Entertainment::where('id_partner', $id_partner)->value('id'),
+                    'event-place' => BusinessService::where('id_partner', $id_partner)->value('id'),
+                    'caterer' => CatererService::where('id_partner', $id_partner)->value('id'),
+                    'wine' => WineService::where('id_partner', $id_partner)->value('id'),
+                    'equipment' => EquipmentService::where('id_partner', $id_partner)->value('id'),
+                    default => EntertainmentService::where('id_partner', $id_partner)->value('id'),
                 };
 
                 $advert = Advert::where('partners_info_id', $partner->id)->where('view_name', $form);
@@ -267,7 +267,7 @@ class partnerController extends Controller
             }
 
             AdvertCategory::insert($temp);
-            PartnersInfo::where('id_partner', $id_partner)->update(['public' => 0]);
+            Partner::where('id_partner', $id_partner)->update(['public' => 0]);
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();

@@ -3,8 +3,8 @@
 namespace App\Livewire;
 
 use App\Models\Advert;
-use App\Models\PartnersInfo;
-use App\Models\Wine;
+use App\Models\Partner;
+use App\Models\Services\WineService;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Radio;
@@ -63,7 +63,7 @@ class CreateWine extends Component implements HasForms
         $this->form->fill();
         $this->advertId = $advertId;
         $this->partnerId = $partnerId;
-        $partner = PartnersInfo::where('id_partner', $this->partnerId)->first();
+        $partner = Partner::where('id_partner', $this->partnerId)->first();
         $this->partnerInfoId = $partner->id;
 
         $advert = Advert::where('id', $this->advertId)
@@ -71,7 +71,7 @@ class CreateWine extends Component implements HasForms
             ->first();
 
         if ($advert->status === Advert::STATUS_ACTIVE) {
-            $wine = Wine::where('id', $advert->service_id)->first();
+            $wine = WineService::where('id', $advert->service_id)->first();
             $this->days = json_decode($wine->working_days, true);
             $this->timetable = json_decode($wine->working_time, true);
             $this->flexOpening = $wine->opening_upon;
@@ -255,13 +255,13 @@ class CreateWine extends Component implements HasForms
             ->where('partners_info_id', $this->partnerInfoId)
             ->first();
 
-        $wine = Wine::where('id', $advert->service_id)->first();
+        $wine = WineService::where('id', $advert->service_id)->first();
         $data = $this->form->getState();
 
         if ($wine) {
             $item = $wine;
         } else {
-            $item = new Wine();
+            $item = new WineService();
         }
 
         $item->id_partner = $this->partnerId;

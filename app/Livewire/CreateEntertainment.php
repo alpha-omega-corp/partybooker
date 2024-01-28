@@ -3,8 +3,8 @@
 namespace App\Livewire;
 
 use App\Models\Advert;
-use App\Models\Entertainment;
-use App\Models\PartnersInfo;
+use App\Models\Partner;
+use App\Models\Services\EntertainmentService;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
@@ -55,7 +55,7 @@ class CreateEntertainment extends Component implements HasForms
         $this->form->fill();
         $this->advertId = $advertId;
         $this->partnerId = $partnerId;
-        $partner = PartnersInfo::where('id_partner', $this->partnerId)->first();
+        $partner = Partner::where('id_partner', $this->partnerId)->first();
         $this->partnerInfoId = $partner->id;
 
         $advert = Advert::where('id', $this->advertId)
@@ -63,7 +63,7 @@ class CreateEntertainment extends Component implements HasForms
             ->first();
 
         if ($advert->status === Advert::STATUS_ACTIVE) {
-            $entertainment = Entertainment::where('id', $advert->service_id)->first();
+            $entertainment = EntertainmentService::where('id', $advert->service_id)->first();
             $this->days = json_decode($entertainment->working_days);
             $this->timetable = json_decode($entertainment->working_time, true);
             $this->duration = json_decode($entertainment->duration, true);
@@ -269,13 +269,13 @@ class CreateEntertainment extends Component implements HasForms
             ->where('partners_info_id', $this->partnerInfoId)
             ->first();
 
-        $entertainment = Entertainment::where('id', $advert->service_id)->first();
+        $entertainment = EntertainmentService::where('id', $advert->service_id)->first();
         $data = $this->form->getState();
 
         if ($entertainment) {
             $item = $entertainment;
         } else {
-            $item = new Entertainment();
+            $item = new EntertainmentService();
         }
 
         $item->id_partner = $this->partnerId;

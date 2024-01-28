@@ -7,10 +7,10 @@ use App\Models\Advert;
 use App\Models\AdvertCategory;
 use App\Models\Category;
 use App\Models\CategoryLocale;
-use App\Models\EventType;
-use App\Models\PartnersInfo;
+use App\Models\Partner;
 use App\Models\PartnerVipPlan;
 use App\Models\ServiceImage;
+use App\Models\Services\EventService;
 use App\Models\Statistic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,40 +38,15 @@ class ListingController extends Controller
         if ($event) {
             $this->eventTypes = $event;
         } else {
-            $event = EventType::all();
-            foreach ($event as $item) {
-                $this->eventTypes[] = [
-                    'slug' => $item->{app()->getLocale() . '_slug'},
-                    'name' => $item->{app()->getLocale() . '_name'}
-                ];
-            }
+            $this->eventTypes = EventService::all()->map(fn($item) => [
+                'slug' => $item->{app()->getLocale() . '_slug'},
+                'name' => $item->{app()->getLocale() . '_name'}
+            ]);
+
             Cache::put(app()->getLocale() . '_filter_events', $this->eventTypes, 60000);
         }
     }
 
-    public function index(Request $request)
-    {
-        $etParams = $request->input('event_types');
-        $placeParam = $request->input('place');
-        $partners = PartnersInfo::listing();
-
-        if ($request->has('event_types')) {
-            $partners->whereHas('eventTypes', function ($q) use ($etParams) {
-                $q->whereIn(app()->getLocale() == 'en' ? 'en_slug' : 'fr_slug', $etParams);
-            });
-        }
-
-        if ($request->has('place')) {
-            $partners->where('location_code', $placeParam);
-        }
-
-        return view('web.listings.index', [
-            'partners' => $partners->get(),
-            'partnersFragment' => $partners->orderBy('priority')->paginate(6)->fragment('partners'),
-            'categories' => $this->categories,
-            'eventTypes' => $this->eventTypes
-        ]);
-    }
 
     public function category($category, Request $request)
     {
@@ -93,7 +68,7 @@ class ListingController extends Controller
         $etParams = $request->input('event_types');
         $placeParam = $request->input('place');
 
-        $partners = PartnersInfo::listing()->whereHas('categories', function ($q) use ($c) {
+        $partners = Partner::listing()->whereHas('categories', function ($q) use ($c) {
             $q->where('category_id', $c->id);
         });
 
@@ -161,7 +136,7 @@ class ListingController extends Controller
         $etParams = $request->input('event_types');
         $placeParam = $request->input('place');
 
-        $partners = PartnersInfo::listing()->whereHas('categories', function ($q) use ($category) {
+        $partners = Partner::listing()->whereHas('categories', function ($q) use ($category) {
             $q->where('sub_category_id', $category->id);
         });
 
@@ -197,7 +172,7 @@ class ListingController extends Controller
     public function filtered(Request $request)
     {
         $query_params = [];
-        $query = PartnersInfo::where('public', 1)->where('payment_status', 1);
+        $query = Partner::where('public', 1)->where('payment_status', 1);
         //		if ($request->has('min_price') && $request->has('max_price')) {
         //			$query_params['min_price'] = $request->get('min_price');
         //			$query_params['max_price'] = $request->get('max_price');
@@ -282,7 +257,7 @@ class ListingController extends Controller
 
     public function service(Request $request, $slug)
     {
-        $partner = PartnersInfo::where('slug', $slug)->with(['currentPlan', 'user', 'categories', 'categories.primaryCategory'])->with(['services' => function ($query) {
+        $partner = Partner::where('slug', $slug)->with(['currentPlan', 'user', 'categories', 'categories.primaryCategory'])->with(['services' => function ($query) {
             $query->where('status', Advert::STATUS_ACTIVE);
         }])->first();
 
@@ -322,7 +297,7 @@ class ListingController extends Controller
             'subCategories' => $subCategories,
             'services' => $services,
             'rates' => count($partner->rates),
-            'adverts' => PartnersInfo::where('public', 1)
+            'adverts' => Partner::where('public', 1)
                 ->where('payment_status', 1)
                 ->orderBy('priority')
                 ->orderBy('average_rate', 'desc')

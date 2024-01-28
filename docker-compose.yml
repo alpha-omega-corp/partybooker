@@ -1,13 +1,19 @@
 version: '3.1'
-
 services:
-  pbsql:
-    image: xqdocker/ubuntu-mysql-5.5
+  db:
+    image: mariadb
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: pb
-      MYSQL_PASSWORD: pb
-      MYSQL_DATABASE: partybooker
+      MARIADB_ROOT_PASSWORD: pb
+      MARIADB_DATABASE: pb
     ports:
       - "3306:3306"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+
+

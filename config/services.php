@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+
 return [
 
     /*
@@ -35,7 +37,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => App\User::class,
+        'model' => User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
         'webhook' => [
@@ -49,9 +51,9 @@ return [
         'redirect' => env('FACEBOOK_REDIRECT'),
     ],
     'google' => [
-        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect'      => env('GOOGLE_REDIRECT')
+        'redirect' => env('GOOGLE_REDIRECT')
     ],
     'twitter' => [
         'client_id' => env('TWITTER_CLIENT_ID'),

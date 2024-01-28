@@ -6,7 +6,7 @@ namespace App\Services;
 use App\Interfaces\IAdvertService;
 use App\Models\Advert;
 use App\Models\AdvertCategory;
-use App\Models\PartnersInfo;
+use App\Models\Partner;
 
 class AdvertService implements IAdvertService
 {
@@ -17,7 +17,7 @@ class AdvertService implements IAdvertService
 
     public function canPublishMatrix(string $partnerUid): array
     {
-        $partnerInfo = PartnersInfo::where('id_partner', $partnerUid)->first();
+        $partnerInfo = Partner::where('id_partner', $partnerUid)->first();
         $advertCategory = AdvertCategory::where('id_partner', $partnerInfo->id_partner);
         $advert = Advert::where('partners_info_id', $partnerInfo->id);
 

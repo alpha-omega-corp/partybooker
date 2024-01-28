@@ -30,6 +30,8 @@ import 'tinymce/plugins/link';
 import 'tinymce/plugins/lists';
 import 'tinymce/plugins/table';
 
+window.tinyPlugins = 'advlist code emoticons link lists table'
+window.tinyOptions = 'bold italic | bullist numlist | link emoticons'
 
 window.Alpine = Alpine;
 Alpine.plugin(focus);

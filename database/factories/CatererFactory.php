@@ -2,15 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\Caterer;
+use App\Models\Services\CatererService;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Caterer>
+ * @extends Factory<CatererService>
  */
 class CatererFactory extends Factory
 {
-    protected $model = Caterer::class;
+    protected $model = CatererService::class;
 
     public function definition(): array
     {

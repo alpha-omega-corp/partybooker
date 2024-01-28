@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $category
  * @property string $image_name
  * @property int|null $is_main
- * @property-read PartnersInfo $partner
+ * @property-read Partner $partner
  * @method static Builder|ServiceImage newModelQuery()
  * @method static Builder|ServiceImage newQuery()
  * @method static Builder|ServiceImage query()
@@ -43,6 +43,6 @@ class ServiceImage extends Model
 
     public function partner()
     {
-        return $this->belongsTo(PartnersInfo::class);
+        return $this->belongsTo(Partner::class);
     }
 }

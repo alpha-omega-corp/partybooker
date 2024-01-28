@@ -6,8 +6,8 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Advert;
-use App\Models\Entertainment;
-use App\Models\PartnersInfo;
+use App\Models\Partner;
+use App\Models\Services\EntertainmentService;
 use DB;
 use Exception;
 use Illuminate\Http\Request;
@@ -35,7 +35,7 @@ class EntertainmentController extends Controller
 
         DB::rollBack();
         try {
-            $partner = PartnersInfo::where('id_partner', $id_partner)->first();
+            $partner = Partner::where('id_partner', $id_partner)->first();
             if (!$partner) {
                 throw new Exception('Partner info not found forbidden');
             }
@@ -45,7 +45,7 @@ class EntertainmentController extends Controller
                 throw new Exception('Access forbidden');
             }
 
-            $item = new Entertainment();
+            $item = new EntertainmentService();
             $item->id_partner = $partner->id_partner;
 
             $item->working_days = json_encode($request->working_days);
@@ -74,7 +74,7 @@ class EntertainmentController extends Controller
             $advert->status = Advert::STATUS_ACTIVE;
             $item->advert()->save($advert);
 
-            PartnersInfo::where('id_partner', $id_partner)->update(['budget' => $budget]);
+            Partner::where('id_partner', $id_partner)->update(['budget' => $budget]);
 
             DB::commit();
         } catch (Exception $e) {

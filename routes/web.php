@@ -13,10 +13,57 @@
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BillingController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\mainWebsite;
 use App\Http\Controllers\ServiceImageController;
 use App\Http\Controllers\Web\ProfileController;
+use App\Http\Middleware\LocaleMiddleware;
 use Illuminate\Support\Facades\Route;
+
+Route::prefix(LocaleMiddleware::getLocale())->group(function () {
+    Route::fallback(function () {
+        return response()->view('404');
+    });
+
+    Route::name('guest.')
+        ->group(function () {
+
+            Route::controller(HomeController::class)
+                ->name('home.')
+                ->group(function () {
+                    Route::get('/', 'index')->name('index');
+                    Route::get('/annonces/{category?}/{child?}', 'listing')->name('listing');
+
+                });
+
+            Route::controller(BlogController::class)
+                ->name('blog.')
+                ->prefix('blog')
+                ->group(function () {
+                    Route::get('/', 'index')->name('index');
+                    Route::get('/{post:slug}', 'show')->name('show');
+                });
+
+        });
+
+    Route::middleware('admin')
+        ->name('admin.')
+        ->prefix('cp')
+        ->group(function () {
+
+            Route::controller(BlogController::class)
+                ->name('blog.')
+                ->prefix('blog')
+                ->group(function () {
+                    Route::get('/', 'manage')->name('manage');
+                    Route::post('/', 'store')->name('store');
+                    Route::put('/{post}', 'update')->name('update');
+                    Route::delete('/{post}', 'destroy')->name('destroy');
+                    Route::put('/{post}/status', 'status')->name('status');
+                });
+        });
+});
 
 
 Route::group(['prefix' => 'en'], function () {
@@ -45,10 +92,7 @@ Route::group(['prefix' => null], function () {
     Route::view('/partenaire/inscription', 'partner-register');
 
 
-    Route::get('/annonces', '\App\Http\Controllers\Web\ListingController@index');
     Route::get('/annonces-filtered', '\App\Http\Controllers\Web\ListingController@filtered');
-    Route::get('/annonces/{category}', '\App\Http\Controllers\Web\ListingController@category');
-    Route::get('/annonces/{cat}/{subcat}', '\App\Http\Controllers\Web\ListingController@subcategory');
 
 
     Route::get('/annonce/{slug}', '\App\Http\Controllers\Web\ListingController@service');
@@ -59,11 +103,8 @@ Route::group(['prefix' => null], function () {
     Route::get('/plan-du-site', '\App\Http\Controllers\Web\PageController@siteMap');
 });
 
+Route::group(['prefix' => LocaleMiddleware::getLocale()], function () {
 
-Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], function () {
-    Route::fallback(function () {
-        return response()->view('404');
-    });
 
     Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
     Route::get('/callback/{provider}', 'SocialController@callback');
@@ -74,14 +115,9 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     Route::post('/password/reset', 'ResetPasswordController@reset')->name('password.reset');
 
 
-    Route::get('/', 'mainWebsite@home')->name('home');
     Route::get('/user-terms', 'mainWebsite@userterms');
     Route::get('/faq', 'mainWebsite@faq');
     Route::get('/contacts', 'mainWebsite@contacts');
-    Route::get('/blog', 'mainWebsite@blog');
-    Route::get('/blog/{post_slug}', 'mainWebsite@post');
-    //Route::get('/blog/post', 'mainWebsite@post'); //temp
-
 
     //POST
     Route::post('/partner/reg', 'partnerController@register');
@@ -106,6 +142,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     Route::get('/email-verifyed', 'emailVerify@verified')->middleware(['auth', 'email']);
     Route::get('/email-verification', 'emailVerify@verification')->middleware(['auth', 'email-ok']);
 
+
     //ACCESS to PARTYBOOKER CP
     Route::middleware(['auth', 'admin', 'email'])->group(function () {
 
@@ -120,9 +157,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::get('/cp/top-services', [adminController::class, 'topServices'])->name('top-services');
         Route::get('/cp/messages', 'adminController@messages');
         Route::get('/cp/listing', 'adminController@listing');
-        Route::get('/cp/blog', 'adminController@blog');
-        Route::get('/cp/blog/post/{post_slug}', 'adminController@post');
-        Route::get('/cp/blog/new-post', 'adminController@newpost');
+
         Route::get('/cp/faq', 'adminController@faq');
         Route::get('/cp/payments', [adminController::class, 'stripe'])->name('cp-stripe');
         Route::post('/cp/partner-cp/update-plan', [ProfileController::class, 'updatePlan'])->name('plan.update.admin');
@@ -168,11 +203,8 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::post('/read-message', 'ajaxController@read');
         Route::post('/read-direct-message', 'ajaxController@readDirectMessage');
 
-        Route::post('/cp/blog/create-post', 'newPost@create');
         Route::post('/draft', 'ajaxController@draft');
         Route::post('/publish', 'ajaxController@publish');
-        Route::post('/cp/blog/remove/{postid}', 'newPost@remove');
-        Route::post('/cp/blog/edit-post', 'newPost@edit');
 
 
         Route::post('/cp/partner-cp/create-advert', '\App\Http\Controllers\Web\AdvertController@activateOption');

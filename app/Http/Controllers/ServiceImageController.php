@@ -4,7 +4,7 @@
 namespace App\Http\Controllers;
 
 use App\Interfaces\IImageService;
-use App\Models\PartnersInfo;
+use App\Models\Partner;
 use App\Models\ServiceImage;
 use Auth;
 use DB;
@@ -23,7 +23,7 @@ class ServiceImageController extends Controller
 
     public function thumbnail(Request $request)
     {
-        $partner = PartnersInfo::where('id_partner', $request->input('partnerId'))->first();
+        $partner = Partner::where('id_partner', $request->input('partnerId'))->first();
         if ($request->has('thumbnail')) {
 
             if ($partner->main_img) {
@@ -63,7 +63,7 @@ class ServiceImageController extends Controller
             $id_partner = Auth::user()->id_partner;
         }
 
-        $partner = PartnersInfo::where('id_partner', $id_partner)->with(['currentPlan'])->first();
+        $partner = Partner::where('id_partner', $id_partner)->with(['currentPlan'])->first();
         if (!$partner) {
             return response()->json(['message' => 'partner not found'], 400);
         }
@@ -118,7 +118,7 @@ class ServiceImageController extends Controller
         }
 
         ServiceImage::where('id', $img->id)->delete();
-        $pInfo = PartnersInfo::where('id_partner', $id_partner)->first();
+        $pInfo = Partner::where('id_partner', $id_partner)->first();
 
         if ($img->image_name == $pInfo->main_img) {
             Storage::delete('images/thumbnails/' . $img->image_name);

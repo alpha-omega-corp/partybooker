@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  pbsql:
+    image: xqdocker/ubuntu-mysql-5.5
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: pb
+      MYSQL_PASSWORD: pb
+      MYSQL_DATABASE: partybooker
+    ports:
+      - "3306:3306"
+

@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('top_services', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\PartnersInfo::class, 'id_partner');
+            $table->foreignIdFor(\App\Models\Partner::class, 'id_partner');
             $table->timestamps();
         });
     }

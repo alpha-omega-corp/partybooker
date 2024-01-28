@@ -3,27 +3,37 @@
 namespace Database\Seeders;
 
 use App\Enums\PlanEnum;
-use App\Models\Article;
-use App\Models\Caterer;
-use App\Models\Entertainment;
-use App\Models\Equipment;
-use App\Models\EventPlace;
+use App\Models\Category;
 use App\Models\PartnerPlanOption;
-use App\Models\Wine;
+use App\Models\Services\BusinessService;
+use App\Models\Services\CatererService;
+use App\Models\Services\EntertainmentService;
+use App\Models\Services\EquipmentService;
+use App\Models\Services\WineService;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
+    use WithoutModelEvents;
+
+    public Collection $parentCategoryIds;
+    public Collection $childCategoryIds;
+
     public function run(): void
     {
         $this->call([
-            CategoriesTableSeeder::class,
+            UserSeeder::class,
+            PostSeeder::class,
         ]);
 
-        Article::factory()->count(10)->create();
+        $this->parentCategoryIds = Category::parents()->get()->collect()->pluck('id');
+        $this->childCategoryIds = Category::children()->get()->collect()->pluck('id');
 
-        $standardId = $this->newPlan(
+        /*
+         * $standardId = $this->newPlan(
             PlanEnum::STANDARD,
             '1',
             '0',
@@ -156,24 +166,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        $this->newPartner('alphomega', 0, 'bleyo');
-        $this->newPartner('dynam-event', 1);
-        $this->newPartner('chillfood', 2);
-        $this->newPartner('la-cave-geneve-vieille-ville', 3);
-        $this->newPartner('moulin-du-creux-vich', 4);
-        $this->newPartner('chateau-de-coppet', 5);
-        $this->newPartner('twist-events-carouge-geneve', 6);
-        $this->newPartner('domaine-la-capitaine', 7);
-        $this->newPartner('domaine-des-esserts', 8);
-        $this->newPartner('la-caravane-passe-geneve', 9);
-        $this->newPartner('headphone-music--silent-disco', 10);
-
-
-        for ($i = 11; $i < 22; $i++) {
-            $this->newPartner(strtolower(fake()->company), $i);
-        }
-
-
         DB::table('settings')->insert([
             'address' => '1296 Coppet, Suisse',
             'email' => 'contact@partybooker.ch',
@@ -186,6 +178,8 @@ class DatabaseSeeder extends Seeder
             'service_terms_en' => '<ol style="margin-bottom: 0px;"><li><div><span style="font-size: 24px;"><b>Généralités</b></span></div><div><br></div><div><span style="font-size: 14px;">Les informations et conseils publiés sur www.partybooker.ch sont destinés à des privés ou professionnels désireux d’organiser un événement. Le contenu du site est exclusivement informatif. Visiter, consulter et s’inspirer sur le site est gratuit.</span></div><div><br></div><div><br></div><div><span style="font-size: 24px;"><b>Limitation de la responsabilité de Partybooker</b></span></div><div><br></div><div><span style="font-size: 14px;">Partybooker n’est en aucun cas responsable de la qualité et/ou de l’exécution des services des prestataires présentés et/ou réservés sur le site www.partybooker.ch.</span></div><div><br></div><div><span style="font-size: 14px;">Partybooker ne saurait en aucun cas être tenu responsable des contenus, des activités commerciales, des produits et des services proposés à travers les sites vers lesquels des liens hypertextes, directs ou indirects, sont réalisés.</span></div><div><span style="font-size: 14px;"><br></span></div><div><span style="font-size: 14px;">Partybooker met tout en oeuvre pour que le contenu du site soit à jour et reflète la réalité mais ne peut être tenu responsable de données erronées ou obsolètes. S’il s’avérait qu’une information, offre ou promotion était échue ou inexacte, les internautes renoncent à tout dédommagement ou poursuites de Partybooker.</span></div><div><span style="font-size: 14px;"><br></span></div><div><span style="font-size: 14px;">Partybooker se réserve le droit de bloquer temporairement l’accès au site pour effectuer des maintenances nécessaires au bon fonctionnement. Partybooker n’est pas responsable d’éventuels problèmes techniques liés à l’hébergement de son site.</span></div><div><span style="font-size: 14px;"><br></span></div><div><span style="font-size: 14px;">La responsabilité de Partybooker est limitée aux cas de faute intentionnelle ou de négligence grave.</span></div><div><span style="font-size: 14px;">Toute responsabilité de Partybooker pour d’éventuels préjudices supplémentaires ou indirects est expressément exclue.</span></div><div><br></div><div><br></div><div><span style="font-size: 24px;"><b>Utilisation des données personnelles</b></span></div><div><span style="font-size: 14px;"><br></span></div><div><span style="font-size: 14px;">Partybooker se réserve le droit d’utiliser les données personnelles collectées lors de demandes d’offre ou d’une inscription sur le site pour communiquer des informations susceptibles d’intéresser ladite personne.</span></div><div><br></div><div><span style="font-size: 14px;">L’internaute accepte que les données personnelles qu’il a fournies lors d’une demande d’offre à l’un de nos prestataires soient transmises à ce dernier afin de prendre contact ou de réserver une prestation, un équipement ou un service.</span></div><div><br></div><div><br></div><div><span style="font-size: 24px;"><b>Pas de transmission de données personnelles à des tiers</b></span></div><div><span style="font-size: 24px;"><b><br></b></span></div><div><span style="font-size: 14px;">Partybooker ne communique pas de données personnelles à des tiers, sauf dans le cas mentionné sous “Utilisation des données personnelles”.</span></div><div><br></div><div><br></div><div><span style="font-size: 24px;"><b>Cookies</b></span></div><div><span style="font-size: 14px;"><br></span></div><div><span style="font-size: 14px;">Le site www.partybooker.ch emploie des cookies pour déterminer les intérêts de ses internautes, dans le but d’améliorer le site. L’utilisateur a la possibilité d’empêcher la formation de cookies en sélectionnant l’option correspondante sur son programme de navigation.</span></div><div><br></div><div><br></div><div><span style="font-size: 24px;"><b>Propriété des données</b></span></div><div><span style="font-size: 14px;"><br></span></div><div><span style="font-size: 14px;">Les données communiquées sur le site sont recueillies, traitées et publiées par Partybooker. Partybooker est propriétaire de la base de données publiée sur son site. Il est interdit de reproduire, d’utiliser, de copier, modifier ou de vendre ces informations.</span></div><div><br></div><div><br></div><div><span style="font-size: 24px;"><b>Entrée en vigueur</b></span></div><div><span style="font-size: 14px;"><br></span></div><div><span style="font-size: 14px;">Les présentes conditions générales entrent en vigueur le 1er janvier 2014.</span></div></li></ol>',
             'service_terms_fr' => '<ol style="margin-bottom: 0px;"><li><div><span style="font-size: 24px;"><b>Généralités</b></span></div><div><br></div><div><span style="font-size: 14px;">Les informations et conseils publiés sur www.partybooker.ch sont destinés à des privés ou professionnels désireux d’organiser un événement. Le contenu du site est exclusivement informatif. Visiter, consulter et s’inspirer sur le site est gratuit.</span></div><div><br></div><div><br></div><div><span style="font-size: 24px;"><b>Limitation de la responsabilité de Partybooker</b></span></div><div><br></div><div><span style="font-size: 14px;">Partybooker n’est en aucun cas responsable de la qualité et/ou de l’exécution des services des prestataires présentés et/ou réservés sur le site www.partybooker.ch.</span></div><div><br></div><div><span style="font-size: 14px;">Partybooker ne saurait en aucun cas être tenu responsable des contenus, des activités commerciales, des produits et des services proposés à travers les sites vers lesquels des liens hypertextes, directs ou indirects, sont réalisés.</span></div><div><span style="font-size: 14px;"><br></span></div><div><span style="font-size: 14px;">Partybooker met tout en oeuvre pour que le contenu du site soit à jour et reflète la réalité mais ne peut être tenu responsable de données erronées ou obsolètes. S’il s’avérait qu’une information, offre ou promotion était échue ou inexacte, les internautes renoncent à tout dédommagement ou poursuites de Partybooker.</span></div><div><span style="font-size: 14px;"><br></span></div><div><span style="font-size: 14px;">Partybooker se réserve le droit de bloquer temporairement l’accès au site pour effectuer des maintenances nécessaires au bon fonctionnement. Partybooker n’est pas responsable d’éventuels problèmes techniques liés à l’hébergement de son site.</span></div><div><span style="font-size: 14px;"><br></span></div><div><span style="font-size: 14px;">La responsabilité de Partybooker est limitée aux cas de faute intentionnelle ou de négligence grave.</span></div><div><span style="font-size: 14px;">Toute responsabilité de Partybooker pour d’éventuels préjudices supplémentaires ou indirects est expressément exclue.</span></div><div><br></div><div><br></div><div><span style="font-size: 24px;"><b>Utilisation des données personnelles</b></span></div><div><span style="font-size: 14px;"><br></span></div><div><span style="font-size: 14px;">Partybooker se réserve le droit d’utiliser les données personnelles collectées lors de demandes d’offre ou d’une inscription sur le site pour communiquer des informations susceptibles d’intéresser ladite personne.</span></div><div><br></div><div><span style="font-size: 14px;">L’internaute accepte que les données personnelles qu’il a fournies lors d’une demande d’offre à l’un de nos prestataires soient transmises à ce dernier afin de prendre contact ou de réserver une prestation, un équipement ou un service.</span></div><div><br></div><div><br></div><div><span style="font-size: 24px;"><b>Pas de transmission de données personnelles à des tiers</b></span></div><div><span style="font-size: 24px;"><b><br></b></span></div><div><span style="font-size: 14px;">Partybooker ne communique pas de données personnelles à des tiers, sauf dans le cas mentionné sous “Utilisation des données personnelles”.</span></div><div><br></div><div><br></div><div><span style="font-size: 24px;"><b>Cookies</b></span></div><div><span style="font-size: 14px;"><br></span></div><div><span style="font-size: 14px;">Le site www.partybooker.ch emploie des cookies pour déterminer les intérêts de ses internautes, dans le but d’améliorer le site. L’utilisateur a la possibilité d’empêcher la formation de cookies en sélectionnant l’option correspondante sur son programme de navigation.</span></div><div><br></div><div><br></div><div><span style="font-size: 24px;"><b>Propriété des données</b></span></div><div><span style="font-size: 14px;"><br></span></div><div><span style="font-size: 14px;">Les données communiquées sur le site sont recueillies, traitées et publiées par Partybooker. Partybooker est propriétaire de la base de données publiée sur son site. Il est interdit de reproduire, d’utiliser, de copier, modifier ou de vendre ces informations.</span></div><div><br></div><div><br></div><div><span style="font-size: 24px;"><b>Entrée en vigueur</b></span></div><div><span style="font-size: 14px;"><br></span></div><div><span style="font-size: 14px;">Les présentes conditions générales entrent en vigueur le 1er janvier 2014.</span></div></li></ol>',
         ]);
+
+         */
 
 
     }
@@ -214,7 +208,6 @@ class DatabaseSeeder extends Seeder
             'days_period' => $duration,
             'stripe_plan_id' => $planId,
         ]);
-
 
     }
 
@@ -311,71 +304,79 @@ class DatabaseSeeder extends Seeder
                 'provider_id' => null,
             ]);
         }
-
-
     }
 
     private function createServiceTabs(int $partnerId, $r): void
     {
-        $equipmentId = Equipment::factory([
-            'id_partner' => '120036190814-044' . $r
+        $idPartner = '120036190814-044' . $r;
+
+        $equipmentId = EquipmentService::factory([
+            'id_partner' => $idPartner,
         ])->create()->id;
+
         DB::table('adverts')->insert([
             'partners_info_id' => $partnerId,
             'category_id' => 1,
             'status' => 1,
             'view_name' => 'equipment',
-            'service_type' => 'App\Models\Equipment',
+            'service_type' => 'App\Models\Services\EquipmentService',
             'service_id' => $equipmentId,
         ]);
 
-        $wineId = Wine::factory([
-            'id_partner' => '120036190814-044' . $r
+        DB::table('advert_categories')->insert([
+            'category_id' => array_rand($this->parentCategoryIds->toArray()),
+            'sub_category_id' => array_rand($this->childCategoryIds->toArray()),
+            'partners_info_id' => $partnerId,
+            'id_partner' => $idPartner
+        ]);
+
+        $wineId = WineService::factory([
+            'id_partner' => $idPartner
         ])->create()->id;
         DB::table('adverts')->insert([
             'partners_info_id' => $partnerId,
             'category_id' => 1,
             'status' => 1,
             'view_name' => 'wine',
-            'service_type' => 'App\Models\Wine',
+            'service_type' => 'App\Models\Services\WineService',
             'service_id' => $wineId,
         ]);
 
 
-        $entertainmentId = Entertainment::factory([
-            'id_partner' => '120036190814-044' . $r
+        $entertainmentId = EntertainmentService::factory([
+            'id_partner' => $idPartner
         ])->create()->id;
         DB::table('adverts')->insert([
             'partners_info_id' => $partnerId,
             'category_id' => 1,
             'status' => 1,
             'view_name' => 'entertainment',
-            'service_type' => 'App\Models\Entertainment',
+            'service_type' => 'App\Models\Services\EntertainmentService',
             'service_id' => $entertainmentId,
         ]);
 
-        $catererId = Caterer::factory([
-            'id_partner' => '120036190814-044' . $r
+        $catererId = CatererService::factory([
+            'id_partner' => $idPartner
         ])->create()->id;
         DB::table('adverts')->insert([
             'partners_info_id' => $partnerId,
             'category_id' => 1,
             'status' => 1,
             'view_name' => 'caterer',
-            'service_type' => 'App\Models\Caterer',
+            'service_type' => 'App\Models\Services\CatererService',
             'service_id' => $catererId,
 
         ]);
 
-        $epId = EventPlace::factory([
-            'id_partner' => '120036190814-044' . $r
+        $epId = BusinessService::factory([
+            'id_partner' => $idPartner
         ])->create()->id;
         DB::table('adverts')->insert([
             'partners_info_id' => $partnerId,
             'category_id' => 1,
             'status' => 1,
             'view_name' => 'event-place',
-            'service_type' => 'App\Models\EventPlace',
+            'service_type' => 'App\Models\Services\BusinessService',
             'service_id' => $epId,
         ]);
 

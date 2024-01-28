@@ -6,11 +6,11 @@ namespace App\Services;
 use App\Http\Requests\StorePaymentMethod;
 use App\Interfaces\ILocaleService;
 use App\Interfaces\IPlanService;
+use App\Models\Partner;
 use App\Models\PartnerPlanOption;
-use App\Models\PartnersInfo;
 use App\Models\Plan;
 use App\Models\PlanOption;
-use App\User;
+use App\Models\User;
 use Exception;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
@@ -97,7 +97,7 @@ class PlanService implements IPlanService
         return $this->activatePlan(strtolower($validated->name), $user->partnerInfo);
     }
 
-    public function activatePlan(string $planName, PartnersInfo $partner): bool
+    public function activatePlan(string $planName, Partner $partner): bool
     {
         $plan = Plan::where('name', $planName)->firstOrFail();
 

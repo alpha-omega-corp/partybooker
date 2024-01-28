@@ -1,0 +1,21 @@
+.app-card {
+    position: relative;
+    margin: 20px;
+    border: 1px solid $gray-300;
+    border-radius: 20px;
+
+    .app-card-title {
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        padding-left: 20px;
+        border-bottom: 1px solid $gray-300;
+        color: $standard;
+    }
+
+    .app-card-content {
+        padding: 20px;
+    }
+}

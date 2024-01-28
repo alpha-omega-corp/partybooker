@@ -52,7 +52,7 @@ return [
     'become_partner_page' => "Partenariat",
     'aboutus_page' => "À propos",
     'faqs_page' => "FAQs",
-    'blog_page' => "Blog",
+    'blog_page' => "PostSeeder",
     'contact_page' => "Contact",
     'comments_page' => "Commentaires",
 

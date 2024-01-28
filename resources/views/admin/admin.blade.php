@@ -24,8 +24,14 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     @stack('head')
+    <script>
+        function openModal(modal) {
+            !$('#' + modal).is(':visible') ? document.getElementById(modal + '-button').click() : ''
+        }
+    </script>
 
     @vite('resources/js/admin.js')
+    @filamentStyles
 </head>
 <body class="body">
 

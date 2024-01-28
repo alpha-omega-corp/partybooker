@@ -2,7 +2,7 @@
 
 return [
     'edit_slug' => 'Modifier le lien hypertexte (URL)',
-    
+
     'gallery_info' => 'Ce partenaire ne peut pas télécharger d\'images',
     'trial_ending' => 'Votre période d\'éssai se termine le :date',
     'dashboard' => 'Tableau de bord',
@@ -280,7 +280,7 @@ return [
     'references' => "Références",
     'references_expl' => "Coordonnées des référenceurs",
 
-    //Equipment
+    //EquipmentService
     'opening_time' => "ouverture",
     'opening_time_expl' => "Indiquez vos heures d'ouverture",
     'closing_time' => "fermeture",

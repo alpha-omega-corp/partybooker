@@ -9,7 +9,7 @@ return [
     'main' => "Main",
     'messages' => "Messages",
     'listing' => "Listings",
-    'blog' => "Blog",
+    'blog' => "PostSeeder",
     'faq' => "FAQ",
     'settings' => "Settings",
 
@@ -76,7 +76,7 @@ return [
     'payment_date' => "Payment date",
     'payment_exp_date' => "Payment expiration date",
 
-    //Blog page
+    //PostSeeder page
     'show_all' => "Show all",
     'show_published' => "Show published",
     'show_draft' => "Show draft",

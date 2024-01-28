@@ -6,14 +6,14 @@ use App\Interfaces\IRequestService;
 use App\Mails\ServiceRequestCaterer;
 use App\Mails\ServiceRequestGeneral;
 use App\Models\DirectMessage;
-use App\Models\PartnersInfo;
+use App\Models\Partner;
 use App\Models\Statistic;
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 
 class RequestService implements IRequestService
 {
-    public function sendRequest(PartnersInfo $partner, array $formData, string $type): void
+    public function sendRequest(Partner $partner, array $formData, string $type): void
     {
         $directMessage = new DirectMessage();
         $directMessage->partners_info_id = $partner->id;

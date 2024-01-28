@@ -10,8 +10,8 @@
             <ul class="list-group category-filters">
                 @foreach ($categories as $c)
                     <li data-catfil="{{ $c->code }}" class="list-group-item list-group-item-parent">
-                        <a
-                            href="{{ url(LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $c->lang->slug) }}">
+
+                        <a href="{{url(route('guest.home.listing', ['category' => $c->lang->slug]))}}">
                             {{ $c->lang->name }}
                         </a>
                     </li>

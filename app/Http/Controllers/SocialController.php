@@ -1,9 +1,11 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Models\Notification;
-use Validator,Redirect,Response,File;
+use App\Models\User;
 use Socialite;
-use App\User;
+use function bcrypt;
 
 class SocialController extends Controller
 {
@@ -11,40 +13,28 @@ class SocialController extends Controller
     {
         return Socialite::driver($provider)->redirect();
     }
+
     public function callback($provider)
     {
         $getInfo = Socialite::driver($provider)->user();
-        if($getInfo->email == null || $getInfo->email == ''){
+        if ($getInfo->email == null || $getInfo->email == '') {
             return redirect()->to('/')->with('error', 'Email is required');
         }
-        $user = $this->createUser($getInfo,$provider);
+        $user = $this->createUser($getInfo, $provider);
         auth()->login($user);
         return redirect()->to('/');
     }
-
-
-    private function SaveNotification($name, $email)
-    {
-        $date = date('Y-m-d H:i:s');
-        $event = 'User registration';
-        $description = 'New user:' . $name .', ' . $email;
-
-        $notification = new Notification();
-        $notification->fill(['event_date' => $date, 'event' => $event, 'description' => $description ]);
-        $notification->save();
-    }
-
 
     function createUser($getInfo, $provider)
     {
         $user = User::where('provider_id', $getInfo->id)->first();
         if (!$user) {
             $user = User::create([
-                'name'     => $getInfo->name,
-                'email'    => $getInfo->email,
+                'name' => $getInfo->name,
+                'email' => $getInfo->email,
                 'provider' => $provider,
                 'provider_id' => $getInfo->id,
-                'password' => \bcrypt($getInfo->email),
+                'password' => bcrypt($getInfo->email),
                 'email_verification' => 1,
                 'id_partner' => null,
                 'type' => null
@@ -54,5 +44,16 @@ class SocialController extends Controller
 
         }
         return $user;
+    }
+
+    private function SaveNotification($name, $email)
+    {
+        $date = date('Y-m-d H:i:s');
+        $event = 'User registration';
+        $description = 'New user:' . $name . ', ' . $email;
+
+        $notification = new Notification();
+        $notification->fill(['event_date' => $date, 'event' => $event, 'description' => $description]);
+        $notification->save();
     }
 }

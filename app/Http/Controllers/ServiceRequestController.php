@@ -8,7 +8,7 @@ use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\StoreServiceRequestCaterer;
 use App\Interfaces\IRequestService;
 use App\Models\DirectMessage;
-use App\Models\PartnersInfo;
+use App\Models\Partner;
 use App\Services\RequestService;
 use Illuminate\Http\RedirectResponse;
 use Mail;
@@ -41,7 +41,7 @@ class ServiceRequestController extends Controller
     public function requestFormAction(StoreServiceRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        $partner = PartnersInfo::find($validated['partner-info-id']);
+        $partner = Partner::find($validated['partner-info-id']);
 
         $this->requestService->sendRequest($partner, $validated, DirectMessage::TYPE_GENERAL);
 
@@ -51,7 +51,7 @@ class ServiceRequestController extends Controller
     public function catererFormAction(StoreServiceRequestCaterer $request): RedirectResponse
     {
         $validated = $request->validated();
-        $partner = PartnersInfo::find($validated['partner-info-id']);
+        $partner = Partner::find($validated['partner-info-id']);
         $this->requestService->sendRequest($partner, $validated, DirectMessage::TYPE_CATERER);
 
         return redirect()->back()->with('success', 'Your request has been sent successfully');

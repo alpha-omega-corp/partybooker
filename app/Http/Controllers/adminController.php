@@ -6,18 +6,18 @@ use App\Helpers\SlugSanitizer;
 use App\Http\Requests\StoreTopServices;
 use App\Models\Advert;
 use App\Models\AdvertCategory;
-use App\Models\Caterer;
 use App\Models\DirectMessage;
-use App\Models\Entertainment;
-use App\Models\Equipment;
-use App\Models\EventPlace;
+use App\Models\Partner;
 use App\Models\PartnerPlanOption;
-use App\Models\PartnersInfo;
 use App\Models\PartnerVipPlan;
 use App\Models\ServiceImage;
+use App\Models\Services\BusinessService;
+use App\Models\Services\CatererService;
+use App\Models\Services\EntertainmentService;
+use App\Models\Services\EquipmentService;
+use App\Models\Services\WineService;
 use App\Models\TopService;
-use App\Models\Wine;
-use App\User;
+use App\Models\User;
 use Exception;
 use Geocode;
 use Illuminate\Contracts\View\View;
@@ -47,7 +47,7 @@ class adminController extends Controller
 
     public function topServices()
     {
-        $partners = PartnersInfo::all()->map(function ($e) {
+        $partners = Partner::all()->map(function ($e) {
             return (object)[
                 'value' => $e->id_partner,
                 'label' => str_replace([' ', '.', ',', '"', '--', "'"], '', strtolower(trim($e->slug)))
@@ -73,13 +73,13 @@ class adminController extends Controller
         $toDelete = array_diff($currentTop, $topPartners);
         foreach ($newTop as $partnerId) {
             $service = new TopService();
-            $service->id_partner = PartnersInfo::where('id_partner', $partnerId)->first()->id;
+            $service->id_partner = Partner::where('id_partner', $partnerId)->first()->id;
             $service->save();
         }
 
 
         foreach (collect($toDelete)->flatten() as $partnerId) {
-            $service = TopService::where('id_partner', PartnersInfo::where('id_partner', $partnerId)->first()->id)->first();
+            $service = TopService::where('id_partner', Partner::where('id_partner', $partnerId)->first()->id)->first();
             $service->delete();
         }
 
@@ -109,7 +109,7 @@ class adminController extends Controller
             }
         }
 
-        $partners = PartnersInfo::all();
+        $partners = Partner::all();
 
         return view('admin.listing', [
             'info' => $info,
@@ -310,7 +310,7 @@ class adminController extends Controller
 
         try {
             $discount = (int)$request->get('discount');
-            $partner = PartnersInfo::where('id', $request->get('partners_info_id'))->first();
+            $partner = Partner::where('id', $request->get('partners_info_id'))->first();
             $partner->discount = $discount < 0 ? 0 : ($discount > 100 ? 100 : ($discount > 0 ? $discount : null));
             $partner->save();
         } catch (Exception $e) {
@@ -323,7 +323,7 @@ class adminController extends Controller
     public function blog()
     {
         $posts = DB::table('blog')->get();
-        return view('admin.blog', ['posts' => $posts]);
+        return view('admin.blog.manage', ['posts' => $posts]);
     }
 
     public function newpost()
@@ -351,7 +351,7 @@ class adminController extends Controller
     public function removePartner(Request $request)
     {
         $user = User::where('id_partner', $request->get('id_partner'))->first();
-        $partner = PartnersInfo::where('id_partner', $user->id_partner)->first();
+        $partner = Partner::where('id_partner', $user->id_partner)->first();
         if (!$user) {
             return response()->json(['partner not found'], 400);
         }
@@ -363,15 +363,15 @@ class adminController extends Controller
         try {
             PartnerVipPlan::where('partners_info_id', $partner->id)->delete();
             ServiceImage::where('partners_info_id', $partner->id)->delete();
-            Caterer::where('id_partner', $partner->id_partner)->delete();
-            Equipment::where('id_partner', $partner->id_partner)->delete();
-            Entertainment::where('id_partner', $partner->id_partner)->delete();
-            EventPlace::where('id_partner', $partner->id_partner)->delete();
-            Wine::where('id_partner', $partner->id_partner)->delete();
+            CatererService::where('id_partner', $partner->id_partner)->delete();
+            EquipmentService::where('id_partner', $partner->id_partner)->delete();
+            EntertainmentService::where('id_partner', $partner->id_partner)->delete();
+            BusinessService::where('id_partner', $partner->id_partner)->delete();
+            WineService::where('id_partner', $partner->id_partner)->delete();
             AdvertCategory::where('partners_info_id', $partner->id)->delete();
             Advert::where('partners_info_id', $partner->id)->delete();
             PartnerPlanOption::where('partners_info_id', $partner->id)->delete();
-            PartnersInfo::where('id_partner', $user->id_partner)->delete();
+            Partner::where('id_partner', $user->id_partner)->delete();
             User::where('id_partner', $user->id_partner)->delete();
             TopService::where('id_partner', $partner->id)->delete();
             DB::commit();

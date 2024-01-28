@@ -56,7 +56,7 @@ return [
     'become_partner_page' => "Partnership",
     'aboutus_page' => "About",
     'faqs_page' => "FAQs",
-    'blog_page' => "Blog",
+    'blog_page' => "PostSeeder",
     'contact_page' => "Contact",
     'comments_page' => "Comments",
 

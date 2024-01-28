@@ -9,8 +9,8 @@ use App\Helpers\FurnitureTranslatorHelper;
 use App\Helpers\OtherServicesTranslatorHelper;
 use App\Helpers\TechnicalEquipmentTranslatorHelper;
 use App\Models\Advert;
-use App\Models\EventPlace;
-use App\Models\PartnersInfo;
+use App\Models\Partner;
+use App\Models\Services\BusinessService;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Fieldset;
@@ -94,14 +94,14 @@ class CreateEventPlace extends Component implements HasForms
 
         $this->advertId = $advertId;
         $this->partnerId = $partnerId;
-        $partner = PartnersInfo::where('id_partner', $this->partnerId)->first();
+        $partner = Partner::where('id_partner', $this->partnerId)->first();
         $this->partnerInfoId = $partner->id;
 
         $advert = Advert::where('id', $this->advertId)
             ->where('partners_info_id', $this->partnerInfoId)
             ->first();
         if ($advert->status === Advert::STATUS_ACTIVE) {
-            $eventPlace = EventPlace::where('id', $advert->service_id)->first();
+            $eventPlace = BusinessService::where('id', $advert->service_id)->first();
             $this->days = json_decode($eventPlace->working_days);
             $this->timetable = $eventPlace->working_time ? json_decode($eventPlace->working_time, true) : [];
             $this->holidays = is_array($eventPlace->holidays) ? json_decode($eventPlace->holidays, true) : [];
@@ -606,13 +606,13 @@ class CreateEventPlace extends Component implements HasForms
             ->where('partners_info_id', $this->partnerInfoId)
             ->first();
 
-        $eventPlace = EventPlace::where('id', $advert->service_id)->first();
+        $eventPlace = BusinessService::where('id', $advert->service_id)->first();
         $data = $this->form->getState();
 
         if ($eventPlace) {
             $item = $eventPlace;
         } else {
-            $item = new EventPlace();
+            $item = new BusinessService();
         }
         $item->id_partner = $this->partnerId;
         $item->working_days = json_encode($data['days']);

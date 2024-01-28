@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Caterer;
 use App\Models\DirectMessage;
-use App\Models\PartnersInfo;
+use App\Models\Partner;
 use App\Models\Rate;
+use App\Models\Services\CatererService;
 use App\Models\Statistic;
 use Auth;
 use DB;
@@ -102,7 +102,6 @@ class ajaxController extends Controller
         } else {
             $msg = "Not published";
         }
-        DB::table('blog')->where('post_id', $id)->update(['status' => '0']);
         return response()->json(array('msg' => $msg));
     }
 
@@ -116,7 +115,6 @@ class ajaxController extends Controller
         } else {
             $msg = "Published";
         }
-        DB::table('blog')->where('post_id', $id)->update(['status' => '1']);
         return response()->json(array('msg' => $msg));
     }
 
@@ -144,7 +142,7 @@ class ajaxController extends Controller
     //Partner CP - delete file (menus)
     public function partnerDelfile(Request $request)
     {
-        $caterer = Caterer::where('id', $request->id)->first();
+        $caterer = CatererService::where('id', $request->id)->first();
         $menus = $caterer->menu ? json_decode($caterer->menu) : [];
 
         try {
@@ -165,7 +163,7 @@ class ajaxController extends Controller
     public function partnerPublish(Request $request)
     {
         $id = $request->input('id_partner');
-        $status = PartnersInfo::where('id_partner', $id)->value('public');
+        $status = Partner::where('id_partner', $id)->value('public');
 
         if ($status) {
             $msg = __('partner.published');
@@ -176,7 +174,7 @@ class ajaxController extends Controller
         }
 
         $status = !$status;
-        PartnersInfo::where('id_partner', $id)->update(['public' => $status]);
+        Partner::where('id_partner', $id)->update(['public' => $status]);
 
         return response()
             ->json(array('msg' => $msg, 'stat' => $stat, 'status' => $status));

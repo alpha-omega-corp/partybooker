@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PartnersInfo;
+use App\Models\Partner;
 use App\Models\Plan;
 use App\Models\PlanOption;
 use Exception;
@@ -126,7 +126,7 @@ class PlanController extends BaseController
 
     public function delete($id)
     {
-        $isUsed = PartnersInfo::where('plans_id', $id)->first();
+        $isUsed = Partner::where('plans_id', $id)->first();
         if ($isUsed) {
             return redirect($this->lang . '/cp/setting/plans')->with('success', 'This plan is used. Change all partners plans and try again.');
         }

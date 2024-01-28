@@ -1,37 +1,23 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class AddServiceImagesTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
+return new class extends Migration {
+    public function up(): void
     {
-        Schema::create('service_images', function (Blueprint $table){
-        	$table->increments('id');
-        	$table->integer('partners_info_id')->unsigned();
-        	$table->string('id_partner');
-        	$table->string('category');
-        	$table->string('image_name');
-        	$table->integer('is_main')->nullable();
-
-        	$table->foreign('partners_info_id')->on('partners_info')->references('id')->onDelete('CASCADE');
+        Schema::create('service_images', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->boolean('thumbnail')->default(false);
+            $table->string('alt_fr')->nullable();
+            $table->string('alt_en')->nullable();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('service_images');
     }
-}
+};

@@ -69,7 +69,6 @@
                                 icon="heroicon-o-identification"
                                 :tooltip="__('main.become_partner_page')"/>
                             <hr>
-
                             <x-navigation.item
                                 page="aboutus"
                                 :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus'))"
@@ -79,9 +78,10 @@
 
                             <x-navigation.item
                                 page="blog"
-                                :href="url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/blog')"
+                                href="{{url(route('guest.blog.index'))}}"
                                 icon="heroicon-o-book-open"
-                                :tooltip="__('main.blog_page')"/>
+                                :tooltip="'main.blog_page'"
+                            />
 
                             <x-navigation.item
                                 page="faqs"

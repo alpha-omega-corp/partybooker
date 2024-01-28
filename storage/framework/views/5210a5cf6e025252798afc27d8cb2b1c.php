@@ -100,7 +100,6 @@
 <?php unset($__componentOriginal71c6471fa76ce19017edc287b6f4508c); ?>
 <?php endif; ?>
                             <hr>
-
                             <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.navigation.item','data' => ['page' => 'aboutus','href' => url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.aboutus')),'icon' => 'heroicon-o-information-circle','tooltip' => __('main.aboutus_page')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('navigation.item'); ?>
@@ -119,14 +118,14 @@
 
 
                             <?php if (isset($component)) { $__componentOriginal71c6471fa76ce19017edc287b6f4508c = $component; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.navigation.item','data' => ['page' => 'blog','href' => url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/blog'),'icon' => 'heroicon-o-book-open','tooltip' => __('main.blog_page')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.navigation.item','data' => ['page' => 'blog','href' => ''.e(url(route('guest.blog.index'))).'','icon' => 'heroicon-o-book-open','tooltip' => 'main.blog_page']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('navigation.item'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['page' => 'blog','href' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/blog')),'icon' => 'heroicon-o-book-open','tooltip' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('main.blog_page'))]); ?>
+<?php $component->withAttributes(['page' => 'blog','href' => ''.e(url(route('guest.blog.index'))).'','icon' => 'heroicon-o-book-open','tooltip' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute('main.blog_page')]); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginal71c6471fa76ce19017edc287b6f4508c)): ?>

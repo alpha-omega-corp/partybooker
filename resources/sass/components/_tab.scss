@@ -1,0 +1,28 @@
+.tab {
+    height: 100%;
+    padding: 10px;
+    margin: 0;
+
+    .tab-list {
+        padding: 0;
+        border-bottom: 0;
+        overflow-x: scroll;
+        position: relative;
+        margin-left: 20px;
+
+        .tab-button {
+            cursor: pointer;
+            padding: 20px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            background-color: transparent;
+            color: $gray;
+        }
+    }
+
+    .tab-page {
+        padding: 20px;
+        border: 1px solid $gray-400;
+        border-radius: 20px;
+    }
+}

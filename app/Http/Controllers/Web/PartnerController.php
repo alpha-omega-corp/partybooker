@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Interfaces\IPaymentTransactionService;
 use App\Models\PartnerPlanOption;
-use App\Models\PartnersInfo;
+use App\Models\Partner;
 use App\Models\Plan;
 use DB;
 use Exception;
@@ -31,7 +31,7 @@ class PartnerController extends Controller
             $id = Auth::user()->id_partner;
         }
 
-        $partner = PartnersInfo::where('id_partner', $id)->first();
+        $partner = Partner::where('id_partner', $id)->first();
         if (!$partner) {
             return response()->json([], 200);
         }
@@ -45,7 +45,7 @@ class PartnerController extends Controller
     {
         DB::beginTransaction();
         try {
-            $partner = PartnersInfo::where('id_partner', $request->get('partner_id'))->first();
+            $partner = Partner::where('id_partner', $request->get('partner_id'))->first();
             if (!$partner) {
                 throw new Exception("Partner not found");
             }

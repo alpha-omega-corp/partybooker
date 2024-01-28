@@ -2,15 +2,15 @@
 
 namespace Database\Factories;
 
-use App\Models\Wine;
+use App\Models\Services\WineService;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Wine>
+ * @extends Factory<WineService>
  */
 class WineFactory extends Factory
 {
-    protected $model = Wine::class;
+    protected $model = WineService::class;
 
     public function definition(): array
     {

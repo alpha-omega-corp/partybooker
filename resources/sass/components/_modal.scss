@@ -1,0 +1,18 @@
+.btn-modal-absolute {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin: 0;
+    padding: 10px;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+

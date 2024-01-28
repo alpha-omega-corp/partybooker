@@ -37,15 +37,9 @@
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h1 class="modal-title fs-5 fw-bold text-uppercase" id="{{$id . 'ModalLabel'}}">
-                        @if(isset($image))
-                            <div class="d-flex align-items-center justify-content-center">
-                                {{$image}}
-                            </div>
-                        @else
-                            {{$title}}
-                        @endif
-                    </h1>
+                    <h3 class="modal-title fs-5 fw-bold text-uppercase" id="{{$id . 'ModalLabel'}}">
+                        {{$title}}
+                    </h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
                 </div>
