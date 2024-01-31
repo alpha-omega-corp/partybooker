@@ -6,11 +6,11 @@ use App\Helpers\SlugSanitizer;
 use App\Http\Requests\StoreTopServices;
 use App\Models\Advert;
 use App\Models\AdvertCategory;
+use App\Models\AdvertImage;
 use App\Models\DirectMessage;
 use App\Models\Partner;
 use App\Models\PartnerPlanOption;
 use App\Models\PartnerVipPlan;
-use App\Models\ServiceImage;
 use App\Models\Services\BusinessService;
 use App\Models\Services\CatererService;
 use App\Models\Services\EntertainmentService;
@@ -356,13 +356,13 @@ class adminController extends Controller
             return response()->json(['partner not found'], 400);
         }
 
-        $serviceImages = ServiceImage::where('partners_info_id', $partner->id)->get();
+        $serviceImages = AdvertImage::where('partners_info_id', $partner->id)->get();
         $vipPlan = PartnerVipPlan::where('partners_info_id', $partner->id)->first();
 
         DB::beginTransaction();
         try {
             PartnerVipPlan::where('partners_info_id', $partner->id)->delete();
-            ServiceImage::where('partners_info_id', $partner->id)->delete();
+            AdvertImage::where('partners_info_id', $partner->id)->delete();
             CatererService::where('id_partner', $partner->id_partner)->delete();
             EquipmentService::where('id_partner', $partner->id_partner)->delete();
             EntertainmentService::where('id_partner', $partner->id_partner)->delete();

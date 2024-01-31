@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\CompanyDetail;
 use App\Models\CompanySocial;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -16,14 +15,12 @@ return new class extends Migration {
             $table->string('fax')->nullable();
             $table->string('phone')->unique();
             $table->string('email')->unique();
-            $table->boolean('public')->default(false);
 
             $table->string('address');
             $table->string('lat');
             $table->string('lon');
             $table->string('loc');
 
-            $table->foreignIdFor(CompanyDetail::class, 'company_detail_id')->nullable();
             $table->foreignIdFor(CompanySocial::class, 'company_social_id')->nullable();
 
             $table->timestamps();

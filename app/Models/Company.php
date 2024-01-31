@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use Database\Factories\CompanyFactory;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Company extends Model
@@ -23,7 +23,6 @@ class Company extends Model
         'phone',
         'email',
         'fax',
-        'public',
     ];
 
     protected static function newFactory(): CompanyFactory
@@ -31,24 +30,25 @@ class Company extends Model
         return CompanyFactory::new();
     }
 
-    public function partner(): BelongsTo
+    public function locale(): HasMany
     {
-        return $this->belongsTo(Partner::class);
+        return $this->hasMany(CompanyLocale::class);
     }
 
-    public function companyDetail(): HasOne
+    public function adverts(): HasMany
     {
-        return $this->hasOne(CompanyDetail::class);
+        return $this->hasMany(Advert::class);
     }
 
-    public function companySocial(): HasOne
+    public function partner(): HasOne
     {
-        return $this->hasOne(CompanySocial::class);
+        return $this->hasOne(Partner::class);
     }
 
-    public function scopePublic(Builder $builder): void
+    public function media(): BelongsTo
     {
-        $builder->where('public', true);
+        return $this->belongsTo(CompanySocial::class, 'company_social_id', 'id');
     }
+
 
 }

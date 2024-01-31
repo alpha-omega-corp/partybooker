@@ -18,15 +18,25 @@ class ServiceCost extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'payment_methods',
         'prices',
+        'payment_methods',
         'budget',
-        'deposit',
-        'delivery',
-        'extra',
+        'has_deposit',
+        'has_delivery',
+        'has_extra',
         'extra_specs',
         'delivery_specs',
         'deposit_specs',
+    ];
+
+    protected $casts = [
+        'prices' => 'array',
+        'payment_methods' => 'array',
+        'delivery_specs' => 'array',
+        'deposit_specs' => 'array',
+        'has_deposit' => 'boolean',
+        'has_delivery' => 'boolean',
+        'has_extra' => 'boolean',
     ];
 
     protected static function newFactory(): ServiceCostFactory

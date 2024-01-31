@@ -36,7 +36,7 @@
 
             <hr>
 
-            @include('web.listings.partial.listing-content')
+            @include('home.partials.listing-content')
         </div>
 
     </div>

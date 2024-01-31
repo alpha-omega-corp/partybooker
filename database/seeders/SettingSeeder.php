@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Post;
+use App\Models\Setting;
 use Illuminate\Database\Seeder;
 
-class PostSeeder extends Seeder
+class SettingSeeder extends Seeder
 {
     public function run(): void
     {
-        Post::factory()->count(10)->create();
+        Setting::factory()->create();
     }
 }

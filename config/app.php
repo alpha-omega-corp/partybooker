@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\CategoryType;
 use App\Enums\DateType;
 use App\Enums\ModalSize;
 use App\Enums\ModalType;
@@ -182,7 +183,8 @@ return [
         'ModalType' => ModalType::class,
         'ModalSize' => ModalSize::class,
         'DateType' => DateType::class,
-
+        'CategoryType' => CategoryType::class,
+        'NetworkType' => App\Enums\NetworkType::class,
     ])->toArray(),
 
     'tinymce' => env('TINYMCE_API_KEY'),

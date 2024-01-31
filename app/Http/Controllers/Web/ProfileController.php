@@ -12,13 +12,13 @@ use App\Interfaces\IAdvertService;
 use App\Interfaces\IPlanService;
 use App\Models\Advert;
 use App\Models\AdvertCategory;
+use App\Models\AdvertImage;
 use App\Models\Category;
 use App\Models\CategoryLocale;
-use App\Models\FrequentlyAskedQuestion;
+use App\Models\Faq;
 use App\Models\Partner;
 use App\Models\PartnerEventType;
 use App\Models\PartnerPlanOption;
-use App\Models\ServiceImage;
 use App\Models\Services\EventService;
 use App\Models\User;
 use Exception;
@@ -64,7 +64,7 @@ class ProfileController extends Controller
         }
 
         $user = User::where('id_partner', $id)->with(['partnerInfo'])->first();
-        $faqs = FrequentlyAskedQuestion::where('relation', 1)->get();
+        $faqs = Faq::where('relation', 1)->get();
 
         return view('web.partner.pages.faq', ['user' => $user, 'faqs' => $faqs]);
     }
@@ -129,7 +129,7 @@ class ProfileController extends Controller
         $adverts = Advert::where('partners_info_id', $partnerInfo->id)->with(['service'])->orderBy('status')->get();
         $tempImages['cat'] = [
             'count' => $partnerInfo->currentPlan->photos_num ?? 1,
-            'images' => ServiceImage::where('id_partner', $user->id_partner)->orderBy('is_main', 'DESC')->get()
+            'images' => AdvertImage::where('id_partner', $user->id_partner)->orderBy('is_main', 'DESC')->get()
         ];
 
         $this->defineRateGroup($user);
@@ -144,7 +144,7 @@ class ProfileController extends Controller
             'currentCategories' => $currentCategories,
             'categoryImages' => $tempImages,
             'adverts' => $adverts,
-            'thumbnail' => ServiceImage::where('id_partner', $user->id_partner)
+            'thumbnail' => AdvertImage::where('id_partner', $user->id_partner)
                 ->where('is_main', true)->first(),
             'location' => [
                 'lat' => $user->partnerInfo->lat,
@@ -364,7 +364,7 @@ class ProfileController extends Controller
         $altFrench = $validated['alt_fr'];
         $altEnglish = $validated['alt_en'];
 
-        $image = ServiceImage::where('id', $imageId)->where('id_partner', $partnerId)->first();
+        $image = AdvertImage::where('id', $imageId)->where('id_partner', $partnerId)->first();
         $image->image_alt_fr = $altFrench;
         $image->image_alt_en = $altEnglish;
 

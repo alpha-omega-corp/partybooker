@@ -20,6 +20,8 @@ return new class extends Migration {
             $table->longText('service_terms_en');
             $table->longText('user_terms_fr');
             $table->longText('service_terms_fr');
+
+            $table->timestamps();
         });
     }
 

@@ -29,25 +29,7 @@
                             <li><a
                                     href="<?php echo e(url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.sitemap'))); ?>"><?php echo e(__('main.sitemap')); ?></a>
                             </li>
-                            <li class="ft-social-links">
-                                <?php if($settings[0]->facebook): ?>
-                                    <a href="<?php echo e($settings[0]->facebook); ?>" target="_blank"><i class="icon-facebook"></i></a>
-                                <?php endif; ?>
-                                <?php if($settings[0]->linkedin): ?>
-                                    <a href="<?php echo e($settings[0]->linkedin); ?>" target="_blank"><i class="icon-linkedin"></i></a>
-                                <?php endif; ?>
-                                <?php if($settings[0]->instagram): ?>
-                                    <a href="<?php echo e($settings[0]->instagram); ?>" target="_blank"><i
-                                            class="icon-instagram "></i></a>
-                                <?php endif; ?>
-                                <?php if($settings[0]->googleplus): ?>
-                                    <a href="<?php echo e($settings[0]->googleplus); ?>" target="_blank"><i
-                                            class="icon-googleplus "></i></a>
-                                <?php endif; ?>
-                                <?php if($settings[0]->twitter): ?>
-                                    <a href="<?php echo e($settings[0]->twitter); ?>" target="_blank"><i class="icon-twitter "></i></a>
-                                <?php endif; ?>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -55,15 +37,18 @@
                 <div class="col-md-6">
                     <div class="text-center">
                         <h5 class="text-uppercase"><?php echo e(__('categories.cat')); ?></h5>
-                        <?php $__currentLoopData = array_chunk($footerCategories->toArray(), 3); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <ul>
-                                <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <li><a
-                                            href="<?php echo e(url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $item['lang']['slug'])); ?>"><?php echo e($item['lang']['name']); ?></a>
-                                    </li>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </ul>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php if(isset($footerCategories)): ?>
+                            <?php $__currentLoopData = array_chunk($footerCategories->toArray(), 3); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <ul>
+                                    <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <li><a
+                                                href="<?php echo e(url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $item['lang']['slug'])); ?>"><?php echo e($item['lang']['name']); ?></a>
+                                        </li>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </ul>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endif; ?>
+
 
                     </div>
                 </div>

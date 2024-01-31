@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Interfaces\ICategoryService;
+use App\Models\Advert;
 use App\Models\Category;
 use App\Models\Company;
-use App\Models\Partner;
-use App\Models\Services\EventService;
 use App\Models\TopService;
 use App\Services\CategoryService;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
@@ -17,17 +17,11 @@ class HomeController extends Controller
     private ICategoryService $categoryService;
 
     private Collection $categories;
-    private Collection $eventTypes;
 
     public function __construct(CategoryService $categoryService)
     {
         $this->categoryService = $categoryService;
-
-        $this->categories = Category::parents()->get()->collect();
-        $this->eventTypes = EventService::all()->map(fn($item) => [
-            'slug' => $item->{app()->getLocale() . '_slug'},
-            'name' => $item->{app()->getLocale() . '_name'}
-        ]);
+        $this->categories = Category::all();
     }
 
     public function index()
@@ -41,37 +35,31 @@ class HomeController extends Controller
 
     public function listing(Request $request, ?string $category = null, ?string $child = null)
     {
-        $etFilter = $request->input('event_types');
-        $locFilter = $request->input('place');
-        $partners = Partner::listing();
-
-        $ads = Company::public();
-        dd($ads->get());
+        $adverts = Advert::listing();
 
         if ($category) {
-            $currentCategory = $this->categoryService->getCategory($category);
-            dd($partners->with('categories')->get());
+            $currentCategory = $this->categoryService->getCategory($category)->first();
+            $adverts->where('advertisable_type', $currentCategory->service);
+        }
 
-            $partners->whereHas('categories', function ($q) use ($currentCategory) {
-                $q->where('category_id', $currentCategory->id);
+        if ($child) {
+            $currentChild = $this->categoryService->getCategory($child)->first();
+            $adverts->whereHas('tags', function (Builder $query) use ($currentChild) {
+                $query->where('category_child_id', $currentChild->id);
             });
         }
 
-        if ($request->has('event_types')) {
-            $partners->whereHas('eventTypes', function ($q) use ($etFilter) {
-                $q->whereIn(app()->getLocale() == 'en' ? 'en_slug' : 'fr_slug', $etFilter);
-            });
-        }
-
-        if ($request->has('place')) {
-            $partners->where('location_code', $locFilter);
-        }
-
-        return view('home.listing', [
-            'partners' => $partners->get(),
-            'partnersFragment' => $partners->orderBy('priority')->paginate(6)->fragment('partners'),
+        return view('listing.index', [
+            'adverts' => $adverts->paginate(6)->fragment('adverts'),
             'categories' => $this->categories,
-            'eventTypes' => $this->eventTypes,
+        ]);
+    }
+
+    public function advert(Request $request, Company $company, Advert $advert)
+    {
+        return view('listing.advert', [
+            'partner' => $company->partner,
+            'advert' => $advert,
         ]);
     }
 }

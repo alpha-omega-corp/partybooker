@@ -3,16 +3,39 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\LocaleScope;
+use Database\Factories\CategoryLocaleFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class CategoryLocale extends Model
 {
-    public $timestamps = false;
-    protected $fillable = ['slug'];
+    use HasFactory;
 
-    public function category(): BelongsTo
+    public $timestamps = false;
+    protected $fillable = [
+        'categorizable_id',
+        'categorizable_type',
+        'lang',
+        'slug',
+        'title',
+        'description',
+    ];
+
+    protected static function newFactory(): CategoryLocaleFactory
     {
-        return $this->belongsTo(Category::class, 'categories_id', 'id');
+        return CategoryLocaleFactory::new();
     }
+
+    protected static function booted(): void
+    {
+        static::addGlobalScope(new LocaleScope());
+    }
+
+    public function categorizable(): MorphTo
+    {
+        return $this->morphTo();
+    }
+
 }

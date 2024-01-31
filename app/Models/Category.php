@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use Database\Factories\CategoryFactory;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 
 class Category extends Model
@@ -16,8 +16,7 @@ class Category extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'categorizable_id',
-        'categorizable_type',
+        'service',
     ];
 
     protected static function newFactory(): CategoryFactory
@@ -25,20 +24,14 @@ class Category extends Model
         return CategoryFactory::new();
     }
 
-    public function categorizable(): MorphTo
+    public function locale(): MorphMany
     {
-        return $this->morphTo();
+        return $this->morphMany(CategoryLocale::class, 'categorizable');
     }
 
-    public function scopeParents(Builder $query): void
+    public function children(): HasMany
     {
-        $query
-            ->whereNull('parent_id')
-            ->with(['subcategories', 'lang', 'subcategories.lang']);
+        return $this->hasMany(CategoryChild::class);
     }
 
-    public function scopeChildren(Builder $query): void
-    {
-        $query->whereNotNull('parent_id');
-    }
 }

@@ -4,8 +4,8 @@
 namespace App\Http\Controllers;
 
 use App\Interfaces\IImageService;
+use App\Models\AdvertImage;
 use App\Models\Partner;
-use App\Models\ServiceImage;
 use Auth;
 use DB;
 use Exception;
@@ -35,9 +35,9 @@ class ServiceImageController extends Controller
             $filename = time() . '_' . $file->getClientOriginalName();
             Storage::putFileAs('images', $file, $filename);
 
-            ServiceImage::where('partners_info_id', $partner->id)->where('is_main', 1)->delete();
+            AdvertImage::where('partners_info_id', $partner->id)->where('is_main', 1)->delete();
 
-            $image = new ServiceImage;
+            $image = new AdvertImage;
             $image->partners_info_id = $partner->id;
             $image->id_partner = $partner->id_partner;
             $image->image_name = $filename;
@@ -68,7 +68,7 @@ class ServiceImageController extends Controller
             return response()->json(['message' => 'partner not found'], 400);
         }
 
-        $uploaded = ServiceImage::where('partners_info_id', $partner->id)->whereNull('is_main')->count();
+        $uploaded = AdvertImage::where('partners_info_id', $partner->id)->whereNull('is_main')->count();
 
         $count = $partner->currentPlan->photos_num ?? 1;
 
@@ -82,7 +82,7 @@ class ServiceImageController extends Controller
             DB::beginTransaction();
             try {
                 if ($file->storeAs('images', $filename)) {
-                    $img = new ServiceImage();
+                    $img = new AdvertImage();
                     $img->partners_info_id = $partner->id;
                     $img->id_partner = $partner->id_partner;
                     $img->category = 'cat';
@@ -112,12 +112,12 @@ class ServiceImageController extends Controller
             $id_partner = $request->get('id_partner');
         }
 
-        $img = ServiceImage::where('id_partner', $id_partner)->where('id', $request->get('imgId'))->first();
+        $img = AdvertImage::where('id_partner', $id_partner)->where('id', $request->get('imgId'))->first();
         if (!$img) {
             return response()->json(['message' => 'not found'], 400);
         }
 
-        ServiceImage::where('id', $img->id)->delete();
+        AdvertImage::where('id', $img->id)->delete();
         $pInfo = Partner::where('id_partner', $id_partner)->first();
 
         if ($img->image_name == $pInfo->main_img) {

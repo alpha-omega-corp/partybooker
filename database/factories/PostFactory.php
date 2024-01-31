@@ -15,14 +15,14 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'slug' => fake()->unique()->word,
-            'image' => fake()->image,
-            'alt_fr' => fake()->word,
-            'alt_en' => fake()->word,
-            'title_fr' => fake()->sentence,
-            'title_en' => fake()->sentence,
-            'content_fr' => fake()->paragraph,
-            'content_en' => fake()->paragraph,
+            'slug' => $this->faker->slug(2),
+            'image' => $this->faker->imageUrl(500, 500),
+            'alt_fr' => $this->faker->word,
+            'alt_en' => $this->faker->word,
+            'title_fr' => $this->faker->sentence,
+            'title_en' => $this->faker->sentence,
+            'content_fr' => $this->faker->paragraph,
+            'content_en' => $this->faker->paragraph,
             'status' => rand(true, false),
         ];
     }

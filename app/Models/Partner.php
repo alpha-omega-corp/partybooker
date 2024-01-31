@@ -5,7 +5,6 @@ namespace App\Models;
 
 use App\Models\Services\EventService;
 use Database\Factories\PartnerFactory;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -20,7 +19,6 @@ class Partner extends Model
     use HasUuids;
 
     protected $fillable = [
-        'id',
         'company_id',
         'payment_id',
     ];
@@ -37,7 +35,7 @@ class Partner extends Model
 
     public function company(): HasOne
     {
-        return $this->hasOne(Company::class);
+        return $this->hasOne(Company::class, 'id', 'company_id');
     }
 
     public function payment(): HasOne
@@ -52,7 +50,7 @@ class Partner extends Model
 
     public function images(): HasMany
     {
-        return $this->hasMany(ServiceImage::class);
+        return $this->hasMany(AdvertImage::class);
     }
 
     public function rates(): HasMany
@@ -63,26 +61,6 @@ class Partner extends Model
     public function statistic(): HasOne
     {
         return $this->hasOne(Statistic::class, 'id_partner', 'id_partner');
-    }
-
-    public function planOptions(): HasMany
-    {
-        return $this->hasMany(PartnerPlanOption::class, 'partners_info_id', 'id');
-    }
-
-    public function categories(): HasMany
-    {
-        return $this->hasMany(AdvertCategory::class, 'partners_info_id', 'id');
-    }
-
-    public function services(): HasMany
-    {
-        return $this->hasMany(Advert::class, 'partners_info_id', 'id');
-    }
-
-    public function scopeListing(Builder $query): void
-    {
-        $query->with(['company'])->where('public', true);
     }
 
     public function eventTypes(): BelongsToMany

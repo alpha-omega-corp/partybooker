@@ -29,25 +29,7 @@
                             <li><a
                                     href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.sitemap')) }}">{{ __('main.sitemap') }}</a>
                             </li>
-                            <li class="ft-social-links">
-                                @if ($settings[0]->facebook)
-                                    <a href="{{ $settings[0]->facebook }}" target="_blank"><i class="icon-facebook"></i></a>
-                                @endif
-                                @if ($settings[0]->linkedin)
-                                    <a href="{{ $settings[0]->linkedin }}" target="_blank"><i class="icon-linkedin"></i></a>
-                                @endif
-                                @if ($settings[0]->instagram)
-                                    <a href="{{ $settings[0]->instagram }}" target="_blank"><i
-                                            class="icon-instagram "></i></a>
-                                @endif
-                                @if ($settings[0]->googleplus)
-                                    <a href="{{ $settings[0]->googleplus }}" target="_blank"><i
-                                            class="icon-googleplus "></i></a>
-                                @endif
-                                @if ($settings[0]->twitter)
-                                    <a href="{{ $settings[0]->twitter }}" target="_blank"><i class="icon-twitter "></i></a>
-                                @endif
-                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -55,15 +37,18 @@
                 <div class="col-md-6">
                     <div class="text-center">
                         <h5 class="text-uppercase">{{ __('categories.cat') }}</h5>
-                        @foreach (array_chunk($footerCategories->toArray(), 3) as $k => $data)
-                            <ul>
-                                @foreach ($data as $item)
-                                    <li><a
-                                            href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $item['lang']['slug']) }}">{{ $item['lang']['name'] }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endforeach
+                        @if(isset($footerCategories))
+                            @foreach (array_chunk($footerCategories->toArray(), 3) as $k => $data)
+                                <ul>
+                                    @foreach ($data as $item)
+                                        <li><a
+                                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.listings') . '/' . $item['lang']['slug']) }}">{{ $item['lang']['name'] }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endforeach
+                        @endif
+
 
                     </div>
                 </div>

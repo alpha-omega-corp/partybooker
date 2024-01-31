@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Advert;
 use App\Models\AdvertCategory;
+use App\Models\AdvertImage;
 use App\Models\Category;
 use App\Models\CategoryLocale;
 use App\Models\Partner;
 use App\Models\PartnerVipPlan;
-use App\Models\ServiceImage;
 use App\Models\Services\EventService;
 use App\Models\Statistic;
 use Illuminate\Http\Request;
@@ -269,7 +269,7 @@ class ListingController extends Controller
             Statistic::where('id_partner', $partner->id_partner)->increment('view');
         }
 
-        $images = ServiceImage::where('id_partner', $partner->id_partner)->get();
+        $images = AdvertImage::where('id_partner', $partner->id_partner)->get();
         $subCategoriesId = AdvertCategory::where('partners_info_id', $partner->id)->pluck('sub_category_id')->toArray();
         $subCategories = Category::whereIn('id', $subCategoriesId)->pluck('code')->toArray();
 

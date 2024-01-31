@@ -8,7 +8,7 @@
     @php
         $partnerValues = $partners->map(function ($partner) {
             return [
-                'id' => $partner->id_partner,
+                'id' => $partner->id,
                 'name' => str_replace("'", '', $partner->user->name),
                 'email' => str_replace("'", '', $partner->user->email),
                 'company' => app()->getLocale() === 'en'

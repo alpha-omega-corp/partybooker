@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Company;
-use App\Models\CompanyDetail;
 use App\Models\CompanySocial;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -23,8 +22,6 @@ class CompanyFactory extends Factory
             'phone' => $this->faker->phoneNumber,
             'email' => $this->faker->email,
             'fax' => $this->faker->phoneNumber,
-            'public' => $this->faker->boolean,
-            'company_detail_id' => CompanyDetail::factory(),
             'company_social_id' => CompanySocial::factory(),
         ];
     }

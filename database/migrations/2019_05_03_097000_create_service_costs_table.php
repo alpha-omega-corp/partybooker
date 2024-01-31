@@ -9,12 +9,13 @@ return new class extends Migration {
     {
         Schema::create('service_costs', function (Blueprint $table) {
             $table->id();
-            $table->string('payment_methods');
-            $table->integer('prices');
+            $table->json('prices');
+            $table->json('payment_methods');
             $table->integer('budget')->nullable();
-            $table->boolean('deposit')->default(false);
-            $table->boolean('delivery')->default(false);
-            $table->boolean('extra')->default(false);
+
+            $table->boolean('has_deposit')->default(false);
+            $table->boolean('has_delivery')->default(false);
+            $table->boolean('has_extra')->default(false);
 
             $table->json('extra_specs')->nullable();
             $table->json('delivery_specs')->nullable();

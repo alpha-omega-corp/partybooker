@@ -30,11 +30,15 @@ Route::prefix(LocaleMiddleware::getLocale())->group(function () {
         ->group(function () {
 
             Route::controller(HomeController::class)
-                ->name('home.')
                 ->group(function () {
-                    Route::get('/', 'index')->name('index');
-                    Route::get('/annonces/{category?}/{child?}', 'listing')->name('listing');
+                    Route::name('home.')->group(function () {
+                        Route::get('/', 'index')->name('index');
+                    });
 
+                    Route::name('listing.')->group(function () {
+                        Route::get('/annonces/{category?}/{child?}', 'listing')->name('index');
+                        Route::get('/annonce/{company:slug}/{advert:title}', 'advert')->name('advert');
+                    });
                 });
 
             Route::controller(BlogController::class)
@@ -44,7 +48,6 @@ Route::prefix(LocaleMiddleware::getLocale())->group(function () {
                     Route::get('/', 'index')->name('index');
                     Route::get('/{post:slug}', 'show')->name('show');
                 });
-
         });
 
     Route::middleware('admin')
