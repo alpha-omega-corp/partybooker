@@ -1,0 +1,229 @@
+.home {
+    background-color: $home;
+
+    .home-welcome {
+        background-image: url("/resources/images/app/background.jpg");
+        background-size: cover;
+        height: 750px;
+        position: relative;
+
+        @media only screen and (max-width: 600px) {
+            height: 600px;
+        }
+
+        .welcome {
+            padding-top: 100px;
+            text-align: center;
+
+            p {
+                color: #fff;
+                font-weight: bold;
+                text-transform: uppercase;
+                font-size: 30px;
+            }
+
+            h1 {
+                color: #fff;
+                text-shadow: 5px 5px #ce38e5;
+                font-weight: bold;
+                font-style: italic;
+                margin-top: 150px;
+            }
+        }
+    }
+
+    .home-description {
+        padding: 80px 0 40px;
+
+        .description {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    .home-category {
+        padding: 30px 0 100px;
+
+        .scene {
+            display: inline-block;
+            width: 400px;
+            height: 200px;
+            margin: 12px 0;
+            perspective: 600px;
+
+            .flippy {
+                border: 0;
+                position: relative;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                transform-style: preserve-3d;
+                transform-origin: center right;
+                transition: transform .4s;
+                background-color: $orange;
+
+                h3 {
+                    padding: 10px;
+                    font-size: 20px;
+                }
+
+                img {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+
+            .flippy.is-flipped {
+                transform: translateX(-100%) rotateY(-180deg);
+            }
+
+            .flippy__face {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                font-weight: bold;
+                backface-visibility: hidden;
+            }
+
+            .flippy__face--front {
+                overflow-y: hidden;
+                border-radius: 10px;
+            }
+
+            .flippy__face--front:hover {
+                transform: scale(1.04);
+                transition: .2s;
+            }
+
+            .flippy__face--back {
+                transform: rotateY(180deg);
+                border-radius: 20px;
+                background-color: #fff;
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .category-children {
+
+            ul {
+                padding: 0;
+
+                li {
+                    list-style-type: none;
+                }
+            }
+        }
+    }
+
+    .home-top {
+        .top-card {
+            background-color: #fff;
+            border: 1px solid $gray-300;
+            border-radius: 10px;
+            padding-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            text-transform: uppercase;
+            margin: 10px;
+            overflow: hidden;
+
+            .top-card-content {
+                overflow: hidden;
+                color: $gray;
+                line-height: normal;
+            }
+
+            img {
+                height: 200px;
+                object-fit: cover;
+            }
+        }
+
+        .top-card:hover {
+            transform: scale(1.02);
+            transition: .2s;
+            border-color: $accent;
+        }
+    }
+
+    .home-information {
+        background-color: rgba(180, 198, 255, 0.5);
+
+        .accordion-container {
+            display: flex;
+            justify-content: center !important;
+        }
+    }
+
+    .home-comment {
+        background: rgb(2, 0, 36);
+        background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(221, 221, 255, 1) 0%, rgba(187, 234, 251, 1) 0%, rgba(242, 126, 255, 1) 100%, rgba(0, 212, 255, 1) 100%);
+
+        @media only screen and (max-width: 1290px) {
+            padding-top: 700px;
+        }
+
+        @media only screen and (max-width: 824px) {
+            padding-top: 1100px;
+        }
+
+
+        h1 {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .reference {
+            text-align: justify;
+            margin-bottom: 100px;
+            position: relative;
+
+            h6 {
+                margin-left: 10px;
+            }
+
+            .reference-title {
+                position: absolute;
+                bottom: 40px;
+                padding-top: 10px;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+
+                h6 {
+                    background-color: $pink;
+                    color: #fff;
+                    padding: 10px;
+                    border-radius: 10px;
+                }
+
+                svg {
+                    color: $primary;
+                }
+            }
+
+            .reference-card {
+                height: 600px;
+                border-radius: 20px;
+                margin: 40px;
+                background-color: rgba(255, 255, 255, 0.2);
+
+                .reference-card-body {
+                    padding: 40px;
+                }
+
+                p {
+                    font-size: 20px;
+                    font-family: 'IBM Plex Sans', sans-serif;
+                }
+            }
+        }
+    }
+}

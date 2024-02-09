@@ -23,15 +23,12 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('update-partner', function (User $user) {
-            $authPartner = Auth::user()->partnerInfo;
-            if ($user->isAdmin()) {
-                return true;
+        Gate::define('partner', function (User $user) {
+            if ($user->id === Auth::id() || $user->isAdmin()) {
+                return Response::allow();
             }
 
-            return $user->id_partner === $authPartner->id_partner
-                ? Response::allow()
-                : Response::deny('This is not your account.');
+            return Response::deny(__('controller/response.partner_unauthorized'));
         });
     }
 }

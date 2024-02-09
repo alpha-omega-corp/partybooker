@@ -82,7 +82,7 @@
 
                                         <div class="d-flex location-box">
                                             <div class="location">
-                                                <img src="{{ Vite::image('map.svg') }}"/>
+                                                <img src="{{ Vite::image('group-map.svg') }}"/>
                                             </div>
 
                                             <p class="w-full">
@@ -143,7 +143,7 @@
 
                                         <div class="d-flex location-box">
                                             <div class="location">
-                                                <img src="{{ Vite::image('map.svg') }}"/>
+                                                <img src="{{ Vite::image('group-map.svg') }}"/>
                                             </div>
 
                                             <p class="w-full">

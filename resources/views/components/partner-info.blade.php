@@ -5,8 +5,7 @@
     'type'
 ])
 
-
-<div x-data="{show: false}" class="partner-info-tippy" data-tippy-content="{{'Company ' . ucfirst($tooltip)}}">
+<div x-data="{show: false}" class="tippy-down" data-tippy-content="{{'Company ' . ucfirst($tooltip)}}">
     <div class="info-element">
         <div class="d-flex">
             <div class="{{$tooltip}}">

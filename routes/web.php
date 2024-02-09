@@ -12,61 +12,103 @@
 
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ListingController;
+use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\mainWebsite;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ServiceImageController;
 use App\Http\Controllers\Web\ProfileController;
 use App\Http\Middleware\LocaleMiddleware;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix(LocaleMiddleware::getLocale())->group(function () {
-    Route::fallback(function () {
-        return response()->view('404');
+Route::fallback(function () {
+    return response()->view('404');
+});
+
+Route::get('/locale/{lang}', [LocaleController::class, 'setLocale'])->name('locale');
+
+Route::controller(AuthController::class)
+    ->name('auth.')
+    ->group(function () {
+        Route::post('/login', 'authenticate')->name('login');
+        Route::get('/logout', 'logout')->name('logout');
     });
 
-    Route::name('guest.')
-        ->group(function () {
 
-            Route::controller(HomeController::class)
-                ->group(function () {
-                    Route::name('home.')->group(function () {
-                        Route::get('/', 'index')->name('index');
-                    });
+Route::name('guest.')
+    ->group(function () {
 
-                    Route::name('listing.')->group(function () {
-                        Route::get('/annonces/{category?}/{child?}', 'listing')->name('index');
-                        Route::get('/annonce/{company:slug}/{advert:title}', 'advert')->name('advert');
-                    });
-                });
+        // HomeController
+        Route::controller(HomeController::class)
+            ->name('guest.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/a-propos', 'about')->name('about');
+                Route::get('/partenariat', 'partnership')->name('partnership');
+                Route::get('/blog', 'blog')->name('blog');
+            });
 
-            Route::controller(BlogController::class)
-                ->name('blog.')
-                ->prefix('blog')
-                ->group(function () {
-                    Route::get('/', 'index')->name('index');
-                    Route::get('/{post:slug}', 'show')->name('show');
-                });
-        });
+        // ListingController
+        Route::controller(ListingController::class)
+            ->name('listing.')
+            ->group(function () {
+                Route::get('/annonces/{category?}/{child?}', 'index')->name('index');
+                Route::get('/annonce/{company:slug}/{advert:slug}', 'advert')->name('advert');
+            });
 
-    Route::middleware('admin')
-        ->name('admin.')
-        ->prefix('cp')
-        ->group(function () {
+        // BlogController
+        Route::controller(BlogController::class)
+            ->name('blog.')
+            ->prefix('blog')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/{post:slug}', 'show')->name('show');
+            });
 
-            Route::controller(BlogController::class)
-                ->name('blog.')
-                ->prefix('blog')
-                ->group(function () {
-                    Route::get('/', 'manage')->name('manage');
-                    Route::post('/', 'store')->name('store');
-                    Route::put('/{post}', 'update')->name('update');
-                    Route::delete('/{post}', 'destroy')->name('destroy');
-                    Route::put('/{post}/status', 'status')->name('status');
-                });
-        });
-});
+        // CompanyController
+        Route::controller(CompanyController::class)
+            ->name('company.')
+            ->prefix('company')
+            ->group(function () {
+                Route::get('/{company:id}/request/', 'request')->name('request');
+            });
+    });
+
+Route::middleware('partner')
+    ->name('partner.')
+    ->prefix('partner/{partner:id}')
+    ->group(function () {
+
+        Route::controller(PartnerController::class)
+            ->group(function () {
+                Route::get('/profile', 'dashboard')->name('dashboard');
+                Route::put('/company', 'company')->name('company');
+                Route::put('/plan', 'plan')->name('plan');
+
+            });
+    });
+
+Route::middleware('admin')
+    ->name('admin.')
+    ->prefix('manage')
+    ->group(function () {
+
+        Route::controller(BlogController::class)
+            ->name('blog.')
+            ->prefix('blog')
+            ->group(function () {
+                Route::get('/', 'manage')->name('manage');
+                Route::post('/', 'store')->name('store');
+                Route::put('/{post}', 'update')->name('update');
+                Route::delete('/{post}', 'destroy')->name('destroy');
+                Route::put('/{post}/status', 'status')->name('status');
+            });
+    });
 
 
 Route::group(['prefix' => 'en'], function () {
@@ -80,7 +122,6 @@ Route::group(['prefix' => 'en'], function () {
     Route::get('/listing/{slug}', '\App\Http\Controllers\Web\ListingController@service');
 
 
-    Route::get('/aboutus', 'mainWebsite@aboutus');
     Route::get('/partner-terms', 'mainWebsite@partnerterms');
 
     Route::get('/sitemap', '\App\Http\Controllers\Web\PageController@siteMap');
@@ -89,18 +130,8 @@ Route::group(['prefix' => 'en'], function () {
 
 
 Route::group(['prefix' => null], function () {
-
-
     Route::get('/partenaire', 'mainWebsite@partner');
     Route::view('/partenaire/inscription', 'partner-register');
-
-
-    Route::get('/annonces-filtered', '\App\Http\Controllers\Web\ListingController@filtered');
-
-
-    Route::get('/annonce/{slug}', '\App\Http\Controllers\Web\ListingController@service');
-
-    Route::get('/a-propos-de-nous', 'mainWebsite@aboutus');
     Route::get('/conditions-generales-partnaires', 'mainWebsite@partnerterms');
 
     Route::get('/plan-du-site', '\App\Http\Controllers\Web\PageController@siteMap');
@@ -131,7 +162,6 @@ Route::group(['prefix' => LocaleMiddleware::getLocale()], function () {
     Route::post('/stat', 'ajaxController@statClicks');
 
     Route::get('/sitemap_{lang}.xml', 'SiteMapController@sitemap');
-    Auth::routes();
     Route::post('/register', [RegisterController::class, 'register'])->name('user.register');
 
 
@@ -386,4 +416,3 @@ Route::group(['prefix' => LocaleMiddleware::getLocale()], function () {
 });
 
 //language switch
-Route::get('setlocale/{lang}', 'LocaleController@setLocale')->name('setlocale');

@@ -16,7 +16,7 @@ class CompanyLocaleFactory extends Factory
     {
         return [
             'slogan' => $this->faker->sentence(10),
-            'description' => $this->faker->paragraph(40),
+            'description' => $this->faker->paragraph($this->faker->randomElement([15, 30])),
             'preview' => $this->faker->text,
             'keywords' => json_encode($this->faker->words()),
             'title' => $this->faker->sentence(3),

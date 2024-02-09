@@ -11,6 +11,7 @@ class AdvertImageFactory extends Factory
 
     public function definition(): array
     {
+
         return [
             'is_thumbnail' => false,
             'path' => $this->faker->imageUrl(500, 500),

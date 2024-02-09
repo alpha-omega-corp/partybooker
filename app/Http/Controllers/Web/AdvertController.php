@@ -312,7 +312,7 @@ class AdvertController extends Controller
             $aService = $advert->service();
             $data = [];
             switch ($advert->service->getMorphObjectAttribute()) {
-                case 'BusinessService':
+                case 'ServiceBusiness':
                     $coctail = $request->cocktail_capacity;
                     $banquet = $request->banquet_capacity;
                     $outdoor = $request->outdor_capacity;
@@ -341,7 +341,7 @@ class AdvertController extends Controller
 
                     $data = ['coctail' => $coctail, 'banquet' => $banquet, 'outdoor' => $outdoor, 'sitting' => $sitting, 'room' => $room, 'reduced_mob' => $reduced_mob, 'car' => $car, 'facilities' => $facilities, 'oth_facilities' => $oth_facilities, 'convenience' => $convenience, 'alcohole' => $alcohole, 'alcohole_yes' => $alcohole_yes];
                     break;
-                case 'CatererService':
+                case 'ServiceCaterer':
                     $geo = $request->geo;
                     $min_guests = $request->min_guests;
                     $max_guests = $request->max_guests ?? null;
@@ -349,7 +349,7 @@ class AdvertController extends Controller
 
                     $data = ['geo' => $geo, 'min_guests' => $min_guests, 'max_guests' => $max_guests, 'smood' => $smood];
                     break;
-                case 'WineService':
+                case 'ServiceWine':
                     $services = $request->set_num_service;
                     $service = [];
                     for ($i = 1; $i <= $services; $i++) {
@@ -417,7 +417,7 @@ class AdvertController extends Controller
 
                     $data = ['service' => $service, 'participant' => $participant, 'wine' => $wine, 'affiliation' => $affiliation, 'reward' => $reward, 'article' => $article, 'art_d' => $art_d, 'art_l' => $art_l, 'furniture' => $furniture, 'other_furniture' => $other_furniture, 'equipment' => $equipment, 'other_equipment' => $other_equipment];
                     break;
-                case 'EquipmentService':
+                case 'ServiceEquipment':
                     $geo = $request->geo;
                     $complim_services = $request->complim_services;
                     $proposed = $request->proposed;
@@ -425,7 +425,7 @@ class AdvertController extends Controller
 
                     $data = ['geo' => $geo, 'complim_services' => $complim_services, 'proposed' => $proposed, 'references' => $references];
                     break;
-                case 'EntertainmentService':
+                case 'ServiceEntertainment':
                     $geo = $request->geo;
                     $services = $request->services;
                     $participants = $request->participants;
@@ -476,7 +476,7 @@ class AdvertController extends Controller
 
             $data = [];
             switch ($advert->service->getMorphObjectAttribute()) {
-                case 'BusinessService':
+                case 'ServiceBusiness':
                     $staff = $request->staff ? json_encode($request->staff) : json_encode([]);
                     $other_staff = $request->otherstaff;
                     $accomodation = $request->accomodation;
@@ -486,7 +486,7 @@ class AdvertController extends Controller
 
                     $data = ['staff' => $staff, 'other_staff' => $other_staff, 'accomodation' => $accomodation, 'number_questrooms' => $number_questrooms, 'other_services' => $other_services, 'more_services' => $more_services];
                     break;
-                case 'CatererService':
+                case 'ServiceCaterer':
                     $logistic = $request->logistic ? json_encode($request->logistic) : json_encode([]);
                     $staff = $request->staff ? json_encode($request->staff) : json_encode([]);
                     $tableware = $request->tableware ? json_encode($request->tableware) : json_encode([]);

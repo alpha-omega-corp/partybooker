@@ -18,9 +18,9 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->email,
-            'encrypted_password' => bcrypt('password'),
+            'password' => bcrypt('password'),
             'verified_at' => now()->toDateTime(),
-            'admin' => false,
+            'is_admin' => false,
             'partner_id' => Partner::factory(),
         ];
     }

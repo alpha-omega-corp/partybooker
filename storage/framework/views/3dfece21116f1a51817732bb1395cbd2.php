@@ -1,23 +1,20 @@
 <?php $attributes ??= new \Illuminate\View\ComponentAttributeBag; ?>
 <?php foreach($attributes->onlyProps([
-    'page',
     'href',
     'icon',
-    'tooltip'
+    'text'
 ]) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
 <?php $attributes = $attributes->exceptProps([
-    'page',
     'href',
     'icon',
-    'tooltip'
+    'text'
 ]); ?>
 <?php foreach (array_filter(([
-    'page',
     'href',
     'icon',
-    'tooltip'
+    'text'
 ]), 'is_string', ARRAY_FILTER_USE_KEY) as $__key => $__value) {
     $$__key = $$__key ?? $__value;
 } ?>
@@ -27,25 +24,10 @@
 } ?>
 <?php unset($__defined_vars); ?>
 
-<li class="nav-item" data-tippy-content="<?php echo e($tooltip); ?>">
-    <div class="d-flex justify-content-center align-items-center">
-        <a page="<?php echo e($page); ?>" href="<?php echo e($href); ?>"
-           class="nav-link d-flex align-items-center justify-content-center bg-accent"
-
-           aria-current="<?php echo e($page); ?>">
-            <div class="rounded-circle bg-accent p-2 d-flex">
-
-
-                <?php echo e(svg($icon, 'nav-icon')); ?>
-                <span class="nav-sm-text">
-                    <?php echo e($tooltip); ?>
-
-                </span>
-
-
-            </div>
-        </a>
-
-    </div>
+<li>
+    <a href="<?php echo e($href); ?>">
+        <?php echo e(svg($icon, 'nav-icon')); ?>
+        <span><?php echo e($text); ?></span>
+    </a>
 </li>
 <?php /**PATH /home/nanstis/PhpstormProjects/pb-live/resources/views/components/navigation/item.blade.php ENDPATH**/ ?>

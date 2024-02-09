@@ -4,8 +4,12 @@ namespace App\Enums;
 
 enum PaymentMethod: string
 {
-    case DEFAULT = 'manual';
-    case STRIPE = 'automatic';
+    case CASH = 'cash';
+    case CARD = 'card';
+    case BILL = 'bill';
+    case AMERICAN = 'american-express';
+    case MAESTRO = 'ec-direct';
+    case POST = 'post-finance';
 
     public static function values(): array
     {

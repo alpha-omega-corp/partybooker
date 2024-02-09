@@ -2,64 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Interfaces\ICategoryService;
-use App\Models\Advert;
 use App\Models\Category;
-use App\Models\Company;
-use App\Models\TopService;
-use App\Services\CategoryService;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
+use App\Models\PartnerComment;
+use App\Models\PartnerTop;
+use App\Models\Post;
+use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
 {
-    private ICategoryService $categoryService;
-
-    private Collection $categories;
-
-    public function __construct(CategoryService $categoryService)
-    {
-        $this->categoryService = $categoryService;
-        $this->categories = Category::all();
-    }
-
     public function index()
     {
-        return view('home.index', [
-            'top' => TopService::all()->map(fn($item) => $item->partner),
-            'categories' => $this->categories,
+        return view('app.home.index', [
+            'categories' => Category::all(),
+            'comments' => PartnerComment::all(),
+            'top' => PartnerTop::all()->map(fn($item) => $item->partner)
         ]);
     }
 
 
-    public function listing(Request $request, ?string $category = null, ?string $child = null)
+    public function about(): View
     {
-        $adverts = Advert::listing();
-
-        if ($category) {
-            $currentCategory = $this->categoryService->getCategory($category)->first();
-            $adverts->where('advertisable_type', $currentCategory->service);
-        }
-
-        if ($child) {
-            $currentChild = $this->categoryService->getCategory($child)->first();
-            $adverts->whereHas('tags', function (Builder $query) use ($currentChild) {
-                $query->where('category_child_id', $currentChild->id);
-            });
-        }
-
-        return view('listing.index', [
-            'adverts' => $adverts->paginate(6)->fragment('adverts'),
-            'categories' => $this->categories,
-        ]);
+        return view('app.guest.about');
     }
 
-    public function advert(Request $request, Company $company, Advert $advert)
+    public function blog(): View
     {
-        return view('listing.advert', [
-            'partner' => $company->partner,
-            'advert' => $advert,
+        return view('app.guest.blog', [
+            'posts' => Post::published()->get()
         ]);
     }
+
+    public function partnership(): View
+    {
+        return view('app.guest.partnership');
+    }
+
+
 }

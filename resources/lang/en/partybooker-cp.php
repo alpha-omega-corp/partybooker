@@ -18,7 +18,7 @@ return [
     'plans' => "Yearly PLANS",
     'contacts' => "Contacts",
     'user-terms' => "User Terms & Conditions",
-    'provider-terms' => "Service Provider Terms & Conditions",
+    'provider-terms' => "AdvertService Provider Terms & Conditions",
 
     //Email veryfication
     'not_verified' => "Email is not verified",

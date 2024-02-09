@@ -1,6 +1,6 @@
 <?php
 
-use App\Enums\PaymentMethod;
+use App\Enums\PaymentType;
 use App\Models\Plan;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -11,7 +11,7 @@ return new class extends Migration {
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->enum('method', PaymentMethod::values());
+            $table->enum('type', PaymentType::values());
             $table->foreignIdFor(Plan::class)->nullable();
             $table->date('accepted_at');
             $table->date('expires_at');

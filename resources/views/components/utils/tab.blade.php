@@ -1,4 +1,8 @@
-@props(['tabs'])
+@props([
+    'icons' => false,
+    'tooltips' => [],
+    'tabs'
+])
 
 <div
     x-data="{
@@ -30,7 +34,7 @@
         @keydown.page-down.prevent.stop="$focus.last()"
         role="list"
         class="tab-list d-flex justify-content-start">
-        @foreach($tabs as $tab)
+        @foreach($tabs as $key => $tab)
             <li>
                 <div
                     :id="$id('tab', whichChild($el.parentElement, $refs.list))"
@@ -39,11 +43,15 @@
                     @focus="select($el.id)"
                     :tabindex="isSelected($el.id) ? 0 : -1"
                     :aria-selected="isSelected($el.id)"
-                    :class="isSelected($el.id) ? ' border-accent fw-bold shadow-lg' : ''"
-                    class="tab-button h-100 border border-bottom-0"
-                    data-tippy-content="{{$tab}}"
+                    :class="isSelected($el.id) ? ' border-accent text-accent fw-bold shadow-lg' : ''"
+                    class="tippy tab-button h-100 border border-bottom-0"
+                    data-tippy-content="{{$tooltips[$key] ?? ''}}"
                     role="tab">
-                    {{$tab}}
+                    @if($icons)
+                        @svg($tab, 'tab-icon')
+                    @else
+                        {{$tab}}
+                    @endif
                 </div>
             </li>
         @endforeach

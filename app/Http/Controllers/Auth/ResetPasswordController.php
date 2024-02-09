@@ -55,7 +55,7 @@ class ResetPasswordController extends Controller
         if ($password === $confirmation) {
             User::where('email', $request->get('email'))->update(['password' => bcrypt($password)]);
 
-            return redirect()->route('home')->with('success', 'Password has been reset successfully');
+            return redirect()->route('guest')->with('success', 'Password has been reset successfully');
         }
 
         return redirect()->back();

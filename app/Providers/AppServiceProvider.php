@@ -19,7 +19,6 @@ use App\Services\PlanService;
 use App\Services\RequestService;
 use App\View\Composers\SettingsComposer;
 use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
@@ -42,13 +41,16 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        Cashier::useCustomerModel(User::class);
-        Vite::macro('image', fn(string $img) => $this->asset(trim("resources/images/$img")));
+        View::composer("*", SettingsComposer::class);
         Paginator::useBootstrapFive();
 
-        // Migrations mysql string length
-        Schema::defaultStringLength(191);
-        View::composer("*", SettingsComposer::class);
+        Vite::macro('app', fn(string $img) => $this->asset(trim("resources/images/app/$img")));
+        Vite::macro('category', fn(string $img) => $this->asset(trim("resources/images/categories/$img")));
+        Vite::macro('flag', fn(string $name) => $this->asset(trim("resources/images/flags/$name")));
+        Vite::macro('payment', fn(string $name) => $this->asset(trim("resources/images/payments/$name")));
+        Vite::macro('social', fn(string $name) => $this->asset(trim("resources/images/socials/$name.png")));
+
+        Cashier::useCustomerModel(User::class);
     }
 
 

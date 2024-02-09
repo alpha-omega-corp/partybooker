@@ -56,7 +56,7 @@ Partybooker in bringing a targeted platform achieves this goal.</p>
 
 		<p><b>8. Conclusion: Return on investment</b></p>
 		<p>Partybooker is an investment that pays off very easily</p>",
-    'provider_service' => 'Service provider terms and conditions',
+    'provider_service' => 'AdvertService provider terms and conditions',
     'view' => 'View',
 
     'form_title' => 'BECOME A PARTNER',
@@ -86,7 +86,7 @@ Partybooker in bringing a targeted platform achieves this goal.</p>
     'website' => 'Website',
     'german' => 'Slogan',
     'agree' => 'I agree to ',
-    'sp' => 'Service Provider Terms & Conditions',
+    'sp' => 'AdvertService Provider Terms & Conditions',
     'per_listing' => 'per listing',
 
     'become_info_eng' => '<p><b>1. Superior visibility</b></p>

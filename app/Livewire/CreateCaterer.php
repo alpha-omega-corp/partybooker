@@ -12,7 +12,7 @@ use App\Helpers\StaffTranslatorHelper;
 use App\Helpers\TablewareTranslatorHelper;
 use App\Models\Advert;
 use App\Models\Partner;
-use App\Models\Services\CatererService;
+use App\Models\ServiceCaterer;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Fieldset;
@@ -81,7 +81,7 @@ class CreateCaterer extends Component implements HasForms
             ->first();
 
         if ($advert->status === Advert::STATUS_ACTIVE) {
-            $caterer = CatererService::where('id', $advert->service_id)->first();
+            $caterer = ServiceCaterer::where('id', $advert->service_id)->first();
             $this->holidays = json_decode($caterer->holidays, true);
             $this->budget = $caterer->budget;
             $this->rates = $caterer->price;
@@ -343,13 +343,13 @@ class CreateCaterer extends Component implements HasForms
             ->first();
 
 
-        $caterer = CatererService::where('id', $advert->service_id)->first();
+        $caterer = ServiceCaterer::where('id', $advert->service_id)->first();
         $data = $this->form->getState();
 
         if ($caterer) {
             $item = $caterer;
         } else {
-            $item = new CatererService();
+            $item = new ServiceCaterer();
         }
 
         $item->id_partner = $this->partnerId;

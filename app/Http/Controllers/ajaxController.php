@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DirectMessage;
 use App\Models\Partner;
 use App\Models\Rate;
-use App\Models\Services\CatererService;
+use App\Models\ServiceCaterer;
 use App\Models\Statistic;
 use Auth;
 use DB;
@@ -142,7 +142,7 @@ class ajaxController extends Controller
     //Partner CP - delete file (menus)
     public function partnerDelfile(Request $request)
     {
-        $caterer = CatererService::where('id', $request->id)->first();
+        $caterer = ServiceCaterer::where('id', $request->id)->first();
         $menus = $caterer->menu ? json_decode($caterer->menu) : [];
 
         try {

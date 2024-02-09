@@ -101,7 +101,7 @@
                         <label>{{ __('partybooker-cp.location') }}</label>
                         <select name="location" id="location" required>
                             <option selected disabled></option>
-                            @include('common.cantons')
+                            @include('partials.cantons')
                         </select>
 
                         <label>{{ __('partybooker-cp.address') }}</label>

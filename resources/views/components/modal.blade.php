@@ -1,28 +1,33 @@
 @props([
-    'button' => null
+    'button' => null,
+    'hasIcon' => true,
+    'hasButton' => true,
 ])
 
 <a
-    class="tippy {{$absolute ? 'btn-modal-absolute' : ''}} btn btn-{{$color}}"
+    id="toggle-{{$id}}"
+    class="tippy btn btn-{{$color}} {{!$hasButton ? 'd-none' : ''}}"
     data-tippy-content="{{$type->name}}"
     data-bs-toggle="modal"
     data-bs-target="{{'#'. $id}}"
 >
+    @if($hasIcon)
+        @switch($type)
+            @case(ModalType::CREATE)
+                @svg('heroicon-o-plus-circle')
+                @break
+            @case(ModalType::UPDATE)
+                @svg('heroicon-o-pencil')
+                @break
+            @case(ModalType::DELETE)
+                @svg('heroicon-o-trash')
+                @break
+            @default
+                @svg('heroicon-o-eye')
+                @break
+        @endswitch
+    @endif
     {{$button}}
-    @switch($type)
-        @case(ModalType::CREATE)
-            @svg('heroicon-o-plus-circle')
-            @break
-        @case(ModalType::UPDATE)
-            @svg('heroicon-o-pencil')
-            @break
-        @case(ModalType::DELETE)
-            @svg('heroicon-o-trash')
-            @break
-        @default
-            @svg('heroicon-o-eye')
-            @break
-    @endswitch
 </a>
 
 

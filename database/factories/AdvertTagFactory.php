@@ -31,7 +31,7 @@ class AdvertTagFactory extends Factory
     private function tag(CategoryType $type): int
     {
         $category = Category::where('service', $type->value)->firstOrFail();
-        return $this->faker->randomElement($category->categoryChildren->pluck('id')->toArray());
+        return $this->faker->randomElement($category->children()->pluck('id')->toArray());
     }
 
     public function wine(): self
@@ -39,6 +39,42 @@ class AdvertTagFactory extends Factory
         return $this->state(function () {
             return [
                 'category_child_id' => $this->tag(CategoryType::WINE),
+            ];
+        });
+    }
+
+    public function business(): self
+    {
+        return $this->state(function () {
+            return [
+                'category_child_id' => $this->tag(CategoryType::BUSINESS),
+            ];
+        });
+    }
+
+    public function caterer(): self
+    {
+        return $this->state(function () {
+            return [
+                'category_child_id' => $this->tag(CategoryType::CATERER),
+            ];
+        });
+    }
+
+    public function entertainment(): self
+    {
+        return $this->state(function () {
+            return [
+                'category_child_id' => $this->tag(CategoryType::ENTERTAINMENT),
+            ];
+        });
+    }
+
+    public function equipment(): self
+    {
+        return $this->state(function () {
+            return [
+                'category_child_id' => $this->tag(CategoryType::EQUIPMENT),
             ];
         });
     }

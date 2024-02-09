@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\CompanySocial;
+use App\Models\CompanyMedia;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -20,8 +20,9 @@ return new class extends Migration {
             $table->string('lat');
             $table->string('lon');
             $table->string('loc');
+            $table->string('logo');
 
-            $table->foreignIdFor(CompanySocial::class, 'company_social_id')->nullable();
+            $table->foreignIdFor(CompanyMedia::class);
 
             $table->timestamps();
         });

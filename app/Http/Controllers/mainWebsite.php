@@ -30,7 +30,7 @@ class mainWebsite extends Controller
 
     public function home()
     {
-        return view('home', [
+        return view('guest', [
             'top' => TopService::all()->map(fn($item) => $item->partner),
             'categories' => $this->categories,
         ]);

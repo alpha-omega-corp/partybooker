@@ -3,20 +3,17 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PartnerMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        $response = Gate::inspect('update-partner');
-        
-        if ($response->allowed()) {
+        if (Auth::user()->partner()->exists()) {
             return $next($request);
         }
 
-        return redirect()->route('/partner-cp')->with('error', $response->message());
-
+        return back();
     }
 }

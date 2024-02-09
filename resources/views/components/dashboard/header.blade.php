@@ -3,7 +3,6 @@
     'plans'
 ])
 <div class="dashboard-title">
-
     <div class="dashboard-title-box">
         <div class="d-flex align-items-center justify-content-between ">
             <x-dashboard.title :user="$user" :plans="$plans"/>

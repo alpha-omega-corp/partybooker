@@ -33,7 +33,7 @@
     <br>
 
 
-    <h1>{{strtoupper('Service Request')}}</h1>
+    <h1>{{strtoupper('AdvertService Request')}}</h1>
     <a href="{{url('en/listing/' . $partner->slug)}}">Service Page</a>
     <hr>
 

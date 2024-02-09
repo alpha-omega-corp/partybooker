@@ -10,7 +10,7 @@ use App\Helpers\OtherServicesTranslatorHelper;
 use App\Helpers\TechnicalEquipmentTranslatorHelper;
 use App\Models\Advert;
 use App\Models\Partner;
-use App\Models\Services\BusinessService;
+use App\Models\ServiceBusiness;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Fieldset;
@@ -101,7 +101,7 @@ class CreateEventPlace extends Component implements HasForms
             ->where('partners_info_id', $this->partnerInfoId)
             ->first();
         if ($advert->status === Advert::STATUS_ACTIVE) {
-            $eventPlace = BusinessService::where('id', $advert->service_id)->first();
+            $eventPlace = ServiceBusiness::where('id', $advert->service_id)->first();
             $this->days = json_decode($eventPlace->working_days);
             $this->timetable = $eventPlace->working_time ? json_decode($eventPlace->working_time, true) : [];
             $this->holidays = is_array($eventPlace->holidays) ? json_decode($eventPlace->holidays, true) : [];
@@ -606,13 +606,13 @@ class CreateEventPlace extends Component implements HasForms
             ->where('partners_info_id', $this->partnerInfoId)
             ->first();
 
-        $eventPlace = BusinessService::where('id', $advert->service_id)->first();
+        $eventPlace = ServiceBusiness::where('id', $advert->service_id)->first();
         $data = $this->form->getState();
 
         if ($eventPlace) {
             $item = $eventPlace;
         } else {
-            $item = new BusinessService();
+            $item = new ServiceBusiness();
         }
         $item->id_partner = $this->partnerId;
         $item->working_days = json_encode($data['days']);

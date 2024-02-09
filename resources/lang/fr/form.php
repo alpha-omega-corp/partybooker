@@ -10,7 +10,7 @@ return [
     'table_capacity' => 'Personnes assises',
     'nearby' => 'A proximité',
     'item' => 'Valeur',
-    'delivery-service' => 'Service de livraison',
+    'delivery-service' => 'AdvertService de livraison',
     'caterer-menu' => 'Menu(s)',
     'guests' => 'Invités',
     'edit-option-warning' => 'êtes-vous sûr de vouloir modifier la formule de votre plan ?',
@@ -35,7 +35,7 @@ return [
     'hide' => 'Cacher',
     'edit-company-modal' => 'Informations de l\'entreprise',
     'unknown_count' => 'Vous avez :count annonces, dont aucune n\'est active.',
-    'unknown_active_category' => 'Service manquant selon votre formule. Cliquez sur le bouton ci-dessus pour ajouter un service.',
+    'unknown_active_category' => 'AdvertService manquant selon votre formule. Cliquez sur le bouton ci-dessus pour ajouter un service.',
     'search_listing' => 'Chercher une annonce',
 
 ];

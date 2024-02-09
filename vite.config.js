@@ -8,7 +8,7 @@ export default defineConfig({
         inject({
             $: 'jquery',
             jQuery: 'jquery',
-            include: ['./resources/js/bootstrap.js'],
+            include: ['./resources/js/app.js'],
         }),
         laravel({
             input: [

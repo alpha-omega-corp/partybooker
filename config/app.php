@@ -2,6 +2,7 @@
 
 use App\Enums\CategoryType;
 use App\Enums\DateType;
+use App\Enums\EnvironmentType;
 use App\Enums\ModalSize;
 use App\Enums\ModalType;
 use Buzz\LaravelGoogleCaptcha\CaptchaServiceProvider;
@@ -35,7 +36,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', EnvironmentType::LOCAL),
 
     /*
     |--------------------------------------------------------------------------
@@ -134,7 +135,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Autoloaded Service Providers
+    | Autoloaded AdvertService Providers
     |--------------------------------------------------------------------------
     |
     | The service providers listed here will be automatically loaded on the
@@ -146,13 +147,13 @@ return [
 
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*
-         * Package Service Providers...
+         * Package AdvertService Providers...
          */
         Torann\LaravelMetaTags\MetaTagsServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
 
         /*
-         * Application Service Providers...
+         * Application AdvertService Providers...
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
@@ -185,6 +186,8 @@ return [
         'DateType' => DateType::class,
         'CategoryType' => CategoryType::class,
         'NetworkType' => App\Enums\NetworkType::class,
+        'EnvironmentType' => App\Enums\EnvironmentType::class,
+        'ModalPosition' => App\Enums\ModalPosition::class,
     ])->toArray(),
 
     'tinymce' => env('TINYMCE_API_KEY'),

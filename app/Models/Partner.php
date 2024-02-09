@@ -3,7 +3,6 @@
 namespace App\Models;
 
 
-use App\Models\Services\EventService;
 use Database\Factories\PartnerFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -38,12 +37,12 @@ class Partner extends Model
         return $this->hasOne(Company::class, 'id', 'company_id');
     }
 
-    public function payment(): HasOne
+    public function payment(): BelongsTo
     {
-        return $this->hasOne(Payment::class);
+        return $this->belongsTo(Payment::class);
     }
 
-    public function currentPlan(): HasOne
+    public function plan(): HasOne
     {
         return $this->hasOne(Plan::class, 'id', 'plans_id');
     }
@@ -65,8 +64,8 @@ class Partner extends Model
 
     public function eventTypes(): BelongsToMany
     {
-        return $this->belongsToMany(EventService::class,
-            PartnerEventType::class,
+        return $this->belongsToMany(ServiceEvent::class,
+            PartnerTag::class,
             'partners_info_id',
             'event_type_id',
             'id', 'id');

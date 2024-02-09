@@ -1,0 +1,46 @@
+.navigation {
+
+    .navbar-toggler:focus,
+    .navbar-toggler:active,
+    .navbar-toggler-icon:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    .auth {
+        margin-left: 30px;
+
+        .dropdown {
+            position: relative !important;
+        }
+    }
+
+    .offcanvas-body {
+        padding: 0;
+
+        .nav {
+            margin-top: 0;
+
+            li {
+                display: flex;
+                border-bottom: 1px solid $accent;
+                font-weight: bold;
+
+                a {
+                    padding: 20px;
+                    color: $gray;
+                }
+
+                a:hover {
+                    color: $accent;
+                }
+
+                svg {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+
+}

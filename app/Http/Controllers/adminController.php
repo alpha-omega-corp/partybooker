@@ -11,11 +11,11 @@ use App\Models\DirectMessage;
 use App\Models\Partner;
 use App\Models\PartnerPlanOption;
 use App\Models\PartnerVipPlan;
-use App\Models\Services\BusinessService;
-use App\Models\Services\CatererService;
-use App\Models\Services\EntertainmentService;
-use App\Models\Services\EquipmentService;
-use App\Models\Services\WineService;
+use App\Models\ServiceBusiness;
+use App\Models\ServiceCaterer;
+use App\Models\ServiceEntertainment;
+use App\Models\ServiceEquipment;
+use App\Models\ServiceWine;
 use App\Models\TopService;
 use App\Models\User;
 use Exception;
@@ -272,7 +272,7 @@ class adminController extends Controller
                         $request->file('logo')->storeAs('logos', $logo);
                     }
                     //write event to DB for notifications "REGISTRATION"
-                    $event = 'Service provider registration';
+                    $event = 'AdvertService provider registration';
                     $description = 'New service provider:' . $name . ', ID:' . $id_partner;
 
                     DB::insert('insert into notification (event_date, event, description) value(?, ?, ?)', [$date, $event, $description]);
@@ -363,11 +363,11 @@ class adminController extends Controller
         try {
             PartnerVipPlan::where('partners_info_id', $partner->id)->delete();
             AdvertImage::where('partners_info_id', $partner->id)->delete();
-            CatererService::where('id_partner', $partner->id_partner)->delete();
-            EquipmentService::where('id_partner', $partner->id_partner)->delete();
-            EntertainmentService::where('id_partner', $partner->id_partner)->delete();
-            BusinessService::where('id_partner', $partner->id_partner)->delete();
-            WineService::where('id_partner', $partner->id_partner)->delete();
+            ServiceCaterer::where('id_partner', $partner->id_partner)->delete();
+            ServiceEquipment::where('id_partner', $partner->id_partner)->delete();
+            ServiceEntertainment::where('id_partner', $partner->id_partner)->delete();
+            ServiceBusiness::where('id_partner', $partner->id_partner)->delete();
+            ServiceWine::where('id_partner', $partner->id_partner)->delete();
             AdvertCategory::where('partners_info_id', $partner->id)->delete();
             Advert::where('partners_info_id', $partner->id)->delete();
             PartnerPlanOption::where('partners_info_id', $partner->id)->delete();

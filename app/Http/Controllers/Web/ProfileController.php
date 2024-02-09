@@ -17,9 +17,9 @@ use App\Models\Category;
 use App\Models\CategoryLocale;
 use App\Models\Faq;
 use App\Models\Partner;
-use App\Models\PartnerEventType;
 use App\Models\PartnerPlanOption;
-use App\Models\Services\EventService;
+use App\Models\PartnerTag;
+use App\Models\ServiceEvent;
 use App\Models\User;
 use Exception;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -133,7 +133,7 @@ class ProfileController extends Controller
         ];
 
         $this->defineRateGroup($user);
-        $partnerEventTypes = PartnerEventType::where('partners_info_id', $partnerInfoId)
+        $partnerEventTypes = PartnerTag::where('partners_info_id', $partnerInfoId)
             ->get()->map(fn($e) => $e->event_type_id)->toArray();
 
         return view('web.partner.pages.advert', [
@@ -153,7 +153,7 @@ class ProfileController extends Controller
             ],
             'canPublishMatrix' => $this->advertService->canPublishMatrix($user->id_partner),
             'advertService' => $this->advertService,
-            'eventTypes' => EventService::all(),
+            'eventTypes' => ServiceEvent::all(),
             'partnerEventTypes' => $partnerEventTypes,
             'plans' => $this->planService->getPlans(),
         ]);
@@ -326,17 +326,17 @@ class ProfileController extends Controller
 
         $eventTypes = $request->input('eventTypes');
         if (!$eventTypes) {
-            PartnerEventType::where('partners_info_id', $partner->id)->delete();
+            PartnerTag::where('partners_info_id', $partner->id)->delete();
             return redirect()->back()->with('success', "Changes saved.");
         }
         DB::beginTransaction();
         try {
-            $eventTypes = EventService::whereIn('id', $request->input('eventTypes'))->get();
+            $eventTypes = ServiceEvent::whereIn('id', $request->input('eventTypes'))->get();
             if (!$eventTypes) {
                 return redirect()->back()->with('success', "Changes saved.");
             }
 
-            PartnerEventType::where('partners_info_id', $partner->id)->delete();
+            PartnerTag::where('partners_info_id', $partner->id)->delete();
             $data = [];
             foreach ($eventTypes as $e) {
                 $data[] = [
@@ -344,7 +344,7 @@ class ProfileController extends Controller
                     'event_type_id' => $e->id,
                 ];
             }
-            PartnerEventType::insert($data);
+            PartnerTag::insert($data);
 
             DB::commit();
         } catch (Exception $e) {

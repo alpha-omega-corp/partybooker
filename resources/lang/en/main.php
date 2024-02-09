@@ -83,7 +83,7 @@ return [
     'contacts_email' => "Email",
     'contacts_message' => "Message",
     'contacts_agree' => "I agree to",
-    'contacts_terms' => "Service Provider Terms & Conditions",
+    'contacts_terms' => "AdvertService Provider Terms & Conditions",
 
     //
     'other_directories' => 'Swiss Guides & Directories',

@@ -13,10 +13,10 @@ return new class extends Migration {
             $table->string('name');
             $table->dateTime('verified_at')->nullable();
             $table->string('email')->unique();
-            $table->string('encrypted_password');
+            $table->string('password');
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();
-            $table->boolean('admin')->default(false);
+            $table->boolean('is_admin')->default(false);
             $table->foreignIdFor(Partner::class)->nullable();
 
             $table->rememberToken();

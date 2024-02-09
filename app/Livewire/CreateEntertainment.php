@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Advert;
 use App\Models\Partner;
-use App\Models\Services\EntertainmentService;
+use App\Models\ServiceEntertainment;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
@@ -63,7 +63,7 @@ class CreateEntertainment extends Component implements HasForms
             ->first();
 
         if ($advert->status === Advert::STATUS_ACTIVE) {
-            $entertainment = EntertainmentService::where('id', $advert->service_id)->first();
+            $entertainment = ServiceEntertainment::where('id', $advert->service_id)->first();
             $this->days = json_decode($entertainment->working_days);
             $this->timetable = json_decode($entertainment->working_time, true);
             $this->duration = json_decode($entertainment->duration, true);
@@ -269,13 +269,13 @@ class CreateEntertainment extends Component implements HasForms
             ->where('partners_info_id', $this->partnerInfoId)
             ->first();
 
-        $entertainment = EntertainmentService::where('id', $advert->service_id)->first();
+        $entertainment = ServiceEntertainment::where('id', $advert->service_id)->first();
         $data = $this->form->getState();
 
         if ($entertainment) {
             $item = $entertainment;
         } else {
-            $item = new EntertainmentService();
+            $item = new ServiceEntertainment();
         }
 
         $item->id_partner = $this->partnerId;

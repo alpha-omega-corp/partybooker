@@ -3,9 +3,12 @@
 namespace Database\Factories;
 
 use App\Models\Company;
-use App\Models\CompanySocial;
+use App\Models\CompanyMedia;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<CompanyFactory>
+ */
 class CompanyFactory extends Factory
 {
     protected $model = Company::class;
@@ -22,7 +25,8 @@ class CompanyFactory extends Factory
             'phone' => $this->faker->phoneNumber,
             'email' => $this->faker->email,
             'fax' => $this->faker->phoneNumber,
-            'company_social_id' => CompanySocial::factory(),
+            'logo' => $this->faker->imageUrl(),
+            'company_media_id' => CompanyMedia::factory(),
         ];
     }
 }

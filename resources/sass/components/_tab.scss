@@ -1,6 +1,4 @@
 .tab {
-    height: 100%;
-    padding: 10px;
     margin: 0;
 
     .tab-list {
@@ -8,16 +6,34 @@
         border-bottom: 0;
         overflow-x: scroll;
         position: relative;
-        margin-left: 20px;
+        margin: 0 0 0 20px;
 
-        .tab-button {
-            cursor: pointer;
-            padding: 20px;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            background-color: transparent;
-            color: $gray;
+        li {
+            list-style-type: none;
+
+            .tab-button {
+                cursor: pointer;
+                padding: 20px;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+                background-color: transparent;
+                color: $gray;
+
+                .tab-icon {
+                    font-weight: bold;
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+
+            .tab-button:hover {
+                .tab-icon {
+                    color: $accent;
+                }
+
+            }
         }
+
     }
 
     .tab-page {

@@ -6,7 +6,7 @@ use Database\Factories\UserFactory;
 use Illuminate\Auth\Passwords\CanResetPassword as CanResetPasswordTrait;
 use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Cashier\Billable;
@@ -21,14 +21,14 @@ class User extends Authenticatable implements CanResetPassword
     protected $fillable = [
         'name',
         'email',
-        'encrypted_password',
+        'password',
         'verified_at',
-        'admin',
+        'is_admin',
         'partner_id',
     ];
 
     protected $hidden = [
-        'encrypted_password', 'remember_token',
+        'password', 'remember_token',
     ];
 
     protected $casts = [
@@ -42,7 +42,7 @@ class User extends Authenticatable implements CanResetPassword
 
     public function isAdmin(): bool
     {
-        return $this->type === 'admin';
+        return $this->is_admin;
     }
 
     public function sanitizeRoute(string $path): string
@@ -53,8 +53,8 @@ class User extends Authenticatable implements CanResetPassword
             : url('/partner-cp' . $path);
     }
 
-    public function partner(): HasOne
+    public function partner(): BelongsTo
     {
-        return $this->hasOne(Partner::class);
+        return $this->belongsTo(Partner::class);
     }
 }

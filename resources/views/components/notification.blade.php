@@ -3,7 +3,6 @@
     'message'
 ])
 
-
 <div class="main-notifications">
     <div class="app-notification shadow-lg">
         <div class="notification-title {{$type === 'error' ? 'bg-danger' : 'bg-primary'}}">

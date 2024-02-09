@@ -9,18 +9,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Advert extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'company_id',
-        'advertisable_id',
-        'advertisable_type',
+        'slug',
         'title',
-        'public',
+        'company_id',
+        'advert_service_id',
+        'is_public',
+        'is_main'
+    ];
+
+    protected $casts = [
+        'is_public' => 'boolean',
+        'is_main' => 'boolean'
     ];
 
     protected static function newFactory(): AdvertFactory
@@ -43,14 +48,19 @@ class Advert extends Model
         return $this->belongsTo(Company::class);
     }
 
-    public function advertisable(): MorphTo
+    public function service(): BelongsTo
     {
-        return $this->morphTo();
+        return $this->belongsTo(AdvertService::class, 'advert_service_id', 'id');
     }
 
     public function scopeListing(Builder $query): void
     {
-        $query->where('public', true);
+        $query->where('is_public', true);
+    }
+
+    public function scopeMain(Builder $query): void
+    {
+        $query->where('is_main', true);
     }
 
 

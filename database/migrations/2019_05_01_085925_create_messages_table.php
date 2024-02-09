@@ -18,7 +18,7 @@ return new class extends Migration {
             //#3 - Contact form (Contact us page),
             //#4 - Contact form (Contacts tab in Partner CP),
             //#5 - Leave your phone number (Become a partner page),
-            //#6 - Direct request (Service page)
+            //#6 - Direct request (AdvertService page)
             $table->string('contact_form');
             $table->string('name', 15)->nullable();
             $table->string('email')->nullable();

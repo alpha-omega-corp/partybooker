@@ -20,22 +20,15 @@ class BlogController extends Controller
 
     public function index()
     {
-        return view('blog.index', [
-            'posts' => Post::published()->get()
+        return view('app.blog.manage', [
+            'posts' => Post::all()
         ]);
     }
 
     public function show(Post $post)
     {
-        return view('blog.post', [
+        return view('app.blog.post', [
             'post' => $post
-        ]);
-    }
-
-    public function manage()
-    {
-        return view('blog.manage', [
-            'posts' => Post::all()
         ]);
     }
 

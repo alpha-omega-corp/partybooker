@@ -12,30 +12,7 @@ class CategorySeeder extends Seeder
 {
     public function run(): void
     {
-        $categories = [
-            CategoryType::EVENT->value => Category::factory([
-                'service' => CategoryType::EVENT->value,
-            ])->create(),
-            CategoryType::BUSINESS->value => Category::factory([
-                'service' => CategoryType::BUSINESS->value,
-            ])->create(),
-            CategoryType::ENTERTAINMENT->value => Category::factory([
-                'service' => CategoryType::ENTERTAINMENT->value,
-            ])->create(),
-            CategoryType::EQUIPMENT->value => Category::factory([
-                'service' => CategoryType::EQUIPMENT->value,
-            ])->create(),
-            CategoryType::CATERER->value => Category::factory([
-                'service' => CategoryType::CATERER->value,
-            ])->create(),
-            CategoryType::WINE->value => Category::factory([
-                'service' => CategoryType::WINE->value,
-            ])->create(),
-        ];
-
-        $this->newCategory(
-            $categories[CategoryType::EVENT->value],
-            [
+        $this->newCategory(CategoryType::EVENT, [
                 'en' => [
                     'reception-venue' => 'Reception Venue',
                     'authentic' => 'Authentic',
@@ -55,13 +32,11 @@ class CategorySeeder extends Seeder
                     'prestigieux' => 'Prestigieux',
                     'vue-lac' => 'Vue lac',
                     'tendance' => 'Tendance',
-                ],
+                ]
             ]
         );
 
-        $this->newCategory(
-            $categories[CategoryType::BUSINESS->value],
-            [
+        $this->newCategory(CategoryType::BUSINESS, [
                 'en' => [
                     'business-event' => 'Business Event',
                     'meeting' => 'Meeting',
@@ -71,13 +46,11 @@ class CategorySeeder extends Seeder
                     'evenement-professionnel' => 'Événement Professionnel',
                     'reunion' => 'Réunion',
                     'seminaire' => 'Séminaire',
-                ],
+                ]
             ]
         );
 
-        $this->newCategory(
-            $categories[CategoryType::CATERER->value],
-            [
+        $this->newCategory(CategoryType::CATERER, [
                 'en' => [
                     'catering' => 'Catering',
                     'food-truck' => 'Food Truck',
@@ -87,13 +60,11 @@ class CategorySeeder extends Seeder
                     'traiteur' => 'Traiteur',
                     'camion-nourriture' => 'Camion Nourriture',
                     'chef-domicile' => 'Chef à domicile',
-                ],
+                ]
             ]
         );
 
-        $this->newCategory(
-            $categories[CategoryType::WINE->value],
-            [
+        $this->newCategory(CategoryType::WINE, [
                 'en' => [
                     'wine-lovers' => 'Wine Lovers',
                     'wine-tasting' => 'Wine Tasting',
@@ -105,13 +76,11 @@ class CategorySeeder extends Seeder
                     'degustation-vin' => 'Dégustation de vin',
                     'activites' => 'Activités',
                     'boutique' => 'Boutique',
-                ],
+                ]
             ]
         );
 
-        $this->newCategory(
-            $categories[CategoryType::EQUIPMENT->value],
-            [
+        $this->newCategory(CategoryType::EQUIPMENT, [
                 'en' => [
                     'equipment' => 'Equipment & Decoration',
                     'furniture' => 'Furniture',
@@ -121,13 +90,11 @@ class CategorySeeder extends Seeder
                     'materiel-deco' => 'Matériel & Decoration',
                     'mobilier' => 'Mobilier',
                     'cuisine-office' => 'Cuisine & Office',
-                ],
+                ]
             ]
         );
 
-        $this->newCategory(
-            $categories[CategoryType::ENTERTAINMENT->value],
-            [
+        $this->newCategory(CategoryType::ENTERTAINMENT, [
                 'en' => [
                     'entertainment' => 'Entertainment',
                     'musicians-dj' => 'Musicians & DJ',
@@ -137,16 +104,20 @@ class CategorySeeder extends Seeder
                     'animations' => 'Animations',
                     'musicians-dj' => 'Musicians & DJ',
                     'artistes' => 'Artists & Spéctacles',
-                ],
+                ]
             ]
         );
     }
 
-    private function newCategory(Category $category, array $locales): void
+    private function newCategory(CategoryType $type, array $locales): void
     {
         if (count($locales['en']) != count($locales['fr'])) {
             return;
         }
+
+        $category = Category::factory([
+            'service' => $type->value,
+        ])->create();
 
         $children = [];
         for ($i = 0; $i < count($locales['en']); $i++) {

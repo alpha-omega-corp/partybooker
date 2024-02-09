@@ -7,8 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @if (config('app.env') == 'production')
-        <!-- Google Analytics -->
+    <title>Partybooker</title>
+    @yield('title')
+    @stack('header')
+
+    <!-- Google Analytics -->
+    @if (config('app.env') == EnvironmentType::PROD->value)
         <script>
             (function (i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r;
@@ -25,30 +29,60 @@
             ga('create', 'UA-54557878-1', 'auto');
             ga('send', 'pageview');
         </script>
-        <!-- Google Analytics -->
     @endif
 
-    @yield('title')
-    @stack('header')
-
-    @vite(['resources/js/app.js'])
     @filamentStyles
+    @vite(['resources/js/app.js'])
+
+
 </head>
 
 <body>
-@include('common.header-nav')
 
-<div class="main-content">
-    <x-app-notifications/>
+<div class="app-content">
+    @if ($message = Session::get('success'))
+        <x-notification type="success" :message="$message"/>
+    @endif
+
+    @if ($message = Session::get('error'))
+        <x-notification type="error" :message="$message"/>
+    @endif
+
     @yield('content')
-    @include('common.footer')
 </div>
 
-<section>
-    @include('common.cookies')
-</section>
+@include('app.partials.navigation')
+@include('app.partials.cookies')
 
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('modal', (name) => ({
+            open() {
+                document.getElementById(`toggle-${name}`).click()
+            },
+        }))
+
+        Alpine.data('carousel', (name, count) => ({
+            init() {
+                const glide = new Glide(`#${name}`, {
+                    type: 'carousel',
+                    perView: count,
+                    breakpoints: {
+                        1500: {
+                            perView: 2,
+                        },
+                        1000: {
+                            perView: 1,
+                        },
+                    },
+                })
+
+                this.$nextTick(() => {
+                    glide.mount(GlideControls)
+                })
+            },
+        }))
+    })
+</script>
 </body>
-
-
 </html>

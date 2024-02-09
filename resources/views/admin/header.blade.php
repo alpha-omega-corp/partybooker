@@ -2,7 +2,7 @@
     <div class="container">
         <div class="logo">
             <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/') }}"><img
-                    src="{{ Vite::image('logoPB.png') }}" alt=""></a>
+                    src="{{ Vite::image('logo.png') }}" alt=""></a>
         </div>
         <div class="mobile-opener">
             <div class="mobile-btn"></div>

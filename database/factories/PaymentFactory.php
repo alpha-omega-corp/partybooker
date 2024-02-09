@@ -2,10 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Enums\PaymentMethod;
+use App\Enums\PaymentType;
 use App\Models\Payment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<Payment>
+ */
 class PaymentFactory extends Factory
 {
     protected $model = Payment::class;
@@ -13,7 +16,7 @@ class PaymentFactory extends Factory
     public function definition(): array
     {
         return [
-            'method' => $this->faker->randomElement(array_column(PaymentMethod::cases(), 'value')),
+            'type' => $this->faker->randomElement(PaymentType::values()),
             'accepted_at' => now(),
             'expires_at' => now()->addYear(),
         ];

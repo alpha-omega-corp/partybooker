@@ -5,7 +5,7 @@ return [
 
     'gallery_info' => 'Ce partenaire ne peut pas télécharger d\'images',
     'trial_ending' => 'Votre période d\'éssai se termine le :date',
-    'dashboard' => 'Tableau de bord',
+    'dashboard' => 'Profile',
     'medal' => 'Médaille',
     'available' => 'Disponible',
     'matrix_category_good' => 'Choix des catégories',
@@ -16,7 +16,7 @@ return [
     'other' => 'Autre',
     'fill_company_details' => 'Veuillez remplir les détails de votre entreprise.',
     'choose_thumbnail' => 'Téléchargez une miniature pour votre page de publicité',
-    'service_name' => 'Service',
+    'service_name' => 'AdvertService',
     'service_description' => 'Informations',
     'extansion' => 'Détails de prolongation',
 
@@ -135,7 +135,7 @@ return [
     'socials' => 'Réseaux',
 
     //details
-    'service_details' => "Service(s) détaillé(s)",
+    'service_details' => "AdvertService(s) détaillé(s)",
     'fill_service_details' => "Veuillez remplir les détails de vos services.",
 
     //popups
@@ -173,7 +173,7 @@ return [
     'payment_terms_expl' => "Conditions de paiement (ex. 25% à la réservation, solde une semaine avant l'événement)",
     'payment_methods' => "Méthodes de paiement",
     'payment_methods_expl' => "Sélectionner les méthode de paiement acceptée par votre établissement",
-    'service_general_info' => "Conditions Générales de Service",
+    'service_general_info' => "Conditions Générales de AdvertService",
     'geographical_limit' => "Limite géographique",
     'min_max_guests' => "Capacité Invités",
     'min_max_guests_expl' => "Veuillez indiquer le montant minimum et maximum de repas",
@@ -280,7 +280,7 @@ return [
     'references' => "Références",
     'references_expl' => "Coordonnées des référenceurs",
 
-    //EquipmentService
+    //ServiceEquipment
     'opening_time' => "ouverture",
     'opening_time_expl' => "Indiquez vos heures d'ouverture",
     'closing_time' => "fermeture",
@@ -403,7 +403,7 @@ return [
     'ad_link_to_articles' => "Ajouter le lien de l'article",
 
     'food_services_info' => "Information sur la restauration",
-    'catering_service_available' => "Service traiteur disponible",
+    'catering_service_available' => "AdvertService traiteur disponible",
     'food_on_site' => "Nourriture sur place",
     'caterer_affiliation' => "Affiliation avec un traiteur",
     'menus' => "Menus",
@@ -432,10 +432,10 @@ return [
     'service-staff' => 'Personnel de service',
     'musicians' => 'Musiciens',
     'entertainers' => 'Animateurs',
-    'traffic-coordination' => 'Service de coordination du traffic',
+    'traffic-coordination' => 'AdvertService de coordination du traffic',
     'post-party-cleaning' => 'Nettoyage post-évènement',
     'master-ceremonies' => 'Maître de cérémonie',
-    'security' => 'Service de sécurité',
+    'security' => 'AdvertService de sécurité',
     'singers' => 'Chanteurs',
     'cloakroom' => 'Vestiaires',
     'dj' => 'Dj',

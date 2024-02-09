@@ -14,7 +14,7 @@ class Payment extends Model
 
     public $timestamps = false;
     protected $fillable = [
-        'method',
+        'type',
         'accepted_at',
         'expires_at',
         'plan_id',
@@ -25,13 +25,13 @@ class Payment extends Model
         return PaymentFactory::new();
     }
 
-    public function partner(): BelongsTo
+    public function partner(): HasOne
     {
-        return $this->belongsTo(Partner::class);
+        return $this->hasOne(Partner::class);
     }
 
-    public function plan(): HasOne
+    public function plan(): BelongsTo
     {
-        return $this->hasOne(Plan::class);
+        return $this->belongsTo(Plan::class);
     }
 }

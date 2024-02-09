@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Advert;
 use App\Models\Partner;
-use App\Models\Services\EquipmentService;
+use App\Models\ServiceEquipment;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Radio;
@@ -64,7 +64,7 @@ class CreateEquipment extends Component implements HasForms
 
 
         if ($advert->status === Advert::STATUS_ACTIVE) {
-            $equipment = EquipmentService::where('id', $advert->service_id)->first();
+            $equipment = ServiceEquipment::where('id', $advert->service_id)->first();
             $this->days = json_decode($equipment->working_days);
             $this->timetable = json_decode($equipment->working_time, true);
             $this->holidays = json_decode($equipment->holidays, true);
@@ -250,13 +250,13 @@ class CreateEquipment extends Component implements HasForms
             ->where('partners_info_id', $this->partnerInfoId)
             ->first();
 
-        $equipment = EquipmentService::where('id', $advert->service_id)->first();
+        $equipment = ServiceEquipment::where('id', $advert->service_id)->first();
         $data = $this->form->getState();
 
         if ($equipment) {
             $item = $equipment;
         } else {
-            $item = new EquipmentService();
+            $item = new ServiceEquipment();
         }
 
         $item->id_partner = $this->partnerId;

@@ -176,7 +176,7 @@
                                                                                     <div
                                                                                         class="row notifications orange"
                                                                                         event-id="<?php echo $key ?>">
-                                                                                        @elseif ($notification->event === 'Service provider registration')
+                                                                                        @elseif ($notification->event === 'AdvertService provider registration')
                                                                                             <div
                                                                                                 class="row notifications green"
                                                                                                 event-id="<?php echo $key ?>">

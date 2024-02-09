@@ -1,0 +1,27 @@
+.carousel__frame {
+    position: relative;
+    padding: 40px 0 40px;
+
+    .glide__arrow {
+        img {
+            width: 30px;
+        }
+    }
+
+    .glide__arrow {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 0 !important;
+    }
+
+    .glide__arrow--left {
+        transform: rotate(180deg);
+        left: 0;
+    }
+
+    .glide__arrow--right {
+        right: 0;
+    }
+}

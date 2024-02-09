@@ -288,7 +288,7 @@ $('.click-details li a.social-network').on('click', function () {
 });
 
 
-//Service page: add data value to stars
+//AdvertService page: add data value to stars
 for (var i = 1; i <= 5; i++) {
     $('.service-section li:nth-child(' + i + ')').attr('data-value', i);
 }
@@ -509,7 +509,7 @@ $('.partnerdetails .set .btn-room').on('click', function () {
         var setNum = parseInt($('.partnerdetails .set-' + set + ' [name=set_num_' + set + ']').val()) + 1;
         var setNumIn = setNum - 1;
         if ($('[name=price_name' + setNumIn + ']').val().length > 0 && $('[name=contest_name' + setNumIn + ']').val().length > 0) {
-            var block = '<div class="reward mt-10"><input type="text" name="price_name' + setNum + '" placeholder="WineService name" required /><input type="text" name="contest_name' + setNum + '" placeholder="Contest name" required class="mt-10"/><span class="radio-item"><input type="radio" name="reward' + setNum + '" value="gold" required /><span>GOLD</span><span class="checkmark"></span></span><span class="radio-item"><input type="radio" name="reward' + setNum + '" value="silver" /><span>SILVER</span><span class="checkmark"></span></span><span class="radio-item"><input type="radio" name="reward' + setNum + '" value="bronze" /><span>BRONZE</span><span class="checkmark"></span></span></div>';
+            var block = '<div class="reward mt-10"><input type="text" name="price_name' + setNum + '" placeholder="ServiceWine name" required /><input type="text" name="contest_name' + setNum + '" placeholder="Contest name" required class="mt-10"/><span class="radio-item"><input type="radio" name="reward' + setNum + '" value="gold" required /><span>GOLD</span><span class="checkmark"></span></span><span class="radio-item"><input type="radio" name="reward' + setNum + '" value="silver" /><span>SILVER</span><span class="checkmark"></span></span><span class="radio-item"><input type="radio" name="reward' + setNum + '" value="bronze" /><span>BRONZE</span><span class="checkmark"></span></span></div>';
             $('.partnerdetails .set-' + set).append(block);
             $('.partnerdetails .set-' + set + ' [name=set_num_' + set + ']').val(setNum);
         }

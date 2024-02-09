@@ -10,7 +10,7 @@ use App\Models\Category;
 use App\Models\CategoryLocale;
 use App\Models\Partner;
 use App\Models\PartnerVipPlan;
-use App\Models\Services\EventService;
+use App\Models\ServiceEvent;
 use App\Models\Statistic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +38,7 @@ class ListingController extends Controller
         if ($event) {
             $this->eventTypes = $event;
         } else {
-            $this->eventTypes = EventService::all()->map(fn($item) => [
+            $this->eventTypes = ServiceEvent::all()->map(fn($item) => [
                 'slug' => $item->{app()->getLocale() . '_slug'},
                 'name' => $item->{app()->getLocale() . '_name'}
             ]);

@@ -2,19 +2,19 @@
 
 namespace App\Enums;
 
-use App\Models\Services\BusinessService;
-use App\Models\Services\CatererService;
-use App\Models\Services\EntertainmentService;
-use App\Models\Services\EquipmentService;
-use App\Models\Services\EventService;
-use App\Models\Services\WineService;
+use App\Models\ServiceBusiness;
+use App\Models\ServiceCaterer;
+use App\Models\ServiceEntertainment;
+use App\Models\ServiceEquipment;
+use App\Models\ServiceEvent;
+use App\Models\ServiceWine;
 
 enum CategoryType: string
 {
-    case EVENT = EventService::class;
-    case BUSINESS = BusinessService::class;
-    case ENTERTAINMENT = EntertainmentService::class;
-    case EQUIPMENT = EquipmentService::class;
-    case CATERER = CatererService::class;
-    case WINE = WineService::class;
+    case EVENT = ServiceEvent::class;
+    case BUSINESS = ServiceBusiness::class;
+    case ENTERTAINMENT = ServiceEntertainment::class;
+    case EQUIPMENT = ServiceEquipment::class;
+    case CATERER = ServiceCaterer::class;
+    case WINE = ServiceWine::class;
 }
