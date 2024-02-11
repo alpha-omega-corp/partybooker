@@ -13,11 +13,7 @@
         <section class="home-description">
             @include('app.home.partials.description')
         </section>
-
-        <section class="home-category">
-            @include('app.home.partials.category')
-        </section>
-
+        
         <section class="home-top">
             @include('app.home.partials.top')
         </section>

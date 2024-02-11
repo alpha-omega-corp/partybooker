@@ -1,18 +1,16 @@
 @props([
     'name',
-    'count' => 3,
+    'perView' => 3,
     'container' => false,
     'background' => 'white'
 ])
 
 @if(isset($title))
-    <div class="p-5">
-        {{$title}}
-    </div>
+    {{$title}}
 @endif
 
 <div class="carousel__frame bg-{{$background}}">
-    <div id="{{$name}}" x-data="carousel('{{$name}}', '{{$count}}')">
+    <div id="{{$name}}" x-data="carousel('{{$name}}', '{{$perView}}')">
         <div class="{{$container ? 'container' : ''}}">
 
             <!-- Carousel -->

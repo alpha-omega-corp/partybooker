@@ -6,14 +6,14 @@
 ])
 
 <div class="card mb-4 shadow-lg">
-    <div class="card-body" x-data="{ c: '{{$name}}' }"
-         @click="open(c)">
+    <div class="card-body" x-data="accordion('{{$name}}')"
+         @click="toggle()">
         <div class="card-text">
             <div class="accordion-item">
                 <div class="accordion-item-flex">
                     <button class="accordion-button text-uppercase"
                             type="button" data-bs-toggle="collapse"
-                            id="{{$name}}"
+                            id="accordion-{{$name}}"
                             data-bs-target="{{'#collapse' . $name}}"
                             aria-expanded="false"
                             aria-controls="collapseTwo">

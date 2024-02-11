@@ -1,0 +1,143 @@
+
+.app-accordion {
+    @media only screen and (max-width: 767px) {
+        margin-top: 20px;
+    }
+
+    @media only screen and (min-width: 1000px) {
+        .card {
+            margin: 20px;
+        }
+    }
+
+    .accordion {
+        background-color: transparent;
+        --bs-accordion-border-width: 0;
+
+        .card-group {
+            background-color: transparent;
+            border-color: $secondary;
+            border-radius: 10px;
+
+            display: flex;
+            justify-content: center;
+            @media only screen and (max-width: 767px) {
+                flex-direction: column;
+            }
+
+
+            .card:hover {
+                transform: scale(1.04);
+                transition: .2s;
+            }
+
+            .card {
+                border-radius: 40px;
+                border: 8px solid $primary;
+                cursor: pointer;
+                width: 400px;
+
+
+                .card-body {
+                    padding: 30px;
+                }
+
+                img {
+                    animation: tilt-n-move-shaking 2s infinite;
+                    width: 40px;
+                    height: 40px;
+                    margin-left: 70px;
+                }
+
+                img:hover {
+                    transform: scale(1.2);
+                    transition: 0.2s ease-in-out;
+                    padding: 10px;
+                }
+
+                h3 {
+                    width: 100%;
+                    height: 100%;
+                    font-size: large;
+                    align-items: center;
+                }
+
+                h3:hover {
+                    color: $primary;
+                }
+
+                .accordion-collapse {
+                    border: 0;
+                }
+
+                .accordion-button::after {
+                    transform: none !important;
+                    transition: none !important;
+                    display: none
+                }
+
+                .accordion-button:focus {
+                    box-shadow: none;
+                    border-color: rgba(0, 0, 0, .125);
+                }
+
+                .accordion-item {
+                    background-color: transparent;
+                    border: 0;
+
+
+                    .accordion-button {
+                        border: 0;
+                    }
+
+                    .accordion-item-flex {
+                        display: flex;
+                        margin-bottom: 20px;
+                    }
+                }
+
+                .accordion-body {
+                    text-align: justify;
+                    border: 0;
+                    padding: 0;
+                    margin-top: 10px;
+                    height: 300px;
+                }
+
+                .accordion-button {
+                    font-weight: bold;
+                    background-color: transparent;
+                    border: 0;
+                    padding: 0;
+                }
+
+                .accordion-header {
+                    margin-bottom: 30px;
+                    cursor: pointer;
+                    text-align: end;
+                    color: $gray-700;
+                }
+
+                .accordion-header::before {
+                    content: url('/resources/images/app/arrow.svg');
+                    position: absolute;
+                    left: 20px;
+                    top: 60px;
+                    width: 30px;
+                    height: 30px;
+                }
+
+                .register {
+                    color: #ffffff;
+                    margin-top: 20px;
+                    width: 100%;
+                    text-align: left;
+                }
+
+                .card-footer {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}

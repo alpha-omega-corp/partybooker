@@ -1,21 +1,6 @@
 {
-  "_scale-d14fce0b.js": {
-    "css": [
-      "assets/scale-f0675783.css"
-    ],
-    "file": "assets/scale-d14fce0b.js"
-  },
-  "resources/fonts/GothamPro-Bold.ttf": {
-    "file": "assets/GothamPro-Bold-7bc28964.ttf",
-    "src": "resources/fonts/GothamPro-Bold.ttf"
-  },
-  "resources/fonts/GothamPro-Italic.ttf": {
-    "file": "assets/GothamPro-Italic-7ca3658f.ttf",
-    "src": "resources/fonts/GothamPro-Italic.ttf"
-  },
-  "resources/fonts/GothamPro.ttf": {
-    "file": "assets/GothamPro-e02da845.ttf",
-    "src": "resources/fonts/GothamPro.ttf"
+  "_tippy.esm-1e4f4abe.js": {
+    "file": "assets/tippy.esm-1e4f4abe.js"
   },
   "resources/images/app/about0.svg": {
     "file": "assets/about0-af2859a8.svg",
@@ -165,28 +150,16 @@
     "file": "assets/youtube-0f2fbb09.png",
     "src": "resources/images/socials/youtube.png"
   },
-  "resources/js/admin.css": {
-    "file": "assets/admin-567ebaf4.css",
-    "src": "resources/js/admin.css"
-  },
   "resources/js/admin.js": {
-    "assets": [
-      "assets/GothamPro-e02da845.ttf",
-      "assets/GothamPro-Bold-7bc28964.ttf",
-      "assets/GothamPro-Italic-7ca3658f.ttf"
-    ],
-    "css": [
-      "assets/admin-567ebaf4.css"
-    ],
-    "file": "assets/admin-af0d0361.js",
+    "file": "assets/admin-800c69c6.js",
     "imports": [
-      "_scale-d14fce0b.js"
+      "_tippy.esm-1e4f4abe.js"
     ],
     "isEntry": true,
     "src": "resources/js/admin.js"
   },
   "resources/js/app.css": {
-    "file": "assets/app-b49ed2f1.css",
+    "file": "assets/app-5a79841d.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -195,11 +168,11 @@
       "assets/arrow-126f8b6c.svg"
     ],
     "css": [
-      "assets/app-b49ed2f1.css"
+      "assets/app-5a79841d.css"
     ],
-    "file": "assets/app-90005964.js",
+    "file": "assets/app-a507e084.js",
     "imports": [
-      "_scale-d14fce0b.js"
+      "_tippy.esm-1e4f4abe.js"
     ],
     "isEntry": true,
     "src": "resources/js/app.js"
@@ -215,9 +188,5 @@
     "file": "assets/dashboard-624a1f4e.js",
     "isEntry": true,
     "src": "resources/js/dashboard.js"
-  },
-  "scale.css": {
-    "file": "assets/scale-f0675783.css",
-    "src": "scale.css"
   }
 }

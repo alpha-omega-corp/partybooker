@@ -3,7 +3,7 @@
         {{ __('main.category')}}
     </h2>
 
-    <div class="row d-sm-inline-flex justify-content-center">
+    <div class="row justify-content-center">
         @foreach ($categories as $category)
             <div class="scene flippy">
                 <div class="flippy shadow-lg">
@@ -46,7 +46,6 @@
                                         </li>
                                     @endif
                                 @endforeach
-
                             </ul>
                         </div>
                     </div>

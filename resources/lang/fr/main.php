@@ -9,7 +9,7 @@ return [
     'ideas-text-4' => 'Nos équipes vous guident vers des options adaptées à votre budget pour une expérience inoubliable.',
 
     'welcome' => 'Bienvenue sur',
-    'more_info' => 'Un peu plus d\'informations sur nous ?',
+    'more_info' => 'Un peu plus d\'informations ?',
     'with' => 'avec',
     'preview' => 'Apperçu',
     'made-by' => 'Développement',

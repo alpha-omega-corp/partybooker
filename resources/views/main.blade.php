@@ -62,6 +62,12 @@
             },
         }))
 
+        Alpine.data('accordion', (name) => ({
+            toggle() {
+                document.getElementById(`accordion-${name}`).click()
+            },
+        }))
+
         Alpine.data('carousel', (name, count) => ({
             init() {
                 const glide = new Glide(`#${name}`, {

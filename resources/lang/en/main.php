@@ -11,7 +11,7 @@ return [
 
     'welcome' => 'Welcome to',
 
-    'more_info' => 'A bit more information about us?',
+    'more_info' => 'A bit more information ?',
     'with' => 'with',
     'title_home_h1-1' => 'IN A FEW',
     'preview' => 'Preview',

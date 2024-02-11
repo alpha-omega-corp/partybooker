@@ -10,7 +10,10 @@
             <span>{{__('main.ideas-text-3')}}</span>
             <span>{{__('main.ideas-text-4')}}</span>
         </p>
-        <div class="border-bottom border-pink w-100"></div>
     </div>
+
+    <section class="home-category">
+        @include('app.home.partials.category')
+    </section>
 </div>
 

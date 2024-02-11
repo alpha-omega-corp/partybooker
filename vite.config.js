@@ -3,7 +3,7 @@ import laravel, {refreshPaths} from 'laravel-vite-plugin';
 import inject from "@rollup/plugin-inject";
 
 export default defineConfig({
-
+    build: {chunkSizeWarningLimit: 2000},
     plugins: [
         inject({
             $: 'jquery',
@@ -25,7 +25,9 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             scss: {
-                additionalData: '@import "./resources/sass/bootstrap";@import "./node_modules/@glidejs/glide/src/assets/sass/glide.core";',
+                additionalData: `
+                    @import "./resources/sass/bootstrap";
+                `
             },
         },
     },

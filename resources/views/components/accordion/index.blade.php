@@ -1,10 +1,9 @@
 @props([
-    'accordion',
-    'class' => '',
+    'name',
 ])
 
-<div class="welcome {{$class}}">
-    <div class="accordion" id="{{$accordion}}">
+<div class="app-accordion">
+    <div class="accordion" id="{{$name}}">
         <div class="card-group">
             <div class="card-container">
                 {{$slot}}
@@ -13,8 +12,3 @@
     </div>
 </div>
 
-<script>
-    function open(i) {
-        document.getElementById(i).click();
-    }
-</script>
