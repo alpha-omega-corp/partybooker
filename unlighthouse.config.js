@@ -1,6 +1,6 @@
 export default {
     debug: true,
-    site: 'https://partybooker.ch',
+    site: 'https://dev.partybooker.ch',
     puppeteerOptions: {
         executablePath: '/usr/bin/google-chrome'
     },

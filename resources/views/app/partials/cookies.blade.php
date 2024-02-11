@@ -5,7 +5,7 @@
             <div class="container text-center">
                 <div class="row">
                     <div class="col-2 my-auto mx-auto">
-                        <img src="{{ Vite::app('cookie.svg') }}" alt="Accept cookies" class="my-auto"/>
+                        <img src="{{ Vite::app('cookie.png') }}" alt="Accept cookies" class="my-auto"/>
                     </div>
                     <div class="col-10">
                         <p class="text-start">
