@@ -52,7 +52,6 @@
 </div>
 
 @include('app.partials.navigation')
-@include('app.partials.cookies')
 
 <script>
     document.addEventListener('alpine:init', () => {
