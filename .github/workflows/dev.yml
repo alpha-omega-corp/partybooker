@@ -1,0 +1,23 @@
+name: dev_deployment
+on: [ push ]
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy dev environment
+        uses: appleboy/ssh-action@v1.0.0
+        env:
+          INPUT_PATH: ${{ secrets.APP_PB_PATH }}
+          INPUT_NAME: ${{ secrets.APP_PBDEV_NAME }}
+          INPUT_REPO: ${{ secrets.APP_PB_REPO }}
+        with:
+          host: ${{ secrets.SSH_PB_HOST }}
+          username: ${{ secrets.SSH_PB_USERNAME }}
+          password: ${{ secrets.SSH_PB_PASSWORD }}
+          port: ${{ secrets.SSH_PB_PORT }}
+          script_stop: true
+          allenvs: true
+          script: |
+            cd $INPUT_PATH && if [ -d "$INPUT_NAME" ]; then cd $INPUT_NAME && git pull --rebase; else git clone $INPUT_REPO $INPUT_NAME && exit; fi
+
