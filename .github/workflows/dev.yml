@@ -1,5 +1,8 @@
 name: dev_deployment
-on: [ push ]
+on:
+  push:
+    branches:
+      - develop
 jobs:
   deploy:
     name: Deploy
@@ -19,5 +22,13 @@ jobs:
           script_stop: true
           allenvs: true
           script: |
+            export PATH=/opt/php8.2/bin:$PATH
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm use 17
+
             cd $INPUT_PATH && if [ -d "$INPUT_NAME" ]; then cd $INPUT_NAME && git reset --hard && git pull --rebase; else git clone $INPUT_REPO $INPUT_NAME && exit; fi
+            composer install && npm install && npm run build
+
+
 
