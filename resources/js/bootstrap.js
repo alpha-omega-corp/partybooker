@@ -36,6 +36,15 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Popper = Popper
 window.tinymce = tinymce;
 
+window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+gtag('config', 'G-09C5215HQL');
+
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

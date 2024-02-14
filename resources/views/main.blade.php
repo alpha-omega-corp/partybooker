@@ -12,20 +12,13 @@
     @stack('header')
 
     <!-- Google Analytics -->
-    @if (config('app.env') == EnvironmentType::PROD->value)
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-09C5215HQL"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
 
-            function gtag() {
-                dataLayer.push(arguments);
-            }
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-09C5215HQL"></script>
+    <script>
 
-            gtag('js', new Date());
+    </script>
 
-            gtag('config', 'G-09C5215HQL');
-        </script>
-    @endif
 
     @filamentStyles
     @vite(['resources/js/app.js'])
