@@ -4,9 +4,9 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\UpdatePlanRequest;
 use App\Http\Requests\StorePartnerMessage;
 use App\Http\Requests\UpdateImageAlt;
+use App\Http\Requests\UpdatePlanRequest;
 use App\Http\Requests\UpdateSlugRequest;
 use App\Interfaces\IAdvertService;
 use App\Interfaces\IPlanService;

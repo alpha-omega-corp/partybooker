@@ -6,5 +6,5 @@
     :multipart="true"
     :route="route('admin.blog.update', ['post' => $post])"
 >
-    @include('blog.partials.form', ['post' => $post])
+    @include('app.blog.partials.form', ['post' => $post])
 </x-modal>

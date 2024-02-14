@@ -6,5 +6,5 @@
     :size="ModalSize::XL"
     :route="route('admin.blog.store')"
 >
-    @include('blog.partials.form', ['post' => new Post()])
+    @include('app.blog.partials.form', ['post' => new Post()])
 </x-modal>

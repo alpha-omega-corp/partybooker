@@ -17,7 +17,7 @@ class Modal extends Component
 
         public ModalType $type,
         public ModalSize $size,
-        public string    $route,
+        public ?string   $route = null,
         public bool      $multipart = false,
         public bool      $absolute = false,
     )
@@ -26,7 +26,7 @@ class Modal extends Component
             ModalType::CREATE => 'orange',
             ModalType::DELETE => 'danger',
             ModalType::UPDATE => 'info',
-            default => 'secondary',
+            ModalType::READ => 'standard',
         };
     }
 

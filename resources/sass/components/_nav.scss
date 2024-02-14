@@ -1,4 +1,11 @@
+
 .navigation {
+
+    .navigation-admin {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
 
     .navbar-toggler:focus,
     .navbar-toggler:active,

@@ -13,21 +13,17 @@
 
     <!-- Google Analytics -->
     @if (config('app.env') == EnvironmentType::PROD->value)
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-09C5215HQL"></script>
         <script>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            window.dataLayer = window.dataLayer || [];
 
-            ga('create', 'UA-54557878-1', 'auto');
-            ga('send', 'pageview');
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+
+            gtag('config', 'G-09C5215HQL');
         </script>
     @endif
 
@@ -38,6 +34,7 @@
 </head>
 
 <body>
+@include('app.partials.navigation')
 
 <div class="app-content">
     @if ($message = Session::get('success'))
@@ -50,8 +47,6 @@
 
     @yield('content')
 </div>
-
-@include('app.partials.navigation')
 
 <script>
     document.addEventListener('alpine:init', () => {
@@ -67,26 +62,115 @@
             },
         }))
 
-        Alpine.data('carousel', (name, count) => ({
-            init() {
-                const glide = new Glide(`#${name}`, {
-                    type: 'carousel',
-                    perView: count,
-                    breakpoints: {
-                        1500: {
-                            perView: 2,
-                        },
-                        1000: {
-                            perView: 1,
-                        },
-                    },
-                })
+        Alpine.data('partnerSearch', () => ({
+                partners: [],
+                displayedPartners: [],
+                filter: 'all',
+                sort: 'newest',
+                input: '',
 
-                this.$nextTick(() => {
-                    glide.mount(GlideControls)
-                })
-            },
-        }))
+                async init() {
+                    this.partners = await $.ajax({
+                        url: '{{route('guest.ajax.partners')}}',
+                        type: 'GET',
+                    })
+
+                    console.log(this.partners)
+                },
+
+                filterPartner(partners) {
+                    return partners.filter(
+                        partner => partner.company.toLowerCase().includes(this.search.toLowerCase())
+                    );
+                },
+                filteredPartners() {
+                    switch (this.filter) {
+                        case 'all':
+                            this.displayedPartners = this.filterPartner(this.partners)
+                            break;
+                        case 'payed':
+                            this.displayedPartners = this.filterPartner(this.filterPayed())
+                            break;
+                        case 'un-payed':
+                            this.displayedPartners = this.filterPartner(this.filterUnPayed())
+                            break;
+                        case 'event-place':
+                            this.displayedPartners = this.filterPartner(this.filterCategory('event-place'))
+                            break;
+                        case 'caterer':
+                            this.displayedPartners = this.filterPartner(this.filterCategory('caterer'))
+                            break;
+                        case 'wine':
+                            this.displayedPartners = this.filterPartner(this.filterCategory('wine'))
+                            break;
+                        case 'entertainment':
+                            this.displayedPartners = this.filterPartner(this.filterCategory('entertainment'))
+                            break;
+                        case 'equipment':
+                            this.displayedPartners = this.filterPartner(this.filterCategory('equipment'))
+                            break;
+                        case 'none':
+                            this.displayedPartners = this.filterPartner(this.filterCategory('none'))
+                            break;
+                    }
+
+                    switch (this.sort) {
+                        case 'name':
+                            this.displayedPartners.sort()
+                            break;
+
+                        case 'newest':
+                            this.displayedPartners.sort((partner) => {
+                                return partner.id
+                            })
+                            break;
+
+                        case 'oldest':
+                            this.displayedPartners.sort((partner) => {
+                                return partner.id
+                            }).reverse()
+                            break;
+                    }
+
+                    return this.displayedPartners;
+                },
+                filterPayed() {
+                    return this.partners.filter((partner) => {
+                        return partner.payment_status === 1;
+                    });
+                },
+                filterUnPayed() {
+                    return this.partners.filter((partner) => {
+                        return partner.payment_status === 0;
+                    });
+                },
+                filterCategory(category) {
+                    return this.partners.filter((partner) => {
+                        return partner.categories.includes(category);
+                    });
+                }
+            }),
+            Alpine.data('carousel', (name, count) => ({
+                init() {
+                    const glide = new Glide(`#${name}`, {
+                        type: 'carousel',
+                        perView: count,
+                        breakpoints: {
+                            1500: {
+                                perView: 2,
+                            },
+                            1000: {
+                                perView: 1,
+                            },
+                        },
+                    })
+
+                    this.$nextTick(() => {
+                        glide.mount(GlideControls)
+                    })
+                },
+            }))
+        )
     })
 </script>
 </body>

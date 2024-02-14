@@ -27,9 +27,9 @@ class Partner extends Model
         return PartnerFactory::new();
     }
 
-    public function user(): BelongsTo
+    public function user(): HasOne
     {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
     }
 
     public function company(): HasOne

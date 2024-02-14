@@ -2,19 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\PlanType;
 use App\Models\DirectMessage;
 use App\Models\Partner;
+use App\Models\Payment;
+use App\Models\Plan;
 use App\Models\Rate;
 use App\Models\ServiceCaterer;
 use App\Models\Statistic;
 use Auth;
 use DB;
 use Exception;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class ajaxController extends Controller
+class AjaxController extends Controller
 {
+    public function partners(): JsonResponse
+    {
+        $partners = Plan::all()->map(function (Plan $plan) {
+            return $plan->ofType(PlanType::from($plan->name))
+                ->first()
+                ->payments
+                ->map(fn(Payment $payment) => $payment->partner);
+
+        })->flatten(1);
+
+        $viewPartners = $partners->map(function (Partner $partner) {
+            return [
+                'id' => $partner->id,
+                'company_name' => $partner->company->name,
+                'partner_name' => $partner->user->name,
+                'partner_email' => $partner->user->email,
+            ];
+        });
+
+        return response()->json($viewPartners);
+    }
+
     //Partner form
     public function partner(Request $request)
     {

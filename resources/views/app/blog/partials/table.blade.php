@@ -1,4 +1,4 @@
-<table class="w-100 table table-bordered">
+<table class="w-100 table table-hover">
     <thead>
     <th>Status</th>
     <th>Name</th>
@@ -48,8 +48,8 @@
                         @endif
                     </form>
 
-                    @include('blog.partials.edit', ['post' => $post])
-                    @include('blog.partials.delete', ['post' => $post])
+                    @include('app.blog.partials.edit', ['post' => $post])
+                    @include('app.blog.partials.delete', ['post' => $post])
                 </div>
             </td>
         </tr>

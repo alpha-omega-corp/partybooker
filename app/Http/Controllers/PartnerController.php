@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\UpdatePlanRequest;
 use App\Models\Partner;
 use App\Models\Plan;
 use Illuminate\Contracts\View\View;
@@ -20,7 +21,7 @@ class PartnerController extends Controller
     {
         $user = Auth::user();
 
-        return view('partner.dashboard', [
+        return view('app.partner.dashboard', [
             'user' => $user->withoutRelations(),
             'partner' => $user->partner,
             'plans' => Plan::all()

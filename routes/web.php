@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 */
 
-use App\Http\Controllers\adminController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillingController;
@@ -42,6 +43,14 @@ Route::controller(AuthController::class)
 
 Route::name('guest.')
     ->group(function () {
+
+        // Http Controller
+        Route::controller(AjaxController::class)
+            ->prefix('ajax')
+            ->name('ajax.')
+            ->group(function () {
+                Route::get('/partners', 'partners')->name('partners');
+            });
 
         // HomeController
         Route::controller(HomeController::class)
@@ -95,14 +104,23 @@ Route::middleware('partner')
 
 Route::middleware('admin')
     ->name('admin.')
-    ->prefix('manage')
+    ->prefix('admin')
     ->group(function () {
+        Route::controller(AdminController::class)
+            ->name('dashboard.')
+            ->prefix('dashboard')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/blog', 'blog')->name('blog');
+                Route::get('/messages', 'messages')->name('messages');
+                Route::get('/partners', 'partners')->name('partners');
+            });
+
 
         Route::controller(BlogController::class)
             ->name('blog.')
             ->prefix('blog')
             ->group(function () {
-                Route::get('/', 'manage')->name('manage');
                 Route::post('/', 'store')->name('store');
                 Route::put('/{post}', 'update')->name('update');
                 Route::delete('/{post}', 'destroy')->name('destroy');
@@ -158,6 +176,7 @@ Route::group(['prefix' => LocaleMiddleware::getLocale()], function () {
     Route::post('/subscribe', 'ajaxController@subscribe');
     Route::post('/leave-phone', [mainWebsite::class, 'phoneQuestion'])->name('question.phone');
     Route::post('/contact-form', 'ajaxController@contact');
+
     Route::post('/rate', 'ajaxController@rate');
     Route::post('/stat', 'ajaxController@statClicks');
 
@@ -183,25 +202,25 @@ Route::group(['prefix' => LocaleMiddleware::getLocale()], function () {
         Route::get('/cp/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@adminPlans')->name('profile-plans-admin');
         Route::post('/cp/partner-cp/edit-event-types', '\App\Http\Controllers\Web\ProfileController@updateEventTypes')->name('update-et-admin');
 
-        Route::post('/cp/partner-cp/top-services', [adminController::class, 'updateTopServices'])->name('top-service.update');
+        Route::post('/cp/partner-cp/top-services', [AdminController::class, 'updateTopServices'])->name('top-service.update');
         Route::post('/cp/partner-cp/edit-image-alt', [ProfileController::class, 'editImagesAlt'])->name('alt.update.admin');
 
-        Route::get('/cp', 'adminController@index')->name('admin');
-        Route::get('/cp/top-services', [adminController::class, 'topServices'])->name('top-services');
-        Route::get('/cp/messages', 'adminController@messages');
-        Route::get('/cp/listing', 'adminController@listing');
+        Route::get('/cp', 'AdminController@index')->name('admin');
+        Route::get('/cp/top-services', [AdminController::class, 'topServices'])->name('top-services');
+        Route::get('/cp/messages', 'AdminController@messages');
+        Route::get('/cp/listing', 'AdminController@listing');
 
-        Route::get('/cp/faq', 'adminController@faq');
-        Route::get('/cp/payments', [adminController::class, 'stripe'])->name('cp-stripe');
+        Route::get('/cp/faq', 'AdminController@faq');
+        Route::get('/cp/payments', [AdminController::class, 'stripe'])->name('cp-stripe');
         Route::post('/cp/partner-cp/update-plan', [ProfileController::class, 'updatePlan'])->name('plan.update.admin');
 
         //CREATE/EDIT PARTNER PAGES
         //get
-        Route::get('/cp/add-new-partner', 'adminController@addPartner')->name('partner.create.admin');
+        Route::get('/cp/add-new-partner', 'AdminController@addPartner')->name('partner.create.admin');
         //post
-        Route::post('/cp/create-new-partner', 'adminController@createPartner');
+        Route::post('/cp/create-new-partner', 'AdminController@createPartner');
 
-        Route::post('/cp/partner-remove', 'adminController@removePartner');
+        Route::post('/cp/partner-remove', 'AdminController@removePartner');
 
         //SETTINGs PAGES
         Route::get('/cp/setting/admin-profile', 'settingPages@profile');
@@ -242,7 +261,7 @@ Route::group(['prefix' => LocaleMiddleware::getLocale()], function () {
 
         Route::post('/cp/partner-cp/create-advert', '\App\Http\Controllers\Web\AdvertController@activateOption');
 
-        Route::post('/cp/admin/set-discount', 'adminController@setDiscount');
+        Route::post('/cp/admin/set-discount', 'AdminController@setDiscount');
 
         //PARTNER profile
         //Route::get('/cp/partner-cp/{id_partner}', 'partnerController@index');

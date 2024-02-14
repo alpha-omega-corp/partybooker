@@ -18,13 +18,6 @@ class BlogController extends Controller
         $this->fileService = $fileService;
     }
 
-    public function index()
-    {
-        return view('app.blog.manage', [
-            'posts' => Post::all()
-        ]);
-    }
-
     public function show(Post $post)
     {
         return view('app.blog.post', [

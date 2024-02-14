@@ -21,41 +21,17 @@
                             </button>
                         </div>
                     @else
-                        <div class="dropdown">
-                            <button
-                                class="btn btn-secondary dropdown-toggle"
-                                type="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >
-                                {{Auth::user()->name}}
-                            </button>
-                            <ul class="dropdown-menu">
+                        <div class="d-flex justify-content-center align-items-center">
+                            @include('app.partials.user')
 
-                                @if(Auth::user()->isAdmin())
-                                    <li>
-                                        <a class="dropdown-item"
-                                           href="{{ route('admin') }}">
-                                            Administration
-                                        </a>
-                                    </li>
-                                @endif
-                                <li>
-                                    <a class="dropdown-item"
-                                       href="{{route('partner.dashboard', Auth::user()->partner)}}">
-                                        Dashboard
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{route('auth.logout')}}">
-                                        Logout
-                                    </a>
-                                </li>
-                            </ul>
+                            @if(Auth::user()->isAdmin())
+                                @include('app.admin.partials.navigation')
+                            @endif
                         </div>
 
                     @endif
                 </div>
+
 
                 <div class="language">
                     <a href="{{route('locale', ['lang' => 'fr'])}}">

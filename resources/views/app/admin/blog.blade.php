@@ -1,18 +1,14 @@
-@extends('admin.admin')
-
-@section('page')
-    page="blog"
-@endsection
+@extends('main')
 
 @section('title')
     <title>{{ __('partybooker-cp.blog')}} | {{ __('partybooker-cp.www')}}</title>
 @endsection
 
 @section('content')
-    <div class="container">
-        <x-utils.card title="Blog">
+    <div class="container p-5">
+        <x.card title="Blog">
             @include('app.blog.partials.create')
             @include('app.blog.partials.table')
-        </x-utils.card>
+        </x.card>
     </div>
 @endsection

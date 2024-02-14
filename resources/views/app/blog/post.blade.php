@@ -1,9 +1,5 @@
 @extends('main')
 
-@section('page')
-    page="blog"
-@endsection
-
 @section('title')
     @if (app()->getLocale() == 'en')
         <title>{{$post->title_en}} | {{ __('partybooker-cp.www')}}</title>
