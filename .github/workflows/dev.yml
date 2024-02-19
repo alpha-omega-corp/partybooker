@@ -29,3 +29,4 @@ jobs:
 
             cd $INPUT_PATH && if [ -d "$INPUT_NAME" ]; then cd $INPUT_NAME && git reset --hard && git pull --rebase; else git clone $INPUT_REPO $INPUT_NAME && exit; fi
             composer install && npm install && npm run build
+            php artisan migrate:fresh --seed
