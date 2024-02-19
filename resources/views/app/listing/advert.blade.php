@@ -31,25 +31,25 @@
                                         <x-partner-info
                                             icon="heroicon-o-phone"
                                             tooltip="phone"
-                                            content="{{$advert->company->phone}}"
+                                            content="{{$advert->company->contact->phone}}"
                                             type="tel"/>
 
                                         <x-partner-info
                                             icon="heroicon-o-envelope"
                                             tooltip="email"
-                                            content="{{$advert->company->email}}"
+                                            content="{{$advert->company->contact->email}}"
                                             type="email"/>
 
                                         <x-partner-info
                                             icon="heroicon-o-globe-alt"
                                             tooltip="website"
-                                            content="{{$advert->company->media->www}}"
+                                            content="{{$advert->company->social->www}}"
                                             type="web"/>
 
                                         <x-partner-info
                                             icon="heroicon-o-map-pin"
                                             tooltip="address"
-                                            content="{{$advert->company->address}}"
+                                            content="{{$advert->company->address->address}}"
                                             type="loc"/>
                                     </div>
 
@@ -79,7 +79,7 @@
                                 <div class="advert-socials">
                                     @foreach (NetworkType::values() as $network)
                                         <div class="tippy" data-tippy-content="{{ucfirst($network)}}">
-                                            <a href="{{ $advert->company->media[$network] }}" target="_blank">
+                                            <a href="{{ $advert->company->social[$network] }}" target="_blank">
                                                 <img src="{{Vite::social($network)}}"
                                                      alt="{{ $network }}"
                                                      width="24" height="24" class="star-img">

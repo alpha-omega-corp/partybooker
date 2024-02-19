@@ -13,6 +13,7 @@ use App\Models\Plan;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Str;
 
 class PartnerController extends Controller
 {
@@ -38,7 +39,7 @@ class PartnerController extends Controller
         $company = Company::create([
             'name' => $data['company'],
             'languages' => $data['language'],
-            'slug' => $data['company']
+            'slug' => Str::of($data['company'])->slug()
         ]);
 
         $payment = Payment::create([
