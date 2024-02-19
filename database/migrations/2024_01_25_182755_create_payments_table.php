@@ -13,8 +13,8 @@ return new class extends Migration {
             $table->id();
             $table->enum('type', PaymentType::values());
             $table->foreignIdFor(Plan::class)->nullable();
-            $table->date('accepted_at');
-            $table->date('expires_at');
+            $table->dateTime('accepted_at');
+            $table->dateTime('expires_at');
         });
     }
 

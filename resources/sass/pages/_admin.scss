@@ -1,7 +1,70 @@
-.admin-partners {
+.admin-listing {
+    margin: 40px;
 
-    .admin-partner {
+    .admin-listing-filters {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        gap: 20px;
+        padding-top: 20px;
 
+        .filter-group {
+            margin-bottom: 20px;
 
+            h6 {
+                border-bottom: 1px solid $gray;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+        }
     }
+
+    .admin-listing-content {
+        height: 80vh;
+        width: 100%;
+        overflow: scroll;
+        padding: 20px 40px 40px;
+
+        .admin-listing-item {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            border: 1px solid;
+            position: relative;
+
+            .admin-listing-info {
+                width: 100%;
+                margin: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                border: 1px solid $light;
+                padding: 20px;
+                border-radius: 10px;
+
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                svg {
+                    color: $orange;
+                    font-weight: bold;
+                }
+
+                p {
+                    margin: 0;
+                }
+            }
+
+            .admin-listing-action {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+        }
+    }
+
+
 }

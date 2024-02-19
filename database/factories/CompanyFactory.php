@@ -2,8 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Enums\Language;
 use App\Models\Company;
-use App\Models\CompanyMedia;
+use App\Models\CompanyAddress;
+use App\Models\CompanyContact;
+use App\Models\CompanySocial;
+use App\Models\CompanyStatistic;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,15 +22,12 @@ class CompanyFactory extends Factory
         return [
             'name' => $this->faker->unique()->company,
             'slug' => $this->faker->slug,
-            'lat' => $this->faker->latitude,
-            'lon' => $this->faker->longitude,
-            'loc' => $this->faker->countryCode,
-            'address' => $this->faker->address,
-            'phone' => $this->faker->phoneNumber,
-            'email' => $this->faker->email,
-            'fax' => $this->faker->phoneNumber,
+            'languages' => $this->faker->randomElements(Language::values()),
             'logo' => $this->faker->imageUrl(),
-            'company_media_id' => CompanyMedia::factory(),
+            'company_social_id' => CompanySocial::factory(),
+            'company_contact_id' => CompanyContact::factory(),
+            'company_address_id' => CompanyAddress::factory(),
+            'company_statistic_id' => CompanyStatistic::factory(),
         ];
     }
 }

@@ -15,10 +15,22 @@ class PaymentFactory extends Factory
 
     public function definition(): array
     {
+        $acceptedAt = $this->faker->randomElement([
+            now(),
+            now()->subDay(),
+            now()->subMonth()
+        ]);
+
+        $expiresAt = $this->faker->randomElement([
+            now()->addYear()->addMonth(),
+            now()->addYear()->addDay(),
+            now()->addYear()
+        ]);
+
         return [
             'type' => $this->faker->randomElement(PaymentType::values()),
-            'accepted_at' => now(),
-            'expires_at' => now()->addYear(),
+            'accepted_at' => $acceptedAt,
+            'expires_at' => $expiresAt,
         ];
     }
 }

@@ -25,7 +25,6 @@ use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ServiceImageController;
 use App\Http\Controllers\Web\ProfileController;
 use App\Http\Middleware\LocaleMiddleware;
-use Illuminate\Support\Facades\Route;
 
 Route::fallback(function () {
     return response()->view('404');
@@ -88,17 +87,22 @@ Route::name('guest.')
             });
     });
 
-Route::middleware('partner')
-    ->name('partner.')
-    ->prefix('partner/{partner:id}')
+Route::name('partner.')
+    ->prefix('partner')
     ->group(function () {
 
         Route::controller(PartnerController::class)
+            ->middleware('partner')
+            ->prefix('{partner:id}')
             ->group(function () {
                 Route::get('/profile', 'dashboard')->name('dashboard');
                 Route::put('/company', 'company')->name('company');
                 Route::put('/plan', 'plan')->name('plan');
+            });
 
+        Route::controller(PartnerController::class)
+            ->group(function () {
+                Route::post('/', 'store')->name('store');
             });
     });
 

@@ -13,8 +13,7 @@
         <div class="listing-title">
             <x-partner-category-tab
                 :tabs="$planTabs">
-
-
+                
                 <x-tab.item>
                     <x-partner.admin-listing
                         plan="basic"

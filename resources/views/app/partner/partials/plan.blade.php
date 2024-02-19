@@ -1,6 +1,8 @@
 @php use App\Models\Plan; @endphp
 <x-card :title="__('dashboard.plan')">
-    <x-plans.badge :plan="$partner->payment->plan"/>
+    @if($partner->payment)
+        <x-plans.badge :plan="$partner->payment->plan"/>
+    @endif
 
     <x-modal
         id="planModal"

@@ -20,6 +20,11 @@ class Payment extends Model
         'plan_id',
     ];
 
+    protected $casts = [
+        'accepted_at' => 'datetime',
+        'expires_at' => 'datetime',
+    ];
+
     protected static function newFactory(): PaymentFactory
     {
         return PaymentFactory::new();

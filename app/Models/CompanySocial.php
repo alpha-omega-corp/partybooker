@@ -2,16 +2,15 @@
 
 namespace App\Models;
 
-use Database\Factories\CompanyMediaFactory;
+use Database\Factories\CompanySocialFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class CompanyMedia extends Model
+class CompanySocial extends Model
 {
     use HasFactory;
 
-    protected $table = 'company_medias';
     protected $fillable = [
         'www',
         'youtube',
@@ -23,9 +22,9 @@ class CompanyMedia extends Model
         'vimeo'
     ];
 
-    protected static function newFactory(): CompanyMediaFactory
+    protected static function newFactory(): CompanySocialFactory
     {
-        return CompanyMediaFactory::new();
+        return CompanySocialFactory::new();
     }
 
     public function company(): BelongsTo

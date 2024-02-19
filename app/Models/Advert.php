@@ -48,6 +48,11 @@ class Advert extends Model
         return $this->belongsTo(Company::class);
     }
 
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     public function service(): BelongsTo
     {
         return $this->belongsTo(AdvertService::class, 'advert_service_id', 'id');

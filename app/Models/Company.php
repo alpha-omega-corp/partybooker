@@ -6,6 +6,7 @@ use Database\Factories\CompanyFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -16,15 +17,12 @@ class Company extends Model
     protected $fillable = [
         'name',
         'slug',
-        'lat',
-        'lon',
-        'loc',
-        'address',
-        'phone',
-        'email',
-        'fax',
         'logo',
-        'company_media_id',
+        'languages',
+    ];
+
+    protected $casts = [
+        'languages' => 'array',
     ];
 
     protected static function newFactory(): CompanyFactory
@@ -47,9 +45,24 @@ class Company extends Model
         return $this->hasOne(Partner::class);
     }
 
-    public function media(): HasOne
+    public function statistic(): BelongsTo
     {
-        return $this->hasOne(CompanyMedia::class, 'id', 'company_media_id');
+        return $this->belongsTo(CompanyStatistic::class, 'company_statistic_id', 'id');
+    }
+
+    public function contact(): BelongsTo
+    {
+        return $this->belongsTo(CompanyContact::class, 'company_contact_id', 'id');
+    }
+
+    public function address(): BelongsTo
+    {
+        return $this->belongsTo(CompanyAddress::class, 'company_address_id', 'id');
+    }
+
+    public function social(): BelongsTo
+    {
+        return $this->belongsTo(CompanySocial::class, 'company_social_id', 'id');
     }
 
     public function scopeMain(Builder $query): void
@@ -58,6 +71,4 @@ class Company extends Model
             $advert->where('is_main', true);
         });
     }
-
-
 }

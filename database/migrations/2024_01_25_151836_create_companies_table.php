@@ -1,6 +1,9 @@
 <?php
 
-use App\Models\CompanyMedia;
+use App\Models\CompanyAddress;
+use App\Models\CompanyContact;
+use App\Models\CompanySocial;
+use App\Models\CompanyStatistic;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,18 +15,13 @@ return new class extends Migration {
             $table->id();
             $table->string('name', 100)->unique();
             $table->string('slug', 100)->unique();
-            $table->string('fax')->nullable();
-            $table->string('phone')->unique();
-            $table->string('email')->unique();
+            $table->string('logo')->nullable();
+            $table->json('languages');
 
-            $table->string('address');
-            $table->string('lat');
-            $table->string('lon');
-            $table->string('loc');
-            $table->string('logo');
-
-            $table->foreignIdFor(CompanyMedia::class);
-
+            $table->foreignIdFor(CompanySocial::class)->nullable();
+            $table->foreignIdFor(CompanyContact::class)->nullable();
+            $table->foreignIdFor(CompanyAddress::class)->nullable();
+            $table->foreignIdFor(CompanyStatistic::class)->nullable();
             $table->timestamps();
         });
     }

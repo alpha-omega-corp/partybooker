@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\CategoryType;
+use App\Enums\PartnerSort;
+use App\Enums\PlanType;
 use App\Models\Notification;
 use App\Models\Partner;
 use App\Models\Plan;
@@ -20,7 +23,9 @@ class AdminController extends Controller
     {
         return view('app.admin.partners', [
             'plans' => Plan::all()->map(fn(Plan $plan) => $plan->name),
-           
+            'partnerSorts' => PartnerSort::values(),
+            'planFilters' => PlanType::values(),
+            'categoryFilters' => CategoryType::names(),
         ]);
     }
 

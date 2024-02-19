@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Enums\PaymentType;
+use App\Enums\PlanType;
+use App\Http\Requests\StorePartnerRequest;
 use App\Http\Requests\UpdatePlanRequest;
+use App\Models\Company;
 use App\Models\Partner;
+use App\Models\Payment;
 use App\Models\Plan;
+use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
 
 class PartnerController extends Controller
 {
@@ -17,15 +21,46 @@ class PartnerController extends Controller
 
     }
 
-    public function dashboard(): View
+    public function dashboard(Partner $partner): View
     {
-        $user = Auth::user();
-
         return view('app.partner.dashboard', [
-            'user' => $user->withoutRelations(),
-            'partner' => $user->partner,
-            'plans' => Plan::all()
+            'partner' => $partner,
+            'plans' => Plan::all(),
+            'statistics' => $partner->company->statistic
         ]);
+    }
+
+    public function store(StorePartnerRequest $request)
+    {
+        $data = $request->validated();
+
+
+        $company = Company::create([
+            'name' => $data['company'],
+            'languages' => $data['language'],
+            'slug' => $data['company']
+        ]);
+
+        $payment = Payment::create([
+            'type' => PaymentType::DEFAULT,
+            'plan_id' => Plan::ofType(PlanType::from($data['plan']))->first()->id,
+            'accepted_at' => now(),
+            'expires_at' => now()->addYear(),
+        ]);
+
+        $partner = Partner::create([
+            'company_id' => $company->id,
+            'payment_id' => $payment->id
+        ]);
+
+        User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'partner_id' => $partner->id
+        ]);
+
+        return redirect()->route('partner.dashboard', $partner);
     }
 
     public function plan(Partner $partner, UpdatePlanRequest $request): RedirectResponse

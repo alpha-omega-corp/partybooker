@@ -2,20 +2,20 @@
 
 namespace Database\Factories;
 
-use App\Models\CompanyMedia;
+use App\Models\CompanySocial;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<CompanyMedia>
+ * @extends Factory<CompanySocial>
  */
-class CompanyMediaFactory extends Factory
+class CompanySocialFactory extends Factory
 {
-    protected $model = CompanyMedia::class;
+    protected $model = CompanySocial::class;
 
     public function definition(): array
     {
         return [
-            'www' => $this->faker->url,
+            'www' => $this->faker->unique()->url,
             'youtube' => $this->faker->url,
             'instagram' => $this->faker->url,
             'facebook' => $this->faker->url,

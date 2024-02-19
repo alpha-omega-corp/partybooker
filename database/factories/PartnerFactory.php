@@ -43,8 +43,6 @@ class PartnerFactory extends Factory
             'company_id' => Company::factory()
                 ->has($this->faker->randomElement($adverts)->asMain(), 'adverts')
                 ->has($this->faker->randomElement($adverts), 'adverts')
-                ->has($this->faker->randomElement($adverts), 'adverts')
-                ->has($this->faker->randomElement($adverts), 'adverts')
                 ->has(CompanyLocale::factory()->english(), 'locale')
                 ->has(CompanyLocale::factory()->french(), 'locale')
         ];

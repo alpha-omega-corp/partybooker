@@ -4,6 +4,8 @@
 @import "../../node_modules/bootstrap/scss/variables";
 // ! Theme after default initialization !
 
+$light: $gray-300;
+
 $home: rgba(180, 198, 255, 0.5);
 $primary: $teal-500;
 $info: $blue-400;
@@ -59,6 +61,8 @@ $offcanvas-border-width: 0;
 
 $modal-content-bg: #fff;
 $modal-content-color: $gray;
+$accordion-button-active-bg: $accent;
+$accordion-button-active-color: #fff;
 
 .tippy-box[data-theme~='tippy'] {
     color: #fff;

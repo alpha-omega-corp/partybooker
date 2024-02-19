@@ -23,7 +23,7 @@ class Modal extends Component
     )
     {
         $this->color = match ($this->type) {
-            ModalType::CREATE => 'orange',
+            ModalType::CREATE => 'primary',
             ModalType::DELETE => 'danger',
             ModalType::UPDATE => 'info',
             ModalType::READ => 'standard',

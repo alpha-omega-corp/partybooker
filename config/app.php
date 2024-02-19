@@ -188,6 +188,10 @@ return [
         'NetworkType' => App\Enums\NetworkType::class,
         'EnvironmentType' => App\Enums\EnvironmentType::class,
         'ModalPosition' => App\Enums\ModalPosition::class,
+        'PlanType' => App\Enums\PlanType::class,
+        'PartnerFilter' => App\Enums\PartnerFilter::class,
+        'PartnerSort' => App\Enums\PartnerSort::class,
+        'Language' => App\Enums\Language::class,
     ])->toArray(),
 
     'tinymce' => env('TINYMCE_API_KEY'),

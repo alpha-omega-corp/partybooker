@@ -6,12 +6,15 @@
 @endsection
 
 @section('content')
-    @if(Auth::user()->isAdmin())
-        <a href="/cp" class="btn btn-orange">
-            CP
-        </a>
-    @endif
 
-    @include('app.partner.partials.plan')
+    <div class="container mt-5">
+
+        <h1>{{$partner->company->name}}</h1>
+        <hr>
+        @include('app.partner.partials.statistics')
+        <hr>
+
+        @include('app.partner.partials.plan')
+    </div>
 
 @endsection

@@ -12,7 +12,7 @@
         @endif
 
         @if($image)
-            <img src="{{ Vite::image($image) }}" alt="{{ $title }}"/>
+            <img src="{{ Vite::social($image) }}" alt="{{ $title }}"/>
         @endif
 
         <div class="stat-value d-flex justify-content-center w-100">{{ $value }}</div>

@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Enums\CategoryType;
 use Database\Factories\CategoryFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -32,6 +34,11 @@ class Category extends Model
     public function children(): HasMany
     {
         return $this->hasMany(CategoryChild::class);
+    }
+
+    public function scopeOfType(Builder $query, CategoryType $type): void
+    {
+        $query->where('service', $type->value);
     }
 
 }

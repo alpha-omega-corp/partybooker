@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Enums\CategoryType;
 use App\Models\Advert;
 use App\Models\AdvertImage;
 use App\Models\AdvertService;
 use App\Models\AdvertTag;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 
@@ -48,7 +50,9 @@ class AdvertFactory extends Factory
             return [
                 'advert_service_id' => AdvertService::factory()->event()
             ];
-        })->has(AdvertTag::factory()->event(), 'tags');
+        })
+            ->has(AdvertTag::factory()->event(), 'tags')
+            ->for(Category::ofType(CategoryType::EVENT)->first());
     }
 
     public function wine(): Factory
@@ -57,7 +61,10 @@ class AdvertFactory extends Factory
             return [
                 'advert_service_id' => AdvertService::factory()->wine()
             ];
-        })->has(AdvertTag::factory()->wine(), 'tags');
+        })
+            ->has(AdvertTag::factory()->wine(), 'tags')
+            ->for(Category::ofType(CategoryType::WINE)->first());
+
     }
 
     public function business(): Factory
@@ -66,7 +73,9 @@ class AdvertFactory extends Factory
             return [
                 'advert_service_id' => AdvertService::factory()->business()
             ];
-        })->has(AdvertTag::factory()->business(), 'tags');
+        })->has(AdvertTag::factory()->business(), 'tags')
+            ->for(Category::ofType(CategoryType::BUSINESS)->first());
+
     }
 
     public function caterer(): Factory
@@ -75,7 +84,9 @@ class AdvertFactory extends Factory
             return [
                 'advert_service_id' => AdvertService::factory()->caterer()
             ];
-        })->has(AdvertTag::factory()->caterer(), 'tags');
+        })->has(AdvertTag::factory()->caterer(), 'tags')
+            ->for(Category::ofType(CategoryType::CATERER)->first());
+
     }
 
     public function entertainment(): Factory
@@ -84,7 +95,9 @@ class AdvertFactory extends Factory
             return [
                 'advert_service_id' => AdvertService::factory()->entertainment()
             ];
-        })->has(AdvertTag::factory()->entertainment(), 'tags');
+        })->has(AdvertTag::factory()->entertainment(), 'tags')
+            ->for(Category::ofType(CategoryType::ENTERTAINMENT)->first());
+
     }
 
     public function equipment(): Factory
@@ -93,7 +106,9 @@ class AdvertFactory extends Factory
             return [
                 'advert_service_id' => AdvertService::factory()->equipment()
             ];
-        })->has(AdvertTag::factory()->equipment(), 'tags');
+        })->has(AdvertTag::factory()->equipment(), 'tags')
+            ->for(Category::ofType(CategoryType::EQUIPMENT)->first());
+
     }
 
 }
