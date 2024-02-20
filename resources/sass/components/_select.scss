@@ -1,0 +1,28 @@
+.select2-selection__choice {
+    background-color: #fff !important;
+    border: 0 !important;
+    border-bottom: 1px solid $gray !important;
+    color: $gray !important;
+    padding: 10px !important;
+    border-radius: 0 !important;
+
+    button {
+        margin: 0;
+        color: $danger !important;
+        padding: 10px !important;
+        border-radius: 0 !important;
+        border: 0 !important;
+    }
+
+    .select2-selection__choice__display {
+        margin-left: 30px !important;
+    }
+}
+
+//.select2-container--default.select2-container--focus .select2-selection--multiple
+
+.select2-selection--multiple {
+    border: 0 !important;
+    border-bottom: 1px solid $light !important;
+    padding-bottom: 20px !important;
+}

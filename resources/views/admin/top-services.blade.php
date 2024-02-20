@@ -10,24 +10,7 @@
 
 @section('content')
     <div class="container mt-5">
-        <div x-data="topServiceHandler()"
-             x-init="loadPartners('{{json_encode($partners)}}', '{{json_encode($topServicesId)}}')"
-             class="w-100">
-            <form method="POST" action="{{route('top-service.update')}}">
-                @csrf
-                <label for="top" class="mb-3 text-uppercase fw-bold">
-                    Select Partners
-                </label>
 
-                <select x-ref="select" name="top[]" id="top" class="w-100"></select>
-
-                <button type="submit" class="btn btn-primary text-white w-100">
-                    Save
-                </button>
-            </form>
-            <input type="hidden" :value="value.length" id="selectCount">
-
-        </div>
     </div>
 @endsection
 

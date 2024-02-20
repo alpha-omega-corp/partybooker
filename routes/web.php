@@ -49,6 +49,7 @@ Route::name('guest.')
             ->name('ajax.')
             ->group(function () {
                 Route::get('/partners', 'partners')->name('partners');
+                Route::get('/partner-tops', 'partnerTops')->name('tops');
             });
 
         // HomeController
@@ -118,6 +119,8 @@ Route::middleware('admin')
                 Route::get('/blog', 'blog')->name('blog');
                 Route::get('/messages', 'messages')->name('messages');
                 Route::get('/partners', 'partners')->name('partners');
+                Route::post('/tops', [AdminController::class, 'updateTopServices'])->name('tops');
+
             });
 
 
@@ -206,7 +209,6 @@ Route::group(['prefix' => LocaleMiddleware::getLocale()], function () {
         Route::get('/cp/partner-cp/{id_partner}/plans', '\App\Http\Controllers\Web\ProfileController@adminPlans')->name('profile-plans-admin');
         Route::post('/cp/partner-cp/edit-event-types', '\App\Http\Controllers\Web\ProfileController@updateEventTypes')->name('update-et-admin');
 
-        Route::post('/cp/partner-cp/top-services', [AdminController::class, 'updateTopServices'])->name('top-service.update');
         Route::post('/cp/partner-cp/edit-image-alt', [ProfileController::class, 'editImagesAlt'])->name('alt.update.admin');
 
         Route::get('/cp', 'AdminController@index')->name('admin');

@@ -10,7 +10,6 @@ use App\Models\Payment;
 use App\Models\Plan;
 use App\Models\Rate;
 use App\Models\ServiceCaterer;
-use App\Models\Statistic;
 use Auth;
 use DB;
 use Exception;
@@ -37,13 +36,11 @@ class AjaxController extends Controller
                 'id' => $partner->id,
                 'name' => $partner->user->name,
                 'email' => $partner->user->email,
-
                 'plan' => $partner->payment->plan->name,
                 'paymentStart' => $partner->payment->accepted_at->toDateString(),
                 'paymentEnd' => $partner->payment->expires_at->toDateString(),
                 'paymentType' => $partner->payment->type,
                 'sortPayment' => $partner->payment->expires_at->timestamp,
-
                 'company' => $partner->company->name,
                 'address' => $hasAddress ? $partner->company->address->address : '',
                 'categories' => $partner->company->adverts->map(fn(Advert $advert) => strtolower(CategoryType::from($advert->service->serviceable_type)->name)),
@@ -53,6 +50,20 @@ class AjaxController extends Controller
         });
 
         return response()->json($viewPartners);
+    }
+
+    public function partnerTops(): JsonResponse
+    {
+        $partnerTops = Partner::all()->map(function (Partner $partner) {
+            return [
+                'id' => $partner->id,
+                'name' => $partner->user->name,
+                'company' => $partner->company->name,
+                'top' => (bool)$partner->top,
+            ];
+        });
+
+        return response()->json($partnerTops);
     }
 
     //Partner form

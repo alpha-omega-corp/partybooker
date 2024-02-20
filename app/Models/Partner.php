@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Partner extends Model
@@ -32,9 +31,9 @@ class Partner extends Model
         return $this->hasOne(User::class);
     }
 
-    public function company(): HasOne
+    public function company(): BelongsTo
     {
-        return $this->hasOne(Company::class, 'id', 'company_id');
+        return $this->belongsTo(Company::class);
     }
 
     public function payment(): BelongsTo
@@ -42,24 +41,9 @@ class Partner extends Model
         return $this->belongsTo(Payment::class);
     }
 
-    public function plan(): HasOne
+    public function top(): HasOne
     {
-        return $this->hasOne(Plan::class, 'id', 'plans_id');
-    }
-
-    public function images(): HasMany
-    {
-        return $this->hasMany(AdvertImage::class);
-    }
-
-    public function rates(): HasMany
-    {
-        return $this->hasMany(Rate::class, 'id_partner', 'id_partner');
-    }
-
-    public function statistic(): HasOne
-    {
-        return $this->hasOne(Statistic::class, 'id_partner', 'id_partner');
+        return $this->hasOne(PartnerTop::class, 'partner_id', 'id');
     }
 
     public function eventTypes(): BelongsToMany

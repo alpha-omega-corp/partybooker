@@ -9,7 +9,9 @@
 
     <title>Partybooker</title>
     @yield('title')
-    @stack('header')
+    @stack('head')
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
 
     @if(config('app.env') === EnvironmentType::PROD->value)
         <!-- Google tag (gtag.js) -->
@@ -35,6 +37,12 @@
 
     @filamentStyles
     @vite(['resources/js/app.js'])
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+            integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 </head>
 
 <body>
@@ -51,9 +59,8 @@
 
     @yield('content')
 </div>
-
 <script>
-   
+
     document.addEventListener('alpine:init', () => {
 
         Alpine.data('modal', (name) => ({
@@ -89,6 +96,62 @@
             },
         }))
 
+        Alpine.data('partnerTop', () => ({
+                multiple: true,
+                values: [],
+                options: [],
+
+                async init() {
+                    this.values = await $.ajax({
+                        url: '{{route('guest.ajax.tops')}}',
+                        type: 'GET',
+                    })
+                    console.log(this.values)
+
+                    for (let i = 0; i < this.values.length; i++) {
+                        this.options.push({
+                            value: this.values[i].id,
+                            label: `${this.values[i].name}, ${this.values[i].company}`,
+                            top: this.values[i].top
+                        });
+                    }
+
+                    this.bootstrap()
+                },
+                bootstrap() {
+                    let bootSelect2 = () => {
+                        $(this.$refs.select).select2({
+                            multiple: this.multiple,
+                            data: this.options.map(partner => ({
+                                id: partner.value,
+                                text: partner.label,
+                                selected: partner.top,
+                            })),
+                        })
+                    }
+
+                    let refreshSelect2 = () => {
+                        $(this.$refs.select).select2('destroy')
+                        this.$refs.select.innerHTML = ''
+                        bootSelect2()
+                    }
+
+                    bootSelect2()
+
+                    $(this.$refs.select).on('change', () => {
+                        let currentSelection = $(this.$refs.select).select2('data')
+
+                        this.value = this.multiple
+                            ? currentSelection.map(i => i.id)
+                            : currentSelection[0].id
+                    })
+
+                    this.$watch('values', () => refreshSelect2())
+                    this.$watch('options', () => refreshSelect2())
+                },
+            }),
+        )
+
         Alpine.data('partnerSearch', () => ({
                 partners: [],
                 displayedPartners: [],
@@ -104,7 +167,6 @@
                     })
 
                     this.displayedPartners = this.partners
-                    console.log(this.displayedPartners)
                 },
                 filteredPartners() {
 

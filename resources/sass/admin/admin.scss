@@ -1943,24 +1943,6 @@ input#map_address {
     }
 }
 
-.select2-selection__choice {
-    background-color: $accent !important;
-    border: 0 !important;
-    color: #fff !important;
-    padding: 10px !important;
-
-    button {
-        margin: 0;
-        background-color: $danger !important;
-        color: #fff !important;
-        padding: 10px !important;
-    }
-
-    .select2-selection__choice__display {
-        margin-left: 30px !important;
-    }
-}
-
 
 .main-notifications {
     position: fixed;

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Enums\CategoryType;
 use App\Enums\PartnerSort;
 use App\Enums\PlanType;
+use App\Http\Requests\StorePartnerTops;
 use App\Models\Notification;
 use App\Models\Partner;
+use App\Models\PartnerTop;
 use App\Models\Plan;
 use App\Models\Post;
 
@@ -45,23 +47,25 @@ class AdminController extends Controller
         ]);
     }
 
-
-    public function topServices()
+    public function updateTopServices(StorePartnerTops $request)
     {
-        $partners = Partner::all()->map(function ($e) {
-            return (object)[
-                'value' => $e->id_partner,
-                'label' => str_replace([' ', '.', ',', '"', '--', "'"], '', strtolower(trim($e->slug)))
-            ];
-        });
+        $validated = $request->validated();
+        $topPartners = $validated['top'];
+        $currentTop = PartnerTop::all()->map(fn($e) => $e->partner->id_partner)->toArray();
 
-        return view('admin.top-services', [
-            'partners' => $partners->toArray(),
-            'topServices' => TopService::all(),
-            'topServicesId' => TopService::all()->map(function ($e) {
-                return $e->partner->id_partner;
-            })->toArray()
-        ]);
+        $newTop = array_diff($topPartners, $currentTop);
+        $toDelete = array_diff($currentTop, $topPartners);
+        foreach ($newTop as $partnerId) {
+            $service = new PartnerTop();
+            $service->partner_id = Partner::find($partnerId)->first()->id;
+            $service->save();
+        }
+
+        foreach (collect($toDelete)->flatten() as $partnerId) {
+            $service = PartnerTop::where('partner_id', $partnerId)->first();
+            $service->delete();
+        }
+
+        return redirect()->back()->with('success', 'Top services updated');
     }
-
 }
