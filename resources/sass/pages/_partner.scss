@@ -1,4 +1,14 @@
-.dashboard-body {
-    border-top: 1px solid $accent;
-    padding: 20px;
+.partner-dashboard {
+    margin-top: 60px;
+    height: 100vh;
+    border: 1px solid $light;
+    border-radius: 20px;
+    padding: 40px;
+
+    .partner-advert {
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid $light;
+        border-radius: 10px;
+    }
 }

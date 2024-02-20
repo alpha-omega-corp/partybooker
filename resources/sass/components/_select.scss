@@ -25,4 +25,14 @@
     border: 0 !important;
     border-bottom: 1px solid $light !important;
     padding-bottom: 20px !important;
+
+    .select2-selection__rendered {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        li {
+            width: 100%;
+        }
+    }
 }

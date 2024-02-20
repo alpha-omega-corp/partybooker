@@ -7,14 +7,24 @@
 
 @section('content')
 
-    <div class="container mt-5">
-
+    <div class="container partner-dashboard shadow-lg">
         <h1>{{$partner->company->name}}</h1>
         <hr>
         @include('app.partner.partials.statistics')
         <hr>
 
-        @include('app.partner.partials.plan')
+        <div class="row align-items-start">
+            <div class="col-xl-8 col-lg-7 col-md-12">
+                @include('app.partner.partials.adverts')
+            </div>
+
+            <div class="col-xl-4 col-lg-5 col-md-12">
+                <div class="d-flex flex-column gap-4">
+                    @include('app.partner.partials.plan')
+                    @include('app.partner.partials.company')
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection

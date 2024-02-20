@@ -60,9 +60,7 @@
     @yield('content')
 </div>
 <script>
-
     document.addEventListener('alpine:init', () => {
-
         Alpine.data('modal', (name) => ({
             open() {
                 document.getElementById(`toggle-${name}`).click()

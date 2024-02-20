@@ -100,5 +100,4 @@ class mainWebsite extends Controller
         return view('contacts', ['settings' => $settings, 'category' => $category, 'place' => $place, 'budget' => $budget, 'name' => $name, 'categories' => $this->categories]);
     }
 
-
 }

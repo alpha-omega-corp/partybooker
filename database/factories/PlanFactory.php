@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use App\Enums\PlanType;
 use App\Models\Plan;
-use App\Models\PlanOption;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -32,11 +31,10 @@ class PlanFactory extends Factory
                 'uploads' => 5,
                 'request' => true,
                 'video' => true,
+                'advert_count' => 1,
+                'tag_count' => 2,
             ];
-        })->for(PlanOption::factory([
-            'advert_count' => 1,
-            'tag_count' => 2,
-        ]), 'option');
+        });
     }
 
     public function premium(): self
@@ -48,11 +46,10 @@ class PlanFactory extends Factory
                 'uploads' => 10,
                 'request' => true,
                 'video' => true,
+                'advert_count' => 2,
+                'tag_count' => 3,
             ];
-        })->for(PlanOption::factory([
-            'advert_count' => 2,
-            'tag_count' => 3,
-        ]), 'option');
+        });
     }
 
     public function exclusive(): self
@@ -64,10 +61,9 @@ class PlanFactory extends Factory
                 'uploads' => 15,
                 'request' => true,
                 'video' => true,
+                'advert_count' => 3,
+                'tag_count' => 4,
             ];
-        })->for(PlanOption::factory([
-            'advert_count' => 3,
-            'tag_count' => 4,
-        ]), 'option');
+        });
     }
 }

@@ -42,6 +42,7 @@
         if (file) {
             document.getElementById('imageLabel-{{$id}}').style.display = 'block';
             document.getElementById('imagePreview-{{$id}}').src = URL.createObjectURL(file)
+            document.getElementById('imageUpload-{{$id}}').style.display = 'none';
         }
     }
 

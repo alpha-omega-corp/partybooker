@@ -8,5 +8,6 @@ interface IFileService
 {
     public function blogThumbnail(UploadedFile $file): string;
 
-    public function partnerThumbnail(UploadedFile $file): string;
+    public function partnerLogo(UploadedFile $file): string;
+
 }

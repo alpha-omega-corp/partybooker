@@ -6,12 +6,16 @@
 
     .app-card-title {
         color: $standard;
-        font-size: 1.25rem;
+        font-size: large;
         font-weight: bold;
         text-transform: uppercase;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
 
     .app-card-content {
+    }
+
+    .modal-absolute {
+        border-radius: 50% !important;
     }
 }

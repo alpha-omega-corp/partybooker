@@ -10,7 +10,7 @@
         <div class="admin-listing">
             <!-- Top Services -->
             <x-dashboard.accordion title="Top Services" name="partner-tops">
-                @include('app.admin.partials.partner-tops')
+                @include('app.admin.partials.tops')
             </x-dashboard.accordion>
 
             <hr>

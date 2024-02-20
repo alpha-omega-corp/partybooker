@@ -2,7 +2,6 @@
     <div x-data="partnerTop" class="w-100">
         <form method="POST" action="{{route('admin.dashboard.tops')}}" class="d-flex flex-column">
             @csrf
-
             <label for="top" class="pb-2">Partners</label>
             <select x-ref="select" name="top[]" id="top" class="admin-listing-tops"></select>
 

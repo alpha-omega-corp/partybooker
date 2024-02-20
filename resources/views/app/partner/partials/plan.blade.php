@@ -9,6 +9,7 @@
         name="plan"
         :type="ModalType::UPDATE"
         :size="ModalSize::MD"
+        :absolute="true"
         :route="route('partner.plan', ['partner' => $partner])"
     >
         <x-forms.radio

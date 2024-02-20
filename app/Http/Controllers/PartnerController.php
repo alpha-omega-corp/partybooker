@@ -6,35 +6,39 @@ use App\Enums\PaymentType;
 use App\Enums\PlanType;
 use App\Http\Requests\StorePartnerRequest;
 use App\Http\Requests\UpdatePlanRequest;
+use App\Interfaces\IFileService;
 use App\Models\Company;
 use App\Models\Partner;
 use App\Models\Payment;
 use App\Models\Plan;
 use App\Models\User;
+use App\Services\FileService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Str;
 
 class PartnerController extends Controller
 {
-    public function __construct()
-    {
+    private IFileService $fileService;
 
+    public function __construct(FileService $fileService)
+    {
+        $this->fileService = $fileService;
     }
 
     public function dashboard(Partner $partner): View
     {
         return view('app.partner.dashboard', [
             'partner' => $partner,
+            'statistics' => $partner->company->statistic,
             'plans' => Plan::all(),
-            'statistics' => $partner->company->statistic
+            'currentPlan' => $partner->payment->plan
         ]);
     }
 
     public function store(StorePartnerRequest $request)
     {
         $data = $request->validated();
-
 
         $company = Company::create([
             'name' => $data['company'],

@@ -6,7 +6,7 @@
 
 <a
     id="toggle-{{$id}}"
-    class="tippy btn btn-{{$color}} {{!$hasButton ? 'd-none' : ''}}"
+    class="tippy btn btn-{{$color}} {{!$hasButton ? 'd-none' : ''}} {{$absolute ? 'modal-absolute' : ''}}"
     data-tippy-content="{{$type->name}}"
     data-bs-toggle="modal"
     data-bs-target="{{'#'. $id}}"
