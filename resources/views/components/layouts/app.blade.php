@@ -15,7 +15,7 @@
     </style>
     @livewireStyles
     @filamentStyles
-    @vite('resources/js/dashboard.js')
+    @vite('resources/js/tailwind.js')
 
     @livewireScripts
     @filamentScripts
