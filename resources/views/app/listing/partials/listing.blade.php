@@ -34,11 +34,7 @@
         <div class="col-lg-8 col-xs-12">
             <section class="partner-listing">
                 @foreach($adverts as $advert)
-                    <a href="{{route('guest.listing.advert', [
-                        'advert' => $advert,
-                        'company' => $advert->company,
-                    ])}}"
-                       class="list-item">
+                    <x-adverts.link :advert="$advert">
                         <div class="card m-2">
                             <div class="row g-0">
                                 <div class="col-md-4">
@@ -54,9 +50,7 @@
                                             {{$advert->title}}
                                         </h5>
                                         <div class="card-text description">
-                                            <span class="badge text-bg-accent">
-                                            {{Category::where('service', $advert->service->serviceable_type)->first()->locale->first()->title}}
-                                            </span>
+                                            <x-adverts.category :advert="$advert"/>
 
                                             <br>
                                             {{$advert->company->locale->first()->preview}}
@@ -89,7 +83,7 @@
                                 @endforeach
                             </div>
                         @endif
-                    </a>
+                    </x-adverts.link>
                 @endforeach
 
                 <div class="mt-4">

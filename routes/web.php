@@ -99,6 +99,13 @@ Route::name('partner.')
                 Route::get('/profile', 'dashboard')->name('dashboard');
                 Route::put('/company', 'company')->name('company');
                 Route::put('/plan', 'plan')->name('plan');
+
+                Route::name('advert.')
+                    ->group(function () {
+                        Route::post('/', 'storeAdvert')->name('store');
+                        Route::put('/{advert}', 'updateAdvert')->name('update');
+                        Route::delete('/{advert}', 'destroyAdvert')->name('destroy');
+                    });
             });
 
         Route::controller(PartnerController::class)
@@ -119,7 +126,7 @@ Route::middleware('admin')
                 Route::get('/blog', 'blog')->name('blog');
                 Route::get('/messages', 'messages')->name('messages');
                 Route::get('/partners', 'partners')->name('partners');
-                Route::post('/tops', [AdminController::class, 'updateTopServices'])->name('tops');
+                Route::post('/tops', 'updateTopServices')->name('tops');
 
             });
 

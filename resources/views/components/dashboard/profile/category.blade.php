@@ -29,7 +29,6 @@
                     @endphp
 
                     @if(!$advert)
-
                         <x-dashboard.card-info>
                             <br>
                             {{__('form.unknown_active_category')}}

@@ -45,7 +45,7 @@
                     :aria-selected="isSelected($el.id)"
                     :class="isSelected($el.id) ? ' border-accent text-accent fw-bold shadow-lg' : ''"
                     class="{{count($tooltips) > 0 ? 'tippy' : ''}} tab-button h-100 border border-bottom-0"
-                    {{count($tooltips) > 0 ? 'data-tippy-content=".$tooltips[$key]."' : ''}}
+                    {{count($tooltips) > 0 ? 'data-tippy-content='.$tooltips[$key] : ''}}
                     role="tab">
                     @if($icons)
                         @svg($tab, 'tab-icon')

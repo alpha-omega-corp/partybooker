@@ -1,6 +1,6 @@
 .partner-dashboard {
     margin-top: 60px;
-    height: 100vh;
+    height: 100%;
     border: 1px solid $light;
     border-radius: 20px;
     padding: 40px;
@@ -10,5 +10,27 @@
         margin-bottom: 20px;
         border: 1px solid $light;
         border-radius: 10px;
+
+        .partner-advert-title {
+            color: $standard;
+            text-decoration: underline;
+        }
+
+        .partner-advert-show {
+            display: flex;
+
+            a {
+                cursor: pointer;
+            }
+        }
+
+        .partner-advert-actions {
+            display: flex;
+            justify-content: flex-end;
+
+            a {
+                border-radius: 0 !important;
+            }
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\PlanType;
 use App\Models\Advert;
 use App\Models\Company;
 use App\Models\CompanyLocale;
@@ -40,11 +41,25 @@ class PartnerFactory extends Factory
             'payment_id' => Payment::factory([
                 'plan_id' => $this->faker->randomElement($plans)
             ]),
-            'company_id' => Company::factory()
-                ->has($this->faker->randomElement($adverts)->asMain(), 'adverts')
-                ->has($this->faker->randomElement($adverts), 'adverts')
-                ->has(CompanyLocale::factory()->english(), 'locale')
-                ->has(CompanyLocale::factory()->french(), 'locale')
+            'company_id' => function (array $attributes) use ($adverts) {
+                $company = Company::factory()
+                    ->has(CompanyLocale::factory()->english(), 'locale')
+                    ->has(CompanyLocale::factory()->french(), 'locale');
+
+                $payment = Payment::find($attributes['payment_id']);
+                return match (PlanType::from($payment->plan->name)) {
+                    PlanType::STANDARD => $company
+                        ->has($this->faker->randomElement($adverts)->asMain(), 'adverts'),
+                    PlanType::PREMIUM => $company
+                        ->has($this->faker->randomElement($adverts)->asMain(), 'adverts')
+                        ->has($this->faker->randomElement($adverts), 'adverts'),
+                    PlanType::EXCLUSIVE => $company
+                        ->has($this->faker->randomElement($adverts)->asMain(), 'adverts')
+                        ->has($this->faker->randomElement($adverts), 'adverts')
+                        ->has($this->faker->randomElement($adverts), 'adverts'),
+                    default => $company,
+                };
+            },
         ];
     }
 

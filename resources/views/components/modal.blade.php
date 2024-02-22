@@ -2,11 +2,12 @@
     'button' => null,
     'hasIcon' => true,
     'hasButton' => true,
+    'background' => true,
 ])
 
 <a
     id="toggle-{{$id}}"
-    class="tippy btn btn-{{$color}} {{!$hasButton ? 'd-none' : ''}} {{$absolute ? 'modal-absolute' : ''}}"
+    class="tippy btn {{$background ? 'btn-'.$color : 'text-'.$color}} {{!$hasButton ? 'd-none' : ''}} {{$absolute ? 'modal-absolute' : ''}}"
     data-tippy-content="{{$type->name}}"
     data-bs-toggle="modal"
     data-bs-target="{{'#'. $id}}"

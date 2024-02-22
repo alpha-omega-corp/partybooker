@@ -15,7 +15,7 @@
 
         <div class="row align-items-start">
             <div class="col-xl-8 col-lg-7 col-md-12">
-                @include('app.partner.partials.adverts')
+                @include('app.partner.partials.adverts.show')
             </div>
 
             <div class="col-xl-4 col-lg-5 col-md-12">
