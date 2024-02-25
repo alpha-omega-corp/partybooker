@@ -15,10 +15,10 @@
     </div>
 
     <div class="col-8">
-        <x-utils.tab
-            :tabs="['French', 'English']">
+        <x-tab
+            :pages="['French', 'English']">
 
-            <x-utils.page>
+            <x-tab.item>
                 <x-forms.list>
                     <x-forms.input
                         name="alt_fr"
@@ -36,9 +36,9 @@
 
                     <x-forms.editor name="content_fr" label="Content" :value="$post->content_fr"/>
                 </x-forms.list>
-            </x-utils.page>
+            </x-tab.item>
 
-            <x-utils.page>
+            <x-tab.item>
                 <x-forms.list>
                     <x-forms.input
                         name="alt_en"
@@ -55,7 +55,7 @@
 
                     <x-forms.editor name="content_en" label="Content" :value="$post->content_en"/>
                 </x-forms.list>
-            </x-utils.page>
-        </x-utils.tab>
+            </x-tab.item>
+        </x-tab>
     </div>
 </div>

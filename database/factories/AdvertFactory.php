@@ -3,11 +3,14 @@
 namespace Database\Factories;
 
 use App\Enums\CategoryType;
+use App\Enums\PlanType;
 use App\Models\Advert;
 use App\Models\AdvertImage;
+use App\Models\AdvertLocale;
 use App\Models\AdvertService;
 use App\Models\AdvertTag;
 use App\Models\Category;
+use App\Models\Plan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 
@@ -18,7 +21,6 @@ class AdvertFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(3),
             'slug' => $this->faker->unique()->slug(2),
             'is_public' => true,
             'is_main' => false,
@@ -29,13 +31,23 @@ class AdvertFactory extends Factory
     {
         return $this->afterCreating(function (Advert $advert) {
             AdvertImage::factory()
-                ->count(10)
+                ->count(Plan::ofType(PlanType::STANDARD)->first()->uploads)
                 ->sequence(fn(Sequence $sequence) => [
                     'is_thumbnail' => $sequence->index == 0
                 ])
                 ->create([
                     'advert_id' => $advert->id
                 ]);
+
+            AdvertLocale::factory([
+                'translatable_id' => $advert->id,
+                'translatable_type' => Advert::class,
+            ])
+                ->count(2)
+                ->sequence(fn(Sequence $sequence) => [
+                    'lang' => $sequence->index == 0 ? 'en' : 'fr'
+                ])
+                ->create();
         });
     }
 
@@ -64,17 +76,6 @@ class AdvertFactory extends Factory
         })
             ->has(AdvertTag::factory()->wine(), 'tags')
             ->for(Category::ofType(CategoryType::WINE)->first());
-
-    }
-
-    public function business(): Factory
-    {
-        return $this->state(function () {
-            return [
-                'advert_service_id' => AdvertService::factory()->business()
-            ];
-        })->has(AdvertTag::factory()->business(), 'tags')
-            ->for(Category::ofType(CategoryType::BUSINESS)->first());
 
     }
 

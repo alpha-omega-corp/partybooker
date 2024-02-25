@@ -7,18 +7,22 @@
 @php
     $id = 'editor' . ucfirst($name)
 @endphp
+<div class="app-editor">
+    <div class="app-editor-label">
+        <label for="{{$id}}">
+            {{$label}}
+        </label>
+    </div>
 
-<label for="{{$id}}" class="p-4">
-    {{$label}}
-</label>
 
-<textarea
-    name="{{$name}}"
-    id="{{$id}}"
-    maxlength="350"
-    rows="10">
+    <textarea
+        name="{{$name}}"
+        id="{{$id}}"
+        maxlength="350"
+        rows="10">
 {{$value}}
 </textarea>
+</div>
 
 
 <script type="module">

@@ -1,10 +1,10 @@
-<x-modal
-    id="editPost-{{$post->id}}"
-    name="Post"
+<x-modal.index
+    :iterator="$post->id"
+    :name="ModalName::BLOG"
     :type="ModalType::UPDATE"
     :size="ModalSize::XL"
     :multipart="true"
     :route="route('admin.blog.update', ['post' => $post])"
 >
     @include('app.blog.partials.form', ['post' => $post])
-</x-modal>
+</x-modal.index>

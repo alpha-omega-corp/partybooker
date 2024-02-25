@@ -1,7 +1,4 @@
 {
-  "_tippy.esm-1e4f4abe.js": {
-    "file": "assets/tippy.esm-1e4f4abe.js"
-  },
   "resources/images/app/about0.svg": {
     "file": "assets/about0-af2859a8.svg",
     "src": "resources/images/app/about0.svg"
@@ -57,6 +54,10 @@
   "resources/images/app/contacts.svg": {
     "file": "assets/contacts-a54d4699.svg",
     "src": "resources/images/app/contacts.svg"
+  },
+  "resources/images/app/cookie.png": {
+    "file": "assets/cookie-07bd6186.png",
+    "src": "resources/images/app/cookie.png"
   },
   "resources/images/app/group-icon.svg": {
     "file": "assets/group-icon-927b8c7a.svg",
@@ -150,43 +151,32 @@
     "file": "assets/youtube-0f2fbb09.png",
     "src": "resources/images/socials/youtube.png"
   },
-  "resources/js/admin.js": {
-    "file": "assets/admin-800c69c6.js",
-    "imports": [
-      "_tippy.esm-1e4f4abe.js"
-    ],
-    "isEntry": true,
-    "src": "resources/js/admin.js"
-  },
   "resources/js/app.css": {
-    "file": "assets/app-5a79841d.css",
+    "file": "assets/app-9d6b8489.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "assets": [
-      "assets/background-468f2995.jpg",
-      "assets/arrow-126f8b6c.svg"
+      "assets/arrow-126f8b6c.svg",
+      "assets/background-468f2995.jpg"
     ],
     "css": [
-      "assets/app-5a79841d.css"
+      "assets/app-9d6b8489.css"
     ],
-    "file": "assets/app-a507e084.js",
-    "imports": [
-      "_tippy.esm-1e4f4abe.js"
-    ],
+    "file": "assets/app-07aed3be.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
-  "resources/js/dashboard.css": {
-    "file": "assets/dashboard-c2acc5d3.css",
-    "src": "resources/js/dashboard.css"
+  "resources/js/service.css": {
+    "file": "assets/service-efcedb1d.css",
+    "src": "resources/js/service.css"
   },
-  "resources/js/dashboard.js": {
+  "resources/js/service.js": {
     "css": [
-      "assets/dashboard-c2acc5d3.css"
+      "assets/service-efcedb1d.css"
     ],
-    "file": "assets/dashboard-624a1f4e.js",
+    "file": "assets/service-b035bfd9.js",
     "isEntry": true,
-    "src": "resources/js/dashboard.js"
+    "src": "resources/js/service.js"
   }
 }

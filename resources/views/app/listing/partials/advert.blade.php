@@ -1,6 +1,6 @@
-<x-utils.tab
-    :icons="true"
-    :tabs="[
+<x-tab
+    :use-icons="true"
+    :pages="[
          'heroicon-o-information-circle',
          'heroicon-o-clock',
          'heroicon-o-currency-dollar',
@@ -12,16 +12,16 @@
         __('advert.price'),
         __('advert.video')
     ]">
-    <x-utils.page>
+    <x-tab.item>
         @include('app.listing.partials.service-detail', ['detail' => $advert->service->detail])
-    </x-utils.page>
+    </x-tab.item>
 
-    <x-utils.page>
+    <x-tab.item>
         @include('app.listing.partials.service-schedule', ['schedule' => $advert->service->schedule])
-    </x-utils.page>
+    </x-tab.item>
 
-    <x-utils.page>
+    <x-tab.item>
         @include('app.listing.partials.service-price', ['price' => $advert->service->price])
-    </x-utils.page>
-</x-utils.tab>
+    </x-tab.item>
+</x-tab>
 <hr>

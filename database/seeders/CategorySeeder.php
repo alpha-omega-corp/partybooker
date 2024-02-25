@@ -36,20 +36,6 @@ class CategorySeeder extends Seeder
             ]
         );
 
-        $this->newCategory(CategoryType::BUSINESS, [
-                'en' => [
-                    'business-event' => 'Business Event',
-                    'meeting' => 'Meeting',
-                    'seminar' => 'Seminar',
-                ],
-                'fr' => [
-                    'evenement-professionnel' => 'Événement Professionnel',
-                    'reunion' => 'Réunion',
-                    'seminaire' => 'Séminaire',
-                ]
-            ]
-        );
-
         $this->newCategory(CategoryType::CATERER, [
                 'en' => [
                     'catering' => 'Catering',

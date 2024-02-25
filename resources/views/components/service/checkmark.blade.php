@@ -3,7 +3,6 @@
     'data'
 ])
 
-
 <div class="service-item service-checkmark">
     <h6>{{$title}}</h6>
 

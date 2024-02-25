@@ -6,9 +6,9 @@ use App\Models\AdvertService;
 use App\Models\ListingDetail;
 use App\Models\ListingPrice;
 use App\Models\ListingSchedule;
-use App\Models\ServiceBusiness;
 use App\Models\ServiceCaterer;
 use App\Models\ServiceEntertainment;
+use App\Models\ServiceEquipment;
 use App\Models\ServiceEvent;
 use App\Models\ServiceWine;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -29,16 +29,6 @@ class AdvertServiceFactory extends Factory
         ];
     }
 
-    public function event(): Factory
-    {
-        return $this->state(function () {
-            return [
-                'serviceable_id' => ServiceEvent::factory(),
-                'serviceable_type' => ServiceEvent::class,
-            ];
-        });
-    }
-
     public function wine(): Factory
     {
         return $this->state(function () {
@@ -49,32 +39,12 @@ class AdvertServiceFactory extends Factory
         });
     }
 
-    public function entertainment(): Factory
+    public function event(): Factory
     {
         return $this->state(function () {
             return [
-                'serviceable_id' => ServiceEntertainment::factory(),
-                'serviceable_type' => ServiceEntertainment::class,
-            ];
-        });
-    }
-
-    public function business(): Factory
-    {
-        return $this->state(function () {
-            return [
-                'serviceable_id' => ServiceBusiness::factory(),
-                'serviceable_type' => ServiceBusiness::class,
-            ];
-        });
-    }
-
-    public function equipment(): Factory
-    {
-        return $this->state(function () {
-            return [
-                'serviceable_id' => ServiceBusiness::factory(),
-                'serviceable_type' => ServiceBusiness::class,
+                'serviceable_id' => ServiceEvent::factory(),
+                'serviceable_type' => ServiceEvent::class,
             ];
         });
     }
@@ -85,6 +55,26 @@ class AdvertServiceFactory extends Factory
             return [
                 'serviceable_id' => ServiceCaterer::factory(),
                 'serviceable_type' => ServiceCaterer::class,
+            ];
+        });
+    }
+
+    public function equipment(): Factory
+    {
+        return $this->state(function () {
+            return [
+                'serviceable_id' => ServiceEquipment::factory(),
+                'serviceable_type' => ServiceEquipment::class,
+            ];
+        });
+    }
+
+    public function entertainment(): Factory
+    {
+        return $this->state(function () {
+            return [
+                'serviceable_id' => ServiceEntertainment::factory(),
+                'serviceable_type' => ServiceEntertainment::class,
             ];
         });
     }

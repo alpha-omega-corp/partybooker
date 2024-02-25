@@ -26,7 +26,6 @@ class PartnerFactory extends Factory
         $adverts = [
             Advert::factory()->event(),
             Advert::factory()->wine(),
-            Advert::factory()->business(),
             Advert::factory()->caterer(),
             Advert::factory()->entertainment(),
             Advert::factory()->equipment()

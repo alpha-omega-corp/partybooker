@@ -1,0 +1,27 @@
+.app-notification {
+    border-radius: 10px;
+    border: 1px solid $light;
+    overflow: hidden;
+    width: 400px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    .app-notification-title {
+        border-bottom: 1px solid $light;
+        text-transform: uppercase;
+        font-size: small;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .app-notification-content {
+        color: $gray;
+        padding: 20px;
+        margin-bottom: 0.5rem;
+        background-color: #fff;
+    }
+}

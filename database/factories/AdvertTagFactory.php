@@ -43,15 +43,6 @@ class AdvertTagFactory extends Factory
         });
     }
 
-    public function business(): self
-    {
-        return $this->state(function () {
-            return [
-                'category_child_id' => $this->tag(CategoryType::BUSINESS),
-            ];
-        });
-    }
-
     public function caterer(): self
     {
         return $this->state(function () {

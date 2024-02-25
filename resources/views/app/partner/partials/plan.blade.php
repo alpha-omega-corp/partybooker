@@ -1,12 +1,9 @@
 @php use App\Models\Plan; @endphp
 <x-card :title="__('dashboard.plan')">
-    @if($partner->payment)
-        <x-plans.badge :plan="$payment->plan"/>
-    @endif
+    <x-plans.badge :plan="$payment->plan"/>
 
-    <x-modal
-        id="planModal"
-        name="plan"
+    <x-modal.index
+        :name="ModalName::PARTNER_PLAN"
         :type="ModalType::UPDATE"
         :size="ModalSize::MD"
         :absolute="true"
@@ -14,11 +11,12 @@
     >
         <x-forms.radio
             :colorize="true"
+            :value="$payment->plan->name"
             :items="$plans->map(fn(Plan $plan) => $plan->name)"
             id="updatePlan"
             name="plan"
         />
-    </x-modal>
+    </x-modal.index>
 </x-card>
 
 

@@ -107,7 +107,7 @@
                     {{ __('become_partner.contact') }}
                 </button>
 
-                <!-- Modal -->
+                <!-- Index -->
                 <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel"
                      aria-hidden="true">
                     <div class="modal-dialog">

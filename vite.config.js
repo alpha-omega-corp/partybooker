@@ -13,7 +13,7 @@ export default defineConfig({
         laravel({
             input: [
                 './resources/js/app.js',
-                './resources/js/tailwind.js',
+                './resources/js/service.js',
             ],
             refresh: [
                 ...refreshPaths,

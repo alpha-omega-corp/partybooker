@@ -18,7 +18,8 @@ use App\Services\PaymentTransactionService;
 use App\Services\PlanService;
 use App\Services\RequestService;
 use App\View\Composers\DashboardComposer;
-use App\View\Composers\SettingsComposer;
+use App\View\Composers\IconComposer;
+use App\View\Composers\SettingComposer;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Vite;
@@ -42,8 +43,10 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        View::composer("*", SettingsComposer::class);
+        View::composer("*", IconComposer::class);
+        View::composer("*", SettingComposer::class);
         View::composer('app.partner.dashboard', DashboardComposer::class);
+        Paginator::useBootstrapFive();
 
         Vite::macro('app', fn(string $img) => $this->asset(trim("resources/images/app/$img")));
         Vite::macro('category', fn(string $img) => $this->asset(trim("resources/images/categories/$img")));
@@ -51,7 +54,6 @@ class AppServiceProvider extends ServiceProvider
         Vite::macro('payment', fn(string $name) => $this->asset(trim("resources/images/payments/$name")));
         Vite::macro('social', fn(string $name) => $this->asset(trim("resources/images/socials/$name.png")));
 
-        Paginator::useBootstrapFive();
         Cashier::useCustomerModel(User::class);
     }
 

@@ -29,9 +29,8 @@
                     <div class="admin-listing-filters">
 
                         <!-- Create Partner -->
-                        <x-modal
-                            id="createPost"
-                            name="Partner"
+                        <x-modal.index
+                            :name="ModalName::PARTNER"
                             :type="ModalType::CREATE"
                             :size="ModalSize::MD"
                             :route="route('partner.store')"
@@ -81,7 +80,7 @@
                                     title="Languages"
                                     :items="Language::values()"/>
                             </x-forms.list>
-                        </x-modal>
+                        </x-modal.index>
 
                         <x-dashboard.accordion title="Plan" name="plan" :open="true">
                             <x-admin.filter-group

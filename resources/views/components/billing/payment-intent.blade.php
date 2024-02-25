@@ -1,4 +1,4 @@
-<!-- Payment Modal -->
+<!-- Payment Index -->
 <a data-bs-toggle="modal" data-bs-target="#paymentModal" class="d-none" id="add-card"></a>
 
 <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">

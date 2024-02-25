@@ -10,10 +10,14 @@ class PartnerMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->partner()->exists()) {
-            return $next($request);
+        if (!Auth::check()) {
+            return back()->with('error', 'You are not authorized to access this page');
         }
 
-        return back();
+        if (!Auth::user()->partner()->exists()) {
+            return back()->with('error', 'Partner not found');
+        }
+
+        return $next($request);
     }
 }

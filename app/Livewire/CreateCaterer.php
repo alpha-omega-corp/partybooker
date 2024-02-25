@@ -11,7 +11,6 @@ use App\Helpers\PaymentMethodsTranslatorHelper;
 use App\Helpers\StaffTranslatorHelper;
 use App\Helpers\TablewareTranslatorHelper;
 use App\Models\Advert;
-use App\Models\Partner;
 use App\Models\ServiceCaterer;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
@@ -33,6 +32,8 @@ use Livewire\Component;
 class CreateCaterer extends Component implements HasForms
 {
     use InteractsWithForms;
+
+    public Advert $advert;
 
     public $holidays;
     public $budget;
@@ -68,46 +69,10 @@ class CreateCaterer extends Component implements HasForms
     public $advertId;
     public $partnerInfoId;
 
-    public function mount(string $partnerId, int $advertId): void
+    public function mount(Advert $advert): void
     {
         $this->form->fill();
-        $this->advertId = $advertId;
-        $this->partnerId = $partnerId;
-        $partner = Partner::where('id_partner', $this->partnerId)->first();
-        $this->partnerInfoId = $partner->id;
-
-        $advert = Advert::where('id', $this->advertId)
-            ->where('partners_info_id', $this->partnerInfoId)
-            ->first();
-
-        if ($advert->status === Advert::STATUS_ACTIVE) {
-            $caterer = ServiceCaterer::where('id', $advert->service_id)->first();
-            $this->holidays = json_decode($caterer->holidays, true);
-            $this->budget = $caterer->budget;
-            $this->rates = $caterer->price;
-            $this->deposit = $caterer->deposit;
-            $this->allowedPayments = json_decode($caterer->paymeny, true);
-            $this->paymentTerms = $caterer->p_terms;
-            $this->geoLimitations = $caterer->geo;
-            $this->minimumCapacity = $caterer->min_guests;
-            $this->maximumCapacity = $caterer->max_guests;
-            $this->delivery = json_decode($caterer->smood, true);
-            $this->specialties = is_array(json_decode($caterer->specialities)) ? '' : json_decode($caterer->specialities);
-            $this->menuFiles = json_decode($caterer->menu, true);
-            $this->logisticsValues = json_decode($caterer->logistic, true);
-            $this->tablewareValues = json_decode($caterer->tableware, true);
-            $this->furnishingValues = json_decode($caterer->furnishing, true);
-            $this->decorationsValues = json_decode($caterer->decoration, true);
-            $this->officeEquipmentValues = json_decode($caterer->office, true);
-            $this->staffValues = json_decode($caterer->staff, true);
-            $this->comment = $caterer->comment;
-            $this->allowedPaymentsMore = collect(json_decode($caterer->other_payment, true))->mapWithKeys(
-                fn($item) => [$item => ['name' => $item]]
-            )->toArray();
-            $this->officeEquipmentMore = collect(json_decode($caterer->other_services, true))->mapWithKeys(
-                fn($item) => [$item => ['name' => $item]]
-            )->toArray();
-        }
+        $this->advert = $advert;
     }
 
     public function boot(): void

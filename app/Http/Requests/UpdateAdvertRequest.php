@@ -14,7 +14,8 @@ class UpdateAdvertRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required',
+            'title_fr' => 'required',
+            'title_en' => 'required',
             'slug' => 'required',
         ];
     }

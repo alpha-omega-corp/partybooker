@@ -11,17 +11,14 @@ class ServiceEquipment extends Model
 {
     use HasFactory;
 
+    public $table = 'service_equipments';
+
     protected $fillable = [
     ];
 
     protected static function newFactory(): ServiceEquipmentFactory
     {
         return ServiceEquipmentFactory::new();
-    }
-
-    public function category(): MorphOne
-    {
-        return $this->morphOne(Category::class, 'categorizable');
     }
 
     public function service(): MorphOne

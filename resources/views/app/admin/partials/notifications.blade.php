@@ -14,14 +14,13 @@
                 {{$item->user->name}}
             </td>
             <td>
-                <x-modal
-                    id="readNotification-{{$item->id}}"
-                    name="Post"
+                <x-modal.index
+                    :iterator="$item->id"
+                    :name="ModalName::ADMIN_MESSAGE"
                     :type="ModalType::READ"
-                    :size="ModalSize::MD"
-                >
+                    :size="ModalSize::MD">
                     {{$item->message}}
-                </x-modal>
+                </x-modal.index>
             </td>
             <td>
                 {{$item->phone}}

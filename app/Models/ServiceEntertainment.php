@@ -21,11 +21,6 @@ class ServiceEntertainment extends Model
         return ServiceEntertainmentFactory::new();
     }
 
-    public function category(): MorphOne
-    {
-        return $this->morphOne(Category::class, 'categorizable');
-    }
-
     public function service(): MorphOne
     {
         return $this->morphOne(AdvertService::class, 'serviceable');

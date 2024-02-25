@@ -47,19 +47,19 @@
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title text-uppercase fw-bold listing-card-title">
-                                            {{$advert->title}}
+                                            {{$advert->locale->title}}
                                         </h5>
                                         <div class="card-text description">
                                             <x-adverts.category :advert="$advert"/>
 
                                             <br>
-                                            {{$advert->company->locale->first()->preview}}
+                                            {{$advert->locale->description}}
 
 
                                         </div>
 
                                         <div class="d-flex location-box mb-3">
-                                            {{$advert->company->address}}
+                                            {{$advert->company->address->address}}
                                         </div>
 
                                     </div>

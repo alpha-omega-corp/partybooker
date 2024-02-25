@@ -6,5 +6,8 @@ return [
     'schedule' => 'Horaires',
     'price' => 'Tarifs',
     'video' => 'Vidéos',
-
+    'gallery' => 'Galerie',
+    'description' => 'Description',
+    'content' => 'Contenu',
+    'meta' => 'SEO',
 ];

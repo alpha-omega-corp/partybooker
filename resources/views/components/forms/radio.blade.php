@@ -1,4 +1,5 @@
 @props([
+    'value' => null,
     'colorize' => false,
     'items',
     'name',
@@ -13,6 +14,7 @@
             name="{{$name}}"
             value="{{$item}}"
             id="{{$id . $index}}"
+            {{$value === $item ? 'checked' : ''}}
         >
 
         <label

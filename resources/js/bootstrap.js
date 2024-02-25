@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as Popper from '@popperjs/core'
 import 'bootstrap'
-import './assets/tooltip';
+import './tooltip.js';
 
 import Alpine from 'alpinejs';
 import focus from '@alpinejs/focus';
@@ -10,9 +10,9 @@ import tinymce from 'tinymce';
 
 import 'tinymce/icons/default/icons.min.js';
 import 'tinymce/models/dom/model.min.js';
+import 'tinymce/plugins/advlist';
 import 'tinymce/themes/silver/theme.min.js';
 import 'tinymce/skins/ui/oxide/skin.js';
-import 'tinymce/plugins/advlist';
 import 'tinymce/plugins/code';
 import 'tinymce/plugins/emoticons';
 import 'tinymce/plugins/emoticons/js/emojis';
@@ -22,6 +22,8 @@ import 'tinymce/plugins/table';
 
 window.tinyPlugins = 'advlist code emoticons link lists table'
 window.tinyOptions = 'bold italic | bullist numlist | link emoticons'
+window.tinySkin = 'default'
+window.tinyCss = 'default'
 
 window.Glide = Glide;
 window.GlideControls = {Controls, Autoplay, Breakpoints};

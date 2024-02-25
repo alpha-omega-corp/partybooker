@@ -3,12 +3,15 @@
 
 namespace App\Models;
 
+use App\Enums\Language;
+use App\Models\Scopes\LocaleScope;
 use Database\Factories\AdvertFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Advert extends Model
 {
@@ -16,7 +19,6 @@ class Advert extends Model
 
     protected $fillable = [
         'slug',
-        'title',
         'company_id',
         'advert_service_id',
         'is_public',
@@ -58,6 +60,20 @@ class Advert extends Model
         return $this->belongsTo(AdvertService::class, 'advert_service_id', 'id');
     }
 
+    public function locale(): MorphOne
+    {
+        return $this->morphOne(AdvertLocale::class, 'translatable');
+    }
+
+    public function scopeOfLang(Builder $query, Language $lang): void
+    {
+        $query->with(['locale' => function ($query) use ($lang) {
+            $query
+                ->where('lang', $lang)
+                ->withoutGlobalScopes([LocaleScope::class]);
+        }]);
+    }
+
     public function scopeListing(Builder $query): void
     {
         $query->where('is_public', true);
@@ -67,6 +83,4 @@ class Advert extends Model
     {
         $query->where('is_main', true);
     }
-
-
 }

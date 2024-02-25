@@ -12,7 +12,6 @@ return new class extends Migration {
     {
         Schema::create('adverts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
             $table->string('slug')->unique();
             $table->foreignIdFor(Category::class);
             $table->foreignIdFor(Company::class);

@@ -1,9 +1,18 @@
+.navbar {
+    padding: 0;
+}
 
-.navigation {
+.app-navigation {
+    background: #fff;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 
     .navigation-admin {
         display: flex;
-        justify-content: center;
+        align-items: center;
         gap: 20px;
     }
 
@@ -12,14 +21,6 @@
     .navbar-toggler-icon:focus {
         outline: none;
         box-shadow: none;
-    }
-
-    .auth {
-        margin-left: 30px;
-
-        .dropdown {
-            position: relative !important;
-        }
     }
 
     .offcanvas-body {
@@ -48,6 +49,4 @@
             }
         }
     }
-
-
 }

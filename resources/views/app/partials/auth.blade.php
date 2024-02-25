@@ -1,10 +1,9 @@
-<x-modal
-    id="loginModal"
-    name="login"
+<x-modal.index
+    :name="ModalName::APP_LOGIN"
     :type="ModalType::CREATE"
     :size="ModalSize::MD"
-    :position="ModalPosition::topLeft"
-    :hasButton="false"
+    :singleton="true"
+    :hidden="true"
     :route="route('auth.login')"
 >
     <x-forms.list>
@@ -20,6 +19,5 @@
             type="password">
             @svg('heroicon-o-key')
         </x-forms.input>
-
     </x-forms.list>
-</x-modal>
+</x-modal.index>

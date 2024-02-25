@@ -24,4 +24,9 @@ class FileService implements IFileService
     {
         return $this->store($file, 'images/partner/logos');
     }
+
+    public function delete(string $path): void
+    {
+        Storage::delete($path);
+    }
 }

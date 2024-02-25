@@ -94,7 +94,7 @@ class Kernel extends HttpKernel
         'email' => EmailVerification::class,
         'email-ok' => EmailVerified::class,
         'subscribed' => EnsureUserSubscribed::class,
-        'advertisement' => EnsureAdOwnership::class,
+        'service' => EnsureAdOwnership::class,
         'partner' => PartnerMiddleware::class,
     ];
 

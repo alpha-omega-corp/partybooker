@@ -54,12 +54,12 @@
                                     </div>
 
                                     <div class="d-flex gap-2">
-                                        @include('app.listing.partials.service-request', [
+                                        @include('app.listing.partials.request', [
                                             'advert' => $advert,
                                         ])
 
                                         @if(Auth::user() && Auth::user()->isAdmin())
-                                            <a class="btn btn-primary"
+                                            <a class="btn btn-admin"
                                                href="{{route('partner.dashboard', ['partner' => $advert->company->partner])}}">
                                                 {{__('partner.dashboard')}}
                                             </a>
@@ -99,11 +99,9 @@
                                         'company' => $company
                                     ])}}">
                                                 <div class="company-adverts-item">
-                                                    <h6>{{ $companyAdvert->title}}</h6>
+                                                    <h6>{{ $companyAdvert->locale->title}}</h6>
                                                     <div>
-                                                    <span class="badge text-bg-accent">
-                                                        {{Category::where('service', $advert->service->serviceable_type)->first()->locale->first()->title}}
-                                                    </span>
+                                                        <x-adverts.category :advert="$companyAdvert"/>
                                                     </div>
 
                                                 </div>

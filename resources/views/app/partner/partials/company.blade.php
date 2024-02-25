@@ -1,7 +1,6 @@
 <x-card :title="__('dashboard.company')">
-    <x-modal
-        id="companyModal"
-        name="company"
+    <x-modal.index
+        :name="ModalName::PARTNER_COMPANY"
         :type="ModalType::UPDATE"
         :size="ModalSize::MD"
         :absolute="true"
@@ -38,7 +37,7 @@
                 @svg('heroicon-o-globe-alt')
             </x-forms.input>
         </x-forms.list>
-    </x-modal>
+    </x-modal.index>
 </x-card>
 
 

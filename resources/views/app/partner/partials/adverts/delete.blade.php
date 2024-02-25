@@ -1,6 +1,6 @@
-<x-modal
-    id="deleteAdvert{{$advert->id}}"
-    name="Advert"
+<x-modal.index
+    :index="$advert->id"
+    :name="ModalName::PARTNER_ADVERT"
     :type="ModalType::DELETE"
     :size="ModalSize::SM"
     :background="false"
@@ -9,4 +9,4 @@
                                 'advert' => $advert
                             ])">
     <p>Delete {{$advert->title}} ?</p>
-</x-modal>
+</x-modal.index>

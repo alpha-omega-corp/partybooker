@@ -4,10 +4,10 @@ namespace App\Enums;
 
 enum Language: string
 {
-    case FRENCH = 'fr';
-    case ENGLISH = 'en';
-    case GERMAN = 'de';
-    case ITALIAN = 'it';
+    case FR = 'fr';
+    case EN = 'en';
+    case DE = 'de';
+    case IT = 'it';
 
 
     public static function values(): array

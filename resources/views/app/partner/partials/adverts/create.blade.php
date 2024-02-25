@@ -1,6 +1,6 @@
 <x-modal
-    id="createAdvert"
-    name="Advert"
+    :index="$advert->id"
+    :name="ModalName::PARTNER_ADVERT"
     :type="ModalType::CREATE"
     :size="ModalSize::MD"
     :absolute="true"

@@ -7,27 +7,24 @@
 @endsection
 
 @section('content')
-
     <div class="p-5">
-        <x-utils.tab
-            :tabs="[
-             'Partnership',
-             'Help',
-             'Service',
-         ]">
-
-            <x-utils.page>
+        <x-tab :pages="[
+            'Partnership',
+            'Help',
+            'Service',
+            ]"
+        >
+            <x-tab.item>
                 @include('app.admin.partials.notifications', ['notifications' => $partnerships])
-            </x-utils.page>
+            </x-tab.item>
 
-            <x-utils.page>
+            <x-tab.item>
                 @include('app.admin.partials.notifications', ['notifications' => $helps])
-            </x-utils.page>
+            </x-tab.item>
 
-            <x-utils.page>
+            <x-tab.item>
                 @include('app.admin.partials.notifications', ['notifications' => $services])
-            </x-utils.page>
-
-        </x-utils.tab>
+            </x-tab.item>
+        </x-tab>
     </div>
 @endsection

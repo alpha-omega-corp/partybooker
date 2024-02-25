@@ -14,7 +14,6 @@
                                 @php
                                     $image = match ($category->service) {
                                         CategoryType::EVENT->value => 'location.svg',
-                                        CategoryType::BUSINESS->value => 'bubble.svg',
                                         CategoryType::CATERER->value => 'catering.svg',
                                         CategoryType::WINE->value => 'wine.svg',
                                         CategoryType::EQUIPMENT->value => 'maintenance.svg',

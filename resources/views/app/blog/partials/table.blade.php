@@ -24,7 +24,6 @@
                 <x-utils.date :type="DateType::UPDATED" :date="$post->updated_at"/>
             </td>
 
-
             <td>
                 <div class="d-flex align-items-start gap-1">
                     <form method="POST" action="{{route('admin.blog.status', ['post' => $post])}}">
