@@ -1,5 +1,5 @@
 <div>
-    <div x-data="partnerTop" class="w-100">
+    <div x-data="top" class="w-100">
         <form method="POST" action="{{route('admin.dashboard.tops')}}" class="d-flex flex-column">
             @csrf
             <label for="top" class="pb-2">Partners</label>

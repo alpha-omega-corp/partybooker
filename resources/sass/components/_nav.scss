@@ -8,12 +8,13 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 1;
 
-    .navigation-admin {
+    .app-navigation-admin {
         display: flex;
         align-items: center;
         gap: 20px;
+        z-index: 2;
     }
 
     .navbar-toggler:focus,

@@ -1,69 +1,43 @@
 @php use App\Http\Middleware\LocaleMiddleware;use App\Models\Category; @endphp
-<section class="listing-content-section">
-    <div class="row justify-content-center">
-        <div class="col-lg-4 col-md-0 col-sm-0 d-none d-sm-none d-md-none d-lg-block">
-            <h6 class="text-uppercase text-center fw-bold fs-2 filter-title">
-                {{ __('main.category') }}
-            </h6>
 
-            <ul class="list-group category-filters">
-                @foreach ($categories as $item)
-                    <li class="list-group-item list-group-item-parent">
-                        <a href="{{url(route('guest.listing.index', ['category' => $item->locale->first()->slug]))}}">
-                            {{ $item->locale->first()->title }}
-                        </a>
-                    </li>
+<div class="row justify-content-center">
+    <div class="col-lg-4 col-md-0 col-sm-0 d-none d-sm-none d-md-none d-lg-block">
+        @include('app.listing.partials.category')
+    </div>
 
-                    @foreach ($item->children()->get() as $child)
-                        @if($child->locale->first())
-                            <li class="list-group-item list-group-item-child ">
-                                <a class="link-underline link-underline-primary text-truncate"
-                                   href="{{url(route('guest.listing.index', [
-                                        'child' => $child->locale->first()->slug,
-                                        'category' => $item->locale->first()->slug
-                                    ]))}}">
-                                    {{$child->locale->first()->title}}
-                                </a>
-                            </li>
-                        @endif
-                    @endforeach
-                @endforeach
-            </ul>
-        </div>
+    <div class="col-lg-8 col-xs-12">
+        <section>
+            <div class="app-listing-content">
+                @include('app.listing.partials.search')
 
-        <div class="col-lg-8 col-xs-12">
-            <section class="partner-listing">
                 @foreach($adverts as $advert)
                     <x-adverts.link :advert="$advert">
-                        <div class="card m-2">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <div>
-                                        <img src="{{$advert->images()->where('is_thumbnail', true)->first()->path}}"
-                                             class="cover rounded"
-                                             alt="placeholder">
+                        <div class="advert-card">
+                            <x-adverts.category :advert="$advert"/>
+
+                            <div class="advert-card-image">
+                                <img src="{{$advert->images()->where('is_thumbnail', true)->first()->path}}"
+                                     class="cover"
+                                     alt="placeholder">
+                            </div>
+
+                            <div class="advert-card-content">
+                                <div class="card-content-header">
+                                    <h6>{{$advert->locale->title}}</h6>
+                                    <div class="d-flex gap-2">
+                                        @svg('heroicon-o-home-modern', 'text-accent')
+                                        {{$advert->company->name}}
                                     </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-uppercase fw-bold listing-card-title">
-                                            {{$advert->locale->title}}
-                                        </h5>
-                                        <div class="card-text description">
-                                            <x-adverts.category :advert="$advert"/>
+                                <div class="card-content">
+                                    {{$advert->locale->description}}
 
-                                            <br>
-                                            {{$advert->locale->description}}
-
-
-                                        </div>
-
-                                        <div class="d-flex location-box mb-3">
-                                            {{$advert->company->address->address}}
-                                        </div>
-
+                                    <div class="card-content-address">
+                                        {{$advert->company->address->address}}
                                     </div>
                                 </div>
+
+
                             </div>
                         </div>
 
@@ -85,13 +59,13 @@
                         @endif
                     </x-adverts.link>
                 @endforeach
+            </div>
 
-                <div class="mt-4">
-                    {{$adverts->links()}}
-                </div>
-            </section>
-        </div>
+            <div class="mt-4">
+                {{$adverts->links()}}
+            </div>
+        </section>
     </div>
-</section>
+</div>
 
 

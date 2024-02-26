@@ -46,7 +46,8 @@ Route::name('guest.')
             ->name('ajax.')
             ->group(function () {
                 Route::get('/partners', 'partners')->name('partners');
-                Route::get('/partner-tops', 'partnerTops')->name('tops');
+                Route::get('/partners/top', 'tops')->name('tops');
+                Route::get('/partners/listing', 'listing')->name('listing');
             });
 
         // HomeController

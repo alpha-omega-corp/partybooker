@@ -2,16 +2,16 @@
 
 namespace Database\Factories;
 
-use App\Models\CategoryChild;
+use App\Models\CategoryTag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<CategoryChild>
+ * @extends Factory<CategoryTag>
  */
-class CategoryChildFactory extends Factory
+class CategoryTagFactory extends Factory
 {
-    protected $model = CategoryChild::class;
-    
+    protected $model = CategoryTag::class;
+
     public function definition(): array
     {
         return [

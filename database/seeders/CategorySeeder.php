@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use App\Enums\CategoryType;
 use App\Models\Category;
-use App\Models\CategoryChild;
 use App\Models\CategoryLocale;
+use App\Models\CategoryTag;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -107,14 +107,14 @@ class CategorySeeder extends Seeder
 
         $children = [];
         for ($i = 0; $i < count($locales['en']); $i++) {
-            $children[$i] = CategoryChild::factory()->for($category)->create();
+            $children[$i] = CategoryTag::factory()->for($category)->create();
         }
 
         foreach ($locales as $locale => $items) {
             for ($i = 0; $i < count($items); $i++) {
                 $factory = CategoryLocale::factory([
                     'categorizable_id' => $i == 0 ? $category : $children[$i - 1],
-                    'categorizable_type' => $i == 0 ? Category::class : CategoryChild::class,
+                    'categorizable_type' => $i == 0 ? Category::class : CategoryTag::class,
                     'slug' => array_keys($items)[$i],
                     'title' => array_values($items)[$i],
                 ]);

@@ -33,7 +33,7 @@ class Category extends Model
 
     public function children(): HasMany
     {
-        return $this->hasMany(CategoryChild::class);
+        return $this->hasMany(CategoryTag::class);
     }
 
     public function scopeOfType(Builder $query, CategoryType $type): void

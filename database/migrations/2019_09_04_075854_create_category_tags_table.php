@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('category_children', function (Blueprint $table) {
+        Schema::create('category_tags', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Category::class);
         });
@@ -16,6 +16,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('category_children');
+        Schema::dropIfExists('category_tags');
     }
 };

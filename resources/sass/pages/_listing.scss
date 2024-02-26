@@ -1,4 +1,98 @@
-.listing-advert {
+.app-listing {
+    margin-top: 120px;
+
+    .app-listing-header {
+        padding: 20px;
+        border: 1px solid $gray-300;
+        border-radius: 20px;
+        margin-bottom: 60px;
+
+        h1 {
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    }
+
+    .app-listing-category {
+        .list-group-item {
+            a {
+                color: $gray;
+            }
+        }
+
+        .list-group-item-parent {
+            background-color: $primary;
+
+            a {
+                color: #ffff;
+            }
+        }
+
+        .list-group-item-child:hover {
+            background: $gray-300;
+        }
+    }
+
+
+    .app-listing-content {
+        margin-top: 100px;
+
+        .advert-card {
+            display: flex;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid $light;
+            overflow: hidden;
+            position: relative;
+
+            .advert-card-image {
+                img {
+                    width: 300px;
+                    height: 300px;
+                    object-fit: cover;
+                }
+            }
+
+            .advert-card-content {
+                width: 100%;
+
+                .card-content-header {
+                    border-bottom: 1px solid $light;
+                    padding: 20px;
+
+                    h6 {
+                        font-weight: bold;
+                        margin-bottom: 10px;
+                        color: #000;
+                        text-transform: uppercase;
+                    }
+                }
+
+                .card-content {
+                    padding: 20px 20px 0;
+                    color: $gray;
+
+                    .card-content-address {
+                        position: absolute;
+                        bottom: 10px;
+                    }
+                }
+            }
+        }
+
+        .advert-category {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .advert-card:hover {
+            box-shadow: 0 0 2px 0 $accent;
+        }
+    }
+}
+
+.app-advert {
     margin-top: 120px;
 
     .advert-header {

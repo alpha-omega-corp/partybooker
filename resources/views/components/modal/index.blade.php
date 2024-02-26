@@ -33,7 +33,6 @@
     {{$text}}
 </a>
 
-
 <div
     id="{{$id}}"
     class="modal fade"

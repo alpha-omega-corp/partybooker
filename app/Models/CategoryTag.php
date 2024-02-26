@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use Database\Factories\CategoryChildFactory;
+use Database\Factories\CategoryTagFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-class CategoryChild extends Model
+class CategoryTag extends Model
 {
     use HasFactory;
 
@@ -18,9 +18,9 @@ class CategoryChild extends Model
         'category_id',
     ];
 
-    protected static function newFactory(): CategoryChildFactory
+    protected static function newFactory(): CategoryTagFactory
     {
-        return CategoryChildFactory::new();
+        return CategoryTagFactory::new();
     }
 
     public function locale(): MorphMany

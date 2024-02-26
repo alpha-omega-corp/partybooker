@@ -8,6 +8,7 @@ use App\Enums\ModalSize;
 use App\Enums\ModalType;
 use App\Enums\NotificationType;
 use Buzz\LaravelGoogleCaptcha\CaptchaServiceProvider;
+use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
@@ -186,7 +187,7 @@ return [
         'DateType' => DateType::class,
         'CategoryType' => CategoryType::class,
         'NetworkType' => App\Enums\NetworkType::class,
-        'EnvironmentType' => App\Enums\EnvironmentType::class,
+        'EnvironmentType' => EnvironmentType::class,
         'ModalPosition' => App\Enums\ModalPosition::class,
         'PlanType' => App\Enums\PlanType::class,
         'PartnerFilter' => App\Enums\PartnerFilter::class,
@@ -196,6 +197,7 @@ return [
         'ModalSize' => ModalSize::class,
         'ModalName' => ModalName::class,
         'NotificationType' => NotificationType::class,
+        'Breadcrumbs' => Breadcrumbs::class
     ])->toArray(),
 
     'tinymce' => env('TINYMCE_API_KEY'),

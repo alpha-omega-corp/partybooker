@@ -1,3 +1,4 @@
+@php use App\Models\Company; @endphp
 @extends('main')
 
 @section('title')
@@ -15,7 +16,7 @@
 
             <hr>
 
-            <div x-data="partnerSearch">
+            <div x-data="partners">
                 <x-forms.input
                     name="input"
                     model="input"
@@ -105,45 +106,45 @@
                     </div>
 
                     <div class="admin-listing-content">
-                        <template x-for="partner in filteredPartners()">
-                            <div class="admin-listing-item shadow-lg" x-bind:class="'border-' + partner.plan">
-                                <h5 x-text="partner.company" class="fw-bold"></h5>
+                        <template x-for="item in filteredPartners()">
+                            <div class="admin-listing-item shadow-lg" x-bind:class="'border-' + item.plan">
+                                <h5 x-text="item.company" class="fw-bold"></h5>
 
-                                <p x-text="partner.id"></p>
+                                <p x-text="item.id"></p>
                                 <div class="d-flex gap-4">
-                                    <small>Created <span x-text="partner.created"></span></small>
+                                    <small>Created <span x-text="item.created"></span></small>
                                 </div>
 
                                 <hr>
 
                                 <div class="admin-listing-action">
-                                    <a :href="partner.url" class="btn btn-orange">
+                                    <a :href="item.url" class="btn btn-orange">
                                         Profile
                                     </a>
                                 </div>
 
                                 <div class="d-flex justify-content-between">
                                     <x-admin.listing-info title="User" icon="heroicon-o-user-circle">
-                                        <p x-text="partner.name"></p>
-                                        <p x-text="partner.email"></p>
+                                        <p x-text="item.name"></p>
+                                        <p x-text="item.email"></p>
                                     </x-admin.listing-info>
 
                                     <x-admin.listing-info title="Billing" icon="heroicon-o-currency-dollar">
-                                        <p x-text="partner.paymentType"></p>
-                                        <p x-text="partner.paymentStart"></p>
-                                        <p x-text="partner.paymentEnd"></p>
+                                        <p x-text="item.paymentType"></p>
+                                        <p x-text="item.paymentStart"></p>
+                                        <p x-text="item.paymentEnd"></p>
                                     </x-admin.listing-info>
                                 </div>
 
                                 <div class="d-flex justify-content-between">
                                     <x-admin.listing-info title="Company" icon="heroicon-o-home-modern">
-                                        <p x-text="partner.company"></p>
-                                        <p x-text="partner.address"></p>
+                                        <p x-text="item.company"></p>
+                                        <p x-text="item.address"></p>
                                     </x-admin.listing-info>
 
                                     <x-admin.listing-info title="Adverts" icon="heroicon-o-archive-box">
                                         <ul>
-                                            <template x-for="category in partner.categories">
+                                            <template x-for="category in item.categories">
                                                 <li>
                                                     <p x-text="category"></p>
                                                 </li>

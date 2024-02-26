@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\StoreServiceRequestCaterer;
 use App\Interfaces\IRequestService;
-use App\Models\DirectMessage;
 use App\Models\Partner;
 use App\Services\RequestService;
 use Illuminate\Http\RedirectResponse;

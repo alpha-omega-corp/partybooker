@@ -47,179 +47,21 @@
 
 <body>
 
-<div class="app">
+@include('app.partials.navigation')
 
-    @include('app.partials.navigation')
+<div class="app-content">
+    <div class="container position-relative">
+        @if ($message = Session::get('success'))
+            <x-notification.popup :type="NotificationType::SUCCESS" :message="$message"/>
+        @endif
 
-
-    <div class="app-content">
-        <div class="container position-relative">
-            @if ($message = Session::get('success'))
-                <x-notification.popup :type="NotificationType::SUCCESS" :message="$message"/>
-            @endif
-
-            @if ($message = Session::get('error'))
-                <x-notification.popup :type="NotificationType::ERROR" :message="$message"/>
-            @endif
-        </div>
-
-        {{$slot}}
+        @if ($message = Session::get('error'))
+            <x-notification.popup :type="NotificationType::ERROR" :message="$message"/>
+        @endif
     </div>
+
+    {{$slot}}
 </div>
 
-
-<script>
-    document.addEventListener('alpine:init', () => {
-        Alpine.data('modal', (modal) => ({
-            open() {
-                document.getElementById('modalBtn' + modal).click()
-            },
-        }))
-
-        Alpine.data('accordion', (name) => ({
-            toggle() {
-                document.getElementById(`accordion-${name}`).click()
-            },
-        }))
-
-        Alpine.data('carousel', (name, count) => ({
-            init() {
-                const glide = new Glide(`#${name}`, {
-                    type: 'carousel',
-                    perView: count,
-                    breakpoints: {
-                        1500: {
-                            perView: 2,
-                        },
-                        1000: {
-                            perView: 1,
-                        },
-                    },
-                })
-
-                this.$nextTick(() => {
-                    glide.mount(GlideControls)
-                })
-            },
-        }))
-
-        Alpine.data('partnerTop', () => ({
-                multiple: true,
-                values: [],
-                options: [],
-
-                async init() {
-                    this.values = await $.ajax({
-                        url: '{{route('guest.ajax.tops')}}',
-                        type: 'GET',
-                    })
-                    console.log(this.values)
-
-                    for (let i = 0; i < this.values.length; i++) {
-                        this.options.push({
-                            value: this.values[i].id,
-                            label: `${this.values[i].name}, ${this.values[i].company}`,
-                            top: this.values[i].top
-                        });
-                    }
-
-                    this.bootstrap()
-                },
-                bootstrap() {
-                    let bootSelect2 = () => {
-                        $(this.$refs.select).select2({
-                            multiple: this.multiple,
-                            data: this.options.map(partner => ({
-                                id: partner.value,
-                                text: partner.label,
-                                selected: partner.top,
-                            })),
-                        })
-                    }
-
-                    let refreshSelect2 = () => {
-                        $(this.$refs.select).select2('destroy')
-                        this.$refs.select.innerHTML = ''
-                        bootSelect2()
-                    }
-
-                    bootSelect2()
-
-                    $(this.$refs.select).on('change', () => {
-                        let currentSelection = $(this.$refs.select).select2('data')
-
-                        this.value = this.multiple
-                            ? currentSelection.map(i => i.id)
-                            : currentSelection[0].id
-                    })
-
-                    this.$watch('values', () => refreshSelect2())
-                    this.$watch('options', () => refreshSelect2())
-                },
-            }),
-        )
-
-        Alpine.data('partnerSearch', () => ({
-                partners: [],
-                displayedPartners: [],
-                planFilter: '{{PlanType::ALL}}',
-                categoryFilter: '{{CategoryType::ALL}}',
-                sort: '{{PartnerSort::NONE->value}}',
-                input: '',
-
-                async init() {
-                    this.partners = await $.ajax({
-                        url: '{{route('guest.ajax.partners')}}',
-                        type: 'GET',
-                    })
-
-                    this.displayedPartners = this.partners
-                },
-                filteredPartners() {
-
-                    this.filterPlan(this.planFilter)
-
-                    if (this.categoryFilter !== '{{CategoryType::ALL}}') {
-                        this.filterCategory(this.categoryFilter)
-                    }
-
-                    this.sortPartners()
-
-                    return this.displayedPartners;
-                },
-                filterPartner(partners) {
-                    return partners.filter(u => u.company.toLowerCase().includes(this.input.toLowerCase()));
-                },
-                filterPlan(plan) {
-                    if (this.planFilter !== '{{PlanType::ALL}}') {
-                        this.displayedPartners = this.filterPartner(this.partners.filter(u => u.plan === plan))
-                    } else {
-                        this.displayedPartners = this.filterPartner(this.partners)
-                    }
-                },
-                filterCategory(category) {
-                    if (category !== '{{CategoryType::ALL}}') {
-                        this.displayedPartners = this.displayedPartners.filter(u => u.categories.includes(category));
-                    } else {
-                        this.displayedPartners = this.filterPartner(this.displayedPartners)
-                    }
-                }
-                ,
-                sortPartners() {
-                    this.displayedPartners.sort((a, b) => {
-                        switch (this.sort) {
-                            case '{{PartnerSort::PAYMENT->value}}':
-                                return a.sortPayment - b.sortPayment;
-
-                            case '{{PartnerSort::CREATED->value}}':
-                                return a.sortCreated - b.sortCreated;
-                        }
-                    })
-                }
-                ,
-            }),
-        )
-    })
-</script>
 </body>
 </html>

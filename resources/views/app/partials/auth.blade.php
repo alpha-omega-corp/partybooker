@@ -4,6 +4,7 @@
     :size="ModalSize::MD"
     :singleton="true"
     :hidden="true"
+    :absolute="true"
     :route="route('auth.login')"
 >
     <x-forms.list>

@@ -28,7 +28,6 @@
         </div>
     </div>
     @include('app.admin.partials.navigation')
-
 @else
     <x-modal.open :name="ModalName::APP_LOGIN" :type="ModalType::CREATE" :singleton="true">
         <button type="button" class="btn btn-accent" @click="open">
