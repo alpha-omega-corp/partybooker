@@ -10,7 +10,8 @@ use Illuminate\View\Component;
 class Link extends Component
 {
     public function __construct(
-        public Advert $advert
+        public Advert $advert,
+        public bool   $blank = false,
     )
     {
         //

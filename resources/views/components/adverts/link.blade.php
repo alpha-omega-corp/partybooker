@@ -2,6 +2,6 @@
     'advert' => $advert,
     'company' => $advert->company,
 ])}}"
-   target="_blank">
+    {{$blank ? 'target="_blank"' : ''}}>
     {{$slot}}
 </a>

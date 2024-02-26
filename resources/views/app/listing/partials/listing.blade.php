@@ -24,7 +24,7 @@
                             <div class="advert-card-content">
                                 <div class="card-content-header">
                                     <h6>{{$advert->locale->title}}</h6>
-                                    <div class="d-flex gap-2">
+                                    <div class="content-header-company">
                                         @svg('heroicon-o-home-modern', 'text-accent')
                                         {{$advert->company->name}}
                                     </div>
@@ -36,27 +36,8 @@
                                         {{$advert->company->address->address}}
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
-
-                        @if(Request::has('event_types'))
-                            <div class="listing-tags">
-                                @php
-                                    $eventTypes = array_values($partner->eventTypes()->get()->map(function ($eventType) {
-                                        return app()->getLocale() === 'en'
-                                            ? $eventType->en_name
-                                            : $eventType->fr_name;
-                                    })->toArray())
-                                @endphp
-                                @foreach($eventTypes as $et)
-                                    <span class="badge text-bg-accent me-3">
-                                        {{$et}}
-                                    </span>
-                                @endforeach
-                            </div>
-                        @endif
                     </x-adverts.link>
                 @endforeach
             </div>

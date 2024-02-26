@@ -24,7 +24,7 @@ class CategoryService implements ICategoryService
         if ($tag) {
             $currentTag = $this->getCategory($tag)->first();
             $adverts->whereHas('tags', function (Builder $query) use ($currentTag) {
-                $query->where('category_child_id', $currentTag->id);
+                $query->where('category_tag_id', $currentTag->id);
             });
         }
 

@@ -165,17 +165,20 @@
                     url: '{{route('guest.ajax.listing')}}',
                     type: 'GET',
                 })
-
-                this.displayedAdverts = this.adverts
+            },
+            filterAdvert(item) {
+                return item.toLowerCase().includes(this.input.toLowerCase())
             },
             filterAdverts() {
                 this.displayedAdverts = this.adverts.filter(ad =>
-                    ad.company.toLowerCase().includes(this.input.toLowerCase()) ||
-                    ad.title.toLowerCase().includes(this.input.toLowerCase()))
+                    this.filterAdvert(ad.title) ||
+                    this.filterAdvert(ad.company) ||
+                    this.filterAdvert(ad.address)
+                )
             },
             search() {
                 this.filterAdverts();
-                console.log(this.displayedAdverts)
+
                 return this.displayedAdverts;
             },
         }))
