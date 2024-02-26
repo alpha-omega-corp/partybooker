@@ -152,7 +152,7 @@
     "src": "resources/images/socials/youtube.png"
   },
   "resources/js/app.css": {
-    "file": "assets/app-9d6b8489.css",
+    "file": "assets/app-fffad270.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -161,9 +161,9 @@
       "assets/background-468f2995.jpg"
     ],
     "css": [
-      "assets/app-9d6b8489.css"
+      "assets/app-fffad270.css"
     ],
-    "file": "assets/app-07aed3be.js",
+    "file": "assets/app-442a3ac1.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },

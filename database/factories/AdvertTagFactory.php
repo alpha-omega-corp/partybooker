@@ -23,7 +23,7 @@ class AdvertTagFactory extends Factory
     {
         return $this->state(function () {
             return [
-                'category_child_id' => $this->tag(CategoryType::EVENT),
+                'category_tag_id' => $this->tag(CategoryType::EVENT),
             ];
         });
     }
@@ -38,7 +38,7 @@ class AdvertTagFactory extends Factory
     {
         return $this->state(function () {
             return [
-                'category_child_id' => $this->tag(CategoryType::WINE),
+                'category_tag_id' => $this->tag(CategoryType::WINE),
             ];
         });
     }
@@ -47,7 +47,7 @@ class AdvertTagFactory extends Factory
     {
         return $this->state(function () {
             return [
-                'category_child_id' => $this->tag(CategoryType::CATERER),
+                'category_tag_id' => $this->tag(CategoryType::CATERER),
             ];
         });
     }
@@ -56,7 +56,7 @@ class AdvertTagFactory extends Factory
     {
         return $this->state(function () {
             return [
-                'category_child_id' => $this->tag(CategoryType::ENTERTAINMENT),
+                'category_tag_id' => $this->tag(CategoryType::ENTERTAINMENT),
             ];
         });
     }
@@ -65,7 +65,7 @@ class AdvertTagFactory extends Factory
     {
         return $this->state(function () {
             return [
-                'category_child_id' => $this->tag(CategoryType::EQUIPMENT),
+                'category_tag_id' => $this->tag(CategoryType::EQUIPMENT),
             ];
         });
     }

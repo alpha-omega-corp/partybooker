@@ -1,16 +1,11 @@
 import './bootstrap';
 import '../sass/app.scss';
+import './flip.js';
 
 import.meta.glob([
     '../images/**',
 ]);
 
 
-let flipCards = document.querySelectorAll('.flippy');
 
-[...flipCards].forEach((card) => {
-    card.addEventListener('click', function () {
-        card.classList.toggle('is-flipped');
-    });
-});
 
