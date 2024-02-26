@@ -8,7 +8,18 @@
     <div class="col-lg-8 col-xs-12">
         <section>
             <div class="app-listing-content">
-                @include('app.listing.partials.search')
+                <x-modal.index
+                    :name="ModalName::APP_LISTING_SEARCH"
+                    :type="ModalType::READ"
+                    :size="ModalSize::XL"
+                    :icon="$searchIcon"
+                    :tooltip="__('listing.search')"
+                    :absolute="true"
+                >
+                    @include('app.listing.partials.search')
+
+                </x-modal.index>
+
 
                 @foreach($adverts as $advert)
                     <x-adverts.link :advert="$advert">

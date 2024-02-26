@@ -5,6 +5,7 @@ namespace App\Enums;
 enum ModalName
 {
     case APP_LOGIN;
+    case APP_LISTING_SEARCH;
     case ADMIN_MESSAGE;
     case BLOG;
     case PARTNER;

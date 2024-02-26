@@ -65,9 +65,12 @@
                     <button type="button" class="btn btn-secondary" id="{{$id . '-close'}}" data-bs-dismiss="modal">
                         {{strtoupper('Close')}}
                     </button>
-                    <button type="submit" class="btn text-white btn-{{$color}}" id="{{$id . '-save'}}">
-                        {{ucfirst($type->value)}}
-                    </button>
+                    @if($type !== ModalType::READ)
+                        <button type="submit" class="btn text-white btn-{{$color}}" id="{{$id . '-save'}}">
+                            {{ucfirst($type->value)}}
+                        </button>
+                    @endif
+
                 </div>
             </div>
         </div>

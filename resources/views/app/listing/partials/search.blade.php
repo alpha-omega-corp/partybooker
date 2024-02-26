@@ -4,10 +4,10 @@
         model="input"
         label="Search Partybooker"
         type="text">
-        @svg('heroicon-o-magnifying-glass')
+        @svg($searchIcon)
     </x-forms.input>
 
-    <div class="content-search-results" x-show="input !== ''">
+    <div class="content-search-results">
         <template x-for="item in search()">
 
             <a class="search-result-item" :href="item.url">
