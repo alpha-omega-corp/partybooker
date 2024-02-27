@@ -1,6 +1,7 @@
 @props([
-    'pages',
-    'useIcons' => false,
+    'items',
+    'isIcon' => false,
+    'isVertical' => false,
     'tooltips' => [],
 ])
 
@@ -33,8 +34,9 @@
         @keydown.end.prevent.stop="$focus.last()"
         @keydown.page-down.prevent.stop="$focus.last()"
         role="list"
-        class="tab-list d-flex justify-content-start">
-        @foreach($pages as $key => $page)
+        class="tab-list-item {{$isVertical ? 'tab-list-vertical' : 'tab-list-horizontal'}}">
+
+        @foreach($items as $key => $page)
             <li>
                 <div
                     :id="$id('tab', whichChild($el.parentElement, $refs.list))"
@@ -43,11 +45,11 @@
                     @focus="select($el.id)"
                     :tabindex="isSelected($el.id) ? 0 : -1"
                     :aria-selected="isSelected($el.id)"
-                    :class="isSelected($el.id) ? ' border-accent text-accent fw-bold shadow-lg' : ''"
-                    class="{{count($tooltips) > 0 ? 'tippy' : ''}} tab-button h-100 border border-bottom-0"
-                    {{count($tooltips) > 0 ? 'data-tippy-content='.$tooltips[$key] : ''}}
+                    :class="isSelected($el.id) ? 'border-accent text-accent fw-bold shadow-lg' : ''"
+                    class="{{$isIcon ? 'tippy' : ''}} tab-button h-100 border border-bottom-0"
+                    {{$isIcon ? 'data-tippy-content='.$tooltips[$key] : ''}}
                     role="tab">
-                    @if($useIcons)
+                    @if($isIcon)
                         @svg($page, 'tab-icon')
                     @else
                         {{$page}}
@@ -58,7 +60,7 @@
     </ul>
     <div>
         <!-- Panels -->
-        <div role="tabpanel" class="tab-page">
+        <div role="tabpanel" class="tab-page {{$isVertical ? 'tab-page-content-offset' : ''}}">
             {{$slot}}
         </div>
     </div>

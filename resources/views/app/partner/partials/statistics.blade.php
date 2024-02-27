@@ -1,4 +1,4 @@
-<x-card :title="__('dashboard.views')">
+<x-card.index :title="__('dashboard.views')">
     @if($statistics)
         <div class="statistics">
             <div class="d-flex flex-wrap justify-content-center">
@@ -36,5 +36,5 @@
             </div>
         </div>
     @endif
-</x-card>
+</x-card.index>
 

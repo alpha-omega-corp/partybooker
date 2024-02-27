@@ -8,6 +8,7 @@ return [
     'video' => 'Videos',
     'gallery' => 'Gallery',
     'description' => 'Description',
+    'access' => 'Access',
     'content' => 'Content',
     'meta' => 'SEO',
 ];

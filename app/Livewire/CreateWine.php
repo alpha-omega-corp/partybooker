@@ -305,6 +305,6 @@ class CreateWine extends Component implements HasForms
 
     public function render(): View
     {
-        return view('livewire.create-wine');
+        return view('livewire.wine');
     }
 }

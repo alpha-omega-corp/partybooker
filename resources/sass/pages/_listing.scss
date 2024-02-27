@@ -39,7 +39,10 @@
         position: relative;
 
         .listing-content-search {
-            margin-bottom: 40px;
+
+            .forms-input {
+                padding: 20px 20px 0;
+            }
 
             .content-search-results {
                 height: 400px;

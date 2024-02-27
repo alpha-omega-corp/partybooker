@@ -21,7 +21,7 @@ class CompanyFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->company,
-            'slug' => $this->faker->slug,
+            'slug' => $this->faker->unique()->slug(1),
             'languages' => $this->faker->randomElements(Language::values()),
             'logo' => $this->faker->imageUrl(),
             'company_social_id' => CompanySocial::factory(),

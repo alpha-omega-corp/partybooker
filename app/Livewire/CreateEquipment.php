@@ -291,6 +291,6 @@ class CreateEquipment extends Component implements HasForms
 
     public function render(): View
     {
-        return view('livewire.create-equipment');
+        return view('livewire.equipment');
     }
 }

@@ -7,6 +7,8 @@
         @svg($searchIcon)
     </x-forms.input>
 
+    <hr>
+
     <div class="content-search-results">
         <template x-for="item in search()">
 

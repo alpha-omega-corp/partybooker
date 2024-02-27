@@ -13,6 +13,7 @@ return new class extends Migration {
             $table->string('lang');
             $table->string('title');
             $table->string('description');
+            $table->string('name');
             $table->json('keywords');
 
             $table->timestamps();

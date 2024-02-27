@@ -1,7 +1,9 @@
 .app-editor {
-
     .app-editor-label {
-        margin-top: 20px;
-        padding: 0;
+        margin: 20px 0 10px;
+        padding: 10px;
+        border: 1px solid $light;
+        border-radius: 10px;
+        font-weight: bold;
     }
 }

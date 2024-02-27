@@ -58,9 +58,8 @@
     </nav>
 </div>
 
-@if(!Auth::check())
-    @include('app.partials.auth')
-@endif
+@include('app.user.login')
+
 
 
 

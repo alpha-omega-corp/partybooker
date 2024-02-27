@@ -13,7 +13,7 @@
         <section class="home-description">
             @include('app.home.partials.description')
         </section>
-        
+
         <section class="home-top">
             @include('app.home.partials.top')
         </section>
@@ -26,5 +26,4 @@
             @include('app.home.partials.comment')
         </section>
     </div>
-
 @endsection

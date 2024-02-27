@@ -1,43 +1,72 @@
 .tab {
     margin: 0;
 
-    .tab-list {
+    .tab-list-item {
+        list-style-type: none;
+    }
+
+    .tab-list-vertical {
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 !important;
+
+        .tab-button {
+            padding: 20px;
+
+        }
+    }
+
+    .tab-list-horizontal {
         padding: 0;
         border-bottom: 0;
         overflow-x: scroll;
         position: relative;
         margin: 0 0 0 20px;
+        display: flex;
 
-        li {
-            list-style-type: none;
+        .tab-button {
+            cursor: pointer;
+            padding: 20px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            background-color: transparent;
+            color: $gray;
 
-            .tab-button {
-                cursor: pointer;
-                padding: 20px;
-                border-top-left-radius: 20px;
-                border-top-right-radius: 20px;
-                background-color: transparent;
-                color: $gray;
-
-                .tab-icon {
-                    font-weight: bold;
-                    width: 25px;
-                    height: 25px;
-                }
-            }
-
-            .tab-button:hover {
-                .tab-icon {
-                    color: $accent;
-                }
-
+            .tab-icon {
+                font-weight: bold;
+                width: 25px;
+                height: 25px;
             }
         }
 
+        .tab-button:hover {
+            .tab-icon {
+                color: $accent;
+            }
+        }
     }
 
     .tab-page {
-        padding: 20px;
-        border-top: 1px solid $gray-400;
+
+        .tab-page-header {
+            position: relative;
+            border-bottom: 1px solid $light;
+            border-top: 1px solid $gray-400;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding-left: 20px;
+        }
+
+        .tab-page-content {
+            padding: 20px;
+            position: relative;
+        }
     }
+}
+
+.tab-page-content-offset {
+    padding-left: 60px;
 }

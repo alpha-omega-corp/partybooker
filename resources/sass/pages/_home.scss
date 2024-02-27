@@ -4,15 +4,16 @@
     .home-welcome {
         background-image: url("/resources/images/app/background.jpg");
         background-size: cover;
-        height: 750px;
+        background-position: center;
+        height: 550px;
         position: relative;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 
         @media only screen and (max-width: 600px) {
-            height: 600px;
+            height: 400px;
         }
 
         .welcome {
-            padding-top: 100px;
             text-align: center;
 
             p {
@@ -20,13 +21,14 @@
                 font-weight: bold;
                 text-transform: uppercase;
                 font-size: 30px;
+                padding: 20px 0 20px;
+                background-color: rgba(0, 0, 0, 0.5);
             }
 
             h1 {
                 color: #fff;
                 text-shadow: 5px 5px #ce38e5;
                 font-weight: bold;
-                font-style: italic;
                 margin-top: 150px;
             }
         }
@@ -40,18 +42,30 @@
             flex-direction: column;
             justify-content: center;
             text-align: center;
-            border-bottom: 2px solid $pink;
+
+            .description-content {
+                padding: 20px;
+            }
         }
     }
 
     .home-category {
         padding: 20px 0 100px;
+        border-top: 1px solid $orange;
+
+        .row {
+            padding: 0 !important;
+        }
+
+        .home-category-cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
 
         .scene {
             display: inline-block;
-            width: 400px;
             height: 200px;
-            margin: 12px 0;
             perspective: 600px;
 
             .flippy {
@@ -195,14 +209,6 @@
 
         background: rgb(2, 0, 36);
         background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(221, 221, 255, 1) 0%, rgba(187, 234, 251, 1) 0%, rgba(242, 126, 255, 1) 100%, rgba(0, 212, 255, 1) 100%);
-
-        @media only screen and (max-width: 1290px) {
-            padding-top: 700px;
-        }
-
-        @media only screen and (max-width: 824px) {
-            padding-top: 1100px;
-        }
 
         .reference {
             text-align: justify;

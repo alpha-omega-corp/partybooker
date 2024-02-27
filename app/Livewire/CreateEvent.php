@@ -667,6 +667,6 @@ class CreateEvent extends Component implements HasForms
 
     public function render(): View
     {
-        return view('livewire.create-event-place');
+        return view('livewire.event');
     }
 }

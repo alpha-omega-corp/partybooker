@@ -1,5 +1,5 @@
 @php use App\Models\Plan; @endphp
-<x-card :title="__('dashboard.plan')">
+<x-card.index :title="__('dashboard.plan')">
     <x-plans.badge :plan="$payment->plan"/>
 
     <x-modal.index
@@ -17,7 +17,7 @@
             name="plan"
         />
     </x-modal.index>
-</x-card>
+</x-card.index>
 
 
 

@@ -354,7 +354,7 @@ class CreateCaterer extends Component implements HasForms
 
     public function render(): View
     {
-        return view('livewire.create-caterer');
+        return view('livewire.caterer');
     }
 
 }

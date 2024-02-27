@@ -8,7 +8,7 @@ return [
     'ideas-text-3' => 'Contactez directement salles, traiteurs, DJs et plus encore.',
     'ideas-text-4' => 'Nos équipes vous guident vers des options adaptées à votre budget pour une expérience inoubliable.',
 
-    'welcome' => 'Bienvenue sur',
+    'welcome' => 'Bienvenu',
     'more_info' => 'Un peu plus d\'informations ?',
     'with' => 'avec',
     'preview' => 'Apperçu',

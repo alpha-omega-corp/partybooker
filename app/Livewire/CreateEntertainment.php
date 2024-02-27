@@ -311,6 +311,6 @@ class CreateEntertainment extends Component implements HasForms
 
     public function render(): View
     {
-        return view('livewire.create-entertainment');
+        return view('livewire.entertainment');
     }
 }

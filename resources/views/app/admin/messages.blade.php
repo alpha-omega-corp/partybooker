@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="p-5">
-        <x-tab :pages="[
+        <x-tab :items="[
             'Partnership',
             'Help',
             'Service',

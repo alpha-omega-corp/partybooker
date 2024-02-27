@@ -18,6 +18,7 @@ class AdvertLocale extends Model
         'lang',
         'title',
         'description',
+        'name',
         'keywords',
     ];
 

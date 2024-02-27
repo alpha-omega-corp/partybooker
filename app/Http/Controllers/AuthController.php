@@ -22,10 +22,10 @@ class AuthController extends Controller
         if (Auth::attempt($credentials, true)) {
             $request->session()->regenerate();
 
-            return redirect()->route('partner.dashboard', ['partner' => Auth::user()->partner]);
+            return back()->with('success', 'Welcome back! ' . $credentials['email']);
         }
 
-        return back();
+        return back()->with('error', 'Invalid credentials');
     }
 
     public function logout(Request $request): RedirectResponse

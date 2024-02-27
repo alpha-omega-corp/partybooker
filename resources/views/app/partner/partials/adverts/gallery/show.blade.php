@@ -1,10 +1,12 @@
-<div class="d-flex align-items-center gap-2 p-2 m-0">
-    @svg('heroicon-o-photo')
-
-    <div class="p-2">{{count($advert->images()->get()). '/'. $plan->uploads}}</div>
+<div class="advert-gallery-count">
+    <div class="gallery-count">
+        @svg('heroicon-o-photo')
+        <div class="">{{count($advert->images()->get()). '/'. $plan->uploads}}</div>
+    </div>
 </div>
-<hr>
+
 <div class="partner-advert-gallery row">
+
     @foreach($advert->images()->get() as $image)
         <div class="col-4">
             @include('app.partner.partials.adverts.gallery.delete')

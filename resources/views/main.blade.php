@@ -38,6 +38,20 @@
             },
         }))
 
+        Alpine.data('keywords', () => ({
+            values: [],
+
+            add() {
+                this.values.push({
+                    keyword: '',
+                });
+            },
+            remove(index) {
+                this.values.splice(index, 1);
+            }
+
+        }))
+
         Alpine.data('top', () => ({
                 multiple: true,
                 values: [],

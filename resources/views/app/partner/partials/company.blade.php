@@ -1,4 +1,4 @@
-<x-card :title="__('dashboard.company')">
+<x-card.index :title="__('dashboard.company')">
     <x-modal.index
         :name="ModalName::PARTNER_COMPANY"
         :type="ModalType::UPDATE"
@@ -38,7 +38,7 @@
             </x-forms.input>
         </x-forms.list>
     </x-modal.index>
-</x-card>
+</x-card.index>
 
 
 

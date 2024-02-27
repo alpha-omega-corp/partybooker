@@ -27,25 +27,25 @@
 
                             <div class="d-flex justify-content-between">
                                 <div class="advert-contacts">
-                                    <x-partner-info
+                                    <x-partner.advert-contact
                                         icon="heroicon-o-phone"
                                         tooltip="phone"
                                         content="{{$advert->company->contact->phone}}"
                                         type="tel"/>
 
-                                    <x-partner-info
+                                    <x-partner.advert-contact
                                         icon="heroicon-o-envelope"
                                         tooltip="email"
                                         content="{{$advert->company->contact->email}}"
                                         type="email"/>
 
-                                    <x-partner-info
+                                    <x-partner.advert-contact
                                         icon="heroicon-o-globe-alt"
                                         tooltip="website"
                                         content="{{$advert->company->social->www}}"
                                         type="web"/>
 
-                                    <x-partner-info
+                                    <x-partner.advert-contact
                                         icon="heroicon-o-map-pin"
                                         tooltip="address"
                                         content="{{$advert->company->address->address}}"

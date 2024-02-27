@@ -76,10 +76,10 @@
         }
 
         .partner-advert-title {
-            color: $accent;
+            color: #000;
             margin: 0;
-            padding-bottom: 2px;
-            border-bottom: 1px solid $accent;
+            display: flex;
+            align-items: center;
         }
 
         .partner-advert-show {
@@ -98,7 +98,10 @@
             }
         }
 
+
         .partner-advert-gallery {
+            position: relative;
+            margin-bottom: 20px;
 
             img {
                 width: 100%;
@@ -130,6 +133,21 @@
                     position: absolute;
                 }
             }
+
+
         }
     }
+}
+
+.advert-gallery-count {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+
+    .gallery-count {
+        display: flex;
+        align-content: center;
+        gap: 10px;
+    }
+
 }

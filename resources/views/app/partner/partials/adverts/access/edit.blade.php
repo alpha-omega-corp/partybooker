@@ -1,11 +1,9 @@
 <x-modal.index
-    :index="$advert->id"
+    :iterator="$advert->id"
     :name="ModalName::PARTNER_ADVERT_ACCESS"
     :type="ModalType::UPDATE"
     :size="ModalSize::MD"
-    :tooltip="__('advert.access')"
-    :icon="$linkIcon"
-    :background="false"
+    :absolute="true"
     :route="route('partner.advert.access', [
         'advert' => $advert
     ])"

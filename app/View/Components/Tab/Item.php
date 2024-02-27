@@ -9,7 +9,7 @@ use Illuminate\View\Component;
 class Item extends Component
 {
     public function __construct(
-        public ?string $title = null
+        public ?string $information = null,
     )
     {
         //

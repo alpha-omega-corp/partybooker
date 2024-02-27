@@ -15,9 +15,10 @@
                     :icon="$searchIcon"
                     :tooltip="__('listing.search')"
                     :absolute="true"
+                    :transparent="true"
+                    :title="__('listing.search')"
                 >
                     @include('app.listing.partials.search')
-
                 </x-modal.index>
 
 

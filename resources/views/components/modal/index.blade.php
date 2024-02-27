@@ -2,6 +2,7 @@
 @props([
     'hasIcon' => true,
     'background' => true,
+    'transparent' => false,
 ])
 
 <a
@@ -47,11 +48,11 @@
         action="{{$route}}"
         {{$multipart ? 'enctype=multipart/form-data' : ''}}>
 
-        <div class="modal-dialog {{$size}} modal-dialog-centered">
+        <div class="modal-dialog {{$size}} modal-dialog-centered {{$transparent ? 'modal-transparent' : ''}}">
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title fs-5 fw-bold text-uppercase" id="{{$id . 'ModalLabel'}}">
-                        {{ucfirst($type->name)}}
+                        {{$title ? $title : ucfirst($type->name)}}
                     </h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -70,7 +71,6 @@
                             {{ucfirst($type->value)}}
                         </button>
                     @endif
-
                 </div>
             </div>
         </div>

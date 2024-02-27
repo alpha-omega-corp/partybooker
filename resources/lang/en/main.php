@@ -9,7 +9,7 @@ return [
     'ideas-text-3' => 'Contact venues, caterers, DJs and more directly.',
     'ideas-text-4' => 'Our teams guide you towards options adapted to your budget for an unforgettable experience.',
 
-    'welcome' => 'Welcome to',
+    'welcome' => 'Welcome',
 
     'more_info' => 'A bit more information ?',
     'with' => 'with',

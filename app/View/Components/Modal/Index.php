@@ -25,12 +25,13 @@ class Index extends Component
         public bool      $hidden = false,
         public ?string   $route = null,
         public ?string   $icon = null,
+        public ?string   $title = null,
         public ?string   $text = null,
         public ?string   $tooltip = null,
     )
     {
         $this->color = match ($this->type) {
-            ModalType::CREATE => 'accent',
+            ModalType::CREATE => 'primary',
             ModalType::DELETE => 'danger',
             ModalType::UPDATE => 'info',
             ModalType::READ => 'standard',
