@@ -35,13 +35,13 @@
     }
 
     .home-description {
-        padding: 80px 0 40px;
 
         .description {
             display: flex;
             flex-direction: column;
             justify-content: center;
             text-align: center;
+            padding: 40px 0 40px;
 
             .description-content {
                 padding: 20px;
@@ -50,7 +50,6 @@
     }
 
     .home-category {
-        padding: 20px 0 100px;
         border-top: 1px solid $orange;
 
         .row {
