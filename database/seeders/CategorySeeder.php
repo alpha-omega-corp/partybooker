@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Enums\CategoryType;
+use App\Enums\Language;
 use App\Models\Category;
 use App\Models\CategoryLocale;
 use App\Models\CategoryTag;
@@ -97,7 +98,7 @@ class CategorySeeder extends Seeder
 
     private function newCategory(CategoryType $type, array $locales): void
     {
-        if (count($locales['en']) != count($locales['fr'])) {
+        if (count($locales[Language::EN->value]) != count($locales[Language::FR->value])) {
             return;
         }
 
@@ -105,25 +106,27 @@ class CategorySeeder extends Seeder
             'service' => $type->value,
         ])->create();
 
-        $children = [];
-        for ($i = 0; $i < count($locales['en']); $i++) {
-            $children[$i] = CategoryTag::factory()->for($category)->create();
+        $tags = [];
+        for ($i = 0; $i < count($locales[Language::EN->value]); $i++) {
+            $tags[$i] = CategoryTag::factory()->for($category)->create();
         }
 
-        foreach ($locales as $locale => $items) {
+        foreach ($locales as $lang => $items) {
             for ($i = 0; $i < count($items); $i++) {
                 $factory = CategoryLocale::factory([
-                    'translatable_id' => $i == 0 ? $category : $children[$i - 1],
-                    'translatable_type' => $i == 0 ? Category::class : CategoryTag::class,
+                    'translatable_id' => $i == 0
+                        ? $category
+                        : $tags[$i - 1],
+                    'translatable_type' => $i == 0
+                        ? Category::class
+                        : CategoryTag::class,
                     'slug' => array_keys($items)[$i],
                     'title' => array_values($items)[$i],
                 ]);
 
-                if ($locale == 'en') {
-                    $factory->english()->create();
-                } else {
-                    $factory->french()->create();
-                }
+                $lang === Language::EN->value
+                    ? $factory->english()->create()
+                    : $factory->french()->create();
             }
         }
     }

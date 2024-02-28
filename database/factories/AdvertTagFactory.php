@@ -31,7 +31,7 @@ class AdvertTagFactory extends Factory
     private function tag(CategoryType $type): int
     {
         $category = Category::where('service', $type->value)->firstOrFail();
-        return $this->faker->randomElement($category->children()->pluck('id')->toArray());
+        return $this->faker->randomElement($category->tags()->pluck('id')->toArray());
     }
 
     public function wine(): self
