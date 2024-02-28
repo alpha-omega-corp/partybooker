@@ -9,5 +9,5 @@ interface ICategoryService
 {
     public function getCategory(string $slug): Collection;
 
-    public function filterCategory(?string $category, ?string $tag): Builder;
+    public function filterCategory(?string $requestCat, ?string $requestTag): Builder;
 }

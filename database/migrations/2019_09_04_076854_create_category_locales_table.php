@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         Schema::create('category_locales', function (Blueprint $table) {
             $table->id();
-            $table->morphs('categorizable');
+            $table->morphs('translatable');
             $table->string('lang');
             $table->string('slug');
             $table->string('title');

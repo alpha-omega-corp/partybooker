@@ -2,8 +2,9 @@
     margin: 40px;
 
     .admin-listing-tops {
-        width: 100% !important;
-
+        display: flex;
+        flex-direction: column-reverse;
+        
         .select2-selection {
             border: 0 !important;
         }

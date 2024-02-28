@@ -6,7 +6,7 @@ use Database\Factories\CategoryTagFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class CategoryTag extends Model
 {
@@ -23,9 +23,9 @@ class CategoryTag extends Model
         return CategoryTagFactory::new();
     }
 
-    public function locale(): MorphMany
+    public function locale(): MorphOne
     {
-        return $this->morphMany(CategoryLocale::class, 'categorizable');
+        return $this->morphOne(CategoryLocale::class, 'translatable');
     }
 
     public function category(): BelongsTo

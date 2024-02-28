@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Database\Factories\AdvertTagFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -26,5 +27,10 @@ class AdvertTag extends Model
     public function advert(): BelongsTo
     {
         return $this->belongsTo(Advert::class);
+    }
+
+    public function scopeOfTag(Builder $query, int $id): void
+    {
+        $query->where('category_child_id', $id);
     }
 }

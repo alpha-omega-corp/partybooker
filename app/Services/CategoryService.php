@@ -10,21 +10,21 @@ use Illuminate\Database\Eloquent\Collection;
 
 class CategoryService implements ICategoryService
 {
-    public function filterCategory(?string $category, ?string $tag): Builder
+    public function filterCategory(?string $requestCat, ?string $requestTag): Builder
     {
-        if (!$category) {
+        if (!$requestCat) {
             return Advert::listing();
         }
 
-        $current = $this->getCategory($category)->first();
-        $adverts = Advert::listing()->whereHas('service', function (Builder $query) use ($current) {
-            $query->where('serviceable_type', $current->service);
+        $category = $this->getCategory($requestCat)->first();
+        $adverts = Advert::listing()->whereHas('service', function (Builder $query) use ($category) {
+            $query->where('serviceable_type', $category->service);
         });
 
-        if ($tag) {
-            $currentTag = $this->getCategory($tag)->first();
-            $adverts->whereHas('tags', function (Builder $query) use ($currentTag) {
-                $query->where('category_tag_id', $currentTag->id);
+        if ($requestTag) {
+            $tag = $this->getCategory($requestTag)->first();
+            $adverts->whereHas('tags', function (Builder $query) use ($tag) {
+                $query->where('category_tag_id', $tag->id);
             });
         }
 
@@ -35,6 +35,6 @@ class CategoryService implements ICategoryService
     {
         $locale = CategoryLocale::where('slug', $slug);
 
-        return $locale->first()->categorizable()->get();
+        return $locale->first()->translatable()->get();
     }
 }

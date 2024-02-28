@@ -2,14 +2,16 @@
     'name',
     'perView' => 3,
     'container' => false,
-    'background' => 'white'
+    'background' => null
 ])
 
-@if(isset($title))
-    {{$title}}
-@endif
 
-<div class="carousel__frame bg-{{$background}}">
+<div class="carousel__frame {{$background ? 'bg-'.$background : ''}}">
+
+    @if(isset($title))
+        {{$title}}
+    @endif
+
     <div id="{{$name}}" x-data="carousel('{{$name}}', '{{$perView}}')">
         <div class="{{$container ? 'container' : ''}}">
 

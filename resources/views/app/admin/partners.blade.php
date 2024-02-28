@@ -7,7 +7,7 @@
 
 
 @section('content')
-    <div class="container">
+    <x-card.dashboard :title="__('admin.partners')">
         <div class="admin-listing">
             <!-- Top Services -->
             <x-dashboard.accordion title="Top Services" name="partner-tops">
@@ -158,6 +158,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </x-card.dashboard>
 @endsection
 

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 
 class Category extends Model
@@ -26,14 +26,14 @@ class Category extends Model
         return CategoryFactory::new();
     }
 
-    public function locale(): MorphMany
+    public function locale(): MorphOne
     {
-        return $this->morphMany(CategoryLocale::class, 'categorizable');
+        return $this->morphOne(CategoryLocale::class, 'translatable');
     }
 
-    public function children(): HasMany
+    public function tags(): HasMany
     {
-        return $this->hasMany(CategoryTag::class);
+        return $this->hasMany(CategoryTag::class, 'category_id', 'id');
     }
 
     public function scopeOfType(Builder $query, CategoryType $type): void

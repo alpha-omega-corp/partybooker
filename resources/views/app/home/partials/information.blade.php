@@ -1,4 +1,4 @@
-<h2>
+<h2 class="display-4 mb-5">
     {{__('main.more_info')}}
 </h2>
 

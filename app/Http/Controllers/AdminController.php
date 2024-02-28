@@ -7,7 +7,6 @@ use App\Enums\PartnerSort;
 use App\Enums\PlanType;
 use App\Http\Requests\StorePartnerTops;
 use App\Models\Notification;
-use App\Models\Partner;
 use App\Models\PartnerTop;
 use App\Models\Plan;
 use App\Models\Post;
@@ -50,20 +49,23 @@ class AdminController extends Controller
     public function updateTopServices(StorePartnerTops $request)
     {
         $validated = $request->validated();
-        $topPartners = $validated['top'];
-        $currentTop = PartnerTop::all()->map(fn($e) => $e->partner->id_partner)->toArray();
+        $partners = $validated['top'];
 
-        $newTop = array_diff($topPartners, $currentTop);
-        $toDelete = array_diff($currentTop, $topPartners);
-        foreach ($newTop as $partnerId) {
+        $currentTops = PartnerTop::all()->map(fn($e) => $e->partner->id)->toArray();
+        $newTops = array_diff($partners, $currentTops);
+        $deleteTops = array_diff($currentTops, $partners);
+
+        foreach ($newTops as $id) {
             $service = new PartnerTop();
-            $service->partner_id = Partner::find($partnerId)->first()->id;
+            $service->partner_id = $id;
             $service->save();
         }
 
-        foreach (collect($toDelete)->flatten() as $partnerId) {
-            $service = PartnerTop::where('partner_id', $partnerId)->first();
-            $service->delete();
+        if (count($deleteTops) > 0) {
+            foreach (collect($deleteTops)->flatten() as $id) {
+                $service = PartnerTop::where('partner_id', $id)->first();
+                $service->delete();
+            }
         }
 
         return redirect()->back()->with('success', 'Top services updated');

@@ -113,8 +113,8 @@ class CategorySeeder extends Seeder
         foreach ($locales as $locale => $items) {
             for ($i = 0; $i < count($items); $i++) {
                 $factory = CategoryLocale::factory([
-                    'categorizable_id' => $i == 0 ? $category : $children[$i - 1],
-                    'categorizable_type' => $i == 0 ? Category::class : CategoryTag::class,
+                    'translatable_id' => $i == 0 ? $category : $children[$i - 1],
+                    'translatable_type' => $i == 0 ? Category::class : CategoryTag::class,
                     'slug' => array_keys($items)[$i],
                     'title' => array_values($items)[$i],
                 ]);

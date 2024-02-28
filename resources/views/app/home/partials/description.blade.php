@@ -15,8 +15,6 @@
 
     </div>
 </div>
-<section class="home-category">
-    @include('app.home.partials.category')
-</section>
+
 
 

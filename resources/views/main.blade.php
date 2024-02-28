@@ -53,7 +53,6 @@
         }))
 
         Alpine.data('top', () => ({
-                multiple: true,
                 values: [],
                 options: [],
 
@@ -62,14 +61,13 @@
                         url: '{{route('guest.ajax.tops')}}',
                         type: 'GET',
                     })
-                    console.log(this.values)
 
                     for (let i = 0; i < this.values.length; i++) {
                         this.options.push({
                             value: this.values[i].id,
                             label: `${this.values[i].name}, ${this.values[i].company}`,
                             top: this.values[i].top
-                        });
+                        })
                     }
 
                     this.bootstrap()
@@ -77,7 +75,7 @@
                 bootstrap() {
                     let bootSelect2 = () => {
                         $(this.$refs.select).select2({
-                            multiple: this.multiple,
+                            multiple: true,
                             data: this.options.map(partner => ({
                                 id: partner.value,
                                 text: partner.label,
@@ -97,9 +95,7 @@
                     $(this.$refs.select).on('change', () => {
                         let currentSelection = $(this.$refs.select).select2('data')
 
-                        this.value = this.multiple
-                            ? currentSelection.map(i => i.id)
-                            : currentSelection[0].id
+                        this.value = currentSelection.map(i => i.id).reverse()
                     })
 
                     this.$watch('values', () => refreshSelect2())

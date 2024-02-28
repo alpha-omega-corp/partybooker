@@ -33,7 +33,7 @@ class CategoryLocale extends Model
         static::addGlobalScope(new LocaleScope());
     }
 
-    public function categorizable(): MorphTo
+    public function translatable(): MorphTo
     {
         return $this->morphTo();
     }

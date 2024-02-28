@@ -6,8 +6,7 @@
 @endsection
 
 @section('content')
-
-    <div class="container p-0 partner-dashboard shadow-lg">
+    <x-card.dashboard :title="__('partner.dashboard')">
         <div class="partner-dashboard-header">
             <img src="{{$partner->company->logo}}" alt="{{$partner->company->name}} logo"/>
             <h1>{{$partner->company->name}}</h1>
@@ -28,6 +27,5 @@
                 </div>
             </div>
         </div>
-    </div>
-
+    </x-card.dashboard>
 @endsection

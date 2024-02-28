@@ -5,7 +5,7 @@
 <div class="reference">
     <div class="reference-card shadow-lg">
         <div class="reference-card-body">
-            <div class="d-flex justify-content-center pb-5 reference-bubble">
+            <div class="d-flex justify-content-end pb-2 reference-bubble">
                 @svg('heroicon-o-chat-bubble-oval-left-ellipsis')
             </div>
 
