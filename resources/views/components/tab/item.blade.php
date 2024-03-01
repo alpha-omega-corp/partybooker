@@ -3,17 +3,17 @@
     :aria-labelledby="$id('tab', whichChild($el, $el.parentElement))"
     role="tabpanel">
 
-    @if(isset($header))
-        <div class="tab-page-header">
-            @if($information)
-                <x-card.information>
-                    {{$information}}
-                </x-card.information>
-            @endif
-
+    <div class="tab-page-header">
+        @if($information)
+            <x-card.information>
+                {{$information}}
+            </x-card.information>
+        @endif
+        @if(isset($header))
             {{$header}}
-        </div>
-    @endif
+        @endif
+
+    </div>
 
     <div class="tab-page-content">
         {{$slot}}

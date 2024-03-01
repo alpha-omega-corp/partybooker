@@ -1,3 +1,11 @@
+.modal-body {
+    padding: 0 !important;
+
+    .modal-body-padded {
+        padding: 20px;
+    }
+}
+
 .modal-transparent {
     .modal-body {
         padding: 0 !important;

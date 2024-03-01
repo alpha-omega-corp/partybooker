@@ -1,5 +1,5 @@
 <x-modal.index
-    :index="$advert->id"
+    :iterator="$advert->id"
     :name="ModalName::PARTNER_ADVERT"
     :type="ModalType::DELETE"
     :size="ModalSize::SM"

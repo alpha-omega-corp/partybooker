@@ -1,10 +1,21 @@
 <x-card.index :title="__('dashboard.adverts')">
+    <!-- Create Advert -->
+    @if($plan->advert_count > count($partner->company->adverts))
+        @include('app.partner.partials.adverts.create')
+    @endif
 
     @foreach($partner->company->adverts as $advert)
         <div x-data="{show: false}" class="partner-advert">
             <div class="partner-advert-header">
-                <h6 class="partner-advert-title">{{$advert->locale->title}}</h6>
+                <h6 class="partner-advert-title">
+                    @if($advert->locale)
+                        {{$advert->locale->title}}
+                    @else
+                        {{$advert->slug}}
+                    @endif
+                </h6>
 
+                <!-- Actions -->
                 <div class="partner-advert-actions">
                     @include('app.partner.partials.adverts.status')
                     @include('app.partner.partials.adverts.delete')
@@ -13,6 +24,7 @@
 
             <hr>
 
+            <!-- Advert Content -->
             <div x-show="show">
                 <div class="partner-advert-content">
                     <x-tab :items="[

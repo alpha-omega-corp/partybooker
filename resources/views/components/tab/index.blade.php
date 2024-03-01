@@ -2,6 +2,7 @@
     'items',
     'isIcon' => false,
     'isVertical' => false,
+    'justify' => null,
     'tooltips' => [],
 ])
 
@@ -34,7 +35,7 @@
         @keydown.end.prevent.stop="$focus.last()"
         @keydown.page-down.prevent.stop="$focus.last()"
         role="list"
-        class="tab-list-item {{$isVertical ? 'tab-list-vertical' : 'tab-list-horizontal'}}">
+        class="tab-list-item {{$isVertical ? 'tab-list-vertical' : 'tab-list-horizontal'}} {{$justify ? 'justify-content-'.$justify : ''}}">
 
         @foreach($items as $key => $page)
             <li>

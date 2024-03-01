@@ -15,8 +15,8 @@
     </div>
 
     <div class="col-8">
-        <x-tab
-            :pages="['French', 'English']">
+        <x-tab.index
+            :items="['French', 'English']">
 
             <x-tab.item>
                 <x-forms.list>
@@ -56,6 +56,6 @@
                     <x-forms.editor name="content_en" label="Content" :value="$post->content_en"/>
                 </x-forms.list>
             </x-tab.item>
-        </x-tab>
+        </x-tab.index>
     </div>
 </div>

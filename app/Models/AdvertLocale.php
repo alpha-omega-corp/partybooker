@@ -15,10 +15,11 @@ class AdvertLocale extends Model
     use HasFactory;
 
     protected $fillable = [
+        'translatable_type',
+        'translatable_id',
         'lang',
         'title',
         'description',
-        'name',
         'keywords',
     ];
 
@@ -36,13 +37,14 @@ class AdvertLocale extends Model
         static::addGlobalScope(new LocaleScope());
     }
 
+    public function translatable(): MorphTo
+    {
+        return $this->morphTo();
+    }
+
     public function scopeOfLang(Builder $query, Language $lang): void
     {
         $query->where('lang', $lang->value);
     }
 
-    public function translatable(): MorphTo
-    {
-        return $this->morphTo();
-    }
 }

@@ -3,13 +3,21 @@
 namespace App\Http\Controllers;
 
 
+use App\Enums\CategoryType;
 use App\Enums\Language;
 use App\Http\Requests\StoreAdvertRequest;
 use App\Http\Requests\UpdateAdvertAccessRequest;
 use App\Http\Requests\UpdateAdvertRequest;
 use App\Interfaces\IFileService;
 use App\Models\Advert;
+use App\Models\AdvertService;
+use App\Models\Category;
 use App\Models\Partner;
+use App\Models\ServiceCaterer;
+use App\Models\ServiceEntertainment;
+use App\Models\ServiceEquipment;
+use App\Models\ServiceEvent;
+use App\Models\ServiceWine;
 use App\Services\FileService;
 use Illuminate\Http\RedirectResponse;
 
@@ -29,6 +37,29 @@ class AdvertController extends Controller
         if (count($partner->company->adverts) >= $partner->payment->plan->advert_count) {
             return back()->with('error', 'You have reached the maximum number of adverts');
         }
+
+        $category = Category::find($data['category']);
+
+        $service = match ($category->service) {
+            CategoryType::EVENT->value => ServiceEvent::create(),
+            CategoryType::WINE->value => ServiceWine::create(),
+            CategoryType::EQUIPMENT->value => ServiceEquipment::create(),
+            CategoryType::CATERER->value => ServiceCaterer::create(),
+            CategoryType::ENTERTAINMENT->value => ServiceEntertainment::create(),
+        };
+
+        $advertService = AdvertService::create([
+            'serviceable_type' => $category->service,
+            'serviceable_id' => $service->id,
+        ]);
+
+        $advert = $partner->company->adverts()->create([
+            'slug' => $data['slug'],
+            'category_id' => $category->id,
+            'company_id' => $partner->company->id,
+            'advert_service_id' => $advertService->id,
+        ]);
+
 
         return back()->with('success', 'Advert created successfully');
     }

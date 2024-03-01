@@ -9,11 +9,20 @@ use Illuminate\View\View;
 
 class DashboardComposer
 {
+
     public function compose(View $view): void
     {
         $view->with('plans', Plan::all());
-        $view->with('categories', Category::all()->map(function (Category $category) {
-            return ucfirst(strtolower(CategoryType::from($category->service)->name));
-        }));
+        $view->with('categories', $this->getCategories());
+    }
+
+    private function getCategories(): array
+    {
+        $categories = [];
+        Category::all()->each(function (Category $category) use (&$categories) {
+            $categories[$category->id] = ucfirst(strtolower(CategoryType::from($category->service)->name));
+        });
+
+        return $categories;
     }
 }

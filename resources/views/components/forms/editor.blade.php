@@ -14,7 +14,6 @@
         </label>
     </div>
 
-
     <textarea
         name="{{$name}}"
         id="{{$id}}"

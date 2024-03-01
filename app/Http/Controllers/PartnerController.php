@@ -48,7 +48,6 @@ class PartnerController extends Controller
         return back()->with('success', 'Plan updated successfully');
     }
 
-
     public function store(StorePartnerRequest $request)
     {
         $data = $request->validated();

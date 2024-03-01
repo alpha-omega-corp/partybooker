@@ -30,9 +30,8 @@
         <img id="imagePreview-{{$id}}" src="#" alt="your image"/>
     </div>
 
-
     <!-- File Input -->
-    <input type="file" id="imageSelect-{{$id}}" class="d-none" name="{{$name}}" @error('image') is-invalid @enderror>
+    <input type="file" name="{{$name}}" id="imageSelect-{{$id}}" class="d-none">
 
 </div>
 

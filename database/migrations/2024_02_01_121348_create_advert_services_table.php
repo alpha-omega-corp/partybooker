@@ -13,9 +13,9 @@ return new class extends Migration {
         Schema::create('advert_services', function (Blueprint $table) {
             $table->id();
             $table->morphs('serviceable');
-            $table->foreignIdFor(ListingPrice::class);
-            $table->foreignIdFor(ListingSchedule::class);
-            $table->foreignIdFor(ListingDetail::class);
+            $table->foreignIdFor(ListingPrice::class)->nullable();
+            $table->foreignIdFor(ListingSchedule::class)->nullable();
+            $table->foreignIdFor(ListingDetail::class)->nullable();
             $table->timestamps();
         });
     }

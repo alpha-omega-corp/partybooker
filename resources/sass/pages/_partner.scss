@@ -5,21 +5,20 @@
     border-radius: 20px;
 
     .partner-dashboard-header {
-        border-bottom: 1px solid $light;
-        height: 200px;
         display: flex;
-        padding: 40px;
+        align-content: center;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 10px;
 
-        h1 {
-            margin: 20px;
-        }
 
-        img {
-            width: 100px;
-            height: 100px;
-            border-radius: 10%;
-            object-fit: cover;
-        }
+    }
+
+    .partner-dashboard-logo {
+        width: 100px;
+        height: 100px;
+        border-radius: 10%;
+        object-fit: cover;
     }
 
     .partner-dashboard-content {
@@ -146,7 +145,7 @@
 
     .gallery-count {
         display: flex;
-        align-content: center;
+        align-items: center;
         gap: 10px;
     }
 

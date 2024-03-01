@@ -26,4 +26,4 @@
         @include('app.listing.partials.service-price', ['price' => $advert->service->price])
     </x-tab.item>
 </x-tab.index>
-<hr>
+

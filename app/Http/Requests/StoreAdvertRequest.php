@@ -14,8 +14,8 @@ class StoreAdvertRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required',
-            'category' => 'required',
+            'slug' => 'required',
+            'category' => 'required|int',
         ];
     }
 }

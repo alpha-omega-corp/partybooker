@@ -60,7 +60,15 @@
                     @method($type->value)
                     @csrf
 
-                    {{$slot}}
+                    @if(isset($body))
+                        <div class="modal-body-padded">
+                            {{$body}}
+                        </div>
+                    @endif
+
+                    <div class="mt-5">
+                        {{$slot}}
+                    </div>
                 </div>
                 <div class="modal-footer gap-2">
                     <button type="button" class="btn btn-secondary" id="{{$id . '-close'}}" data-bs-dismiss="modal">

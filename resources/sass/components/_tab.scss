@@ -7,23 +7,28 @@
 
     .tab-list-vertical {
         flex-direction: column;
+        gap: 10px;
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 10px;
+        left: 10px;
         padding: 0 !important;
+        height: 100px;
 
         .tab-button {
-            padding: 20px;
-
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
         }
     }
 
     .tab-list-horizontal {
         padding: 0;
-        border-bottom: 0;
         overflow-x: scroll;
         position: relative;
-        margin: 0 0 0 20px;
+        margin: 0 20px 0 20px;
         display: flex;
 
         .tab-button {
@@ -68,5 +73,6 @@
 }
 
 .tab-page-content-offset {
-    padding-left: 60px;
+    padding-left: 40px;
+    min-height: 250px;
 }

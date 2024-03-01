@@ -9,41 +9,46 @@
     ])"
 >
 
-    <x-tab.index :items="[
-        Language::FR,
-        Language::EN
-    ]"
-    >
-        <x-tab.item>
+    <x-tab.locale>
+        <x-slot:french>
+            @php($locale = $image->ofLang(Language::FR)->find($image->id)->locale)
+
             <x-forms.input
                 name="title_fr"
-                label="French Title"
-                type="text"
-                :value="$advert->ofLang(Language::FR)->first()->locale->title"
+                label="Title"
+                :value="$locale->title"
             >
                 @svg('heroicon-o-ticket')
             </x-forms.input>
-        </x-tab.item>
 
-        <x-tab.item>
+            <x-forms.input
+                name="description_fr"
+                label="Description"
+                :value="$locale->description"
+            >
+                @svg($infoIcon)
+            </x-forms.input>
+        </x-slot:french>
+
+        <x-slot:english>
+            @php($locale = $image->ofLang(Language::EN)->find($image->id)->locale)
+
             <x-forms.input
                 name="title_en"
-                label="English Title"
+                label="Title"
                 type="text"
-                :value="$advert->ofLang(Language::EN)->first()->locale->title"
+                :value="$locale->title"
             >
                 @svg('heroicon-o-ticket')
             </x-forms.input>
-        </x-tab.item>
-    </x-tab.index>
 
-    <x-forms.list>
-        <x-forms.input
-            name="name"
-            :label="__('image.name')"
-            :value="$image->name">
-            @svg('heroicon-o-identification')
-        </x-forms.input>
-    </x-forms.list>
-
+            <x-forms.input
+                name="description_en"
+                label="Description"
+                :value="$locale->description"
+            >
+                @svg($infoIcon)
+            </x-forms.input>
+        </x-slot:english>
+    </x-tab.locale>
 </x-modal.index>

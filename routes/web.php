@@ -108,10 +108,11 @@ Route::name('partner.')
             ->group(function () {
                 Route::controller(GalleryController::class)
                     ->name('gallery.')
-                    ->prefix('image/{image}')
+                    ->prefix('image')
                     ->group(function () {
-                        Route::delete('/', 'destroy')->name('destroy');
-                        Route::put('/', 'update')->name('update');
+                        Route::post('/{advert}', 'store')->name('store');
+                        Route::delete('/{image}', 'destroy')->name('destroy');
+                        Route::put('/{image}', 'update')->name('update');
                     });
 
                 Route::controller(AdvertController::class)

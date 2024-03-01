@@ -7,10 +7,14 @@
 
 @section('content')
     <x-card.dashboard :title="__('partner.dashboard')">
-        <div class="partner-dashboard-header">
-            <img src="{{$partner->company->logo}}" alt="{{$partner->company->name}} logo"/>
-            <h1>{{$partner->company->name}}</h1>
-        </div>
+        <x-slot:header>
+            <div class="partner-dashboard-header">
+                @svg('heroicon-o-home-modern')
+                <h4 class="fs-6 m-0">{{$partner->company->name}}</h4>
+            </div>
+
+        </x-slot:header>
+
 
         <div class="partner-dashboard-content">
             <div class="row align-items-start">

@@ -13,7 +13,7 @@
             @include('app.partner.partials.adverts.gallery.edit')
 
             <div class="advert-gallery-item">
-                <img src="{{$image->path}}" alt="...">
+                <img src="{{asset($image->path)}}" alt="...">
 
                 <div class="gallery-image-actions">
                     <x-modal.open

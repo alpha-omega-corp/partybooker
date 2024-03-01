@@ -8,6 +8,8 @@
         'image' => $image,
     ])"
 >
-    <p>Delete image?</p>
+    <x-slot:body>
+        <p>Delete image? {{$image->path}}</p>
+    </x-slot:body>
 
 </x-modal.index>

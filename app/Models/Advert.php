@@ -20,6 +20,7 @@ class Advert extends Model
     protected $fillable = [
         'slug',
         'company_id',
+        'category_id',
         'advert_service_id',
         'is_public',
         'is_main'

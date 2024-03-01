@@ -1,5 +1,4 @@
-<x-modal
-    :index="$advert->id"
+<x-modal.index
     :name="ModalName::PARTNER_ADVERT"
     :type="ModalType::CREATE"
     :size="ModalSize::MD"
@@ -10,19 +9,19 @@
 >
     <x-forms.list>
         <x-forms.input
-            name="title"
-            label="Title"
+            name="slug"
+            label="Hyperlink"
             type="text">
-            @svg('heroicon-o-ticket')
+            @svg($linkIcon)
         </x-forms.input>
 
         <hr>
 
         <x-forms.select label="Choose Category" name="category">
-            @foreach($categories as $category)
-                <option value="{{$category}}">{{$category}}</option>
+            @foreach($categories as $id => $category)
+                <option value="{{$id}}">{{$category}}</option>
             @endforeach
         </x-forms.select>
 
     </x-forms.list>
-</x-modal>
+</x-modal.index>

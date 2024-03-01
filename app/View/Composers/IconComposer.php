@@ -15,5 +15,7 @@ class IconComposer
         $view->with('navIcon', 'heroicon-s-bars-3-bottom-left');
         $view->with('linkIcon', 'heroicon-o-globe-alt');
         $view->with('searchIcon', 'heroicon-o-magnifying-glass');
+        $view->with('infoIcon', 'heroicon-o-information-circle');
+        $view->with('titleIcon', 'heroicon-o-ticket');
     }
 }
