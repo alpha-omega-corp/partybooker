@@ -10,6 +10,7 @@ class Item extends Component
 {
     public function __construct(
         public ?string $information = null,
+        public bool    $padding = true,
     )
     {
         //

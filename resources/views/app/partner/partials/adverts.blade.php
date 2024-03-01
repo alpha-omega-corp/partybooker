@@ -55,7 +55,7 @@
                             @include('app.partner.partials.adverts.gallery.show', ['advert' => $advert])
                         </x-tab.item>
 
-                        <x-tab.item :information="__('advert.information.description')">
+                        <x-tab.item :information="__('advert.information.description')" :padding="false">
                             <x-slot:header>
                                 @include('app.partner.partials.adverts.description.edit')
                             </x-slot:header>
@@ -75,8 +75,8 @@
 
             <div class="partner-advert-show" @click="show = !show">
                 <div>
-                    <a x-show="!show">{{__('dashboard.show')}}</a>
-                    <a x-show="show">{{__('dashboard.close')}}</a>
+                    <a x-show="!show">{{__('advert.show')}}</a>
+                    <a x-show="show">{{__('advert.close')}}</a>
                 </div>
                 <x-adverts.category :advert="$advert"/>
             </div>

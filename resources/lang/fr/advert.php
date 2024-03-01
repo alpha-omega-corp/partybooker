@@ -2,6 +2,8 @@
 
 
 return [
+    'show' => 'Voir',
+    'close' => 'Fermer',
     'information' => 'Information',
     'schedule' => 'Horaires',
     'price' => 'Tarifs',

@@ -2,9 +2,8 @@
             strtoupper(Language::FR->name),
             strtoupper(Language::EN->name)
         ]"
-       justify="end">
-
-
+       justify="end"
+>
     <x-tab.item :information="__('locale.french')">
         <x-forms.list>
             {{$french}}

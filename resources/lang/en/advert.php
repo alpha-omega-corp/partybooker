@@ -2,6 +2,8 @@
 
 
 return [
+    'show' => 'Show',
+    'close' => 'Close',
     'information' => 'Information',
     'schedule' => 'Schedule',
     'price' => 'Prices',
