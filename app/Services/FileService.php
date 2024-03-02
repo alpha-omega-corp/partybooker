@@ -20,14 +20,14 @@ class FileService implements IFileService
         return 'storage/' . $path . '/' . $filename;
     }
 
+    public function companyLogo(UploadedFile $file): string
+    {
+        return $this->store($file, 'images/companies');
+    }
+
     public function advertImage(UploadedFile $file): string
     {
         return $this->store($file, 'images/adverts');
-    }
-
-    public function partnerLogo(UploadedFile $file): string
-    {
-        return $this->store($file, 'images/partner/logos');
     }
 
     public function delete(string $path): void

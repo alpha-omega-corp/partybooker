@@ -8,5 +8,7 @@
                                 'partner' => $partner,
                                 'advert' => $advert
                             ])">
-    <p>Delete {{$advert->title}} ?</p>
+    <x-slot:body>
+        <p>Delete <b>{{$advert->locale->title}}</b> ?</p>
+    </x-slot:body>
 </x-modal.index>

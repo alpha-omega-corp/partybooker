@@ -10,144 +10,139 @@
         align-items: center;
         gap: 10px;
         padding-bottom: 10px;
-
-
-    }
-
-    .partner-dashboard-logo {
-        width: 100px;
-        height: 100px;
-        border-radius: 10%;
-        object-fit: cover;
     }
 
     .partner-dashboard-content {
         padding: 20px;
-    }
 
+        .partner-advert {
+            margin-bottom: 20px;
+            border: 1px solid $light;
+            border-radius: 10px;
 
-    .partner-statistics {
-        border-radius: 40px;
-        overflow: hidden;
-        margin: 10px;
-        cursor: pointer;
-        border: 1px solid $gray-300;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 10px;
+            .partner-advert-header {
+                display: flex;
+                justify-content: space-between;
+                padding: 20px 20px 0;
+            }
 
-        .partner-statistics-title {
+            .partner-advert-title {
+                color: #000;
+                margin: 0;
+                display: flex;
+                align-items: center;
+            }
+
+            .partner-advert-show {
+                display: flex;
+                justify-content: space-between;
+                padding: 20px;
+                cursor: pointer;
+            }
+
+            .partner-advert-show:hover {
+                text-decoration: underline;
+                color: $accent;
+            }
+
+            .partner-advert-actions {
+                display: flex;
+                justify-content: flex-end;
+
+                a {
+                    border-radius: 0 !important;
+                }
+            }
+
+            .partner-advert-description {
+                h6 {
+                    font-weight: bold;
+                }
+            }
+
+            .partner-advert-gallery {
+                position: relative;
+                margin-bottom: 20px;
+
+                img {
+                    width: 100%;
+                    height: 200px;
+                    border-radius: 10px;
+                    object-fit: cover;
+                }
+
+                .advert-gallery-item {
+                    margin-bottom: 20px;
+                    position: relative;
+
+                    .gallery-image-actions {
+                        display: none;
+                        top: 10px;
+                        right: 10px;
+                    }
+                }
+
+                .advert-gallery-item:hover {
+                    transform: scale(1.06);
+                    transition: .2s;
+                    cursor: pointer;
+
+                    .gallery-image-actions {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        position: absolute;
+                    }
+                }
+            }
+        }
+
+        .partner-statistics {
+            border-radius: 40px;
+            overflow: hidden;
+            margin: 10px;
+            cursor: pointer;
+            border: 1px solid $gray-300;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            padding: 10px;
 
-            svg {
-                color: $accent;
-            }
-
-            img {
-                width: 20px;
+            .partner-statistics-title {
                 display: flex;
                 align-items: center;
-            }
-        }
+                justify-content: center;
+                flex-direction: column;
 
-        .partner-statistics-value {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    }
-
-    .partner-advert {
-        margin-bottom: 20px;
-        border: 1px solid $light;
-        border-radius: 10px;
-
-        .partner-advert-header {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 20px 0;
-        }
-
-        .partner-advert-title {
-            color: #000;
-            margin: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .partner-advert-show {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-            cursor: pointer;
-        }
-
-        .partner-advert-show:hover {
-            text-decoration: underline;
-            color: $accent;
-        }
-
-        .partner-advert-actions {
-            display: flex;
-            justify-content: flex-end;
-
-            a {
-                border-radius: 0 !important;
-            }
-        }
-
-        .partner-advert-description {
-
-            h6 {
-                font-weight: bold;
-            }
-
-        }
-
-
-        .partner-advert-gallery {
-            position: relative;
-            margin-bottom: 20px;
-
-            img {
-                width: 100%;
-                height: 200px;
-                border-radius: 10px;
-                object-fit: cover;
-            }
-
-            .advert-gallery-item {
-                margin-bottom: 20px;
-                position: relative;
-
-                .gallery-image-actions {
-                    display: none;
-                    top: 10px;
-                    right: 10px;
+                svg {
+                    color: $accent;
                 }
-            }
 
-            .advert-gallery-item:hover {
-                transform: scale(1.06);
-                transition: .2s;
-                cursor: pointer;
-
-                .gallery-image-actions {
+                img {
+                    width: 20px;
                     display: flex;
-                    flex-direction: column;
-                    gap: 5px;
-                    position: absolute;
+                    align-items: center;
                 }
             }
 
-
+            .partner-statistics-value {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
         }
+
+        .partner-company {
+
+            .company-logo {
+                width: 100%;
+                height: 100px;
+                object-fit: contain;
+            }
+        }
+
     }
 }
 
@@ -161,5 +156,4 @@
         align-items: center;
         gap: 10px;
     }
-
 }

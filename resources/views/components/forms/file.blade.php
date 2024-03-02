@@ -31,7 +31,7 @@
     </div>
 
     <!-- File Input -->
-    <input type="file" name="{{$name}}" id="imageSelect-{{$id}}" class="d-none">
+    <input type="file" name="{{$name}}" value="{{$file}}" id="imageSelect-{{$id}}" class="d-none">
 
 </div>
 

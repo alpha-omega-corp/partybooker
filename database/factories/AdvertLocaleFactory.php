@@ -16,7 +16,7 @@ class AdvertLocaleFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(2),
-            'description' => $this->faker->sentence(10),
+            'description' => $this->faker->sentence(4),
             'keywords' => $this->faker->randomElements([
                 'keyword1',
                 'keyword2',

@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->morphs('translatable');
             $table->string('lang');
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->json('keywords')->nullable();
 
             $table->timestamps();

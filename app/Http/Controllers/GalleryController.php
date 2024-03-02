@@ -52,12 +52,12 @@ class GalleryController extends Controller
     public function update(AdvertImage $image, UpdateAdvertImageRequest $request)
     {
         $data = $request->validated();
-        $image->ofLang(Language::FR)->first()->locale->update([
+        $image->ofLang(Language::FR)->find($image->id)->locale->update([
             'title' => $data['title_fr'],
             'description' => $data['description_fr']
         ]);
 
-        $image->ofLang(Language::EN)->first()->locale->update([
+        $image->ofLang(Language::EN)->find($image->id)->locale->update([
             'title' => $data['title_en'],
             'description' => $data['description_en']
         ]);

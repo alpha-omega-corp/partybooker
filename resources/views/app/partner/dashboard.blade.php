@@ -19,14 +19,14 @@
         <div class="partner-dashboard-content">
             <div class="row align-items-start">
                 <div class="col-xl-8 col-lg-7 col-md-12">
-                    @include('app.partner.partials.adverts')
+                    @include('app.partner.partials.adverts.show')
                 </div>
 
                 <div class="col-xl-4 col-lg-5 col-md-12">
                     <div class="d-flex flex-column gap-4">
                         @include('app.partner.partials.statistics')
                         @include('app.partner.partials.plan')
-                        @include('app.partner.partials.company')
+                        @include('app.partner.partials.company.show')
                     </div>
                 </div>
             </div>

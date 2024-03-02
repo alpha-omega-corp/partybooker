@@ -90,19 +90,28 @@ Route::name('partner.')
     ->prefix('partner')
     ->group(function () {
 
-        Route::controller(PartnerController::class)
-            ->middleware('partner')
-            ->prefix('{partner:id}')
-            ->group(function () {
-                Route::get('/profile', 'dashboard')->name('dashboard');
-                Route::put('/company', 'company')->name('company');
-                Route::put('/plan', 'plan')->name('plan');
-            });
+        Route::post('/', [PartnerController::class, 'store'])->name('store');
 
-        Route::controller(PartnerController::class)
-            ->group(function () {
-                Route::post('/', 'store')->name('store');
-            });
+
+        Route::middleware('partner')->prefix('{partner:id}')->group(function () {
+            Route::controller(PartnerController::class)
+                ->group(function () {
+                    Route::get('/profile', 'dashboard')->name('dashboard');
+                    Route::put('/plan', 'plan')->name('plan');
+                });
+
+            Route::controller(CompanyController::class)
+                ->name('company.')
+                ->prefix('company')
+                ->group(function () {
+                    Route::put('/', 'update')->name('update');
+                });
+
+            Route::controller(PartnerController::class)
+                ->group(function () {
+                });
+        });
+
 
         Route::name('advert.')
             ->group(function () {
@@ -124,6 +133,8 @@ Route::name('partner.')
                         Route::put('/access/{advert}', 'access')->name('access');
                         Route::delete('/{advert}', 'destroy')->name('destroy');
                     });
+
+
             });
     });
 

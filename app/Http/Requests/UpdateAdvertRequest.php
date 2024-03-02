@@ -16,7 +16,8 @@ class UpdateAdvertRequest extends FormRequest
         return [
             'title_fr' => 'required',
             'title_en' => 'required',
-            'slug' => 'required',
+            'description_fr' => 'required',
+            'description_en' => 'required',
         ];
     }
 }

@@ -42,6 +42,7 @@ class AdvertFactory extends Factory
             AdvertLocale::factory([
                 'translatable_id' => $advert->id,
                 'translatable_type' => Advert::class,
+                'description' => $this->faker->paragraph(10),
             ])
                 ->count(2)
                 ->sequence(fn(Sequence $sequence) => [

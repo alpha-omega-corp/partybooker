@@ -9,13 +9,16 @@
         :absolute="true"
         :route="route('partner.plan', ['partner' => $partner])"
     >
-        <x-forms.radio
-            :colorize="true"
-            :value="$payment->plan->name"
-            :items="$plans->map(fn(Plan $plan) => $plan->name)"
-            id="updatePlan"
-            name="plan"
-        />
+        <x-slot:body>
+            <x-forms.radio
+                :colorize="true"
+                :value="$payment->plan->name"
+                :items="$plans->map(fn(Plan $plan) => $plan->name)"
+                :inline="true"
+                id="updatePlan"
+                name="plan"
+            />
+        </x-slot:body>
     </x-modal.index>
 </x-card.index>
 
