@@ -8,19 +8,7 @@
     <div class="col-lg-8 col-xs-12">
         <section>
             <div class="app-listing-content">
-                <x-modal.index
-                    :name="ModalName::APP_LISTING_SEARCH"
-                    :type="ModalType::READ"
-                    :size="ModalSize::XL"
-                    :icon="$searchIcon"
-                    :tooltip="__('listing.search')"
-                    :absolute="true"
-                    :transparent="true"
-                    :title="__('listing.search')"
-                >
-                    @include('app.listing.partials.search')
-                </x-modal.index>
-
+                @include('app.listing.partials.search')
 
                 @foreach($adverts as $advert)
                     <x-adverts.link :advert="$advert">
@@ -28,7 +16,7 @@
                             <x-adverts.category :advert="$advert"/>
 
                             <div class="advert-card-image">
-                                <img src="{{$advert->images()->where('is_thumbnail', true)->first()->path}}"
+                                <img src="{{$advert->images()->thumbnail()->first()->path}}"
                                      class="cover"
                                      alt="placeholder">
                             </div>
@@ -42,7 +30,10 @@
                                     </div>
                                 </div>
                                 <div class="card-content">
-                                    {{$advert->locale->description}}
+                                    <p class="advert-card-description">
+                                        {{$advert->locale->description}}
+                                        <span>...</span>
+                                    </p>
 
                                     <div class="card-content-address">
                                         {{$advert->company->address->address}}

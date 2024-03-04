@@ -7,7 +7,7 @@
             'partner' => $partner
         ])"
 >
-    <x-forms.list>
+    <x-slot:body>
         <x-forms.input
             name="slug"
             label="Hyperlink"
@@ -22,6 +22,5 @@
                 <option value="{{$id}}">{{$category}}</option>
             @endforeach
         </x-forms.select>
-
-    </x-forms.list>
+    </x-slot:body>
 </x-modal.index>

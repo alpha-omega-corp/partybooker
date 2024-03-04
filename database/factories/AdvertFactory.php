@@ -8,6 +8,7 @@ use App\Models\Advert;
 use App\Models\AdvertImage;
 use App\Models\AdvertLocale;
 use App\Models\AdvertService;
+use App\Models\AdvertStatistic;
 use App\Models\AdvertTag;
 use App\Models\Category;
 use App\Models\Plan;
@@ -22,6 +23,7 @@ class AdvertFactory extends Factory
     {
         return [
             'slug' => $this->faker->unique()->slug(2),
+            'advert_statistic_id' => AdvertStatistic::factory(),
             'is_public' => true,
             'is_main' => false,
         ];

@@ -32,7 +32,8 @@ class PartnerController extends Controller
             'partner' => $partner,
             'payment' => $partner->payment,
             'plan' => $partner->payment->plan,
-            'statistics' => $partner->company->statistic,
+            'statistic' => $partner->company->statistics,
+            'social' => $partner->company->socials,
         ]);
     }
 

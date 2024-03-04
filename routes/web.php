@@ -82,7 +82,9 @@ Route::name('guest.')
             ->name('company.')
             ->prefix('company')
             ->group(function () {
+                Route::get('/{company:slug}', 'show')->name('show');
                 Route::get('/{company:id}/request/', 'request')->name('request');
+
             });
     });
 

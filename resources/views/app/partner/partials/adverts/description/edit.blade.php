@@ -10,7 +10,7 @@
 >
     <x-tab.locale>
         <x-slot:french>
-            @php($locale = $advert->ofLang(Language::FR)->find($advert->id)->locale)
+            @php($locale = $advert->ofLang(Language::FR)->first()->locale)
             <x-forms.input
                 name="title_fr"
                 label="Title"
@@ -21,6 +21,7 @@
             </x-forms.input>
 
             <x-forms.editor
+                id="editAdvertDescriptionFrench"
                 name="description_fr"
                 label="Description"
                 :value="$locale->description"
@@ -28,7 +29,7 @@
         </x-slot:french>
 
         <x-slot:english>
-            @php($locale = $advert->ofLang(Language::EN)->find($advert->id)->locale)
+            @php($locale = $advert->ofLang(Language::EN)->first()->locale)
             <x-forms.input
                 name="title_en"
                 label="Title"
@@ -39,6 +40,7 @@
             </x-forms.input>
 
             <x-forms.editor
+                id="editAdvertDescriptionEnglish"
                 name="description_en"
                 label="Description"
                 :value="$locale->description"

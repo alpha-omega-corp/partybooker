@@ -56,6 +56,11 @@ class Advert extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function statistics(): BelongsTo
+    {
+        return $this->belongsTo(AdvertStatistic::class, 'advert_statistic_id', 'id');
+    }
+
     public function service(): BelongsTo
     {
         return $this->belongsTo(AdvertService::class, 'advert_service_id', 'id');
@@ -72,7 +77,7 @@ class Advert extends Model
             $query
                 ->where('lang', $lang)
                 ->withoutGlobalScopes([LocaleScope::class]);
-        }]);
+        }])->find($this->id);
     }
 
     public function scopeListing(Builder $query): void

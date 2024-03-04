@@ -5,8 +5,8 @@
     'image' => null,
 ])
 
-<div class="partner-statistics tippy" data-tippy-content="{{ $title }}">
-    <div class="partner-statistics-title">
+<div class="app-statistics tippy" data-tippy-content="{{ $title }}">
+    <div class="statistic-title">
         @if($icon)
             @svg($icon)
         @endif
@@ -15,7 +15,7 @@
             <img src="{{ Vite::social($image) }}" alt="{{ $title }}"/>
         @endif
 
-        <div class="partner-statistics-value d-flex justify-content-center w-100">{{ $value }}</div>
+        <div class="statistic-value d-flex justify-content-center w-100">{{ $value }}</div>
 
     </div>
 

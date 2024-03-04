@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\Language;
+use App\Models\Scopes\LocaleScope;
 use Database\Factories\CompanyFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -47,7 +49,7 @@ class Company extends Model
         return $this->hasOne(Partner::class);
     }
 
-    public function statistic(): BelongsTo
+    public function statistics(): BelongsTo
     {
         return $this->belongsTo(CompanyStatistic::class, 'company_statistic_id', 'id');
     }
@@ -72,5 +74,14 @@ class Company extends Model
         $query->with('adverts')->whereHas('adverts', function ($advert) {
             $advert->where('is_main', true);
         });
+    }
+
+    public function scopeOfLang(Builder $query, Language $lang): void
+    {
+        $query->with(['locale' => function ($query) use ($lang) {
+            $query
+                ->where('lang', $lang)
+                ->withoutGlobalScopes([LocaleScope::class]);
+        }]);
     }
 }

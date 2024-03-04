@@ -1,38 +1,50 @@
-<div x-data="list" class="listing-content-search">
-    <x-forms.input
-        name="input"
-        model="input"
-        label="Search Partybooker"
-        type="text">
-        @svg($searchIcon)
-    </x-forms.input>
+<x-modal.index
+    :name="ModalName::APP_LISTING_SEARCH"
+    :type="ModalType::READ"
+    :size="ModalSize::XL"
+    :icon="$searchIcon"
+    :tooltip="__('listing.search')"
+    :absolute="true"
+    :transparent="true"
+    :title="__('listing.search')"
+>
 
-    <hr>
+    <div x-data="list" class="listing-content-search">
+        <x-forms.input
+            name="input"
+            model="input"
+            label="Search Partybooker"
+            type="text">
+            @svg($searchIcon)
+        </x-forms.input>
 
-    <div class="content-search-results">
-        <template x-for="item in search()">
+        <hr>
 
-            <a class="search-result-item" :href="item.url">
-                <img src="#" :src="item.thumbnail" alt="alt">
+        <div class="content-search-results">
+            <template x-for="item in search()">
 
-                <div class="result-item-content">
-                    <h6 x-text="item.title"></h6>
+                <a class="search-result-item" :href="item.url">
+                    <img src="#" :src="item.thumbnail" alt="alt">
 
-                    <div class="item-content-company">
-                        @svg('heroicon-o-home-modern', 'text-accent')
-                        <p x-text="item.company"></p>
+                    <div class="result-item-content">
+                        <h6 x-text="item.title"></h6>
+
+                        <div class="item-content-company">
+                            @svg('heroicon-o-home-modern', 'text-accent')
+                            <p x-text="item.company"></p>
+                        </div>
+                        <div class="item-content-address">
+                            <p x-text="item.address"></p>
+                        </div>
+
+                        <div class="item-content-category">
+                            <span class="badge text-bg-orange text-white" x-text="item.category"></span>
+                        </div>
                     </div>
-                    <div class="item-content-address">
-                        <p x-text="item.address"></p>
-                    </div>
+                </a>
+            </template>
+        </div>
 
-                    <div class="item-content-category">
-                        <span class="badge text-bg-orange text-white" x-text="item.category"></span>
-                    </div>
-                </div>
-            </a>
-        </template>
+        <hr x-show="input !== ''">
     </div>
-
-    <hr x-show="input !== ''">
-</div>
+</x-modal.index>

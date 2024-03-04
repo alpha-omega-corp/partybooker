@@ -12,7 +12,7 @@
     'model' => null
 ])
 
-<div class="forms-input">
+<div class="forms-input mb-3">
     <div class="input-group">
         <div class="input-group-text">
             {{$slot}}

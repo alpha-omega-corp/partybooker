@@ -13,16 +13,21 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-12">
                         <div class="advert-header">
-                            <h1 class="display-4 fw-bold text-uppercase">
-                                {{ $advert->company->name }}
-                            </h1>
-                            <p>{{$advert->company->locale->first()->slogan}}</p>
-
-                            @if($company->logo)
-                                <div class="advert-logo">
-                                    <img src="{{ $company->logo }}" alt="{{$company->slogan}}" class="rounded">
+                            <div class="d-flex align-items-center gap-4">
+                                @if($company->logo)
+                                    <div class="advert-logo">
+                                        <img src="{{ asset($company->logo) }}" alt="{{$company->slogan}}"
+                                             class="rounded">
+                                    </div>
+                                @endif
+                                <div>
+                                    <h1 class="display-4 fw-bold text-uppercase">
+                                        {{ $advert->company->name }}
+                                    </h1>
+                                    <p>{{$advert->company->locale->first()->slogan}}</p>
                                 </div>
-                            @endif
+                            </div>
+
                             <hr>
 
                             <div class="d-flex justify-content-between">

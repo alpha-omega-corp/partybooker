@@ -97,49 +97,13 @@
             }
         }
 
-        .partner-statistics {
-            border-radius: 40px;
-            overflow: hidden;
-            margin: 10px;
-            cursor: pointer;
-            border: 1px solid $gray-300;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 10px;
-
-            .partner-statistics-title {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-
-                svg {
-                    color: $accent;
-                }
-
-                img {
-                    width: 20px;
-                    display: flex;
-                    align-items: center;
-                }
-            }
-
-            .partner-statistics-value {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        }
-
         .partner-company {
 
             .company-logo {
-                width: 100%;
+                object-fit: cover;
+                width: 100px;
                 height: 100px;
-                object-fit: contain;
+                border-radius: 20px;
             }
         }
 

@@ -11,7 +11,6 @@ return new class extends Migration {
             $table->id();
             $table->integer('email')->default(0);
             $table->integer('phone')->default(0);
-            $table->integer('requests')->default(0);
             $table->integer('website')->default(0);
             $table->integer('address')->default(0);
             $table->integer('instagram')->default(0);

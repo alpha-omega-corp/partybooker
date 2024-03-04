@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateCompanyRequest;
 use App\Interfaces\IFileService;
+use App\Models\Company;
 use App\Models\Partner;
 use App\Services\FileService;
 
@@ -18,14 +19,23 @@ class CompanyController extends Controller
         $this->fileService = $fileService;
     }
 
+    public function show(Company $company)
+    {
+        return view('app.listing.company', [
+            'company' => $company,
+        ]);
+    }
+
     public function update(Partner $partner, UpdateCompanyRequest $request)
     {
         $data = $request->validated();
 
-        $logo = $this->fileService->companyLogo($data['logo']);
+        if (isset($data['logo'])) {
+            $logo = $this->fileService->companyLogo($data['logo']);
+        }
 
         $partner->company->update([
-            'logo' => $logo,
+            'logo' => $logo ?? $partner->company->logo,
             'name' => $data['name'],
             'slug' => $data['slug'],
         ]);

@@ -18,7 +18,7 @@
                 label="Title"
                 :value="$locale->title"
             >
-                @svg('heroicon-o-ticket')
+                @svg($titleIcon)
             </x-forms.input>
 
             <x-forms.input
@@ -39,7 +39,7 @@
                 type="text"
                 :value="$locale->title"
             >
-                @svg('heroicon-o-ticket')
+                @svg($titleIcon)
             </x-forms.input>
 
             <x-forms.input

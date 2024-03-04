@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Interfaces\IFileService;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class FileService implements IFileService
 {
@@ -13,16 +14,18 @@ class FileService implements IFileService
         return $this->store($file, 'images/blog/thumbnails');
     }
 
-    private function store(UploadedFile $file, string $path): string
+    private function store(UploadedFile $file, string $path, int $size = 500): string
     {
+        $intervention = Image::make($file);
         $filename = time() . '_' . $file->getClientOriginalName();
-        Storage::putFileAs($path, $file, $filename);
-        return 'storage/' . $path . '/' . $filename;
+
+        $image = $intervention->resize($size, $size)->save("storage/$path/$filename");
+        return $image->basePath();
     }
 
     public function companyLogo(UploadedFile $file): string
     {
-        return $this->store($file, 'images/companies');
+        return $this->store($file, 'images/companies', 100);
     }
 
     public function advertImage(UploadedFile $file): string

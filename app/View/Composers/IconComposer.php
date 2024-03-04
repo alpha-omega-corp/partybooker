@@ -17,5 +17,11 @@ class IconComposer
         $view->with('searchIcon', 'heroicon-o-magnifying-glass');
         $view->with('infoIcon', 'heroicon-o-information-circle');
         $view->with('titleIcon', 'heroicon-o-ticket');
+        $view->with('emailIcon', 'heroicon-o-envelope-open');
+        $view->with('phoneIcon', 'heroicon-o-phone');
+        $view->with('companyIcon', 'heroicon-o-home-modern');
+        $view->with('pinIcon', 'heroicon-o-map-pin');
+        $view->with('eyeIcon', 'heroicon-o-eye');
+        $view->with('boxIcon', 'heroicon-o-archive-box');
     }
 }

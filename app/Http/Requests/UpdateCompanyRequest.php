@@ -14,10 +14,10 @@ class UpdateCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'logo' => 'required|file',
+            'logo' => 'file',
             'name' => 'required|string',
             'slug' => 'required|string',
-            'email' => 'required',
+            'email' => 'required|email',
             'phone' => 'required|string',
             'fax' => 'required|string',
         ];

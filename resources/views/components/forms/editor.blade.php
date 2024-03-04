@@ -1,4 +1,5 @@
 @props([
+    'id',
     'label',
     'name',
     'value' => null,
@@ -7,6 +8,7 @@
 @php
     $id = 'editor' . ucfirst($name)
 @endphp
+
 <div class="app-editor">
     <div class="app-editor-label">
         <label for="{{$id}}">
@@ -18,9 +20,12 @@
         name="{{$name}}"
         id="{{$id}}"
         maxlength="350"
-        rows="10">
-{{$value}}
-</textarea>
+        rows="10"
+        class="editor"
+    >
+        {{$value}}
+    </textarea>
+
 </div>
 
 

@@ -9,11 +9,8 @@
     ])"
 >
 
-    <x-tab.index :items="[
-        Language::FR,
-        Language::EN
-    ]">
-        <x-tab.item>
+    <x-tab.locale>
+        <x-slot:french>
             <x-forms.input
                 name="name_fr"
                 label="French Title"
@@ -24,9 +21,9 @@
             </x-forms.input>
 
             <x-repeater name="keywords_fr"/>
-        </x-tab.item>
+        </x-slot:french>
 
-        <x-tab.item>
+        <x-slot:english>
             <x-forms.input
                 name="name_en"
                 label="English Title"
@@ -37,9 +34,6 @@
             </x-forms.input>
 
             <x-repeater name="keywords_en"/>
-        </x-tab.item>
-
-    </x-tab.index>
-
-
+        </x-slot:english>
+    </x-tab.locale>
 </x-modal.index>
