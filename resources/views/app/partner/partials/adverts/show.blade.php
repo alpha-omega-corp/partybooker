@@ -5,7 +5,7 @@
     @endif
 
     @foreach($partner->company->adverts as $advert)
-        <div x-data="{show: false}" class="partner-advert">
+        <div x-data="{show: false}" class="partner-advert" x-bind:class="show ? 'border border-accent' : ''">
             <div class="partner-advert-header">
                 <h6 class="partner-advert-title">
                     @if($advert->locale)
