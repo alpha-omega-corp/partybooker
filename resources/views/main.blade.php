@@ -38,9 +38,18 @@
             },
         }))
 
-        Alpine.data('keywords', () => ({
+        Alpine.data('keywords', (data) => ({
             values: [],
 
+            async init() {
+                if (data) {
+                    JSON.parse(data).forEach(item => {
+                        this.values.push({
+                            keyword: item
+                        })
+                    })
+                }
+            },
             add() {
                 this.values.push({
                     keyword: '',

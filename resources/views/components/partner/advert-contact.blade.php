@@ -5,22 +5,18 @@
     'type'
 ])
 
-<div x-data="{show: false}" class="tippy-down" data-tippy-content="{{'Company ' . ucfirst($tooltip)}}">
-    <div class="info-element">
-        <div class="d-flex">
-            <div class="{{$tooltip}}">
-                <div class="element" @click="show = !show">
-                    <span class="icon">
-                        @svg($icon)
-                    </span>
-                </div>
-            </div>
+<div x-data="{show: false}">
+    <div class="contact-item">
+        <div @click="show = !show">
+            <span class="tippy" data-tippy-content="{{'Company ' . ucfirst($tooltip)}}">
+                @svg($icon)
+            </span>
+        </div>
 
-            <div x-show="show" class="w-100">
-                <a class="text-nowrap m-2 text-lowercase" href="{{$content}}">
-                    {{ $content }}
-                </a>
-            </div>
+        <div x-show="show" class="w-100">
+            <a class="text-nowrap m-2 text-lowercase" href="{{$content}}">
+                {{ $content }}
+            </a>
         </div>
     </div>
 </div>

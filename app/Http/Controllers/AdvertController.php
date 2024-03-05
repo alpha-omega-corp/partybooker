@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 
 use App\Enums\CategoryType;
 use App\Enums\Language;
+use App\Helpers\MetaHelper;
 use App\Http\Requests\StoreAdvertRequest;
 use App\Http\Requests\UpdateAdvertAccessRequest;
+use App\Http\Requests\UpdateAdvertMetaRequest;
 use App\Http\Requests\UpdateAdvertRequest;
 use App\Interfaces\IFileService;
 use App\Models\Advert;
@@ -53,7 +55,7 @@ class AdvertController extends Controller
             'serviceable_id' => $service->id,
         ]);
 
-        $advert = $partner->company->adverts()->create([
+        $partner->company->adverts()->create([
             'slug' => $data['slug'],
             'category_id' => $category->id,
             'company_id' => $partner->company->id,
@@ -93,6 +95,21 @@ class AdvertController extends Controller
         $advert->update(['slug' => $data['slug']]);
 
         return back()->with('success', 'Advert access updated successfully');
+    }
+
+    public function meta(Advert $advert, UpdateAdvertMetaRequest $request): RedirectResponse
+    {
+        $data = $request->validated();
+
+        $advert->ofLang(Language::FR)->first()->locale->update([
+            'keywords' => MetaHelper::sanitize($data['keywords_fr']),
+        ]);
+
+        $advert->ofLang(Language::EN)->first()->locale->update([
+            'keywords' => MetaHelper::sanitize($data['keywords_en']),
+        ]);
+
+        return back()->with('success', 'Advert SEO updated successfully');
     }
 
     public function destroy(Advert $advert): RedirectResponse

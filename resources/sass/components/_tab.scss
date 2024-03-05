@@ -9,7 +9,7 @@
         flex-direction: column;
         gap: 10px;
         position: absolute;
-        top: 20px;
+        top: 80px;
         left: 20px;
         padding: 0 !important;
         height: 100px;
@@ -17,10 +17,19 @@
         .tab-button {
             cursor: pointer;
             border-radius: 50%;
+            border-bottom: 1px solid !important;
             display: flex;
             align-items: center;
             padding: 10px;
             margin-bottom: 10px;
+        }
+
+        .tab-button:hover {
+            border-bottom: 1px solid $accent !important;
+
+            svg {
+                color: $accent;
+            }
         }
     }
 

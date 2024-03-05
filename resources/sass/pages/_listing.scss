@@ -185,6 +185,12 @@
         border: 1px solid $gray-300;
         border-radius: 20px;
         margin-bottom: 20px;
+
+        h1 {
+            font-weight: bold;
+            font-size: larger;
+            text-transform: uppercase;
+        }
     }
 
     .advert-gallery {
@@ -207,11 +213,21 @@
 
     .advert-contacts {
         display: flex;
+        flex-direction: column;
         gap: 10px;
+
+        .contact-item {
+            display: flex;
+        }
+
+        .contact-item:hover {
+            color: $accent;
+            cursor: pointer;
+        }
     }
 
     .advert-description {
-        margin-bottom: 60px;
+        margin-bottom: 20px;
         display: flex;
         gap: 20px;
 
@@ -235,7 +251,7 @@
 }
 
 .company-adverts {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 
     .company-adverts-item {
         padding: 10px;

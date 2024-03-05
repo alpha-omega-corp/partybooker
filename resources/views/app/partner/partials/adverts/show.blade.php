@@ -28,49 +28,64 @@
             <div x-show="show">
                 <div class="partner-advert-content">
                     <x-tab :items="[
-                    __('advert.access'),
                     __('advert.content'),
-                    __('advert.gallery'),
                     __('advert.description'),
-                    __('advert.meta')
+                    __('advert.gallery'),
+                    __('advert.access'),
+                    __('advert.meta'),
+                    __('advert.statistics')
                     ]">
-                        <x-tab.item :information="__('advert.information.access')">
-                            <x-slot:header>
-                                @include('app.partner.partials.adverts.access.edit')
-                            </x-slot:header>
-                            @include('app.partner.partials.adverts.access.show', ['advert' => $advert])
-                        </x-tab.item>
-
+                        <!-- Content -->
                         <x-tab.item :information="__('advert.information.content')">
                             <x-slot:header>
                                 @include('app.partner.partials.adverts.content.edit')
                             </x-slot:header>
+
                             @include('app.partner.partials.adverts.content.show', ['advert' => $advert])
                         </x-tab.item>
 
-                        <x-tab.item :information="__('advert.information.gallery')">
-                            <x-slot:header>
-                                @include('app.partner.partials.adverts.gallery.create')
-                            </x-slot:header>
-                            @include('app.partner.partials.adverts.gallery.show', ['advert' => $advert])
-                        </x-tab.item>
-
+                        <!-- Description -->
                         <x-tab.item :information="__('advert.information.description')" :padding="false">
                             <x-slot:header>
                                 @include('app.partner.partials.adverts.description.edit')
                             </x-slot:header>
+
                             @include('app.partner.partials.adverts.description.show', ['advert' => $advert])
                         </x-tab.item>
 
-                        <x-tab.item :information="__('advert.information.meta')">
+                        <!-- Gallery -->
+                        <x-tab.item :information="__('advert.information.gallery')">
+                            <x-slot:header>
+                                @include('app.partner.partials.adverts.gallery.create')
+                            </x-slot:header>
+
+                            @include('app.partner.partials.adverts.gallery.show', ['advert' => $advert])
+                        </x-tab.item>
+
+                        <!-- Access -->
+                        <x-tab.item :information="__('advert.information.access')">
+                            <x-slot:header>
+                                @include('app.partner.partials.adverts.access.edit')
+                            </x-slot:header>
+
+                            @include('app.partner.partials.adverts.access.show', ['advert' => $advert])
+                        </x-tab.item>
+
+                        <!-- Meta -->
+                        <x-tab.item :information="__('advert.information.meta')" :padding="false">
                             <x-slot:header>
                                 @include('app.partner.partials.adverts.meta.edit')
                             </x-slot:header>
+
                             @include('app.partner.partials.adverts.meta.show', ['advert' => $advert])
+                        </x-tab.item>
+
+                        <!-- Statistics -->
+                        <x-tab.item :information="__('advert.information.statistics')">
+                            @include('app.partner.partials.adverts.statistics')
                         </x-tab.item>
                     </x-tab>
                 </div>
-                <hr>
             </div>
 
             <div class="partner-advert-show" @click="show = !show">
@@ -78,6 +93,7 @@
                     <a x-show="!show">{{__('advert.show')}}</a>
                     <a x-show="show">{{__('advert.close')}}</a>
                 </div>
+
                 <x-adverts.category :advert="$advert"/>
             </div>
         </div>

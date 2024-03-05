@@ -33,6 +33,11 @@
                 align-items: center;
             }
 
+            .partner-advert-content {
+                border-bottom: 1px solid $gray;
+                padding-bottom: 10px;
+            }
+
             .partner-advert-show {
                 display: flex;
                 justify-content: space-between;
@@ -57,6 +62,7 @@
             .partner-advert-description {
                 h6 {
                     font-weight: bold;
+                    margin: 10px 0 30px;
                 }
             }
 
@@ -95,6 +101,22 @@
                     }
                 }
             }
+
+            .partner-advert-meta {
+                .meta-keywords {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+
+                    .keyword-item {
+                        padding: 10px;
+                        border: 1px solid $primary;
+                        border-radius: 5px;
+                        color: $gray;
+                    }
+                }
+
+            }
         }
 
         .partner-company {
@@ -104,6 +126,10 @@
                 width: 100px;
                 height: 100px;
                 border-radius: 20px;
+            }
+
+            p {
+                font-size: small;
             }
         }
 

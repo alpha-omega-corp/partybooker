@@ -21,7 +21,7 @@
                                     </div>
                                 @endif
                                 <div>
-                                    <h1 class="display-4 fw-bold text-uppercase">
+                                    <h1>
                                         {{ $advert->company->name }}
                                     </h1>
                                     <p>{{$advert->company->locale->first()->slogan}}</p>
@@ -33,41 +33,43 @@
                             <div class="d-flex justify-content-between">
                                 <div class="advert-contacts">
                                     <x-partner.advert-contact
-                                        icon="heroicon-o-phone"
+                                        :icon="$phoneIcon"
                                         tooltip="phone"
                                         content="{{$advert->company->contact->phone}}"
                                         type="tel"/>
 
                                     <x-partner.advert-contact
-                                        icon="heroicon-o-envelope"
+                                        :icon="$emailIcon"
                                         tooltip="email"
                                         content="{{$advert->company->contact->email}}"
                                         type="email"/>
 
                                     <x-partner.advert-contact
-                                        icon="heroicon-o-globe-alt"
+                                        :icon="$linkIcon"
                                         tooltip="website"
                                         content="{{$advert->company->social->www}}"
                                         type="web"/>
 
                                     <x-partner.advert-contact
-                                        icon="heroicon-o-map-pin"
+                                        :icon="$pinIcon"
                                         tooltip="address"
                                         content="{{$advert->company->address->address}}"
                                         type="loc"/>
                                 </div>
 
-                                <div class="d-flex gap-2">
-                                    @include('app.listing.partials.request', [
-                                        'advert' => $advert,
-                                    ])
+                                <div>
+                                    <div class="d-flex gap-2">
+                                        @include('app.listing.partials.request', [
+                                            'advert' => $advert,
+                                        ])
 
-                                    @if(Auth::user() && Auth::user()->isAdmin())
-                                        <a class="btn btn-admin"
-                                           href="{{route('partner.dashboard', ['partner' => $advert->company->partner])}}">
-                                            {{__('partner.dashboard')}}
-                                        </a>
-                                    @endif
+                                        @if(Auth::user() && Auth::user()->isAdmin())
+                                            <a class="btn btn-admin"
+                                               href="{{route('partner.dashboard', ['partner' => $advert->company->partner])}}">
+                                                {{__('partner.dashboard')}}
+                                            </a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -93,30 +95,8 @@
                             </div>
                         </div>
 
-
-                        <x-card :title="__('listing.listing')">
-                            <div class="company-adverts">
-                                @foreach($advert->company->adverts()->get() as $companyAdvert)
-                                    @if($companyAdvert->id != $advert->id)
-                                        <a href="{{route('guest.listing.advert', [
-                                        'advert' => $companyAdvert,
-                                        'company' => $company
-                                    ])}}">
-                                            <div class="company-adverts-item">
-                                                <h6>{{ $companyAdvert->locale->title}}</h6>
-                                                <div>
-                                                    <x-adverts.category :advert="$companyAdvert"/>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    @endif
-                                @endforeach
-                            </div>
-
-                            @include('app.listing.partials.advert', [
-                                'advert' => $advert,
-                            ])
-                        </x-card>
+                        @include('app.listing.partials.company-adverts')
+                        @include('app.listing.partials.advert')
                     </div>
 
                     <div class="col-lg-4 col-md-12">

@@ -45,21 +45,7 @@ class AjaxController extends Controller
         return response()->json($viewPartners);
     }
 
-    public function tops(): JsonResponse
-    {
-        $partnerTops = Partner::all()->map(function (Partner $partner) {
-            return [
-                'id' => $partner->id,
-                'name' => $partner->user->name,
-                'company' => $partner->company->name,
-                'top' => (bool)$partner->top,
-            ];
-        });
-
-        return response()->json($partnerTops);
-    }
-
-    public function listing()
+    public function listing(): JsonResponse
     {
         $viewPartners = Advert::listing()
             ->get()
@@ -78,5 +64,19 @@ class AjaxController extends Controller
 
         return response()->json($viewPartners);
 
+    }
+
+    public function tops(): JsonResponse
+    {
+        $partnerTops = Partner::all()->map(function (Partner $partner) {
+            return [
+                'id' => $partner->id,
+                'name' => $partner->user->name,
+                'company' => $partner->company->name,
+                'top' => (bool)$partner->top,
+            ];
+        });
+
+        return response()->json($partnerTops);
     }
 }

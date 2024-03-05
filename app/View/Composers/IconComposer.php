@@ -23,5 +23,6 @@ class IconComposer
         $view->with('pinIcon', 'heroicon-o-map-pin');
         $view->with('eyeIcon', 'heroicon-o-eye');
         $view->with('boxIcon', 'heroicon-o-archive-box');
+        $view->with('faxIcon', 'heroicon-o-printer');
     }
 }

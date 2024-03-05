@@ -13,4 +13,5 @@ return [
     'description' => 'Description',
     'content' => 'Contenu',
     'meta' => 'SEO',
+    'statistics' => 'Statistiques',
 ];

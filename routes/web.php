@@ -95,28 +95,42 @@ Route::name('partner.')
         Route::post('/', [PartnerController::class, 'store'])->name('store');
 
 
-        Route::middleware('partner')->prefix('{partner:id}')->group(function () {
-            Route::controller(PartnerController::class)
-                ->group(function () {
-                    Route::get('/profile', 'dashboard')->name('dashboard');
-                    Route::put('/plan', 'plan')->name('plan');
-                });
+        Route::middleware('partner')
+            ->prefix('{partner:id}')
+            ->group(function () {
+                Route::controller(PartnerController::class)
+                    ->group(function () {
+                        Route::get('/profile', 'dashboard')->name('dashboard');
+                        Route::put('/plan', 'plan')->name('plan');
+                    });
 
-            Route::controller(CompanyController::class)
-                ->name('company.')
-                ->prefix('company')
-                ->group(function () {
-                    Route::put('/', 'update')->name('update');
-                });
+                Route::controller(CompanyController::class)
+                    ->name('company.')
+                    ->prefix('company')
+                    ->group(function () {
+                        Route::put('/', 'update')->name('update');
+                    });
 
-            Route::controller(PartnerController::class)
-                ->group(function () {
-                });
-        });
+                Route::controller(PartnerController::class)
+                    ->group(function () {
+                    });
+            });
 
 
         Route::name('advert.')
             ->group(function () {
+                Route::controller(AdvertController::class)
+                    ->prefix('advert')
+                    ->group(function () {
+                        Route::post('/{partner}', 'store')->name('store');
+                        Route::delete('/{advert}', 'destroy')->name('destroy');
+
+                        Route::put('/status/{advert}', 'status')->name('status');
+                        Route::put('/access/{advert}', 'access')->name('access');
+                        Route::put('/description/{advert}', 'update')->name('update');
+                        Route::put('/meta/{advert}', 'meta')->name('meta');
+                    });
+
                 Route::controller(GalleryController::class)
                     ->name('gallery.')
                     ->prefix('image')
@@ -125,18 +139,6 @@ Route::name('partner.')
                         Route::delete('/{image}', 'destroy')->name('destroy');
                         Route::put('/{image}', 'update')->name('update');
                     });
-
-                Route::controller(AdvertController::class)
-                    ->prefix('advert')
-                    ->group(function () {
-                        Route::post('/{partner}', 'store')->name('store');
-                        Route::put('/{advert}', 'update')->name('update');
-                        Route::put('/status/{advert}', 'status')->name('status');
-                        Route::put('/access/{advert}', 'access')->name('access');
-                        Route::delete('/{advert}', 'destroy')->name('destroy');
-                    });
-
-
             });
     });
 
