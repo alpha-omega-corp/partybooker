@@ -1,6 +1,4 @@
 .app-listing {
-    margin-top: 120px;
-
     .app-listing-header {
         padding: 20px;
         border: 1px solid $gray-300;
@@ -33,71 +31,73 @@
         }
     }
 
+    .app-listing-search {
+        position: absolute;
+        top: 40px;
+        right: 20px;
 
-    .app-listing-content {
-        padding-top: 100px;
-        position: relative;
+        .forms-input {
+            padding: 20px 20px 0;
+        }
 
-        .listing-content-search {
+        .content-search-results {
+            height: 400px;
+            overflow: scroll;
 
-            .forms-input {
-                padding: 20px 20px 0;
-            }
+            .search-result-item {
+                display: flex;
+                border-top: 1px solid $light;
 
-            .content-search-results {
-                height: 400px;
-                overflow: scroll;
-
-                .search-result-item {
-                    display: flex;
-                    border-top: 1px solid $light;
-
-                    img {
-                        width: 200px;
-                        height: 150px;
-                        object-fit: cover;
-                    }
-
-                    .result-item-content {
-                        padding: 20px;
-                        color: $gray;
-                        position: relative;
-                        width: 100%;
-
-                        h6 {
-                            font-weight: bold;
-                            margin-bottom: 10px;
-                            color: #000;
-                            text-transform: uppercase;
-                        }
-
-                        .item-content-company {
-                            display: flex;
-                            gap: 10px;
-                            color: $gray;
-                            font-size: small;
-                        }
-
-                        .item-content-category {
-                            position: absolute;
-                            top: 10px;
-                            right: 10px;
-                        }
-
-                        .item-content-address {
-                            position: absolute;
-                            bottom: 10px;
-                        }
-                    }
+                img {
+                    width: 200px;
+                    height: 150px;
+                    object-fit: cover;
                 }
 
-                .search-result-item:hover {
+                .result-item-content {
+                    padding: 20px;
+                    color: $gray;
+                    position: relative;
+                    width: 100%;
+
                     h6 {
-                        color: $accent;
+                        font-weight: bold;
+                        margin-bottom: 10px;
+                        color: #000;
+                        text-transform: uppercase;
                     }
+
+                    .item-content-company {
+                        display: flex;
+                        gap: 10px;
+                        color: $gray;
+                        font-size: small;
+                    }
+
+                    .item-content-category {
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                    }
+
+                    .item-content-address {
+                        position: absolute;
+                        bottom: 10px;
+                    }
+                }
+            }
+
+            .search-result-item:hover {
+                h6 {
+                    color: $accent;
                 }
             }
         }
+    }
+
+    .app-listing-content {
+        padding-top: 70px;
+        position: relative;
 
         .advert-card {
             display: flex;

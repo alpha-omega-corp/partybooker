@@ -38,18 +38,6 @@
                 padding-bottom: 10px;
             }
 
-            .partner-advert-show {
-                display: flex;
-                justify-content: space-between;
-                padding: 20px;
-                cursor: pointer;
-            }
-
-            .partner-advert-show:hover {
-                text-decoration: underline;
-                color: $accent;
-            }
-
             .partner-advert-actions {
                 display: flex;
                 justify-content: flex-end;

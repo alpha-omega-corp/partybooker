@@ -44,9 +44,8 @@ class AdvertImage extends Model
             $query
                 ->where('lang', $lang)
                 ->withoutGlobalScopes([LocaleScope::class]);
-        }]);
+        }])->find($this->id);
     }
-
 
     public function scopeThumbnail(Builder $query): void
     {

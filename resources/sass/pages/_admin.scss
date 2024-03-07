@@ -1,10 +1,61 @@
+.admin-category {
+    margin-top: 100px;
+
+    .admin-category-card {
+        border: 1px solid $light;
+        margin-bottom: 20px;
+        position: relative;
+        border-radius: 10px;
+
+        .category-card-header {
+            padding: 20px;
+            border-bottom: 1px solid $light;
+
+            p {
+                margin: 20px 0 0;
+            }
+        }
+
+        .category-card-link {
+            font-size: small;
+        }
+
+        .category-card-title {
+            color: $gray;
+            font-size: large;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .category-card-tags {
+            border-bottom: 1px solid $light;
+            padding: 0 0 20px;
+            margin: 0;
+
+            li::marker {
+                color: $primary;
+            }
+
+            li {
+                padding-left: 20px;
+            }
+
+            .card-tag-content {
+                padding: 20px 10px 20px;
+                border-bottom: 1px solid $light;
+                position: relative;
+            }
+        }
+    }
+}
+
 .admin-listing {
     margin: 40px;
 
     .admin-listing-tops {
         display: flex;
         flex-direction: column-reverse;
-        
+
         .select2-selection {
             border: 0 !important;
         }

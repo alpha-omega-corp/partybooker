@@ -76,12 +76,12 @@ class AdvertController extends Controller
     public function update(Advert $advert, UpdateAdvertRequest $request): RedirectResponse
     {
         $data = $request->validated();
-        $advert->ofLang(Language::FR)->find($advert->id)->locale->update([
+        $advert->ofLang(Language::FR)->first()->locale->update([
             'title' => $data['title_fr'],
             'description' => $data['description_fr'],
         ]);
 
-        $advert->ofLang(Language::EN)->find($advert->id)->locale->update([
+        $advert->ofLang(Language::EN)->first()->locale->update([
             'title' => $data['title_en'],
             'description' => $data['description_en'],
         ]);

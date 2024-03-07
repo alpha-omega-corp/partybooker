@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Enums\CategoryType;
+use App\Enums\Language;
+use App\Models\Scopes\LocaleScope;
 use Database\Factories\CategoryFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -39,6 +41,15 @@ class Category extends Model
     public function scopeOfType(Builder $query, CategoryType $type): void
     {
         $query->where('service', $type->value);
+    }
+
+    public function scopeOfLang(Builder $query, Language $lang): void
+    {
+        $query->with(['locale' => function ($query) use ($lang) {
+            $query
+                ->where('lang', $lang)
+                ->withoutGlobalScopes([LocaleScope::class]);
+        }])->find($this->id);
     }
 
 }

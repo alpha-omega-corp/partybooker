@@ -6,6 +6,7 @@ use App\Enums\CategoryType;
 use App\Enums\PartnerSort;
 use App\Enums\PlanType;
 use App\Http\Requests\StorePartnerTops;
+use App\Models\Category;
 use App\Models\Notification;
 use App\Models\PartnerTop;
 use App\Models\Plan;
@@ -13,10 +14,10 @@ use App\Models\Post;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function category()
     {
-        return view('app.admin.index', [
-
+        return view('app.admin.category.index', [
+            'categories' => Category::all(),
         ]);
     }
 
@@ -63,11 +64,11 @@ class AdminController extends Controller
 
         if (count($deleteTops) > 0) {
             foreach (collect($deleteTops)->flatten() as $id) {
-                $service = PartnerTop::where('partner_id', $id)->first();
-                $service->delete();
+                PartnerTop::find($id)->first()->delete();
             }
         }
 
         return redirect()->back()->with('success', 'Top services updated');
     }
+
 }

@@ -4,8 +4,8 @@
     :size="ModalSize::XL"
     :icon="$searchIcon"
     :tooltip="__('listing.search')"
-    :absolute="true"
     :transparent="true"
+    :hidden="true"
     :title="__('listing.search')"
 >
 

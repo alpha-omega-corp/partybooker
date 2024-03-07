@@ -21,6 +21,11 @@ class CategoryLocale extends Model
         'slug',
         'title',
         'description',
+        'keywords'
+    ];
+
+    protected $casts = [
+        'keywords' => 'array'
     ];
 
     protected static function newFactory(): CategoryLocaleFactory

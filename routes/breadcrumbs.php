@@ -4,7 +4,13 @@
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as Trail;
 
+Breadcrumbs::for('home', function (Trail $trail) {
+    $trail->push(__('route.home'), route('guest.home.index'));
+});
+
 Breadcrumbs::for('listing', function (Trail $trail, array $segments) {
+    $trail->parent('home');
+
     $slugs = [];
 
     foreach ($segments as $key => $segment) {

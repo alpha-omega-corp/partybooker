@@ -16,6 +16,7 @@ use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
@@ -52,7 +53,7 @@ Route::name('guest.')
 
         // HomeController
         Route::controller(HomeController::class)
-            ->name('guest.')
+            ->name('home.')
             ->group(function () {
                 Route::get('/', 'index')->name('index');
                 Route::get('/a-propos', 'about')->name('about');
@@ -150,12 +151,20 @@ Route::middleware('admin')
             ->name('dashboard.')
             ->prefix('dashboard')
             ->group(function () {
-                Route::get('/', 'index')->name('index');
-                Route::get('/blog', 'blog')->name('blog');
+                Route::get('/listing', 'category')->name('category');
                 Route::get('/messages', 'messages')->name('messages');
                 Route::get('/partners', 'partners')->name('partners');
+                Route::get('/blog', 'blog')->name('blog');
                 Route::post('/tops', 'updateTopServices')->name('tops');
 
+            });
+
+        Route::controller(CategoryController::class)
+            ->name('category.')
+            ->prefix('category')
+            ->group(function () {
+                Route::put('/{category}', 'updateCategory')->name('update');
+                Route::put('/tag/{tag}', 'updateTag')->name('tag.update');
             });
 
 
@@ -170,7 +179,6 @@ Route::middleware('admin')
             });
     });
 
-//ACCESS to PARTNER CP
 Route::middleware(['auth', 'partner', 'email'])->group(function () {
     Route::get('/user/invoice/{invoice}', [BillingController::class, 'invoice'])->name('invoice');
     Route::post('/partner-cp/subscribe', [BillingController::class, 'subscribe'])->name('subscription.start');

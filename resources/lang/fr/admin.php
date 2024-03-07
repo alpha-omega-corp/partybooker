@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'partners' => 'Géstion partenaires',
+    'partners' => 'partenaires',
+    'categories' => 'catégories',
 ];

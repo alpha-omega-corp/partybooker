@@ -88,10 +88,10 @@
                 </div>
             </div>
 
-            <div class="partner-advert-show" @click="show = !show">
+            <div class="card-show" @click="show = !show">
                 <div>
-                    <a x-show="!show">{{__('advert.show')}}</a>
-                    <a x-show="show">{{__('advert.close')}}</a>
+                    <a x-show="!show">{{__('card.show')}}</a>
+                    <a x-show="show">{{__('card.close')}}</a>
                 </div>
 
                 <x-adverts.category :advert="$advert"/>

@@ -29,7 +29,7 @@
                         <x-logo/>
 
                         <x-navigation.item
-                            :href="url(route('guest.guest.index'))"
+                            :href="url(route('guest.home.index'))"
                             :text="__('nav.guest')"
                             icon="heroicon-o-home"
                         />
@@ -41,13 +41,13 @@
                         />
 
                         <x-navigation.item
-                            :href="url(route('guest.guest.about'))"
+                            :href="url(route('guest.home.about'))"
                             :text="__('nav.about')"
                             icon="heroicon-o-information-circle"
                         />
 
                         <x-navigation.item
-                            :href="url(route('guest.guest.partnership'))"
+                            :href="url(route('guest.home.partnership'))"
                             :text="__('nav.partnership')"
                             icon="heroicon-o-identification"
                         />

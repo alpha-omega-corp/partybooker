@@ -23,12 +23,14 @@ class ListingController extends Controller
 
     public function index(?string $category = null, ?string $child = null)
     {
-        $adverts = $this->categoryService->filterCategory($category, $child);
+        $adverts = $this->categoryService
+            ->filterCategory($category, $child)
+            ->paginate(6)
+            ->fragment('adverts');
 
         return view('app.listing.index', [
             'categories' => $this->categories,
-            'adverts' => $adverts->paginate(6)
-                ->fragment('adverts'),
+            'adverts' => $adverts
         ]);
     }
 

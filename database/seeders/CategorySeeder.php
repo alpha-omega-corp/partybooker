@@ -122,6 +122,9 @@ class CategorySeeder extends Seeder
                         : CategoryTag::class,
                     'slug' => array_keys($items)[$i],
                     'title' => array_values($items)[$i],
+                    'keywords' => fake()->randomElements([
+                        'keyword1', 'keyword2', 'keyword3', 'keyword4', 'keyword5'
+                    ], 3),
                 ]);
 
                 $lang === Language::EN->value

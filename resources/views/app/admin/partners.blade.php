@@ -81,7 +81,8 @@
                                     <x-forms.checkbox
                                         name="language"
                                         title="Languages"
-                                        :items="Language::values()"/>
+                                        :items="Language::values()"
+                                    />
                                 </x-forms.list>
                             </x-slot:body>
                         </x-modal.index>
