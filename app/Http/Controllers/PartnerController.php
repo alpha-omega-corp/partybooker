@@ -8,6 +8,10 @@ use App\Http\Requests\StorePartnerRequest;
 use App\Http\Requests\UpdatePlanRequest;
 use App\Interfaces\IFileService;
 use App\Models\Company;
+use App\Models\CompanyAddress;
+use App\Models\CompanyContact;
+use App\Models\CompanySocial;
+use App\Models\CompanyStatistic;
 use App\Models\Partner;
 use App\Models\Payment;
 use App\Models\Plan;
@@ -15,6 +19,7 @@ use App\Models\User;
 use App\Services\FileService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class PartnerController extends Controller
@@ -56,7 +61,11 @@ class PartnerController extends Controller
         $company = Company::create([
             'name' => $data['company'],
             'languages' => $data['language'],
-            'slug' => Str::of($data['company'])->slug()
+            'slug' => Str::of($data['company'])->slug(),
+            'company_social_id' => CompanySocial::create()->id,
+            'company_contact_id' => CompanyContact::create()->id,
+            'company_address_id' => CompanyAddress::create()->id,
+            'company_statistic_id' => CompanyStatistic::create()->id,
         ]);
 
         $payment = Payment::create([
@@ -75,7 +84,8 @@ class PartnerController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'partner_id' => $partner->id
+            'partner_id' => $partner->id,
+            'verified_at' => Auth::user()->isAdmin() ? now() : null,
         ]);
 
         return redirect()->route('partner.dashboard', $partner);

@@ -16,13 +16,10 @@
                         :name="ModalName::APP_LISTING_SEARCH"
                         :type="ModalType::READ"
                     />
-
                 </div>
-
             </x-slot:header>
 
             @include('app.listing.partials.listing')
-
         </x-card.dashboard>
     </div>
 @endsection

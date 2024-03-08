@@ -6,7 +6,7 @@
 
 <div class="dashboard-card-info">
     <div class="card-info-content">
-        <div class="d-flex gap-2">
+        <div class="d-flex align-items-center gap-2">
             <div class="d-flex justify-content-center align-items-center">
                 @svg($icon, 'm-0 ' . $color)
             </div>

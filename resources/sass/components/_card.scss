@@ -39,8 +39,9 @@
     border-radius: 20px;
 
     .card-dashboard-header {
-        padding: 40px;
-        border-bottom: 1px solid $light;
+        padding: 40px 40px 60px;
+        border-bottom: 1px solid $gray;
+        margin-bottom: 20px;
 
         h1 {
             font-weight: bold;

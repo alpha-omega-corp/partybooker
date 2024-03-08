@@ -23,7 +23,7 @@ class AdminController extends Controller
 
     public function partners()
     {
-        return view('app.admin.partners', [
+        return view('app.admin.partner.index', [
             'plans' => Plan::all()->map(fn(Plan $plan) => $plan->name),
             'partnerSorts' => PartnerSort::values(),
             'planFilters' => PlanType::values(),
@@ -33,7 +33,7 @@ class AdminController extends Controller
 
     public function messages()
     {
-        return view('app.admin.messages', [
+        return view('app.admin.message.index', [
             'helps' => Notification::helps()->get(),
             'partnerships' => Notification::partnerships()->get(),
             'services' => Notification::services()->get()
@@ -42,7 +42,7 @@ class AdminController extends Controller
 
     public function blog()
     {
-        return view('app.admin.blog', [
+        return view('app.admin.blog.index', [
             'posts' => Post::all()
         ]);
     }
@@ -64,7 +64,7 @@ class AdminController extends Controller
 
         if (count($deleteTops) > 0) {
             foreach (collect($deleteTops)->flatten() as $id) {
-                PartnerTop::find($id)->first()->delete();
+                PartnerTop::where('partner_id', $id)->delete();
             }
         }
 

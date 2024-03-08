@@ -1,6 +1,6 @@
 @php use App\Http\Middleware\LocaleMiddleware;use App\Models\Category; @endphp
 
-<div class="row p-4">
+<div class="row">
     <div class="col-lg-3 col-md-0 col-sm-0 d-none d-sm-none d-md-none d-lg-block">
         @include('app.listing.partials.category')
     </div>

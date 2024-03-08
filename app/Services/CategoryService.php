@@ -41,7 +41,7 @@ class CategoryService implements ICategoryService
 
         return $locale->first()->translatable()->get();
     }
-
+ 
     public function updateCategory(UpdateCategoryRequest $request, Category|CategoryTag $item): bool
     {
         $data = $request->validated();

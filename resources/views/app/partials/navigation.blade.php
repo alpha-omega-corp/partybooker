@@ -2,6 +2,9 @@
     <nav class="navbar">
         <div class="d-flex justify-content-between w-100">
             <div class="d-flex gap-4">
+                <x-logo class="app-logo-sm"/>
+
+                <!-- Nav Toggler -->
                 <button class="navbar-toggler"
                         type="button"
                         data-bs-toggle="offcanvas"
@@ -11,9 +14,18 @@
                     @svg($navIcon)
                 </button>
 
+                <!-- Admin Navigation -->
+                @include('app.admin.navigation')
+
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                <!-- Locale -->
+                @include('app.partials.language')
+
+                <!-- User -->
                 @include('app.partials.user')
             </div>
-            @include('app.partials.language')
         </div>
 
         <div class="offcanvas offcanvas-start"
@@ -26,7 +38,7 @@
             <div class="offcanvas-body">
                 <div class="navigation h-full">
                     <ul class="nav nav-flush flex-column text-center">
-                        <x-logo/>
+                        <x-logo class="app-logo-offcanvas"/>
 
                         <x-navigation.item
                             :href="url(route('guest.home.index'))"

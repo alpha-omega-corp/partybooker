@@ -23,6 +23,10 @@ class Company extends Model
         'slug',
         'logo',
         'languages',
+        'company_social_id',
+        'company_contact_id',
+        'company_address_id',
+        'company_statistic_id',
     ];
 
     protected $casts = [

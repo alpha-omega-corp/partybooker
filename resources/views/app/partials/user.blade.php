@@ -27,13 +27,13 @@
             </ul>
         </div>
     </div>
-    @include('app.admin.partials.navigation')
 @else
-    <x-modal.open :name="ModalName::APP_LOGIN" :type="ModalType::CREATE" :singleton="true">
-        <button type="button" class="btn btn-accent" @click="open">
-            Login
-        </button>
-    </x-modal.open>
+    <x-modal.open
+        :singleton="true"
+        :name="ModalName::APP_LOGIN"
+        :text="__('app.login')"
+        :background="true"
+    />
 @endif
 
 

@@ -16,15 +16,12 @@
         </div>
 
         <x-modal.open
+            :iterator="$category->id"
             :name="ModalName::APP_CATEGORY"
             :type="ModalType::UPDATE"
-            :index="$category->id"
+            :automatic="true"
             :absolute="true"
-        >
-            <button type="button" class="btn btn-info" @click="open">
-                Edit
-            </button>
-        </x-modal.open>
+        />
 
         <ul class="category-card-tags" x-show="show" x-bind:class="show ? 'border-start' : ''">
             @foreach($category->tags as $tag)
@@ -41,10 +38,11 @@
                         </li>
 
                         <x-modal.open
+                            :iterator="$tag->id"
                             :name="ModalName::APP_CATEGORY_TAG"
                             :type="ModalType::UPDATE"
-                            :index="$tag->id"
                             :absolute="true"
+                            :automatic="true"
                         />
                     </div>
                 @endif

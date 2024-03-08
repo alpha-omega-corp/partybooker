@@ -18,6 +18,9 @@
 @import "components/notification";
 @import "components/statistic";
 @import "components/repeater";
+@import "components/table";
+@import "components/logo";
+
 // Pages
 @import "pages/home";
 @import "pages/listing";
@@ -106,14 +109,6 @@ footer {
     color: #fff;
 }
 
-
-.pb-logo {
-    img {
-        margin: 10px;
-        padding: 10px;
-        width: 120px;
-    }
-}
 
 .bg-shiny {
     width: 100%;

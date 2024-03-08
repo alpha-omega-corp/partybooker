@@ -9,15 +9,14 @@ return new class extends Migration {
     {
         Schema::create('company_socials', function (Blueprint $table) {
             $table->id();
-            $table->string('www')->unique();
-            $table->string('youtube');
-            $table->string('instagram');
-            $table->string('facebook');
-            $table->string('tiktok');
-            $table->string('twitter');
-            $table->string('linkedin');
-            $table->string('vimeo');
-
+            $table->string('www')->unique()->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('tiktok')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('vimeo')->nullable();
 
             $table->timestamps();
         });
