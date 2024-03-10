@@ -1,13 +1,12 @@
 @props([
     'name',
-    'image',
     'accordion',
     'show' => false,
 ])
 
-<div class="card mb-4 shadow-lg">
-    <div class="card-body" x-data="accordion('{{$name}}')"
-         @click="toggle()">
+<div class="card">
+    <div x-data="accordion('{{$name}}')" @click="toggle()">
+
         <div class="card-text">
             <div class="accordion-item">
                 <div class="accordion-item-flex">
@@ -17,17 +16,15 @@
                             data-bs-target="{{'#collapse' . $name}}"
                             aria-expanded="false"
                             aria-controls="collapseTwo">
-                        <img src="{{ Vite::app($image) }}"
-                             class="d-block" alt="...">
-
+                        <h6
+                            class="accordion-title"
+                            id="{{'heading' . $name}}">
+                            {{$title}}
+                        </h6>
                     </button>
 
                     <div class="card-title-container">
-                        <h3
-                            class="accordion-header text-uppercase fw-bold text-pink"
-                            id="{{'heading' . $name}}">
-                            {{$title}}
-                        </h3>
+
                     </div>
 
                 </div>

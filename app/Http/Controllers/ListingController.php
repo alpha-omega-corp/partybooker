@@ -28,9 +28,12 @@ class ListingController extends Controller
             ->paginate(6)
             ->fragment('adverts');
 
+        $activeCategory = $category ? $this->categoryService->getCategory($category)->first()->id : null;
+
         return view('app.listing.index', [
+            'active' => $activeCategory,
             'categories' => $this->categories,
-            'adverts' => $adverts
+            'adverts' => $adverts,
         ]);
     }
 

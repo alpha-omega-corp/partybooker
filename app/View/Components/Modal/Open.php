@@ -25,7 +25,7 @@ class Open extends Component
         public bool       $absolute = false,
         public bool       $background = false,
         public bool       $singleton = false,
-
+        public bool       $fit = false,
     )
     {
         $this->color = match ($this->type) {

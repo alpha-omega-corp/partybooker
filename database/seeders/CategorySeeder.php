@@ -40,13 +40,21 @@ class CategorySeeder extends Seeder
         $this->newCategory(CategoryType::CATERER, [
                 'en' => [
                     'catering' => 'Catering',
-                    'food-truck' => 'Food Truck',
+                    'local-artisan' => 'Local Artisan',
+                    'vogue' => 'Vogue',
+                    'world-cuisine' => 'World Cuisine',
                     'personal-chef' => 'Personal Chef',
+                    'lunchbox' => 'Lunchbox',
+                    'delivery-service' => 'Delivery Service',
                 ],
                 'fr' => [
                     'traiteur' => 'Traiteur',
-                    'camion-nourriture' => 'Camion Nourriture',
+                    'artisan-local' => 'Artisan Local',
+                    'en-vogue' => 'En Vogue',
+                    'cuisine-du-monde' => 'Cuisine du Monde',
                     'chef-domicile' => 'Chef à domicile',
+                    'lunchbox' => 'Lunchbox',
+                    'service-livraison' => 'Service de livraison',
                 ]
             ]
         );
@@ -54,15 +62,17 @@ class CategorySeeder extends Seeder
         $this->newCategory(CategoryType::WINE, [
                 'en' => [
                     'wine-lovers' => 'Wine Lovers',
-                    'wine-tasting' => 'Wine Tasting',
+                    'tasting' => 'Tasting',
                     'activities' => 'Activities',
-                    'shop' => 'Wine Shop',
+                    'shop-bar' => 'Shop & Bar',
+                    'guides' => 'Guides',
                 ],
                 'fr' => [
                     'amoureux-vin' => 'Amoureux du vin',
-                    'degustation-vin' => 'Dégustation de vin',
+                    'degustation-vin' => 'Dégustation',
                     'activites' => 'Activités',
-                    'boutique' => 'Boutique',
+                    'boutique-bar' => 'Boutique & Bar',
+                    'guides' => 'Guides',
                 ]
             ]
         );
@@ -72,11 +82,22 @@ class CategorySeeder extends Seeder
                     'equipment' => 'Equipment & Decoration',
                     'furniture' => 'Furniture',
                     'kitchen-office' => 'Kitchen & Office',
+                    'audio-visual' => 'Audiovisual',
+                    'preparation' => 'Preparation & Coordination',
+                    'table-decoration' => 'Table Decoration',
+                    'floral-decoration' => 'Floral Arrangement',
+                    'decorative-material' => 'Decorative Material',
+
                 ],
                 'fr' => [
                     'materiel-deco' => 'Matériel & Decoration',
-                    'mobilier' => 'Mobilier',
-                    'cuisine-office' => 'Cuisine & Office',
+                    'fourniture' => 'Fourniture',
+                    'cuisine-bureau' => 'Cuisine & Bureau',
+                    'audio-visuel' => 'Audiovisuel',
+                    'preparation' => 'Préparation & Coordination',
+                    'decoration-table' => 'Décoration de table',
+                    'composition-florale' => 'Composition Florale',
+                    'materiaux-decoratifs' => 'Matériaux Décoratifs',
                 ]
             ]
         );
@@ -84,13 +105,17 @@ class CategorySeeder extends Seeder
         $this->newCategory(CategoryType::ENTERTAINMENT, [
                 'en' => [
                     'entertainment' => 'Entertainment',
-                    'musicians-dj' => 'Musicians & DJ',
-                    'artists' => 'Artists & Shows',
+                    'musicians' => 'Musicians & DJ',
+                    'shows' => 'Artists & Shows',
+                    'disguise' => 'Disguises',
+                    'activities' => 'Activities',
                 ],
                 'fr' => [
                     'animations' => 'Animations',
-                    'musicians-dj' => 'Musicians & DJ',
-                    'artistes' => 'Artists & Spéctacles',
+                    'musiciens' => 'Musiciens & DJ',
+                    'spectacles' => 'Artists & Spéctacles',
+                    'deguisements' => 'Déguisements',
+                    'activites' => 'Activités',
                 ]
             ]
         );

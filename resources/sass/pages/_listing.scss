@@ -1,4 +1,8 @@
 .app-listing {
+    .row > * {
+        padding: 0 !important;
+    }
+
     .app-listing-header {
         padding: 20px;
         border: 1px solid $gray-300;
@@ -12,29 +16,27 @@
     }
 
     .app-listing-category {
-        .list-group-item {
+        padding-left: 10px;
+
+        .category-tag {
+            padding: 10px;
+
+            &::marker {
+                color: $primary;
+                list-style-type: circle;
+            }
+
             a {
                 color: $gray;
             }
         }
-
-        .list-group-item-parent {
-            background-color: $primary;
-
-            a {
-                color: #ffff;
-            }
-        }
-
-        .list-group-item-child:hover {
-            background: $gray-300;
-        }
     }
 
     .app-listing-search {
-        position: absolute;
-        top: 40px;
-        right: 20px;
+
+        .listing-search-btn {
+            padding: 10px;
+        }
 
         .forms-input {
             padding: 20px 20px 0;
@@ -95,8 +97,17 @@
         }
     }
 
+    .listing-content-pagination {
+        padding: 20px 40px 20px 20px;
+    }
+
     .app-listing-content {
         position: relative;
+        margin-right: 20px;
+        margin-bottom: 40px;
+        height: 800px;
+        overflow: scroll;
+        padding: 20px;
 
         .advert-card {
             display: flex;
@@ -173,6 +184,10 @@
         .advert-card:hover {
             box-shadow: 0 0 2px 0 $accent;
         }
+    }
+
+    .app-listing-pagination {
+        padding: 20px;
     }
 }
 

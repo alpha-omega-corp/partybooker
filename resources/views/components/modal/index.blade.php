@@ -66,15 +66,13 @@
                         </div>
                     @endif
 
-                    <div class="mt-5">
-                        {{$slot}}
-                    </div>
+                    {{$slot}}
                 </div>
                 <div class="modal-footer gap-2">
                     <button type="button" class="btn btn-secondary" id="{{$id . '-close'}}" data-bs-dismiss="modal">
                         {{strtoupper('Close')}}
                     </button>
-                    
+
                     @if($type !== ModalType::READ)
                         <button type="submit" class="btn text-white btn-{{$color}}" id="{{$id . '-save'}}">
                             {{ucfirst($type->value)}}

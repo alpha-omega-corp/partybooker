@@ -39,8 +39,7 @@
     border-radius: 20px;
 
     .card-dashboard-header {
-        padding: 40px 40px 60px;
-        border-bottom: 1px solid $gray;
+        padding: 20px 20px 40px;
         margin-bottom: 20px;
 
         h1 {
@@ -49,5 +48,25 @@
             margin-bottom: 20px;
             text-transform: uppercase;
         }
+    }
+}
+
+.app-card-listing {
+    overflow: hidden;
+
+    .card-listing-header {
+        padding: 40px;
+        border-bottom: 1px solid $light;
+
+        h1 {
+            font-weight: bold;
+            font-size: 40px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+    }
+
+    .card-listing-sidebar {
+        border-right: 1px solid $light;
     }
 }

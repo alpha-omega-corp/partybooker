@@ -132,17 +132,4 @@
     border: 1px solid $light;
     border-radius: 10px;
     overflow: scroll;
-
-    table {
-        thead {
-            border-bottom: 1px solid $gray;
-
-            th {
-                padding-bottom: 10px;
-                text-transform: uppercase;
-                color: #000;
-                overflow: hidden;
-            }
-        }
-    }
 }

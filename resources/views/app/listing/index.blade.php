@@ -6,20 +6,21 @@
 
 @section('content')
     <div class="app-listing">
-        <x-card.dashboard :title="__('app.listing')">
+        <x-card.listing :title="__('app.listing')">
             <x-slot:header>
                 {{Breadcrumbs::render('listing', Request::segments())}}
-
-                <div class="app-listing-search">
-                    @include('app.listing.partials.search')
-                    <x-modal.open
-                        :name="ModalName::APP_LISTING_SEARCH"
-                        :type="ModalType::READ"
-                    />
-                </div>
             </x-slot:header>
 
+            <x-slot:categories>
+                @include('app.listing.partials.category')
+            </x-slot:categories>
+
+            @include('app.listing.partials.search')
+            <div class="listing-content-pagination">
+                {{$adverts->links()}}
+            </div>
+
             @include('app.listing.partials.listing')
-        </x-card.dashboard>
+        </x-card.listing>
     </div>
 @endsection

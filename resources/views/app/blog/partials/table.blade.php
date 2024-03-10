@@ -10,7 +10,7 @@
     @foreach ($posts as $post)
         <tr>
             <td>
-                <x-checkmark :value="$post->status"/>
+                {{$post->status}}
             </td>
             <td>
                 <a href="{{route('guest.blog.show', ['post' => $post])}}" target="_blank">

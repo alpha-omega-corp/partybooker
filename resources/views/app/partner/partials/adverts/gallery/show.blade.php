@@ -17,24 +17,20 @@
 
                 <div class="gallery-image-actions">
                     <x-modal.open
+                        :iterator="$image->id"
                         :name="ModalName::PARTNER_ADVERT_IMAGE"
                         :type="ModalType::DELETE"
-                        :index="$image->id"
-                    >
-                        <button type="button" class="btn btn-danger tippy" @click="open" data-tippy-content="delete">
-                            @svg($deleteIcon)
-                        </button>
-                    </x-modal.open>
+                        :automatic="true"
+                        :background="true"
+                    />
 
                     <x-modal.open
+                        :iterator="$image->id"
                         :name="ModalName::PARTNER_ADVERT_IMAGE"
                         :type="ModalType::UPDATE"
-                        :index="$image->id"
-                    >
-                        <button type="button" class="btn btn-standard tippy" @click="open" data-tippy-content="edit">
-                            @svg($editIcon)
-                        </button>
-                    </x-modal.open>
+                        :automatic="true"
+                        :background="true"
+                    />
                 </div>
 
             </div>
