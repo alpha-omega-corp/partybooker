@@ -13,6 +13,8 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdvertController;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\App\CommentController;
+use App\Http\Controllers\App\InformationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\BlogController;
@@ -65,7 +67,7 @@ Route::name('guest.')
         Route::controller(ListingController::class)
             ->name('listing.')
             ->group(function () {
-                Route::get('/annonces/{category?}/{child?}', 'index')->name('index');
+                Route::get('/annonces/{category?}/{tag?}', 'index')->name('index');
                 Route::get('/annonce/{company:slug}/{advert:slug}', 'advert')->name('advert');
             });
 
@@ -151,31 +153,48 @@ Route::middleware('admin')
             ->name('dashboard.')
             ->prefix('dashboard')
             ->group(function () {
-                Route::get('/listing', 'category')->name('category');
+                Route::get('/content', 'content')->name('content');
+                Route::get('/listing', 'categories')->name('categories');
                 Route::get('/messages', 'messages')->name('messages');
                 Route::get('/partners', 'partners')->name('partners');
-                Route::get('/blog', 'blog')->name('blog');
                 Route::post('/tops', 'updateTopServices')->name('tops');
-
             });
 
         Route::controller(CategoryController::class)
-            ->name('category.')
-            ->prefix('category')
+            ->name('categories.')
+            ->prefix('categories')
             ->group(function () {
-                Route::put('/{category}', 'updateCategory')->name('update');
+                Route::put('/{categories}', 'updateCategory')->name('update');
                 Route::put('/tag/{tag}', 'updateTag')->name('tag.update');
             });
 
 
         Route::controller(BlogController::class)
-            ->name('blog.')
-            ->prefix('blog')
+            ->name('post.')
+            ->prefix('blog/posts')
+            ->group(function () {
+                //Route::post('/create', 'store')->name('store');
+                Route::put('/{post}', 'update')->name('update');
+                Route::put('/{post}/status', 'status')->name('status');
+                Route::delete('/{post}', 'destroy')->name('destroy');
+            });
+
+        Route::controller(CommentController::class)
+            ->name('comment.')
+            ->prefix('comment')
             ->group(function () {
                 Route::post('/', 'store')->name('store');
-                Route::put('/{post}', 'update')->name('update');
-                Route::delete('/{post}', 'destroy')->name('destroy');
-                Route::put('/{post}/status', 'status')->name('status');
+                Route::put('/{comment}', 'update')->name('update');
+                Route::delete('/{comment}', 'destroy')->name('destroy');
+            });
+
+        Route::controller(InformationController::class)
+            ->name('information.')
+            ->prefix('information')
+            ->group(function () {
+                Route::post('/', 'store')->name('store');
+                Route::put('/{information}', 'update')->name('update');
+                Route::delete('/{information}', 'destroy')->name('destroy');
             });
     });
 

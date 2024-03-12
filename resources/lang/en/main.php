@@ -71,7 +71,7 @@ return [
     //Homepage
     'title_home_h1' => "ORGANISE YOUR EVENT",
     'title_home_h2' => "WELCOME TO PARTYBOOKER",
-    'category' => 'Categories',
+    'categories' => 'Categories',
     'place' => 'Place',
     'budget' => 'Budget',
 

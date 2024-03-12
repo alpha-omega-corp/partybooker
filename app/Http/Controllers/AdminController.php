@@ -6,18 +6,24 @@ use App\Enums\CategoryType;
 use App\Enums\PartnerSort;
 use App\Enums\PlanType;
 use App\Http\Requests\StorePartnerTops;
+use App\Models\AppComment;
+use App\Models\AppInformation;
+use App\Models\AppPost;
 use App\Models\Category;
 use App\Models\Notification;
 use App\Models\PartnerTop;
 use App\Models\Plan;
-use App\Models\Post;
 
 class AdminController extends Controller
 {
-    public function category()
+
+    public function content()
     {
-        return view('app.admin.category.index', [
+        return view('app.admin.content.index', [
             'categories' => Category::all(),
+            'comments' => AppComment::all(),
+            'information' => AppInformation::all(),
+            'posts' => AppPost::all()
         ]);
     }
 
@@ -37,13 +43,6 @@ class AdminController extends Controller
             'helps' => Notification::helps()->get(),
             'partnerships' => Notification::partnerships()->get(),
             'services' => Notification::services()->get()
-        ]);
-    }
-
-    public function blog()
-    {
-        return view('app.admin.blog.index', [
-            'posts' => Post::all()
         ]);
     }
 

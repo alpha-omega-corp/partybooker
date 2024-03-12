@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'form-info' => 'Request Form Information\'s',
+    'form-info' => 'Request Form AppInformation\'s',
     'form-share' => 'Veuillez s.v.p mettre contact@partybooker.ch en copie sur votre première offre au client.',
     'name' => 'Nom',
     'email' => 'Email',

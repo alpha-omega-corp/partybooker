@@ -1,5 +1,5 @@
 @if (count($top))
-    <x-carousel name="tops" :per-view="5">
+    <x-carousel name="tops" :per-view="5" background="top">
         <x-slot:title>
             <h2>Top Services</h2>
         </x-slot:title>

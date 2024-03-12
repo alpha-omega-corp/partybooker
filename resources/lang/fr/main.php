@@ -8,7 +8,7 @@ return [
     'ideas-text-3' => 'Contactez directement salles, traiteurs, DJs et plus encore.',
     'ideas-text-4' => 'Nos équipes vous guident vers des options adaptées à votre budget pour une expérience inoubliable.',
 
-    'welcome' => 'Bienvenu',
+    'welcome' => 'Bienvenu sur',
     'more_info' => 'Un peu plus d\'informations ?',
     'with' => 'avec',
     'preview' => 'Apperçu',
@@ -69,7 +69,7 @@ return [
     'title_home_h1' => "ORGANISEZ VOTRE ÉVÉNEMENT",
     'title_home_h1-1' => "EN QUELQUES",
     'title_home_h2' => "BIENVENUE SUR PARTYBOOKER",
-    'category' => 'Catégories',
+    'categories' => 'Catégories',
     'place' => 'Lieu',
     'budget' => 'Budget',
 

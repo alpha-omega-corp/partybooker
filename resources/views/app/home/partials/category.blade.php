@@ -1,31 +1,33 @@
 <h2 class="fw-bold text-uppercase text-center d-none">
-    {{ __('main.category')}}
+    {{ __('main.categories')}}
 </h2>
 <div class="row">
     @foreach ($categories as $category)
         <div class="col scene flippy">
             <div class="flippy shadow-lg">
-                <div class="flippy__face flippy__face--front bg-shiny">
-                    <div class="d-flex flex-column">
+                <div class="flippy__face flippy__face--front">
 
-                        <div class="d-flex justify-content-center">
-                            @php
-                                $image = match ($category->service) {
-                                    CategoryType::EVENT->value => 'location.svg',
-                                    CategoryType::CATERER->value => 'catering.svg',
-                                    CategoryType::WINE->value => 'wine.svg',
-                                    CategoryType::EQUIPMENT->value => 'maintenance.svg',
-                                    CategoryType::ENTERTAINMENT->value => 'confetti.svg',
-                                };
-                            @endphp
+                    <div class="d-flex flex-column justify-content-center align-items-center h-100">
+                        @php
+                            $icon = match ($category->service) {
+                                CategoryType::EVENT->value => 'heroicon-s-map-pin',
+                                CategoryType::CATERER->value => 'heroicon-s-cake',
+                                CategoryType::WINE->value => 'heroicon-s-trophy',
+                                CategoryType::EQUIPMENT->value => 'heroicon-s-shopping-cart',
+                                CategoryType::ENTERTAINMENT->value => 'heroicon-s-musical-note',
+                            };
+                        @endphp
 
-                            <img src="{{Vite::category($image)}}" alt="..."/>
+                        <div class="category-icon">
+                            @svg($icon)
                         </div>
 
-                        <h3 class="text-uppercase fw-bolder text-white">
+                        <h3 class="category-title">
                             {{$category->locale->title}}
                         </h3>
                     </div>
+
+
                 </div>
                 <div class="flippy__face flippy__face--back">
                     <div class="category-tags">

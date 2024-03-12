@@ -46,7 +46,7 @@
                     <h6 class="text-uppercase fw-bold p-2 m-0">{{$key .'#'}}</h6>
                     @foreach($option as $package)
                         <div class="package-categories border {{ 'border-' . $plan->name }}">
-                            {{$package->categories_count . ' ' . __('become_partner.category')}}
+                            {{$package->categories_count . ' ' . __('become_partner.categories')}}
                             {{$package->sub_categories_count . ' ' . __('become_partner.sub_category')}}
                         </div>
                     @endforeach

@@ -1,6 +1,6 @@
 @php
     use App\Models\Category;
-    use App\Models\Post;
+    use App\Models\AppPost;
     use Illuminate\Support\Facades\Auth;
 @endphp
 

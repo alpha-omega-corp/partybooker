@@ -6,7 +6,7 @@
 ])
 <div class="profile-info advert-info advert-pages">
     <x-partner-category-tab
-            :tabs="[
+        :tabs="[
         __('partner.nav-gallery'),
         'Description',
         'Tags',
@@ -14,7 +14,7 @@
         <x-slot name="title">
             <div>
                 <div class="serviceDetails">
-                    @include('web.partner.profile.category-images')
+                    @include('web.partner.profile.categories-images')
                 </div>
             </div>
         </x-slot>
@@ -34,9 +34,9 @@
             <div class="event-types-card">
                 <x-dashboard.card :title="__('partner.event_types')">
                     <x-dashboard.profile.event-types
-                            :user="$user"
-                            :partner-et="$partnerEt"
-                            :event-types="$eventTypes"/>
+                        :user="$user"
+                        :partner-et="$partnerEt"
+                        :event-types="$eventTypes"/>
                 </x-dashboard.card>
             </div>
 

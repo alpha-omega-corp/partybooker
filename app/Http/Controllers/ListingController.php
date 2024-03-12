@@ -21,14 +21,14 @@ class ListingController extends Controller
         $this->categories = Category::all();
     }
 
-    public function index(?string $category = null, ?string $child = null)
+    public function index(?string $category = null, ?string $tag = null)
     {
         $adverts = $this->categoryService
-            ->filterCategory($category, $child)
+            ->filterCategory($category, $tag)
             ->paginate(6)
             ->fragment('adverts');
 
-        $activeCategory = $category ? $this->categoryService->getCategory($category)->first()->id : null;
+        $activeCategory = $category ? $this->categoryService->getCategory($category)->first() : null;
 
         return view('app.listing.index', [
             'active' => $activeCategory,

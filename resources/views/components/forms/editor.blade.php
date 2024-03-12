@@ -21,11 +21,7 @@
         id="{{$id}}"
         maxlength="350"
         rows="10"
-        class="editor"
-    >
-        {{$value}}
-    </textarea>
-
+        class="editor">{{$value}}</textarea>
 </div>
 
 

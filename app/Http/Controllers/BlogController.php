@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePostRequest;
+use App\Enums\Language;
 use App\Http\Requests\UpdatePostRequest;
 use App\Interfaces\IFileService;
-use App\Models\Post;
+use App\Models\AppPost;
+use App\Models\AppPostLocale;
 use App\Services\FileService;
 use Illuminate\Http\RedirectResponse;
 
@@ -18,47 +19,87 @@ class BlogController extends Controller
         $this->fileService = $fileService;
     }
 
-    public function show(Post $post)
+    public function show(AppPost $post)
     {
         return view('app.blog.post', [
             'post' => $post
         ]);
     }
 
-    public function store(StorePostRequest $request): RedirectResponse
+    public function store(UpdatePostRequest $request): RedirectResponse
     {
         $data = $request->validated();
-        $data['image'] = $this->fileService->blogThumbnail($data['image']);
-        Post::create($data);
 
-        return redirect()->back()->with('success', 'Post created');
+        $post = AppPost::create([
+            'slug' => $data['slug'],
+            'image' => $this->fileService->blogThumbnail($data['image']),
+            'status' => false
+        ]);
+
+        AppPostLocale::create([
+            'app_post_id' => $post->id,
+            'lang' => Language::FR,
+            'alt' => $data['alt_fr'],
+            'title' => $data['title_fr'],
+            'content' => $data['content_fr'],
+        ]);
+
+        AppPostLocale::create([
+            'app_post_id' => $post->id,
+            'lang' => Language::EN,
+            'alt' => $data['alt_en'],
+            'title' => $data['title_en'],
+            'content' => $data['content_en'],
+        ]);
+
+        return back()->with('success', 'Blog post created successfully');
     }
 
-    public function destroy(Post $post): RedirectResponse
+    public function destroy(AppPost $post): RedirectResponse
     {
         $post->delete();
-
-        return redirect()->back()->with('success', 'Post deleted');
+        return redirect()->back()->with('success', 'Blog post deleted successfully');
     }
 
-    public function status(Post $post): RedirectResponse
+    public function status(AppPost $post): RedirectResponse
     {
         $post->update([
             'status' => !$post->status
         ]);
 
-        return redirect()->back()->with('success', 'Post status changed');
+        return redirect()->back()->with('success', 'AppPost status changed');
     }
 
-    public function update(UpdatePostRequest $request, Post $post): RedirectResponse
+    public function update(AppPost $post, UpdatePostRequest $request): RedirectResponse
     {
         $data = $request->validated();
-        if (!str_contains($post->image, $data['image']->getClientOriginalName())) {
-            $data['image'] = $this->fileService->blogThumbnail($data['image']);
-        }
+        dd($data);
 
-        $post->update($data);
+        /*
+         *  if ($upload != null) {
+             $thumbnail = $this->fileService->blogThumbnail($upload);
+         }
+         */
 
-        return redirect()->back()->with('success', 'Post updated');
+        $post->update([
+            'slug' => $data['slug'],
+            'image' => $thumbnail ?? $post->image,
+        ]);
+
+        $post->ofLang(Language::FR)->first()->locale->update([
+            'alt' => $data['alt_fr'],
+            'title' => $data['title_fr'],
+            'content' => $data['content_fr'],
+        ]);
+
+        $post->ofLang(Language::EN)->first()->locale->update([
+            'alt' => $data['alt_en'],
+            'title' => $data['title_en'],
+            'content' => $data['content_en'],
+        ]);
+
+        return back()->with('success', 'Blog post updated successfully');
     }
+
+
 }

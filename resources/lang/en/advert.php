@@ -4,7 +4,7 @@
 return [
     'show' => 'Show',
     'close' => 'Close',
-    'information' => 'Information',
+    'information' => 'AppInformation',
     'schedule' => 'Schedule',
     'price' => 'Prices',
     'video' => 'Videos',

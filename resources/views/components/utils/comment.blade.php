@@ -9,7 +9,9 @@
                 @svg('heroicon-o-chat-bubble-oval-left-ellipsis')
             </div>
 
-            <p>{{app()->getLocale() == 'fr' ? $comment->french : $comment->english}}</p>
+            <p>
+                {{$comment->locale->content}}
+            </p>
         </div>
 
         <div class="reference-title">

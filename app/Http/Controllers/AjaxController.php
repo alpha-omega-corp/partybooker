@@ -52,7 +52,7 @@ class AjaxController extends Controller
             ->map(fn(Advert $advert) => [
                 'id' => $advert->id,
                 'title' => $advert->locale->title,
-                'category' => ucfirst(strtolower(CategoryType::from($advert->service->serviceable_type)->name)),
+                'categories' => ucfirst(strtolower(CategoryType::from($advert->service->serviceable_type)->name)),
                 'company' => $advert->company->name,
                 'address' => $advert->company->address->address,
                 'thumbnail' => $advert->images()->thumbnail()->first()->path,

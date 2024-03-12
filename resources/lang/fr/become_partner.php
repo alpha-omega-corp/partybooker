@@ -12,7 +12,7 @@ return [
     'b3_text' => 'Nos partenaires sont des professionnels chevronnés dans leurs domaines. Etre spécialiste en marketing et promotion digitale nécessite des ressources très ciblées et couteuses qui doivent être constamment optimisées et ajustées en fonction du marché et des algorithmes. Partybooker vous apporte ces ressources sur un plateau en vous fournissant une visibilité unique à un prix très compétitif car nous mutualisons nos coûts.',
     'yearly_packages' => 'FORMULES ANNUELLES',
     'yp_text' => 'Choisissez votre formule pour augmenter votre visibilité auprès de nombreux clients potentiels',
-    'category' => 'category',
+    'categories' => 'categories',
     'categories' => 'categories',
     'sub_category' => 'subcategory',
     'sub_categories' => 'subcategories',

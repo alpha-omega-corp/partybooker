@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @import "../../node_modules/@glidejs/glide/src/assets/sass/glide.core";
 
 @import "../../node_modules/bootstrap/scss/functions";
@@ -6,7 +8,9 @@
 
 $light: $gray-300;
 
-$home: rgba(180, 198, 255, 0.5);
+$top: #eeeeee;
+$home: #ecf1ff;
+$blue: rgb(26, 67, 178);
 $primary: $teal-500;
 $info: $blue-400;
 $secondary: $gray-900;
@@ -16,24 +20,18 @@ $success: $green-400;
 $orange: $orange-500;
 $yellow: $yellow-400;
 $gray: $gray-700;
-
 $standard: $blue-500;
-$standart: $blue-500;
-
 $premium: $orange-400;
 $exclusive: $red-400;
-$exclusif: $red-400;
 $basic: $gray-600;
 $commission: $green-500;
 $pink: $pink-500;
 $warning: $yellow-400;
-
 $admin: $orange-500;
-
-
 $transparent: rgba(0, 0, 0, 0.4);
 
 $theme-colors: (
+    "top": $top,
     "home": $home,
     "primary": $primary,
     "secondary": $secondary,
@@ -50,8 +48,6 @@ $theme-colors: (
     "orange": $orange,
     "yellow": $yellow,
     "gray": $gray,
-    "standart": $standart,
-    "exclusif": $exclusif,
     "basic": $basic,
     "commission": $commission,
     "pink": $pink,

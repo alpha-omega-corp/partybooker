@@ -2,17 +2,23 @@
     position: relative;
     border: 1px solid $gray-300;
     border-radius: 20px;
-    padding: 20px;
 
-    .app-card-title {
-        color: $standard;
-        font-size: medium;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin-bottom: 30px;
+    .app-card-header {
+        border-bottom: 1px solid $light;
+        padding: 20px;
+
+        .app-card-title {
+            color: $blue;
+            font-size: medium;
+            font-weight: bold;
+            text-transform: uppercase;
+
+        }
     }
 
     .app-card-content {
+        padding: 20px;
+        border-bottom: 1px solid $light;
     }
 
     .modal-absolute {
@@ -39,7 +45,7 @@
     border-radius: 20px;
 
     .card-dashboard-header {
-        padding: 20px 20px 40px;
+        padding: 40px;
         margin-bottom: 20px;
 
         h1 {
@@ -54,19 +60,23 @@
 .app-card-listing {
     overflow: hidden;
 
-    .card-listing-header {
-        padding: 40px;
+    .listing-header {
+        padding: 20px 40px 40px;
         border-bottom: 1px solid $light;
 
         h1 {
             font-weight: bold;
-            font-size: 40px;
+            font-size: 50px;
             margin-bottom: 10px;
             text-transform: uppercase;
         }
     }
 
-    .card-listing-sidebar {
+    .listing-breadcrumbs {
+        margin-top: 20px;
+    }
+
+    .listing-sidebar {
         border-right: 1px solid $light;
     }
 }

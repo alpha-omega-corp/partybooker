@@ -26,7 +26,7 @@
             @include('app.home.partials.top')
         </section>
 
-        <!-- Information -->
+        <!-- AppInformation -->
         <section class="home-information">
             @include('app.home.partials.information')
         </section>

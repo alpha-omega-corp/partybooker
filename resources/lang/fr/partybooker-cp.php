@@ -223,5 +223,5 @@ return [
     'discount' => 'Discount, %',
     'discount_amount' => 'Discount amount, %',
     'set_discount_amount' => 'Set discount amount, %',
-    'add_sub_category' => 'Add category'
+    'add_sub_category' => 'Add categories'
 ];

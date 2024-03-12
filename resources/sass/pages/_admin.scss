@@ -1,3 +1,40 @@
+.app-admin-content {
+    padding: 40px;
+}
+
+.admin-posts {
+    .admin-post-card {
+        border: 1px solid $light;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 5px;
+        width: 100%;
+
+        .post-card-image {
+
+        }
+
+        .post-card-content {
+            display: flex;
+
+            img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .card-content-text {
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
 .admin-category {
     margin-top: 100px;
 

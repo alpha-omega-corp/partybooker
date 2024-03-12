@@ -3,45 +3,7 @@
         padding: 0 !important;
     }
 
-    .app-listing-header {
-        padding: 20px;
-        border: 1px solid $gray-300;
-        border-radius: 20px;
-        margin-bottom: 60px;
-
-        h1 {
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-    }
-
-    .app-listing-category {
-        padding-left: 10px;
-
-        .category-tag {
-            padding: 10px;
-
-            &::marker {
-                color: $primary;
-                list-style-type: circle;
-            }
-
-            a {
-                color: $gray;
-            }
-        }
-    }
-
     .app-listing-search {
-
-        .listing-search-btn {
-            padding: 10px;
-        }
-
-        .forms-input {
-            padding: 20px 20px 0;
-        }
-
         .content-search-results {
             height: 400px;
             overflow: scroll;
@@ -97,17 +59,59 @@
         }
     }
 
+    .app-listing-header {
+        padding: 20px;
+        border: 1px solid $gray-300;
+        border-radius: 20px;
+        margin-bottom: 60px;
+
+        h1 {
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    }
+
+    .app-listing-category {
+        padding-left: 10px;
+
+        .category-tag {
+            padding: 10px;
+
+            &::marker {
+                color: $primary;
+                list-style-type: circle;
+            }
+
+            a {
+                padding: 10px;
+                color: $gray;
+            }
+
+        }
+    }
+
+    .listing-description {
+        padding: 20px 20px 40px;
+        position: relative;
+    }
+
     .listing-content-pagination {
-        padding: 20px 40px 20px 20px;
+        padding: 20px 30px 20px 20px;
+        border-bottom: 1px solid $light;
+        border-top: 1px solid $light;
+
+        .content-pagination-none {
+            display: flex;
+            justify-content: flex-start;
+        }
     }
 
     .app-listing-content {
         position: relative;
-        margin-right: 20px;
-        margin-bottom: 40px;
+        margin-right: 30px;
         height: 800px;
         overflow: scroll;
-        padding: 20px;
+        padding: 20px 30px 20px 20px;
 
         .advert-card {
             display: flex;
@@ -119,22 +123,23 @@
 
             .advert-card-image {
                 img {
-                    width: 300px;
-                    height: 300px;
+                    width: 250px;
+                    height: 250px;
                     object-fit: cover;
                 }
             }
 
             .advert-card-description {
-                max-height: 70px;
+                max-height: 64px;
                 overflow: hidden;
                 position: relative;
                 text-align: justify;
                 padding-right: 30px;
+                font-size: small;
 
                 span {
                     position: absolute;
-                    bottom: 0;
+                    top: 0;
                     right: 0;
                     font-weight: bold;
                 }
@@ -164,7 +169,7 @@
                 }
 
                 .card-content {
-                    padding: 20px 20px 0;
+                    padding: 10px 20px 0;
                     color: $gray;
 
                     .card-content-address {

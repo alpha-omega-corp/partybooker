@@ -119,7 +119,7 @@ return [
     'plan33' => "3 cat. (1 sous-cat. in each)",
 
     //Info
-    'category' => "Catégorie",
+    'categories' => "Catégorie",
     'subcategory' => "Sous-catégorie",
     'choose_category' => "Vous devez choisir une catégorie et une sous-catégorie.",
 
@@ -402,7 +402,7 @@ return [
     'download_articles' => "Téléchargez un article",
     'ad_link_to_articles' => "Ajouter le lien de l'article",
 
-    'food_services_info' => "Information sur la restauration",
+    'food_services_info' => "AppInformation sur la restauration",
     'catering_service_available' => "AdvertService traiteur disponible",
     'food_on_site' => "Nourriture sur place",
     'caterer_affiliation' => "Affiliation avec un traiteur",

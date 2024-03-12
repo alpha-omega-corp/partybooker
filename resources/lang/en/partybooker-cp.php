@@ -53,7 +53,7 @@ return [
     'question_popup' => "Question:",
 
     //Listing page
-    'choose_category' => "Choose category",
+    'choose_category' => "Choose categories",
     'choose_subcategory' => "Choose subcategory",
     'filter_by_name' => "Filter by name",
     'choose_location' => "Choose location",
@@ -86,7 +86,7 @@ return [
     'sec_img' => "Your secondary image",
     'post_title' => "Enter post title",
     'title' => "Title:",
-    'post' => "Post:",
+    'post' => "AppPost:",
     'save_publish' => "Save & publish",
     'publish_it' => "Publish it!",
     'make' => "Make",
@@ -223,5 +223,5 @@ return [
     'discount' => 'Discount, %',
     'discount_amount' => 'Discount amount, %',
     'set_discount_amount' => 'Set discount amount, %',
-    'add_sub_category' => 'Add category'
+    'add_sub_category' => 'Add categories'
 ];

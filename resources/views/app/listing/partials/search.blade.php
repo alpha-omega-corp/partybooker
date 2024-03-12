@@ -1,5 +1,4 @@
 <div class="app-listing-search">
-
     <x-modal.index
         :name="ModalName::APP_LISTING_SEARCH"
         :type="ModalType::READ"
@@ -50,13 +49,4 @@
             <hr x-show="input !== ''">
         </div>
     </x-modal.index>
-
-    <div class="listing-search-btn">
-        <x-modal.open
-            :name="ModalName::APP_LISTING_SEARCH"
-            :icon="$searchIcon"
-            :singleton="true"
-            :tooltip="__('listing.search')"
-        />
-    </div>
 </div>

@@ -14,9 +14,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             SettingSeeder::class,
             CategorySeeder::class,
+            InformationSeeder::class,
+            CommentSeeder::class,
+            FaqSeeder::class,
             PlanSeeder::class,
+            PostSeeder::class,
             UserSeeder::class,
-            BlogSeeder::class,
         ]);
     }
 }

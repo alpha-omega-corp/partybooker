@@ -68,9 +68,9 @@ return [
 
     // Plan
     'close' => 'Close',
-    'cat_1' => '1 category (1 sub-category)',
-    'cat_2' => '1 category (2 sub-categories) or 2 categories (1 sub-category in each)',
-    'cat_3' => '3 categories (1 sub-category in each) or 2 categories (2 sub-categories in 1st. 1 sub-cat. in 2nd) or 3 categories (1 sub-category in each)',
+    'cat_1' => '1 categories (1 sub-categories)',
+    'cat_2' => '1 categories (2 sub-categories) or 2 categories (1 sub-categories in each)',
+    'cat_3' => '3 categories (1 sub-categories in each) or 2 categories (2 sub-categories in 1st. 1 sub-cat. in 2nd) or 3 categories (1 sub-categories in each)',
     'photos' => 'photos',
     'video' => 'Video',
     'direct_request' => 'Direct Request',
@@ -82,7 +82,7 @@ return [
     'wait_approve' => 'Waiting for approve by Party Booker',
     'change' => 'Change',
     'vip_info1' => '1 banner on the side of a listing page, above the filter',
-    'vip_info2' => '1 banner on one listing page is 95 CHF first category and +25 CHF per additional category',
+    'vip_info2' => '1 banner on one listing page is 95 CHF first categories and +25 CHF per additional categories',
     'submit' => 'Submit',
     'submit_payment' => 'Submit payment',
     'start_date' => 'Start date',
@@ -118,9 +118,9 @@ return [
     'plan33' => '3 cat. (1 sub-cat. in each)',
 
     //Info
-    'category' => 'Category',
-    'subcategory' => 'Sub-category',
-    'choose_category' => 'You have not chosen the category & subcategory.',
+    'categories' => 'Category',
+    'subcategory' => 'Sub-categories',
+    'choose_category' => 'You have not chosen the categories & subcategory.',
 
     // Images
     'you_uploaded' => 'You uploaded',
@@ -137,7 +137,7 @@ return [
     'fill_service_details' => 'Please fill your service details.',
 
     //popups
-    'choose_cat_and_subcat' => 'Please choose a category & a sub-category',
+    'choose_cat_and_subcat' => 'Please choose a categories & a sub-categories',
     'company_phone' => 'Company phone',
     'choose_logo' => 'Choose logo',
     'edit_contacts' => 'Edit contacts',
@@ -431,7 +431,7 @@ return [
     'musicians' => 'Musicians',
     'entertainers' => 'Entertainers',
     'traffic-coordination' => 'Traffic coordination service',
-    'post-party-cleaning' => 'Post party cleaning services',
+    'post-party-cleaning' => 'AppPost party cleaning services',
     'master-ceremonies' => 'Master of ceremonies',
     'security' => 'Security service',
     'singers' => 'Singers',

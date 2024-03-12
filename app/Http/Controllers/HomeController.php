@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AppComment;
+use App\Models\AppInformation;
+use App\Models\AppPost;
 use App\Models\Category;
-use App\Models\PartnerComment;
 use App\Models\PartnerTop;
-use App\Models\Post;
 use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
@@ -14,8 +15,9 @@ class HomeController extends Controller
     {
         return view('app.home.index', [
             'categories' => Category::all(),
-            'comments' => PartnerComment::all(),
-            'top' => PartnerTop::all()->map(fn($item) => $item->partner)
+            'comments' => AppComment::all(),
+            'information' => AppInformation::all(),
+            'top' => PartnerTop::all()->map(fn($item) => $item->partner),
         ]);
     }
 
@@ -27,7 +29,7 @@ class HomeController extends Controller
     public function blog(): View
     {
         return view('app.guest.blog', [
-            'posts' => Post::published()->get()
+            'posts' => AppPost::published()->get()
         ]);
     }
 

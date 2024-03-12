@@ -15,7 +15,7 @@ class StoreAdvertRequest extends FormRequest
     {
         return [
             'slug' => 'required',
-            'category' => 'required|int',
+            'categories' => 'required|int',
         ];
     }
 }

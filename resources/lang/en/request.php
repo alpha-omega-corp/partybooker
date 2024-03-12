@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'form-info' => 'Request Form Information\'s',
+    'form-info' => 'Request Form AppInformation\'s',
 ];

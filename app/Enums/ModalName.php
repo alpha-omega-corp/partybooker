@@ -8,6 +8,11 @@ enum ModalName
     case APP_LISTING_SEARCH;
     case APP_CATEGORY;
     case APP_CATEGORY_TAG;
+
+    case APP_COMMENT;
+    case APP_INFORMATION;
+    case APP_POST;
+
     case ADMIN_MESSAGE;
     case BLOG;
     case PARTNER;

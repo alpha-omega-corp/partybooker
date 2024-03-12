@@ -40,7 +40,7 @@ class AdvertController extends Controller
             return back()->with('error', 'You have reached the maximum number of adverts');
         }
 
-        $category = Category::find($data['category']);
+        $category = Category::find($data['categories']);
 
         $service = match ($category->service) {
             CategoryType::EVENT->value => ServiceEvent::create(),

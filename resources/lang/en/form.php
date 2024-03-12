@@ -33,7 +33,7 @@ return [
     'seo' => 'SEO Optimisations',
     'show' => 'See',
     'hide' => 'Hide',
-    'edit-company-modal' => 'Company Information\'s',
+    'edit-company-modal' => 'Company AppInformation\'s',
     'unknown_count' => 'You have :count advertisements, none of which are active.',
     'unknown_active_category' => 'Missing service according to your plan options. Click the button above to add a service.',
     'search_listing' => 'Search for an advertisement',

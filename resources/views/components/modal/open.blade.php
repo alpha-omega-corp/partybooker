@@ -1,21 +1,24 @@
 <div
-    class="
-    {{$absolute ? 'modal-open-absolute' : ''}}
-    {{$fit ? 'w-100' : ''}}
-    "
-    x-data="modal('{{$id}}')">
+    x-data="modal('{{$id}}')"
+    @class([
+        'modal-open-absolute' => $absolute,
+        'w-100' => $fit,
+    ])
+>
 
     <button
         type="button"
-        class="
-            {{$type || $tooltip ? 'tippy' : ''}} btn
-            {{$background ? 'btn-'.$color : 'text-'.$color}}
-            {{$fit ? 'w-100' : ''}}
-            d-flex justify-content-center align-items-center
-        "
-        @click="open"
+        @class([
+            'btn',
+            'tippy' => $type || $tooltip,
+            'btn-'.$color => $background,
+            'text-'.$color => !$background,
+            'w-100' => $fit,
+        ])
+        {{$attributes->merge(['class' => 'd-flex justify-content-center align-items-center'])}}
         {{$type ? 'data-tippy-content='. $type->name : ''}}
         data-tippy-content="{{$tooltip ? $tooltip : ($type ? $type->name : '')}}"
+        @click="open"
     >
 
         @if($icon)

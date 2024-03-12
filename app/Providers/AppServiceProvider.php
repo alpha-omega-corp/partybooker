@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
 
         Vite::macro('app', fn(string $img) => $this->asset(trim("resources/images/app/$img")));
-        Vite::macro('category', fn(string $img) => $this->asset(trim("resources/images/categories/$img")));
+        Vite::macro('categories', fn(string $img) => $this->asset(trim("resources/images/categories/$img")));
         Vite::macro('flag', fn(string $name) => $this->asset(trim("resources/images/flags/$name")));
         Vite::macro('payment', fn(string $name) => $this->asset(trim("resources/images/payments/$name")));
         Vite::macro('social', fn(string $name) => $this->asset(trim("resources/images/socials/$name.png")));

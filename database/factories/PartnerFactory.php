@@ -7,7 +7,6 @@ use App\Models\Advert;
 use App\Models\Company;
 use App\Models\CompanyLocale;
 use App\Models\Partner;
-use App\Models\PartnerComment;
 use App\Models\PartnerTop;
 use App\Models\Payment;
 use App\Models\Plan;
@@ -68,7 +67,6 @@ class PartnerFactory extends Factory
             Lottery::odds(1, 5)
                 ->winner(function () use ($partner) {
                     PartnerTop::factory()->for($partner)->create();
-                    PartnerComment::factory()->for($partner)->create();
                 })->choose();
 
         });
