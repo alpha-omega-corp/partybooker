@@ -7,6 +7,8 @@ return [
     'information' => 'information',
     'posts' => 'blog',
     'faqs' => 'faq',
+    'usp' => 'selling points',
+    'contacts' => 'contacts',
     'plans' => 'plans',
     'messages' => 'notifications',
     'message.partnership' => 'Partnership requests',

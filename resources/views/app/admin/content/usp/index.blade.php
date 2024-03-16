@@ -16,11 +16,8 @@
                         {{$item->locale->description}}
                     </x-slot:content>
 
-                    <div class="d-flex">
-                        @include('app.admin.content.usp.partials.edit', ['item' => $item])
-                        @include('app.admin.content.usp.partials.delete', ['item' => $item])
-                    </div>
-
+                    @include('app.admin.content.usp.partials.edit', ['item' => $item])
+                    @include('app.admin.content.usp.partials.delete', ['item' => $item])
                 </x-accordion.item>
             </div>
         @endif

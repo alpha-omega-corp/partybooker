@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             InformationSeeder::class,
             CommentSeeder::class,
+            ContactSeeder::class,
             UspSeeder::class,
             FaqSeeder::class,
             PlanSeeder::class,

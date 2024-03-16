@@ -16,7 +16,7 @@ class AjaxController extends Controller
     {
         $viewPartners = AppPlan::all()->map(function (AppPlan $plan) {
             return $plan
-                ->ofType(PlanType::from($plan->name))
+                ->ofType(PlanType::from($plan->code))
                 ->first()
                 ->payments
                 ->map(function (Payment $payment) {

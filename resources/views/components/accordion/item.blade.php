@@ -32,7 +32,7 @@
                         </h6>
                     </div>
 
-                    <div>
+                    <div class="d-flex align-items-center">
                         {{$slot}}
                     </div>
                 </div>

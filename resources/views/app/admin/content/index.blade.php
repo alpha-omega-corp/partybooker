@@ -24,6 +24,10 @@
                         <x-card :title="__('admin.usp')" class="admin-usp">
                             @include('app.admin.content.usp.index')
                         </x-card>
+
+                        <x-card :title="__('admin.contacts')" class="admin-contacts">
+                            @include('app.admin.content.contacts.index')
+                        </x-card>
                     </div>
                 </div>
 

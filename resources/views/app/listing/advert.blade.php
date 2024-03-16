@@ -33,28 +33,40 @@
                             <div class="d-flex justify-content-between">
                                 <div class="advert-contacts">
                                     <x-partner.advert-contact
+                                        :icon="$companyIcon"
+                                        tooltip="name"
+                                        content="{{$advert->company->name}}"
+                                        :show="true"
+                                        type="tel"
+                                    />
+
+                                    <x-partner.advert-contact
                                         :icon="$phoneIcon"
                                         tooltip="phone"
                                         content="{{$advert->company->contact->phone}}"
-                                        type="tel"/>
+                                        type="tel"
+                                    />
 
                                     <x-partner.advert-contact
                                         :icon="$emailIcon"
                                         tooltip="email"
                                         content="{{$advert->company->contact->email}}"
-                                        type="email"/>
+                                        type="email"
+                                    />
 
                                     <x-partner.advert-contact
                                         :icon="$linkIcon"
                                         tooltip="website"
                                         content="{{$advert->company->social->www}}"
-                                        type="web"/>
+                                        type="web"
+                                    />
 
                                     <x-partner.advert-contact
                                         :icon="$pinIcon"
                                         tooltip="address"
                                         content="{{$advert->company->address->address}}"
-                                        type="loc"/>
+                                        type="loc"
+                                    />
                                 </div>
 
                                 <div>

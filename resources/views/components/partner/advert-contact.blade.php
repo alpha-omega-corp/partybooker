@@ -2,12 +2,13 @@
     'content',
     'tooltip',
     'icon',
-    'type'
+    'type',
+    'show' => false
 ])
 
-<div x-data="{show: false}">
+<div x-data="{show: '{{$show}}'}" @click="show = !show">
     <div class="contact-item">
-        <div @click="show = !show">
+        <div>
             <span class="tippy" data-tippy-content="{{'Company ' . ucfirst($tooltip)}}">
                 @svg($icon)
             </span>

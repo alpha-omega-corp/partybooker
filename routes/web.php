@@ -160,7 +160,9 @@ Route::middleware('admin')
                 Route::get('/listing', 'categories')->name('categories');
                 Route::get('/messages', 'messages')->name('messages');
                 Route::get('/partners', 'partners')->name('partners');
-                Route::post('/tops', 'updateTopServices')->name('tops');
+
+                Route::put('/update-tops', 'updateTopServices')->name('tops');
+                Route::put('/update-contacts', 'updateAppContacts')->name('contacts');
             });
 
         Route::controller(CategoryController::class)

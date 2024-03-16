@@ -6,7 +6,9 @@ use App\Enums\CategoryType;
 use App\Enums\PartnerSort;
 use App\Enums\PlanType;
 use App\Http\Requests\StorePartnerTops;
+use App\Http\Requests\UpdateAppContactsRequest;
 use App\Models\AppComment;
+use App\Models\AppContact;
 use App\Models\AppFaq;
 use App\Models\AppInformation;
 use App\Models\AppPlan;
@@ -15,6 +17,7 @@ use App\Models\AppUsp;
 use App\Models\Category;
 use App\Models\Notification;
 use App\Models\PartnerTop;
+use Illuminate\Http\RedirectResponse;
 
 class AdminController extends Controller
 {
@@ -22,6 +25,7 @@ class AdminController extends Controller
     public function content()
     {
         return view('app.admin.content.index', [
+            'appContacts' => AppContact::all()->first(),
             'categories' => Category::all(),
             'comments' => AppComment::all(),
             'information' => AppInformation::all(),
@@ -73,6 +77,15 @@ class AdminController extends Controller
         }
 
         return redirect()->back()->with('success', 'Top services updated');
+    }
+
+    public function updateAppContacts(UpdateAppContactsRequest $request): RedirectResponse
+    {
+        $data = $request->validated();
+
+        AppContact::all()->first()->update($data);
+
+        return back()->with('success', 'App contacts updated');
     }
 
 }

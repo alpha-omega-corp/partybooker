@@ -1,0 +1,61 @@
+<x-modal.index
+    :name="ModalName::APP_CONTACT"
+    :type="ModalType::UPDATE"
+    :size="ModalSize::MD"
+    :absolute="true"
+    :route="route('admin.dashboard.contacts')"
+>
+    <x-slot:body>
+        <x-forms.input
+            name="address"
+            :value="$contacts->address"
+        >
+            @svg($pinIcon)
+        </x-forms.input>
+        <x-forms.input
+            name="email"
+            :value="$contacts->email"
+        >
+            @svg($emailIcon)
+        </x-forms.input>
+        <x-forms.input
+            name="phone"
+            :value="$contacts->phone"
+        >
+            @svg($phoneIcon)
+        </x-forms.input>
+        <x-forms.input
+            name="instagram"
+            :value="$contacts->instagram"
+        >
+            <x-slot:image>
+                <img src="{{Vite::social('instagram')}}" alt="instagram">
+            </x-slot:image>
+        </x-forms.input>
+        <x-forms.input
+            name="facebook"
+            :value="$contacts->facebook"
+        >
+            <x-slot:image>
+                <img src="{{Vite::social('facebook')}}" alt="facebook">
+            </x-slot:image>
+        </x-forms.input>
+        <x-forms.input
+            name="x"
+            label="Twitter"
+            :value="$contacts->x"
+        >
+            <x-slot:image>
+                <img src="{{Vite::social('twitter')}}" alt="twitter">
+            </x-slot:image>
+        </x-forms.input>
+        <x-forms.input
+            name="linkedin"
+            :value="$contacts->linkedin"
+        >
+            <x-slot:image>
+                <img src="{{Vite::social('linkedin')}}" alt="linkedin">
+            </x-slot:image>
+        </x-forms.input>
+    </x-slot:body>
+</x-modal.index>

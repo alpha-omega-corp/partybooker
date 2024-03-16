@@ -24,6 +24,7 @@
 
     .app-card-content {
         border-bottom: 1px solid $light;
+        padding-bottom: 20px;
 
         .card-content-padded {
             padding: 20px;
@@ -87,5 +88,16 @@
 
     .listing-sidebar {
         border-right: 1px solid $light;
+    }
+}
+
+.card-list {
+    li {
+        padding: 10px;
+        border-bottom: 1px solid $light;
+
+        &::marker {
+            color: $primary;
+        }
     }
 }
