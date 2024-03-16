@@ -4,6 +4,6 @@ return [
     'title' => 'Dashboard',
     'adverts' => 'Adverts',
     'views' => 'Statistics',
-    'plan' => 'Plan',
+    'plan' => 'AppPlan',
     'company' => 'Company',
 ];

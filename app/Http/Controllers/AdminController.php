@@ -7,12 +7,14 @@ use App\Enums\PartnerSort;
 use App\Enums\PlanType;
 use App\Http\Requests\StorePartnerTops;
 use App\Models\AppComment;
+use App\Models\AppFaq;
 use App\Models\AppInformation;
+use App\Models\AppPlan;
 use App\Models\AppPost;
+use App\Models\AppUsp;
 use App\Models\Category;
 use App\Models\Notification;
 use App\Models\PartnerTop;
-use App\Models\Plan;
 
 class AdminController extends Controller
 {
@@ -23,14 +25,17 @@ class AdminController extends Controller
             'categories' => Category::all(),
             'comments' => AppComment::all(),
             'information' => AppInformation::all(),
-            'posts' => AppPost::all()
+            'posts' => AppPost::all(),
+            'faqs' => AppFaq::all(),
+            'plans' => AppPlan::all(),
+            'usp' => AppUsp::all(),
         ]);
     }
 
     public function partners()
     {
         return view('app.admin.partner.index', [
-            'plans' => Plan::all()->map(fn(Plan $plan) => $plan->name),
+            'plan' => AppPlan::all()->map(fn(AppPlan $plan) => $plan->code),
             'partnerSorts' => PartnerSort::values(),
             'planFilters' => PlanType::values(),
             'categoryFilters' => CategoryType::names(),

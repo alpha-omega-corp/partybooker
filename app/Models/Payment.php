@@ -17,7 +17,7 @@ class Payment extends Model
         'type',
         'accepted_at',
         'expires_at',
-        'plan_id',
+        'app_plan_id',
     ];
 
     protected $casts = [
@@ -37,6 +37,6 @@ class Payment extends Model
 
     public function plan(): BelongsTo
     {
-        return $this->belongsTo(Plan::class);
+        return $this->belongsTo(AppPlan::class, 'app_plan_id', 'id');
     }
 }

@@ -4,6 +4,7 @@
     :type="ModalType::UPDATE"
     :size="ModalSize::MD"
     :background="false"
+    :multipart="true"
     :route="route('admin.post.update', ['post' => $item])"
 >
     @include('app.admin.content.posts.partials.form', ['item' => $item])

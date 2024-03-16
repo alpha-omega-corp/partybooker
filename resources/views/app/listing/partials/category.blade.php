@@ -11,17 +11,21 @@
                         {{ $category->locale->title }}
                     </x-slot:title>
 
+                    <div class="listing-category-tags">
+                        <x-advert.tag
+                            :category="$category"
+                            :tag="null"
+                        />
 
-                    <x-adverts.category-tag :category="$category"/>
-
-                    @foreach ($category->tags as $tag)
-                        @if($tag->locale)
-                            <x-adverts.category-tag
-                                :category="$category"
-                                :tag="$tag"
-                            />
-                        @endif
-                    @endforeach
+                        @foreach ($category->tags as $tag)
+                            @if($tag->locale)
+                                <x-advert.tag
+                                    :category="$category"
+                                    :tag="$tag"
+                                />
+                            @endif
+                        @endforeach
+                    </div>
                 </x-accordion.item>
             @endforeach
         </x-accordion>

@@ -12,7 +12,7 @@
         <a class="cp-nav-item"
            data-tippy-content="{{__('partner.my_plan')}}"
            id="plan-navigation-button"
-           href="{{route(\Illuminate\Support\Facades\Auth::user()->type === 'admin' ? 'profile-plans-admin' : 'profile-plans', $user->id_partner)}}">
+           href="{{route(\Illuminate\Support\Facades\Auth::user()->type === 'admin' ? 'profile-plan-admin' : 'profile-plan', $user->id_partner)}}">
             @svg('heroicon-o-swatch')
         </a>
     </div>

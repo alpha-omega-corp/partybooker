@@ -1,4 +1,6 @@
 .app-input {
+    width: 100%;
+
     .input-group-text {
         background-color: $accent;
 
@@ -10,4 +12,8 @@
     input:focus {
         border-color: $accent;
     }
+}
+
+.colorpick-eyedropper-input-trigger {
+    display: none;
 }

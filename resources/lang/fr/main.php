@@ -88,7 +88,7 @@ return [
     'user_terms' => "Conditions d'utilisation",
     'faq_page_title' => 'Foire aux questions',
 
-    'sitemap' => 'Plan du site',
+    'sitemap' => 'AppPlan du site',
     'pages' => 'Des pages',
     'articles' => 'Des articles',
     'partner_terms' => 'CONDITIONS GÉNÉRALES PARTENAIRES DE SERVICES',

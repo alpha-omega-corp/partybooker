@@ -15,7 +15,15 @@ class UpdatePlanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'plan' => 'required|string',
+            'name_fr' => 'required|string',
+            'name_en' => 'required|string',
+            'description_fr' => 'required|string',
+            'description_en' => 'required|string',
+            'color' => 'required',
+            'price' => 'required|integer',
+            'upload_count' => 'required|integer',
+            'advert_count' => 'required|integer',
+            'tag_count' => 'required|integer',
         ];
     }
 }

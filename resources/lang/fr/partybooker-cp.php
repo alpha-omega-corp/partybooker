@@ -15,7 +15,7 @@ return [
 
     //Settings submenu
     'profile' => "Profil administrateur",
-    'plans' => "Plans Annuels",
+    'plan' => "Plans Annuels",
     'contacts' => "Contacts",
     'user-terms' => "Conditions d'utilisation",
     'provider-terms' => "Termes et conditions du fournisseur de services",
@@ -68,7 +68,7 @@ return [
     'view_profile' => "Voir le profil",
     'status' => "Statut",
     'created_at' => "Créé à:",
-    'yearly_plan' => "Plan annuel:",
+    'yearly_plan' => "AppPlan annuel:",
     'payment_status' => "Statut de paiement",
     'not_payed' => "Impayé",
     'payed' => "Payé",

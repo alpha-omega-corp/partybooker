@@ -5,6 +5,7 @@
     :type="ModalType::CREATE"
     :size="ModalSize::MD"
     :absolute="true"
+    :multipart="true"
     :route="route('admin.post.store')"
 >
     @include('app.admin.content.posts.partials.form', ['item' => new AppPost()])

@@ -1,20 +1,9 @@
 <?php
 
 return [
-    'standard' => 'Standard',
-    'premium' => 'Premium',
-    'exclusive' => 'Exclusive',
-    'basic' => 'Basic',
-    'vip' => 'VIP',
-    'commission' => 'Commission',
-    'per_month' => '/ mois',
-    'supported_credit_cards' => 'Cartes de crédit prises en charge',
-    'payment_processing_by' => 'Traitement des paiements par',
-    'choose' => 'Choisir un plan',
+    'yearly' => ' / Année',
 
-    'subscribe_trial' => 'S\'abonner',
-    'trial_billing_details' => 'Détails de facturation',
-    'trial_billing_details_billing' => 'Si vous continuez avec nous, vous serez facturé tout les ans, à partir du :date',
-    'trial_billing_details_cancel_before' => 'Vous ne serez pas débité si vous annulez avant la fin de la période d\'éssaie',
-    'trial_billing_details_cancel' => 'Vous pouvez annuler votre abonnement à tout moment',
+    'adverts' => 'publier :count annonces',
+    'tags' => 'définir :count tags',
+    'uploads' => 'télécharger :count médias',
 ];

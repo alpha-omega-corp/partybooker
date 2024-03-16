@@ -67,7 +67,7 @@ return [
     'address_clicks' => "Clics d'adresse",
     'direct_requests' => 'Demandes directes',
 
-    // Plan
+    // AppPlan
     'close' => "Fermer",
     'cat_1' => "1 catégorie (1 sous-catégorie)",
     'cat_2' => "1 catégorie (2 sous-catégories) ou 2 catégories (1 sous-catégorie de chaque)",
@@ -106,7 +106,7 @@ return [
     'see-all' => 'Voir tout',
     'edit_main_image' => 'Modifier l\'image de couverture',
 
-    // Plan options
+    // AppPlan options
     'plan_options' => "Formule",
     'plan' => "Formule",
     'Option' => "Option",
@@ -453,7 +453,7 @@ return [
 
     'home_page' => "Statistiques",
     'profile' => 'Profil',
-    'my_plan' => 'Plan',
+    'my_plan' => 'AppPlan',
     'faq' => 'FAQ',
     'provider_terms' => 'Termes et conditions du fournisseur de services',
     'contacts' => 'Contacts',

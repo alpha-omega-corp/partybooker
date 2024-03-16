@@ -14,6 +14,7 @@ class UpdatePostRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'thumbnail' => 'file|nullable',
             'slug' => 'required|string',
             'title_fr' => 'required|string',
             'title_en' => 'required|string',

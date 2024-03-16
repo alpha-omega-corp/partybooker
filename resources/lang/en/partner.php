@@ -66,7 +66,7 @@ return [
     'address_clicks' => 'Address clicks',
     'direct_requests' => 'Direct requests',
 
-    // Plan
+    // AppPlan
     'close' => 'Close',
     'cat_1' => '1 categories (1 sub-categories)',
     'cat_2' => '1 categories (2 sub-categories) or 2 categories (1 sub-categories in each)',
@@ -105,9 +105,9 @@ return [
     'other' => 'Other',
     'see-all' => 'See all',
     'edit_main_image' => 'Edit thumbnail image',
-    // Plan options
-    'plan_options' => 'Plan',
-    'plan' => 'Plan',
+    // AppPlan options
+    'plan_options' => 'AppPlan',
+    'plan' => 'AppPlan',
     'Option' => 'Option',
     'choose_plan_option' => 'The following packages offer various services. Please select one plan',
     'plan11' => '1 cat. (1 sub-cat.)',
@@ -449,7 +449,7 @@ return [
     'image_of' => 'of',
     'home_page' => "Statistics",
     'profile' => 'Profile',
-    'my_plan' => 'Plan',
+    'my_plan' => 'AppPlan',
     'faq' => 'FAQ',
     'provider_terms' => 'AdvertService Provider Terms & Conditions',
     'contacts' => 'Contacts',

@@ -1,3 +1,4 @@
+<hr>
 <x-tab :items="[
             strtoupper(Language::FR->name),
             strtoupper(Language::EN->name)

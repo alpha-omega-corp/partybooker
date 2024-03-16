@@ -18,7 +18,7 @@ return [
     'switch' => 'Switch',
     'subscription_cancel' => 'Cancel Subscription',
     'subscription_reactivate' => 'Reactivate Subscription',
-    'subscription_switch' => 'Change Plan',
+    'subscription_switch' => 'Change AppPlan',
     'subscription_cancel_warning' => 'Are you sure you want to cancel your subscription?',
     'subscription_access_ending' => 'Your access will be revoked on :date',
     'subscription_reactivate_warning' => 'Are you sure you want to reactivate your subscription\'s billing cycle?',

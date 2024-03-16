@@ -2,18 +2,40 @@
     @yield('content')
 </x-layouts.app>
 
-
 <script>
     document.addEventListener('alpine:init', () => {
+
+        Alpine.data('file', (id, current) => ({
+            id: id,
+            activeFile: current,
+            upload: null,
+
+            element(item) {
+                return document.getElementById(`${item}-${id}`)
+            },
+            init() {
+                if (this.activeFile) {
+                    document.getElementById(`imageUpload-${id}`).style.display = 'none';
+                    document.getElementById(`imagePreview-${id}`).src = this.activeFile;
+                    document.getElementById(`imageLabel-${id}`).style.display = 'block';
+                }
+            },
+            load(files) {
+                document.getElementById(`imageLabel-${id}`).style.display = 'block';
+                document.getElementById(`imagePreview-${id}`).src = URL.createObjectURL(files[0]);
+                document.getElementById(`imageSelect-${id}`).files = files;
+            }
+        }))
+
         Alpine.data('modal', (modal) => ({
             open() {
                 document.getElementById('modalBtn' + modal).click()
             },
         }))
 
-        Alpine.data('accordion', (name) => ({
+        Alpine.data('accordion', (id) => ({
             toggle() {
-                document.getElementById(`accordion-${name}`).click()
+                document.getElementById(id).click()
             },
         }))
 

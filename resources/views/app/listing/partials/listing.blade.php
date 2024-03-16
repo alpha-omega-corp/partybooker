@@ -2,9 +2,9 @@
 
 <section class="app-listing-content">
     @foreach($adverts as $advert)
-        <x-adverts.link :advert="$advert">
+        <x-advert.link :advert="$advert">
             <div class="advert-card">
-                <x-adverts.category :advert="$advert"/>
+                <x-advert.category :advert="$advert"/>
 
                 <div class="advert-card-image">
                     <img src="{{$advert->images()->thumbnail()->first()->path}}"
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-        </x-adverts.link>
+        </x-advert.link>
     @endforeach
 </section>
 

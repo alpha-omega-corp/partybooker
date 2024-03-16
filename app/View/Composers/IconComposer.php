@@ -10,7 +10,7 @@ class IconComposer
     {
         $view->with('editIcon', 'heroicon-o-pencil-square');
         $view->with('deleteIcon', 'heroicon-o-trash');
-        $view->with('galleryIcon', 'heroicon-o-photo');
+        $view->with('photoIcon', 'heroicon-o-photo');
         $view->with('keyIcon', 'heroicon-o-key');
         $view->with('navIcon', 'heroicon-s-bars-3-bottom-left');
         $view->with('linkIcon', 'heroicon-o-globe-alt');
@@ -24,5 +24,6 @@ class IconComposer
         $view->with('eyeIcon', 'heroicon-o-eye');
         $view->with('boxIcon', 'heroicon-o-archive-box');
         $view->with('faxIcon', 'heroicon-o-printer');
+        $view->with('priceIcon', 'heroicon-o-currency-dollar');
     }
 }

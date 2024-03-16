@@ -15,7 +15,7 @@ return [
 
     //Settings submenu
     'profile' => "Admin Profile",
-    'plans' => "Yearly PLANS",
+    'plan' => "Yearly PLANS",
     'contacts' => "Contacts",
     'user-terms' => "User Terms & Conditions",
     'provider-terms' => "AdvertService Provider Terms & Conditions",
@@ -143,8 +143,8 @@ return [
     'list_0' => "1 cat. (1 subc.)",
     'list_1' => "1 cat. (2 subc.) or 2 cat. (1 subc. in each)",
     'list_2' => "1 cat. (3 subc.) or 2 cat. (2 subc. in 1st, 1 subc. in 2nd) or 3 cat. (1 subc. in each)",
-    'create_plan' => "New Yearly Plan",
-    'edit_plan' => "Edit Yearly Plan",
+    'create_plan' => "New Yearly AppPlan",
+    'edit_plan' => "Edit Yearly AppPlan",
     'pos_listing' => "Position in listing",
     'first' => "First",
     'second' => "Second",

@@ -2,10 +2,16 @@
     position: relative;
     border: 1px solid $gray-300;
     border-radius: 20px;
+    overflow: hidden;
 
     .app-card-header {
         border-bottom: 1px solid $light;
         padding: 20px;
+
+        &:hover {
+            border-bottom: 1px solid $accent;
+            cursor: pointer;
+        }
 
         .app-card-title {
             color: $blue;
@@ -17,8 +23,11 @@
     }
 
     .app-card-content {
-        padding: 20px;
         border-bottom: 1px solid $light;
+
+        .card-content-padded {
+            padding: 20px;
+        }
     }
 
     .modal-absolute {

@@ -1,6 +1,6 @@
 @foreach($categories as $category)
     @php($locale = $category->ofLang($lang)->first()->locale)
-    @php($categoryLink = route('guest.listing.index', ['categories' => $locale->slug]))
+    @php($categoryLink = route('guest.listing.index', ['category' => $locale->slug]))
 
     <div class="admin-category-card" x-data="{show: false}">
         <div class="category-card-header">

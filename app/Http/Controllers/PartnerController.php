@@ -7,6 +7,7 @@ use App\Enums\PlanType;
 use App\Http\Requests\StorePartnerRequest;
 use App\Http\Requests\UpdatePlanRequest;
 use App\Interfaces\IFileService;
+use App\Models\AppPlan;
 use App\Models\Company;
 use App\Models\CompanyAddress;
 use App\Models\CompanyContact;
@@ -14,7 +15,6 @@ use App\Models\CompanySocial;
 use App\Models\CompanyStatistic;
 use App\Models\Partner;
 use App\Models\Payment;
-use App\Models\Plan;
 use App\Models\User;
 use App\Services\FileService;
 use Illuminate\Contracts\View\View;
@@ -45,13 +45,13 @@ class PartnerController extends Controller
     public function plan(Partner $partner, UpdatePlanRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        $plan = Plan::where('name', $validated['plan'])->first();
+        $plan = AppPlan::where('name', $validated['plan'])->first();
 
         $partner->payment->update([
             'plan_id' => $plan->id
         ]);
 
-        return back()->with('success', 'Plan updated successfully');
+        return back()->with('success', 'AppPlan updated successfully');
     }
 
     public function store(StorePartnerRequest $request)
@@ -70,7 +70,7 @@ class PartnerController extends Controller
 
         $payment = Payment::create([
             'type' => PaymentType::DEFAULT,
-            'plan_id' => Plan::ofType(PlanType::from($data['plan']))->first()->id,
+            'plan_id' => AppPlan::ofType(PlanType::from($data['plan']))->first()->id,
             'accepted_at' => now(),
             'expires_at' => now()->addYear(),
         ]);

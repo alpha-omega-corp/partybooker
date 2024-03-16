@@ -2,8 +2,8 @@
     <x-forms.file
         name="thumbnail"
         label="Cover Image"
-        :id="'editBlogThumbnail'. $item->id ? $item->id : 0"
-        :file="asset($item->image)"/>
+        :id="'editBlogThumbnail'. $item ? $item->id : 0"
+        :file="$item->image"/>
     <hr>
     <div class="d-flex flex-column gap-2">
         <x-forms.input

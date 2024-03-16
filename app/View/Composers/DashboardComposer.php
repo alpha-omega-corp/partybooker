@@ -3,8 +3,8 @@
 namespace App\View\Composers;
 
 use App\Enums\CategoryType;
+use App\Models\AppPlan;
 use App\Models\Category;
-use App\Models\Plan;
 use Illuminate\View\View;
 
 class DashboardComposer
@@ -12,7 +12,7 @@ class DashboardComposer
 
     public function compose(View $view): void
     {
-        $view->with('plans', Plan::all());
+        $view->with('plan', AppPlan::all());
         $view->with('categories', $this->getCategories());
     }
 

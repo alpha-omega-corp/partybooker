@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use App\Enums\CategoryType;
 use App\Enums\PlanType;
 use App\Models\Advert;
+use App\Models\AppPlan;
 use App\Models\Partner;
 use App\Models\Payment;
-use App\Models\Plan;
 use Illuminate\Http\JsonResponse;
 
 class AjaxController extends Controller
 {
     public function partners(): JsonResponse
     {
-        $viewPartners = Plan::all()->map(function (Plan $plan) {
+        $viewPartners = AppPlan::all()->map(function (AppPlan $plan) {
             return $plan
                 ->ofType(PlanType::from($plan->name))
                 ->first()

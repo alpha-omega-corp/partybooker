@@ -10,8 +10,8 @@ use App\Models\AdvertLocale;
 use App\Models\AdvertService;
 use App\Models\AdvertStatistic;
 use App\Models\AdvertTag;
+use App\Models\AppPlan;
 use App\Models\Category;
-use App\Models\Plan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 
@@ -33,7 +33,7 @@ class AdvertFactory extends Factory
     {
         return $this->afterCreating(function (Advert $advert) {
             AdvertImage::factory()
-                ->count(Plan::ofType(PlanType::STANDARD)->first()->uploads)
+                ->count(AppPlan::ofType(PlanType::STANDARD)->first()->uploads)
                 ->sequence(fn(Sequence $sequence) => [
                     'is_thumbnail' => $sequence->index == 0
                 ])

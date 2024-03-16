@@ -1,4 +1,4 @@
-@props(['plans'])
+@props(['plan'])
 <div class="fw-bold text-uppercase">
     @foreach(collect($plans)->reverse() as $key => $plan)
         @php

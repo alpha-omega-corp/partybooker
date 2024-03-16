@@ -1,4 +1,4 @@
-@php use App\Models\Plan; @endphp
+@php use App\Models\AppPlan; @endphp
 <x-card.index :title="__('dashboard.plan')">
     <x-plans.badge :plan="$payment->plan"/>
 
@@ -13,7 +13,7 @@
             <x-forms.radio
                 :colorize="true"
                 :value="$payment->plan->name"
-                :items="$plans->map(fn(Plan $plan) => $plan->name)"
+                :items="$plans->map(fn(AppPlan $plan) => $plan->name)"
                 :inline="true"
                 id="updatePlan"
                 name="plan"

@@ -9,7 +9,7 @@
                     <div class="company-adverts-item">
                         <h6>{{ $companyAdvert->locale->title}}</h6>
                         <div>
-                            <x-adverts.category :advert="$companyAdvert"/>
+                            <x-advert.category :advert="$companyAdvert"/>
                         </div>
                     </div>
                 </a>

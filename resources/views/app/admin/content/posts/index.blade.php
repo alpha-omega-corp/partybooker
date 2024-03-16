@@ -1,8 +1,10 @@
+@include('app.admin.content.posts.partials.create')
+
 @foreach($posts as $post)
     <div class="d-flex gap-2">
         <div class="admin-post-card">
             <div class="post-card-content">
-                <img src="{{$post->image}}" alt="{{$post->locale->alt}}"/>
+                <img src="{{asset($post->image)}}" alt="{{$post->locale->alt}}"/>
 
                 <div class="card-content-text">
                     <h6>

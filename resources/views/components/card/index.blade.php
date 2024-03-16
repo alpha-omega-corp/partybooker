@@ -5,7 +5,7 @@
 ])
 
 <div class="app-card" x-data="{show: false}">
-    <div class="app-card-header">
+    <div class="app-card-header" @click="show = !show">
         <h2 class="app-card-title">
             {{$title}}
         </h2>
@@ -22,6 +22,13 @@
 
     <div x-show="show" {{$attributes->merge(['class' => 'app-card-content'])}}>
         {{$slot}}
+
+        @if(isset($body))
+            <div class="card-content-padded">
+                {{$body}}
+            </div>
+        @endif
+
     </div>
 
     <div class="card-show" @click="show = !show">

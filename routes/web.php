@@ -14,10 +14,13 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdvertController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\App\CommentController;
+use App\Http\Controllers\App\FaqController;
 use App\Http\Controllers\App\InformationController;
+use App\Http\Controllers\App\PlanController;
+use App\Http\Controllers\App\PostController;
+use App\Http\Controllers\App\UspController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillingController;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\GalleryController;
@@ -72,7 +75,7 @@ Route::name('guest.')
             });
 
         // BlogController
-        Route::controller(BlogController::class)
+        Route::controller(PostController::class)
             ->name('blog.')
             ->prefix('blog')
             ->group(function () {
@@ -169,11 +172,11 @@ Route::middleware('admin')
             });
 
 
-        Route::controller(BlogController::class)
+        Route::controller(PostController::class)
             ->name('post.')
             ->prefix('blog/posts')
             ->group(function () {
-                //Route::post('/create', 'store')->name('store');
+                Route::post('/create', 'store')->name('store');
                 Route::put('/{post}', 'update')->name('update');
                 Route::put('/{post}/status', 'status')->name('status');
                 Route::delete('/{post}', 'destroy')->name('destroy');
@@ -195,6 +198,31 @@ Route::middleware('admin')
                 Route::post('/', 'store')->name('store');
                 Route::put('/{information}', 'update')->name('update');
                 Route::delete('/{information}', 'destroy')->name('destroy');
+            });
+
+        Route::controller(FaqController::class)
+            ->name('faq.')
+            ->prefix('faq')
+            ->group(function () {
+                Route::post('/', 'store')->name('store');
+                Route::put('/{faq}', 'update')->name('update');
+                Route::delete('/{faq}', 'destroy')->name('destroy');
+            });
+
+        Route::controller(PlanController::class)
+            ->name('plan.')
+            ->prefix('plan')
+            ->group(function () {
+                Route::put('/{plan}', 'update')->name('update');
+            });
+
+        Route::controller(UspController::class)
+            ->name('usp.')
+            ->prefix('usp')
+            ->group(function () {
+                Route::post('/', 'store')->name('store');
+                Route::put('/{usp}', 'update')->name('update');
+                Route::delete('/{usp}', 'destroy')->name('destroy');
             });
     });
 
