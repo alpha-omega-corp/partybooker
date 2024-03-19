@@ -14,15 +14,30 @@
             id="editAppAboutImage{{$item->id}}"
             :file="asset($item->image)"
         />
-        <hr>
-        <x-forms.input
-            name="name"
-            label="Name"
-            :value="$item->name"
-        >
-            @svg($titleIcon)
-        </x-forms.input>
-
     </x-slot:body>
+
+    <x-tab.locale>
+        <x-slot:french>
+            @php($locale = $item->ofLang(Language::FR)->first()->locale)
+            <x-forms.input
+                name="title"
+                label="Title"
+                :value="$locale->title"
+            >
+                @svg($titleIcon)
+            </x-forms.input>
+        </x-slot:french>
+
+        <x-slot:english>
+            @php($locale = $item->ofLang(Language::EN)->first()->locale)
+            <x-forms.input
+                name="title"
+                label="Title"
+                :value="$locale->title"
+            >
+                @svg($titleIcon)
+            </x-forms.input>
+        </x-slot:english>
+    </x-tab.locale>
 
 </x-modal.index>

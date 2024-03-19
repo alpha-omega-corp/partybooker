@@ -1,3 +1,43 @@
+.app-card-rainbow {
+    position: relative;
+    z-index: 0;
+    height: 100px;
+    overflow: hidden;
+    color: $accent;
+    border-radius: 20px;
+
+
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: -20;
+        left: -50%;
+        top: -50%;
+        width: 200%;
+        height: 400%;
+        background-color: #399953;
+        background-repeat: no-repeat;
+        background-size: 50% 50%, 50% 50%;
+        background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+        background-image: linear-gradient($primary, $primary),
+        linear-gradient($accent, $accent),
+        linear-gradient($premium, $premium);
+        animation: rotate 4s linear infinite;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 6px;
+        top: 6px;
+        width: calc(100% - 12px);
+        height: calc(100% - 12px);
+        background: #fff;
+        border-radius: 5px;
+    }
+}
+
 .app-card {
     position: relative;
     border: 1px solid $gray-300;
@@ -47,6 +87,27 @@
 .card-show:hover {
     text-decoration: underline;
     color: $accent;
+}
+
+.app-card-panel {
+    padding: 0;
+    margin-top: 150px;
+    position: relative;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 100%;
+
+    .card-panel-header {
+        padding: 40px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid $light;
+
+        h1 {
+            font-weight: bold;
+            font-size: 30px;
+            text-transform: uppercase;
+        }
+    }
 }
 
 .app-card-dashboard {

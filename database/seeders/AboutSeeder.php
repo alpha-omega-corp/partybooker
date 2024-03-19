@@ -9,6 +9,14 @@ class AboutSeeder extends Seeder
 {
     public function run(): void
     {
-        AppAbout::factory()->count(10)->create();
+        AppAbout::factory()
+            ->about()
+            ->count(10)
+            ->create();
+
+        AppAbout::factory()
+            ->benefits()
+            ->count(3)
+            ->create();
     }
 }

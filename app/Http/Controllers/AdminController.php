@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\AppAboutType;
 use App\Enums\AppContentType;
 use App\Enums\CategoryType;
 use App\Enums\PartnerSort;
@@ -36,7 +37,8 @@ class AdminController extends Controller
             'faqs' => AppFaq::all(),
             'plans' => AppPlan::all(),
             'usp' => AppUsp::all(),
-            'abouts' => AppAbout::all(),
+            'abouts' => AppAbout::ofType(AppAboutType::ABOUT)->get(),
+            'benefits' => AppAbout::ofType(AppAboutType::BENEFITS)->get(),
             'content' => [
                 AppContentType::USER_TERMS->name => AppContent::ofType(AppContentType::USER_TERMS)->first(),
                 AppContentType::SERVICE_TERMS->name => AppContent::ofType(AppContentType::SERVICE_TERMS)->first(),

@@ -1,10 +1,10 @@
 @props([
     'title' => null,
     'badge' => null,
-    'expandable' => false,
+    'open' => false,
 ])
 
-<div class="app-card" x-data="{show: false}">
+<div class="app-card" x-data="{show: '{{$open}}'}">
     <div class="app-card-header" @click="show = !show">
         <h2 class="app-card-title">
             {{$title}}

@@ -63,6 +63,19 @@
                             :text="__('nav.partnership')"
                             icon="heroicon-o-identification"
                         />
+
+                        <x-navigation.item
+                            :href="url(route('guest.home.blog'))"
+                            :text="__('nav.blog')"
+                            icon="heroicon-o-book-open"
+                        />
+
+                        <x-navigation.item
+                            :href="url(route('guest.home.faq'))"
+                            :text="__('nav.faq')"
+                            icon="heroicon-o-question-mark-circle"
+                        />
+
                     </ul>
                 </div>
             </div>

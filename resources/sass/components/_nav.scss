@@ -3,17 +3,18 @@
 }
 
 .app-navigation {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
     padding: 15px;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1;
     border-bottom: 1px solid $light;
+    height: 80px;
 
     .app-navigation-admin {
         display: flex;
-        align-items: center;
+        align-content: center;
         gap: 20px;
         z-index: 2;
     }
@@ -27,28 +28,34 @@
 
     .offcanvas-body {
         padding: 0;
+        width: 250px;
 
         .nav {
             margin-top: 0;
 
-            li {
-                display: flex;
-                border-bottom: 1px solid $accent;
-                font-weight: bold;
 
-                a {
-                    padding: 20px;
-                    color: $gray;
-                }
+            .nav-item {
+                padding: 10px;
+                margin: 5px 20px;
+                border: 1px solid $light;
+                color: $gray;
+                border-radius: 5px;
 
-                a:hover {
-                    color: $accent;
-                }
-
-                svg {
-                    margin-right: 10px;
+                .nav-item-content {
+                    display: flex;
+                    align-items: center;
+                    padding-left: 10px;
                 }
             }
+
+            a:hover {
+                color: $accent;
+            }
+
+            svg {
+                margin-right: 10px;
+            }
         }
+
     }
 }

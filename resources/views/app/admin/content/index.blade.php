@@ -8,7 +8,6 @@
     <x-card.dashboard :title="__('admin.content')">
 
         <div class="app-admin-content">
-
             <div class="row">
 
                 <div class="col-6">
@@ -26,7 +25,27 @@
                         </x-card>
 
                         <x-card :title="__('admin.usp')" class="admin-usp">
-                            @include('app.admin.content.usp.index')
+                            <x-tab.index
+                                :items="[
+                                    'USP',
+                                    'Benefits'
+                                ]"
+                            >
+                                <x-tab.item :padding="false">
+                                    <x-slot:information>
+                                        Unique Selling Points
+                                    </x-slot:information>
+                                    @include('app.admin.content.usp.index')
+                                </x-tab.item>
+
+                                <x-tab.item :padding="false">
+                                    <x-slot:information>
+                                        Partnership Benefits
+                                    </x-slot:information>
+                                    @include('app.admin.content.benefits.index')
+                                </x-tab.item>
+
+                            </x-tab.index>
                         </x-card>
 
                         <x-card :title="__('admin.contacts')" class="admin-contacts">

@@ -1,5 +1,5 @@
 @props([
-    'plan'
+    'plans'
 ])
 
 @php

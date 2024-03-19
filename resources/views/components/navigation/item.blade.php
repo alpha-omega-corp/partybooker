@@ -4,9 +4,14 @@
     'text'
 ])
 
-<li>
-    <a href="{{ $href }}">
-        @svg($icon, 'nav-icon')
-        <span>{{ $text }}</span>
-    </a>
-</li>
+<a href="{{ $href }}" class="nav-item">
+    <div class="nav-item-content">
+        <div>
+            @svg($icon)
+        </div>
+        <div>
+            <span>{{ $text }}</span>
+        </div>
+
+    </div>
+</a>

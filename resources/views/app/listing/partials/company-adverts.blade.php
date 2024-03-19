@@ -17,3 +17,4 @@
         @endforeach
     </x-card>
 </div>
+

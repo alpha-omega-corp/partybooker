@@ -1,42 +1,174 @@
 .about {
-
-    .about-features {
+    .about-content-card {
+        padding: 40px 40px 60px;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 40px;
-        gap: 20px;
+        gap: 60px;
+        border-bottom: 1px solid $light;
 
-        .about-feature-card {
-            border: 1px solid $light;
-            border-radius: 20px;
-            display: flex;
-            overflow: hidden;
-            width: 400px;
+        h6 {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
 
-            .feature-card-logo {
-                background-color: rgba(0, 0, 0, 0.6);
+        p {
+            text-align: justify;
 
-                img {
-                    width: 50px;
-                    height: 50px;
-                }
+        }
+    }
+
+    .about-features-card {
+
+        .about-features-header {
+            padding: 40px 0 60px 40px;
+
+            .about-features-title {
+                text-transform: uppercase;
+                font-weight: bold;
+                color: $blue;
+
             }
+        }
 
-            .feature-card-content {
-                ul {
-                    padding-left: 10px;
 
-                    li::marker {
-                        color: $primary;
+        .about-features-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 40px;
+            gap: 20px;
+
+            .about-feature-card {
+                border: 1px solid $light;
+                border-radius: 20px;
+                display: flex;
+                overflow: hidden;
+                width: 400px;
+
+                .feature-card-logo {
+                    border-right: 1px solid $gray;
+
+                    img {
+                        width: 50px;
+                        height: 50px;
                     }
                 }
 
-                padding: 20px;
+                .feature-card-content {
+                    display: flex;
+                    flex-direction: column;
+
+                    .feature-card-header {
+                        height: 50px;
+                        display: flex;
+                        align-items: center;
+                        color: #fff;
+                        padding-left: 20px;
+                        background-color: rgba(0, 0, 0, 0.8);
+
+                        .feature-card-title {
+                            margin: 0;
+                        }
+                    }
+
+                    ul {
+                        padding: 0 0 0 10px;
+
+                        li {
+                            padding: 20px;
+                            border-bottom: 1px solid $light;
+
+                            &::marker {
+                                color: $primary;
+                            }
+
+                            p {
+                                margin: 0;
+                                font-size: small;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 
+}
+
+.partnership {
+
+    .plans-content-card {
+        display: flex;
+    }
+
+    .benefits-content-card {
+        margin-top: 40px;
+        padding: 40px;
+
+        .benefits-header {
+            width: 100%;
+            padding: 40px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-content: end;
+
+            .benefits-title {
+                font-weight: bold;
+                text-transform: uppercase;
+                margin-bottom: 40px;
+                text-align: center;
+                color: $gray;
+            }
+
+            .benefits-image {
+                width: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+                border: 1px solid $light;
+            }
+        }
+
+        .benefits-content {
+            width: 100%;
+        }
+
+        .benefit-card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid $light;
+            margin: 20px;
+            border-radius: 10px;
+
+            .benefit-card-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid $light;
+                padding: 20px;
+
+                .benefit-card-title {
+                    margin: 0;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+
+                img {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+
+            .benefit-card-content {
+                padding: 20px;
+
+                p {
+                    margin: 0;
+                }
+            }
+
+
+        }
+    }
 }
 
 .home {

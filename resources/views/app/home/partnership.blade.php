@@ -10,6 +10,58 @@
 @endsection
 
 @section('content')
+
+    <x-card.panel :title="__('home.partnership')">
+        <section class="partnership">
+
+            <div class="benefits-content-card">
+                <div class="d-flex justify-content-between">
+
+                    <div class="benefits-header">
+                        <h2 class="benefits-title">
+                            {{__('home.benefits')}}
+                        </h2>
+
+                        <img src="{{ Vite::app('partnership.jpg') }}" class="benefits-image"
+                             alt="Partybooker Partnership"/>
+                    </div>
+
+                    <div class="benefits-content">
+                        @foreach($benefits as $benefit)
+                            <div class="benefit-card">
+                                <div class="benefit-card-header">
+
+                                    <h6 class="benefit-card-title">
+                                        {{$benefit->locale->title}}
+                                    </h6>
+                                    <div class="p-1">
+                                        <img src="{{ $benefit->image }}" alt="{{ $benefit->name }}" class="shadow-lg">
+                                    </div>
+                                </div>
+
+                                <div class="benefit-card-content">
+                                    @foreach($benefit->items as $item)
+                                        <p>{{ $item->locale->content }}</p>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="plans-content-card">
+                @foreach($plans as $plan)
+                    <x-plan.card :plan="$plan"></x-plan.card>
+                @endforeach
+            </div>
+
+        </section>
+    </x-card.panel>
+
+
     <div class="become-partner">
         <section class="benefits mb-5">
             <div class="container">
@@ -17,33 +69,15 @@
                     <div class="col-md-6">
                         <div class="d-flex flex-column text-center p-4 h-100">
 
-                            <img src="{{ Vite::app('partnership.jpg') }}" class="become-partner-img"
-                                 alt="Devenir partenaire pour rendre votre présence web plus impactante. Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande."
-                                 width="100"/>
 
-                            @if(Auth::user())
-                                @if(Auth::user()->type !== 'partner')
-                                    <a class="rainbow p-4 text-uppercase fw-bold" id="becomePartnerButton"
-                                       href="{{url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/' . __('urls.partner-register'))}}">
-                                        {{__('become_partner.register')}}
-                                    </a>
-                                @else
-                                    <a class="rainbow p-4 text-uppercase fw-bold"
-                                       href="{{url(LocaleMiddleware::getLocale().'/partner-cp/'.Auth::user()->id_partner)}}/plans">
-                                        {{__('partner.plan_options')}}
-                                    </a>
-                                @endif
-                            @else
-                                <a class="rainbow p-4 text-uppercase fw-bold fs-3" id="becomePartnerButton"
-                                   data-bs-toggle="modal"
-                                   href="#loginModalToggle" role="button">
-                                    {{__('become_partner.register')}}
-                                </a>
-                            @endif
+                            <a class="rainbow">
+                                Test
+                            </a>
+
                         </div>
                     </div>
 
-                    <div class="col-md-6 ps-4">
+                    <div class="col-md-6">
                         <h1 class="display-4 fw-bold text-uppercase mb-3">{{ __('become_partner.benefits_title') }}</h1>
                         <ul>
                             <li>
@@ -84,7 +118,8 @@
                 </div>
                 <br>
                 <div class="mt-4">
-                    <x-partner.packages :plans="$plans"/>
+
+
                 </div>
 
 
@@ -121,7 +156,7 @@
                                 </h1>
 
                             </div>
-                            <form method="POST" action="{{route('question.phone')}}">
+                            <form method="POST">
                                 @csrf
                                 <div class="modal-body">
                                     <p class="any-questions shadow-lg">

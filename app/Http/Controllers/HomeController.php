@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\AppAboutType;
 use App\Enums\AppContentType;
 use App\Models\AppAbout;
 use App\Models\AppComment;
 use App\Models\AppContent;
 use App\Models\AppInformation;
+use App\Models\AppPlan;
 use App\Models\AppPost;
 use App\Models\Category;
 use App\Models\PartnerTop;
@@ -33,15 +35,23 @@ class HomeController extends Controller
         ]);
     }
 
-    public function blog(): View
+    public function partnership(): View
     {
-        return view('app.guest.blog', [
-            'posts' => AppPost::published()->get()
+        return view('app.home.partnership', [
+            'plans' => AppPlan::all(),
+            'benefits' => AppAbout::ofType(AppAboutType::BENEFITS)->get(),
         ]);
     }
 
-    public function partnership(): View
+    public function faq(): View
     {
-        return view('app.guest.partnership');
+        return view('app.home.faq');
+    }
+
+    public function blog(): View
+    {
+        return view('app.home.blog', [
+            'posts' => AppPost::published()->get()
+        ]);
     }
 }

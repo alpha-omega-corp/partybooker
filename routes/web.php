@@ -66,6 +66,8 @@ Route::name('guest.')
                 Route::get('/a-propos', 'about')->name('about');
                 Route::get('/partenariat', 'partnership')->name('partnership');
                 Route::get('/blog', 'blog')->name('blog');
+                Route::get('/faq', 'faq')->name('faq');
+
             });
 
         // ListingController
@@ -79,7 +81,7 @@ Route::name('guest.')
         // BlogController
         Route::controller(PostController::class)
             ->name('blog.')
-            ->prefix('blog')
+            ->prefix('posts')
             ->group(function () {
                 Route::get('/', 'index')->name('index');
                 Route::get('/{post:slug}', 'show')->name('show');

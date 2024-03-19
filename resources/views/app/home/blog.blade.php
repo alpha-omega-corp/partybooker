@@ -1,9 +1,5 @@
 @extends('main')
 
-@section('page')
-    page="blog"
-@endsection
-
 @section('title')
     <title>BLOG | {{ __('partybooker-cp.www') }}</title>
 @endsection

@@ -1,4 +1,5 @@
 <?php
+
 return [
     'advert' => 'Annonce',
 ];

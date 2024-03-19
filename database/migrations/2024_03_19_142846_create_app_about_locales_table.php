@@ -1,6 +1,6 @@
 <?php
 
-use App\Enums\AppAboutType;
+use App\Models\AppAbout;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -8,17 +8,17 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('app_abouts', function (Blueprint $table) {
+        Schema::create('app_about_locales', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('image');
-            $table->enum('type', AppAboutType::names());
+            $table->enum('lang', Language::values());
+            $table->foreignIdFor(AppAbout::class);
+            $table->string('title');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('app_abouts');
+        Schema::dropIfExists('app_about_locales');
     }
 };

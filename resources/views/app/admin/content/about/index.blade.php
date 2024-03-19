@@ -28,6 +28,6 @@
             @include('app.admin.content.about.partials.create', ['item' => $about])
         </x-slot:information>
 
-        @include('app.admin.content.about.partials.features')
+        @include('app.admin.content.about.partials.abouts', ['items' => $abouts])
     </x-tab.item>
 </x-tab.index>

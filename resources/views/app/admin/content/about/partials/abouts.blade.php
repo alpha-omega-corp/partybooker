@@ -1,5 +1,5 @@
 <x-accordion name="adminAbouts">
-    @foreach($abouts as $about)
+    @foreach($items as $about)
         <div class="d-flex justify-content-between align-items-center">
             <x-accordion.item
                 accordion="adminAbouts"
@@ -8,7 +8,7 @@
                 <x-slot:title>
                     <div class="d-flex align-items-center gap-4">
                         <img class="admin-about-image" src="{{asset($about->image)}}" alt="about"/>
-                        {{$about->name}}
+                        {{$about->locale->title}}
                     </div>
                 </x-slot:title>
 
@@ -16,8 +16,8 @@
                     <ul class="admin-about-content">
                         @foreach($about->items as $item)
                             <li>
-                                <div class="d-flex gap-4 justify-content-between">
-                                    <p>{{$item->locale->content}}</p>
+                                <div class="d-flex align-items-center gap-4 justify-content-between">
+                                    <p class="m-0">{{$item->locale->content}}</p>
 
                                     <div class="d-flex">
                                         @include('app.admin.content.about.partials.items.edit', ['item' => $item])

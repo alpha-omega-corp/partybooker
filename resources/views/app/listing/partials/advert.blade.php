@@ -1,4 +1,7 @@
-<x-card :title="__('listing.advert')">
+<x-card
+    :title="__('listing.advert')"
+    :open="true"
+>
     <x-tab.index
         :isIcon="true"
         :isVertical="true"
