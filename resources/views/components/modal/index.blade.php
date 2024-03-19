@@ -51,9 +51,20 @@
         <div class="modal-dialog {{$size}} modal-dialog-centered {{$transparent ? 'modal-transparent' : ''}}">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title fs-5 fw-bold text-uppercase" id="{{$id . 'ModalLabel'}}">
-                        {{$title ? $title : ucfirst($type->name)}}
-                    </h3>
+                    <div class="d-flex flex-column gap-2">
+                        <h6 class="modal-title fs-5 fw-bold text-uppercase" id="{{$id . 'ModalLabel'}}">
+                            {{$title}}
+                        </h6>
+
+                        <div class="d-flex gap-2">
+                            <span
+                                class="badge text-bg-{{$color}} text-white modal-name">{{$name->name}}</span>
+                            @svg('heroicon-o-arrow-right')
+                            <span
+                                class="badge text-bg-{{$color}} text-white modal-name">{{ucfirst($type->name)}}</span>
+                        </div>
+                    </div>
+
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -75,7 +86,7 @@
 
                     @if($type !== ModalType::READ)
                         <button type="submit" class="btn text-white btn-{{$color}}" id="{{$id . '-save'}}">
-                            {{ucfirst($type->value)}}
+                            {{strtoupper('Submit')}}
                         </button>
                     @endif
 

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\AppContentType;
+use App\Models\AppAbout;
 use App\Models\AppComment;
+use App\Models\AppContent;
 use App\Models\AppInformation;
 use App\Models\AppPost;
 use App\Models\Category;
@@ -23,7 +26,11 @@ class HomeController extends Controller
 
     public function about(): View
     {
-        return view('app.guest.about');
+        return view('app.home.about', [
+            'description' => AppContent::ofType(AppContentType::APP_ABOUT)->first()->locale,
+            'concept' => AppContent::ofType(AppContentType::APP_CONCEPT)->first()->locale,
+            'abouts' => AppAbout::all()
+        ]);
     }
 
     public function blog(): View

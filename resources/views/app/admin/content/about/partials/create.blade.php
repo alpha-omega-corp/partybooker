@@ -1,0 +1,23 @@
+<x-modal.index
+    :name="ModalName::APP_ABOUT"
+    :type="ModalType::CREATE"
+    :size="ModalSize::MD"
+    :absolute="true"
+    :multipart="true"
+    :route="route('admin.about.store')"
+>
+    <x-slot:body>
+        <x-forms.input
+            name="name"
+            label="Name"
+        >
+            @svg($titleIcon)
+        </x-forms.input>
+
+        <x-forms.file
+            name="image"
+            label="Image"
+            id="createAboutImage"
+        />
+    </x-slot:body>
+</x-modal.index>

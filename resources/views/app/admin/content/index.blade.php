@@ -14,11 +14,15 @@
                 <div class="col-6">
                     <div class="d-flex flex-column gap-4">
                         <x-card :title="__('admin.categories')">
-                            @include('app.admin.content.categories.index')
+                            <x-slot:body>
+                                @include('app.admin.content.categories.index')
+                            </x-slot:body>
                         </x-card>
 
                         <x-card :title="__('admin.posts')" class="admin-posts">
-                            @include('app.admin.content.posts.index')
+                            <x-slot:body>
+                                @include('app.admin.content.posts.index')
+                            </x-slot:body>
                         </x-card>
 
                         <x-card :title="__('admin.usp')" class="admin-usp">
@@ -27,6 +31,10 @@
 
                         <x-card :title="__('admin.contacts')" class="admin-contacts">
                             @include('app.admin.content.contacts.index')
+                        </x-card>
+
+                        <x-card :title="__('admin.about')" class="admin-about">
+                            @include('app.admin.content.about.index')
                         </x-card>
                     </div>
                 </div>
@@ -54,6 +62,10 @@
 
                         <x-card :title="__('admin.faqs')" class="admin-faqs">
                             @include('app.admin.content.faqs.index')
+                        </x-card>
+
+                        <x-card :title="__('admin.terms')" class="admin-terms">
+                            @include('app.admin.content.terms.index')
                         </x-card>
                     </div>
 

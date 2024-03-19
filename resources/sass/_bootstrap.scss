@@ -8,6 +8,7 @@
 
 $light: $gray-300;
 
+$footer: #ffe8ed;
 $top: #eeeeee;
 $home: #ecf1ff;
 $blue: rgb(26, 67, 178);
@@ -31,6 +32,7 @@ $admin: $orange-500;
 $transparent: rgba(0, 0, 0, 0.4);
 
 $theme-colors: (
+    "footer": $footer,
     "top": $top,
     "home": $home,
     "primary": $primary,

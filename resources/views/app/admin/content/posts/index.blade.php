@@ -16,13 +16,11 @@
                         {{$post->locale->title}}
                     </p>
                 </div>
-            </div>
-        </div>
 
-        <div>
-            <div class="d-flex gap-2">
-                @include('app.admin.content.posts.partials.edit', ['item' => $post])
-                @include('app.admin.content.posts.partials.delete', ['item' => $post])
+                <div class="post-card-actions">
+                    @include('app.admin.content.posts.partials.edit', ['item' => $post])
+                    @include('app.admin.content.posts.partials.delete', ['item' => $post])
+                </div>
             </div>
         </div>
     </div>

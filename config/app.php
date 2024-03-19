@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\AppContentType;
 use App\Enums\CategoryType;
 use App\Enums\DateType;
 use App\Enums\EnvironmentType;
@@ -197,7 +198,8 @@ return [
         'ModalSize' => ModalSize::class,
         'ModalName' => ModalName::class,
         'NotificationType' => NotificationType::class,
-        'Breadcrumbs' => Breadcrumbs::class
+        'Breadcrumbs' => Breadcrumbs::class,
+        'AppContentType' => AppContentType::class,
     ])->toArray(),
 
     'tinymce' => env('TINYMCE_API_KEY'),

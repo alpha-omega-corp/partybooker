@@ -1,18 +1,17 @@
 @foreach($categories as $category)
-    @php($locale = $category->ofLang($lang)->first()->locale)
-    @php($categoryLink = route('guest.listing.index', ['category' => $locale->slug]))
+    @php($categoryLink = route('guest.listing.index', ['category' => $category->locale->slug]))
 
     <div class="admin-category-card" x-data="{show: false}">
         <div class="category-card-header">
             <h5 class="category-card-title">
-                {{$locale->title}}
+                {{$category->locale->title}}
             </h5>
 
             <a class="category-card-link" href="{{$categoryLink}}">
                 {{ $categoryLink }}
             </a>
 
-            <p>{{$locale->description}}</p>
+            <p>{{$category->locale->description}}</p>
         </div>
 
         <x-modal.open
@@ -27,14 +26,13 @@
             @foreach($category->tags as $tag)
                 @if($tag->locale)
                     <div class="card-tag-content">
-                        @php($tagLocale = $tag->ofLang($lang)->first()->locale)
                         @php($tagLink = route('guest.listing.index', [
                             'categories' => $category->locale->slug,
                             'child' => $tag->locale->slug,
                         ]))
 
                         <li>
-                            {{$tagLocale->title}}
+                            {{$tag->locale->title}}
                         </li>
 
                         <x-modal.open

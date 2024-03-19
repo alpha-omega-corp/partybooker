@@ -13,7 +13,9 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdvertController;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\App\AboutController;
 use App\Http\Controllers\App\CommentController;
+use App\Http\Controllers\App\ContentController;
 use App\Http\Controllers\App\FaqController;
 use App\Http\Controllers\App\InformationController;
 use App\Http\Controllers\App\PlanController;
@@ -225,6 +227,26 @@ Route::middleware('admin')
                 Route::post('/', 'store')->name('store');
                 Route::put('/{usp}', 'update')->name('update');
                 Route::delete('/{usp}', 'destroy')->name('destroy');
+            });
+
+        Route::controller(ContentController::class)
+            ->name('content.')
+            ->prefix('content')
+            ->group(function () {
+                Route::put('/{content}', 'update')->name('update');
+            });
+
+        Route::controller(AboutController::class)
+            ->name('about.')
+            ->prefix('about')
+            ->group(function () {
+                Route::post('/', 'store')->name('store');
+                Route::put('/{about}', 'update')->name('update');
+                Route::delete('/{about}', 'destroy')->name('destroy');
+
+                Route::post('/{about}/item', 'createItem')->name('item.store');
+                Route::put('/item/{item}', 'editItem')->name('item.update');
+                Route::delete('/item/{item}', 'destroyItem')->name('item.destroy');
             });
     });
 

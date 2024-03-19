@@ -25,30 +25,6 @@
                         padding: 30px;
                     }
 
-                    img {
-                        animation: tilt-n-move-shaking 2s infinite;
-                        width: 40px;
-                        height: 40px;
-                        margin-left: 70px;
-                    }
-
-                    img:hover {
-                        transform: scale(1.2);
-                        transition: 0.2s ease-in-out;
-                        padding: 10px;
-                    }
-
-                    h3 {
-                        width: 100%;
-                        height: 100%;
-                        font-size: large;
-                        align-items: center;
-                    }
-
-                    h3:hover {
-                        color: $primary;
-                    }
-
                     .accordion-collapse {
                         border: 0;
                     }
@@ -76,6 +52,7 @@
                         text-align: justify;
                         border: 0;
                         cursor: default;
+                        position: relative;
                     }
 
                     .accordion-button {
@@ -90,7 +67,7 @@
                             cursor: pointer;
                             color: #000;
                             font-size: small;
-                            margin: 0 20px 0 20px;
+                            margin: 0;
                         }
                     }
 

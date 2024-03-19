@@ -9,7 +9,6 @@
     ])"
 >
     <x-slot:body>
-
         <x-forms.input
             name="price"
             label="Price"
@@ -49,8 +48,6 @@
             />
         </div>
     </x-slot:body>
-
-    <hr>
 
     <x-tab.locale>
         <x-slot:french>

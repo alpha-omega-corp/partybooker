@@ -12,7 +12,7 @@ class DashboardComposer
 
     public function compose(View $view): void
     {
-        $view->with('plan', AppPlan::all());
+        $view->with('plans', AppPlan::all());
         $view->with('categories', $this->getCategories());
     }
 

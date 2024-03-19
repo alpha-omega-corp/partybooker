@@ -28,7 +28,7 @@ class AjaxController extends Controller
                         'id' => $partner->id,
                         'name' => $partner->user->name,
                         'email' => $partner->user->email,
-                        'plan' => $partner->payment->plan->name,
+                        'plan' => $partner->payment->plan->code,
                         'paymentStart' => $partner->payment->accepted_at->toDateString(),
                         'paymentEnd' => $partner->payment->expires_at->toDateString(),
                         'paymentType' => $partner->payment->type,

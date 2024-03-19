@@ -1,6 +1,6 @@
 <x-carousel
     name="information"
-    :per-view="4"
+    :per-view="3"
     :container="true">
     <x-slot:title>
         <h2 class="information-title">

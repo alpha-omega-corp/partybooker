@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\AppContentType;
 use App\Enums\CategoryType;
 use App\Enums\PartnerSort;
 use App\Enums\PlanType;
 use App\Http\Requests\StorePartnerTops;
 use App\Http\Requests\UpdateAppContactsRequest;
+use App\Models\AppAbout;
 use App\Models\AppComment;
 use App\Models\AppContact;
+use App\Models\AppContent;
 use App\Models\AppFaq;
 use App\Models\AppInformation;
 use App\Models\AppPlan;
@@ -33,6 +36,13 @@ class AdminController extends Controller
             'faqs' => AppFaq::all(),
             'plans' => AppPlan::all(),
             'usp' => AppUsp::all(),
+            'abouts' => AppAbout::all(),
+            'content' => [
+                AppContentType::USER_TERMS->name => AppContent::ofType(AppContentType::USER_TERMS)->first(),
+                AppContentType::SERVICE_TERMS->name => AppContent::ofType(AppContentType::SERVICE_TERMS)->first(),
+                AppContentType::APP_ABOUT->name => AppContent::ofType(AppContentType::APP_ABOUT)->first(),
+                AppContentType::APP_CONCEPT->name => AppContent::ofType(AppContentType::APP_CONCEPT)->first(),
+            ],
         ]);
     }
 

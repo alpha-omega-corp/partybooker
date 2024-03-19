@@ -11,13 +11,15 @@
     >
 
         <div x-data="list" class="listing-content-search">
-            <x-forms.input
-                name="input"
-                model="input"
-                label="Search Partybooker"
-                type="text">
-                @svg($searchIcon)
-            </x-forms.input>
+            <x-slot:body>
+                <x-forms.input
+                    name="input"
+                    model="input"
+                    label="Search Partybooker"
+                    type="text">
+                    @svg($searchIcon)
+                </x-forms.input>
+            </x-slot:body>
 
             <hr>
 

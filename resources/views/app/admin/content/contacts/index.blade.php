@@ -1,24 +1,13 @@
 @include('app.admin.content.contacts.partials.edit', ['contacts' => $appContacts])
 
 <div class="contacts-card">
-    <ul class="card-list">
-        <li>
-            {{$appContacts->address}}
-        </li>
-        <li>
-            {{$appContacts->email}}
-        </li>
-        <li>
-            {{$appContacts->phone}}
-        </li>
-        <li>
-            {{$appContacts->facebook}}
-        </li>
-        <li>
-            {{$appContacts->instagram}}
-        </li>
-        <li>
-            {{$appContacts->x}}
-        </li>
-    </ul>
+    <div class="card-list">
+        <x-admin.contact title="Address" :value="$appContacts->address"/>
+        <x-admin.contact title="Email" :value="$appContacts->email"/>
+        <x-admin.contact title="Phone" :value="$appContacts->phone"/>
+        <x-admin.contact title="Facebook" :value="$appContacts->facebook"/>
+        <x-admin.contact title="Instagram" :value="$appContacts->instagram"/>
+        <x-admin.contact title="Linkedin" :value="$appContacts->linkedin"/>
+        <x-admin.contact title="Twitter" :value="$appContacts->x"/>
+    </div>
 </div>

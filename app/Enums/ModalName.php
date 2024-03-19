@@ -16,6 +16,9 @@ enum ModalName
     case APP_PLAN;
     case APP_USP;
     case APP_CONTACT;
+    case APP_CONTENT;
+    case APP_ABOUT;
+    case APP_ABOUT_ITEM;
 
     case ADMIN_MESSAGE;
     case BLOG;
