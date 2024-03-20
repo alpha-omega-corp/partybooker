@@ -42,7 +42,7 @@
 
                         <x-navigation.item
                             :href="url(route('guest.home.index'))"
-                            :text="__('nav.guest')"
+                            :text="__('nav.home')"
                             icon="heroicon-o-home"
                         />
 

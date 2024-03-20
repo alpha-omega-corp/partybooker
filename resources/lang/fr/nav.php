@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'guest' => 'Accueil',
-    'listing' => 'Annonces',
-    'about' => 'A propos',
-    'partnership' => 'Partenariat',
-    'blog' => 'Blog',
-    'faq' => 'FAQ',
+    'home' => 'accueil',
+    'listing' => 'annonces',
+    'about' => 'à propos',
+    'partnership' => 'partenariat',
+    'blog' => 'blog',
+    'faq' => 'faq',
 ];

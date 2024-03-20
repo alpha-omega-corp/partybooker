@@ -80,7 +80,8 @@
                     {{$slot}}
                 </div>
                 <div class="modal-footer gap-2">
-                    <button type="button" class="btn btn-secondary" id="{{$id . '-close'}}" data-bs-dismiss="modal">
+                    <button type="button" class="btn btn-outline-secondary" id="{{$id . '-close'}}"
+                            data-bs-dismiss="modal">
                         {{strtoupper('Close')}}
                     </button>
 

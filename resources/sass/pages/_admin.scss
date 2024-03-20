@@ -31,10 +31,36 @@
         overflow: hidden;
         margin-bottom: 20px;
         width: 100%;
+        display: flex;
 
-        .post-card-image {
-
+        .admin-post-image {
+            img {
+                width: 150px;
+                height: 150px;
+            }
         }
+
+        .admin-post {
+            width: 100%;
+
+            .admin-post-header {
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid $light;
+
+
+                .admin-post-title {
+                    font-weight: bold;
+                    padding: 20px;
+                    margin: 0;
+                }
+            }
+
+            .admin-post-content {
+                padding: 10px;
+            }
+        }
+
 
         .post-card-content {
             display: flex;

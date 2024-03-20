@@ -28,14 +28,19 @@ class Index extends Component
         public ?string   $title = null,
         public ?string   $text = null,
         public ?string   $tooltip = null,
+        public ?string   $customColor = null,
     )
     {
-        $this->color = match ($this->type) {
-            ModalType::CREATE => 'primary',
-            ModalType::DELETE => 'danger',
-            ModalType::UPDATE => 'info',
-            ModalType::READ => 'standard',
-        };
+        if (!$customColor) {
+            $this->color = match ($this->type) {
+                ModalType::CREATE => 'primary',
+                ModalType::DELETE => 'danger',
+                ModalType::UPDATE => 'info',
+                ModalType::READ => 'standard',
+            };
+        } else {
+            $this->color = $customColor;
+        }
 
         $this->id = ModalHelper::getId($name, $type, $singleton, $iterator);
     }

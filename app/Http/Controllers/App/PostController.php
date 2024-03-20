@@ -23,7 +23,7 @@ class PostController extends Controller
 
     public function show(AppPost $post)
     {
-        return view('app.guest.blog', [
+        return view('app.home.blog', [
             'post' => $post
         ]);
     }

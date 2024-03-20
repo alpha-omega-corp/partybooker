@@ -6,6 +6,11 @@
 @section('content')
 
     <x-card.panel :title="__('home.about')">
+
+        <x-slot:breadcrumbs>
+            {{Breadcrumbs::render('about')}}
+        </x-slot:breadcrumbs>
+
         <section class="about">
 
             <div class="about-content-card">

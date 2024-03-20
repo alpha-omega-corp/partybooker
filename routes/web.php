@@ -44,7 +44,6 @@ Route::controller(AuthController::class)
         Route::get('/logout', 'logout')->name('logout');
     });
 
-
 Route::name('guest.')
     ->group(function () {
 
@@ -67,7 +66,7 @@ Route::name('guest.')
                 Route::get('/partenariat', 'partnership')->name('partnership');
                 Route::get('/blog', 'blog')->name('blog');
                 Route::get('/faq', 'faq')->name('faq');
-
+                Route::post('help', 'help')->name('help');
             });
 
         // ListingController
