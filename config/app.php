@@ -8,6 +8,7 @@ use App\Enums\ModalName;
 use App\Enums\ModalSize;
 use App\Enums\ModalType;
 use App\Enums\NotificationType;
+use Buzz\LaravelGoogleCaptcha\CaptchaFacade;
 use Buzz\LaravelGoogleCaptcha\CaptchaServiceProvider;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Support\Facades\Facade;
@@ -200,6 +201,7 @@ return [
         'NotificationType' => NotificationType::class,
         'Breadcrumbs' => Breadcrumbs::class,
         'AppContentType' => AppContentType::class,
+        'Captcha' => CaptchaFacade::class
     ])->toArray(),
 
     'tinymce' => env('TINYMCE_API_KEY'),

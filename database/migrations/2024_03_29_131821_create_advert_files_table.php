@@ -1,22 +1,24 @@
 <?php
 
+use App\Models\AdvertService;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
+
     public function up(): void
     {
-        Schema::create('listing_schedules', function (Blueprint $table) {
+        Schema::create('advert_files', function (Blueprint $table) {
             $table->id();
-            $table->json('timetable_specs');
-            $table->json('holiday_specs')->nullable();
-            $table->json('extension_specs')->nullable();
+            $table->foreignIdFor(AdvertService::class);
+            $table->string('path');
+            $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('listing_schedules');
+        Schema::dropIfExists('advert_files');
     }
 };

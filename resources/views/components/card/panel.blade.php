@@ -8,7 +8,9 @@
         </h1>
 
         @if(isset($breadcrumbs))
-            {{$breadcrumbs}}
+            <div class="card-panel-breadcrumbs">
+                {{$breadcrumbs}}
+            </div>
         @else
 
         @endif

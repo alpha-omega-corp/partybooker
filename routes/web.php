@@ -18,6 +18,7 @@ use App\Http\Controllers\App\CommentController;
 use App\Http\Controllers\App\ContentController;
 use App\Http\Controllers\App\FaqController;
 use App\Http\Controllers\App\InformationController;
+use App\Http\Controllers\App\NotificationController;
 use App\Http\Controllers\App\PlanController;
 use App\Http\Controllers\App\PostController;
 use App\Http\Controllers\App\UspController;
@@ -65,8 +66,12 @@ Route::name('guest.')
                 Route::get('/a-propos', 'about')->name('about');
                 Route::get('/partenariat', 'partnership')->name('partnership');
                 Route::get('/blog', 'blog')->name('blog');
+                Route::get('/blog/{post}', 'showPost')->name('post');
                 Route::get('/faq', 'faq')->name('faq');
-                Route::post('help', 'help')->name('help');
+
+
+                Route::post('/help', 'requestHelp')->name('help');
+                Route::post('/join', 'requestPartnership')->name('join');
             });
 
         // ListingController
@@ -75,15 +80,6 @@ Route::name('guest.')
             ->group(function () {
                 Route::get('/annonces/{category?}/{tag?}', 'index')->name('index');
                 Route::get('/annonce/{company:slug}/{advert:slug}', 'advert')->name('advert');
-            });
-
-        // BlogController
-        Route::controller(PostController::class)
-            ->name('blog.')
-            ->prefix('posts')
-            ->group(function () {
-                Route::get('/', 'index')->name('index');
-                Route::get('/{post:slug}', 'show')->name('show');
             });
 
         // CompanyController
@@ -160,13 +156,20 @@ Route::middleware('admin')
             ->prefix('dashboard')
             ->group(function () {
                 Route::get('/content', 'content')->name('content');
-                Route::get('/listing', 'categories')->name('categories');
                 Route::get('/messages', 'messages')->name('messages');
                 Route::get('/partners', 'partners')->name('partners');
 
                 Route::put('/update-tops', 'updateTopServices')->name('tops');
                 Route::put('/update-contacts', 'updateAppContacts')->name('contacts');
             });
+
+        Route::controller(NotificationController::class)
+            ->name('notification.')
+            ->prefix('notification')
+            ->group(function () {
+                Route::put('/status/{notification}', 'status')->name('status');
+            });
+
 
         Route::controller(CategoryController::class)
             ->name('categories.')

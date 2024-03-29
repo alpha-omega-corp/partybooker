@@ -18,15 +18,15 @@
         __('advert.video')
     ]"
     >
-        <x-tab.item>
+        <x-tab.item :padding="false">
             @include('app.listing.partials.service-detail', ['detail' => $advert->service->detail])
         </x-tab.item>
 
-        <x-tab.item>
+        <x-tab.item :padding="false">
             @include('app.listing.partials.service-schedule', ['schedule' => $advert->service->schedule])
         </x-tab.item>
 
-        <x-tab.item>
+        <x-tab.item :padding="false">
             @include('app.listing.partials.service-price', ['price' => $advert->service->price])
         </x-tab.item>
     </x-tab.index>

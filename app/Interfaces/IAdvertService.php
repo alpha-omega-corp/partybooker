@@ -2,9 +2,12 @@
 
 namespace App\Interfaces;
 
+use App\Enums\CategoryType;
+
 interface IAdvertService
 {
-    public function canPublishMatrix(string $partnerUid);
+    public function loadCaterer(array &$data): void;
 
-    public function canPublish(string $partnerUid);
+    public function submit(array $data, CategoryType $type): bool;
+
 }

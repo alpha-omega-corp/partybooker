@@ -23,6 +23,8 @@ class Index extends Component
         public bool      $multipart = false,
         public bool      $absolute = false,
         public bool      $hidden = false,
+        public bool      $validation = false,
+        public bool      $action = true,
         public ?string   $route = null,
         public ?string   $icon = null,
         public ?string   $title = null,

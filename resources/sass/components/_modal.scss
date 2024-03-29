@@ -4,6 +4,28 @@
     .modal-body-padded {
         padding: 20px;
     }
+
+    .modal-captcha {
+        display: flex;
+        justify-content: flex-end;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+    }
+}
+
+.modal-header {
+    padding: 20px;
+    background-color: $accent;
+    color: #fff;
+    border-bottom: 1px solid $gray;
+
+}
+
+.modal-action {
+    padding: 20px;
+    border-bottom: 1px solid $gray;
+    display: flex;
+    justify-content: flex-end
 }
 
 .modal-transparent {

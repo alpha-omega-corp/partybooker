@@ -23,7 +23,7 @@
 </head>
 
 <body class="antialiased">
-<div class="min-h-screen flex flex-col justify-center px-20 py-12">
+<div class="min-h-screen flex flex-col justify-center px-20 py-12 pb-20">
     {{ $slot }}
 </div>
 </body>

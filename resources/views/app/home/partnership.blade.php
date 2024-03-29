@@ -50,13 +50,18 @@
                 <div class="d-flex gap-5">
                     <div class="app-card-rainbow">
                         <div class="partnership-register">
-                            <img
-                                src="{{ Vite::app('partnership.jpg') }}"
-                                class="register-image"
-                                alt="Partybooker Partnership"
-                            />
-                            <a href="#" class="register-btn">
-                                {{__('home.become_partner')}}
+
+                            <div class="register-image">
+                                <img
+                                    src="{{ Vite::app('partnership.jpg') }}"
+                                    class="register-image"
+                                    alt="Partybooker Partnership"
+                                />
+                            </div>
+
+                            <a href="#" class="register-btn" x-data="{modal: 'modalBtnGUEST_PARTNERSHIP'}"
+                               @click="document.getElementById(modal).click()">
+                                {{__('form.join_title')}}
                             </a>
                         </div>
                     </div>
@@ -69,32 +74,9 @@
                         <div class="partnership-help-content">
                             <p>{{__('home.help')}}</p>
 
-                            <x-modal.index
-                                :iterator="$item->id"
-                                :name="ModalName::APP_HELP"
-                                :type="ModalType::CREATE"
-                                :size="ModalSize::MD"
-                                icon="heroicon-o-question-mark-circle"
-                                :tooltip="__('home.help_title')"
-                                custom-color="secondary"
-                                :route="route('guest.home.help', [
-                                    'plan' => $item
-                                ])"
-                            >
-
-                                <x-slot:body>
-                                    <x-forms.input
-                                        name="phone"
-                                        :label="__('home.phone')"
-                                    >
-                                        @svg($phoneIcon)
-                                    </x-forms.input>
-                                </x-slot:body>
-                            </x-modal.index>
+                            @include('app.home.partials.partnership.help')
                         </div>
                     </div>
-
-
                 </div>
             </div>
 
@@ -103,7 +85,9 @@
             <x-card.title :title="__('home.plans')"/>
             <div class="plans-content-card">
                 @foreach($plans as $plan)
-                    <x-plan.card :plan="$plan"></x-plan.card>
+                    <div class="w-100">
+                        <x-plan.card :plan="$plan"></x-plan.card>
+                    </div>
                 @endforeach
             </div>
 
@@ -126,19 +110,11 @@
                     </div>
                 @endforeach
             </ul>
-
-            <ul class="usp-list">
-
-            </ul>
         </section>
     </x-card.panel>
 
+    @include('app.home.partials.partnership.join')
 
-    <script type="module">
-        function contact() {
-            document.getElementById('contactButton').click();
-        }
-    </script>
 @endsection
 
 

@@ -12,4 +12,7 @@ interface IFileService
 
     public function advertImage(UploadedFile $file): string;
 
+    public function advertMenu(UploadedFile $file): string;
+
+
 }

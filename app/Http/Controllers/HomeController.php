@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use App\Enums\AppAboutType;
 use App\Enums\AppContentType;
 use App\Http\Requests\StoreHelpRequest;
+use App\Http\Requests\StorePartnershipRequest;
 use App\Models\AppAbout;
 use App\Models\AppComment;
 use App\Models\AppContent;
+use App\Models\AppFaq;
 use App\Models\AppInformation;
 use App\Models\AppPlan;
 use App\Models\AppPost;
 use App\Models\AppUsp;
 use App\Models\Category;
+use App\Models\Notification;
 use App\Models\PartnerTop;
+use App\Models\RequestHelp;
+use App\Models\RequestPartner;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -49,7 +54,9 @@ class HomeController extends Controller
 
     public function faq(): View
     {
-        return view('app.home.faq');
+        return view('app.home.faq', [
+            'faqs' => AppFaq::all(),
+        ]);
     }
 
     public function blog(): View
@@ -59,8 +66,41 @@ class HomeController extends Controller
         ]);
     }
 
+    public function showPost(AppPost $post)
+    {
+        return view('app.home.post', [
+            'post' => $post
+        ]);
+    }
+
     public function requestHelp(StoreHelpRequest $request): RedirectResponse
     {
-        return back()->with('success', __('home.help_success'));
+        $data = $request->validated();
+
+        $help = RequestHelp::create();
+
+        Notification::create([
+            'notifiable_type' => RequestHelp::class,
+            'notifiable_id' => $help->id,
+            'phone' => $data['phone'],
+            'message' => $data['message'],
+        ]);
+
+        return back()->with('success', __('request.help.success'));
+    }
+
+    public function requestPartnership(StorePartnershipRequest $request): RedirectResponse
+    {
+        $data = $request->validated();
+
+        $partnership = RequestPartner::create($data);
+
+        Notification::create([
+            'notifiable_type' => RequestPartner::class,
+            'notifiable_id' => $partnership->id,
+            'phone' => $data['phone'],
+            'message' => $data['message'],
+        ]);
+
     }
 }

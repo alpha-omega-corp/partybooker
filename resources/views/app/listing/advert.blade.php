@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-12">
                         <div class="advert-header">
-                            <div class="d-flex align-items-center gap-4">
+                            <div class="d-flex gap-4">
                                 @if($company->logo)
                                     <div class="advert-logo">
                                         <img src="{{ asset($company->logo) }}" alt="{{$company->slogan}}"
@@ -21,7 +21,7 @@
                                     </div>
                                 @endif
                                 <div>
-                                    <h1>
+                                    <h1 class="advert-title">
                                         {{ $advert->company->name }}
                                     </h1>
                                     <p>{{$advert->company->locale->first()->slogan}}</p>
@@ -76,7 +76,7 @@
                                         ])
 
                                         @if(Auth::user() && Auth::user()->isAdmin())
-                                            <a class="btn btn-admin"
+                                            <a class="btn btn-admin text-white"
                                                href="{{route('partner.dashboard', ['partner' => $advert->company->partner])}}">
                                                 {{__('partner.dashboard')}}
                                             </a>
@@ -108,7 +108,7 @@
                         </div>
 
                         @include('app.listing.partials.company-adverts')
-                        @include('app.listing.partials.advert')
+                        @include('app.listing.partials.service')
                     </div>
 
                     <div class="col-lg-4 col-md-12">

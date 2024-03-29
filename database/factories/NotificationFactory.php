@@ -21,6 +21,7 @@ class NotificationFactory extends Factory
         return [
             'phone' => $this->faker->phoneNumber,
             'message' => $this->faker->text,
+            'is_resolved' => false,
         ];
     }
 

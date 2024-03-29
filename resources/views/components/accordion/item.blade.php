@@ -6,7 +6,7 @@
 
 @php($id = 'accordion-' . $accordion . $name)
 @php($target = 'collapse' . $id)
-<div class="card">
+<div {{$attributes->merge(['class' => 'card'])}}>
     <div x-data="accordion('{{$id}}')">
 
         <div class="card-text">

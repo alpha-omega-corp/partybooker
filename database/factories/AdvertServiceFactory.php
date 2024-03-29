@@ -2,10 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\AdvertRate;
+use App\Models\AdvertSchedule;
 use App\Models\AdvertService;
-use App\Models\ListingDetail;
-use App\Models\ListingPrice;
-use App\Models\ListingSchedule;
 use App\Models\ServiceCaterer;
 use App\Models\ServiceEntertainment;
 use App\Models\ServiceEquipment;
@@ -23,9 +22,8 @@ class AdvertServiceFactory extends Factory
     public function definition(): array
     {
         return [
-            'listing_schedule_id' => ListingSchedule::factory(),
-            'listing_detail_id' => ListingDetail::factory(),
-            'listing_price_id' => ListingPrice::factory(),
+            'advert_schedule_id' => AdvertSchedule::factory(),
+            'advert_rate_id' => AdvertRate::factory(),
         ];
     }
 

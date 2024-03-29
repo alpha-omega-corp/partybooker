@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             FaqSeeder::class,
             PlanSeeder::class,
             PostSeeder::class,
+            FormSeeder::class,
             UserSeeder::class,
         ]);
     }

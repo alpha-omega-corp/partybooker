@@ -25,7 +25,7 @@
         "laravel/socialite": "^5.9",
         "laravel/telescope": "^4.17",
         "laravel/tinker": "^2.8",
-        "livewire/livewire": "*",
+        "livewire/livewire": "^3.4.9",
         "nesbot/carbon": "^2.19",
         "spatie/geocoder": "^3.15",
         "symfony/http-client": "^6.3",

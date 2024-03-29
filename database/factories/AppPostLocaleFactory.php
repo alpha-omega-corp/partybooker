@@ -17,6 +17,7 @@ class AppPostLocaleFactory extends Factory
         return [
             'alt' => $this->faker->word,
             'title' => $this->faker->sentence,
+            'preview' => $this->faker->sentence(12),
             'content' => $this->faker->paragraph,
         ];
     }

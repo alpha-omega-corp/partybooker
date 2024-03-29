@@ -53,9 +53,16 @@
                 <div class="modal-header">
                     <div class="d-flex flex-column gap-2">
                         <h6 class="modal-title fs-5 fw-bold text-uppercase" id="{{$id . 'ModalLabel'}}">
-                            {{$title}}
+                            {{$title ? $title : ucfirst($type->name) . ' ' . $name->name}}
                         </h6>
+                    </div>
 
+                    <button type="button" class="btn-close btn-close-white fw-bold" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+
+                <div class="modal-action">
+                    @if($action)
                         <div class="d-flex gap-2">
                             <span
                                 class="badge text-bg-{{$color}} text-white modal-name">{{$name->name}}</span>
@@ -63,10 +70,9 @@
                             <span
                                 class="badge text-bg-{{$color}} text-white modal-name">{{ucfirst($type->name)}}</span>
                         </div>
-                    </div>
-
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    @endif
                 </div>
+
                 <div class="modal-body">
                     @method($type->value)
                     @csrf
@@ -78,6 +84,12 @@
                     @endif
 
                     {{$slot}}
+
+                    @if($validation)
+                        <div class="modal-captcha">
+                            <x-captcha/>
+                        </div>
+                    @endif
                 </div>
                 <div class="modal-footer gap-2">
                     <button type="button" class="btn btn-outline-secondary" id="{{$id . '-close'}}"

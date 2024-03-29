@@ -8,5 +8,9 @@
         'plan' => $item
     ])"
 >
-    <x-plan.card :plan="$item"/>
+    <x-slot:body>
+        <div>
+            <x-plan.card :plan="$item"/>
+        </div>
+    </x-slot:body>
 </x-modal.index>

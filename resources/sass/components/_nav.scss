@@ -12,6 +12,19 @@
     border-bottom: 1px solid $light;
     height: 80px;
 
+    .navigation {
+        height: 100%;
+        position: relative;
+
+        .admin-navigation {
+            position: absolute;
+            bottom: 40px;
+            padding-top: 20px;
+            border-top: 1px solid $orange;
+            width: 100%;
+        }
+    }
+
     .navbar-toggler:focus,
     .navbar-toggler:active,
     .navbar-toggler-icon:focus {

@@ -6,6 +6,8 @@ use Database\Factories\AdvertServiceFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
@@ -16,9 +18,8 @@ class AdvertService extends Model
     protected $fillable = [
         'serviceable_id',
         'serviceable_type',
-        'listing_detail_id',
-        'listing_price_id',
-        'listing_schedule_id',
+        'advert_schedule_id',
+        'advert_rate_id',
     ];
 
     protected static function newFactory(): AdvertServiceFactory
@@ -26,24 +27,29 @@ class AdvertService extends Model
         return AdvertServiceFactory::new();
     }
 
-    public function advert(): BelongsTo
+    public function files(): HasMany
     {
-        return $this->belongsTo(Advert::class, 'advert_service_id', 'id');
+        return $this->hasMany(AdvertFile::class, 'advert_service_id', 'id');
     }
 
-    public function detail(): HasOne
+    public function forms(): BelongsToMany
     {
-        return $this->hasOne(ListingDetail::class, 'id', 'listing_detail_id');
+        return $this->belongsToMany(AppForm::class, 'advert_forms', 'advert_service_id', 'app_form_id');
     }
 
-    public function price(): HasOne
+    public function schedule(): BelongsTo
     {
-        return $this->hasOne(ListingPrice::class, 'id', 'listing_price_id');
+        return $this->belongsTo(AdvertSchedule::class, 'advert_schedule_id', 'id');
     }
 
-    public function schedule(): HasOne
+    public function rate(): BelongsTo
     {
-        return $this->hasOne(ListingSchedule::class, 'id', 'listing_schedule_id');
+        return $this->belongsTo(AdvertRate::class, 'advert_rate_id', 'id');
+    }
+
+    public function advert(): HasOne
+    {
+        return $this->hasOne(Advert::class);
     }
 
     public function serviceable(): MorphTo

@@ -4,13 +4,14 @@
 namespace App\Models;
 
 
+use App\Interfaces\ILocale;
 use App\Traits\HasLangScope;
 use Database\Factories\AppFaqFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class AppFaq extends Model
+class AppFaq extends Model implements ILocale
 {
     use HasFactory;
     use HasLangScope;

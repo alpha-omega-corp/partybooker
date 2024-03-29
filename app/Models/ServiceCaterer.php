@@ -12,8 +12,13 @@ class ServiceCaterer extends Model
     use HasFactory;
 
     protected $fillable = [
+        'menus',
     ];
 
+    protected $casts = [
+        'menus' => 'array',
+    ];
+    
     protected static function newFactory(): ServiceCatererFactory
     {
         return ServiceCatererFactory::new();

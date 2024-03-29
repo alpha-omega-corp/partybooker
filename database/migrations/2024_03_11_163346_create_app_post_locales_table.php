@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->enum('lang', Language::values());
             $table->string('alt');
             $table->string('title');
+            $table->string('preview');
             $table->text('content');
             $table->timestamps();
         });

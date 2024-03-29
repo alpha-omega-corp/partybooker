@@ -33,7 +33,7 @@ class AdvertFactory extends Factory
     {
         return $this->afterCreating(function (Advert $advert) {
             AdvertImage::factory()
-                ->count(AppPlan::ofType(PlanType::STANDARD)->first()->uploads)
+                ->count(AppPlan::ofType(PlanType::STANDARD)->first()->upload_count)
                 ->sequence(fn(Sequence $sequence) => [
                     'is_thumbnail' => $sequence->index == 0
                 ])

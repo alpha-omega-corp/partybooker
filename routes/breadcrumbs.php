@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Models\AppPost;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as Trail;
 
@@ -21,6 +22,17 @@ Breadcrumbs::for('partnership', function (Trail $trail) {
 Breadcrumbs::for('blog', function (Trail $trail) {
     $trail->parent('home');
     $trail->push(__('nav.blog'), route('guest.home.blog'));
+});
+
+Breadcrumbs::for('faq', function (Trail $trail) {
+    $trail->parent('home');
+    $trail->push(__('nav.faq'), route('guest.home.faq'));
+});
+
+
+Breadcrumbs::for('post', function (Trail $trail, AppPost $post) {
+    $trail->parent('blog');
+    $trail->push($post->locale->title, route('guest.home.post', ['post' => $post]));
 });
 
 Breadcrumbs::for('listing', function (Trail $trail, array $segments) {

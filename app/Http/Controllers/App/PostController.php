@@ -21,13 +21,6 @@ class PostController extends Controller
         $this->fileService = $fileService;
     }
 
-    public function show(AppPost $post)
-    {
-        return view('app.home.blog', [
-            'post' => $post
-        ]);
-    }
-
     public function store(StorePostRequest $request): RedirectResponse
     {
         $data = $request->validated();

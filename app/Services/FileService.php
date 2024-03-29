@@ -33,6 +33,11 @@ class FileService implements IFileService
         return $this->store($file, 'images/adverts');
     }
 
+    public function advertMenu(UploadedFile $file): string
+    {
+        return $this->store($file, 'images/adverts/menus');
+    }
+
     public function aboutImage(UploadedFile $file): string
     {
         return $this->store($file, 'images/app/about');

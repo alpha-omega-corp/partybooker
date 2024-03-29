@@ -1,1 +1,1 @@
-@include('app.listing.partials.advert', ['advert' => $advert])
+@include('app.listing.partials.service', ['advert' => $advert])

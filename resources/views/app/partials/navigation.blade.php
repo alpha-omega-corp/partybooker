@@ -13,10 +13,6 @@
                         aria-label="Toggle navigation">
                     @svg($navIcon)
                 </button>
-
-                <!-- Admin Navigation -->
-                @include('app.admin.navigation')
-
             </div>
 
             <div class="d-flex align-items-center gap-3">
@@ -36,9 +32,12 @@
              aria-labelledby="offcanvasNavbarLabel">
 
             <div class="offcanvas-body">
-                <div class="navigation h-full">
-                    <ul class="nav nav-flush flex-column text-center">
-                        <x-logo class="app-logo-offcanvas"/>
+                <div class="navigation">
+
+                    <x-navigation.group>
+                        <x-slot:header>
+                            <x-logo class="app-logo-offcanvas"/>
+                        </x-slot:header>
 
                         <x-navigation.item
                             :href="url(route('guest.home.index'))"
@@ -75,8 +74,32 @@
                             :text="__('nav.faq')"
                             icon="heroicon-o-question-mark-circle"
                         />
+                    </x-navigation.group>
 
-                    </ul>
+
+                    @if(Auth::check() && Auth::user()->isAdmin())
+                        <div class="admin-navigation">
+                            <x-navigation.group>
+                                <x-navigation.item
+                                    :href="url(route('admin.dashboard.messages'))"
+                                    text="messages"
+                                    :icon="$emailIcon"
+                                />
+                                <x-navigation.item
+                                    :href="url(route('admin.dashboard.content'))"
+                                    text="contents"
+                                    :icon="$boxIcon"
+                                />
+                                <x-navigation.item
+                                    :href="url(route('admin.dashboard.partners'))"
+                                    text="partners"
+                                    :icon="$userIcon"
+                                />
+
+                            </x-navigation.group>
+                        </div>
+                    @endif
+
                 </div>
             </div>
         </div>

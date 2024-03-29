@@ -13,11 +13,6 @@ class RequestHelp extends Model
 
     public $timestamps = false;
 
-    protected $fillable = [
-        'phone',
-        'message',
-    ];
-
     protected static function newFactory(): RequestHelpFactory
     {
         return RequestHelpFactory::new();

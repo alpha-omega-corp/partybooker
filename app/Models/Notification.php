@@ -20,7 +20,12 @@ class Notification extends Model
         'notifiable_type',
         'notifiable_id',
         'phone',
-        'message'
+        'message',
+        'is_resolved'
+    ];
+
+    protected $casts = [
+        'is_resolved' => 'boolean'
     ];
 
     protected static function newFactory(): NotificationFactory

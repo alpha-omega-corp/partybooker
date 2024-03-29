@@ -18,5 +18,10 @@ class UserSeeder extends Seeder
             'name' => 'Nicholas',
             'is_admin' => true,
         ])->create();
+
+        User::factory([
+            'email' => 'user@alphomega.org',
+            'name' => 'TestUser',
+        ])->create();
     }
 }
