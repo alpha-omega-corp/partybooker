@@ -9,7 +9,6 @@ return new class extends Migration {
     {
         Schema::create('service_caterers', function (Blueprint $table) {
             $table->increments('id');
-            $table->json('menus');
             $table->timestamps();
         });
     }
