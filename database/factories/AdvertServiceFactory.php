@@ -24,6 +24,7 @@ class AdvertServiceFactory extends Factory
         return [
             'advert_schedule_id' => AdvertSchedule::factory(),
             'advert_rate_id' => AdvertRate::factory(),
+            'comment' => $this->faker->text,
         ];
     }
 

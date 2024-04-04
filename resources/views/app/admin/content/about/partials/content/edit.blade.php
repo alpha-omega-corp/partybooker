@@ -4,7 +4,7 @@
     :type="ModalType::UPDATE"
     :size="ModalSize::MD"
     :absolute="true"
-    :route="route('admin.content.update', ['content' => $item->id])"
+    :route="route('admin.service.update', ['service' => $item->id])"
 >
     <x-tab.locale>
         <x-slot:french>

@@ -35,6 +35,52 @@ class AppFormFactory extends Factory
         });
     }
 
+    public function serviceCaterer(): AppFormFactory
+    {
+        return $this->state(function () {
+            return [
+                'type' => FormType::SERVICE_CATERER->name,
+            ];
+        })->count(10);
+    }
+
+    public function serviceEntertainment(): AppFormFactory
+    {
+        return $this->state(function () {
+            return [
+                'type' => FormType::SERVICE_ENTERTAINMENT->name,
+            ];
+        })->count(10);
+    }
+
+    public function serviceEquipment(): AppFormFactory
+    {
+        return $this->state(function () {
+            return [
+                'type' => FormType::SERVICE_EQUIPMENT->name,
+            ];
+        })->count(10);
+    }
+
+    public function serviceEvent(): AppFormFactory
+    {
+        return $this->state(function () {
+            return [
+                'type' => FormType::SERVICE_EVENT->name,
+            ];
+        })->count(10);
+    }
+
+
+    public function serviceWine(): AppFormFactory
+    {
+        return $this->state(function () {
+            return [
+                'type' => FormType::SERVICE_WINE->name,
+            ];
+        })->count(10);
+    }
+
     public function payments(): AppFormFactory
     {
         return $this->state(function () {
@@ -49,15 +95,6 @@ class AppFormFactory extends Factory
         return $this->state(function () {
             return [
                 'type' => FormType::FURNITURE->name,
-            ];
-        })->count(10);
-    }
-
-    public function equipment(): AppFormFactory
-    {
-        return $this->state(function () {
-            return [
-                'type' => FormType::EQUIPMENT->name,
             ];
         })->count(10);
     }
@@ -93,7 +130,7 @@ class AppFormFactory extends Factory
     {
         return $this->state(function () {
             return [
-                'type' => FormType::KITCHEN->name,
+                'type' => FormType::INSTALLATION->name,
             ];
         })->count(5);
     }
@@ -114,5 +151,23 @@ class AppFormFactory extends Factory
                 'type' => FormType::KITCHEN->name,
             ];
         })->count(8);
+    }
+
+    public function technical(): AppFormFactory
+    {
+        return $this->state(function () {
+            return [
+                'type' => FormType::TECHNICAL->name,
+            ];
+        })->count(5);
+    }
+
+    public function food(): AppFormFactory
+    {
+        return $this->state(function () {
+            return [
+                'type' => FormType::FOOD->name,
+            ];
+        })->count(3);
     }
 }

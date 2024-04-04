@@ -15,7 +15,8 @@ class ServiceEventFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'min_guests' => $this->faker->numberBetween(1, 100),
+            'max_guests' => $this->faker->numberBetween(100, 200),
         ];
     }
 }

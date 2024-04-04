@@ -8,7 +8,7 @@
     <title>{{__('main.contact_us')}} | {{ __('partybooker-cp.www')}}</title>
 @endsection
 
-@section('content')
+@section('service')
 
     <section class="contact-section">
         <div class="container">

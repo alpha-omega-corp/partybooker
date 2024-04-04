@@ -35,7 +35,10 @@
                     <div class="col-xl-4 col-lg-5 col-md-12">
                         <div class="d-flex flex-column gap-3">
 
-                            <x-card.index :title="__('partner.company')">
+                            <x-card.index
+                                :title="__('partner.company')"
+                                :open="true"
+                            >
                                 <x-slot:body>
                                     @include('app.partner.partials.company.show')
                                 </x-slot:body>

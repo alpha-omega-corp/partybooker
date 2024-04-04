@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Helpers\ServiceHelper;
 use App\Models\AdvertRate;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -15,8 +14,6 @@ class AdvertRateFactory extends Factory
 
     public function definition(): array
     {
-        $budgets = ServiceHelper::budgets();
-        
         return [
             'prices' => [
                 [
@@ -28,7 +25,7 @@ class AdvertRateFactory extends Factory
                     'description' => $this->faker->sentence,
                 ],
             ],
-            'budget' => $budgets[array_rand($budgets)],
+            'budget' => '1000-2000 CHF',
             'has_deposit' => true,
             'deposit_description' => $this->faker->sentence,
         ];

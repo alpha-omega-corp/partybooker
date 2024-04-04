@@ -16,7 +16,7 @@
     @endif
 
 
-    <div class="tab-page-content {{$padding ? 'p-3' : 'mt-4'}}">
+    <div class="tab-page-content {{$padding ? 'p-3' : ''}}">
         {{$slot}}
     </div>
 </section>

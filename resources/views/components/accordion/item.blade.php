@@ -25,11 +25,11 @@
                         data-bs-target="{{'#' . $target}}"
                         aria-expanded="false"
                         aria-controls="{{$target}}">
-                        <h6
+                        <div
                             class="accordion-title"
                             id="{{'heading' . $name}}">
                             {{$title}}
-                        </h6>
+                        </div>
                     </div>
 
                     <div class="d-flex align-items-center">

@@ -13,12 +13,10 @@
 
         <section class="faq">
             <div class="faq-content-card">
-
                 <x-accordion.index
                     name="faqAccordion"
                 >
                     @foreach($faqs as $faq)
-
                         <x-accordion.item
                             :name="$faq->id"
                             accordion="faqAccordion"
@@ -36,10 +34,7 @@
                             </x-slot:content>
                         </x-accordion.item>
                     @endforeach
-
                 </x-accordion.index>
-
-
             </div>
         </section>
     </x-card.panel>

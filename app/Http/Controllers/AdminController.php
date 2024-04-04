@@ -14,6 +14,7 @@ use App\Models\AppComment;
 use App\Models\AppContact;
 use App\Models\AppContent;
 use App\Models\AppFaq;
+use App\Models\AppForm;
 use App\Models\AppInformation;
 use App\Models\AppPlan;
 use App\Models\AppPost;
@@ -45,6 +46,13 @@ class AdminController extends Controller
                 AppContentType::APP_ABOUT->name => AppContent::ofType(AppContentType::APP_ABOUT)->first(),
                 AppContentType::APP_CONCEPT->name => AppContent::ofType(AppContentType::APP_CONCEPT)->first(),
             ],
+        ]);
+    }
+
+    public function forms()
+    {
+        return view('app.admin.form.index', [
+            'forms' => AppForm::all(),
         ]);
     }
 

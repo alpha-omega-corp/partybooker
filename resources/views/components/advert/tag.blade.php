@@ -5,6 +5,6 @@
             'tag' => $tag ? $tag->locale->slug : $tag,
         ])}}"
     >
-        {{$tag ? $tag->locale->title : $category->locale->title}}
+        {{$tag ? $tag->locale->title : __('listing.category.all')}}
     </a>
 </li>

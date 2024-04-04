@@ -16,7 +16,7 @@
             'w-100' => $fit,
         ])
         {{$attributes->merge(['class' => 'd-flex justify-content-center align-items-center'])}}
-        {{$type ? 'data-tippy-content='. $type->name : ''}}
+        {{$type ? 'data-tippy-service='. $type->name : ''}}
         data-tippy-content="{{$tooltip ? $tooltip : ($type ? $type->name : '')}}"
         @click="open"
     >

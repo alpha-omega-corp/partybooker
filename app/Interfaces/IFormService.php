@@ -2,7 +2,9 @@
 
 namespace App\Interfaces;
 
+use App\Enums\FormType;
 use Filament\Forms\Components\Section;
+use Illuminate\Support\Collection;
 
 interface IFormService
 {
@@ -13,6 +15,8 @@ interface IFormService
     public function comment(): Section;
 
     public function caterer(): Section;
+
+    public function getFormOptions(FormType $type): Collection;
 
 
 }

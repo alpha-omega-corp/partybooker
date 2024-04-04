@@ -1,25 +1,30 @@
 <x-card
-    :title="__('listing.advert')"
+    :title="$advert->locale->title"
     :open="true"
+    :invert-close="true"
 >
     <x-tab.index
         :isIcon="true"
         :isVertical="true"
         :items="[
-         'heroicon-o-information-circle',
-         'heroicon-o-clock',
-         'heroicon-o-currency-dollar',
-         'heroicon-o-video-camera'
-     ]"
+             $infoIcon,
+             $boxIcon,
+             'heroicon-o-clock',
+             'heroicon-o-currency-dollar',
+         ]"
         :tooltips="[
-        __('advert.information'),
-        __('advert.schedule'),
-        __('advert.price'),
-        __('advert.video')
-    ]"
+            __('advert.description'),
+            __('advert.service'),
+            __('service.section.schedule'),
+            __('service.section.price'),
+        ]"
     >
+        <x-tab.item>
+            @include('app.listing.partials.service-description', ['advert' => $advert])
+        </x-tab.item>
+
         <x-tab.item :padding="false">
-            @include('app.listing.partials.service-detail', ['detail' => $advert->service->detail])
+            @include('app.listing.partials.service-content', ['content' => $advert->service->serviceable])
         </x-tab.item>
 
         <x-tab.item :padding="false">
@@ -29,5 +34,6 @@
         <x-tab.item :padding="false">
             @include('app.listing.partials.service-price', ['price' => $advert->service->price])
         </x-tab.item>
+
     </x-tab.index>
 </x-card>

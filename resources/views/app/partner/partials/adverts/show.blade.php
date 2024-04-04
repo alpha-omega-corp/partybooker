@@ -27,7 +27,7 @@
         <div x-show="show">
             <div class="partner-advert-content">
                 <x-tab :items="[
-                    __('advert.content'),
+                    __('advert.service'),
                     __('advert.description'),
                     __('advert.gallery'),
                     __('advert.access'),
@@ -35,7 +35,7 @@
                     __('advert.statistics')
                     ]">
                     <!-- Content -->
-                    <x-tab.item :information="__('advert.information.content')">
+                    <x-tab.item :information="__('advert.service.content')">
                         <x-slot:header>
                             @include('app.partner.partials.adverts.content.edit')
                         </x-slot:header>
@@ -44,7 +44,7 @@
                     </x-tab.item>
 
                     <!-- Description -->
-                    <x-tab.item :information="__('advert.information.description')" :padding="false">
+                    <x-tab.item :information="__('advert.service.description')" :padding="false">
                         <x-slot:header>
                             @include('app.partner.partials.adverts.description.edit')
                         </x-slot:header>
@@ -53,7 +53,7 @@
                     </x-tab.item>
 
                     <!-- Gallery -->
-                    <x-tab.item :information="__('advert.information.gallery')">
+                    <x-tab.item :information="__('advert.service.gallery')">
                         <x-slot:header>
                             @include('app.partner.partials.adverts.gallery.create')
                         </x-slot:header>
@@ -62,7 +62,7 @@
                     </x-tab.item>
 
                     <!-- Access -->
-                    <x-tab.item :information="__('advert.information.access')">
+                    <x-tab.item :information="__('advert.service.access')">
                         <x-slot:header>
                             @include('app.partner.partials.adverts.access.edit')
                         </x-slot:header>
@@ -71,7 +71,7 @@
                     </x-tab.item>
 
                     <!-- Meta -->
-                    <x-tab.item :information="__('advert.information.meta')" :padding="false">
+                    <x-tab.item :information="__('advert.service.meta')" :padding="false">
                         <x-slot:header>
                             @include('app.partner.partials.adverts.meta.edit')
                         </x-slot:header>
@@ -80,7 +80,7 @@
                     </x-tab.item>
 
                     <!-- Statistics -->
-                    <x-tab.item :information="__('advert.information.statistics')">
+                    <x-tab.item :information="__('advert.service.statistics')">
                         @include('app.partner.partials.adverts.statistics')
                     </x-tab.item>
                 </x-tab>

@@ -48,7 +48,7 @@ class AboutController extends Controller
         $data = $request->validated();
 
         $about->update([
-            'content' => $data['content'],
+            'service' => $data['service'],
         ]);
 
         return back()->with('success', 'About item updated successfully');

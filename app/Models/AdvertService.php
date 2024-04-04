@@ -20,6 +20,7 @@ class AdvertService extends Model
         'serviceable_type',
         'advert_schedule_id',
         'advert_rate_id',
+        'comment',
     ];
 
     protected static function newFactory(): AdvertServiceFactory

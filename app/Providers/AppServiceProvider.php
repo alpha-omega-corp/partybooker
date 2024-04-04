@@ -3,8 +3,6 @@
 namespace App\Providers;
 
 use App\Models\User;
-use App\Services\PartnerPlanOptionService;
-use App\Services\PaymentTransactionService;
 use App\View\Composers\DashboardComposer;
 use App\View\Composers\IconComposer;
 use App\View\Composers\SettingComposer;

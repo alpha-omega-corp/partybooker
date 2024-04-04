@@ -2,10 +2,12 @@
     'title' => null,
     'badge' => null,
     'open' => false,
+    'invertClose' => false,
+    'canOpen' => true,
 ])
 
-<div class="app-card" x-data="{show: '{{$open}}'}">
-    <div class="app-card-header" @click="show = !show">
+<div {{$attributes->merge(['class' => 'app-card'])}} x-data="{show: '{{!$canOpen ? true : $open}}'}">
+    <div class="app-card-header" {{$canOpen ? '@click="show = !show"' : ''}}>
         <h2 class="app-card-title">
             {{$title}}
         </h2>
@@ -20,7 +22,7 @@
         </div>
     @endif
 
-    <div x-show="show" {{$attributes->merge(['class' => 'app-card-content'])}}>
+    <div x-show="show" class="app-card-content {{$canOpen ? 'app-card-content-border' : ''}}">
         {{$slot}}
 
         @if(isset($body))
@@ -31,7 +33,11 @@
 
     </div>
 
-    <div class="card-show" @click="show = !show">
+    <div @class([
+    'card-show',
+    'justify-content-end' => $invertClose,
+    'd-none' => !$canOpen,
+])  @click="show = !show">
         <div>
             <a x-show="!show">{{__('card.show')}}</a>
             <a x-show="show">{{__('card.close')}}</a>

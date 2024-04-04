@@ -2,7 +2,7 @@
 
 <a
     class="tippy btn btn-info modal-absolute"
-    data-tippy-content="{{__('advert.content')}}"
+    data-tippy-content="{{__('advert.service')}}"
     href="{{route('partner.advert.service.' . $service, [
     'advert' => $advert
 ])}}">

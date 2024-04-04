@@ -1,40 +1,92 @@
-.service-list {
-    list-style: square;
 
-    .service-list-content {
-        padding-left: 20px;
-        border-bottom: 1px solid $gray-300;
-        padding-bottom: 10px;
+.service-schedule {
+    display: flex;
+    gap: 20px;
+
+    .service-schedule-day {
+        text-transform: uppercase;
+        font-size: small;
+        margin: 0;
+        color: $gray;
+    }
+
+    .service-schedule-timetable {
+        li::marker {
+            color: $primary;
+        }
+    }
+
+    .service-schedule-holidays {
+        padding-top: 20px;
+        list-style-type: decimal;
 
         li {
-            font-size: small;
+            padding-left: 10px;
+            padding-bottom: 10px;
+            padding-right: 20px;
+            text-align: start;
 
             &::marker {
-                color: $primary;
+                color: $accent;
                 font-weight: bold;
             }
         }
     }
 }
 
-.service-checkmark {
-    font-weight: bold;
-    padding-left: 32px;
 
-    .service-checkmark-content {
-        color: $accent;
-        padding-left: 20px;
-        margin: 0;
+.service-price {
+    .service-price-card {
+        padding: 20px;
+        border: 1px solid $gray;
+        margin: 20px;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
 
-        svg {
-            color: $danger;
+        .price-card-tag {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            background-color: $accent;
+            color: #fff;
+            border-top: 0;
+
+            border-bottom-left-radius: 20px;
+            font-size: smaller;
+            font-weight: bold;
+        }
+
+        .price-card-content {
+            padding-top: 25px;
         }
     }
 }
 
-.service-item {
-    h6 {
-        font-weight: bold;
-        text-transform: uppercase;
+.service-form {
+    .service-form-list {
+        li {
+            &::marker {
+                color: $primary;
+            }
+        }
     }
+}
+
+.service-caterer {
+    .service-caterer-delivery {
+        list-style-type: none;
+        padding: 0;
+
+        li {
+            padding: 20px;
+            border-bottom: 1px solid $light;
+        }
+
+    }
+}
+
+.service-description {
+    
 }

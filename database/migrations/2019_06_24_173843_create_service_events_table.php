@@ -8,7 +8,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('service_events', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
+            $table->integer('max_guests')->nullable();
+            $table->integer('min_guests')->nullable();
+            $table->json('rooms')->nullable();
+            $table->json('caterers')->nullable();
             $table->timestamps();
         });
     }

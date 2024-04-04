@@ -13,6 +13,6 @@ return [
     'description' => 'Description',
     'price' => 'Price',
     'url' => 'Link',
-
+    'title' => 'Title',
 
 ];

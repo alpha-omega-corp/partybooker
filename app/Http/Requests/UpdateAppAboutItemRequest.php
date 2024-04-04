@@ -12,7 +12,7 @@ class UpdateAppAboutItemRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'content' => 'string|required',
+            'service' => 'string|required',
         ];
     }
 }

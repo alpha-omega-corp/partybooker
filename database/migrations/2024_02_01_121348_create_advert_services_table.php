@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->morphs('serviceable');
             $table->foreignIdFor(AdvertSchedule::class)->nullable();
             $table->foreignIdFor(AdvertRate::class)->nullable();
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

@@ -1,18 +1,16 @@
 .tab {
-    margin: 20px 0 0;
 
     .tab-list-item {
         list-style-type: none;
     }
 
     .tab-list-vertical {
-        flex-direction: column;
-        gap: 10px;
         position: absolute;
-        top: 80px;
         left: 20px;
-        padding: 0 !important;
-        height: 100px;
+        border-right: 1px solid $gray;
+        flex-direction: column;
+        height: 100%;
+        padding: 20px 20px 0 0;
 
         .tab-button {
             cursor: pointer;
@@ -50,8 +48,6 @@
 
             .tab-icon {
                 font-weight: bold;
-                width: 25px;
-                height: 25px;
             }
         }
 
@@ -63,7 +59,6 @@
     }
 
     .tab-page {
-
         .tab-page-header {
             position: relative;
             border-bottom: 1px solid $light;
@@ -81,6 +76,9 @@
 }
 
 .tab-page-content-offset {
-    padding-left: 60px;
+    padding-left: 110px;
+    padding-right: 20px;
+    padding-top: 20px;
     min-height: 250px;
+
 }

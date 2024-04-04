@@ -67,8 +67,8 @@
                                 <hr>
 
                                 <div class="admin-listing-action">
-                                    <a :href="item.url" class="btn btn-orange">
-                                        Profile
+                                    <a :href="item.url" class="btn btn-orange text-white">
+                                        <span>View @svg('heroicon-o-arrow-up-right')</span>
                                     </a>
                                 </div>
 

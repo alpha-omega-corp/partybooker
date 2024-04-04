@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <x-card.dashboard :title="__('admin.content')">
+    <x-card.dashboard :title="__('admin.service')">
 
         <div class="app-admin-content">
             <div class="row">

@@ -1,11 +1,12 @@
 <?php
 
 return [
-    'content' => 'application content',
+    'service' => 'application service',
     'partners' => 'partners',
     'categories' => 'categories',
     'comments' => 'comments',
     'information' => 'information',
+    'form' => 'forms',
     'posts' => 'blog',
     'faqs' => 'faq',
     'about' => 'about',

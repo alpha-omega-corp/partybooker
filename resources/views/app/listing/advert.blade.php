@@ -31,98 +31,24 @@
                             <hr>
 
                             <div class="d-flex justify-content-between">
-                                <div class="advert-contacts">
-                                    <x-partner.advert-contact
-                                        :icon="$companyIcon"
-                                        tooltip="name"
-                                        content="{{$advert->company->name}}"
-                                        :show="true"
-                                        type="tel"
-                                    />
-
-                                    <x-partner.advert-contact
-                                        :icon="$phoneIcon"
-                                        tooltip="phone"
-                                        content="{{$advert->company->contact->phone}}"
-                                        type="tel"
-                                    />
-
-                                    <x-partner.advert-contact
-                                        :icon="$emailIcon"
-                                        tooltip="email"
-                                        content="{{$advert->company->contact->email}}"
-                                        type="email"
-                                    />
-
-                                    <x-partner.advert-contact
-                                        :icon="$linkIcon"
-                                        tooltip="website"
-                                        content="{{$advert->company->social->www}}"
-                                        type="web"
-                                    />
-
-                                    <x-partner.advert-contact
-                                        :icon="$pinIcon"
-                                        tooltip="address"
-                                        content="{{$advert->company->address->address}}"
-                                        type="loc"
-                                    />
-                                </div>
-
-                                <div>
-                                    <div class="d-flex gap-2">
-                                        @include('app.listing.partials.request', [
-                                            'advert' => $advert,
-                                        ])
-
-                                        @if(Auth::user() && Auth::user()->isAdmin())
-                                            <a class="btn btn-admin text-white"
-                                               href="{{route('partner.dashboard', ['partner' => $advert->company->partner])}}">
-                                                {{__('partner.dashboard')}}
-                                            </a>
-                                        @endif
-                                    </div>
-                                </div>
+                                @include('app.listing.partials.advert.socials')
+                                @include('app.listing.partials.advert.actions')
                             </div>
                         </div>
 
-
-                        <div class="advert-description">
-                            <div class="advert-text">
-                                <p>
-                                    {{$advert->company->locale->first()->description}}
-                                </p>
-                            </div>
-
-                            <div class="advert-socials">
-                                @foreach (NetworkType::values() as $network)
-                                    <div class="tippy" data-tippy-content="{{ucfirst($network)}}">
-                                        <a href="{{ $advert->company->social[$network] }}" target="_blank">
-                                            <img src="{{Vite::social($network)}}"
-                                                 alt="{{ $network }}"
-                                                 width="24" height="24" class="star-img">
-                                        </a>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-
-                        @include('app.listing.partials.company-adverts')
                         @include('app.listing.partials.service')
+
+                        <div class="d-flex gap-4 mt-4">
+                            @include('app.listing.partials.advert.contacts')
+                            @include('app.listing.partials.advert.company-adverts')
+                        </div>
                     </div>
 
                     <div class="col-lg-4 col-md-12">
-                        <div class="row d-flex advert-gallery">
-                            @foreach($advert->images()->get() as $image)
-                                <div class="col-12 mb-4 gallery-image gal-img">
-                                    <img src="{{$image->path}}" alt="...">
-                                </div>
-                            @endforeach
-                        </div>
+                        @include('app.listing.partials.advert.gallery')
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 @endsection

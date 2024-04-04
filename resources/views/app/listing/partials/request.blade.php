@@ -1,14 +1,21 @@
+<x-modal.open
+    :background="true"
+    :name="ModalName::PARTNER_ADVERT_REQUEST"
+    :singleton="true"
+    :text="__('advert.request')"
+/>
+
 <x-modal.index
     :name="ModalName::PARTNER_ADVERT_REQUEST"
     :type="ModalType::CREATE"
     :size="ModalSize::MD"
-    :text="__('service.book')"
+    :singleton="true"
     :action="false"
-    :title="__('advert.request')"
     :validation="true"
+    :hidden="true"
+    :title="__('advert.request')"
     :route="route('guest.company.request', ['company' => $advert->company])"
 >
-
 
     <x-slot:body>
         <x-forms.input

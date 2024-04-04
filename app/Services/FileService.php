@@ -11,36 +11,40 @@ class FileService implements IFileService
 {
     public function blogThumbnail(UploadedFile $file): string
     {
-        return $this->store($file, 'images/blog/thumbnails');
+        return $this->store($file, 'images/blog/thumbnails', true);
     }
 
-    private function store(UploadedFile $file, string $path, int $size = 500): string
+    private function store(UploadedFile $file, string $path, bool $resize, int $size = 500): string
     {
-        $intervention = Image::make($file);
         $filename = time() . '_' . $file->getClientOriginalName();
+        $destination = "storage/$path/$filename";
+        $intervention = Image::make($file);
 
-        $image = $intervention->resize($size, $size)->save("storage/$path/$filename");
-        return $image->basePath();
+        if ($resize) {
+            return $intervention->resize($size, $size)->save($destination)->basePath();
+        }
+
+        return $intervention->save($destination)->basePath();
     }
 
     public function companyLogo(UploadedFile $file): string
     {
-        return $this->store($file, 'images/companies', 100);
+        return $this->store($file, 'images/companies', true, 100);
     }
 
     public function advertImage(UploadedFile $file): string
     {
-        return $this->store($file, 'images/adverts');
+        return $this->store($file, 'images/adverts', true);
     }
 
-    public function advertMenu(UploadedFile $file): string
+    public function advertFile(UploadedFile $file, string $dest): string
     {
-        return $this->store($file, 'images/adverts/menus');
+        return $this->store($file, "images/adverts/$dest", false);
     }
 
     public function aboutImage(UploadedFile $file): string
     {
-        return $this->store($file, 'images/app/about');
+        return $this->store($file, 'images/app/about', true);
     }
 
     public function delete(string $path): void

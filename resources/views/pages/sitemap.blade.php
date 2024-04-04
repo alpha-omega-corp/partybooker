@@ -9,7 +9,7 @@
     <title>{{__('main.sitemap')}} | {{ __('partybooker-cp.www')}}</title>
 @endsection
 
-@section('content')
+@section('service')
     <section class="sitemap-section">
         <div class="container">
             <h1 class="text-uppercase text-center fw-bold">{{__('main.sitemap')}}</h1>

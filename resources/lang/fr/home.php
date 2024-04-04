@@ -10,7 +10,7 @@ return [
     'about' => 'à propos',
     'faq' => 'questions fréquentes',
     'plans' => 'options de formule',
-    'help_title' => 'vous avez une question?',
+    'help_title' => 'vous avez une question ?',
     'help' => 'laissez-nous votre numéro de téléphone et nous vous contacterons dès que possible',
     'usp' => 'points de vente',
     'guest' => 'guest',

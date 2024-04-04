@@ -4,6 +4,7 @@ use App\Enums\AppContentType;
 use App\Enums\CategoryType;
 use App\Enums\DateType;
 use App\Enums\EnvironmentType;
+use App\Enums\FormType;
 use App\Enums\ModalName;
 use App\Enums\ModalSize;
 use App\Enums\ModalType;
@@ -201,7 +202,8 @@ return [
         'NotificationType' => NotificationType::class,
         'Breadcrumbs' => Breadcrumbs::class,
         'AppContentType' => AppContentType::class,
-        'Captcha' => CaptchaFacade::class
+        'Captcha' => CaptchaFacade::class,
+        'FormType' => FormType::class,
     ])->toArray(),
 
     'tinymce' => env('TINYMCE_API_KEY'),

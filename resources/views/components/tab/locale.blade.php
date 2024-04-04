@@ -5,11 +5,11 @@
         ]"
        justify="end"
 >
-    <x-tab.item :information="__('locale.french')">
+    <x-tab.item :information="__('locale.french_tab')">
         {{$french}}
     </x-tab.item>
 
-    <x-tab.item :information="__('locale.english')">
+    <x-tab.item :information="__('locale.english_tab')">
         {{$english}}
     </x-tab.item>
 

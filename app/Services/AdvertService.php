@@ -25,6 +25,15 @@ class AdvertService implements IAdvertService
     private Collection $kitchen;
     private Collection $staff;
     private Collection $delivery;
+    private Collection $installations;
+    private Collection $food;
+    private Collection $technical;
+    private Collection $caterer;
+    private Collection $wine;
+    private Collection $event;
+    private Collection $entertainment;
+    private Collection $equipment;
+
 
     public function __construct(Advert $advert)
     {
@@ -38,6 +47,15 @@ class AdvertService implements IAdvertService
         $this->kitchen = $this->getChecklist(FormType::KITCHEN);
         $this->staff = $this->getChecklist(FormType::STAFF);
         $this->delivery = $this->getChecklist(FormType::DELIVERY);
+        $this->installations = $this->getChecklist(FormType::INSTALLATION);
+        $this->food = $this->getChecklist(FormType::FOOD);
+        $this->technical = $this->getChecklist(FormType::TECHNICAL);
+
+        $this->wine = $this->getChecklist(FormType::SERVICE_WINE);
+        $this->event = $this->getChecklist(FormType::SERVICE_EVENT);
+        $this->entertainment = $this->getChecklist(FormType::SERVICE_ENTERTAINMENT);
+        $this->equipment = $this->getChecklist(FormType::SERVICE_EQUIPMENT);
+        $this->caterer = $this->getChecklist(FormType::SERVICE_CATERER);
     }
 
     private function getChecklist(FormType $type): Collection
@@ -49,8 +67,13 @@ class AdvertService implements IAdvertService
 
     public function loadCaterer(array &$data): void
     {
-        $this->loadSchedule($data);
-        $this->loadRates($data);
+        $this->loadCommon($data);
+        $service = $this->advert->service->serviceable;
+
+        $data['max_guests'] = $service->max_guests;
+        $data['min_guests'] = $service->min_guests;
+        $data['specialty'] = $service->specialty;
+        $data['delivery_services'] = $service->delivery_services;
 
         $data['decorations'] = $this->decorations
             ->pluck('id')
@@ -75,12 +98,17 @@ class AdvertService implements IAdvertService
         $data['delivery'] = $this->delivery
             ->pluck('id')
             ->toArray();
+
+        $data['caterer_forms'] = $this->caterer
+            ->pluck('id')
+            ->toArray();
     }
 
-
-    private function loadSchedule(array &$data): void
+    private function loadCommon(array &$data): void
     {
         $schedule = $this->advert->service->schedule;
+        $rate = $this->advert->service->rate;
+
         foreach ($schedule->days as $item) {
             $data['is_open_' . $item->day] = $item->is_open;
             $data['timetable_' . $item->day] = $item->timetable;
@@ -89,15 +117,94 @@ class AdvertService implements IAdvertService
         $data['has_extension'] = $schedule->has_extension;
         $data['extension_description'] = $schedule->extension_description;
         $data['holidays'] = $schedule->holidays;
+
+        $data['prices'] = $rate->prices;
+        $data['budget'] = $rate->budget;
+        $data['has_deposit'] = $rate->has_deposit;
+        $data['deposit_description'] = $rate->deposit_description;
+        $data['payments'] = $this->payments
+            ->pluck('id')
+            ->toArray();
+
+        $data['comment'] = $this->advert->service->comment;
     }
 
-    private function loadRates(array &$data): void
+    public function loadEntertainment(array &$data): void
     {
-        $data['prices'] = $this->advert->service->rate->prices;
-        $data['budget'] = $this->advert->service->rate->budget;
-        $data['has_deposit'] = $this->advert->service->rate->has_deposit;
-        $data['deposit_description'] = $this->advert->service->rate->deposit_description;
-        $data['payments'] = $this->payments
+        $this->loadCommon($data);
+    }
+
+    public function loadEquipment(array &$data): void
+    {
+        $this->loadCommon($data);
+    }
+
+    public function loadEvent(array &$data): void
+    {
+        $this->loadCommon($data);
+        $service = $this->advert->service->serviceable;
+
+        $data['max_guests'] = $service->max_guests;
+        $data['min_guests'] = $service->min_guests;
+
+        $data['furniture'] = $this->furniture
+            ->pluck('id')
+            ->toArray();
+
+        $data['technical'] = $this->technical
+            ->pluck('id')
+            ->toArray();
+
+        $data['staff'] = $this->staff
+            ->pluck('id')
+            ->toArray();
+
+        $data['installations'] = $this->installations
+            ->pluck('id')
+            ->toArray();
+
+        $data['food'] = $this->food
+            ->pluck('id')
+            ->toArray();
+
+        $data['event_forms'] = $this->event
+            ->pluck('id')
+            ->toArray();
+    }
+
+    public function loadWine(array &$data): void
+    {
+        $this->loadCommon($data);
+        $service = $this->advert->service->serviceable;
+
+        $data['max_guests'] = $service->max_guests;
+        $data['min_guests'] = $service->min_guests;
+
+        $data['furniture'] = $this->furniture
+            ->pluck('id')
+            ->toArray();
+
+        $data['decorations'] = $this->decorations
+            ->pluck('id')
+            ->toArray();
+
+        $data['technical'] = $this->technical
+            ->pluck('id')
+            ->toArray();
+
+        $data['staff'] = $this->staff
+            ->pluck('id')
+            ->toArray();
+
+        $data['installations'] = $this->installations
+            ->pluck('id')
+            ->toArray();
+
+        $data['food'] = $this->food
+            ->pluck('id')
+            ->toArray();
+
+        $data['wine_forms'] = $this->wine
             ->pluck('id')
             ->toArray();
     }
@@ -107,34 +214,29 @@ class AdvertService implements IAdvertService
         $this->data = $data;
         $this->updateSchedule();
         $this->updateRates();
+        $this->updateComment();
+        $this->updateDescription();
 
         switch ($type) {
             case CategoryType::CATERER:
                 $this->updateCaterer();
                 break;
+            case CategoryType::EQUIPMENT:
+                $this->updateEquipment();
+                break;
             case CategoryType::EVENT:
-                // TODO: 3
+                $this->updateEvent();
                 break;
             case CategoryType::ENTERTAINMENT:
                 // TODO: 4
                 break;
             case CategoryType::WINE:
-                // TODO: 5
+                $this->updateWine();
                 break;
-            case CategoryType::EQUIPMENT:
-                // TODO: 6
 
             default:
                 break;
         }
-
-        $this->updateChecklist($this->payments, $data['payments']);
-        $this->updateChecklist($this->decorations, $data['decorations']);
-        $this->updateChecklist($this->dishes, $data['dishes']);
-        $this->updateChecklist($this->furniture, $data['furniture']);
-        $this->updateChecklist($this->kitchen, $data['kitchen']);
-        $this->updateChecklist($this->staff, $data['staff']);
-        $this->updateChecklist($this->delivery, $data['delivery']);
 
         return true;
     }
@@ -165,9 +267,7 @@ class AdvertService implements IAdvertService
 
     private function updateRates(): void
     {
-        $rate = $this->advert->service->rate;
-
-        $rate->update([
+        $this->advert->service->rate->update([
             'prices' => $this->data['prices'],
             'budget' => $this->data['budget'],
             'has_deposit' => $this->data['has_deposit'],
@@ -175,18 +275,8 @@ class AdvertService implements IAdvertService
                 ? $this->data['deposit_description']
                 : null,
         ]);
-    }
 
-    private function updateCaterer(): void
-    {
-        foreach ($this->data['menuFiles'] as $file) {
-            $path = $this->fileService->advertMenu($file);
-
-            AdvertFile::create([
-                'advert_service_id' => $this->advert->service->id,
-                'path' => $path,
-            ]);
-        }
+        $this->updateChecklist($this->payments, $this->data['payments']);
     }
 
     private function updateChecklist(Collection $items, array $data): void
@@ -212,5 +302,100 @@ class AdvertService implements IAdvertService
                 ]);
             }
         }
+    }
+
+    private function updateComment(): void
+    {
+        $this->advert->service->update([
+            'comment' => $this->data['comment'],
+        ]);
+    }
+
+    private function updateDescription(): void
+    {
+        $this->advert->service->serviceable->update([
+            'description' => $this->data['description'],
+            'description_en' => $this->data['description_en'],
+        ]);
+    }
+
+    private function updateCaterer(): void
+    {
+        $this->updateChecklist($this->caterer, $this->data['caterer_forms']);
+        $this->updateChecklist($this->decorations, $this->data['decorations']);
+        $this->updateChecklist($this->dishes, $this->data['dishes']);
+        $this->updateChecklist($this->furniture, $this->data['furniture']);
+        $this->updateChecklist($this->kitchen, $this->data['kitchen']);
+        $this->updateChecklist($this->staff, $this->data['staff']);
+        $this->updateChecklist($this->delivery, $this->data['delivery']);
+        $this->updateFile('menuFile', 'caterer');
+
+        $this->advert->service->serviceable->update([
+            'max_guests' => $this->data['max_guests'],
+            'min_guests' => $this->data['min_guests'],
+            'delivery_services' => $this->data['delivery_services'],
+            'specialty' => $this->data['specialty'],
+        ]);
+    }
+
+    private function updateFile(string $name, string $dest): void
+    {
+        $file = collect($this->data[$name])->flatten()->first();
+
+        if ($file) {
+            $currentFile = $this->advert->service->files->first();
+            $path = $this->fileService->advertFile($file, $dest);
+
+            if ($currentFile) {
+                $this->fileService->delete($currentFile->path);
+                $currentFile->update([
+                    'path' => $path,
+                ]);
+            } else {
+                AdvertFile::create([
+                    'advert_service_id' => $this->advert->service->id,
+                    'path' => $path,
+                ]);
+            }
+        }
+    }
+
+    private function updateEquipment(): void
+    {
+
+    }
+
+    private function updateEvent(): void
+    {
+        $this->updateChecklist($this->event, $this->data['event_forms']);
+        $this->updateChecklist($this->furniture, $this->data['furniture']);
+        $this->updateChecklist($this->technical, $this->data['technical']);
+        $this->updateChecklist($this->staff, $this->data['staff']);
+        $this->updateChecklist($this->installations, $this->data['installations']);
+        $this->updateChecklist($this->food, $this->data['food']);
+
+        $this->advert->service->serviceable->update([
+            'max_guests' => $this->data['max_guests'],
+            'min_guests' => $this->data['min_guests'],
+            'rooms' => '',
+            'caterers' => '',
+        ]);
+    }
+
+    private function updateWine(): void
+    {
+        $this->updateChecklist($this->wine, $this->data['wine_forms']);
+        $this->updateChecklist($this->furniture, $this->data['furniture']);
+        $this->updateChecklist($this->decorations, $this->data['decorations']);
+        $this->updateChecklist($this->technical, $this->data['technical']);
+        $this->updateChecklist($this->staff, $this->data['staff']);
+        $this->updateChecklist($this->installations, $this->data['installations']);
+        $this->updateChecklist($this->food, $this->data['food']);
+        $this->updateFile('articleFile', 'wine');
+
+        $this->advert->service->serviceable->update([
+            'max_guests' => $this->data['max_guests'],
+            'min_guests' => $this->data['min_guests'],
+        ]);
     }
 }

@@ -17,8 +17,6 @@
     width: 100%;
     overflow: hidden;
     color: $accent;
-    border-radius: 10px;
-
 
     &::before {
         content: '';
@@ -76,8 +74,11 @@
         }
     }
 
-    .app-card-content {
+    .app-card-content-border {
         border-bottom: 1px solid $light;
+    }
+
+    .app-card-content {
         padding-bottom: 20px;
 
         .card-content-padded {
@@ -180,5 +181,20 @@
         &::marker {
             color: $primary;
         }
+    }
+}
+
+.service-card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    .service-card-title {
+        padding: 20px;
+        border-bottom: 1px solid $light;
+        font-size: large;
+        font-weight: bold;
+        margin: 0;
     }
 }

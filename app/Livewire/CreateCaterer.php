@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-
 use App\Enums\CategoryType;
 use App\Models\Advert;
 use App\Services\AdvertService;

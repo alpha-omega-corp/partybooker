@@ -16,4 +16,5 @@ return [
     'description' => 'Description',
     'price' => 'Prix',
     'url' => 'Lien',
+    'title' => 'Titre',
 ];

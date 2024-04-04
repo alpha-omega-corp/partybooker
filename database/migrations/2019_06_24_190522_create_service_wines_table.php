@@ -8,7 +8,9 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('service_wines', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
+            $table->integer('min_guests')->nullable();
+            $table->integer('max_guests')->nullable();
             $table->timestamps();
         });
     }

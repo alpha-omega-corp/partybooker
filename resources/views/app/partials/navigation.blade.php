@@ -80,11 +80,7 @@
                     @if(Auth::check() && Auth::user()->isAdmin())
                         <div class="admin-navigation">
                             <x-navigation.group>
-                                <x-navigation.item
-                                    :href="url(route('admin.dashboard.messages'))"
-                                    text="messages"
-                                    :icon="$emailIcon"
-                                />
+
                                 <x-navigation.item
                                     :href="url(route('admin.dashboard.content'))"
                                     text="contents"
@@ -95,7 +91,16 @@
                                     text="partners"
                                     :icon="$userIcon"
                                 />
-
+                                <x-navigation.item
+                                    :href="url(route('admin.dashboard.forms'))"
+                                    text="forms"
+                                    icon="heroicon-o-film"
+                                />
+                                <x-navigation.item
+                                    :href="url(route('admin.dashboard.messages'))"
+                                    text="messages"
+                                    :icon="$emailIcon"
+                                />
                             </x-navigation.group>
                         </div>
                     @endif

@@ -8,7 +8,7 @@
     <title>Payment Method | {{ __('partybooker-cp.www') }}</title>
 @endsection
 
-@section('content')
+@section('service')
 
     <div class="container">
         <div class="d-flex justify-content-center">

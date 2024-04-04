@@ -30,6 +30,8 @@
                         :absolute="true"
                         :tooltip="__('listing.search')"
                     />
+
+
                 </div>
             </div>
 

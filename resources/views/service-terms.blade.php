@@ -8,7 +8,7 @@
     <title>{{__('main.partner_terms')}} | {{ __('partybooker-cp.www')}}</title>
 @endsection
 
-@section('content')
+@section('service')
 
     <section class="terms-section">
         <div class="container">

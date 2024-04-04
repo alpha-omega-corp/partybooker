@@ -19,15 +19,16 @@ enum ModalName
     case APP_ABOUT;
     case APP_ABOUT_ITEM;
     case APP_HELP;
+    case APP_FORM;
 
     case GUEST_PARTNERSHIP;
 
     case ADMIN_MESSAGE;
 
-    case BLOG;
     case PARTNER;
     case PARTNER_COMPANY;
     case PARTNER_PLAN;
+    case PARTNER_SERVICE_IMAGE;
     case PARTNER_ADVERT;
     case PARTNER_ADVERT_DESCRIPTION;
     case PARTNER_ADVERT_ACCESS;

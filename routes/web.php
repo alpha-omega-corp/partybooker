@@ -17,6 +17,7 @@ use App\Http\Controllers\App\AboutController;
 use App\Http\Controllers\App\CommentController;
 use App\Http\Controllers\App\ContentController;
 use App\Http\Controllers\App\FaqController;
+use App\Http\Controllers\App\FormController;
 use App\Http\Controllers\App\InformationController;
 use App\Http\Controllers\App\NotificationController;
 use App\Http\Controllers\App\PlanController;
@@ -156,6 +157,7 @@ Route::middleware('admin')
             ->prefix('dashboard')
             ->group(function () {
                 Route::get('/content', 'content')->name('content');
+                Route::get('/forms', 'forms')->name('forms');
                 Route::get('/messages', 'messages')->name('messages');
                 Route::get('/partners', 'partners')->name('partners');
 
@@ -168,6 +170,15 @@ Route::middleware('admin')
             ->prefix('notification')
             ->group(function () {
                 Route::put('/status/{notification}', 'status')->name('status');
+            });
+
+        Route::controller(FormController::class)
+            ->name('form.')
+            ->prefix('form')
+            ->group(function () {
+                Route::post('/{type}', 'store')->name('store');
+                Route::put('/{form}', 'update')->name('update');
+                Route::delete('/{form}', 'destroy')->name('destroy');
             });
 
 
@@ -234,10 +245,10 @@ Route::middleware('admin')
             });
 
         Route::controller(ContentController::class)
-            ->name('content.')
-            ->prefix('content')
+            ->name('service.')
+            ->prefix('service')
             ->group(function () {
-                Route::put('/{content}', 'update')->name('update');
+                Route::put('/{service}', 'update')->name('update');
             });
 
         Route::controller(AboutController::class)
