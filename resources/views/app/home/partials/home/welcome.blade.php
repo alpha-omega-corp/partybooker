@@ -1,9 +1,5 @@
-<div class="welcome">
-
-    <div class="d-flex justify-content-center">
-        <p>{{__('home.welcome')}}</p>
-    </div>
-    <h1>
+<div class="home-welcome-header">
+    <h1 class="home-welcome-title">
         <span>Party</span>
         <br>
         <span>Booker.ch</span>

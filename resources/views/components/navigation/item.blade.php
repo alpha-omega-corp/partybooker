@@ -9,8 +9,8 @@
         <div>
             @svg($icon)
         </div>
-        <div>
-            <span>{{ $text }}</span>
+        <div class="nav-item-label">
+            <span>{{ ucfirst($text) }}</span>
         </div>
 
     </div>

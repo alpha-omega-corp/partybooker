@@ -36,12 +36,14 @@
                             </div>
                         </div>
 
-                        @include('app.listing.partials.service')
 
-                        <div class="d-flex gap-4 mt-4">
+                        <div class="d-flex gap-4 mb-4">
                             @include('app.listing.partials.advert.contacts')
                             @include('app.listing.partials.advert.company-adverts')
                         </div>
+
+                        @include('app.listing.partials.service')
+
                     </div>
 
                     <div class="col-lg-4 col-md-12">

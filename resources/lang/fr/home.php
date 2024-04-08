@@ -2,6 +2,10 @@
 
 
 return [
+    'title' => 'Trouvez des idées',
+    'subtitle' => 'En toute simplicité',
+    'information' => 'Un peu plus d\'information',
+    'comments' => 'Vos paroles, notre motivation',
     'listing' => 'annonce',
     'partnership' => 'partenariat',
     'blog' => 'articles blog',

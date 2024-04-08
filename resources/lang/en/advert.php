@@ -19,6 +19,12 @@ return [
     'contacts' => 'Contacts',
     'others' => 'Adverts',
 
+    'phone' => 'Phone',
+    'company' => 'Company',
+    'email' => 'Email',
+    'website' => 'Web',
+    'address' => 'Address',
+
     'min_guests' => 'Minimum guests',
     'max_guests' => 'Maximum guests',
 

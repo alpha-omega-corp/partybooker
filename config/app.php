@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\AppColor;
 use App\Enums\AppContentType;
 use App\Enums\CategoryType;
 use App\Enums\DateType;
@@ -204,6 +205,8 @@ return [
         'AppContentType' => AppContentType::class,
         'Captcha' => CaptchaFacade::class,
         'FormType' => FormType::class,
+        'TitleSize' => App\Enums\TitleSize::class,
+        'AppColor' => AppColor::class
     ])->toArray(),
 
     'tinymce' => env('TINYMCE_API_KEY'),

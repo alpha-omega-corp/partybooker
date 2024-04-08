@@ -13,5 +13,6 @@ class ContentSeeder extends Seeder
         AppContent::factory()->serviceTerms()->create();
         AppContent::factory()->appAbout()->create();
         AppContent::factory()->appConcept()->create();
+        AppContent::factory()->appHome()->create();
     }
 }

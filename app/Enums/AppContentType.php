@@ -8,7 +8,7 @@ enum AppContentType
     case SERVICE_TERMS;
     case APP_ABOUT;
     case APP_CONCEPT;
-    case APP_BENEFITS;
+    case APP_HOME;
 
     public static function names(): array
     {

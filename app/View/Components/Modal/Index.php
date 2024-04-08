@@ -38,7 +38,7 @@ class Index extends Component
                 ModalType::CREATE => 'primary',
                 ModalType::DELETE => 'danger',
                 ModalType::UPDATE => 'info',
-                ModalType::READ => 'standard',
+                ModalType::READ => 'blue',
             };
         } else {
             $this->color = $customColor;

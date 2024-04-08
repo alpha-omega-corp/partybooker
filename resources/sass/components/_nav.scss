@@ -3,7 +3,7 @@
 }
 
 .app-navigation {
-    background: rgba(255, 255, 255, 0.9);
+    background: #fff;
     padding: 15px;
     position: fixed;
     top: 0;
@@ -11,8 +11,9 @@
     z-index: 1;
     border-bottom: 1px solid $light;
     height: 80px;
+    font-family: "Poppins", sans-serif;
 
-    .navigation {
+    .navbar-mobile {
         height: 100%;
         position: relative;
 
@@ -22,6 +23,56 @@
             padding-top: 20px;
             border-top: 1px solid $orange;
             width: 100%;
+        }
+    }
+
+    .navbar-desktop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        .app-logo-offcanvas {
+            display: none;
+        }
+
+        .nav-group {
+            flex-direction: row !important;
+            gap: 40px;
+        }
+
+        a {
+            color: $dark;
+
+            &:hover {
+                color: $blue;
+            }
+        }
+
+        .nav-item-content {
+            display: flex;
+            gap: 10px;
+
+            .nav-item-label {
+                padding-top: 2px;
+            }
+        }
+
+        .admin-navigation {
+            margin-right: 40px;
+        }
+
+    }
+
+    @media only screen and (min-width: 1200px) {
+        .navbar-toggler {
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width: 1200px) {
+        .navbar-desktop {
+            display: none;
         }
     }
 

@@ -57,7 +57,7 @@
                         </h6>
                     </div>
 
-                    <button type="button" class="btn-close btn-close-white fw-bold" data-bs-dismiss="modal"
+                    <button type="button" class="btn-close fw-bold" data-bs-dismiss="modal"
                             aria-label="Close"></button>
                 </div>
 

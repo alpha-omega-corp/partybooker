@@ -1,7 +1,12 @@
 @if (count($top))
-    <x-carousel name="tops" :per-view="4" background="top">
+    <x-carousel name="tops" :per-view="4">
         <x-slot:title>
-            <h2>Top Services</h2>
+            <x-app.title
+                :size="TitleSize::MEDIUM"
+                :color="AppColor::PINK"
+                :value="__('home.tops')"
+                class="home-top-title"
+            />
         </x-slot:title>
 
         <x-slot:items>
@@ -16,7 +21,8 @@
                         <img src="{{$advert->images()->thumbnail()->first()->path}}"
                              alt="{{$partner->company->name}}"/>
 
-                        <h6 class="p-4 fw-bold">{{$partner->company->name}}</h6>
+                        <h6 class="top-card-title">{{$partner->company->name}}</h6>
+
                         <div class="top-card-content">
                             <span>{{$partner->company->address->address}}</span>
                             <span>{{$partner->company->loc}}</span>

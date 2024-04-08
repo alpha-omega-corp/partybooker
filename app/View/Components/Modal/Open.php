@@ -32,7 +32,7 @@ class Open extends Component
             ModalType::CREATE => 'primary',
             ModalType::DELETE => 'danger',
             ModalType::UPDATE => 'info',
-            default => 'standard',
+            default => 'blue',
         };
 
         $this->id = ModalHelper::getId($name, $type, $singleton, $iterator);

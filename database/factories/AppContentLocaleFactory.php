@@ -15,7 +15,7 @@ class AppContentLocaleFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence,
+            'title' => $this->faker->sentence(3),
             'content' => $this->faker->paragraph,
         ];
     }

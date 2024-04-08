@@ -16,7 +16,7 @@ class AppInformationLocaleFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(4),
-            'content' => $this->faker->paragraph(10),
+            'content' => $this->faker->paragraph(4),
         ];
     }
 }

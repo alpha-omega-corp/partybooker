@@ -31,6 +31,7 @@ class HomeController extends Controller
             'comments' => AppComment::all(),
             'information' => AppInformation::all(),
             'top' => PartnerTop::all()->map(fn($item) => $item->partner),
+            'content' => AppContent::ofType(AppContentType::APP_HOME)->first()->locale,
         ]);
     }
 

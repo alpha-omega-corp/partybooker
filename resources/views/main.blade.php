@@ -46,7 +46,7 @@
                     perView: count,
                     breakpoints: {
                         1500: {
-                            perView: 2,
+                            perView: 4,
                         },
                         1000: {
                             perView: 1,

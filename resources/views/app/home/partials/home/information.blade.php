@@ -1,11 +1,14 @@
 <x-carousel
     name="information"
-    :per-view="3"
-    :container="true">
+    :per-view="4"
+>
     <x-slot:title>
-        <h2 class="information-title">
-            {{__('home.information')}}
-        </h2>
+        <x-app.title
+            :size="TitleSize::MEDIUM"
+            :color="AppColor::BLUE"
+            :value="__('home.information')"
+            class="home-information-title"
+        />
     </x-slot:title>
 
     <x-slot:items>
@@ -15,7 +18,6 @@
                     <x-utils.information :information="$item"/>
                 </x-carousel.item>
             @endif
-
         @endforeach
     </x-slot:items>
 </x-carousel>

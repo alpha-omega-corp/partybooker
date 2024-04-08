@@ -75,5 +75,14 @@ class AppContentFactory extends Factory
         });
     }
 
+    public function appHome(): AppContentFactory
+    {
+        return $this->state(function () {
+            return [
+                'type' => AppContentType::APP_HOME->name,
+            ];
+        });
+    }
+
 
 }

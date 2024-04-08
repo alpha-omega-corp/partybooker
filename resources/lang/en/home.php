@@ -13,4 +13,5 @@ return [
     'help_title' => 'do you have a question ?',
     'usp' => 'unique selling points',
     'guest' => 'guest',
+    'tops' => 'Top Services'
 ];

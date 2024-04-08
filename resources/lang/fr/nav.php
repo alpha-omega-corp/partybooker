@@ -3,7 +3,7 @@
 return [
     'home' => 'accueil',
     'listing' => 'annonces',
-    'about' => 'à propos',
+    'about' => 'a propos',
     'partnership' => 'partenariat',
     'blog' => 'blog',
     'faq' => 'faq',

@@ -1,8 +1,11 @@
 <x-carousel name="comments" :container="true">
     <x-slot:title>
-        <h2>
-            {{__('comments.title')}}
-        </h2>
+        <x-app.title
+            :size="TitleSize::MEDIUM"
+            :color="AppColor::PINK"
+            :value="__('home.comments')"
+            class="home-comment-title"
+        />
     </x-slot:title>
 
     <x-slot:items>

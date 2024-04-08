@@ -1,54 +1,27 @@
-<h2 class="fw-bold text-uppercase text-center d-none">
-    {{ __('main.categories')}}
-</h2>
-<div class="row">
+<div class="home-category-container">
     @foreach ($categories as $category)
-        <div class="col scene flippy">
-            <div class="flippy shadow-lg">
-                <div class="flippy__face flippy__face--front">
+        @php
+            $icon = match ($category->service) {
+                CategoryType::EVENT->value => 'heroicon-s-map-pin',
+                CategoryType::CATERER->value => 'heroicon-s-cake',
+                CategoryType::WINE->value => 'heroicon-s-trophy',
+                CategoryType::EQUIPMENT->value => 'heroicon-s-shopping-cart',
+                CategoryType::ENTERTAINMENT->value => 'heroicon-s-musical-note',
+            };
+        @endphp
 
-                    <div class="d-flex flex-column justify-content-center align-items-center h-100">
-                        @php
-                            $icon = match ($category->service) {
-                                CategoryType::EVENT->value => 'heroicon-s-map-pin',
-                                CategoryType::CATERER->value => 'heroicon-s-cake',
-                                CategoryType::WINE->value => 'heroicon-s-trophy',
-                                CategoryType::EQUIPMENT->value => 'heroicon-s-shopping-cart',
-                                CategoryType::ENTERTAINMENT->value => 'heroicon-s-musical-note',
-                            };
-                        @endphp
+        <a href="{{route('guest.listing.index', [
+                'category' => $category->locale->slug
+            ])}}">
 
-                        <div class="category-icon">
-                            @svg($icon)
-                        </div>
-
-                        <h3 class="category-title">
-                            {{$category->locale->title}}
-                        </h3>
-                    </div>
-
-
+            <div class="home-category-card shadow-lg">
+                <div class="category-card-icon">
+                    @svg($icon)
                 </div>
-                <div class="flippy__face flippy__face--back">
-                    <div class="category-tags">
-                        <ul>
-                            @foreach($category->tags as $tag)
-                                @if($tag->locale && $category->locale)
-                                    <li>
-                                        <a href="{{route('guest.listing.index', [
-                                                'category' => $category->locale->slug,
-                                                'child' => $tag->locale->slug
-                                            ])}}">
-
-                                            {{$tag->locale->title}}
-                                        </a>
-                                    </li>
-                                @endif
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="category-card-header">
+                    <h6 class="category-card-title">{{$category->locale->title}}</h6>
                 </div>
             </div>
-        </div>
+        </a>
     @endforeach
 </div>
