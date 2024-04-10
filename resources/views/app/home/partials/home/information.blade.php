@@ -21,3 +21,20 @@
         @endforeach
     </x-slot:items>
 </x-carousel>
+
+<div class="carousel__mobile">
+
+    <x-app.title
+        :size="TitleSize::MEDIUM"
+        :color="AppColor::BLUE"
+        :background="true"
+        :value="__('home.information')"
+        class="home-information-title"
+    />
+
+    @foreach($information as $item)
+        @if($item->locale)
+            <x-utils.information :information="$item"/>
+        @endif
+    @endforeach
+</div>

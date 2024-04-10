@@ -7,10 +7,6 @@
 @section('content')
 
     <x-card.panel :title="__('home.blog')">
-        <x-slot:breadcrumbs>
-            {{Breadcrumbs::render('blog')}}
-        </x-slot:breadcrumbs>
-
         <section class="blog">
             <div class="blog-content-card">
                 <div class="row">

@@ -1,22 +1,17 @@
 @props(['title'])
 
-<div class="container shadow-lg app-card-panel">
+<div {{$attributes->merge(['class' => 'app-card-panel'])}}>
     <div class="card-panel-header">
-
-        <h1 class="card-panel-title">
-            {{$title}}
-        </h1>
-
+        <x-app.title
+            :size="TitleSize::LARGE"
+            :color="AppColor::BLUE"
+            :value="$title"
+        />
+        
         @if(isset($breadcrumbs))
             <div class="card-panel-breadcrumbs">
                 {{$breadcrumbs}}
             </div>
-        @else
-
-        @endif
-
-        @if(isset($header))
-            <div>{{$header}}</div>
         @endif
     </div>
 

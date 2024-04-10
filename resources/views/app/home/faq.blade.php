@@ -7,10 +7,6 @@
 @section('content')
 
     <x-card.panel :title="__('home.faq')">
-        <x-slot:breadcrumbs>
-            {{Breadcrumbs::render('faq')}}
-        </x-slot:breadcrumbs>
-
         <section class="faq">
             <div class="faq-content-card">
                 <x-accordion.index

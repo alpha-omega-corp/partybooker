@@ -8,7 +8,9 @@
                     :show="$active ? $active->id === $category->id : $key === 0"
                 >
                     <x-slot:title>
-                        {{ $category->locale->title }}
+                        <h6 class="listing-category-title">
+                            {{ $category->locale->title }}
+                        </h6>
                     </x-slot:title>
 
                     <x-slot:content>

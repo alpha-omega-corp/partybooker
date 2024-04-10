@@ -8,7 +8,7 @@ return [
     'comments' => 'Vos paroles, notre motivation',
     'listing' => 'annonce',
     'partnership' => 'partenariat',
-    'blog' => 'articles blog',
+    'blog' => 'blog',
     'benefits' => 'avantages partenaire',
     'features' => 'fonctionnalités partenaires',
     'about' => 'à propos',

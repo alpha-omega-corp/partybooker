@@ -22,9 +22,7 @@
             padding: 40px 0 60px 40px;
 
             .about-features-title {
-                text-transform: uppercase;
-                font-weight: bold;
-                color: $blue;
+                padding: 40px;
 
             }
         }
@@ -56,6 +54,7 @@
                 .feature-card-content {
                     display: flex;
                     flex-direction: column;
+                    width: 100%;
 
                     .feature-card-header {
                         height: 50px;
@@ -161,7 +160,10 @@
 
 .partnership {
 
-    .partnership-register-content {
+    .partnership-help-card {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 80px;
     }
 
     .partnership-register {
@@ -197,7 +199,7 @@
         padding-right: 40px;
 
         .partnership-help-title {
-            text-align: end;
+            text-align: center;
             text-transform: uppercase;
             font-weight: bold;
             margin-bottom: 10px;
@@ -216,10 +218,16 @@
 
 
 .benefits-title {
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 40px 0 20px 40px;
-    color: $blue;
+    padding-top: 80px;
+    padding-bottom: 10px;
+}
+
+.plans-title {
+    padding: 80px;
+}
+
+.usp-title {
+    padding: 80px;
 }
 
 .plans-content-card {
@@ -254,7 +262,7 @@
 
 
             &::marker {
-                color: $primary;
+                color: $blue;
                 font-weight: bold;
                 font-size: 22px;
             }
@@ -287,6 +295,7 @@
         flex-direction: column;
         border: 1px solid $light;
         border-radius: 10px;
+        width: 100%;
 
         .benefit-card-header {
             display: flex;
@@ -339,8 +348,9 @@
 
             .home-welcome-title {
                 color: #fff;
-                text-shadow: $blue 5px 5px 5px;
+                text-shadow: $dark 5px 5px 5px;
                 font-weight: bold;
+                font-style: italic;
 
                 span {
                     font-size: 100px;
@@ -367,13 +377,12 @@
                 padding: 10px;
                 font-size: larger;
                 font-family: "Poppins", sans-serif;
-                font-style: italic;
+                color: $blue;
             }
         }
     }
 
     .home-category {
-        margin-bottom: 160px;
 
         .home-category-container {
             display: flex;
@@ -381,22 +390,29 @@
             flex-wrap: wrap;
             gap: 20px;
 
-            @media only screen and (min-width: 1600px) {
-                padding: 0 400px;
+            @media only screen and (min-width: 2200px) {
+                padding: 0 400px 120px;
             }
 
-            @media only screen and (max-width: 1600px) {
-                padding: 0 200px;
+            @media only screen and (max-width: 2200px) {
+                padding: 0 300px 120px;
             }
 
-            @media only screen and (max-width: 800px) {
-                padding: 0 100px;
+            @media only screen and (max-width: 1700px) {
+                padding: 0 200px 120px;
             }
 
-            @media only screen and (max-width: 600px) {
-                padding: 0 40px;
+            @media only screen and (max-width: 1500px) {
+                padding: 0 150px 120px;
             }
 
+            @media only screen and (max-width: 1000px) {
+                padding: 0 100px 120px;
+            }
+
+            @media only screen and (max-width: 900px) {
+                padding: 0 50px 50px;
+            }
         }
 
         a {
@@ -440,7 +456,7 @@
                     color: $gray;
                     font-weight: bold;
                     text-transform: uppercase;
-                    font-size: small;
+                    font-size: medium;
                     margin: 0;
                 }
             }
@@ -541,11 +557,64 @@
     }
 
     .home-top {
-        padding: 0 400px 120px;
+        @media only screen and (min-width: 2200px) {
+            padding: 0 400px 120px;
+        }
+
+        @media only screen and (max-width: 2200px) {
+            padding: 0 300px 120px;
+        }
+
+        @media only screen and (max-width: 1700px) {
+            padding: 0 200px 120px;
+        }
+
+        @media only screen and (max-width: 1500px) {
+            padding: 0 150px 120px;
+        }
+
+        @media only screen and (max-width: 1000px) {
+            padding: 0 100px 120px;
+        }
+
+        @media only screen and (max-width: 900px) {
+            padding: 0 50px 120px;
+        }
+
+        .mobile-top-card {
+            border: 1px solid $light;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            a {
+                color: $dark;
+
+                .top-card-title {
+                    padding: 20px;
+                    text-align: center;
+                    font-weight: bold;
+                }
+
+                .top-card-content {
+                    padding: 0 20px 20px;
+                    text-align: center;
+                }
+            }
+        }
+
+
         background-color: $top;
 
         .home-top-title {
-            padding: 80px;
+            margin: 80px 0;
         }
 
         .top-card {
@@ -590,10 +659,33 @@
 
     .home-information {
         background-color: #f6f4f5;
-        padding: 0 400px 120px;
+        @media only screen and (min-width: 2200px) {
+            padding: 0 400px 120px;
+        }
+
+        @media only screen and (max-width: 2200px) {
+            padding: 0 300px 120px;
+        }
+
+        @media only screen and (max-width: 1700px) {
+            padding: 0 200px 120px;
+        }
+
+        @media only screen and (max-width: 1500px) {
+            padding: 0 150px 120px;
+        }
+
+        @media only screen and (max-width: 1000px) {
+            padding: 0 100px 120px;
+        }
+
+        @media only screen and (max-width: 900px) {
+            padding: 0 50px 120px;
+        }
+
 
         .home-information-title {
-            padding: 80px;
+            margin: 80px 0;
         }
 
         .information-card {

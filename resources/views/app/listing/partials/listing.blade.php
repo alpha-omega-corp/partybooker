@@ -1,6 +1,17 @@
 @php use App\Http\Middleware\LocaleMiddleware;use App\Models\Category; @endphp
 
+<div class="listing-content-pagination">
+    @if($adverts->hasPages())
+        {{$adverts->links()}}
+    @else
+        <div class="content-pagination-none">
+            <span class="fw-semibold text-gray">{{count($adverts).'/'.count($adverts) }}</span>
+        </div>
+    @endif
+</div>
+
 <section class="app-listing-content">
+
     @foreach($adverts as $advert)
         <x-advert.link :advert="$advert">
             <div class="advert-card">

@@ -5,47 +5,51 @@
 @endsection
 
 @section('content')
-    <div class="app-listing">
+
+    <x-card.panel :title="__('app.listing')" class="app-listing">
+
         @include('app.listing.partials.search')
 
-        <x-card.listing :title="__('app.listing')">
-            <x-slot:breadcrumbs>
-                {{Breadcrumbs::render('listing', Request::segments())}}
-            </x-slot:breadcrumbs>
 
-            <x-slot:categories>
-                @include('app.listing.partials.category')
-            </x-slot:categories>
+        <div class="row">
+            <div
+                class="listing-sidebar col-lg-3 col-md-0 col-sm-0 d-none d-sm-none d-md-none d-lg-block">
 
-            <div class="listing-description">
-                @if($active)
-                    {{$active->locale->description}}
-                @endif
-
-                <div class="listing-search-bar">
-                    <x-modal.open
-                        :name="ModalName::APP_LISTING_SEARCH"
-                        :icon="$searchIcon"
-                        :singleton="true"
-                        :absolute="true"
-                        :tooltip="__('listing.search')"
-                    />
-
-
-                </div>
-            </div>
-
-            <div class="listing-content-pagination">
-                @if($adverts->hasPages())
-                    {{$adverts->links()}}
-                @else
-                    <div class="content-pagination-none">
-                        <span class="fw-semibold text-gray">{{count($adverts).'/'.count($adverts) }}</span>
+                <div class="listing-category-card">
+                    <div class="listing-search-card">
+                        <x-modal.open
+                            :name="ModalName::APP_LISTING_SEARCH"
+                            :icon="$searchIcon"
+                            :singleton="true"
+                            :background="true"
+                            :tooltip="__('listing.search')"
+                        />
                     </div>
-                @endif
+                    <div class="d-flex justify-content-between">
+                        @if(count(Request::segments()) > 1)
+                            <div class="category-card-header">
+                                {{Breadcrumbs::render('listing', Request::segments())}}
+                            </div>
+                        @endif
+
+
+                    </div>
+                    @if($active)
+                        <div class="category-card-description">
+                            <p>
+                                {{$active->locale->description}}
+                            </p>
+                        </div>
+                    @endif
+                </div>
+
+
+                @include('app.listing.partials.category')
             </div>
 
-            @include('app.listing.partials.listing')
-        </x-card.listing>
-    </div>
+            <div class="col-lg-9">
+                @include('app.listing.partials.listing')
+            </div>
+        </div>
+    </x-card.panel>
 @endsection

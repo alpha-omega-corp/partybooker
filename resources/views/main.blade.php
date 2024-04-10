@@ -45,10 +45,13 @@
                     type: 'carousel',
                     perView: count,
                     breakpoints: {
-                        1500: {
-                            perView: 4,
+                        1900: {
+                            perView: count - 1,
                         },
-                        1000: {
+                        1300: {
+                            perView: count - 2,
+                        },
+                        900: {
                             perView: 1,
                         },
                     },

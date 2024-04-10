@@ -10,6 +10,8 @@ use Illuminate\View\Component;
 
 class Title extends Component
 {
+    public string $style;
+
     public function __construct(
         public TitleSize $size,
         public AppColor  $color,
@@ -17,7 +19,7 @@ class Title extends Component
         public bool      $background = false,
     )
     {
-        //
+        $this->style = 'app-title ' . ($background ? 'text-white p-2 bg-' : 'text-') . $color->value;
     }
 
     public function render(): View|Closure|string

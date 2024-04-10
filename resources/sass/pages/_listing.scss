@@ -4,6 +4,45 @@
         padding: 0 !important;
     }
 
+    .tag-link {
+        width: 100%;
+    }
+
+    .listing-search-card {
+        padding: 20px;
+        border: 1px solid $light;
+
+        button {
+            width: 100% !important;
+        }
+    }
+
+
+    .listing-category-card {
+        border-left: 1px solid $light;
+        border-right: 1px solid $light;
+        position: relative;
+
+        .category-card-header {
+            padding: 20px;
+        }
+
+        .category-card-description {
+            border-top: 1px solid $light;
+            padding: 20px 20px 40px;
+
+            p {
+                color: $dark;
+                font-size: large;
+            }
+        }
+
+        .breadcrumb {
+            margin: 0 !important;
+        }
+
+    }
+
     .app-listing-search {
         .content-search-results {
             height: 400px;
@@ -73,37 +112,48 @@
     }
 
     .app-listing-category {
-        padding-left: 10px;
+
+        .listing-category-title {
+            color: $pink;
+            margin: 0;
+            font-weight: bold;
+            font-size: larger;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        .accordion-body {
+            border-left: 1px solid $light;
+            border-right: 1px solid $light;
+        }
 
         .listing-category-tags {
-            padding-left: 40px;
+            padding-left: 20px;
         }
 
         .category-tag {
-            padding: 10px;
+            list-style-type: decimal;
 
             &::marker {
-                color: $primary;
-                list-style-type: circle;
+                color: $blue;
             }
 
             a {
                 padding: 10px;
                 color: $gray;
+                font-size: small;
+                font-weight: bold;
+                font-family: "Poppins", sans-serif;
+                text-transform: uppercase;
             }
 
         }
     }
 
-    .listing-description {
-        padding: 20px 20px 40px;
-        position: relative;
-    }
 
     .listing-content-pagination {
         padding: 20px 30px 20px 20px;
         border-bottom: 1px solid $light;
-        border-top: 1px solid $light;
+
 
         .content-pagination-none {
             display: flex;
@@ -114,9 +164,10 @@
     .app-listing-content {
         position: relative;
         margin-right: 30px;
-        height: 850px;
+        height: 820px;
         overflow: scroll;
         padding: 20px 30px 20px 20px;
+        border-left: 1px solid $light;
 
         .advert-card {
             display: flex;

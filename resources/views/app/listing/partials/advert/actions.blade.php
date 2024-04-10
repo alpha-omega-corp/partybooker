@@ -4,7 +4,7 @@
 ])
 
     @if(Auth::user() && Auth::user()->isAdmin())
-        <a class="btn btn-admin text-white"
+        <a class="btn btn-orange text-white"
            href="{{route('partner.dashboard', ['partner' => $advert->company->partner])}}">
             {{__('partner.dashboard')}}
         </a>

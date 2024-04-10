@@ -1,8 +1,8 @@
 @if(Auth::check())
     <div class="app-navigation-user">
-        <div class="dropdown">
+        <div class="btn-group dropstart">
             <button
-                class="btn btn-secondary dropdown-toggle"
+                class="btn btn-secondary dr-toggle"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -17,8 +17,39 @@
                             Dashboard
                         </a>
                     </li>
+
+                @else
+
+                    <li><h6 class="dropdown-header">Management</h6></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{url(route('admin.dashboard.partners'))}}">
+                            Partners
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{url(route('admin.dashboard.content'))}}">
+                            Content
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{url(route('admin.dashboard.forms'))}}">
+                            Forms
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{url(route('admin.dashboard.messages'))}}">
+                            Messages
+                        </a>
+                    </li>
                 @endif
 
+
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
                 <li>
                     <a class="dropdown-item" href="{{route('auth.logout')}}">
                         Logout

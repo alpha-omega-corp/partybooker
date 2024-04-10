@@ -4,7 +4,7 @@
 return [
     'listing' => 'advertisements',
     'partnership' => 'partnership',
-    'blog' => 'blog posts',
+    'blog' => 'blog',
     'about' => 'about us',
     'faq' => 'frequent questions',
     'benefits' => 'partnership benefits',

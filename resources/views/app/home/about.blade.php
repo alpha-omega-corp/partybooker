@@ -6,20 +6,16 @@
 @section('content')
 
     <x-card.panel :title="__('home.about')">
-
-        <x-slot:breadcrumbs>
-            {{Breadcrumbs::render('about')}}
-        </x-slot:breadcrumbs>
-
         <section class="about">
 
             <div class="about-content-card">
-                <div class="about-description">
+
+                <div class="about-description w-100">
                     <h6>{{$description->title}}</h6>
                     <p>{{$description->content}}</p>
                 </div>
 
-                <div class="about-concept">
+                <div class="about-concept w-100">
                     <h6>{{$concept->title}}</h6>
                     <p>{{$concept->content}}</p>
                 </div>
@@ -28,9 +24,13 @@
             <div class="about-features-card">
 
                 <div class="about-features-header">
-                    <h2 class="about-features-title">
-                        {{__('home.features')}}
-                    </h2>
+                    <x-app.title
+                        :size="TitleSize::MEDIUM"
+                        :color="AppColor::PINK"
+                        :value="__('home.features')"
+                        class="about-features-title"
+                    />
+
                 </div>
 
                 <div class="about-features-content">

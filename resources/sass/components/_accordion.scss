@@ -1,11 +1,9 @@
 .app-accordion {
 
     .accordion {
-        background-color: transparent;
         --bs-accordion-border-width: 0;
 
         .card-group {
-            background-color: transparent;
             width: 100%;
 
             @media only screen and (max-width: 767px) {
@@ -35,38 +33,36 @@
                     }
 
                     .accordion-item {
-                        background-color: transparent;
-
                         .accordion-button {
                             border: 0;
+                            color: $dark;
+
                         }
 
                         .accordion-item-flex {
                             display: flex;
-                            gap: 20px;
-                            border-bottom: 1px solid $light;
+                            border: 1px solid $light;
                         }
                     }
 
                     .accordion-body {
                         text-align: justify;
-                        border: 0;
                         cursor: default;
                         position: relative;
                     }
 
                     .accordion-button {
                         font-weight: bold;
-                        background-color: transparent;
-                        border: 0;
+                        text-transform: uppercase;
+                        font-family: 'IBM Plex Sans', sans-serif;
+                        border-radius: 0;
                         display: flex;
                         align-items: center;
                         padding: 20px;
+                        width: 100% !important;
 
                         .accordion-title {
                             cursor: pointer;
-                            color: #000;
-                            font-size: small;
                             margin: 0;
                         }
                     }

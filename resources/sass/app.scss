@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap');
+
 // Components
 @import "components/tab";
 @import "components/input";
@@ -29,6 +30,22 @@
 @import "pages/listing";
 @import "pages/partner";
 @import "pages/admin";
+
+@media only screen and (max-width: 900px) {
+    .carousel__frame {
+        display: none;
+    }
+
+    .carousel__mobile {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 901px) {
+    .carousel__mobile {
+        display: none;
+    }
+}
 
 [x-cloak] {
     display: none;
@@ -156,7 +173,7 @@ footer {
     background-size: 0 2px;
     background-position: 0 100%;
     background-repeat: no-repeat;
-    transition: background-size .15s ease-in-out;
+    transition: background-size .2s ease-in-out;
 }
 
 .link-underline:hover {
@@ -165,5 +182,5 @@ footer {
 }
 
 .link-underline-primary {
-    background-image: linear-gradient(transparent, transparent), linear-gradient($accent, $accent);
+    background-image: linear-gradient(transparent, transparent), linear-gradient($blue, $blue);
 }

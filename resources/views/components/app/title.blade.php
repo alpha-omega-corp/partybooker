@@ -1,17 +1,17 @@
-<div class="text-center">
+<div class="d-flex justify-content-center">
     @switch($size)
         @case(TitleSize::SMALL)
-            <h4 {{$attributes->merge(['class' => 'app-title app-title-small '. ($background ? 'text-white bg-' : 'text-').$color->value])}}>
+            <h4 {{$attributes->merge(['class' => 'app-title-small '.$style])}}>
                 {{$value}}
             </h4>
             @break
         @case(TitleSize::MEDIUM)
-            <h2 {{$attributes->merge(['class' => 'app-title app-title-medium text-'.$color->value])}}>
+            <h2 {{$attributes->merge(['class' => 'app-title-medium '.$style])}}>
                 {{$value}}
             </h2>
             @break
-        @default
-            <h1 {{$attributes->merge(['class' => 'app-title app-title-large text-'.$color->value])}}>
+        @case(TitleSize::LARGE)
+            <h1 {{$attributes->merge(['class' => 'app-title-large '.$style])}}>
                 {{$value}}
             </h1>
             @break
