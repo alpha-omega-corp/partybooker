@@ -12,39 +12,17 @@
                 <div>
                     @include('app.listing.partials.breadcrumbs')
 
-                    <div class="app-filter-desktop">
-                        <x-app.title
-                            :size="TitleSize::SMALL"
-                            :color="AppColor::PINK"
-                            :value="__('listing.categories')"
-                            class="listing-category-title"
-                        />
 
-                        @include('app.listing.partials.category')
-                    </div>
+                    <x-app.title
+                        :size="TitleSize::SMALL"
+                        :color="AppColor::PINK"
+                        :value="__('listing.categories')"
+                        class="listing-category-title"
+                    />
 
-                    <div class="app-filter-mobile">
+                    @include('app.listing.partials.category')
 
-                        <x-accordion name="listing-mobile">
-                            <x-accordion.item
-                                accordion="listing-mobile"
-                                name="listing-mobile-item"
-                            >
-                                <x-slot:title>
-                                    <x-app.title
-                                        :size="TitleSize::SMALL"
-                                        :color="AppColor::PINK"
-                                        :value="__('listing.categories')"
-                                        class="listing-category-title"
-                                    />
-                                </x-slot:title>
 
-                                <x-slot:content>
-                                    @include('app.listing.partials.category')
-                                </x-slot:content>
-                            </x-accordion.item>
-                        </x-accordion>
-                    </div>
                 </div>
             </div>
 
