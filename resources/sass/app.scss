@@ -24,6 +24,7 @@
 @import "components/textarea";
 @import "components/plan";
 @import "components/title";
+@import "components/mobile";
 
 // Pages
 @import "pages/home";
@@ -62,7 +63,6 @@ html, body {
 
     .app-content {
         position: relative;
-        margin-top: 70px;
     }
 }
 

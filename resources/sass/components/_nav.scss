@@ -31,6 +31,7 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        margin-left: 20px;
 
         .app-logo-offcanvas {
             display: none;
@@ -73,6 +74,21 @@
     @media only screen and (max-width: 1200px) {
         .navbar-desktop {
             display: none;
+        }
+
+        .navbar-toggler {
+            background-color: $blue;
+            color: #fff;
+
+            svg {
+                
+            }
+        }
+
+        .app-logo-offcanvas {
+            img {
+                width: 120px !important;
+            }
         }
     }
 

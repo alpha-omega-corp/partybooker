@@ -36,6 +36,8 @@ Breadcrumbs::for('post', function (Trail $trail, AppPost $post) {
 });
 
 Breadcrumbs::for('listing', function (Trail $trail, array $segments) {
+    $trail->parent('home');
+
     $slugs = [];
 
     foreach ($segments as $key => $segment) {

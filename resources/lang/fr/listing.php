@@ -1,7 +1,9 @@
 <?php
 
 return [
-    'advert' => 'Annonce',
-    'category.all' => 'Tout',
-    'search' => 'Rechercher',
+    'advert' => 'annonce',
+    'category.all' => 'tout',
+    'search' => 'rechercher',
+    'categories' => 'catégories',
+
 ];

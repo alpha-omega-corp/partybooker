@@ -7,10 +7,10 @@
             :color="AppColor::BLUE"
             :value="$title"
         />
-        
-        @if(isset($breadcrumbs))
-            <div class="card-panel-breadcrumbs">
-                {{$breadcrumbs}}
+
+        @if(isset($information))
+            <div class="card-panel-information">
+                {{$information}}
             </div>
         @endif
     </div>

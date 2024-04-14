@@ -6,11 +6,12 @@
 ])
 
 
-<div class="carousel__frame {{$background ? 'bg-'.$background : ''}}">
+<div class="carousel__frame">
+
     @if(isset($title))
         {{$title}}
     @endif
-
+    
     <div id="{{$name}}" x-data="carousel('{{$name}}', '{{$perView}}')">
         <div class="{{$container ? 'container' : ''}} position-relative">
 

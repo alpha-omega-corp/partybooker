@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Modal;
 
+use App\Enums\AppColor;
 use App\Enums\ModalName;
 use App\Enums\ModalType;
 use App\Helpers\ModalHelper;
@@ -17,6 +18,7 @@ class Open extends Component
     public function __construct(
         public ModalName  $name,
         public mixed      $iterator = 0,
+        public ?AppColor  $customColor = null,
         public ?ModalType $type = null,
         public ?string    $icon = null,
         public ?string    $text = null,
@@ -26,6 +28,7 @@ class Open extends Component
         public bool       $background = false,
         public bool       $singleton = false,
         public bool       $fit = false,
+
     )
     {
         $this->color = match ($this->type) {

@@ -10,7 +10,7 @@
         <div class="d-flex flex-wrap gap-4 justify-content-center">
             @foreach(FormType::values() as $formType)
                 <div>
-                    <x-card :title="$formType" class="app-admin-form" :open="true">
+                    <x-card :title="$formType" class="app-admin-form" :can-open="false">
 
                         <ul>
                             @foreach(AppForm::ofType(FormType::from($formType))->get() as $form)

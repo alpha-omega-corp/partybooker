@@ -5,51 +5,58 @@
 @endsection
 
 @section('content')
-
     <x-card.panel :title="__('app.listing')" class="app-listing">
-
-        @include('app.listing.partials.search')
-
-
         <div class="row">
-            <div
-                class="listing-sidebar col-lg-3 col-md-0 col-sm-0 d-none d-sm-none d-md-none d-lg-block">
+            <!-- Filters -->
+            <div class="col-xl-4 col-lg-12 app-filter-container">
+                <div>
+                    @include('app.listing.partials.breadcrumbs')
 
-                <div class="listing-category-card">
-                    <div class="listing-search-card">
-                        <x-modal.open
-                            :name="ModalName::APP_LISTING_SEARCH"
-                            :icon="$searchIcon"
-                            :singleton="true"
-                            :background="true"
-                            :tooltip="__('listing.search')"
+                    <div class="app-filter-desktop">
+                        <x-app.title
+                            :size="TitleSize::SMALL"
+                            :color="AppColor::PINK"
+                            :value="__('listing.categories')"
+                            class="listing-category-title"
                         />
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        @if(count(Request::segments()) > 1)
-                            <div class="category-card-header">
-                                {{Breadcrumbs::render('listing', Request::segments())}}
-                            </div>
-                        @endif
 
-
+                        @include('app.listing.partials.category')
                     </div>
-                    @if($active)
-                        <div class="category-card-description">
-                            <p>
-                                {{$active->locale->description}}
-                            </p>
-                        </div>
-                    @endif
+
+                    <div class="app-filter-mobile">
+
+                        <x-accordion name="listing-mobile">
+                            <x-accordion.item
+                                accordion="listing-mobile"
+                                name="listing-mobile-item"
+                            >
+                                <x-slot:title>
+                                    <x-app.title
+                                        :size="TitleSize::SMALL"
+                                        :color="AppColor::PINK"
+                                        :value="__('listing.categories')"
+                                        class="listing-category-title"
+                                    />
+                                </x-slot:title>
+
+                                <x-slot:content>
+                                    @include('app.listing.partials.category')
+                                </x-slot:content>
+                            </x-accordion.item>
+                        </x-accordion>
+                    </div>
                 </div>
-
-
-                @include('app.listing.partials.category')
             </div>
 
-            <div class="col-lg-9">
-                @include('app.listing.partials.listing')
+            <!-- Listing -->
+            <div class="col-xl-8 col-lg-12 p-0">
+                <div class="app-listing-container">
+                    <div class="listing-container-content">
+                        @include('app.listing.partials.listing')
+                    </div>
+                </div>
             </div>
         </div>
+
     </x-card.panel>
 @endsection

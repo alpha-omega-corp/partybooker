@@ -6,6 +6,7 @@ use App\Interfaces\ICategoryService;
 use App\Models\Advert;
 use App\Models\Category;
 use App\Models\Company;
+use App\Models\PartnerTop;
 use App\Services\CategoryService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
@@ -25,7 +26,7 @@ class ListingController extends Controller
     {
         $adverts = $this->categoryService
             ->filterCategory($category, $tag)
-            ->paginate(6)
+            ->paginate(10)
             ->fragment('adverts');
 
         $activeCategory = $category ? $this->categoryService->getCategory($category)->first() : null;
@@ -34,6 +35,8 @@ class ListingController extends Controller
             'active' => $activeCategory,
             'categories' => $this->categories,
             'adverts' => $adverts,
+            'top' => PartnerTop::all()->map(fn($item) => $item->partner),
+            'topRandom' => PartnerTop::all()->random(3)->map(fn($item) => $item->partner),
         ]);
     }
 

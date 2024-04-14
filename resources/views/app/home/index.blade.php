@@ -15,7 +15,6 @@
             @include('app.home.partials.home.description')
         </section>
 
-
         <!-- Category -->
         <section class="home-category">
             @include('app.home.partials.home.category')
@@ -24,6 +23,7 @@
         <!-- Tops -->
         <section class="home-top">
             @include('app.home.partials.home.top')
+
         </section>
 
         <!-- AppInformation -->

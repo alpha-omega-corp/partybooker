@@ -29,8 +29,10 @@ class HomeController extends Controller
         return view('app.home.index', [
             'categories' => Category::all(),
             'comments' => AppComment::all(),
+            'commentsRandom' => AppComment::all()->random(3),
             'information' => AppInformation::all(),
             'top' => PartnerTop::all()->map(fn($item) => $item->partner),
+            'topRandom' => PartnerTop::all()->random(3)->map(fn($item) => $item->partner),
             'content' => AppContent::ofType(AppContentType::APP_HOME)->first()->locale,
         ]);
     }

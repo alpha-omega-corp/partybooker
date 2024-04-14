@@ -19,7 +19,7 @@ class Title extends Component
         public bool      $background = false,
     )
     {
-        $this->style = 'app-title ' . ($background ? 'text-white p-2 bg-' : 'text-') . $color->value;
+        $this->style = 'app-title ' . ($background ? 'text-white p-3 w-100 bg-' : 'text-') . $color->value;
     }
 
     public function render(): View|Closure|string

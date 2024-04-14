@@ -1,6 +1,7 @@
 <?php
 return [
-    'advert' => 'Advert',
-    'category.all' => 'All',
-    'search' => 'Search',
+    'advert' => 'advert',
+    'category.all' => 'all',
+    'search' => 'search',
+    'categories' => 'categories',
 ];
