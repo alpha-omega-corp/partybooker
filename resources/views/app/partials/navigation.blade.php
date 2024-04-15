@@ -2,7 +2,7 @@
     <nav class="navbar">
         <div class="d-flex justify-content-between w-100">
             <div class="d-flex gap-4 w-100">
-                <x-logo/>
+                <x-logo class="d-lg-block d-sm-none d-none"/>
 
                 <!-- Nav Toggler -->
                 <button class="navbar-toggler"
