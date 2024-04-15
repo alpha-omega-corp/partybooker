@@ -7,21 +7,18 @@
         :tooltip="__('listing.search')"
         :singleton="true"
         :hidden="true"
+        :action="false"
         :title="__('listing.search')"
     >
 
         <div x-data="list" class="listing-content-search">
-            <x-slot:body>
-                <x-forms.input
-                    name="input"
-                    model="input"
-                    label="Search Partybooker"
-                    type="text">
-                    @svg($searchIcon)
-                </x-forms.input>
-            </x-slot:body>
-
-            <hr>
+            <x-forms.input
+                name="search"
+                model="input"
+                label="Search Partybooker"
+                type="text">
+                @svg($searchIcon)
+            </x-forms.input>
 
             <div class="content-search-results">
                 <template x-for="item in search()">

@@ -11,7 +11,18 @@
             <div class="col-xl-4 col-lg-12 app-filter-container">
                 <div>
                     @include('app.listing.partials.breadcrumbs')
+                    <div class="app-filter-search">
+                        <x-modal.open
+                            :singleton="true"
+                            :fit="true"
+                            :custom-color="AppColor::SECONDARY"
+                            :name="ModalName::APP_LISTING_SEARCH"
+                            :tooltip="__('listing.search')"
+                            :icon="$searchIcon"
+                        />
+                    </div>
 
+                    @include('app.listing.partials.search')
 
                     <x-app.title
                         :size="TitleSize::SMALL"
@@ -21,7 +32,12 @@
                     />
 
                     @include('app.listing.partials.category')
-
+                    <x-app.title
+                        :size="TitleSize::LARGE"
+                        :color="AppColor::BLUE"
+                        :value="__('app.listing')"
+                        class="listing-mobile-title"
+                    />
 
                 </div>
             </div>

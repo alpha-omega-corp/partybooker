@@ -9,7 +9,7 @@
             'btn',
             'tippy' => $type || $tooltip,
             'btn-'.($customColor ? $customColor->value : $color) => true,
-            'text-'.$color => !$background,
+            'text-'.$color => $background,
             'w-100' => $fit,
         ])
         {{$attributes->merge(['class' => 'd-flex justify-content-center align-items-center'])}}

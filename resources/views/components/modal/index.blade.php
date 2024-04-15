@@ -61,8 +61,9 @@
                             aria-label="Close"></button>
                 </div>
 
-                <div class="modal-action">
-                    @if($action)
+                @if($action)
+                    <div class="modal-action">
+
                         <div class="d-flex gap-2">
                             <span
                                 class="badge text-bg-{{$color}} text-white modal-name">{{$name->name}}</span>
@@ -70,8 +71,9 @@
                             <span
                                 class="badge text-bg-{{$color}} text-white modal-name">{{ucfirst($type->name)}}</span>
                         </div>
-                    @endif
-                </div>
+
+                    </div>
+                @endif
 
                 <div class="modal-body">
                     @method($type->value)

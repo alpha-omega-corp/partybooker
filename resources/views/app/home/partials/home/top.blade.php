@@ -27,11 +27,13 @@
             class="home-top-title"
         />
 
-        @foreach ($topRandom as $partner)
-            <div class="mobile-top-card">
-                <x-utils.top :partner="$item"/>
-            </div>
-        @endforeach
+        <div class="carousel__mobile-content">
+            @foreach ($topRandom as $item)
+                <div class="mobile-top-card">
+                    <x-utils.top :partner="$item"/>
+                </div>
+            @endforeach
+        </div>
 
         <x-app.mobile-more :route="route('guest.home.index')"/>
     </div>

@@ -20,6 +20,7 @@
                 </div>
                 <div class="category-card-header">
                     <h6 class="category-card-title">{{$category->locale->title}}</h6>
+                    @svg('heroicon-s-chevron-right')
                 </div>
             </div>
         </a>

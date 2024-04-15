@@ -130,21 +130,26 @@
 
     @media only screen and (max-width: 1199px) {
         padding: 0 !important;
+
+        .card-panel-header {
+            padding-top: 0 !important;
+
+            .card-panel-title {
+                display: none;
+            }
+        }
+
     }
 
+    @media only screen and (min-width: 1200px) {
+        .card-panel-header {
+            padding: 180px 40px 120px;
+        }
+    }
 
     .card-panel-header {
-        padding: 180px 40px 120px;
+        padding: 180px 40px 80px;
 
-        .card-panel-title {
-            font-weight: bold;
-            font-size: 30px;
-            text-transform: uppercase;
-        }
-
-        .card-panel-breadcrumbs {
-            margin-top: 20px;
-        }
     }
 
     .card-panel-information {

@@ -6,6 +6,7 @@
             :size="TitleSize::LARGE"
             :color="AppColor::BLUE"
             :value="$title"
+            class="card-panel-title"
         />
 
         @if(isset($information))
