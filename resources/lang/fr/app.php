@@ -2,7 +2,8 @@
 
 return [
     'login' => 'Connexion',
-    'listing' => 'Annonces',
-    'mobile-more' => 'Voir plus',
+    'listing' => 'annonces',
+    'advert' => 'annonce',
+    'mobile-more' => 'voir plus',
 
 ];

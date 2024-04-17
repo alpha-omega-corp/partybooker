@@ -8,6 +8,7 @@ resources/sass/bootstrap.scss
 
 enum AppColor: string
 {
+    case WHITE = 'white';
     case PRIMARY = 'primary';
     case ACCENT = 'accent';
     case SECONDARY = 'secondary';

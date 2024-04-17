@@ -1,6 +1,6 @@
 <x-card
-    :title="$advert->locale->title"
     :open="true"
+    :center="true"
     :invert-close="true"
 >
     <x-tab.index

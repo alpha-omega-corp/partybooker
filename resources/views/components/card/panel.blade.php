@@ -1,13 +1,15 @@
-@props(['title'])
+@props(['title' => null])
 
 <div {{$attributes->merge(['class' => 'app-card-panel'])}}>
     <div class="card-panel-header">
-        <x-app.title
-            :size="TitleSize::LARGE"
-            :color="AppColor::BLUE"
-            :value="$title"
-            class="card-panel-title"
-        />
+        @if($title)
+            <x-app.title
+                :size="TitleSize::LARGE"
+                :color="AppColor::BLUE"
+                :value="$title"
+                class="card-panel-title"
+            />
+        @endif
 
         @if(isset($information))
             <div class="card-panel-information">

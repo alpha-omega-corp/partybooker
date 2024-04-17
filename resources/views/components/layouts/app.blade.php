@@ -46,8 +46,8 @@
 </head>
 
 <body>
-
 @include('app.partials.navigation')
+
 
 <div class="app-content">
     <div class="container position-relative">

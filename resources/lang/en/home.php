@@ -2,6 +2,10 @@
 
 
 return [
+    'title' => 'Find ideas',
+    'information' => 'A little more information',
+    'comments' => 'Your words, our motivation',
+
     'listing' => 'advertisements',
     'partnership' => 'partnership',
     'blog' => 'blog',

@@ -1,4 +1,4 @@
-@php($route = route('guest.listing.advert', [
+@php($route = route(__('route.advert'), [
         'company' => $advert->company,
         'advert' => $advert
 ]))

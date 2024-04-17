@@ -10,8 +10,8 @@
             };
         @endphp
 
-        <a href="{{route('guest.listing.index', [
-                'category' => $category->locale->slug
+        <a href="{{route(__('route.listing'), [
+                'category' => $category->locale->slug,
             ])}}">
 
             <div class="home-category-card shadow-lg">

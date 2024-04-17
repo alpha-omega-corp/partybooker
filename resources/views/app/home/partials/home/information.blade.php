@@ -35,5 +35,5 @@
             <x-utils.information :information="$item"/>
         @endif
     @endforeach
-    <x-app.mobile-more :route="route('guest.home.index')"/>
+    <x-app.mobile-more :route="route(__('route.home'))"/>
 </div>

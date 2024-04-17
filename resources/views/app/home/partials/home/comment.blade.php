@@ -30,5 +30,5 @@
         <x-utils.comment :comment="$comment"/>
     @endforeach
 
-    <x-app.mobile-more :route="route('guest.home.index')"/>
+    <x-app.mobile-more :route="route(__('route.home'))"/>
 </div>

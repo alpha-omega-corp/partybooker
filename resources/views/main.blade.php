@@ -206,9 +206,11 @@
 
             async init() {
                 this.adverts = await $.ajax({
-                    url: '{{route('guest.ajax.listing')}}',
+                    url: '{{route(__('route.listing-search'))}}',
                     type: 'GET',
                 })
+
+                console.log(this.adverts)
             },
             filterAdvert(item) {
                 return item.toLowerCase().includes(this.input.toLowerCase())

@@ -4,9 +4,9 @@
 
 @php($advert = $partner->company->adverts()->main()->first())
 
-<a class="top-card" href="{{route('guest.listing.advert', [
+<a class="top-card" href="{{route(__('route.listing'), [
     'company' => $partner->company,
-    'advert' => $advert
+    'advert' => $advert,
 ])}}">
     <img src="{{$advert->images()->thumbnail()->first()->path}}"
          alt="{{$partner->company->name}}"/>

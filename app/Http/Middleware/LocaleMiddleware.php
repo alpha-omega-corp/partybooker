@@ -11,6 +11,14 @@ class LocaleMiddleware
     public static $mainLanguage = "fr";
     public static $languages = ['fr', 'en'];
 
+    public function handle($request, Closure $next)
+    {
+        $locale = self::getLocale();
+        if ($locale) App::setLocale($locale);
+        else App::setLocale(self::$mainLanguage);
+        return $next($request);
+    }
+
     public static function getLocale()
     {
         $uri = Request::path();
@@ -19,13 +27,5 @@ class LocaleMiddleware
             if ($segmentsURI[0] != self::$mainLanguage) return $segmentsURI[0];
         }
         return null;
-    }
-
-    public function handle($request, Closure $next)
-    {
-        $locale = self::getLocale();
-        if ($locale) App::setLocale($locale);
-        else App::setLocale(self::$mainLanguage);
-        return $next($request);
     }
 }

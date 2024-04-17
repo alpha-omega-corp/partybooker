@@ -1,3 +1,10 @@
+<x-app.title
+    :size="TitleSize::SMALL"
+    :color="AppColor::PINK"
+    :value="__('listing.categories')"
+    class="listing-category-title"
+/>
+
 <div class="listing-category-content">
     <x-accordion name="listing">
         @foreach ($categories as $key => $category)

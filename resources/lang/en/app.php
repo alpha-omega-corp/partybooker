@@ -2,6 +2,7 @@
 
 return [
     'login' => 'Login',
-    'listing' => 'Listing',
-    'mobile-more' => 'View more',
+    'listing' => 'advertisements',
+    'advert' => 'advertisement',
+    'mobile-more' => 'view more',
 ];

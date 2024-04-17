@@ -1,4 +1,4 @@
-<a href="{{route('guest.listing.advert', [
+<a href="{{route(__('route.advert'), [
     'advert' => $advert,
     'company' => $advert->company,
 ])}}"

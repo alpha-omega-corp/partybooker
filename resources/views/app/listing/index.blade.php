@@ -5,54 +5,29 @@
 @endsection
 
 @section('content')
-    <x-card.panel :title="__('app.listing')" class="app-listing">
-        <div class="row">
-            <!-- Filters -->
-            <div class="col-xl-4 col-lg-12 app-filter-container">
-                <div>
-                    @include('app.listing.partials.breadcrumbs')
+    <div class="app-main-listing">
+        <x-card.listing :title="__('app.listing')" class="app-listing">
+            <x-slot:breadcrumbs>
+                {{Breadcrumbs::render('listing', Request::segments())}}
+            </x-slot:breadcrumbs>
 
-                    <x-app.title
-                        :size="TitleSize::SMALL"
-                        :color="AppColor::PINK"
-                        :value="__('listing.categories')"
-                        class="listing-category-title"
-                    />
-
-                    @include('app.listing.partials.category')
-                    <div class="app-filter-search">
-                        <x-modal.open
-                            :singleton="true"
-                            :fit="true"
-                            :background="false"
-                            :custom-color="AppColor::SECONDARY"
-                            :name="ModalName::APP_LISTING_SEARCH"
-                            :tooltip="__('listing.search')"
-                            :icon="$searchIcon"
-                        />
-                    </div>
-
+            <x-slot:left>
+                <div class="app-filter-container">
+                    <!-- Search -->
                     @include('app.listing.partials.search')
 
-                    <x-app.title
-                        :size="TitleSize::LARGE"
-                        :color="AppColor::BLUE"
-                        :value="__('app.listing')"
-                        class="listing-mobile-title"
-                    />
-
+                    <!-- Category -->
+                    @include('app.listing.partials.category')
                 </div>
-            </div>
+            </x-slot:left>
 
-            <!-- Listing -->
-            <div class="col-xl-8 col-lg-12 p-0">
-                <div class="app-listing-container">
-                    <div class="listing-container-content">
-                        @include('app.listing.partials.listing')
-                    </div>
-                </div>
-            </div>
-        </div>
+            <x-slot:right>
+                @include('app.listing.partials.listing')
+            </x-slot:right>
+        </x-card.listing>
+    </div>
 
-    </x-card.panel>
+    <div class="home-top">
+        @include('app.home.partials.home.top')
+    </div>
 @endsection

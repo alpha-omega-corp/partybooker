@@ -6,7 +6,7 @@
     :type="ModalType::UPDATE"
     :size="ModalSize::MD"
     :absolute="true"
-    :route="route('partner.plan', ['partner' => $partner])"
+    :route="route('partner.plan', ['company' => $partner->company])"
 >
     <x-slot:body>
         <x-forms.radio

@@ -4,15 +4,19 @@
     'open' => false,
     'invertClose' => false,
     'canOpen' => true,
+    'center' => false,
 ])
 
-<div {{$attributes->merge(['class' => 'app-card'])}} x-data="{show: '{{!$canOpen ? true : $open}}'}">
-    <div class="app-card-header" {{$canOpen ? '@click="show = !show"' : ''}}>
-        <h2 class="app-card-title">
-            {{$title}}
-        </h2>
-    </div>
+<div {{$attributes->merge(['class' => 'app-card'])}}
+     x-data="{show: '{{!$canOpen ? true : $open}}'}">
 
+    @if($title)
+        <div class="app-card-header">
+            <h2 class="app-card-title {{$center ? 'text-center' : ''}}">
+                {{$title}}
+            </h2>
+        </div>
+    @endif
 
     @if($badge)
         <div class="d-flex align-items-start justify-content-start">

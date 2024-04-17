@@ -56,20 +56,43 @@ Route::name('guest.')
             ->group(function () {
                 Route::get('/partners', 'partners')->name('partners');
                 Route::get('/partners/top', 'tops')->name('tops');
-                Route::get('/partners/listing', 'listing')->name('listing');
+
+                Route::name('fr.')
+                    ->group(function () {
+                        Route::get('/partners/listing', 'listing')->name('listing');
+                    });
+
+                Route::name('en.')
+                    ->prefix('en')
+                    ->group(function () {
+                        Route::get('/partners/listing', 'listing')->name('listing');
+                    });
             });
 
         // HomeController
         Route::controller(HomeController::class)
             ->name('home.')
             ->group(function () {
-                Route::get('/', 'index')->name('index');
-                Route::get('/a-propos', 'about')->name('about');
-                Route::get('/partenariat', 'partnership')->name('partnership');
-                Route::get('/blog', 'blog')->name('blog');
-                Route::get('/blog/{post}', 'showPost')->name('post');
-                Route::get('/faq', 'faq')->name('faq');
+                Route::name('fr.')
+                    ->group(function () {
+                        Route::get('/accueil', 'index')->name('index');
+                        Route::get('/a-propos', 'about')->name('about');
+                        Route::get('/partenariat', 'partnership')->name('partnership');
+                        Route::get('/blog', 'blog')->name('blog');
+                        Route::get('/blog/{post}', 'showPost')->name('post');
+                        Route::get('/faq', 'faq')->name('faq');
+                    });
 
+                Route::name('en.')
+                    ->prefix('en')
+                    ->group(function () {
+                        Route::get('/home', 'index')->name('index');
+                        Route::get('/about', 'about')->name('about');
+                        Route::get('/partnership', 'partnership')->name('partnership');
+                        Route::get('/blog', 'blog')->name('blog');
+                        Route::get('/blog/{post}', 'showPost')->name('post');
+                        Route::get('/faq', 'faq')->name('faq');
+                    });
 
                 Route::post('/help', 'requestHelp')->name('help');
                 Route::post('/join', 'requestPartnership')->name('join');
@@ -79,8 +102,18 @@ Route::name('guest.')
         Route::controller(ListingController::class)
             ->name('listing.')
             ->group(function () {
-                Route::get('/annonces/{category?}/{tag?}', 'index')->name('index');
-                Route::get('/annonce/{company:slug}/{advert:slug}', 'advert')->name('advert');
+                Route::name('fr.')
+                    ->group(function () {
+                        Route::get('/annonces/{category?}/{tag?}', 'index')->name('index');
+                        Route::get('/annonce/{company:slug}/{advert:slug}', 'advert')->name('advert');
+                    });
+
+                Route::name('en.')
+                    ->prefix('en')
+                    ->group(function () {
+                        Route::get('/adverts/{category?}/{tag?}', 'index')->name('index');
+                        Route::get('/advert/{company:slug}/{advert:slug}', 'advert')->name('advert');
+                    });
             });
 
         // CompanyController
@@ -94,19 +127,37 @@ Route::name('guest.')
             });
     });
 
+Route::post('/', [PartnerController::class, 'store'])->name('partner.store');
+
 Route::name('partner.')
-    ->prefix('partner')
     ->group(function () {
+        Route::controller(PartnerController::class)
+            ->middleware('partner')
+            ->group(function () {
+                Route::name('fr.')
+                    ->group(function () {
+                        Route::get('/profile/{company:slug}', 'dashboard')->name('dashboard');
+                    });
 
-        Route::post('/', [PartnerController::class, 'store'])->name('store');
+                Route::name('en.')
+                    ->prefix('en')
+                    ->group(function () {
+                        Route::get('/profile/{company:slug}', 'dashboard')->name('dashboard');
+                    });
 
+                Route::put('/plan', 'plan')->name('plan');
+            });
+    });
 
+Route::name('partner.')
+    ->prefix('profile')
+    ->group(function () {
         Route::middleware('partner')
-            ->prefix('{partner:id}')
+            ->prefix('{company:slug}')
             ->group(function () {
                 Route::controller(PartnerController::class)
                     ->group(function () {
-                        Route::get('/profile', 'dashboard')->name('dashboard');
+
                         Route::put('/plan', 'plan')->name('plan');
                     });
 

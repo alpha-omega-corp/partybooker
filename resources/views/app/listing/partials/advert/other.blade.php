@@ -1,13 +1,18 @@
 @php($companyAdverts = $advert->company->adverts()->get())
 
 @if(count($companyAdverts) !== 1)
-    <x-card :title="__('advert.others')" class="company-adverts" :can-open="false">
+    <x-card
+        :title="__('advert.others')"
+        :can-open="false"
+        :center="true"
+        class="company-adverts"
+    >
         @foreach($companyAdverts as $companyAdvert)
             @if($companyAdvert->id != $advert->id)
-                <a href="{{route('guest.listing.advert', [
-                                        'advert' => $companyAdvert,
-                                        'company' => $company
-                                    ])}}">
+                <a href="{{route(__('route.advert'), [
+                    'advert' => $companyAdvert,
+                    'company' => $company
+                ])}}">
                     <div class="company-adverts-item">
                         <h6>{{ $companyAdvert->locale->title}}</h6>
                         <div>

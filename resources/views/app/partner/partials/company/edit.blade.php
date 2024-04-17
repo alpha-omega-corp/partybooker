@@ -4,7 +4,7 @@
     :size="ModalSize::LG"
     :multipart="true"
     :absolute="true"
-    :route="route('partner.company.update', ['partner' => $partner])"
+    :route="route('partner.company.update', ['company' => $partner->company])"
 >
     <x-slot:body>
 

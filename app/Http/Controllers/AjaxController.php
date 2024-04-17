@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Enums\CategoryType;
+use App\Enums\Language;
 use App\Enums\PlanType;
 use App\Models\Advert;
 use App\Models\AppPlan;
 use App\Models\Partner;
 use App\Models\Payment;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class AjaxController extends Controller
 {
@@ -45,18 +47,21 @@ class AjaxController extends Controller
         return response()->json($viewPartners);
     }
 
-    public function listing(): JsonResponse
+    public function listing(Request $request): JsonResponse
     {
+        $language = Language::from($request->getLocale());
+
         $viewPartners = Advert::listing()
             ->get()
             ->map(fn(Advert $advert) => [
                 'id' => $advert->id,
-                'title' => $advert->locale->title,
-                'categories' => ucfirst(strtolower(CategoryType::from($advert->service->serviceable_type)->name)),
+                'title' => $advert->ofLang($language)->first()->locale->title,
+                'category' => $advert->category->ofLang($language)->first()->locale->title,
+                'description' => $advert->ofLang($language)->first()->locale->description,
                 'company' => $advert->company->name,
                 'address' => $advert->company->address->address,
                 'thumbnail' => $advert->images()->thumbnail()->first()->path,
-                'url' => route('guest.listing.advert', [
+                'url' => route(__('route.advert'), [
                     'company' => $advert->company,
                     'advert' => $advert,
                 ]),

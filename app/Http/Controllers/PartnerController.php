@@ -31,14 +31,16 @@ class PartnerController extends Controller
         $this->fileService = $fileService;
     }
 
-    public function dashboard(Partner $partner): View
+    public function dashboard(Company $company): View
     {
+        $partner = $company->partner;
+
         return view('app.partner.dashboard', [
             'partner' => $partner,
             'payment' => $partner->payment,
             'plan' => $partner->payment->plan,
-            'statistic' => $partner->company->statistics,
-            'social' => $partner->company->socials,
+            'statistic' => $company->statistics,
+            'social' => $company->socials,
         ]);
     }
 

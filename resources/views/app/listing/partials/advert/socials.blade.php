@@ -1,4 +1,4 @@
-<div class="d-flex gap-2">
+<div class="d-flex justify-content-center align-content-center gap-2 w-100">
     @foreach (NetworkType::values() as $network)
         <div class="tippy" data-tippy-content="{{ucfirst($network)}}">
             <a href="{{ $advert->company->social[$network] }}" target="_blank">

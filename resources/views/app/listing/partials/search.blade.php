@@ -1,3 +1,15 @@
+<div class="app-filter-search">
+    <x-modal.open
+        :singleton="true"
+        :fit="true"
+        :background="false"
+        :custom-color="AppColor::SECONDARY"
+        :name="ModalName::APP_LISTING_SEARCH"
+        :tooltip="__('listing.search')"
+        :icon="$searchIcon"
+    />
+</div>
+
 <div class="app-listing-search">
     <x-modal.index
         :name="ModalName::APP_LISTING_SEARCH"
@@ -11,34 +23,44 @@
         :title="__('listing.search')"
     >
 
-        <div x-data="list" class="listing-content-search">
-            <x-forms.input
-                name="search"
-                model="input"
-                label="Search Partybooker"
-                type="text">
-                @svg($searchIcon)
-            </x-forms.input>
+        <div x-data="list">
+            <div class="listing-search-input">
+                <x-forms.input
+                    name="search"
+                    model="input"
+                    label="Search Partybooker"
+                    type="text">
+                    @svg($searchIcon)
+                </x-forms.input>
+            </div>
 
-            <div class="content-search-results">
+            <div class="listing-search-container">
                 <template x-for="item in search()">
 
-                    <a class="search-result-item" :href="item.url">
+                    <a class="listing-search-item" :href="item.url">
                         <img src="#" :src="item.thumbnail" alt="alt">
 
-                        <div class="result-item-content">
-                            <h6 x-text="item.title"></h6>
 
-                            <div class="item-content-company">
-                                @svg('heroicon-o-home-modern', 'text-accent')
-                                <p x-text="item.company"></p>
+                        <div class="search-item-content">
+                            <div class="search-item-header">
+                                <h6 x-text="item.title"></h6>
+
+                                <div class="item-content-company">
+                                    @svg('heroicon-o-home-modern', 'text-accent')
+                                    <p x-text="item.company"></p>
+                                </div>
                             </div>
+
+                            <div class="item-content-description">
+                                <p x-text="item.description"></p>
+                            </div>
+
                             <div class="item-content-address">
                                 <p x-text="item.address"></p>
                             </div>
 
                             <div class="item-content-category">
-                                <span class="badge text-bg-orange text-white" x-text="item.category"></span>
+                                <span class="badge text-bg-pink text-white" x-text="item.category"></span>
                             </div>
                         </div>
                     </a>

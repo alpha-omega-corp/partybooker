@@ -1,9 +1,17 @@
-<x-card :title="__('advert.gallery')" :can-open="false">
-    <div class="advert-gallery">
+<x-card
+    :can-open="false"
+    :center="true"
+    class="advert-gallery"
+>
+    <div class="advert-gallery-content">
         @foreach($advert->images()->get() as $image)
-            <div class="col-12 mb-4 gallery-image gal-img">
+            <div class="gallery-image">
                 <img src="{{$image->path}}" alt="...">
             </div>
         @endforeach
     </div>
 </x-card>
+
+
+
+

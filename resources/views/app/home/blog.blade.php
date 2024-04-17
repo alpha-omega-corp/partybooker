@@ -13,7 +13,7 @@
                     @foreach($posts as $post)
                         <div class="col-4">
                             <div class="post-card">
-                                <a href="{{route('guest.home.post', ['post' => $post])}}">
+                                <a href="{{route(__('route.post'), ['post' => $post])}}">
 
                                     <div class="post-card-header">
                                         <img src="{{$post->image}}" alt="{{$post->title}}"/>
