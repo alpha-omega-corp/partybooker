@@ -34,4 +34,9 @@ return [
     'service.access' => 'Access',
     'service.meta' => 'SEO',
     'service.statistics' => 'Statistics',
+
+
+    'payment.methods' => 'Methods',
+    'payment.deposit' => 'Deposit',
+    'payment.budget' => 'Budget',
 ];

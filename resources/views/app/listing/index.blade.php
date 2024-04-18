@@ -6,7 +6,11 @@
 
 @section('content')
     <div class="app-main-listing">
-        <x-card.listing :title="__('app.listing')" class="app-listing">
+        <x-card.listing
+            :title="__('app.listing')"
+            :title-color="AppColor::BLUE"
+            class="app-listing"
+        >
             <x-slot:breadcrumbs>
                 {{Breadcrumbs::render('listing', Request::segments())}}
             </x-slot:breadcrumbs>

@@ -7,20 +7,13 @@
 @extends('main')
 
 @section('content')
-    <x-card.listing :title="__('app.advert')" class="app-advert">
+    <x-card.listing
+        :title="$advert->category->locale->title"
+        :title-color="AppColor::BLUE"
+        class="app-advert">
         <x-slot:breadcrumbs>
             {{Breadcrumbs::render('advert', $advert)}}
         </x-slot:breadcrumbs>
-
-        <x-slot:information>
-            <div class="advert-title">
-                <x-app.title
-                    :value="$advert->locale->title"
-                    :size="TitleSize::SMALL"
-                    :color="AppColor::PINK"
-                />
-            </div>
-        </x-slot:information>
 
         <x-slot:left>
             @include('app.listing.partials.advert.company')
@@ -34,8 +27,10 @@
 
 
             @include('app.listing.partials.service.partials.payments')
-            @include('app.listing.partials.service.partials.deposit')
-            @include('app.listing.partials.service.partials.budget')
+
+            <div class="mt-5">
+                @include('app.listing.partials.advert.other')
+            </div>
 
 
         </x-slot:right>

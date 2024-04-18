@@ -387,8 +387,21 @@
     }
 
     .breadcrumb {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
         .active {
-            display: none;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            font-size: larger !important;
+            padding: 20px;
+            color: $pink;
+
+            &:before {
+                display: none;
+            }
         }
     }
 

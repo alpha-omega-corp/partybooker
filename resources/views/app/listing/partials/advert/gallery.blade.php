@@ -1,6 +1,6 @@
 <x-card
     :can-open="false"
-    :center="true"
+    :title="__('advert.gallery')"
     class="advert-gallery"
 >
     <div class="advert-gallery-content">

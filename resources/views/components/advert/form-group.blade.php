@@ -21,5 +21,7 @@
             </x-accordion.item>
         @endforeach
     </x-accordion.index>
+
+    {{$slot}}
 </x-card>
 

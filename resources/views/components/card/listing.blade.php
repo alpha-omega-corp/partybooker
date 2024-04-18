@@ -1,11 +1,14 @@
 @php use App\Enums\TitleSize; @endphp
-@props(['title'])
+@props([
+    'title',
+    'titleColor',
+])
 <div class="d-flex flex-column w-100">
 
     <x-app.title
         :value="$title"
         :size="TitleSize::LARGE"
-        :color="AppColor::BLUE"
+        :color="$titleColor"
         class="app-listing-title"
     />
     <x-card.panel {{$attributes->merge(['class' => 'app-main-listing'])}}>

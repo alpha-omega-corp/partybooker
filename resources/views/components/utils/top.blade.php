@@ -4,7 +4,7 @@
 
 @php($advert = $partner->company->adverts()->main()->first())
 
-<a class="top-card" href="{{route(__('route.listing'), [
+<a class="top-card" href="{{route(__('route.advert'), [
     'company' => $partner->company,
     'advert' => $advert,
 ])}}">

@@ -11,52 +11,28 @@
         FormType::STAFF,
         FormType::DELIVERY,
     ]"
-/>
+>
+    <ul class="service-delivery">
+        @foreach($content->delivery_services as $delivery)
+            <li class="caterer-delivery-service">
+                <span>{{__('service.checklist.delivery')}} :</span>
+                <a href="{{$delivery['service_url']}}" target="_blank">
+                    {{$delivery['service']}}
+                </a>
+            </li>
+        @endforeach
+    </ul>
+</x-advert.form-group>
 
-<div class="d-flex">
-    <x-service.capacity :content="$content"/>
-    <x-service.file
-        :title="__('service.section.caterer.menu')"
-        :content="$content"
-    />
-</div>
+<x-service.capacity :content="$content"/>
 
-<x-service.panel class="service-caterer">
-    <x-slot:top>
-        <x-card.service :title="__('service.section.caterer.specialties')" :padding="true">
-            {{$content->specialty}}
-        </x-card.service>
-    </x-slot:top>
-
-    <x-slot:left>
+<x-card :title="__('service.section.caterer.menu')" :can-open="false">
+    <x-slot:body>
+        <div class="d-flex justify-content-between gap-2">
+            <p>{{$content->specialty}}</p>
+            <x-service.file :content="$content"/>
+        </div>
+    </x-slot:body>
+</x-card>
 
 
-    </x-slot:left>
-
-    <x-slot:right>
-
-
-        <x-card.service :title="__('service.section.caterer.delivery')">
-
-            <ul class="service-caterer-delivery">
-                @foreach($content->delivery_services as $delivery)
-                    <li class="caterer-delivery-service">
-                        <a href="{{$delivery['service_url']}}" target="_blank">
-                            {{$delivery['service']}}
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-
-        </x-card.service>
-
-        <x-advert.form-group
-            name="caterer_logistics"
-            :title="__('service.section.logistics')"
-            :service="$content->service"
-            :types="[
-
-                ]"
-        />
-    </x-slot:right>
-</x-service.panel>

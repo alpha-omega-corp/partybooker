@@ -62,7 +62,7 @@ return [
 
     'section.wine.article' => 'Article',
 
-    'checklist.decorations' => 'Decorations',
+    'checklist.decoration' => 'Decorations',
     'checklist.dish' => 'Dishes',
     'checklist.furniture' => 'Furniture',
     'checklist.kitchen' => 'Kitchen',

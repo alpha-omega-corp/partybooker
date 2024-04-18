@@ -35,4 +35,7 @@ return [
     'service.meta' => 'Optimization pour les moteurs de recherche.',
     'service.statistics' => 'Statistiques de l\'annonce.',
 
+    'payment.methods' => 'Méthodes',
+    'payment.deposit' => 'Dépôt',
+    'payment.budget' => 'Budget',
 ];

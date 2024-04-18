@@ -73,18 +73,19 @@
     }
 }
 
-.service-caterer {
-    .service-caterer-delivery {
+
+.service-delivery {
+    padding: 0;
+    margin: 0;
+
+    li {
         list-style-type: none;
-        padding: 0;
-
-        li {
-            padding: 20px;
-            border-bottom: 1px solid $light;
-        }
-
+        padding: 20px;
+        border-bottom: 1px solid $light;
     }
+
 }
+
 
 .service-description {
     p {
