@@ -1,5 +1,6 @@
-<div class="advert-contacts">
+<x-card :title="__('advert.contacts')" :center="true" class="advert-contacts">
     <x-tab
+        justify="center"
         :is-icon="true"
         :tooltips="[
             __('advert.phone'),
@@ -25,5 +26,5 @@
         </x-tab.item>
         <x-advert.contact :link="false" :value="$advert->company->address->address"/>
     </x-tab>
-</div>
+</x-card>
 

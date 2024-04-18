@@ -79,6 +79,7 @@ html, body {
     height: 100vh;
     overflow: hidden;
     position: relative;
+    padding-bottom: 60px;
 
     .app-content {
         height: 100%;
@@ -90,10 +91,10 @@ html, body {
         width: 100%;
         display: flex;
         justify-content: center;
+    }
 
-        .app-listing-title {
-            margin: 80px 0;
-        }
+    .app-listing-title {
+        margin: 80px 0;
     }
 }
 

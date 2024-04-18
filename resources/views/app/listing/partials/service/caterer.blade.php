@@ -1,3 +1,26 @@
+<x-advert.form-group
+    name="caterer_material"
+    :title="__('advert.service')"
+    :service="$content->service"
+    :types="[
+        FormType::SERVICE_CATERER,
+        FormType::FURNITURE,
+        FormType::DECORATION,
+        FormType::DISH,
+        FormType::KITCHEN,
+        FormType::STAFF,
+        FormType::DELIVERY,
+    ]"
+/>
+
+<div class="d-flex">
+    <x-service.capacity :content="$content"/>
+    <x-service.file
+        :title="__('service.section.caterer.menu')"
+        :content="$content"
+    />
+</div>
+
 <x-service.panel class="service-caterer">
     <x-slot:top>
         <x-card.service :title="__('service.section.caterer.specialties')" :padding="true">
@@ -6,30 +29,12 @@
     </x-slot:top>
 
     <x-slot:left>
-        <x-service.capacity :content="$content"/>
-        <x-service.file
-            :title="__('service.section.caterer.menu')"
-            :content="$content"
-        />
 
-        <x-advert.form-group
-            name="caterer_material"
-            :title="__('service.section.material')"
-            :service="$content->service"
-            :types="[
-                    FormType::FURNITURE,
-                    FormType::DECORATION,
-                    FormType::DISH,
-                ]"
-        />
+
     </x-slot:left>
 
     <x-slot:right>
-        <x-service.list
-            :title="__('service.section.caterer')"
-            :content="$content"
-            :type="FormType::SERVICE_CATERER"
-        />
+
 
         <x-card.service :title="__('service.section.caterer.delivery')">
 
@@ -50,9 +55,7 @@
             :title="__('service.section.logistics')"
             :service="$content->service"
             :types="[
-                    FormType::KITCHEN,
-                    FormType::STAFF,
-                    FormType::DELIVERY,
+
                 ]"
         />
     </x-slot:right>

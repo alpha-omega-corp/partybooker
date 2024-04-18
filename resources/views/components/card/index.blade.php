@@ -12,7 +12,10 @@
 
     @if($title)
         <div class="app-card-header">
-            <h2 class="app-card-title {{$center ? 'text-center' : ''}}">
+            <h2 @class([
+            'app-card-title',
+            'text-center' => $center,
+            ])>
                 {{$title}}
             </h2>
         </div>
@@ -41,6 +44,7 @@
     'card-show',
     'justify-content-end' => $invertClose,
     'd-none' => !$canOpen,
+    'd-flex justify-content-center' => $center,
 ])  @click="show = !show">
         <div>
             <a x-show="!show">{{__('card.show')}}</a>

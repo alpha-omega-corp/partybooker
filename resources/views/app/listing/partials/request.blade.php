@@ -2,7 +2,6 @@
     :background="true"
     :name="ModalName::PARTNER_ADVERT_REQUEST"
     :singleton="true"
-    :fit="true"
     :text="__('advert.request')"
 />
 

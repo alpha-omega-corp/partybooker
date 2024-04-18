@@ -2,7 +2,7 @@
 <div class="service-schedule">
 
     <div class="w-100">
-        <x-card.service :title="__('service.section.schedule')">
+        <x-card :title="__('service.section.schedule')" :center="true">
             <x-accordion.index
                 name="scheduleAccordion{{$advert->id}}"
             >
@@ -42,11 +42,18 @@
                     </x-accordion.item>
                 @endforeach
             </x-accordion.index>
-        </x-card.service>
+            <x-card.service :title="__('service.section.schedule.extension')" :padding="true">
+                @if($advert->service->schedule->has_extension)
+                    <p>{{$advert->service->schedule->extension_description}}</p>
+                @else
+                    <p>{{__('advert.no_extension')}}</p>
+                @endif
+            </x-card.service>
+        </x-card>
     </div>
 
     <div class="w-100">
-        <x-card.service :title="__('service.section.schedule.holidays')">
+        <x-card :title="__('service.section.schedule.holidays')" :center="true">
             <ul class="service-schedule-holidays">
                 @foreach($advert->service->schedule->holidays as $holiday)
                     <li>
@@ -58,14 +65,6 @@
                     </li>
                 @endforeach
             </ul>
-        </x-card.service>
-
-        <x-card.service :title="__('service.section.schedule.extension')" :padding="true">
-            @if($advert->service->schedule->has_extension)
-                <p>{{$advert->service->schedule->extension_description}}</p>
-            @else
-                <p>{{__('advert.no_extension')}}</p>
-            @endif
-        </x-card.service>
+        </x-card>
     </div>
 </div>

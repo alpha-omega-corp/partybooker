@@ -19,20 +19,25 @@
                     :size="TitleSize::SMALL"
                     :color="AppColor::PINK"
                 />
-                @include('app.listing.partials.advert.actions')
-
             </div>
         </x-slot:information>
 
         <x-slot:left>
             @include('app.listing.partials.advert.company')
-            @include('app.listing.partials.advert.other')
-
         </x-slot:left>
 
         <x-slot:right>
-            @include('app.listing.partials.service')
+            @include('app.listing.partials.service.partials.description', ['advert' => $advert])
+            @include('app.listing.partials.service.partials.rates', ['advert' => $advert])
             @include('app.listing.partials.advert.gallery')
+            @include('app.listing.partials.service-content', ['content' => $advert->service->serviceable])
+
+
+            @include('app.listing.partials.service.partials.payments')
+            @include('app.listing.partials.service.partials.deposit')
+            @include('app.listing.partials.service.partials.budget')
+
+
         </x-slot:right>
     </x-card.listing>
 @endsection

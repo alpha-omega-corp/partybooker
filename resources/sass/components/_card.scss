@@ -63,6 +63,10 @@
         border-bottom: 1px solid $light;
         padding: 20px;
 
+        @media only screen and (max-width: 1199px) {
+            text-align: center;
+        }
+
         &:hover {
             border-bottom: 1px solid $accent;
             cursor: pointer;
@@ -114,6 +118,13 @@
         .row {
             height: 100%;
         }
+
+
+        @media only screen and (max-width: 1199px) {
+            .row > * {
+                padding: 0 !important;
+            }
+        }
     }
 
     .listing-header {
@@ -153,12 +164,17 @@
 
     .app-listing-column {
 
+        .column-content-right {
+            padding: 0 0 80px;
+        }
+
         .listing-column-content {
             background-color: #ffff;
             flex-grow: 1;
             height: 100%;
             position: relative;
-            padding: 20px 0 20px;
+
+            overflow: hidden;
 
             @media only screen and (min-width: 1200px) {
                 border-top-left-radius: 20px;
@@ -168,10 +184,12 @@
             }
 
             .listing-column-right {
-                margin-right: 20px;
 
                 height: 100%;
                 position: relative;
+                @media only screen and (min-width: 1200px) {
+                    margin-right: 20px;
+                }
             }
         }
     }
@@ -252,14 +270,10 @@
 }
 
 .service-card {
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
     overflow: hidden;
 
     .service-card-title {
         padding: 20px;
-        border-bottom: 1px solid $light;
         font-size: large;
         font-weight: bold;
         margin: 0;

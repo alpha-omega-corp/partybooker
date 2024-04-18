@@ -36,7 +36,7 @@ class ListingController extends Controller
             'categories' => $this->categories,
             'adverts' => $adverts,
             'top' => PartnerTop::all()->map(fn($item) => $item->partner),
-            'topRandom' => PartnerTop::all()->random(3)->map(fn($item) => $item->partner),
+            'topRandom' => PartnerTop::all()->random(4)->map(fn($item) => $item->partner),
         ]);
     }
 

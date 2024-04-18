@@ -26,7 +26,7 @@ class AjaxController extends Controller
                     $hasAddress = $partner->company->address !== null;
 
                     return [
-                        'url' => route('partner.dashboard', $partner->id),
+                        'url' => route(__('route.profile'), $partner->company),
                         'id' => $partner->id,
                         'name' => $partner->user->name,
                         'email' => $partner->user->email,

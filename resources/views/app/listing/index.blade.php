@@ -11,6 +11,10 @@
                 {{Breadcrumbs::render('listing', Request::segments())}}
             </x-slot:breadcrumbs>
 
+            <x-slot:information>
+                @include('app.listing.partials.pagination')
+            </x-slot:information>
+
             <x-slot:left>
                 <div class="app-filter-container">
                     <!-- Search -->
@@ -27,7 +31,9 @@
         </x-card.listing>
     </div>
 
+
     <div class="home-top">
         @include('app.home.partials.home.top')
     </div>
+
 @endsection

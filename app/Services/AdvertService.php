@@ -215,7 +215,6 @@ class AdvertService implements IAdvertService
         $this->updateSchedule();
         $this->updateRates();
         $this->updateComment();
-        $this->updateDescription();
 
         switch ($type) {
             case CategoryType::CATERER:
@@ -308,14 +307,6 @@ class AdvertService implements IAdvertService
     {
         $this->advert->service->update([
             'comment' => $this->data['comment'],
-        ]);
-    }
-
-    private function updateDescription(): void
-    {
-        $this->advert->service->serviceable->update([
-            'description' => $this->data['description'],
-            'description_en' => $this->data['description_en'],
         ]);
     }
 

@@ -77,5 +77,7 @@ return [
     'checklist.food' => 'Nourriture',
     'checklist.installation' => 'Installations',
     'checklist.service' => 'Options',
+    'checklist.service_caterer' => 'Traiteur',
+
 
 ];

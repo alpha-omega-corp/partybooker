@@ -1,5 +1,11 @@
 
 .app-listing {
+    @media only screen and (max-width: 1199px) {
+        .row > * {
+            padding: 0;
+        }
+    }
+
     .accordion-button {
         display: flex;
         flex-direction: column;
@@ -21,6 +27,12 @@
     }
 
     .pagination {
+        @media only screen and (max-width: 600px) {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
         .page-link {
             border: 1px solid $light !important;
         }
@@ -205,6 +217,12 @@
 
     .listing-content-pagination {
         width: 100%;
+        padding: 20px;
+
+        @media only screen and (max-width: 1199px) {
+            position: absolute;
+            bottom: 0;
+        }
 
         .listing-pagination {
             display: flex;
@@ -250,12 +268,16 @@
             width: 100%;
             position: absolute;
             overflow: scroll;
-            padding: 5px 30px 5px 20px;
+            padding: 5px 30px 70px 20px;
         }
 
         @media only screen and (max-width: 1199px) {
             border-top: 1px solid $gray;
             padding: 40px 20px;
+        }
+
+        @media only screen and (min-width: 600px) and (max-width: 800px) {
+            padding: 40px;
         }
 
 
@@ -275,10 +297,6 @@
                 .card-content-address {
                     position: relative !important;
                 }
-            }
-
-            @media only screen and (min-width: 1200px) {
-
             }
 
             .advert-card-image {
@@ -364,10 +382,25 @@
 
 .app-advert {
 
+    .listing-column-right {
+        margin-right: 0 !important;
+    }
+
+    .breadcrumb {
+        .active {
+            display: none;
+        }
+    }
+
     .advert-title {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
+        height: 95px;
+        align-items: center;
+        border-bottom: 1px solid $light;
+        padding: 0 20px;
+
     }
 
     .advert-contacts {
@@ -402,11 +435,17 @@
 
         .advert-company-content {
             text-align: center;
-            padding: 40px 20px 20px;
+            padding: 20px;
 
             .advert-company-title {
                 font-weight: bold;
                 text-transform: uppercase;
+            }
+
+            p {
+                margin: 0;
+                font-size: small;
+                font-weight: bold;
             }
         }
 
@@ -439,8 +478,12 @@
             gap: 10px;
 
             .gallery-image {
-                flex-basis: 200px;
+                flex-basis: 150px;
                 flex-grow: 1;
+
+                @media only screen and (max-width: 800px) {
+                    flex-basis: 100px;
+                }
 
                 img {
                     object-fit: cover;

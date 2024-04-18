@@ -24,7 +24,11 @@
 
                 <!-- Listing -->
                 <div class="col-xl-8 col-lg-12 app-listing-column">
-                    <div class="listing-column-content">
+
+                    <div class="listing-column-content column-content-right">
+                        @if(isset($information))
+                            {{$information}}
+                        @endif
 
                         <div class="listing-column-right">
                             {{$right}}

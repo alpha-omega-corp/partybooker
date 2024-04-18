@@ -19,7 +19,6 @@
     </x-carousel>
 
     <div class="carousel__mobile">
-
         <x-app.title
             :size="TitleSize::MEDIUM"
             :color="AppColor::PINK"
@@ -35,7 +34,7 @@
             @endforeach
         </div>
 
-        <x-app.mobile-more :route="route(__('route.home'))"/>
+        <x-app.mobile-more :route="route(__('route.home'))"></x-app.mobile-more>
     </div>
 
 @endif

@@ -35,7 +35,7 @@
         @keydown.end.prevent.stop="$focus.last()"
         @keydown.page-down.prevent.stop="$focus.last()"
         role="list"
-        class="tab-list-item {{$isVertical ? 'tab-list-vertical' : 'tab-list-horizontal'}} {{$justify ? 'justify-service-'.$justify : ''}}">
+        class="tab-list-item {{$isVertical ? 'tab-list-vertical' : 'tab-list-horizontal'}} {{$justify ? 'justify-content-'.$justify : ''}}">
 
         @foreach($items as $key => $page)
             <li>

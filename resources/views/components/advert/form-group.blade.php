@@ -1,4 +1,4 @@
-<x-card.service :title="$title">
+<x-card :title="$title" :can-open="false">
     <x-accordion.index :name="$accordion">
         @foreach($types as $type)
             <x-accordion.item
@@ -21,5 +21,5 @@
             </x-accordion.item>
         @endforeach
     </x-accordion.index>
-</x-card.service>
+</x-card>
 

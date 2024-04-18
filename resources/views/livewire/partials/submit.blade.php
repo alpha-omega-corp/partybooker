@@ -4,8 +4,8 @@
         {{__('partner.save')}}
     </button>
     <a
-        href="{{route('partner.dashboard', [
-            'partner' => $advert->company->partner
+        href="{{route(__('route.profile'), [
+            'company' => $advert->company
         ])}}"
         class="bg-info-500 p-2 text-white flex-none w-40 text-center">
         Dashboard
