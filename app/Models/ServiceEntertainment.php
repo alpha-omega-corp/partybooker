@@ -14,6 +14,8 @@ class ServiceEntertainment extends Model
     use HasFactory;
 
     protected $fillable = [
+        'min_guests',
+        'max_guests',
     ];
 
     protected static function newFactory(): ServiceEntertainmentFactory

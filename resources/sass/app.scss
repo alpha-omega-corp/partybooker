@@ -89,12 +89,16 @@ html, body {
 
     .app-main-listing {
         width: 100%;
-        display: flex;
-        justify-content: center;
     }
 
     .app-listing-title {
         margin: 80px 0;
+    }
+
+    .app-locale-active {
+        border: 2px solid $secondary;
+        border-radius: 50%;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     }
 }
 

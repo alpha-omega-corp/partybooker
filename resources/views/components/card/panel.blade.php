@@ -1,4 +1,6 @@
-@props(['title' => null])
+@props([
+    'title' => null,
+])
 
 <div {{$attributes->merge(['class' => 'app-card-panel'])}}>
     <div class="card-panel-header">
@@ -7,6 +9,7 @@
                 :size="TitleSize::LARGE"
                 :color="AppColor::BLUE"
                 :value="$title"
+                :border="true"
                 class="card-panel-title"
             />
         @endif

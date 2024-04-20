@@ -1,4 +1,35 @@
 
+.service-advert-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: small;
+    border-bottom: 1px solid $gray;
+    border-top: 1px solid $gray;
+    margin: 0;
+    padding: 20px 10px 20px;
+}
+
+.service-advert-content {
+    padding: 20px;
+
+    p {
+        margin: 0;
+    }
+}
+
+.service-file {
+    a {
+        border-radius: 0;
+        width: 100%;
+    }
+
+    img {
+        object-fit: cover;
+        width: 100%;
+    }
+}
+
 .service-schedule-day {
     text-transform: uppercase;
     font-size: small;
@@ -14,9 +45,9 @@
 
 .service-schedule-holidays {
     padding-top: 20px;
-    list-style-type: decimal;
 
     li {
+        list-style-type: decimal;
         padding-left: 10px;
         padding-bottom: 10px;
         padding-right: 20px;
@@ -31,7 +62,7 @@
 
 
 .service-price-card {
-    border: 1px solid $gray;
+    border: 1px solid $light;
     margin: 20px;
     border-radius: 10px;
     display: flex;
@@ -40,7 +71,7 @@
 
     .price-card-tag {
         padding: 10px;
-        background-color: $accent;
+        background-color: $pink;
         color: #fff;
         font-size: smaller;
         font-weight: bold;
@@ -62,12 +93,21 @@
     }
 }
 
+.service-schedule-extension {
+    p {
+        margin: 0;
+        text-align: center;
+        border-top: 1px solid $gray;
+        border-bottom: 1px solid $gray;
+        padding: 10px;
+    }
+}
 
 .service-form {
     .service-form-list {
         li {
             &::marker {
-                color: $primary;
+                color: $pink;
             }
         }
     }
@@ -75,13 +115,16 @@
 
 
 .service-delivery {
-    padding: 0;
     margin: 0;
 
     li {
-        list-style-type: none;
+        list-style-type: decimal;
         padding: 20px;
-        border-bottom: 1px solid $light;
+
+        &::marker {
+            color: $accent;
+            font-weight: bold;
+        }
     }
 
 }

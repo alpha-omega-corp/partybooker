@@ -382,6 +382,24 @@
 
 .app-advert {
 
+    .advert-actions {
+
+        a, button {
+            border-radius: 0;
+        }
+
+        @media only screen and (min-width: 1200px) {
+            display: flex;
+        }
+
+        @media only screen and (max-width: 1199px) {
+            position: fixed;
+            bottom: 0;
+            z-index: 10;
+            width: 100%;
+        }
+    }
+
     .listing-column-right {
         margin-right: 0 !important;
     }
@@ -534,7 +552,7 @@
     width: 100%;
 
     .company-adverts-item {
-        padding: 10px;
+        padding: 20px;
         display: flex;
         justify-content: space-between;
         border-bottom: 1px dashed $orange;

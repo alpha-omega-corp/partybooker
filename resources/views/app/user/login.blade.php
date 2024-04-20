@@ -6,6 +6,8 @@
         :singleton="true"
         :hidden="true"
         :absolute="true"
+        :action="false"
+        :title="__('app.login')"
         :route="route('auth.login')"
     >
         <x-slot:body>

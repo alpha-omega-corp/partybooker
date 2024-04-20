@@ -49,6 +49,11 @@
                         text-align: justify;
                         cursor: default;
                         position: relative;
+                        padding: 0 !important;
+                    }
+
+                    .accordion-body-padding {
+                        padding: var(--bs-accordion-body-padding-y) var(--bs-accordion-body-padding-x) !important;
                     }
 
                     .accordion-button {

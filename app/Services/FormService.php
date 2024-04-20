@@ -218,9 +218,6 @@ class FormService implements IFormService
             ->schema([
                 Tabs::make()
                     ->tabs([
-                        Tab::make(__('service.section.description'))->schema([
-                            $this->descriptionSection()
-                        ]),
                         Tab::make(__('service.section.material'))->schema([
                             Section::make(__('service.section.material'))
                                 ->columns(3)
@@ -260,13 +257,13 @@ class FormService implements IFormService
                                 $this->capacitySection(),
                             ]),
                         Tab::make(__('service.section.wine.article'))->schema([
-                            Section::make(__('service.section.wine.article'))
-                                ->description(__('service.section.wine.article.description'))
+                            Section::make(__('service.section.file.article'))
+                                ->description(__('service.section.file.article.description'))
                                 ->schema([
-                                    FileUpload::make('articleFile')
+                                    FileUpload::make('serviceFile')
                                         ->hiddenLabel()
                                         ->hint(__('service.help.file'))
-                                        ->directory('images/adverts/articles')
+                                        ->directory('images/adverts/wine')
                                         ->imageEditor()
                                         ->multiple(false)
                                         ->acceptedFileTypes([
@@ -283,60 +280,6 @@ class FormService implements IFormService
             ]);
     }
 
-    private function descriptionSection(): Section
-    {
-        return Section::make(__('service.section.description'))
-            ->description(__('service.section.description.info'))
-            ->schema([
-                Tabs::make()
-                    ->tabs([
-                        Tab::make('FR')
-                            ->schema([
-                                TextInput::make('title_fr')
-                                    ->label(__('form.title')),
-                                RichEditor::make('description_fr')
-                                    ->hiddenLabel()
-                                    ->toolbarButtons([
-                                        'blockquote',
-                                        'bold',
-                                        'bulletList',
-                                        'h2',
-                                        'h3',
-                                        'italic',
-                                        'link',
-                                        'orderedList',
-                                        'redo',
-                                        'strike',
-                                        'underline',
-                                        'undo',
-                                    ])
-                            ]),
-                        Tab::make('EN')
-                            ->schema([
-                                TextInput::make('title_en')
-                                    ->label(__('form.title')),
-                                RichEditor::make('description_en')
-                                    ->hiddenLabel()
-                                    ->toolbarButtons([
-                                        'blockquote',
-                                        'bold',
-                                        'bulletList',
-                                        'h2',
-                                        'h3',
-                                        'italic',
-                                        'link',
-                                        'orderedList',
-                                        'redo',
-                                        'strike',
-                                        'underline',
-                                        'undo',
-                                    ])
-                            ]),
-                    ]),
-
-            ]);
-    }
-
     private function furnitureForms(): CheckboxList
     {
         return CheckboxList::make('furniture')
@@ -349,7 +292,7 @@ class FormService implements IFormService
     {
         return CheckboxList::make('decorations')
             ->options($this->getFormOptions(FormType::DECORATION))
-            ->label(__('service.checklist.decorations'))
+            ->label(__('service.checklist.decoration'))
             ->bulkToggleable();
     }
 
@@ -454,10 +397,10 @@ class FormService implements IFormService
                             Section::make(__('service.section.caterer.menu'))
                                 ->description(__('service.section.caterer.menu.description'))
                                 ->schema([
-                                    FileUpload::make('menuFile')
+                                    FileUpload::make('serviceFile')
                                         ->hiddenLabel()
                                         ->hint(__('service.help.file'))
-                                        ->directory('images/adverts/menus')
+                                        ->directory('images/adverts/caterer')
                                         ->imageEditor()
                                         ->multiple(false)
                                         ->acceptedFileTypes([
@@ -551,7 +494,53 @@ class FormService implements IFormService
         return Section::make(__('service.section.entertainment'))
             ->columns()
             ->schema([
+                Tabs::make()
+                    ->tabs([
+                        Tab::make(__('service.section.service'))->schema([
+                            Section::make(__('service.section.entertainment'))
+                                ->columns()
+                                ->description(__('service.section.service.description'))
+                                ->schema([
+                                    $this->entertainmentServiceForms()->inlineLabel(),
+                                ])
+                        ]),
+                    ]),
+                Tabs::make()
+                    ->tabs([
+                        Tab::make(__('service.section.capacity'))
+                            ->schema([
+                                $this->capacitySection(),
+                            ]),
+                        Tab::make(__('service.section.file.magazine'))->schema([
+                            Section::make(__('service.section.file.magazine'))
+                                ->description(__('service.section.file.magazine.description'))
+                                ->schema([
+                                    FileUpload::make('serviceFile')
+                                        ->hiddenLabel()
+                                        ->hint(__('service.help.file'))
+                                        ->directory('images/adverts/entertainment')
+                                        ->imageEditor()
+                                        ->multiple(false)
+                                        ->acceptedFileTypes([
+                                            'pdf',
+                                            'doc',
+                                            'docx',
+                                            'xls',
+                                            'xlsx',
+                                            'image/*',
+                                        ]),
+                                ]),
+                        ]),
+                    ]),
             ]);
+    }
+
+    private function entertainmentServiceForms(): CheckboxList
+    {
+        return CheckboxList::make('entertainment_forms')
+            ->options($this->getFormOptions(FormType::SERVICE_ENTERTAINMENT))
+            ->label(__('service.checklist.service'))
+            ->bulkToggleable();
     }
 
     public function equipment(): Section
@@ -559,7 +548,58 @@ class FormService implements IFormService
         return Section::make(__('service.section.equipment'))
             ->columns()
             ->schema([
+                Tabs::make()
+                    ->tabs([
+                        Tab::make(__('service.section.logistics'))->schema([
+                            Section::make(__('service.section.logistics'))
+                                ->columns(1)
+                                ->description(__('service.section.logistics.description'))
+                                ->schema([
+                                    $this->deliveryForms(),
+                                ]),
+                        ]),
+                        Tab::make(__('service.section.service'))->schema([
+                            Section::make(__('service.section.event'))
+                                ->columns()
+                                ->description(__('service.section.service.description'))
+                                ->schema([
+                                    $this->equipmentServiceForms()->inlineLabel(),
+                                ])
+                        ]),
+                    ]),
+
+                Tabs::make()
+                    ->tabs([
+                        Tab::make(__('service.section.equipment.magazine'))->schema([
+                            Section::make(__('service.section.equipment.magazine'))
+                                ->description(__('service.section.equipment.magazine.description'))
+                                ->schema([
+                                    FileUpload::make('serviceFile')
+                                        ->hiddenLabel()
+                                        ->hint(__('service.help.file'))
+                                        ->directory('images/adverts/equipment')
+                                        ->imageEditor()
+                                        ->multiple(false)
+                                        ->acceptedFileTypes([
+                                            'pdf',
+                                            'doc',
+                                            'docx',
+                                            'xls',
+                                            'xlsx',
+                                            'image/*',
+                                        ]),
+                                ]),
+                        ]),
+                    ]),
             ]);
+    }
+
+    private function equipmentServiceForms(): CheckboxList
+    {
+        return CheckboxList::make('equipment_forms')
+            ->options($this->getFormOptions(FormType::SERVICE_EQUIPMENT))
+            ->label(__('service.checklist.service'))
+            ->bulkToggleable();
     }
 
     public function event(): Section
@@ -630,9 +670,9 @@ class FormService implements IFormService
                                             ->schema([
                                                 TextInput::make('name')
                                                     ->label(__('form.name')),
-                                                TextInput::make('url')
+                                                TextInput::make('link')
                                                     ->label(__('form.url'))
-                                                    ->type('number')
+                                                    ->type('url')
                                             ])->columns(),
                                     ]),
                             ]),
@@ -647,6 +687,4 @@ class FormService implements IFormService
             ->label(__('service.checklist.service'))
             ->bulkToggleable();
     }
-
-
 }

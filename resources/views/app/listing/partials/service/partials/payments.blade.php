@@ -1,4 +1,8 @@
-<x-card :title="__('service.section.price.payment')" :can-open="false" class="w-100">
+<x-card
+    :title="__('service.section.price.payment')"
+    :center="true"
+    class="w-100"
+>
     <x-accordion.index name="payment-accordion">
         <x-accordion.item
             accordion="payment-accordion"

@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Modal;
 
+use App\Enums\AppColor;
 use App\Enums\ModalName;
 use App\Enums\ModalSize;
 use App\Enums\ModalType;
@@ -30,7 +31,7 @@ class Index extends Component
         public ?string   $title = null,
         public ?string   $text = null,
         public ?string   $tooltip = null,
-        public ?string   $customColor = null,
+        public ?AppColor $customColor = null,
     )
     {
         if (!$customColor) {
@@ -41,7 +42,7 @@ class Index extends Component
                 ModalType::READ => 'blue',
             };
         } else {
-            $this->color = $customColor;
+            $this->color = $customColor->value;
         }
 
         $this->id = ModalHelper::getId($name, $type, $singleton, $iterator);

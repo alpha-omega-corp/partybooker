@@ -20,19 +20,19 @@
         ]"
     >
         <x-tab.item>
-            @include('app.listing.partials.service-description', ['advert' => $advert])
+            @include('app.listing.partials.service.partials.description')
         </x-tab.item>
 
         <x-tab.item :padding="false">
-            @include('app.listing.partials.service-content', ['content' => $advert->service->serviceable])
+            @include('app.listing.partials.advert.service', ['content' => $advert->service->serviceable])
         </x-tab.item>
 
         <x-tab.item :padding="false">
-            @include('app.listing.partials.service-schedule', ['schedule' => $advert->service->schedule])
+            @include('app.listing.partials.service.partials.schedule', ['schedule' => $advert->service->schedule])
         </x-tab.item>
 
         <x-tab.item :padding="false">
-            @include('app.listing.partials.service-price', ['price' => $advert->service->price])
+            @include('app.listing.partials.service.partials.payments')
         </x-tab.item>
 
     </x-tab.index>

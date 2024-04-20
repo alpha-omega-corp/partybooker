@@ -1,4 +1,9 @@
-<div class="d-flex justify-content-center">
+<div
+    @class([
+        'app-title-container',
+        'title-border-bottom' => $border,
+    ])
+>
     @switch($size)
         @case(TitleSize::SMALL)
             <h4 {{$attributes->merge(['class' => 'app-title-small '.$style])}}>

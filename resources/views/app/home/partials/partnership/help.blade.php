@@ -3,12 +3,12 @@
     :name="ModalName::APP_HELP"
     :type="ModalType::CREATE"
     :size="ModalSize::MD"
+    :custom-color="AppColor::SECONDARY"
     :title="__('home.help_title')"
     :tooltip="__('home.help_title')"
     :action="false"
     :validation="true"
     :icon="$checkIcon"
-    custom-color="secondary"
     :route="route('guest.home.help', [
         'plan' => $item
     ])"

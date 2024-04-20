@@ -12,7 +12,7 @@ use App\Models\CategoryTag;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
-class CategoryService implements ICategoryService
+class  CategoryService implements ICategoryService
 {
     public function filterCategory(?string $requestCat, ?string $requestTag): Builder
     {
@@ -41,7 +41,7 @@ class CategoryService implements ICategoryService
 
         return $locale->first()->translatable()->get();
     }
- 
+
     public function updateCategory(UpdateCategoryRequest $request, Category|CategoryTag $item): bool
     {
         $data = $request->validated();

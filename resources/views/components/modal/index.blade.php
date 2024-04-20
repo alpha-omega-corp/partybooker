@@ -12,26 +12,28 @@
     data-bs-toggle="modal"
     data-bs-target="{{'#' . $id}}"
 >
-    @if($icon)
-        @svg($icon)
-    @elseif($hasIcon)
-        @switch($type)
-            @case(ModalType::CREATE)
-                @svg('heroicon-o-plus-circle')
-                @break
-            @case(ModalType::UPDATE)
-                @svg('heroicon-o-pencil')
-                @break
-            @case(ModalType::DELETE)
-                @svg('heroicon-o-trash')
-                @break
-            @default
-                @svg('heroicon-o-eye')
-                @break
-        @endswitch
+    @if($text)
+        <p class="m-0 text-uppercase">{{$text}}</p>
+    @else
+        @if($icon)
+            @svg($icon)
+        @elseif($hasIcon)
+            @switch($type)
+                @case(ModalType::CREATE)
+                    @svg('heroicon-o-plus-circle')
+                    @break
+                @case(ModalType::UPDATE)
+                    @svg('heroicon-o-pencil')
+                    @break
+                @case(ModalType::DELETE)
+                    @svg('heroicon-o-trash')
+                    @break
+                @default
+                    @svg('heroicon-o-eye')
+                    @break
+            @endswitch
+        @endif
     @endif
-
-    {{$text}}
 </a>
 
 <div

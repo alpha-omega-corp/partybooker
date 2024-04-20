@@ -8,7 +8,7 @@ return [
     'forms' => 'Informations',
     'schedule.closed' => 'Fermé',
     'no_deposit' => 'Aucun dépôt requis',
-    'no_extension' => 'Extension pas possible',
+    'no_extension' => 'L\'établissement ne propose pas d\'horraires flexibles',
     'video' => 'Vidéos',
     'gallery' => 'Galerie',
     'access' => 'Accès',

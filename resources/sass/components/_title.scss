@@ -1,3 +1,12 @@
+.app-title-container {
+    display: flex;
+    justify-content: center;
+}
+
+.title-border-bottom {
+    border-bottom: 1px solid #000;
+}
+
 .app-title-large {
     font-size: 3.5rem;
     @media only screen and (max-width: 900px) {
@@ -15,8 +24,6 @@
 
 .app-title-small {
     font-size: 1.5rem;
-
-
 }
 
 .app-title {

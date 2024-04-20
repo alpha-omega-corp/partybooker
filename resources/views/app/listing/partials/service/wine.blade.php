@@ -1,40 +1,22 @@
-<x-service.panel class="service-wine">
+<x-advert.form-group
+    name="service_wine"
+    :title="__('advert.service')"
+    :service="$category->service"
+    :types="[
+        FormType::SERVICE_WINE,
+        FormType::FURNITURE,
+        FormType::DECORATION,
+        FormType::TECHNICAL,
+        FormType::STAFF,
+        FormType::INSTALLATION,
+        FormType::FOOD,
+    ]"
+>
+    <x-service.file :text="__('service.section.wine.article')" :content="$category"/>
 
-    <x-slot:left>
-        <x-service.capacity :content="$content"/>
-        <x-service.file
-            :title="__('service.section.wine.article')"
-            :content="$content"
-        />
+    <x-slot:details>
+        <x-service.capacity :content="$category"/>
+    </x-slot:details>
+</x-advert.form-group>
 
-        <x-advert.form-group
-            name="wine_material"
-            :title="__('service.section.material')"
-            :service="$content->service"
-            :types="[
-                    FormType::FURNITURE,
-                    FormType::DECORATION,
-                    FormType::TECHNICAL,
-                ]"
-        />
-    </x-slot:left>
 
-    <x-slot:right>
-        <x-service.list
-            :title="__('service.section.wine')"
-            :content="$content"
-            :type="FormType::SERVICE_WINE"
-        />
-
-        <x-advert.form-group
-            name="wine_logistics"
-            :title="__('service.section.logistics')"
-            :service="$content->service"
-            :types="[
-                    FormType::STAFF,
-                    FormType::INSTALLATION,
-                    FormType::FOOD,
-                ]"
-        />
-    </x-slot:right>
-</x-service.panel>

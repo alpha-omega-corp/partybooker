@@ -1,6 +1,9 @@
 <div
     x-data="modal('{{$id}}')"
-    @class(['modal-open-absolute' => $absolute])
+    @class([
+    'w-100',
+    'modal-open-absolute' => $absolute,
+])
 >
 
     <button

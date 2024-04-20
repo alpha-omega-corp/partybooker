@@ -14,6 +14,15 @@ class ServiceEvent extends Model
     use HasFactory;
 
     protected $fillable = [
+        'min_guests',
+        'max_guests',
+        'rooms',
+        'caterers',
+    ];
+
+    protected $casts = [
+        'rooms' => 'array',
+        'caterers' => 'array',
     ];
 
     protected static function newFactory(): ServiceEventFactory

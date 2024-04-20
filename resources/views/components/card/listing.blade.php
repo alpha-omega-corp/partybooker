@@ -5,20 +5,16 @@
 ])
 <div class="d-flex flex-column w-100">
 
-    <x-app.title
-        :value="$title"
-        :size="TitleSize::LARGE"
-        :color="$titleColor"
-        class="app-listing-title"
-    />
-    <x-card.panel {{$attributes->merge(['class' => 'app-main-listing'])}}>
+    <x-card.panel {{$attributes->merge(['class' => 'app-main-listing'])}} :title="$title">
         <div class="app-listing-container">
             <div class="row">
                 <!-- Filters -->
                 <div class="col-xl-4 col-lg-12 app-listing-column">
                     <div class="listing-column-content">
-                        <div class="listing-breadcrumbs">
-                            {{$breadcrumbs}}
+                        <div class="p-4">
+                            <div class=" listing-breadcrumbs">
+                                {{$breadcrumbs}}
+                            </div>
                         </div>
 
                         {{$left}}

@@ -1,13 +1,20 @@
 .about {
-    .about-content-card {
-        padding: 40px 40px 60px;
+    .about-card {
+        padding: 40px;
+        border-bottom: 1px solid $light;
         display: flex;
         gap: 60px;
-        border-bottom: 1px solid $light;
 
-        h6 {
+        @media only screen and (max-width: 1200px) {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .about-card-title {
             font-weight: bold;
             text-transform: uppercase;
+            color: $pink;
+            padding: 10px 0;
         }
 
         p {
@@ -18,21 +25,15 @@
 
     .about-features-card {
 
-        .about-features-header {
-            padding: 40px 0 60px 40px;
-
-            .about-features-title {
-                padding: 40px;
-
-            }
+        .about-features-title {
+            margin: 80px 0;
         }
-
 
         .about-features-content {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            padding: 40px;
+            justify-content: center;
+            padding: 20px;
             gap: 20px;
 
             .about-feature-card {
@@ -42,42 +43,43 @@
                 overflow: hidden;
                 width: 400px;
 
-                .feature-card-logo {
-                    border-right: 1px solid $gray;
-
-                    img {
-                        width: 50px;
-                        height: 50px;
-                    }
-                }
-
                 .feature-card-content {
                     display: flex;
                     flex-direction: column;
                     width: 100%;
 
                     .feature-card-header {
-                        height: 50px;
-                        display: flex;
                         align-items: center;
                         color: #fff;
-                        padding-left: 20px;
                         background-color: rgba(0, 0, 0, 0.8);
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        border-bottom: 1px solid $blue;
 
                         .feature-card-title {
                             margin: 0;
+                            padding: 10px 20px 20px;
+                            text-transform: uppercase;
+                        }
+
+                        img {
+                            margin: 20px;
+                            width: 60px;
+                            height: 60px;
+                            object-fit: cover;
                         }
                     }
 
                     ul {
-                        padding: 0 0 0 10px;
+                        padding: 0 0 0 40px;
 
                         li {
                             padding: 20px;
                             border-bottom: 1px solid $light;
 
                             &::marker {
-                                color: $primary;
+                                color: $pink;
                             }
 
                             p {

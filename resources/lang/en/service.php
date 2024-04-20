@@ -11,6 +11,13 @@ return [
 
     'help.file' => 'The file is visible in your partner space. To change it, click the button below.',
 
+    'section.file.magazine' => 'Magazine',
+    'section.file.magazine.description' => 'Upload your magazine in image or PDF format',
+    'section.file.menu' => 'Menu',
+    'section.file.menu.description' => 'Upload your menu in image or PDF format',
+    'section.file.article' => 'Article',
+    'section.file.article.description' => 'Upload your magazine in image or PDF format',
+
     'section.capacity' => 'Capacity',
     'section.capacity.description' => 'Minimum and maximum number of guests',
     'section.capacity.min' => 'Minimum guests',
@@ -41,7 +48,7 @@ return [
 
     'section.price' => 'Rates & Conditions',
     'section.price.rates' => 'Rates',
-    'section.price.payment' => 'Payment',
+    'section.price.payment' => 'Payments',
     'section.price.payment.description' => 'Select the payment methods you accept',
 
     'section.comment' => 'Comment',
@@ -51,16 +58,17 @@ return [
     'section.wine' => 'Wine Lovers',
     'section.entertainment' => 'Entertainment',
     'section.equipment' => 'Equipment',
+
     'section.event' => 'Event',
+    'section.event.rooms' => 'Rooms',
+    'section.event.caterers' => 'Caterers',
 
     'section.caterer.delivery' => 'Delivery',
     'section.caterer.delivery.description' => 'Indicate the delivery methods you offer',
     'section.caterer.delivery.service' => 'Delivery service',
     'section.caterer.specialties' => 'Specialties',
     'section.caterer.specialties.description' => 'Write a brief description of your specialties',
-    'section.caterer.menu' => 'Menu',
 
-    'section.wine.article' => 'Article',
 
     'checklist.decoration' => 'Decorations',
     'checklist.dish' => 'Dishes',
@@ -72,6 +80,11 @@ return [
     'checklist.food' => 'Food',
     'checklist.installation' => 'Installations',
     'checklist.service' => 'Options',
+
     'checklist.service_caterer' => 'Caterer',
+    'checklist.service_event' => 'Event',
+    'checklist.service_entertainment' => 'Entertainment',
+    'checklist.service_equipment' => 'Equipment',
+    'checklist.service_wine' => 'Wine',
 
 ];

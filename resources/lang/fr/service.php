@@ -36,7 +36,7 @@ return [
 
     'section.price' => 'Tarifs & Conditions',
     'section.price.rates' => 'Tarifs',
-    'section.price.payment' => 'Paiement',
+    'section.price.payment' => 'Paiements',
     'section.price.payment.description' => 'Sélectionnez les modes de paiement que vous acceptez',
     'section.price.budget' => 'Budget',
     'section.price.budget.description' => 'Indiquez les budget moyen et les tarifs supplémentaires',
@@ -59,10 +59,7 @@ return [
     'section.caterer.menu' => 'Menu',
     'section.caterer.menu.description' => 'Téléchargez votre menu en image ou en PDF',
 
-    'section.wine.article' => 'Article',
-    'section.wine.article.description' => 'Téléchargez votre magazine de vin ou tout autre article en image ou en PDF',
-
-    'section.event.caterers' => 'Traiteur',
+    'section.event.caterers' => 'Traiteurs',
     'section.event.caterers.description' => 'Indiquez si vous travaillez avec des services de traiteur',
     'section.event.rooms' => 'Salles',
     'section.event.rooms.description' => 'Indiquez si vous proposez des salles de réception',
@@ -77,7 +74,11 @@ return [
     'checklist.food' => 'Nourriture',
     'checklist.installation' => 'Installations',
     'checklist.service' => 'Options',
-    'checklist.service_caterer' => 'Traiteur',
 
+    'checklist.service_caterer' => 'Traiteur',
+    'checklist.service_event' => 'Salle de réception',
+    'checklist.service_entertainment' => 'Animations',
+    'checklist.service_equipment' => 'Equipements',
+    'checklist.service_wine' => 'Amoureux du Vin',
 
 ];

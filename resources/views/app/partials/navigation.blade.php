@@ -20,11 +20,10 @@
             </div>
 
             <div class="d-flex align-items-center gap-3">
-                <!-- Locale -->
-                @include('app.partials.language')
-
                 <!-- User -->
                 @include('app.partials.user')
+                <!-- Locale -->
+                @include('app.partials.language')
             </div>
         </div>
 

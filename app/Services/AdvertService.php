@@ -132,11 +132,27 @@ class AdvertService implements IAdvertService
     public function loadEntertainment(array &$data): void
     {
         $this->loadCommon($data);
+        $service = $this->advert->service->serviceable;
+
+        $data['max_guests'] = $service->max_guests;
+        $data['min_guests'] = $service->min_guests;
+
+        $data['entertainment_forms'] = $this->entertainment
+            ->pluck('id')
+            ->toArray();
     }
 
     public function loadEquipment(array &$data): void
     {
         $this->loadCommon($data);
+
+        $data['delivery'] = $this->delivery
+            ->pluck('id')
+            ->toArray();
+
+        $data['equipment_forms'] = $this->equipment
+            ->pluck('id')
+            ->toArray();
     }
 
     public function loadEvent(array &$data): void
@@ -146,6 +162,8 @@ class AdvertService implements IAdvertService
 
         $data['max_guests'] = $service->max_guests;
         $data['min_guests'] = $service->min_guests;
+        $data['rooms'] = $service->rooms;
+        $data['caterers'] = $service->caterers;
 
         $data['furniture'] = $this->furniture
             ->pluck('id')
@@ -170,6 +188,7 @@ class AdvertService implements IAdvertService
         $data['event_forms'] = $this->event
             ->pluck('id')
             ->toArray();
+
     }
 
     public function loadWine(array &$data): void
@@ -220,19 +239,18 @@ class AdvertService implements IAdvertService
             case CategoryType::CATERER:
                 $this->updateCaterer();
                 break;
-            case CategoryType::EQUIPMENT:
-                $this->updateEquipment();
-                break;
             case CategoryType::EVENT:
                 $this->updateEvent();
-                break;
-            case CategoryType::ENTERTAINMENT:
-                // TODO: 4
                 break;
             case CategoryType::WINE:
                 $this->updateWine();
                 break;
-
+            case CategoryType::EQUIPMENT:
+                $this->updateEquipment();
+                break;
+            case CategoryType::ENTERTAINMENT:
+                $this->updateEntertainment();
+                break;
             default:
                 break;
         }
@@ -319,7 +337,7 @@ class AdvertService implements IAdvertService
         $this->updateChecklist($this->kitchen, $this->data['kitchen']);
         $this->updateChecklist($this->staff, $this->data['staff']);
         $this->updateChecklist($this->delivery, $this->data['delivery']);
-        $this->updateFile('menuFile', 'caterer');
+        $this->updateFile('caterer');
 
         $this->advert->service->serviceable->update([
             'max_guests' => $this->data['max_guests'],
@@ -329,9 +347,9 @@ class AdvertService implements IAdvertService
         ]);
     }
 
-    private function updateFile(string $name, string $dest): void
+    private function updateFile(string $dest): void
     {
-        $file = collect($this->data[$name])->flatten()->first();
+        $file = collect($this->data['serviceFile'])->flatten()->first();
 
         if ($file) {
             $currentFile = $this->advert->service->files->first();
@@ -351,11 +369,6 @@ class AdvertService implements IAdvertService
         }
     }
 
-    private function updateEquipment(): void
-    {
-
-    }
-
     private function updateEvent(): void
     {
         $this->updateChecklist($this->event, $this->data['event_forms']);
@@ -368,8 +381,8 @@ class AdvertService implements IAdvertService
         $this->advert->service->serviceable->update([
             'max_guests' => $this->data['max_guests'],
             'min_guests' => $this->data['min_guests'],
-            'rooms' => '',
-            'caterers' => '',
+            'rooms' => $this->data['rooms'],
+            'caterers' => $this->data['caterers'],
         ]);
     }
 
@@ -382,11 +395,30 @@ class AdvertService implements IAdvertService
         $this->updateChecklist($this->staff, $this->data['staff']);
         $this->updateChecklist($this->installations, $this->data['installations']);
         $this->updateChecklist($this->food, $this->data['food']);
-        $this->updateFile('articleFile', 'wine');
+        $this->updateFile('wine');
 
         $this->advert->service->serviceable->update([
             'max_guests' => $this->data['max_guests'],
             'min_guests' => $this->data['min_guests'],
         ]);
+    }
+
+    private function updateEquipment(): void
+    {
+        $this->updateChecklist($this->equipment, $this->data['equipment_forms']);
+        $this->updateChecklist($this->delivery, $this->data['delivery']);
+        $this->updateFile('equipment');
+    }
+
+    private function updateEntertainment(): void
+    {
+        $this->updateChecklist($this->entertainment, $this->data['entertainment_forms']);
+        $this->updateFile('equipment');
+
+        $this->advert->service->serviceable->update([
+            'max_guests' => $this->data['max_guests'],
+            'min_guests' => $this->data['min_guests'],
+        ]);
+
     }
 }

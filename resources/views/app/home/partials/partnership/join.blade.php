@@ -3,13 +3,13 @@
     :name="ModalName::GUEST_PARTNERSHIP"
     :type="ModalType::CREATE"
     :size="ModalSize::MD"
+    :custom-color="AppColor::SECONDARY"
     :title="__('form.join_title')"
     :action="false"
     :validation="true"
     :singleton="true"
     :hidden="true"
     :icon="$checkIcon"
-    custom-color="secondary"
     :route="route('guest.home.join')"
 >
 

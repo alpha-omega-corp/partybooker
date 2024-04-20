@@ -20,17 +20,17 @@
         </x-slot:left>
 
         <x-slot:right>
+            @include('app.listing.partials.advert.actions')
             @include('app.listing.partials.service.partials.description', ['advert' => $advert])
             @include('app.listing.partials.service.partials.rates', ['advert' => $advert])
             @include('app.listing.partials.advert.gallery')
-            @include('app.listing.partials.service-content', ['content' => $advert->service->serviceable])
 
+            @include('app.listing.partials.advert.service')
 
+            @include('app.listing.partials.service.partials.schedule')
             @include('app.listing.partials.service.partials.payments')
-
-            <div class="mt-5">
-                @include('app.listing.partials.advert.other')
-            </div>
+            @include('app.listing.partials.advert.contacts')
+            @include('app.listing.partials.advert.other')
 
 
         </x-slot:right>

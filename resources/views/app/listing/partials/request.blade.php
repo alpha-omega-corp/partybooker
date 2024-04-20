@@ -1,10 +1,3 @@
-<x-modal.open
-    :background="true"
-    :name="ModalName::PARTNER_ADVERT_REQUEST"
-    :singleton="true"
-    :text="__('advert.request')"
-/>
-
 <x-modal.index
     :name="ModalName::PARTNER_ADVERT_REQUEST"
     :type="ModalType::CREATE"

@@ -2,6 +2,7 @@
     'name',
     'accordion',
     'show' => false,
+    'padding' => true,
 ])
 
 @php($id = 'accordion-' . $accordion . $name)
@@ -26,7 +27,7 @@
                         aria-expanded="false"
                         aria-controls="{{$target}}">
                         <div
-                            class="accordion-title"
+                            class="accordion-title w-100"
                             id="{{'heading' . $name}}">
                             {{$title}}
                         </div>
@@ -40,7 +41,10 @@
                 <div id="{{$target}}" class="accordion-collapse collapse {{$show ? 'show' : ''}}"
                      aria-labelledby="{{'heading' . $name}}"
                      data-bs-parent="{{'#'. $accordion}}">
-                    <div class="accordion-body">
+                    <div @class([
+                        'accordion-body',
+                        'accordion-body-padding' => $padding,
+                    ])>
                         {{$content}}
                     </div>
                 </div>

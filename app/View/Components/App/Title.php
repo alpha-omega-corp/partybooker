@@ -17,6 +17,7 @@ class Title extends Component
         public AppColor  $color,
         public string    $value,
         public bool      $background = false,
+        public bool      $border = false,
     )
     {
         $this->style = 'app-title ' . ($background ? 'text-white p-3 w-100 bg-' : 'text-') . $color->value;
