@@ -37,6 +37,6 @@ class LocaleController extends Controller
             default => route(__('route.home')),
         };
 
-        return redirect($route);
+        return redirect($route)->with('success', __('locale.success'));
     }
 }

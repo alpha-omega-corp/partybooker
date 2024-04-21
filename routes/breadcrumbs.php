@@ -13,12 +13,12 @@ Breadcrumbs::for('home', function (Trail $trail) {
 
 Breadcrumbs::for('about', function (Trail $trail) {
     $trail->parent('home');
-    $trail->push(__('nav.about'), route('guest.home.about'));
+    $trail->push(__('nav.about'), route(__('route.about')));
 });
 
 Breadcrumbs::for('partnership', function (Trail $trail) {
     $trail->parent('home');
-    $trail->push(__('nav.partnership'), route('guest.home.partnership'));
+    $trail->push(__('nav.partnership'), route(__('route.partnership')));
 });
 
 Breadcrumbs::for('blog', function (Trail $trail) {
@@ -28,7 +28,7 @@ Breadcrumbs::for('blog', function (Trail $trail) {
 
 Breadcrumbs::for('faq', function (Trail $trail) {
     $trail->parent('home');
-    $trail->push(__('nav.faq'), route('route.faq'));
+    $trail->push(__('nav.faq'), route(__('route.faq')));
 });
 
 

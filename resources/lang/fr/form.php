@@ -8,7 +8,7 @@ return [
     'password' => 'Mot de passe',
     'company' => 'Entreprise',
     'username' => 'Nom d\'utilisateur',
-    'join_title' => 'devenir partenaire !',
+    'join_title' => 'devenir partenaire',
     'participants' => 'Participants',
     'date' => 'Date',
     'yes' => 'Oui',

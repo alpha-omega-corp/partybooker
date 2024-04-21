@@ -1,13 +1,23 @@
+<x-modal.open
+    :name="ModalName::APP_HELP"
+    :type="ModalType::CREATE"
+    :custom-color="AppColor::PINK"
+    :fit="true"
+    :singleton="true"
+    :icon="$checkIcon"
+    :title="__('home.help_title')"
+    class="app-help-button"/>
+
 <x-modal.index
-    :iterator="$item->id"
     :name="ModalName::APP_HELP"
     :type="ModalType::CREATE"
     :size="ModalSize::MD"
-    :custom-color="AppColor::SECONDARY"
     :title="__('home.help_title')"
     :tooltip="__('home.help_title')"
     :action="false"
+    :hidden="true"
     :validation="true"
+    :singleton="true"
     :icon="$checkIcon"
     :route="route('guest.home.help', [
         'plan' => $item

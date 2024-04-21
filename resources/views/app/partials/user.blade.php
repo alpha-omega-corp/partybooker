@@ -7,7 +7,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
             >
-                {{Auth::user()->name}}
+                @svg($userIcon)
             </button>
             <ul class="dropdown-menu">
                 @if(!Auth::user()->isAdmin())
@@ -59,12 +59,16 @@
         </div>
     </div>
 @else
-    <x-modal.open
-        :singleton="true"
-        :name="ModalName::APP_LOGIN"
-        :text="__('app.login')"
-        :background="true"
-    />
+    <div class="app-navigation-login">
+        <x-modal.open
+            :singleton="true"
+            :name="ModalName::APP_LOGIN"
+            :custom-color="AppColor::SECONDARY"
+            :fit="true"
+            :text="__('app.login')"
+            :background="true"
+        />
+    </div>
 @endif
 
 

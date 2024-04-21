@@ -3,6 +3,7 @@
     'accordion',
     'show' => false,
     'padding' => true,
+    'center' => false,
 ])
 
 @php($id = 'accordion-' . $accordion . $name)
@@ -27,7 +28,11 @@
                         aria-expanded="false"
                         aria-controls="{{$target}}">
                         <div
-                            class="accordion-title w-100"
+                            @class([
+                                'accordion-title',
+                                'w-100',
+                                'text-center' => $center,
+                            ])
                             id="{{'heading' . $name}}">
                             {{$title}}
                         </div>

@@ -1,4 +1,4 @@
-.about {
+.home-about {
     .about-card {
         padding: 40px;
         border-bottom: 1px solid $light;
@@ -95,31 +95,30 @@
 
 }
 
-.blog {
+.home-blog {
     .blog-content-card {
-        padding: 40px;
+        display: flex;
+        flex-wrap: wrap;
+
+        a {
+            color: $gray;
+        }
 
         .post-card {
-            border: 1px solid $light;
-            border-radius: 20px;
             overflow: hidden;
-            margin-bottom: 20px;
-
-            a {
-                color: $gray;
-
-                &:hover {
-                    h6 {
-                        color: $accent;
-                    }
-                }
-            }
+            flex-basis: 400px;
+            flex-grow: 1;
+            position: relative;
+            border: 1px solid $gray;
 
             .post-card-header {
                 .post-card-title {
                     padding: 20px;
-                    border-bottom: 1px solid $gray;
+                    border-bottom: 1px solid $light;
                     font-weight: bold;
+                    font-family: "Poppins", sans-serif;
+                    text-align: center;
+                    color: $blue;
                 }
 
                 img {
@@ -130,37 +129,32 @@
             }
 
             .post-card-content {
-                height: 200px;
                 position: relative;
 
                 .post-card-date {
                     position: absolute;
                     bottom: 20px;
                     right: 20px;
+                    font-family: monospace;
                 }
 
                 .post-card-preview {
                     padding: 20px;
+
+                    p {
+                        text-align: justify;
+                    }
                 }
 
                 .post-card-logo {
-                    position: absolute;
-                    bottom: 20px;
-                    left: 20px;
-
-                    .blog-logo-item {
-                        img {
-                            width: 100%;
-                            height: 40px;
-                        }
-                    }
+                    padding: 20px;
                 }
             }
         }
     }
 }
 
-.partnership {
+.home-partnership {
 
     .partnership-help-card {
         display: flex;
@@ -169,46 +163,37 @@
     }
 
     .partnership-register {
-        display: flex;
-
-        .register-image {
-
-            img {
-                object-fit: cover;
-                width: 100%;
-            }
-        }
-
-        .register-btn {
-            display: flex;
+        @media only screen and (max-width: 1200px) {
+            position: fixed;
+            bottom: 0;
             width: 100%;
-            justify-content: center;
-            align-items: center;
-            font-size: 22px;
-            text-transform: uppercase;
-            color: $pink;
-            font-weight: bold;
+            z-index: 10;
         }
 
         a {
-            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 0;
+            padding: 10px;
+            border-bottom: 1px solid $gray;
         }
+
     }
 
     .partnership-help {
-        width: 450px;
-        padding-top: 20px;
-        padding-right: 40px;
+
+        button {
+            border-radius: 0;
+        }
 
         .partnership-help-title {
-            text-align: center;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 10px;
+            margin: 40px 0;
         }
 
         .partnership-help-content {
-            text-align: justify;
+            text-align: center;
 
             p {
                 padding-bottom: 10px;
@@ -220,8 +205,7 @@
 
 
 .benefits-title {
-    padding-top: 80px;
-    padding-bottom: 10px;
+    margin: 40px 0;
 }
 
 .plans-title {
@@ -234,7 +218,11 @@
 
 .plans-content-card {
     display: flex;
-    padding: 20px;
+    padding: 40px 40px 0;
+
+    @media only screen and (max-width: 1000px) {
+        flex-direction: column;
+    }
 }
 
 .row {
@@ -242,15 +230,17 @@
 }
 
 .usp-content-card {
-    padding: 40px;
-
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
 
     .usp-card {
         border: 1px solid $light;
         border-radius: 20px;
         padding: 20px;
-        height: 200px;
         margin: 10px;
+        flex-basis: 400px;
+        flex-grow: 1;
 
         .usp-card-title {
             font-weight: bold;
@@ -264,7 +254,7 @@
 
 
             &::marker {
-                color: $blue;
+                color: $pink;
                 font-weight: bold;
                 font-size: 22px;
             }
@@ -275,7 +265,7 @@
 }
 
 .benefits-content-card {
-    padding: 40px;
+    padding: 20px;
 
     .benefits-header {
         width: 100%;
@@ -290,6 +280,10 @@
         width: 100%;
         display: flex;
         gap: 20px;
+
+        @media only screen and (max-width: 1200px) {
+            flex-direction: column;
+        }
     }
 
     .benefit-card {
@@ -826,9 +820,24 @@
 }
 
 
-.faq-content-card {
+.home-faq {
+    .accordion-body {
+        border-top: 1px solid $pink;
+    }
 
-    .faq-icon {
-        color: $accent;
+    .faq-title {
+        padding-left: 20px;
+        padding-right: 20px;
+
+        li {
+            &::marker {
+                color: $pink;
+            }
+
+            p {
+                margin: 0;
+                font-size: small;
+            }
+        }
     }
 }

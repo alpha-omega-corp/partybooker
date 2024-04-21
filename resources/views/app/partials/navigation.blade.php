@@ -19,11 +19,12 @@
                 </div>
             </div>
 
-            <div class="d-flex align-items-center gap-3">
+            <div class="d-flex align-items-center w-100">
                 <!-- User -->
                 @include('app.partials.user')
                 <!-- Locale -->
                 @include('app.partials.language')
+
             </div>
         </div>
 

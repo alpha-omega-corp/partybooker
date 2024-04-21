@@ -12,6 +12,7 @@
                 accordion="listing"
                 :name="$category->id"
                 :show="$active && $active->id === $category->id"
+                :center="true"
             >
                 <x-slot:title>
                     <h6 class="category-item-title">

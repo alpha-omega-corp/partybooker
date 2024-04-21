@@ -21,5 +21,13 @@
         @endif
     </div>
 
-    {{$slot}}
+    @if(isset($breadcrumbs))
+        <div class="card-panel-breadcrumbs">
+            {{$breadcrumbs}}
+        </div>
+    @endif
+
+    <section {{$attributes->merge(['class' => 'card-panel-body'])}}>
+        {{$slot}}
+    </section>
 </div>

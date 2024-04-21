@@ -2,6 +2,7 @@
     x-data="modal('{{$id}}')"
     @class([
     'w-100',
+    'h-100' => $fit,
     'modal-open-absolute' => $absolute,
 ])
 >

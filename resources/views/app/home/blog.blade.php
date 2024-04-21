@@ -6,39 +6,40 @@
 
 @section('content')
 
-    <x-card.panel :title="__('home.blog')">
-        <section class="blog">
-            <div class="blog-content-card">
-                <div class="row">
-                    @foreach($posts as $post)
-                        <div class="col-4">
-                            <div class="post-card">
-                                <a href="{{route(__('route.post'), ['post' => $post])}}">
+    <x-card.panel
+        :title="__('home.blog')"
+        class="home-blog"
+    >
 
-                                    <div class="post-card-header">
-                                        <img src="{{$post->image}}" alt="{{$post->title}}"/>
-                                        <h6 class="post-card-title">{{$post->locale->title}}</h6>
-                                    </div>
-                                </a>
-                                <div class="post-card-content">
-                                    <div class="post-card-preview">
-                                        <p>{{$post->locale->preview}}</p>
-                                    </div>
+        <x-slot:breadcrumbs>
+            {{Breadcrumbs::render('blog', Request::segments())}}
+        </x-slot:breadcrumbs>
 
-                                    <div class="post-card-date">
-                                        {{$post->created_at}}
-                                    </div>
+        <div class="blog-content-card">
+            @foreach($posts as $post)
+                <a href="{{route(__('route.post'), ['post' => $post])}}">
+                    <div class="post-card">
+                        <div class="post-card-header">
+                            <img src="{{$post->image}}" alt="{{$post->title}}"/>
+                            <h6 class="post-card-title">{{$post->locale->title}}</h6>
+                        </div>
 
-                                    <div class="post-card-logo">
-                                        <x-logo class="blog-logo-item"/>
-                                    </div>
-                                </div>
+                        <div class="post-card-content">
+                            <div class="post-card-preview">
+                                <p>{{$post->locale->preview}}</p>
                             </div>
 
+                            <div class="post-card-date">
+                                {{$post->created_at}}
+                            </div>
+
+                            <div class="post-card-logo">
+                                <x-logo :is-link="false" class="blog-logo-item"/>
+                            </div>
                         </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
+                    </div>
+                </a>
+            @endforeach
+        </div>
     </x-card.panel>
 @endsection

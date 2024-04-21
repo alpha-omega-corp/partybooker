@@ -63,5 +63,7 @@
     {{$slot}}
 </div>
 
+@include('app.partials.footer')
+
 </body>
 </html>

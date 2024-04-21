@@ -7,7 +7,7 @@ return [
     'password' => 'Password',
     'company' => 'Company',
     'message' => 'Message',
-    'join_title' => 'become a partner !',
+    'join_title' => 'become a partner',
     'yes' => 'Yes',
     'no' => 'No',
     'description' => 'Description',

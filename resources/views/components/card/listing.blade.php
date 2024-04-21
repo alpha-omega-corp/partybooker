@@ -11,10 +11,8 @@
                 <!-- Filters -->
                 <div class="col-xl-4 col-lg-12 app-listing-column">
                     <div class="listing-column-content">
-                        <div class="p-4">
-                            <div class=" listing-breadcrumbs">
-                                {{$breadcrumbs}}
-                            </div>
+                        <div class="card-panel-breadcrumbs">
+                            {{$breadcrumbs}}
                         </div>
 
                         {{$left}}
