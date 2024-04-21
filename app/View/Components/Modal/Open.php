@@ -28,6 +28,8 @@ class Open extends Component
         public bool       $background = false,
         public bool       $singleton = false,
         public bool       $fit = false,
+        public bool       $radius = true,
+        public bool       $center = true,
 
     )
     {

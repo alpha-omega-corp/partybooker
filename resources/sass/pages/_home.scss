@@ -162,26 +162,6 @@
         margin-bottom: 80px;
     }
 
-    .partnership-register {
-        @media only screen and (max-width: 1200px) {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 10;
-        }
-
-        a {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 0;
-            padding: 10px;
-            border-bottom: 1px solid $gray;
-        }
-
-    }
-
     .partnership-help {
 
         button {
@@ -752,7 +732,7 @@
     }
 
     @media only screen and (max-width: 900px) {
-        padding: 0 40px 120px;
+        padding: 0 20px 50px;
     }
 
     .home-comment-title {

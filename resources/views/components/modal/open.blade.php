@@ -10,11 +10,13 @@
     <button
         type="button"
         @class([
-            'btn',
+            'btn text-white',
             'tippy' => $type || $tooltip,
             'btn-'.($customColor ? $customColor->value : $color) => true,
             'text-'.$color => !$background && !$customColor,
             'w-100' => $fit,
+            'rounded-0' => !$radius,
+            'text-start' => !$center
         ])
         {{$attributes->merge(['class' => 'd-flex justify-content-center align-items-center'])}}
         {{$type ? 'data-tippy-content='. $type->name : ''}}

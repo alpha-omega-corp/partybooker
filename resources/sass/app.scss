@@ -100,6 +100,37 @@ html, body {
         border-radius: 50%;
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     }
+
+    .app-action {
+        @media only screen and (max-width: 1200px) {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .app-action-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .app-action-icon {
+                color: #fff;
+                margin: 0 20px;
+            }
+        }
+
+
+        a {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 0;
+            padding: 10px;
+            border-bottom: 1px solid $gray;
+        }
+    }
 }
 
 

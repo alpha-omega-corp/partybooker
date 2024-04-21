@@ -20,13 +20,16 @@
             {{Breadcrumbs::render('partnership', Request::segments())}}
         </x-slot:breadcrumbs>
 
-        <div class="partnership-register">
-            <a href="#" class="btn btn-secondary text-white" x-data="{modal: 'modalBtnGUEST_PARTNERSHIP'}"
-               @click="document.getElementById(modal).click()">
-                <span>{{__('form.join_title')}}</span>
-                @svg('heroicon-o-arrow-right')
-            </a>
-        </div>
+        <x-app.action>
+            <x-modal.open
+                :name="ModalName::GUEST_PARTNERSHIP"
+                :custom-color="AppColor::ORANGE"
+                :singleton="true"
+                :fit="true"
+                :radius="false"
+                :text="__('form.join_title')"
+            />
+        </x-app.action>
 
         <div class="benefits-content-card">
             <div class="benefits-content">
