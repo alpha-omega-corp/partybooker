@@ -19,18 +19,17 @@
         <x-slot:breadcrumbs>
             {{Breadcrumbs::render('partnership', Request::segments())}}
         </x-slot:breadcrumbs>
-
         <x-app.action>
             <x-modal.open
                 :name="ModalName::GUEST_PARTNERSHIP"
-                :custom-color="AppColor::ORANGE"
+                :custom-color="AppColor::HOME_GREEN"
                 :singleton="true"
                 :fit="true"
                 :radius="false"
-                :text="__('form.join_title')"
+                :center="false"
+                :text="strtoupper(__('form.join_title'))"
             />
         </x-app.action>
-
         <div class="benefits-content-card">
             <div class="benefits-content">
                 @foreach($benefits as $benefit)
@@ -54,6 +53,7 @@
                 @endforeach
             </div>
         </div>
+
 
         <x-app.title
             :size="TitleSize::MEDIUM"

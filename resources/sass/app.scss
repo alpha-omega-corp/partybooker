@@ -103,10 +103,7 @@ html, body {
 
     .app-action {
         @media only screen and (max-width: 1200px) {
-            position: fixed;
-            bottom: 0;
             width: 100%;
-            z-index: 10;
         }
 
         .app-action-content {
@@ -127,8 +124,12 @@ html, body {
             justify-content: space-between;
             align-items: center;
             border-radius: 0;
-            padding: 10px;
+
             border-bottom: 1px solid $gray;
+        }
+
+        a, button {
+            padding: 10px;
         }
     }
 }
