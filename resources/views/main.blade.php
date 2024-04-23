@@ -154,6 +154,22 @@
 
                     this.displayedPartners = this.partners
                 },
+                async remove(partner) {
+                    const data = {};
+                    data['_token'] = $('meta[name="csrf-token"]').attr('content');
+                    data['partner'] = partner;
+
+                    if (confirm('Are you sure?')) {
+                        const res = await $.ajax({
+                            url: '{{route('partner.destroy')}}',
+                            type: 'DELETE',
+                            data: data,
+                        })
+
+                        console.log(res)
+                    }
+
+                },
                 filteredPartners() {
 
                     this.filterPlan(this.planFilter)
@@ -194,8 +210,7 @@
                                 return a.sortCreated - b.sortCreated;
                         }
                     })
-                }
-                ,
+                },
             }),
         )
 

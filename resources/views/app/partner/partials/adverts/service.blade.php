@@ -19,7 +19,9 @@
                     @include('app.partner.partials.adverts.content.edit')
                 </x-slot:header>
 
-                @include('app.partner.partials.adverts.content.show', ['advert' => $advert])
+                <div class="partner-advert-content">
+                    @include('app.partner.partials.adverts.content.show', ['advert' => $advert])
+                </div>
             </x-tab.item>
 
             <!-- Gallery -->

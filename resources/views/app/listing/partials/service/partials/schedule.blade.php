@@ -1,13 +1,6 @@
 @php use Illuminate\Support\Carbon; @endphp
-<x-card :title="__('service.section.schedule')" :center="true">
+<x-card :title="__('service.section.schedule')" :center="$center" :can-open="$canOpen">
 
-    <div class="service-schedule-extension">
-        @if($advert->service->schedule->has_extension)
-            <p>{{$advert->service->schedule->extension_description}}</p>
-        @else
-            <p>{{__('advert.no_extension')}}</p>
-        @endif
-    </div>
 
     <x-accordion.index
         name="scheduleAccordion{{$advert->id}}"
@@ -18,7 +11,6 @@
                 :name="$item->id"
                 accordion="scheduleAccordion{{$advert->id}}"
             >
-
 
                 <x-slot:title>
                     <div class="d-flex gap-4">
@@ -49,6 +41,14 @@
             </x-accordion.item>
         @endforeach
     </x-accordion.index>
+
+    <div class="service-schedule-extension">
+        @if($advert->service->schedule->has_extension)
+            <p>{{$advert->service->schedule->extension_description}}</p>
+        @else
+            <p>{{__('advert.no_extension')}}</p>
+        @endif
+    </div>
 
     <x-accordion.index
         name="scheduleHolidaysAccordion{{$advert->id}}"

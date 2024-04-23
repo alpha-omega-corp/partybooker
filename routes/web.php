@@ -128,6 +128,7 @@ Route::name('guest.')
     });
 
 Route::post('/', [PartnerController::class, 'store'])->name('partner.store');
+Route::delete('/', [PartnerController::class, 'destroy'])->name('partner.destroy');
 
 Route::name('partner.')
     ->group(function () {

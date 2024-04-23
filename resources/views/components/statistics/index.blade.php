@@ -14,9 +14,10 @@
         @if($image)
             <img src="{{ Vite::social($image) }}" alt="{{ $title }}"/>
         @endif
+    </div>
 
-        <div class="statistic-value d-flex justify-content-center w-100">{{ $value }}</div>
-
+    <div class="statistic-value">
+        <span>{{ $value }}</span>
     </div>
 
 </div>

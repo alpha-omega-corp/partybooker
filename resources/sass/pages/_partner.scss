@@ -16,8 +16,8 @@
 
         .partner-advert-actions {
             display: flex;
-            justify-content: center;
-            padding: 20px;
+            justify-content: space-between;
+            padding: 20px 40px;
             border: 1px solid $gray;
 
             a {
@@ -27,7 +27,6 @@
 
 
         .partner-advert-content {
-
             .app-card-header {
                 text-align: start;
             }
@@ -93,17 +92,16 @@
         }
     }
 
+    .company-logo {
+        object-fit: contain;
+        width: 200px;
+        height: 200px;
+    }
+
     .partner-company {
-
-        .company-logo {
-            object-fit: cover;
-            width: 100px;
-            height: 100px;
-            border-radius: 20px;
-        }
-
-        p {
-            font-size: small;
+        .text-icon {
+            border-bottom: 1px solid $light;
+            padding: 20px;
         }
     }
 

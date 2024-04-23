@@ -32,9 +32,7 @@
                 :color="AppColor::BLUE"
                 :border="true"
                 :value="__('home.features')"
-                class="about-features-title"
             />
-
 
             <div class="about-features-content">
                 @foreach($abouts as $about)

@@ -15,29 +15,35 @@
             <div class="accordion-item">
 
                 <div class="accordion-item-flex">
-
-                    <div
-                        @class([
-                            'accordion-button',
-                            'collapsed' => !$show,
-                        ])
-                        @click="toggle()"
-                        id="{{$id}}"
-                        data-bs-toggle="collapse"
-                        data-bs-target="{{'#' . $target}}"
-                        aria-expanded="false"
-                        aria-controls="{{$target}}">
+                    <div class="d-flex justify-content-between w-100">
                         <div
                             @class([
-                                'accordion-title',
-                                'w-100',
-                                'text-center' => $center,
+                                'accordion-button',
+                                'collapsed' => !$show,
                             ])
-                            id="{{'heading' . $name}}">
-                            {{$title}}
+                            @click="toggle()"
+                            id="{{$id}}"
+                            data-bs-toggle="collapse"
+                            data-bs-target="{{'#' . $target}}"
+                            aria-expanded="false"
+                            aria-controls="{{$target}}">
+                            <div
+                                @class([
+                                    'accordion-title',
+                                    'w-100',
+                                    'text-center' => $center,
+                                ])
+                                id="{{'heading' . $name}}">
+                                {{$title}}
+                            </div>
                         </div>
-                    </div>
 
+                        @if(isset($actions))
+                            <div class="accordion-item-actions">
+                                {{$actions}}
+                            </div>
+                        @endif
+                    </div>
                     <div class="d-flex align-items-center">
                         {{$slot}}
                     </div>

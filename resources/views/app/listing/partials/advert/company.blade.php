@@ -1,7 +1,4 @@
 <div class="advert-company">
-    <div class="advert-company-content">
-        <p>{{$advert->company->locale->first()->slogan}}</p>
-    </div>
     <div class="advert-company-logo">
         @if($company->logo)
             <img src="{{ asset($company->logo) }}"

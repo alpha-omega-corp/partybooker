@@ -11,9 +11,11 @@
                 <!-- Filters -->
                 <div class="col-xl-4 col-lg-12 app-listing-column">
                     <div class="listing-column-content">
-                        <div class="card-panel-breadcrumbs">
-                            {{$breadcrumbs}}
-                        </div>
+                        @if(isset($breadcrumbs))
+                            <div class="card-panel-breadcrumbs">
+                                {{$breadcrumbs}}
+                            </div>
+                        @endif
 
                         {{$left}}
                     </div>

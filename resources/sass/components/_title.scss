@@ -1,17 +1,6 @@
-.app-title-container {
-    display: flex;
-    justify-content: center;
-    padding: 0 10px;
-}
-
-.title-border-bottom {
-    @media only screen and (max-width: 1200px) {
-        border-bottom: 1px solid #000;
-    }
-}
-
 .app-title-large {
     font-size: 3.5rem;
+
     @media only screen and (max-width: 900px) {
         font-size: 2.5rem;
     }
@@ -35,4 +24,16 @@
     font-weight: bold;
     text-align: center;
     margin: 0;
+}
+
+.app-title-container {
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+.title-border-bottom {
+    @media only screen and (max-width: 1200px) {
+        border-bottom: 1px solid #000;
+    }
 }

@@ -4,11 +4,10 @@
     :size="ModalSize::LG"
     :multipart="true"
     :absolute="true"
+    :background="false"
     :route="route('partner.company.update', ['company' => $partner->company])"
 >
     <x-slot:body>
-
-
         <div class="d-flex justify-content-between gap-4">
             <div class="w-100">
                 <x-forms.file

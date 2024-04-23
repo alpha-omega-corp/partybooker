@@ -93,13 +93,23 @@
     }
 }
 
+.service-socials {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    width: 100%;
+}
+
 .service-schedule-extension {
+    padding: 10px;
+    border-top: 1px solid $gray;
+    border-bottom: 1px solid $gray;
+
     p {
         margin: 0;
-        text-align: center;
-        border-top: 1px solid $gray;
-        border-bottom: 1px solid $gray;
-        padding: 10px;
+        font-size: small;
+        font-family: monospace;
     }
 }
 

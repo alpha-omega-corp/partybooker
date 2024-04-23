@@ -17,9 +17,9 @@ class UpdateCompanyRequest extends FormRequest
             'logo' => 'file',
             'name' => 'required|string',
             'slug' => 'required|string',
-            'email' => 'required|email',
-            'phone' => 'required|string',
-            'fax' => 'required|string',
+            'email' => 'email',
+            'phone' => 'string',
+            'fax' => 'string',
         ];
     }
 }

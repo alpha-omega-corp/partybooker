@@ -8,7 +8,7 @@
     <x-slot:actions>
         @include('app.partner.partials.adverts.description.edit')
     </x-slot:actions>
-    
+
     <x-slot:body>
         {!! $advert->locale->description !!}
     </x-slot:body>

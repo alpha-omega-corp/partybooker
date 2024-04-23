@@ -23,11 +23,16 @@
 
         <x-slot:right>
             @include('app.listing.partials.advert.actions')
-            @include('app.listing.partials.service.partials.description', ['advert' => $advert])
-            @include('app.listing.partials.service.partials.rates', ['advert' => $advert])
-            @include('app.listing.partials.advert.gallery')
+            @include('app.listing.partials.advert.socials')
+            @include('app.listing.partials.advert.description')
             @include('app.listing.partials.advert.service')
-            @include('app.listing.partials.service.partials.schedule')
+            @include('app.listing.partials.advert.gallery')
+            @include('app.listing.partials.service.partials.rates')
+
+            @include('app.listing.partials.service.partials.schedule', [
+                'center' => true,
+                'canOpen' => true,
+])
             @include('app.listing.partials.service.partials.payments')
             @include('app.listing.partials.advert.contacts')
             @include('app.listing.partials.advert.other')

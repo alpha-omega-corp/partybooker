@@ -17,13 +17,14 @@
     </x-tab.item>
 
     <x-tab.item :padding="false">
-        @include('app.listing.partials.service.partials.schedule', ['schedule' => $advert->service->schedule])
+        @include('app.listing.partials.service.partials.schedule', [
+            'center' => false,
+            'canOpen' => false,
+        ])
     </x-tab.item>
 
     <x-tab.item :padding="false">
         @include('app.listing.partials.service.partials.payments')
     </x-tab.item>
-
-
 </x-tab.index>
 

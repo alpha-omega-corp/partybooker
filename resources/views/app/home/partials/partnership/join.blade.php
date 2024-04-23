@@ -15,13 +15,6 @@
 
     <x-slot:body>
         <x-forms.input
-            name="name"
-            :label="__('form.name')"
-        >
-            @svg($nameIcon)
-        </x-forms.input>
-
-        <x-forms.input
             name="email"
             :label="__('form.email')"
             type="email"
@@ -30,27 +23,23 @@
         </x-forms.input>
 
         <x-forms.input
-            name="password"
-            type="password"
-            :label="__('form.password')"
-        >
-            @svg($nameIcon)
-        </x-forms.input>
-
-
-        <x-forms.input
-            name="company"
-            :label="__('form.company')"
-        >
-            @svg($companyIcon)
-        </x-forms.input>
-
-        <x-forms.input
             name="phone"
             :label="__('form.phone')"
         >
             @svg($phoneIcon)
         </x-forms.input>
+
+
+        <x-forms.select
+            name="plan"
+            :label="__('form.plan')"
+            :options="[
+                'free' => __('form.free'),
+                'premium' => __('form.premium'),
+            ]"
+        >
+
+        </x-forms.select>
     </x-slot:body>
 
 

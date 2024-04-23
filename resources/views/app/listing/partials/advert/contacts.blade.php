@@ -22,7 +22,7 @@
         <x-advert.contact :value="$advert->company->social->www"/>
 
         <x-tab.item>
-            @include('app.listing.partials.advert.socials')
+
         </x-tab.item>
         <x-advert.contact :link="false" :value="$advert->company->address->address"/>
     </x-tab>

@@ -18,7 +18,9 @@ use App\Models\Payment;
 use App\Models\User;
 use App\Services\FileService;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -91,6 +93,20 @@ class PartnerController extends Controller
         ]);
 
         return redirect()->route(__('route.profile'), $partner->company);
+    }
+
+    public function destroy(Request $request): JsonResponse
+    {
+        $id = $request->input('partner')['id'];
+        $partner = Partner::find($id);
+
+        $partner->payment->delete();
+        $partner->company->adverts()->delete();
+        $partner->company->delete();
+        $partner->user->delete();
+        $partner->delete();
+
+        return response()->json();
     }
 
 }

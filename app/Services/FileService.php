@@ -14,7 +14,7 @@ class FileService implements IFileService
         return $this->store($file, 'images/blog/thumbnails', true);
     }
 
-    private function store(UploadedFile $file, string $path, bool $resize, int $size = 500): string
+    private function store(UploadedFile $file, string $path, bool $resize, ?int $size = null): string
     {
         $filename = time() . '_' . $file->getClientOriginalName();
         $destination = "storage/$path/$filename";
@@ -29,7 +29,7 @@ class FileService implements IFileService
 
     public function companyLogo(UploadedFile $file): string
     {
-        return $this->store($file, 'images/companies', true, 100);
+        return $this->store($file, 'images/companies', false);
     }
 
     public function advertImage(UploadedFile $file): string

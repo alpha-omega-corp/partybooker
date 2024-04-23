@@ -26,7 +26,6 @@
                 :singleton="true"
                 :fit="true"
                 :radius="false"
-                :center="false"
                 :text="strtoupper(__('form.join_title'))"
             />
         </x-app.action>
@@ -76,7 +75,6 @@
             :color="AppColor::BLUE"
             :border="true"
             :value="__('home.usp')"
-            class="usp-title"
         />
 
         <ul class="usp-content-card">

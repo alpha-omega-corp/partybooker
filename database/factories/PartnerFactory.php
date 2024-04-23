@@ -47,8 +47,7 @@ class PartnerFactory extends Factory
                 $payment = Payment::find($attributes['payment_id']);
                 return match (PlanType::from($payment->plan->code)) {
                     PlanType::STANDARD => $company
-                        ->has($this->faker->randomElement($adverts)->asMain(), 'adverts')
-                        ->has($this->faker->randomElement($adverts), 'adverts'),
+                        ->has($this->faker->randomElement($adverts)->asMain(), 'adverts'),
                     PlanType::PREMIUM => $company
                         ->has($this->faker->randomElement($adverts)->asMain(), 'adverts')
                         ->has($this->faker->randomElement($adverts), 'adverts'),

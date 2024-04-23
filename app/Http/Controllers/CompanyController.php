@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateCompanyRequest;
 use App\Interfaces\IFileService;
 use App\Models\Company;
-use App\Models\Partner;
 use App\Services\FileService;
 
 class CompanyController extends Controller
@@ -26,7 +25,7 @@ class CompanyController extends Controller
         ]);
     }
 
-    public function update(Partner $partner, UpdateCompanyRequest $request)
+    public function update(Company $company, UpdateCompanyRequest $request)
     {
         $data = $request->validated();
 
@@ -34,13 +33,13 @@ class CompanyController extends Controller
             $logo = $this->fileService->companyLogo($data['logo']);
         }
 
-        $partner->company->update([
-            'logo' => $logo ?? $partner->company->logo,
+        $company->update([
+            'logo' => $logo ?? $company->logo,
             'name' => $data['name'],
             'slug' => $data['slug'],
         ]);
 
-        $partner->company->contact->update([
+        $company->contact->update([
             'email' => $data['email'],
             'phone' => $data['phone'],
             'fax' => $data['fax'],

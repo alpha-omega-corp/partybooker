@@ -19,7 +19,6 @@ class AppPlanFactory extends Factory
     public function definition(): array
     {
         return [
-            'color' => $this->faker->hexColor,
             'stripe_key' => function (array $attributes) {
                 return config('stripe.' . $attributes['code']);
             },
@@ -47,6 +46,7 @@ class AppPlanFactory extends Factory
     {
         return $this->state(function () {
             return [
+                'color' => '#57a8f2',
                 'code' => PlanType::STANDARD->value,
                 'price' => 300,
                 'upload_count' => 5,
@@ -62,6 +62,7 @@ class AppPlanFactory extends Factory
     {
         return $this->state(function () {
             return [
+                'color' => '#fd7e14',
                 'code' => PlanType::PREMIUM->value,
                 'price' => 500,
                 'upload_count' => 10,
@@ -77,6 +78,7 @@ class AppPlanFactory extends Factory
     {
         return $this->state(function () {
             return [
+                'color' => '#e35d6a',
                 'code' => PlanType::EXCLUSIVE->value,
                 'price' => 950,
                 'upload_count' => 15,

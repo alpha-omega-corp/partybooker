@@ -33,15 +33,24 @@
                     }
 
                     .accordion-item {
+                        cursor: default;
+
                         .accordion-button {
                             border: 0;
                             color: $dark;
+                            cursor: pointer;
 
                         }
 
                         .accordion-item-flex {
                             display: flex;
                             border-bottom: 1px solid $light;
+                        }
+
+                        .accordion-item-actions {
+                            display: flex;
+                            align-items: center;
+                            padding-right: 10px;
                         }
                     }
 
@@ -50,6 +59,7 @@
                         cursor: default;
                         position: relative;
                         padding: 0 !important;
+                        border-top: 1px solid $pink;
                     }
 
                     .accordion-body-padding {
