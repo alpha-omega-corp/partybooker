@@ -11,8 +11,8 @@ return new class extends Migration {
             $table->id();
             $table->morphs('translatable');
             $table->string('lang');
-            $table->string('title');
-            $table->text('description');
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
             $table->json('keywords')->nullable();
 
             $table->timestamps();

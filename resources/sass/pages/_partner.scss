@@ -1,124 +1,114 @@
 .partner-dashboard {
 
-    .partner-dashboard-header {
+    .row > * {
+        padding: 0;
+    }
+
+    .partner-advert-title {
+        color: #000;
+        margin: 0;
         display: flex;
-        align-content: center;
         align-items: center;
-        gap: 10px;
-        padding-bottom: 10px;
     }
 
-    .partner-dashboard-content {
-        padding: 20px;
+    .partner-advert {
+        margin-bottom: 20px;
 
-        .partner-advert {
+        .partner-advert-actions {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            border: 1px solid $gray;
+
+            a {
+                border-radius: 0 !important;
+            }
+        }
+
+
+        .partner-advert-content {
+
+            .app-card-header {
+                text-align: start;
+            }
+        }
+
+        .partner-advert-description {
+            h6 {
+                font-weight: bold;
+                margin: 10px 0 30px;
+            }
+        }
+
+        .partner-advert-gallery {
+            position: relative;
             margin-bottom: 20px;
-            border: 1px solid $light;
-            border-radius: 10px;
 
-            .partner-advert-header {
-                display: flex;
-                justify-content: space-between;
-                padding: 20px 20px 0;
-            }
-
-            .partner-advert-title {
-                color: #000;
-                margin: 0;
-                display: flex;
-                align-items: center;
-            }
-
-            .partner-advert-content {
-                border-bottom: 1px solid $gray;
-                padding-bottom: 10px;
-            }
-
-            .partner-advert-actions {
-                display: flex;
-                justify-content: flex-end;
-
-                a {
-                    border-radius: 0 !important;
-                }
-            }
-
-            .partner-advert-description {
-                h6 {
-                    font-weight: bold;
-                    margin: 10px 0 30px;
-                }
-            }
-
-            .partner-advert-gallery {
-                position: relative;
-                margin-bottom: 20px;
-
-                img {
-                    width: 100%;
-                    height: 200px;
-                    border-radius: 10px;
-                    object-fit: cover;
-                }
-
-                .advert-gallery-item {
-                    margin-bottom: 20px;
-                    position: relative;
-
-                    .gallery-image-actions {
-                        display: none;
-                        top: 10px;
-                        right: 10px;
-                    }
-                }
-
-                .advert-gallery-item:hover {
-                    transform: scale(1.06);
-                    transition: .2s;
-                    cursor: pointer;
-
-                    .gallery-image-actions {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 5px;
-                        position: absolute;
-                    }
-                }
-            }
-
-            .partner-advert-meta {
-                .meta-keywords {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 10px;
-
-                    .keyword-item {
-                        padding: 10px;
-                        border: 1px solid $primary;
-                        border-radius: 5px;
-                        color: $gray;
-                    }
-                }
-
-            }
-        }
-
-        .partner-company {
-
-            .company-logo {
+            img {
+                width: 100%;
+                height: 200px;
+                border-radius: 10px;
                 object-fit: cover;
-                width: 100px;
-                height: 100px;
-                border-radius: 20px;
             }
 
-            p {
-                font-size: small;
+            .advert-gallery-item {
+                margin-bottom: 20px;
+                position: relative;
+
+                .gallery-image-actions {
+                    display: none;
+                    top: 10px;
+                    right: 10px;
+                }
+            }
+
+            .advert-gallery-item:hover {
+                transform: scale(1.06);
+                transition: .2s;
+                cursor: pointer;
+
+                .gallery-image-actions {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    position: absolute;
+                }
             }
         }
 
+        .partner-advert-meta {
+            .meta-keywords {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+
+                .keyword-item {
+                    padding: 10px;
+                    border: 1px solid $primary;
+                    border-radius: 5px;
+                    color: $gray;
+                }
+            }
+
+        }
     }
+
+    .partner-company {
+
+        .company-logo {
+            object-fit: cover;
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+        }
+
+        p {
+            font-size: small;
+        }
+    }
+
 }
+
 
 .advert-gallery-count {
     position: absolute;

@@ -184,7 +184,7 @@ Route::name('partner.')
 
                         Route::put('/status/{advert}', 'status')->name('status');
                         Route::put('/access/{advert}', 'access')->name('access');
-                        Route::put('/description/{advert}', 'update')->name('update');
+                        Route::put('/description/{advert}', 'description')->name('description');
                         Route::put('/meta/{advert}', 'meta')->name('meta');
                     });
 

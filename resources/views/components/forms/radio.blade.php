@@ -7,7 +7,7 @@
     'id',
 ])
 
-<div class="{{$inline ? 'w-100 d-flex justify-service-between p-2' : ''}}">
+<div class="{{$inline ? 'w-100 d-flex justify-content-between p-2' : ''}}">
     @foreach($items as $index => $item)
         <div class="form-check">
             <input

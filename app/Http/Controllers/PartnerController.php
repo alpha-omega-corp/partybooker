@@ -40,7 +40,7 @@ class PartnerController extends Controller
             'payment' => $partner->payment,
             'plan' => $partner->payment->plan,
             'statistic' => $company->statistics,
-            'social' => $company->socials,
+            'social' => $company->social,
         ]);
     }
 
@@ -72,7 +72,7 @@ class PartnerController extends Controller
 
         $payment = Payment::create([
             'type' => PaymentType::DEFAULT,
-            'plan_id' => AppPlan::ofType(PlanType::from($data['plan']))->first()->id,
+            'app_plan_id' => AppPlan::ofType(PlanType::from($data['plan']))->first()->id,
             'accepted_at' => now(),
             'expires_at' => now()->addYear(),
         ]);
@@ -90,7 +90,7 @@ class PartnerController extends Controller
             'verified_at' => Auth::user()->isAdmin() ? now() : null,
         ]);
 
-        return redirect()->route('partner.dashboard', $partner);
+        return redirect()->route(__('route.profile'), $partner->company);
     }
 
 }

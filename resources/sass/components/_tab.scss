@@ -5,12 +5,14 @@
     }
 
     .tab-list-vertical {
-        position: absolute;
-        left: 20px;
-        border-right: 1px solid $gray;
         flex-direction: column;
         height: 100%;
-        padding: 20px 20px 0 0;
+        padding: 20px;
+        margin: 0 !important;
+
+        li {
+            margin: 20px 0;
+        }
 
         .tab-button {
             cursor: pointer;
@@ -19,7 +21,6 @@
             display: flex;
             align-items: center;
             padding: 10px;
-            margin-bottom: 10px;
         }
 
         .tab-button:hover {

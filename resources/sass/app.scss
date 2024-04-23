@@ -71,20 +71,22 @@
     display: none;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 !important;
+}
+
 a {
     text-decoration: none;
 }
 
-html, body {
-    height: 100vh;
+body {
+    height: 100%;
     overflow: hidden;
     position: relative;
-    padding-bottom: 60px;
 
     .app-content {
-        height: 100%;
-        overflow: scroll;
-        position: relative;
+        height: 100vh;
+        overflow: auto;
     }
 
     .app-main-listing {

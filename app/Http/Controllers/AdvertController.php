@@ -8,11 +8,15 @@ use App\Enums\Language;
 use App\Helpers\MetaHelper;
 use App\Http\Requests\StoreAdvertRequest;
 use App\Http\Requests\UpdateAdvertAccessRequest;
+use App\Http\Requests\UpdateAdvertDescriptionRequest;
 use App\Http\Requests\UpdateAdvertMetaRequest;
-use App\Http\Requests\UpdateAdvertRequest;
 use App\Interfaces\IFileService;
 use App\Models\Advert;
+use App\Models\AdvertLocale;
+use App\Models\AdvertRate;
+use App\Models\AdvertSchedule;
 use App\Models\AdvertService;
+use App\Models\AdvertStatistic;
 use App\Models\Category;
 use App\Models\Partner;
 use App\Models\ServiceCaterer;
@@ -35,12 +39,11 @@ class AdvertController extends Controller
     public function store(Partner $partner, StoreAdvertRequest $request): RedirectResponse
     {
         $data = $request->validated();
-
         if (count($partner->company->adverts) >= $partner->payment->plan->advert_count) {
             return back()->with('error', 'You have reached the maximum number of adverts');
         }
 
-        $category = Category::find($data['categories']);
+        $category = Category::find($data['category']);
 
         $service = match ($category->service) {
             CategoryType::EVENT->value => ServiceEvent::create(),
@@ -53,13 +56,28 @@ class AdvertController extends Controller
         $advertService = AdvertService::create([
             'serviceable_type' => $category->service,
             'serviceable_id' => $service->id,
+            'advert_schedule_id' => AdvertSchedule::create()->id,
+            'advert_rate_id' => AdvertRate::create()->id
         ]);
 
-        $partner->company->adverts()->create([
+        $advert = $partner->company->adverts()->create([
             'slug' => $data['slug'],
             'category_id' => $category->id,
             'company_id' => $partner->company->id,
             'advert_service_id' => $advertService->id,
+            'advert_statistic_id' => AdvertStatistic::create()->id,
+        ]);
+
+        AdvertLocale::create([
+            'translatable_type' => Advert::class,
+            'translatable_id' => $advert->id,
+            'lang' => Language::FR,
+        ]);
+
+        AdvertLocale::create([
+            'translatable_type' => Advert::class,
+            'translatable_id' => $advert->id,
+            'lang' => LANGUAGE::EN,
         ]);
 
 
@@ -73,16 +91,14 @@ class AdvertController extends Controller
         return back()->with('success', 'Advert status updated successfully');
     }
 
-    public function update(Advert $advert, UpdateAdvertRequest $request): RedirectResponse
+    public function description(Advert $advert, UpdateAdvertDescriptionRequest $request): RedirectResponse
     {
         $data = $request->validated();
         $advert->ofLang(Language::FR)->first()->locale->update([
-            'title' => $data['title_fr'],
             'description' => $data['description_fr'],
         ]);
 
         $advert->ofLang(Language::EN)->first()->locale->update([
-            'title' => $data['title_en'],
             'description' => $data['description_en'],
         ]);
 

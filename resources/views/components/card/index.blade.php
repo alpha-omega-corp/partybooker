@@ -1,10 +1,12 @@
 @props([
     'title' => null,
+    'color' => AppColor::BLUE,
     'badge' => null,
     'open' => false,
     'invertClose' => false,
     'canOpen' => true,
     'center' => false,
+    'actionable' => false,
 ])
 
 <div {{$attributes->merge(['class' => 'app-card'])}}
@@ -15,9 +17,14 @@
             <h2 @class([
             'app-card-title',
             'text-center' => $center,
+            'text-'.$color->value
             ])>
                 {{$title}}
             </h2>
+
+            @if(isset($actions) && $actionable)
+                {{$actions}}
+            @endif
         </div>
     @endif
 

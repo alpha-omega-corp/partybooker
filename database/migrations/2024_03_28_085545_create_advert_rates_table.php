@@ -10,8 +10,8 @@ return new class extends Migration {
     {
         Schema::create('advert_rates', function (Blueprint $table) {
             $table->id();
-            $table->json('prices');
-            $table->string('budget');
+            $table->json('prices')->nullable();
+            $table->string('budget')->nullable();
             $table->boolean('has_deposit')->default(false);
             $table->string('deposit_description')->nullable();
             $table->timestamps();

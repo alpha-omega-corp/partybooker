@@ -4,9 +4,9 @@
    'name'
 ])
 <div class="forms-checkbox">
-    <h6>{{$title}}</h6>
+    <h6 class="forms-checkbox-title">{{$title}}</h6>
 
-    <div class="d-flex justify-content-around">
+    <div class="d-flex gap-4">
         @foreach($items as $key => $item)
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="{{$name}}[]" value="{{$item}}"

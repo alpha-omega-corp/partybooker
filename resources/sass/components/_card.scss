@@ -62,7 +62,7 @@
     .app-card-header {
         border-bottom: 1px solid $light;
         padding: 20px;
-        font-family: "Poppins", sans-serif;
+        position: relative;
 
         @media only screen and (max-width: 1199px) {
             text-align: center;
@@ -84,6 +84,7 @@
             font-weight: bold;
             text-transform: uppercase;
             margin: 0;
+            font-family: "Poppins", sans-serif;
         }
     }
 

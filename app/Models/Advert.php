@@ -22,6 +22,7 @@ class Advert extends Model
         'company_id',
         'category_id',
         'advert_service_id',
+        'advert_statistic_id',
         'is_public',
         'is_main'
     ];

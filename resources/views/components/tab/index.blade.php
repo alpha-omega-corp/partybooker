@@ -23,7 +23,10 @@
         }
     }"
     x-id="['tab']"
-    class="tab">
+    @class([
+    'tab',
+    'd-flex' => $isVertical,
+])>
 
     <!-- Tab List -->
     <ul
@@ -59,9 +62,9 @@
             </li>
         @endforeach
     </ul>
-    <div>
+    <div class="w-100">
         <!-- Panels -->
-        <div role="tabpanel" class="tab-page {{$isVertical ? 'tab-page-content-offset' : ''}}">
+        <div role="tabpanel" class="tab-page">
             {{$slot}}
         </div>
     </div>

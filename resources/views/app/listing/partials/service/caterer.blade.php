@@ -18,17 +18,20 @@
         <x-service.capacity :content="$category"/>
     </x-slot:details>
 
-    <x-slot:delivery>
-        <ul class="service-delivery">
-            @foreach($category->delivery_services as $delivery)
-                <li>
-                    <a href="{{$delivery['service_url']}}" target="_blank">
-                        {{$delivery['service']}}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-    </x-slot:delivery>
+    @if($category->delivery_services)
+        <x-slot:delivery>
+            <ul class="service-delivery">
+                @foreach($category->delivery_services as $delivery)
+                    <li>
+                        <a href="{{$delivery['service_url']}}" target="_blank">
+                            {{$delivery['service']}}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </x-slot:delivery>
+    @endif
+
 </x-advert.form-group>
 
 

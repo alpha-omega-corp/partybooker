@@ -13,7 +13,7 @@ return [
     'gallery' => 'Galerie',
     'access' => 'Accès',
     'description' => 'Description',
-    'meta' => 'SEO',
+    'meta' => 'Optimisations',
     'statistics' => 'Statistiques',
     'request' => 'Contact',
     'contacts' => 'Contacts',

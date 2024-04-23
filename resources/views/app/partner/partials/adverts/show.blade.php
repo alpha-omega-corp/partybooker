@@ -3,98 +3,44 @@
     @include('app.partner.partials.adverts.create')
 @endif
 
-@foreach($partner->company->adverts as $advert)
-    <div x-data="{show: false}" class="partner-advert" x-bind:class="show ? 'border border-accent' : ''">
-        <div class="partner-advert-header">
-            <h6 class="partner-advert-title">
-                @if($advert->locale)
-                    {{$advert->locale->title}}
-                @else
-                    {{$advert->slug}}
-                @endif
-            </h6>
 
-            <!-- Actions -->
-            <div class="partner-advert-actions">
-                @include('app.partner.partials.adverts.status')
-                @include('app.partner.partials.adverts.delete')
-            </div>
-        </div>
+<x-accordion.index name="partnerAdverts">
 
-        <hr>
+    @foreach($partner->company->adverts as $advert)
+        <x-accordion.item
+            :name="$advert->slug"
+            accordion="partnerAdverts"
+            :padding="false"
+        >
+            <x-slot:title>
+                <h6 class="partner-advert-title">
+                    @if($advert->locale->title)
+                        {{$advert->locale->title}}
+                    @else
+                        {{$advert->slug}}
+                    @endif
+                </h6>
+            </x-slot:title>
 
-        <!-- Advert Content -->
-        <div x-show="show">
-            <div class="partner-advert-content">
-                <x-tab :items="[
-                    __('advert.service'),
-                    __('advert.description'),
-                    __('advert.gallery'),
-                    __('advert.access'),
-                    __('advert.meta'),
-                    __('advert.statistics')
-                    ]">
-                    <!-- Content -->
-                    <x-tab.item :information="__('advert.service.content')">
-                        <x-slot:header>
-                            @include('app.partner.partials.adverts.content.edit')
-                        </x-slot:header>
+            <x-slot:content>
+                <div class="partner-advert">
+                    <div class="partner-advert-actions">
+                        @include('app.partner.partials.adverts.status')
+                        @include('app.partner.partials.adverts.delete')
+                        @include('app.partner.partials.adverts.edit')
+                    </div>
 
-                        @include('app.partner.partials.adverts.content.show', ['advert' => $advert])
-                    </x-tab.item>
+                    @include('app.listing.partials.service.partials.description')
+                    @include('app.partner.partials.adverts.statistics')
+                    @include('app.partner.partials.adverts.service')
+                </div>
+            </x-slot:content>
+        </x-accordion.item>
 
-                    <!-- Description -->
-                    <x-tab.item :information="__('advert.service.description')" :padding="false">
-                        <x-slot:header>
-                            @include('app.partner.partials.adverts.description.edit')
-                        </x-slot:header>
+    @endforeach
 
-                        @include('app.partner.partials.adverts.description.show', ['advert' => $advert])
-                    </x-tab.item>
 
-                    <!-- Gallery -->
-                    <x-tab.item :information="__('advert.service.gallery')">
-                        <x-slot:header>
-                            @include('app.partner.partials.adverts.gallery.create')
-                        </x-slot:header>
+</x-accordion.index>
 
-                        @include('app.partner.partials.adverts.gallery.show', ['advert' => $advert])
-                    </x-tab.item>
 
-                    <!-- Access -->
-                    <x-tab.item :information="__('advert.service.access')">
-                        <x-slot:header>
-                            @include('app.partner.partials.adverts.access.edit')
-                        </x-slot:header>
-
-                        @include('app.partner.partials.adverts.access.show', ['advert' => $advert])
-                    </x-tab.item>
-
-                    <!-- Meta -->
-                    <x-tab.item :information="__('advert.service.meta')" :padding="false">
-                        <x-slot:header>
-                            @include('app.partner.partials.adverts.meta.edit')
-                        </x-slot:header>
-
-                        @include('app.partner.partials.adverts.meta.show', ['advert' => $advert])
-                    </x-tab.item>
-
-                    <!-- Statistics -->
-                    <x-tab.item :information="__('advert.service.statistics')">
-                        @include('app.partner.partials.adverts.statistics')
-                    </x-tab.item>
-                </x-tab>
-            </div>
-        </div>
-
-        <div class="card-show" @click="show = !show">
-            <div>
-                <a x-show="!show">{{__('card.show')}}</a>
-                <a x-show="show">{{__('card.close')}}</a>
-            </div>
-
-            <x-advert.category :advert="$advert"/>
-        </div>
-    </div>
-@endforeach
 

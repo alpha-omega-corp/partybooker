@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreAdvertRequest extends FormRequest
+class UpdateAdvertDescriptionRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -14,8 +14,8 @@ class StoreAdvertRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'slug' => 'required',
-            'category' => 'required|int',
+            'description_fr' => 'required',
+            'description_en' => 'required',
         ];
     }
 }

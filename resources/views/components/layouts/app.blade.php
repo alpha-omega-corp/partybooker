@@ -48,7 +48,6 @@
 <body>
 @include('app.partials.navigation')
 
-
 <div class="app-content">
     <div class="container position-relative">
         @if ($message = Session::get('success'))
@@ -61,9 +60,9 @@
     </div>
 
     {{$slot}}
+    
+
 </div>
-
-@include('app.partials.footer')
-
 </body>
+
 </html>

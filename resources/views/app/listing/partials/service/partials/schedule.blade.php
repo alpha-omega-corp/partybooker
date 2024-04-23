@@ -64,16 +64,17 @@
             </x-slot:title>
 
             <x-slot:content>
-                <ul class="service-schedule-holidays">
-                    @foreach($advert->service->schedule->holidays as $item)
-                        <li>
-                            <span>{{Carbon::parse($item['start'])->locale(app()->getLocale())->isoFormat('LL')}}</span>
-                            <span> - </span>
-                            <span>{{Carbon::parse($item['end'])->locale(app()->getLocale())->isoFormat('LL')}}</span>
-                        </li>
-                    @endforeach
-                </ul>
-
+                @if($advert->service->schedule->holidays)
+                    <ul class="service-schedule-holidays">
+                        @foreach($advert->service->schedule->holidays as $item)
+                            <li>
+                                <span>{{Carbon::parse($item['start'])->locale(app()->getLocale())->isoFormat('LL')}}</span>
+                                <span> - </span>
+                                <span>{{Carbon::parse($item['end'])->locale(app()->getLocale())->isoFormat('LL')}}</span>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
             </x-slot:content>
         </x-accordion.item>
     </x-accordion.index>

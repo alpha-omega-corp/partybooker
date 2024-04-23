@@ -17,7 +17,7 @@
             <div class="d-flex justify-content-around">
                 <x-forms.radio
                     :colorize="true"
-                    :items="$plans"
+                    :items="$plans->map(fn($plan) => $plan->locale->name)"
                     :inline="true"
                     id="updatePlan"
                     name="plan"/>
