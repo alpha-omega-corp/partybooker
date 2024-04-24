@@ -30,6 +30,10 @@ class UserFactory extends Factory
     public function configure(): UserFactory
     {
         return $this->afterCreating(function (User $user) {
+            if ($user->partner === null) {
+                return;
+            }
+            
             Lottery::odds(1, 2)
                 ->winner(function () use ($user) {
 

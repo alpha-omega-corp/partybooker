@@ -25,7 +25,7 @@ class Company extends Model
         'languages',
         'company_social_id',
         'company_contact_id',
-        'company_address_id',
+        'company_location_id',
         'company_statistic_id',
     ];
 
@@ -63,9 +63,9 @@ class Company extends Model
         return $this->belongsTo(CompanyContact::class, 'company_contact_id', 'id');
     }
 
-    public function address(): BelongsTo
+    public function location(): BelongsTo
     {
-        return $this->belongsTo(CompanyAddress::class, 'company_address_id', 'id');
+        return $this->belongsTo(CompanyLocation::class, 'company_location_id', 'id');
     }
 
     public function social(): BelongsTo

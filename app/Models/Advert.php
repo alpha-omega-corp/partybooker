@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Advert extends Model
@@ -70,6 +71,12 @@ class Advert extends Model
     public function locale(): MorphOne
     {
         return $this->morphOne(AdvertLocale::class, 'translatable');
+    }
+
+    public function locales(): MorphMany
+    {
+        return $this->morphMany(AdvertLocale::class, 'translatable')
+            ->withoutGlobalScopes([LocaleScope::class]);
     }
 
     public function scopeOfLang(Builder $query, Language $lang): void

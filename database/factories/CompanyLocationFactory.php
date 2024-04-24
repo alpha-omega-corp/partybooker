@@ -2,14 +2,16 @@
 
 namespace Database\Factories;
 
-use App\Models\CompanyAddress;
+use App\Models\CompanyLocation;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<CompanyAddress>
+ * @extends Factory<CompanyLocation>
  */
-class CompanyAddressFactory extends Factory
+class CompanyLocationFactory extends Factory
 {
+    protected $model = CompanyLocation::class;
+    
     public function definition(): array
     {
         return [

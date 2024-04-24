@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Database\Factories\CompanyAddressFactory;
+use Database\Factories\CompanyLocationFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class CompanyAddress extends Model
+class CompanyLocation extends Model
 {
     use HasFactory;
 
@@ -18,9 +18,9 @@ class CompanyAddress extends Model
         'loc',
     ];
 
-    protected static function newFactory(): CompanyAddressFactory
+    protected static function newFactory(): CompanyLocationFactory
     {
-        return CompanyAddressFactory::new();
+        return CompanyLocationFactory::new();
     }
 
     public function company(): HasOne

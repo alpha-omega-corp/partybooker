@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\Language;
 use App\Enums\PaymentType;
 use App\Enums\PlanType;
 use App\Http\Requests\StorePartnerRequest;
 use App\Http\Requests\UpdatePlanRequest;
 use App\Models\AppPlan;
 use App\Models\Company;
-use App\Models\CompanyAddress;
 use App\Models\CompanyContact;
+use App\Models\CompanyLocation;
 use App\Models\CompanySocial;
 use App\Models\CompanyStatistic;
 use App\Models\Partner;
-use App\Models\PartnerTop;
 use App\Models\Payment;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
@@ -61,7 +59,7 @@ class PartnerController extends Controller
             'slug' => Str::of($data['company'])->slug(),
             'company_social_id' => CompanySocial::create()->id,
             'company_contact_id' => CompanyContact::create()->id,
-            'company_address_id' => CompanyAddress::create()->id,
+            'company_address_id' => CompanyLocation::create()->id,
             'company_statistic_id' => CompanyStatistic::create()->id,
         ]);
 
@@ -93,34 +91,30 @@ class PartnerController extends Controller
         $id = $request->input('partner')['id'];
         $partner = Partner::find($id);
 
+        $partner->payment()->delete();
+        $partner->user()->delete();
+
         foreach ($partner->company->adverts as $advert) {
-            $advert->service->schedule->delete();
-            $advert->service->rate->delete();
-            $advert->service->serviceable->delete();
-
-            foreach ($advert->images as $image) {
-                $image->ofLang(Language::FR)->delete();
-                $image->ofLang(Language::EN)->delete();
-                $image->delete();
-            }
-
-            $advert->service->delete();
-            $advert->ofLang(Language::FR)->delete();
-            $advert->ofLang(Language::EN)->delete();
-            $advert->statistics->delete();
             $advert->tags()->delete();
+            $advert->statistics()->delete();
+            $advert->images->each(function ($image) {
+                $image->locales()->delete();
+                $image->delete();
+            });
+
+            $advert->service->serviceable()->delete();
+            $advert->service->schedule()->delete();
+            $advert->service->rate()->delete();
+            $advert->service->files()->delete();
+
+            $advert->service()->delete();
+            $advert->locales()->delete();
+            $advert->delete();
         }
 
-        $top = PartnerTop::where('partner_id', $partner->id);
-        if ($top->exists()) {
-            $top->delete();
-        }
+        $partner->company()->delete();
 
-        $partner->company->ofLang(Language::FR)->delete();
-        $partner->company->ofLang(Language::EN)->delete();
-        $partner->company->delete();
-        $partner->payment->delete();
-        $partner->user->delete();
+
         $partner->delete();
 
         return response()->json();

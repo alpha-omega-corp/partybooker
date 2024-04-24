@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('company_addresses', function (Blueprint $table) {
+        Schema::create('company_locations', function (Blueprint $table) {
             $table->id();
             $table->string('address')->nullable();
             $table->string('lat')->nullable();
@@ -19,6 +19,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('company_addresses');
+        Schema::dropIfExists('company_locations');
     }
 };

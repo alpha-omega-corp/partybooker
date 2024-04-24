@@ -36,7 +36,7 @@ class AjaxController extends Controller
                         'paymentType' => $partner->payment->type,
                         'sortPayment' => $partner->payment->expires_at->timestamp,
                         'company' => $partner->company->name,
-                        'address' => $hasAddress ? $partner->company->address->address : '',
+                        'address' => $hasAddress ? $partner->company->location->address : '',
                         'categories' => $partner->company->adverts->map(fn(Advert $advert) => strtolower(CategoryType::from($advert->service->serviceable_type)->name)),
                         'created' => $partner->company->created_at->toDateString(),
                         'sortCreated' => $partner->company->created_at->timestamp,

@@ -4,8 +4,8 @@ namespace Database\Factories;
 
 use App\Enums\Language;
 use App\Models\Company;
-use App\Models\CompanyAddress;
 use App\Models\CompanyContact;
+use App\Models\CompanyLocation;
 use App\Models\CompanySocial;
 use App\Models\CompanyStatistic;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -26,7 +26,7 @@ class CompanyFactory extends Factory
             'logo' => $this->faker->imageUrl(),
             'company_social_id' => CompanySocial::factory(),
             'company_contact_id' => CompanyContact::factory(),
-            'company_address_id' => CompanyAddress::factory(),
+            'company_location_id' => CompanyLocation::factory(),
             'company_statistic_id' => CompanyStatistic::factory(),
         ];
     }

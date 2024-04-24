@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\CompanyAddress;
 use App\Models\CompanyContact;
+use App\Models\CompanyLocation;
 use App\Models\CompanySocial;
 use App\Models\CompanyStatistic;
 use Illuminate\Database\Migrations\Migration;
@@ -20,7 +20,7 @@ return new class extends Migration {
 
             $table->foreignIdFor(CompanySocial::class)->nullable();
             $table->foreignIdFor(CompanyContact::class)->nullable();
-            $table->foreignIdFor(CompanyAddress::class)->nullable();
+            $table->foreignIdFor(CompanyLocation::class)->nullable();
             $table->foreignIdFor(CompanyStatistic::class)->nullable();
             $table->timestamps();
         });
