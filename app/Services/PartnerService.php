@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Models\PartnerTop;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
 
 class PartnerService
 {
@@ -12,7 +12,7 @@ class PartnerService
         if ($random) {
             $topCount = PartnerTop::all()->count();
             $dCount = 4;
-            
+
             return PartnerTop::all()->random(PartnerTop::all()->count() < $dCount ? $topCount : $dCount)->map(fn($item) => $item->partner);
         }
 
