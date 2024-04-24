@@ -27,7 +27,7 @@
                         </p>
 
                         <div class="card-content-address">
-                            {{$advert->company->address->address}}
+                            {{$advert->company->location->address}}
                         </div>
                     </div>
                 </div>

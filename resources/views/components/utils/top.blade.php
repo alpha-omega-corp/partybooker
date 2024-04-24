@@ -14,7 +14,7 @@
     <h6 class="top-card-title">{{$partner->company->name}}</h6>
 
     <div class="top-card-content">
-        <span>{{$partner->company->address->address}}</span>
+        <span>{{$partner->company->location->address}}</span>
         <span>{{$partner->company->loc}}</span>
     </div>
 </a>

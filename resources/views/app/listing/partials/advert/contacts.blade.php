@@ -24,7 +24,7 @@
         <x-tab.item>
 
         </x-tab.item>
-        <x-advert.contact :link="false" :value="$advert->company->address->address"/>
+        <x-advert.contact :link="false" :value="$advert->company->location->address"/>
     </x-tab>
 </x-card>
 
