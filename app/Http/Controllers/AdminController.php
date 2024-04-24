@@ -78,8 +78,15 @@ class AdminController extends Controller
     public function updateTopServices(StorePartnerTops $request)
     {
         $validated = $request->validated();
-        $partners = $validated['top'];
+        if (!key_exists('top', $validated)) {
+            if (count(PartnerTop::all()) > 0) {
+                PartnerTop::first()->delete();
+            }
+            
+            return redirect()->back()->with('success', 'Top services updated');
+        }
 
+        $partners = $validated['top'];
         $currentTops = PartnerTop::all()->map(fn($e) => $e->partner->id)->toArray();
         $newTops = array_diff($partners, $currentTops);
         $deleteTops = array_diff($currentTops, $partners);

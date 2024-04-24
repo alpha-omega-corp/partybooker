@@ -16,24 +16,32 @@ use App\Models\AppPost;
 use App\Models\AppUsp;
 use App\Models\Category;
 use App\Models\Notification;
-use App\Models\PartnerTop;
 use App\Models\RequestHelp;
 use App\Models\RequestPartner;
+use App\Services\PartnerService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
 class HomeController extends Controller
 {
+
+    public function __construct()
+    {
+
+    }
+
     public function index()
     {
+
+
         return view('app.home.index', [
             'categories' => Category::all(),
             'comments' => AppComment::all(),
             'commentsRandom' => AppComment::all()->random(3),
             'information' => AppInformation::all(),
-            'top' => PartnerTop::all()->map(fn($item) => $item->partner),
-            'topRandom' => PartnerTop::all()->random(4)->map(fn($item) => $item->partner),
             'content' => AppContent::ofType(AppContentType::APP_HOME)->first()->locale,
+            'top' => (new PartnerService())->topServices(),
+            'topRandom' => (new PartnerService())->topServices(true),
         ]);
     }
 

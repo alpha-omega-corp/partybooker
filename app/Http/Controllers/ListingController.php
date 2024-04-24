@@ -6,8 +6,8 @@ use App\Interfaces\ICategoryService;
 use App\Models\Advert;
 use App\Models\Category;
 use App\Models\Company;
-use App\Models\PartnerTop;
 use App\Services\CategoryService;
+use App\Services\PartnerService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 
@@ -35,8 +35,8 @@ class ListingController extends Controller
             'active' => $activeCategory,
             'categories' => $this->categories,
             'adverts' => $adverts,
-            'top' => PartnerTop::all()->map(fn($item) => $item->partner),
-            'topRandom' => PartnerTop::all()->random(4)->map(fn($item) => $item->partner),
+            'top' => (new PartnerService())->topServices(),
+            'topRandom' => (new PartnerService())->topServices(true),
         ]);
     }
 

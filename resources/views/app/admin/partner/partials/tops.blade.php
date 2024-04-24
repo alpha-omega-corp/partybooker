@@ -2,6 +2,7 @@
     <x-accordion.item
         accordion="adminTopServices"
         name="tops"
+        :padding="false"
     >
         <x-slot:title>
             Top Partners
@@ -16,7 +17,7 @@
                     <select x-ref="select" name="top[]" id="top" class="admin-listing-tops"></select>
 
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-blue w-100">
+                        <button type="submit" class="btn btn-blue rounded-0 w-100">
                             @svg('heroicon-o-check')
                         </button>
                     </div>
