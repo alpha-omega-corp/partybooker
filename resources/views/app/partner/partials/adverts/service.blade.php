@@ -2,7 +2,6 @@
     :title="$advert->category->locale->title"
     :can-open="false"
     :color="AppColor::PINK"
-
 >
     <div class="mt-4">
         <x-tab

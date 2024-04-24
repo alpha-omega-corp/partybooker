@@ -1,16 +1,16 @@
-<hr>
-<x-tab :items="[
+<div class="mt-4">
+    <x-tab :items="[
             strtoupper(Language::FR->name),
             strtoupper(Language::EN->name)
         ]"
-       justify="end"
->
-    <x-tab.item :information="__('locale.french_tab')">
-        {{$french}}
-    </x-tab.item>
+           justify="end"
+    >
+        <x-tab.item :information="__('locale.french_tab')">
+            {{$french}}
+        </x-tab.item>
 
-    <x-tab.item :information="__('locale.english_tab')">
-        {{$english}}
-    </x-tab.item>
-
-</x-tab>
+        <x-tab.item :information="__('locale.english_tab')">
+            {{$english}}
+        </x-tab.item>
+    </x-tab>
+</div>

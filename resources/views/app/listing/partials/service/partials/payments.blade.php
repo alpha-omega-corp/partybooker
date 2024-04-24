@@ -1,6 +1,6 @@
 <x-card
     :title="__('service.section.price.payment')"
-    :center="true"
+    :center="$center" :can-open="$canOpen"
     class="w-100"
 >
     <x-accordion.index name="payment-accordion">

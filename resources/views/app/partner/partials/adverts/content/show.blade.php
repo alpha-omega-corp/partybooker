@@ -24,7 +24,10 @@
     </x-tab.item>
 
     <x-tab.item :padding="false">
-        @include('app.listing.partials.service.partials.payments')
+        @include('app.listing.partials.service.partials.payments', [
+            'center' => false,
+            'canOpen' => false,
+        ])
     </x-tab.item>
 </x-tab.index>
 

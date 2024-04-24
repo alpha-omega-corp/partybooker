@@ -101,8 +101,17 @@ class PartnerController extends Controller
         $partner = Partner::find($id);
 
         $partner->payment->delete();
-        $partner->company->adverts()->delete();
+
+        foreach ($partner->company->adverts as $advert) {
+            $advert->service->schedule->delete();
+            $advert->service->delete();
+            $advert->locale->delete();
+            $advert->delete();
+        }
+
+        $partner->company->locale->delete();
         $partner->company->delete();
+        $partner->payment->delete();
         $partner->user->delete();
         $partner->delete();
 

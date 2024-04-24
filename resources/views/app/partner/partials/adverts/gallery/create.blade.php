@@ -8,6 +8,7 @@
     :size="ModalSize::MD"
     :multipart="true"
     :absolute="true"
+    :background="false"
     :tooltip="__('advert.gallery')"
 >
     <x-slot:body>

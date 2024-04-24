@@ -113,6 +113,21 @@
     color: $accent;
 }
 
+.app-card-information {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .card-information-content {
+        p {
+            text-transform: uppercase;
+            font-family: monospace;
+            font-size: small;
+            margin: 0;
+        }
+    }
+}
+
 .app-card-panel {
 
     .app-listing-container {
@@ -222,7 +237,6 @@
     @media only screen and (max-width: 1400px) {
         padding: 0;
     }
-
 
     .card-panel-header {
         .app-title {

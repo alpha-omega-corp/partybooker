@@ -108,7 +108,17 @@ class AdvertController extends Controller
     public function access(Advert $advert, UpdateAdvertAccessRequest $request): RedirectResponse
     {
         $data = $request->validated();
-        $advert->update(['slug' => $data['slug']]);
+        $advert->update([
+            'slug' => $data['slug']
+        ]);
+
+        $advert->ofLang(Language::FR)->first()->locale->update([
+            'title' => $data['title_fr'],
+        ]);
+
+        $advert->ofLang(Language::EN)->first()->locale->update([
+            'title' => $data['title_en'],
+        ]);
 
         return back()->with('success', 'Advert access updated successfully');
     }

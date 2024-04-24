@@ -4,6 +4,7 @@
     :type="ModalType::UPDATE"
     :size="ModalSize::MD"
     :absolute="true"
+    :background="false"
     :route="route('partner.advert.meta', [
         'advert' => $advert
     ])"

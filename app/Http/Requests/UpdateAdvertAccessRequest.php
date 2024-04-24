@@ -15,6 +15,8 @@ class UpdateAdvertAccessRequest extends FormRequest
     {
         return [
             'slug' => 'required',
+            'title_fr' => 'required|string',
+            'title_en' => 'required|string',
         ];
     }
 }
