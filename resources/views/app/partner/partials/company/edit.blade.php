@@ -1,3 +1,4 @@
+@php use App\Models\CompanyLocale; @endphp
 <x-modal.index
     :name="ModalName::PARTNER_COMPANY"
     :type="ModalType::UPDATE"
@@ -58,7 +59,7 @@
     <x-tab.locale>
         <x-slot:french>
             <x-forms.list>
-                @php($locale = $partner->company->ofLang(Language::FR)->first()->locale)
+                @php($locale = $partner->locale ? $partner->ofLang(Language::FR)->first()->locale : new CompanyLocale())
 
                 <x-forms.input
                     name="slogan_fr"
@@ -76,7 +77,7 @@
         </x-slot:french>
 
         <x-slot:english>
-            @php($locale = $partner->company->ofLang(Language::EN)->first()->locale)
+            @php($locale = $partner->locale ? $partner->ofLang(Language::EN)->first()->locale : new CompanyLocale())
 
             <x-forms.list>
                 <x-forms.input
