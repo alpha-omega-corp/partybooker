@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Language;
 use App\Enums\PaymentType;
 use App\Enums\PlanType;
 use App\Http\Requests\StorePartnerRequest;
@@ -92,13 +93,22 @@ class PartnerController extends Controller
         $id = $request->input('partner')['id'];
         $partner = Partner::find($id);
 
-        $partner->payment->delete();
-
         foreach ($partner->company->adverts as $advert) {
             $advert->service->schedule->delete();
+            $advert->service->rate->delete();
+            $advert->service->serviceable->delete();
+
+            foreach ($advert->images as $image) {
+                $image->ofLang(Language::FR)->delete();
+                $image->ofLang(Language::EN)->delete();
+                $image->delete();
+            }
+
             $advert->service->delete();
-            $advert->locale->delete();
-            $advert->delete();
+            $advert->ofLang(Language::FR)->delete();
+            $advert->ofLang(Language::EN)->delete();
+            $advert->statistics->delete();
+            $advert->tags()->delete();
         }
 
         $top = PartnerTop::where('partner_id', $partner->id);
@@ -106,7 +116,8 @@ class PartnerController extends Controller
             $top->delete();
         }
 
-        $partner->company->locale->delete();
+        $partner->company->ofLang(Language::FR)->delete();
+        $partner->company->ofLang(Language::EN)->delete();
         $partner->company->delete();
         $partner->payment->delete();
         $partner->user->delete();
