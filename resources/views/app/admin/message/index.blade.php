@@ -6,24 +6,24 @@
 @endsection
 
 @section('content')
-    <x-card.dashboard :title="__('admin.messages')">
+    <x-card.panel :title="__('admin.messages')">
         <x-tab :items="[
             'Partnership',
             'Help',
             'Service',
             ]"
         >
-            <x-tab.item :information="__('admin.message.partnership')">
+            <x-tab.item :information="__('admin.message.partnership')" :padding="false">
                 @include('app.admin.message.partials.notifications', ['notifications' => $partnerships])
             </x-tab.item>
 
-            <x-tab.item :information="__('admin.message.help')">
+            <x-tab.item :information="__('admin.message.help')" :padding="false">
                 @include('app.admin.message.partials.notifications', ['notifications' => $helps])
             </x-tab.item>
 
-            <x-tab.item :information="__('admin.message.service')">
+            <x-tab.item :information="__('admin.message.service')" :padding="false">
                 @include('app.admin.message.partials.notifications', ['notifications' => $services])
             </x-tab.item>
         </x-tab>
-    </x-card.dashboard>
+    </x-card.panel>
 @endsection

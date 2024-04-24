@@ -1,7 +1,21 @@
+<x-app.action>
+    <x-modal.open
+        :name="ModalName::PARTNER"
+        :type="ModalType::CREATE"
+        :custom-color="AppColor::PINK"
+        :singleton="true"
+        :fit="true"
+        :radius="false"
+        :text="strtoupper(__('partner.create'))"
+    />
+</x-app.action>
+
 <x-modal.index
     :name="ModalName::PARTNER"
     :type="ModalType::CREATE"
     :size="ModalSize::MD"
+    :hidden="true"
+    :singleton="true"
     :route="route('partner.store')"
 >
     <x-slot:body>

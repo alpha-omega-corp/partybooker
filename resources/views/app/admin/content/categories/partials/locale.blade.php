@@ -1,5 +1,5 @@
 @foreach($categories as $category)
-    @php($categoryLink = route('guest.listing.index', ['category' => $category->locale->slug]))
+    @php($categoryLink = route(__('route.listing'), ['category' => $category->locale->slug]))
 
     <div class="admin-category-card" x-data="{show: false}">
         <div class="category-card-header">
@@ -26,7 +26,7 @@
             @foreach($category->tags as $tag)
                 @if($tag->locale)
                     <div class="card-tag-content">
-                        @php($tagLink = route('guest.listing.index', [
+                        @php($tagLink = route(__('route.listing'), [
                             'categories' => $category->locale->slug,
                             'child' => $tag->locale->slug,
                         ]))

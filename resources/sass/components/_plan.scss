@@ -1,5 +1,5 @@
 .app-plan {
-    border: 1px solid $gray;
+    border: 1px solid $light;
     border-radius: 20px;
     position: relative;
     height: 400px;
@@ -24,7 +24,7 @@
         padding-top: 10px;
         position: absolute;
         bottom: 10px;
-        border-top: 1px solid $gray;
+        border-top: 1px solid $light;
 
         .plan-adverts-container {
             padding-left: 20px;

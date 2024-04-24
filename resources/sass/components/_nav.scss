@@ -47,6 +47,11 @@
         padding: 15px;
     }
 
+    .app-navigation-logo {
+        @media only screen and (max-width: 1199px) {
+            display: none;
+        }
+    }
 
     .navbar-mobile {
         height: 100%;

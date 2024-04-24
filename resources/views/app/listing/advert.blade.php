@@ -33,8 +33,12 @@
                 'center' => true,
                 'canOpen' => true,
             ])
-            
-            @include('app.listing.partials.service.partials.payments')
+
+            @include('app.listing.partials.service.partials.payments', [
+                'center' => true,
+                'canOpen' => true,
+            ])
+
             @include('app.listing.partials.advert.contacts')
             @include('app.listing.partials.advert.other')
         </x-slot:right>

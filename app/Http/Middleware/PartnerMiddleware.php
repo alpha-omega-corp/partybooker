@@ -14,10 +14,6 @@ class PartnerMiddleware
             return back()->with('error', 'You are not authorized to access this page');
         }
 
-        if (!Auth::user()->partner()->exists()) {
-            return back()->with('error', 'Partner not found');
-        }
-
         return $next($request);
     }
 }

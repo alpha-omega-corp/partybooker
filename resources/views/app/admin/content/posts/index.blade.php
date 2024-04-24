@@ -9,7 +9,7 @@
 
             <div class="admin-post">
                 <div class="admin-post-header">
-                    <a href="{{route('guest.home.post', ['post' => $post])}}" target="_blank">
+                    <a href="{{route(__('route.post'), ['post' => $post])}}" target="_blank">
                         <h6 class="admin-post-title">{{$post->slug}}</h6>
                     </a>
 
@@ -27,19 +27,12 @@
                         @include('app.admin.content.posts.partials.edit', ['item' => $post])
                         @include('app.admin.content.posts.partials.delete', ['item' => $post])
                     </div>
-
                 </div>
 
                 <div class="admin-post-content">
-
-
                     <p>{{$post->locale->title}}</p>
                 </div>
-
-
             </div>
-
-
         </div>
     </div>
 @endforeach

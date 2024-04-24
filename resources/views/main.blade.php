@@ -99,7 +99,7 @@
                     for (let i = 0; i < this.values.length; i++) {
                         this.options.push({
                             value: this.values[i].id,
-                            label: `${this.values[i].name}, ${this.values[i].company}`,
+                            label: this.values[i].company,
                             top: this.values[i].top
                         })
                     }

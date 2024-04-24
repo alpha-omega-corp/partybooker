@@ -6,36 +6,33 @@
 @endsection
 
 @section('content')
-    <x-card.dashboard :title="__('admin.form')">
-        <div class="d-flex flex-wrap gap-4 justify-content-center">
-            @foreach(FormType::values() as $formType)
-                <div>
-                    <x-card :title="$formType" class="app-admin-form" :can-open="false">
-
-                        <ul>
-                            @foreach(AppForm::ofType(FormType::from($formType))->get() as $form)
-                                <li>
-                                    <div class="d-flex justify-content-between">
-                                        <p>{{$form->locale->label}}</p>
-                                        <div>
-                                            @include('app.admin.form.partials.edit', [
-                                                'item' => $form,
-                                            ])
-                                            @include('app.admin.form.partials.delete', [
-                                                'item' => $form,
-                                            ])
-                                        </div>
+    <x-card.panel :title="__('admin.form')">
+        @foreach(FormType::values() as $formType)
+            <div>
+                <x-card :title="$formType" class="app-admin-form" :can-open="false">
+                    <ul>
+                        @foreach(AppForm::ofType(FormType::from($formType))->get() as $form)
+                            <li>
+                                <div class="d-flex justify-content-between">
+                                    <p>{{$form->locale->label}}</p>
+                                    <div>
+                                        @include('app.admin.form.partials.edit', [
+                                            'item' => $form,
+                                        ])
+                                        @include('app.admin.form.partials.delete', [
+                                            'item' => $form,
+                                        ])
                                     </div>
-                                </li>
-                            @endforeach
-                        </ul>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
 
-                        @include('app.admin.form.partials.create', [
-                        'formType' => $formType,
-                        ])
-                    </x-card>
-                </div>
-            @endforeach
-        </div>
-    </x-card.dashboard>
+                    @include('app.admin.form.partials.create', [
+                    'formType' => $formType,
+                    ])
+                </x-card>
+            </div>
+        @endforeach
+    </x-card.panel>
 @endsection

@@ -216,10 +216,12 @@
         margin: 10px;
         flex-basis: 400px;
         flex-grow: 1;
+        background-color: #fff;
 
         .usp-card-title {
             font-weight: bold;
-            padding-bottom: 10px;
+            padding-bottom: 40px;
+            text-align: center;
         }
 
         li {
@@ -267,6 +269,7 @@
         border: 1px solid $light;
         border-radius: 10px;
         width: 100%;
+        background-color: #fff;
 
         .benefit-card-header {
             display: flex;
@@ -429,6 +432,7 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
+            align-items: center;
 
             .category-card-title {
                 color: $gray;

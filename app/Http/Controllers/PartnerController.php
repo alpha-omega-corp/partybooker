@@ -6,7 +6,6 @@ use App\Enums\PaymentType;
 use App\Enums\PlanType;
 use App\Http\Requests\StorePartnerRequest;
 use App\Http\Requests\UpdatePlanRequest;
-use App\Interfaces\IFileService;
 use App\Models\AppPlan;
 use App\Models\Company;
 use App\Models\CompanyAddress;
@@ -14,9 +13,9 @@ use App\Models\CompanyContact;
 use App\Models\CompanySocial;
 use App\Models\CompanyStatistic;
 use App\Models\Partner;
+use App\Models\PartnerTop;
 use App\Models\Payment;
 use App\Models\User;
-use App\Services\FileService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -26,13 +25,6 @@ use Illuminate\Support\Str;
 
 class PartnerController extends Controller
 {
-    private IFileService $fileService;
-
-    public function __construct(FileService $fileService)
-    {
-        $this->fileService = $fileService;
-    }
-
     public function dashboard(Company $company): View
     {
         $partner = $company->partner;
@@ -107,6 +99,11 @@ class PartnerController extends Controller
             $advert->service->delete();
             $advert->locale->delete();
             $advert->delete();
+        }
+
+        $top = PartnerTop::where('partner_id', $partner->id);
+        if ($top->exists()) {
+            $top->delete();
         }
 
         $partner->company->locale->delete();

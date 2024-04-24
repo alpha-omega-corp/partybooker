@@ -75,7 +75,7 @@ Route::name('guest.')
             ->group(function () {
                 Route::name('fr.')
                     ->group(function () {
-                        Route::get('/accueil', 'index')->name('index');
+                        Route::get('/', 'index')->name('index');
                         Route::get('/a-propos', 'about')->name('about');
                         Route::get('/partenariat', 'partnership')->name('partnership');
                         Route::get('/blog', 'blog')->name('blog');
@@ -86,7 +86,7 @@ Route::name('guest.')
                 Route::name('en.')
                     ->prefix('en')
                     ->group(function () {
-                        Route::get('/home', 'index')->name('index');
+                        Route::get('/', 'index')->name('index');
                         Route::get('/about', 'about')->name('about');
                         Route::get('/partnership', 'partnership')->name('partnership');
                         Route::get('/blog', 'blog')->name('blog');
@@ -212,7 +212,6 @@ Route::middleware('admin')
                 Route::get('/forms', 'forms')->name('forms');
                 Route::get('/messages', 'messages')->name('messages');
                 Route::get('/partners', 'partners')->name('partners');
-
                 Route::put('/update-tops', 'updateTopServices')->name('tops');
                 Route::put('/update-contacts', 'updateAppContacts')->name('contacts');
             });
