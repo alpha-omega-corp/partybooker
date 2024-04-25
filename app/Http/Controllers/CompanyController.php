@@ -30,13 +30,25 @@ class CompanyController extends Controller
     {
         $data = $request->validated();
 
-        $company->location->update([
-            'address' => $data['address'],
-            'city' => $data['city'],
-            'state' => $data['state'],
-            'zip' => $data['zip'],
-            'country' => $data['country'],
-        ]);
+        //TODO: remove if statement after migration
+        if ($company->location) {
+            $company->location->update([
+                'address' => $data['address'],
+                'city' => $data['city'],
+                'state' => $data['state'],
+                'zip' => $data['zip'],
+                'country' => $data['country'],
+            ]);
+        } else {
+            $company->location()->create([
+                'address' => $data['address'],
+                'city' => $data['city'],
+                'state' => $data['state'],
+                'zip' => $data['zip'],
+                'country' => $data['country'],
+            ]);
+        }
+
 
         return back()->with('success', 'Company location updated successfully');
     }
