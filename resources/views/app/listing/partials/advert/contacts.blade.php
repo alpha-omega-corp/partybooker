@@ -23,5 +23,8 @@
             <x-advert.contact :link="false" :value="$advert->company->location->address"/>
         @endif
     </x-tab>
+
+    @include('app.listing.partials.advert.socials')
+
 </x-card>
 

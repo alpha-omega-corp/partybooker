@@ -9,7 +9,7 @@
     <x-modal.open
         :background="true"
         :name="ModalName::PARTNER_ADVERT_REQUEST"
-        :custom-color="AppColor::PINK"
+        :custom-color="AppColor::BLUE"
         :singleton="true"
         :fit="true"
         :radius="false"

@@ -19,8 +19,7 @@
         :tooltip="__('listing.search')"
         :singleton="true"
         :hidden="true"
-        :action="false"
-        :title="__('listing.search')"
+        tag="search"
     >
 
         <div x-data="list">

@@ -61,27 +61,29 @@
 }
 
 
-.service-price-card {
-    border: 1px solid $light;
+.service-rates-card {
+    border: 1px solid $gray;
     margin: 20px;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     overflow: hidden;
+    background-color: #fff;
+    font-family: "Gotham", sans-serif;
 
-    .price-card-tag {
+    .rates-card-tag {
         padding: 10px;
         background-color: $pink;
         color: #fff;
-        font-size: smaller;
         font-weight: bold;
+        font-family: monospace;
         width: 100px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    .price-card-content {
+    .rates-card-content {
         display: flex;
         align-items: center;
         padding: 20px;

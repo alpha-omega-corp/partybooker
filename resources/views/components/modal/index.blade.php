@@ -3,6 +3,7 @@
     'hasIcon' => true,
     'background' => true,
     'transparent' => false,
+    'tag' => null,
 ])
 
 <a
@@ -65,7 +66,7 @@
                                 class="badge text-bg-blue text-white modal-name">{{$name->name}}</span>
                                     @svg('heroicon-o-arrow-right')
                                     <span
-                                        class="badge text-bg-{{$color}} text-white modal-name">{{ucfirst($type->name)}}</span>
+                                        class="badge text-bg-{{$tag ? 'home-green' : $color}} text-white text-uppercase modal-name">{{$tag ? $tag : ucfirst($type->name)}}</span>
                                 </div>
                             </div>
                         @endif

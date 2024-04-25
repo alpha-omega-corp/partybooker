@@ -18,12 +18,16 @@
         </x-slot:breadcrumbs>
 
         <x-slot:left>
-            @include('app.listing.partials.advert.company')
+            @include('app.listing.partials.advert.actions')
+
+            <div class="app-advert-thumbnail">
+                <img src="{{asset($advert->images()->thumbnail()->first()->path)}}"
+                     alt="{{$advert->locale->title}}">
+            </div>
+
         </x-slot:left>
 
         <x-slot:right>
-            @include('app.listing.partials.advert.actions')
-            @include('app.listing.partials.advert.socials')
             @include('app.listing.partials.advert.description')
             @include('app.listing.partials.advert.service')
             @include('app.listing.partials.advert.gallery')
