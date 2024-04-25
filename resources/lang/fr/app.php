@@ -5,5 +5,5 @@ return [
     'listing' => 'annonces',
     'advert' => 'annonce',
     'mobile-more' => 'voir plus',
-
+    'save' => 'Enregistrer',
 ];

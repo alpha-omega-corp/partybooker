@@ -6,18 +6,46 @@
     :can-open="false"
     :actionable="true"
 >
+
     @include('app.partner.partials.company.edit')
 
     <div class="partner-company">
-        <div class="d-flex flex-column">
-            <x-icon.text :text="$partner->company->contact->email" :icon="$emailIcon"/>
-            <x-icon.text :text="$partner->company->contact->phone" :icon="$phoneIcon"/>
-            <x-icon.text :text="$partner->company->contact->fax" :icon="$faxIcon"/>
-            <a href="{{$companyLink}}">
-                <x-icon.text :text="$companyLink" :icon="$linkIcon"/>
-            </a>
+        <a href="{{$companyLink}}">
+            <x-icon.text :text="$companyLink" :icon="$linkIcon"/>
+        </a>
+        <x-accordion name="partnerCompanyDetails">
+            <x-accordion.item
+                accordion="partnerCompanyDetails"
+                name="contacts"
+                :padding="false"
+            >
+                <x-slot:title>
+                    <h6>{{__('company.contacts')}}</h6>
+                </x-slot:title>
 
-        </div>
+                <x-slot:content>
+                    <x-icon.text :text="$partner->company->contact->email" :icon="$emailIcon"/>
+                    <x-icon.text :text="$partner->company->contact->phone" :icon="$phoneIcon"/>
+                    <x-icon.text :text="$partner->company->contact->fax" :icon="$faxIcon"/>
+                </x-slot:content>
+            </x-accordion.item>
+
+            <x-accordion.item
+                accordion="partnerCompanyDetails"
+                name="location"
+                :padding="false"
+            >
+                <x-slot:title>
+                    <h6>{{__('company.location')}}</h6>
+                </x-slot:title>
+
+                <x-slot:content>
+                    @include('app.partials.map')
+                </x-slot:content>
+            </x-accordion.item>
+
+        </x-accordion>
+
 
         @include('app.partner.partials.company.statistics')
     </div>

@@ -1,87 +1,207 @@
-<div>
-    <div class="col-md-12">
-        <div class="d-flex flex-column">
-            <div class="edit-location" data-tippy-content="{{__('become_partner.location')}}">
-                <div class="d-flex align-items-center">
-                    @svg('heroicon-o-map-pin')
-                    <input type="text" class="form-control" id="map_address" name="map[address]"
-                           placeholder="{{__('become_partner.location')}}" value="{{$location['address']}}"
-                           autocomplete="off">
-                </div>
-            </div>
-            <button type="submit"
-                    class="btn btn-accent">
-                {{__('partner.save')}}
-            </button>
+<head>
+    <title>Address Selection</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .sb-title {
+            position: relative;
+            top: -12px;
+            font-family: Roboto, sans-serif;
+            font-weight: 500;
+        }
+
+        .sb-title-icon {
+            position: relative;
+            top: -5px;
+        }
+
+        .card-container {
+            display: flex;
+            height: 500px;
+            width: 600px;
+        }
+
+        .panel {
+            background: white;
+            width: 300px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .half-input-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .half-input {
+            max-width: 120px;
+        }
+
+        .map {
+            width: 300px;
+        }
+
+        h2 {
+            margin: 0;
+            font-family: Roboto, sans-serif;
+        }
+
+        input {
+            height: 30px;
+        }
+
+        input {
+            border: 0;
+            border-bottom: 1px solid black;
+            font-size: 14px;
+            font-family: Roboto, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        input:focus::placeholder {
+            color: white;
+        }
+    </style>
+    <script>
+        "use strict";
+
+        const CONFIGURATION = {
+            "ctaTitle": "Checkout",
+            "mapOptions": {
+                "center": {"lat": 46.3423, "lng": 6.1955},
+                "fullscreenControl": true,
+                "mapTypeControl": false,
+                "streetViewControl": true,
+                "zoom": 9,
+                "zoomControl": true,
+                "maxZoom": 22,
+                "mapId": ""
+            },
+            "mapsApiKey": '{{config('geocoder.key')}}',
+            "capabilities": {"addressAutocompleteControl": true, "mapDisplayControl": true, "ctaControl": false}
+        };
+
+        const SHORT_NAME_ADDRESS_COMPONENT_TYPES =
+            new Set(['street_number', 'administrative_area_level_1', 'postal_code']);
+
+        const ADDRESS_COMPONENT_TYPES_IN_FORM = [
+            'location',
+            'locality',
+            'administrative_area_level_1',
+            'postal_code',
+            'country',
+        ];
+
+        function getFormInputElement(componentType) {
+            return document.getElementById(`${componentType}-input`);
+        }
+
+        function fillInAddress(place) {
+            function getComponentName(componentType) {
+                for (const component of place.address_components || []) {
+                    if (component.types[0] === componentType) {
+                        return SHORT_NAME_ADDRESS_COMPONENT_TYPES.has(componentType) ?
+                            component.short_name :
+                            component.long_name;
+                    }
+                }
+                return '';
+            }
+
+            function getComponentText(componentType) {
+                return (componentType === 'location') ?
+                    `${getComponentName('street_number')} ${getComponentName('route')}` :
+                    getComponentName(componentType);
+            }
+
+            for (const componentType of ADDRESS_COMPONENT_TYPES_IN_FORM) {
+                getFormInputElement(componentType).value = getComponentText(componentType);
+            }
+        }
+
+        function renderAddress(place, map, marker) {
+            if (place.geometry && place.geometry.location) {
+                map.setCenter(place.geometry.location);
+                marker.position = place.geometry.location;
+            } else {
+                marker.position = null;
+            }
+        }
+
+        async function initMap() {
+            const {Map} = google.maps;
+            const {AdvancedMarkerElement} = google.maps.marker;
+            const {Autocomplete} = google.maps.places;
+
+            const mapOptions = CONFIGURATION.mapOptions;
+            mapOptions.mapId = mapOptions.mapId || 'DEMO_MAP_ID';
+            mapOptions.center = mapOptions.center || {lat: 37.4221, lng: -122.0841};
+
+            const map = new Map(document.getElementById('gmp-map'), mapOptions);
+            const marker = new AdvancedMarkerElement({map});
+            const autocomplete = new Autocomplete(getFormInputElement('location'), {
+                fields: ['address_components', 'geometry', 'name'],
+                types: ['address'],
+            });
+
+            autocomplete.addListener('place_changed', () => {
+                const place = autocomplete.getPlace();
+                if (!place.geometry) {
+                    // User entered the name of a Place that was not suggested and
+                    // pressed the Enter key, or the Place Details request failed.
+                    window.alert(`No details available for input: '${place.name}'`);
+                    return;
+                }
+                renderAddress(place, map, marker);
+                fillInAddress(place);
+            });
+        }
+    </script>
+</head>
+
+<div class="app-map">
+    @php($location = $partner->company->location)
+    <form method="POST" action="{{route('partner.company.location', ['company' => $partner->company])}}">
+        @method('PUT')
+        @csrf
+        <div class="app-map-header">
+            <x-forms.input
+                type="text"
+                name="address"
+                :value="$location->address"
+                id="location-input">
+                @svg($pinIcon)
+            </x-forms.input>
         </div>
-    </div>
-    <input type="hidden" id="map_lat" name="map[lat]"/>
-    <input type="hidden" id="map_lon" name="map[lon]"/>
-    <input type="hidden" id="map_city" name="map[city]"/>
-    <input type="hidden" id="map_country" name="map[country]"/>
-    <input type="hidden" id="map_state" name="map[state]"/>
-    <input type="hidden" id="map_zip" name="map[zip]" placeholder="zip code"/>
 
-    <input type="hidden" id="partner_lat" value="{{$location['lat']}}" hidden/>
-    <input type="hidden" id="partner_lon" value="{{$location['lon']}}" hidden/>
+        <div class="app-map-container">
+            <div class="panel">
+                <input type="text" name="city" placeholder="City" id="locality-input"
+                       value="{{$location->city}}"/>
+                <input type="text" name="state" placeholder="State/Province" id="administrative_area_level_1-input"
+                       value="{{$location->state}}"/>
+                <input type="text" name="zip" placeholder="Zip/Postal code" id="postal_code-input"
+                       value="{{$location->zip}}"/>
+                <input type="text" name="country" placeholder="Country" id="country-input"
+                       value="{{$location->country}}"/>
+            </div>
 
+            <div class="map" id="gmp-map"></div>
+        </div>
+
+        <button type="submit" class="btn btn-blue rounded-0 w-100">
+            {{__('app.save')}}
+        </button>
+    </form>
 </div>
 
-<div id="map" style="width: 100%; height: 200px;"></div>
-
-
-<script type="text/javascript">
-    async function initMap() {
-
-    }
-</script>
 <script
-    src="https:///maps.google.com/maps/api/js?libraries=places&language=en&key=AIzaSyBPleD5xW_3gBLeUfgdw-QIwP--2VzWSt8&language={{App\Http\Middleware\LocaleMiddleware::getLocale()}}&callback=initMap"></script>
-<script src="{{asset('/js/locationpicker.jquery.js')}}"></script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATiQepbzCMa56bHd_Ro1kJounTq1ECCBc&libraries=places,marker&callback=initMap&solution_channel=GMP_QB_addressselection_v2_cAB"
+    async defer></script>
 
-
-<script type="module">
-    function updateControls(addressComponents, location) {
-        $("#map_city").val(addressComponents.city);
-        $("#map_street").val(addressComponents.streetName);
-        $("#map_zip").val(addressComponents.postalCode);
-        $("#map_country").val(addressComponents.country);
-        $("#map_state").val(addressComponents.stateOrProvince);
-        $("#map_building").val(addressComponents.streetNumber);
-        //$("#address_full").val(location.formattedAddress);
-        $("#location").val(addressComponents.stateOrProvince);
-    }
-
-    $("#map").locationpicker({
-        location: {
-            latitude: document.getElementById('partner_lat').value,
-            longitude: document.getElementById('partner_lon').value
-        },
-        radius: 0,
-        zoom: 14,
-        scrollwheel: true,
-        inputBinding: {
-            latitudeInput: $("#map_lat"),
-            longitudeInput: $("#map_lon"),
-            locationNameInput: $("#map_address")
-        },
-        enableAutocomplete: true,
-        enableAutocompleteBlur: false,
-        onchanged: function (currentLocation, radius, isMarkerDropped) {
-            //	var mapContext = $(this).locationpicker("map");
-            //	mapContext.map.setZoom(14);
-
-            var location = $(this).locationpicker("map").location;
-            var addressComponents = location.addressComponents;
-
-            updateControls(addressComponents, location);
-        },
-        oninitialized: function (component) {
-            var location = $(component).locationpicker("map").location;
-            var addressComponents = location.addressComponents;
-            updateControls(addressComponents, location);
-        }
-    });
-
-</script>
 

@@ -157,7 +157,6 @@ Route::name('partner.')
             ->group(function () {
                 Route::controller(PartnerController::class)
                     ->group(function () {
-
                         Route::put('/plan', 'plan')->name('plan');
                     });
 
@@ -167,6 +166,7 @@ Route::name('partner.')
                     ->group(function () {
                         Route::put('/', 'update')->name('update');
                         Route::put('/statistics', 'updateStatistics')->name('statistics');
+                        Route::put('/location', 'updateLocation')->name('location');
                     });
 
                 Route::controller(PartnerController::class)

@@ -10,9 +10,10 @@ return new class extends Migration {
         Schema::create('company_locations', function (Blueprint $table) {
             $table->id();
             $table->string('address')->nullable();
-            $table->string('lat')->nullable();
-            $table->string('lon')->nullable();
-            $table->string('loc')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('zip')->nullable();
+            $table->string('country')->nullable();
             $table->timestamps();
         });
     }

@@ -5,4 +5,5 @@ return [
     'listing' => 'advertisements',
     'advert' => 'advertisement',
     'mobile-more' => 'view more',
+    'save' => 'Save',
 ];

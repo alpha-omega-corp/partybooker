@@ -8,7 +8,8 @@
     'disabled' => false,
     'autocomplete' => 'off',
     'max' => 200,
-    'model' => null
+    'model' => null,
+    'id' => null,
 ])
 <div class="d-flex gap-2 w-100">
     @if(isset($image))
@@ -38,7 +39,7 @@
                     />
                 @else
                     <input type="{{ $type }}" class="form-control focus-ring focus-ring-accent"
-                           id="{{$name}}"
+                           id="{{$id ? $id : $name}}"
                            placeholder="{{$name}}"
                            name="{{$name}}"
                            aria-label="{{$name}}"
@@ -51,7 +52,7 @@
                 @endif
 
 
-                <label for="{{$name}}">{{$label ? $label : ucfirst($name)}}</label>
+                <label for="{{$id ? $id : $name}}">{{$label ? $label : ucfirst($name)}}</label>
             </div>
         </div>
     </div>

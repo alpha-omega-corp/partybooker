@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\Language;
+use App\Http\Requests\UpdateCompanyLocationRequest;
 use App\Http\Requests\UpdateCompanyRequest;
 use App\Http\Requests\UpdateCompanyStatsRequest;
 use App\Interfaces\IFileService;
@@ -25,23 +26,19 @@ class CompanyController extends Controller
         ]);
     }
 
-    public function updateStatistics(Company $company, UpdateCompanyStatsRequest $request)
+    public function updateLocation(Company $company, UpdateCompanyLocationRequest $request)
     {
         $data = $request->validated();
 
-        $company->statistics->update([
-            'clicks' => $data['clicks'],
-            'email' => $data['email'],
-            'phone' => $data['phone'],
-            'website' => $data['website'],
-            'instagram' => $data['instagram'],
-            'facebook' => $data['facebook'],
-            'youtube' => $data['youtube'],
-            'twitter' => $data['twitter'],
-            'linkedin' => $data['linkedin'],
+        $company->location->update([
+            'address' => $data['address'],
+            'city' => $data['city'],
+            'state' => $data['state'],
+            'zip' => $data['zip'],
+            'country' => $data['country'],
         ]);
 
-        return back()->with('success', 'Company statistics updated successfully');
+        return back()->with('success', 'Company location updated successfully');
     }
 
     public function update(Company $company, UpdateCompanyRequest $request)
@@ -74,6 +71,25 @@ class CompanyController extends Controller
         ]);
 
         return back()->with('success', 'Company updated successfully');
+    }
+
+    public function updateStatistics(Company $company, UpdateCompanyStatsRequest $request)
+    {
+        $data = $request->validated();
+
+        $company->statistics->update([
+            'clicks' => $data['clicks'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'website' => $data['website'],
+            'instagram' => $data['instagram'],
+            'facebook' => $data['facebook'],
+            'youtube' => $data['youtube'],
+            'twitter' => $data['twitter'],
+            'linkedin' => $data['linkedin'],
+        ]);
+
+        return back()->with('success', 'Company statistics updated successfully');
     }
 
     public function request()

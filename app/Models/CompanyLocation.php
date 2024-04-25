@@ -13,9 +13,10 @@ class CompanyLocation extends Model
 
     protected $fillable = [
         'address',
-        'lat',
-        'lon',
-        'loc',
+        'city',
+        'state',
+        'zip',
+        'country',
     ];
 
     protected static function newFactory(): CompanyLocationFactory

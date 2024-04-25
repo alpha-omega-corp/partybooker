@@ -25,12 +25,17 @@
 @import "components/plan";
 @import "components/title";
 @import "components/mobile";
+@import "components/map";
 
 // Pages
 @import "pages/home";
 @import "pages/listing";
 @import "pages/partner";
 @import "pages/admin";
+
+.map {
+    width: 100% !important;
+}
 
 @media only screen and (max-width: 900px) {
     .carousel__frame {

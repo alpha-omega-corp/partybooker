@@ -11,14 +11,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class CompanyLocationFactory extends Factory
 {
     protected $model = CompanyLocation::class;
-    
+
     public function definition(): array
     {
         return [
-            'lat' => $this->faker->latitude,
-            'lon' => $this->faker->longitude,
-            'loc' => $this->faker->countryCode,
-            'address' => $this->faker->address,
+            
         ];
     }
 }
