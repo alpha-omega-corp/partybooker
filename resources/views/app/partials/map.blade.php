@@ -1,3 +1,4 @@
+@php use App\Models\CompanyLocation; @endphp
 <head>
     <title>Address Selection</title>
     <style>
@@ -165,7 +166,7 @@
 </head>
 
 <div class="app-map">
-    @php($location = $partner->company->location)
+    @php($location = $partner->company->location ? $partner->company->location : new CompanyLocation())
     <form method="POST" action="{{route('partner.company.location', ['company' => $partner->company])}}">
         @method('PUT')
         @csrf
