@@ -96,7 +96,6 @@ class PartnerController extends Controller
         ]);
 
         User::create([
-            'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'partner_id' => $partner->id,

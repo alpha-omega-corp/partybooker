@@ -18,8 +18,7 @@ class StorePartnerRequest extends FormRequest
         return [
             'company' => 'required',
             'plan' => 'required',
-            'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required',
             'language' => 'required',
         ];
