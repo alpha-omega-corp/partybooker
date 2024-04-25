@@ -39,13 +39,6 @@
             <hr>
 
             <x-forms.input
-                name="name"
-                label="User"
-                type="text">
-                @svg('heroicon-o-user-circle')
-            </x-forms.input>
-
-            <x-forms.input
                 name="email"
                 label="Email"
                 type="email">
