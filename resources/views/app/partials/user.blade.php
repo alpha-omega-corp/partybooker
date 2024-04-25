@@ -17,7 +17,6 @@
                             Dashboard
                         </a>
                     </li>
-
                 @else
 
                     <li><h6 class="dropdown-header">Management</h6></li>
