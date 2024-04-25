@@ -1,25 +1,25 @@
 @if($statistic)
     <div class="statistics-company">
         <x-statistics
-            :title="__('become_partner.phone')"
+            :title="__('partner.phone-views')"
             :value="$statistic->phone"
             :icon="$phoneIcon"
         />
 
         <x-statistics
-            :title="__('partner.email')"
+            :title="__('partner.email-views')"
             :value="$statistic->email"
             :icon="$emailIcon"
         />
 
         <x-statistics
-            :title="__('become_partner.website')"
+            :title="__('partner.website-views')"
             :value="$statistic->website"
             :icon="$linkIcon"
         />
 
         <x-statistics
-            :title="__('become_partner.address')"
+            :title="__('partner.address-views')"
             :value="$statistic->address"
             :icon="$pinIcon"
         />

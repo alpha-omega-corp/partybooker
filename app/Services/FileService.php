@@ -14,7 +14,7 @@ class FileService implements IFileService
         return $this->store($file, 'images/blog/thumbnails', true);
     }
 
-    private function store(UploadedFile $file, string $path, bool $resize, ?int $size = null): string
+    private function store(UploadedFile $file, string $path, bool $resize, ?int $size = 500): string
     {
         $filename = time() . '_' . $file->getClientOriginalName();
         $destination = "storage/$path/$filename";

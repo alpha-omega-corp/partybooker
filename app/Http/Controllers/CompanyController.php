@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Enums\Language;
 use App\Http\Requests\UpdateCompanyRequest;
 use App\Interfaces\IFileService;
 use App\Models\Company;
@@ -10,7 +10,6 @@ use App\Services\FileService;
 
 class CompanyController extends Controller
 {
-
     private IFileService $fileService;
 
     public function __construct(FileService $fileService)
@@ -43,6 +42,15 @@ class CompanyController extends Controller
             'email' => $data['email'],
             'phone' => $data['phone'],
             'fax' => $data['fax'],
+        ]);
+
+        $company->ofLang(Language::FR)->first()->locale->update([
+            'slogan' => $data['slogan_fr'],
+            'description' => $data['description_fr'],
+        ]);
+        $company->ofLang(Language::EN)->first()->locale->update([
+            'slogan' => $data['slogan_en'],
+            'description' => $data['description_en'],
         ]);
 
         return back()->with('success', 'Company updated successfully');

@@ -14,10 +14,10 @@ class UpdateAdvertImageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title_fr' => 'required|string',
-            'title_en' => 'required|string',
-            'description_fr' => 'required|string',
-            'description_en' => 'required|string',
+            'title_fr' => 'nullable|string',
+            'title_en' => 'nullable|string',
+            'description_fr' => 'nullable|string',
+            'description_en' => 'nullable|string',
         ];
     }
 }

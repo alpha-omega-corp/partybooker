@@ -2,7 +2,9 @@
 
 return [
     'dashboard' => 'Profile',
-    'adverts' => 'Annonces',
-    'company' => 'Entreprise',
-    'plan' => 'Formule',
+    'phone-views' => 'Vues téléphone',
+    'website-views' => 'Vues site web',
+    'email-views' => 'Vues courriel',
+    'address-views' => 'Vues adresse',
+    'advert-views' => 'Vues annonce',
 ];

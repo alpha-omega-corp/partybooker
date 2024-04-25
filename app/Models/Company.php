@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use App\Enums\Language;
+use App\Interfaces\ILocale;
 use App\Models\Scopes\LocaleScope;
+use App\Traits\HasLangScope;
 use Database\Factories\CompanyFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,12 +12,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Laravel\Scout\Searchable;
 
-class Company extends Model
+class Company extends Model implements ILocale
 {
-    use Searchable;
     use HasFactory;
+    use HasLangScope;
 
     protected $fillable = [
         'name',
@@ -41,6 +41,11 @@ class Company extends Model
     public function locale(): HasOne
     {
         return $this->hasOne(CompanyLocale::class);
+    }
+
+    public function locales(): HasMany
+    {
+        return $this->hasMany(CompanyLocale::class)->withoutGlobalScopes([LocaleScope::class]);
     }
 
     public function adverts(): HasMany
@@ -78,14 +83,5 @@ class Company extends Model
         $query->with('adverts')->whereHas('adverts', function ($advert) {
             $advert->where('is_main', true);
         });
-    }
-
-    public function scopeOfLang(Builder $query, Language $lang): void
-    {
-        $query->with(['locale' => function ($query) use ($lang) {
-            $query
-                ->where('lang', $lang)
-                ->withoutGlobalScopes([LocaleScope::class]);
-        }]);
     }
 }

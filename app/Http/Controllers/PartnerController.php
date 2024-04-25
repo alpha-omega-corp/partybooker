@@ -112,6 +112,7 @@ class PartnerController extends Controller
             $advert->delete();
         }
 
+        $partner->company->locales()->delete();
         $partner->company()->delete();
 
 
