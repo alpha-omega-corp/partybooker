@@ -10,10 +10,10 @@
                 @svg($userIcon)
             </button>
             <ul class="dropdown-menu">
-                @if(!Auth::user()->isAdmin())
+                @if(!Auth::user()->isAdmin() && Auth::user()->partner)
                     <li>
                         <a class="dropdown-item"
-                           href="{{route(__(''), Auth::user()->partner)}}">
+                           href="{{route(__('route.profile'), Auth::user()->partner->company)}}">
                             Dashboard
                         </a>
                     </li>
