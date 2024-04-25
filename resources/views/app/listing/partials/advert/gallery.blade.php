@@ -6,7 +6,7 @@
     <div class="advert-gallery-content">
         @foreach($advert->images()->get() as $image)
             <div class="gallery-image">
-                <img src="{{$image->path}}" alt="...">
+                <img src="{{asset($image->path)}}" alt="...">
             </div>
         @endforeach
     </div>

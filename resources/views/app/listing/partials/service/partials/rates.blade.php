@@ -1,15 +1,18 @@
 <x-card :title="__('service.section.price.rates')" :can-open="false" class="w-100">
-    @foreach($advert->service->rate->prices as $price)
-        <div class="service-price-card">
-            <div class="price-card-content">
-                <p>
-                    {{$price['description']}}
-                </p>
-            </div>
+    @if($advert->service->rate->prices)
+        @foreach($advert->service->rate->prices as $price)
+            <div class="service-price-card">
+                <div class="price-card-content">
+                    <p>
+                        {{$price['description']}}
+                    </p>
+                </div>
 
-            <div class="price-card-tag">
-                <span>{{$price['price']}} CHF</span>
+                <div class="price-card-tag">
+                    <span>{{$price['price']}} CHF</span>
+                </div>
             </div>
-        </div>
-    @endforeach
+        @endforeach
+    @endif
+
 </x-card>

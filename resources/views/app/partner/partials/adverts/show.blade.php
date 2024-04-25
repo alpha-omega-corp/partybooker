@@ -20,12 +20,23 @@
 
             <x-slot:title>
                 <h6 class="partner-advert-title">
-                    {{$advert->slug}}
+                    {{$advert->locale->title}}
                 </h6>
             </x-slot:title>
 
             <x-slot:content>
                 <div class="partner-advert">
+                    @php($advertUrl = route(__('route.advert'), [
+                        'company' => $advert->company,
+                        'advert' => $advert,
+                    ]))
+
+                    <div class="partner-advert-url">
+                        <a href="{{$advertUrl}}">
+                            {{$advertUrl}}
+                        </a>
+                    </div>
+
                     @include('app.partner.partials.adverts.service')
                     @include('app.listing.partials.advert.description')
                     @include('app.listing.partials.advert.statistics')

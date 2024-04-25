@@ -76,12 +76,14 @@ class AdvertController extends Controller
             'translatable_type' => Advert::class,
             'translatable_id' => $advert->id,
             'lang' => Language::FR,
+            'title' => $data['title_fr'],
         ]);
 
         AdvertLocale::create([
             'translatable_type' => Advert::class,
             'translatable_id' => $advert->id,
             'lang' => LANGUAGE::EN,
+            'title' => $data['title_en'],
         ]);
 
 

@@ -15,7 +15,7 @@
         <x-forms.file
             name="image"
             label="Image"
-            id="createImage{{$advert->id}}"
+            id="galleryImage{{$advert->id}}"
         />
     </x-slot:body>
 

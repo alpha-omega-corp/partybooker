@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Language;
 use App\Enums\PaymentType;
 use App\Enums\PlanType;
 use App\Http\Requests\StorePartnerRequest;
@@ -10,6 +11,7 @@ use App\Interfaces\IListingService;
 use App\Models\AppPlan;
 use App\Models\Company;
 use App\Models\CompanyContact;
+use App\Models\CompanyLocale;
 use App\Models\CompanyLocation;
 use App\Models\CompanySocial;
 use App\Models\CompanyStatistic;
@@ -70,6 +72,15 @@ class PartnerController extends Controller
             'company_contact_id' => CompanyContact::create()->id,
             'company_address_id' => CompanyLocation::create()->id,
             'company_statistic_id' => CompanyStatistic::create()->id,
+        ]);
+
+        CompanyLocale::create([
+            'company_id' => $company->id,
+            'lang' => Language::FR,
+        ]);
+        CompanyLocale::create([
+            'company_id' => $company->id,
+            'lang' => Language::EN,
         ]);
 
         $payment = Payment::create([

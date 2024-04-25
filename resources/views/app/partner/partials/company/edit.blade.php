@@ -15,7 +15,7 @@
             name="logo"
             label="Company Logo"
             id="editCompanyLogo"
-            :file="asset($company->logo)"/>
+            :file="$company->logo ? asset($company->logo) : null"/>
 
 
         <x-forms.input

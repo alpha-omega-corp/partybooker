@@ -21,6 +21,10 @@ class CompanyLocale extends Model
         'company_id'
     ];
 
+    protected $casts = [
+        'keywords' => 'array',
+    ];
+
     protected static function newFactory(): CompanyLocaleFactory
     {
         return CompanyLocaleFactory::new();

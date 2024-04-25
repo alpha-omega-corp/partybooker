@@ -1,8 +1,18 @@
+.app-select {
+    .input-group-text {
+        background-color: $blue;
+
+        svg {
+            color: #fff;
+        }
+    }
+}
+
 .app-input {
     width: 100%;
 
     .input-group-text {
-        background-color: $accent;
+        background-color: $blue;
 
         svg {
             color: #fff;

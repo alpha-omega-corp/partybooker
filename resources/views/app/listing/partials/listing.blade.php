@@ -7,7 +7,7 @@
                 <x-advert.category :advert="$advert"/>
 
                 <div class="advert-card-image">
-                    <img src="{{$advert->images()->thumbnail()->first()->path}}"
+                    <img src="{{asset($advert->images()->thumbnail()->first()->path)}}"
                          class="cover"
                          alt="placeholder">
                 </div>

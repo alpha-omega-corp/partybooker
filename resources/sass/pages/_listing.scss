@@ -310,7 +310,7 @@
 
             .advert-card-image {
                 img {
-                    width: 250px;
+                    width: 300px;
                     height: 250px;
                     object-fit: cover;
                 }
@@ -341,6 +341,7 @@
 
             .advert-card-content {
                 width: 100%;
+                background-color: #fff;
 
                 .card-content-header {
                     border-bottom: 1px solid $light;
