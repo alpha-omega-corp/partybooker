@@ -70,7 +70,7 @@ class PartnerController extends Controller
             'slug' => Str::of($data['company'])->slug(),
             'company_social_id' => CompanySocial::create()->id,
             'company_contact_id' => CompanyContact::create()->id,
-            'company_address_id' => CompanyLocation::create()->id,
+            'company_location_id' => CompanyLocation::create()->id,
             'company_statistic_id' => CompanyStatistic::create()->id,
         ]);
 
@@ -119,8 +119,6 @@ class PartnerController extends Controller
 
         $partner->company->locales()->delete();
         $partner->company()->delete();
-
-
         $partner->delete();
 
         return response()->json();

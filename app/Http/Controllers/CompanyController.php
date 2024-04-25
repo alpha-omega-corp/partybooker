@@ -40,12 +40,16 @@ class CompanyController extends Controller
                 'country' => $data['country'],
             ]);
         } else {
-            $company->location()->create([
+            $loc = $company->location()->create([
                 'address' => $data['address'],
                 'city' => $data['city'],
                 'state' => $data['state'],
                 'zip' => $data['zip'],
                 'country' => $data['country'],
+            ]);
+            
+            $company->update([
+                'company_location_id' => $loc->id,
             ]);
         }
 
