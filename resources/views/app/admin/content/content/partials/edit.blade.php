@@ -4,8 +4,9 @@
     :type="ModalType::UPDATE"
     :size="ModalSize::MD"
     :absolute="true"
-    :route="route('admin.service.update', ['content' => $item->id])"
+    :route="route('admin.service.update', ['content' => $item])"
 >
+
     <x-tab.locale>
         <x-slot:french>
             @php($locale = $item->ofLang(Language::FR)->first()->locale)
@@ -15,8 +16,9 @@
                 label="Title"
                 :value="$locale->title"
             >
-
+                @svg($titleIcon)
             </x-forms.input>
+
             <x-forms.textarea
                 name="content_fr"
                 label="Content"
@@ -32,8 +34,9 @@
                 label="Title"
                 :value="$locale->title"
             >
-
+                @svg($titleIcon)
             </x-forms.input>
+
             <x-forms.textarea
                 name="content_en"
                 label="Content"
@@ -41,5 +44,4 @@
             />
         </x-slot:english>
     </x-tab.locale>
-
 </x-modal.index>

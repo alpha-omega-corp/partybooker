@@ -24,22 +24,22 @@
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{url(route('admin.dashboard.partners'))}}">
+                        <a class="dropdown-item" href="{{url(route('admin.partners'))}}">
                             Partners
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{url(route('admin.dashboard.content'))}}">
+                        <a class="dropdown-item" href="{{url(route(__('route.admin-content')))}}">
                             Content
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{url(route('admin.dashboard.forms'))}}">
+                        <a class="dropdown-item" href="{{url(route('admin.forms'))}}">
                             Forms
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{url(route('admin.dashboard.messages'))}}">
+                        <a class="dropdown-item" href="{{url(route('admin.messages'))}}">
                             Messages
                         </a>
                     </li>

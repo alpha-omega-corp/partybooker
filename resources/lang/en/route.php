@@ -13,4 +13,6 @@ return [
 
     'profile' => 'partner.en.dashboard',
     'listing-search' => 'guest.ajax.en.listing',
+
+    'admin-content' => 'admin.en.content',
 ];

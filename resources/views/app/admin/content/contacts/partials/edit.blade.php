@@ -3,7 +3,7 @@
     :type="ModalType::UPDATE"
     :size="ModalSize::MD"
     :absolute="true"
-    :route="route('admin.dashboard.contacts')"
+    :route="route('admin.contacts')"
 >
     <x-slot:body>
         <x-forms.input

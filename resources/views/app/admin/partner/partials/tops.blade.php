@@ -10,7 +10,7 @@
 
         <x-slot:content>
             <div x-data="top" class="w-100">
-                <form method="POST" action="{{route('admin.dashboard.tops')}}" class="d-flex flex-column">
+                <form method="POST" action="{{route('admin.tops')}}" class="d-flex flex-column">
                     @csrf
                     @method('PUT')
                     <label for="top"></label>

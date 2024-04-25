@@ -45,6 +45,7 @@ class AdminController extends Controller
                 AppContentType::SERVICE_TERMS->name => AppContent::ofType(AppContentType::SERVICE_TERMS)->first(),
                 AppContentType::APP_ABOUT->name => AppContent::ofType(AppContentType::APP_ABOUT)->first(),
                 AppContentType::APP_CONCEPT->name => AppContent::ofType(AppContentType::APP_CONCEPT)->first(),
+                AppContentType::APP_HOME->name => AppContent::ofType(AppContentType::APP_HOME)->first(),
             ],
         ]);
     }
@@ -82,7 +83,7 @@ class AdminController extends Controller
             if (count(PartnerTop::all()) > 0) {
                 PartnerTop::first()->delete();
             }
-            
+
             return redirect()->back()->with('success', 'Top services updated');
         }
 

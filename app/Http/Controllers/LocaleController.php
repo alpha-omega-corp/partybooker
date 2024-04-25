@@ -34,6 +34,8 @@ class LocaleController extends Controller
                 'company' => $segments[count($segments) - 1]
             ]),
 
+            Str::contains($referer, ['contenu', 'content']) => route(__('route.admin-content')),
+
             default => route(__('route.home')),
         };
 

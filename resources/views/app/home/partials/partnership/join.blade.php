@@ -30,15 +30,16 @@
         </x-forms.input>
 
 
-        <x-forms.select
-            name="plan"
-            :label="__('form.plan')"
-            :options="[
-                'free' => __('form.free'),
-                'premium' => __('form.premium'),
-            ]"
-        >
+        <x-forms.select name="plan" :label="__('home.plans')">
+            @svg($boxIcon)
 
+            <x-slot:options>
+                @foreach($plans as $plan)
+                    <option value="{{$plan->id}}">
+                        {{ucfirst($plan->locale->name)}}
+                    </option>
+                @endforeach
+            </x-slot:options>
         </x-forms.select>
     </x-slot:body>
 

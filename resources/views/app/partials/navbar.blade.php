@@ -45,22 +45,22 @@
         <x-navigation.group>
 
             <x-navigation.item
-                :href="url(route('admin.dashboard.content'))"
+                :href="url(route(__('route.admin-content')))"
                 text="contents"
                 :icon="$boxIcon"
             />
             <x-navigation.item
-                :href="url(route('admin.dashboard.partners'))"
+                :href="url(route('admin.partners'))"
                 text="partners"
                 :icon="$userIcon"
             />
             <x-navigation.item
-                :href="url(route('admin.dashboard.forms'))"
+                :href="url(route('admin.forms'))"
                 text="forms"
                 icon="heroicon-o-film"
             />
             <x-navigation.item
-                :href="url(route('admin.dashboard.messages'))"
+                :href="url(route('admin.messages'))"
                 text="messages"
                 :icon="$emailIcon"
             />

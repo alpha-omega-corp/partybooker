@@ -201,21 +201,30 @@ Route::name('partner.')
             });
     });
 
+Route::controller(AdminController::class)
+    ->middleware('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::get('/forms', 'forms')->name('forms');
+        Route::get('/messages', 'messages')->name('messages');
+        Route::get('/partners', 'partners')->name('partners');
+        Route::put('/update-tops', 'updateTopServices')->name('tops');
+        Route::put('/update-contacts', 'updateAppContacts')->name('contacts');
+
+        Route::name('fr.')->prefix('admin')->group(function () {
+            Route::get('/contenu', 'content')->name('content');
+        });
+
+        Route::name('en.')->prefix('en/admin')->group(function () {
+            Route::get('/content', 'content')->name('content');
+        });
+    });
+
 Route::middleware('admin')
     ->name('admin.')
     ->prefix('admin')
     ->group(function () {
-        Route::controller(AdminController::class)
-            ->name('dashboard.')
-            ->prefix('dashboard')
-            ->group(function () {
-                Route::get('/content', 'content')->name('content');
-                Route::get('/forms', 'forms')->name('forms');
-                Route::get('/messages', 'messages')->name('messages');
-                Route::get('/partners', 'partners')->name('partners');
-                Route::put('/update-tops', 'updateTopServices')->name('tops');
-                Route::put('/update-contacts', 'updateAppContacts')->name('contacts');
-            });
+
 
         Route::controller(NotificationController::class)
             ->name('notification.')
@@ -300,7 +309,7 @@ Route::middleware('admin')
             ->name('service.')
             ->prefix('service')
             ->group(function () {
-                Route::put('/{service}', 'update')->name('update');
+                Route::put('/{content}', 'update')->name('update');
             });
 
         Route::controller(AboutController::class)

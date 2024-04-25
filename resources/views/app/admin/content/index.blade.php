@@ -6,6 +6,10 @@
 
 @section('content')
     <x-card.panel :title="__('admin.service')" class="app-admin-content">
+        <x-card :title="__('admin.contents')" class="admin-contents">
+            @include('app.admin.content.content.index')
+        </x-card>
+
         <x-card :title="__('admin.categories')">
             <x-slot:body>
                 @include('app.admin.content.categories.index')
@@ -72,8 +76,6 @@
             @include('app.admin.content.faqs.index')
         </x-card>
 
-        <x-card :title="__('admin.terms')" class="admin-terms">
-            @include('app.admin.content.terms.index')
-        </x-card>
+
     </x-card.panel>
 @endsection

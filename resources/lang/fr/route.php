@@ -14,4 +14,5 @@ return [
     'profile' => 'partner.fr.dashboard',
     'listing-search' => 'guest.ajax.fr.listing',
 
+    'admin-content' => 'admin.fr.content',
 ];
