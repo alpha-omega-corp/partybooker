@@ -21,10 +21,10 @@
                         </div>
                     </div>
                     <div class="card-content">
-                        <p class="advert-card-description">
-                            {{$advert->locale->description}}
+                        <div class="advert-card-description">
+                            {!! $advert->locale->description !!}
                             <span>...</span>
-                        </p>
+                        </div>
 
                         <div class="card-content-address">
                             @if($advert->company->location)

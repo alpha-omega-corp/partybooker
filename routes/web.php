@@ -196,6 +196,7 @@ Route::name('partner.')
                         Route::post('/{advert}', 'store')->name('store');
                         Route::delete('/{image}', 'destroy')->name('destroy');
                         Route::put('/{image}', 'update')->name('update');
+                        Route::put('/thumbnail/{image}', 'thumbnail')->name('thumbnail');
                     });
             });
     });

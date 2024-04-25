@@ -6,6 +6,7 @@ use App\Enums\PaymentType;
 use App\Enums\PlanType;
 use App\Http\Requests\StorePartnerRequest;
 use App\Http\Requests\UpdatePlanRequest;
+use App\Interfaces\IListingService;
 use App\Models\AppPlan;
 use App\Models\Company;
 use App\Models\CompanyContact;
@@ -15,6 +16,7 @@ use App\Models\CompanyStatistic;
 use App\Models\Partner;
 use App\Models\Payment;
 use App\Models\User;
+use App\Services\ListingService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -24,6 +26,13 @@ use Illuminate\Support\Str;
 
 class PartnerController extends Controller
 {
+    private IListingService $listingService;
+
+    public function __construct(ListingService $listingService)
+    {
+        $this->listingService = $listingService;
+    }
+
     public function dashboard(Company $company): View
     {
         $partner = $company->partner;
@@ -95,21 +104,7 @@ class PartnerController extends Controller
         $partner->user()->delete();
 
         foreach ($partner->company->adverts as $advert) {
-            $advert->tags()->delete();
-            $advert->statistics()->delete();
-            $advert->images->each(function ($image) {
-                $image->locales()->delete();
-                $image->delete();
-            });
-
-            $advert->service->serviceable()->delete();
-            $advert->service->schedule()->delete();
-            $advert->service->rate()->delete();
-            $advert->service->files()->delete();
-
-            $advert->service()->delete();
-            $advert->locales()->delete();
-            $advert->delete();
+            $this->listingService->deleteAdvert($advert);
         }
 
         $partner->company->locales()->delete();

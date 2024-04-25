@@ -59,7 +59,7 @@ class AjaxController extends Controller
                 'category' => $advert->category->ofLang($language)->first()->locale->title,
                 'description' => $advert->ofLang($language)->first()->locale->description,
                 'company' => $advert->company->name,
-                'address' => $advert->company->location->address,
+                'address' => $advert->company->location ? $advert->company->location->address : null,
                 'thumbnail' => $advert->images()->thumbnail()->first()->path,
                 'url' => route(__('route.advert'), [
                     'company' => $advert->company,

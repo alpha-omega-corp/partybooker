@@ -13,7 +13,7 @@
                 @if(!Auth::user()->isAdmin())
                     <li>
                         <a class="dropdown-item"
-                           href="{{route('partner.dashboard', Auth::user()->partner)}}">
+                           href="{{route(__(''), Auth::user()->partner)}}">
                             Dashboard
                         </a>
                     </li>

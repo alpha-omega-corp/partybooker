@@ -8,7 +8,6 @@
         'image' => $image,
     ])"
 >
-
     <x-tab.locale>
         <x-slot:french>
             @php($locale = $image->ofLang(Language::FR)->find($image->id)->locale)

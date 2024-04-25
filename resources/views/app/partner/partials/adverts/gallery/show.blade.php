@@ -30,6 +30,15 @@
                     :automatic="true"
                     :background="true"
                 />
+
+                <form method="POST" action="{{route('partner.advert.gallery.thumbnail', ['image' => $image])}}">
+                    @method('PUT')
+                    @csrf
+                    <button type="submit" class="tippy btn btn-orange" data-tippy-content="set as thumbnail">
+                        @svg($titleIcon, 'text-white')
+                    </button>
+                </form>
+
             </div>
         </div>
     @endforeach

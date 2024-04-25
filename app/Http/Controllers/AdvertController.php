@@ -11,6 +11,7 @@ use App\Http\Requests\UpdateAdvertAccessRequest;
 use App\Http\Requests\UpdateAdvertDescriptionRequest;
 use App\Http\Requests\UpdateAdvertMetaRequest;
 use App\Interfaces\IFileService;
+use App\Interfaces\IListingService;
 use App\Models\Advert;
 use App\Models\AdvertLocale;
 use App\Models\AdvertRate;
@@ -25,15 +26,18 @@ use App\Models\ServiceEquipment;
 use App\Models\ServiceEvent;
 use App\Models\ServiceWine;
 use App\Services\FileService;
+use App\Services\ListingService;
 use Illuminate\Http\RedirectResponse;
 
 class AdvertController extends Controller
 {
     private IFileService $fileService;
+    private IListingService $listingService;
 
-    public function __construct(FileService $fileService)
+    public function __construct(FileService $fileService, ListingService $listingService)
     {
         $this->fileService = $fileService;
+        $this->listingService = $listingService;
     }
 
     public function store(Partner $partner, StoreAdvertRequest $request): RedirectResponse
@@ -141,7 +145,7 @@ class AdvertController extends Controller
     public function destroy(Advert $advert): RedirectResponse
     {
         $this->fileService->delete($advert->images);
-        $advert->delete();
+        $this->listingService->deleteAdvert($advert);
 
         return back()->with('success', 'Advert deleted successfully');
     }
