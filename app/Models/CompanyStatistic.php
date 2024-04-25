@@ -12,6 +12,7 @@ class CompanyStatistic extends Model
     use HasFactory;
 
     protected $fillable = [
+        'clicks',
         'email',
         'phone',
         'website',

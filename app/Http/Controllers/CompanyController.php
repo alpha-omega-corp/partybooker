@@ -30,6 +30,7 @@ class CompanyController extends Controller
         $data = $request->validated();
 
         $company->statistics->update([
+            'clicks' => $data['clicks'],
             'email' => $data['email'],
             'phone' => $data['phone'],
             'website' => $data['website'],

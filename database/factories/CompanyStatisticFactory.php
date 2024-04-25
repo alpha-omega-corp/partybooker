@@ -15,6 +15,7 @@ class CompanyStatisticFactory extends Factory
     public function definition(): array
     {
         return [
+            'clicks' => $this->views(),
             'email' => $this->views(),
             'phone' => $this->views(),
             'website' => $this->views(),

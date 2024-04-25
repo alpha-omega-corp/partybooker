@@ -12,6 +12,7 @@ class UpdateCompanyStatsRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'clicks' => 'required|integer',
             'email' => 'required|integer',
             'phone' => 'required|integer',
             'website' => 'required|integer',

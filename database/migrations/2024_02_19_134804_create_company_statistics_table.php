@@ -9,6 +9,7 @@ return new class extends Migration {
     {
         Schema::create('company_statistics', function (Blueprint $table) {
             $table->id();
+            $table->integer('clicks')->default(0);
             $table->integer('email')->default(0);
             $table->integer('phone')->default(0);
             $table->integer('website')->default(0);

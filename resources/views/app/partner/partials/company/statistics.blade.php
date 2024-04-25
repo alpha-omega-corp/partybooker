@@ -1,6 +1,11 @@
 @if($statistic)
     <div class="statistics-company">
         <x-statistics
+            :title="__('partner.advert-views')"
+            :value="$statistic->clicks"
+            :icon="$clickIcon"
+        />
+        <x-statistics
             :title="__('partner.phone-views')"
             :value="$statistic->phone"
             :icon="$phoneIcon"
@@ -35,6 +40,11 @@
         >
 
             <x-slot:body>
+                <x-forms.input
+                    name="clicks"
+                    label="Clicks"
+                    :value="$statistic->clicks"
+                />
                 <x-forms.input
                     name="phone"
                     label="Phone"

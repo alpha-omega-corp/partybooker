@@ -29,5 +29,6 @@ class IconComposer
         $view->with('priceIcon', 'heroicon-o-currency-dollar');
         $view->with('checkIcon', 'heroicon-o-question-mark-circle');
         $view->with('questionIcon', 'heroicon-o-question-mark-circle');
+        $view->with('clickIcon', 'heroicon-o-cursor-arrow-rays');
     }
 }
