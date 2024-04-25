@@ -123,7 +123,6 @@ Route::name('guest.')
             ->group(function () {
                 Route::get('/{company:slug}', 'show')->name('show');
                 Route::get('/{company:id}/request/', 'request')->name('request');
-
             });
     });
 
@@ -167,6 +166,7 @@ Route::name('partner.')
                     ->prefix('company')
                     ->group(function () {
                         Route::put('/', 'update')->name('update');
+                        Route::put('/statistics', 'updateStatistics')->name('statistics');
                     });
 
                 Route::controller(PartnerController::class)

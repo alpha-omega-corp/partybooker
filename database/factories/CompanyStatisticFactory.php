@@ -18,13 +18,11 @@ class CompanyStatisticFactory extends Factory
             'email' => $this->views(),
             'phone' => $this->views(),
             'website' => $this->views(),
-            'address' => $this->views(),
             'instagram' => $this->views(),
             'facebook' => $this->views(),
             'youtube' => $this->views(),
             'twitter' => $this->views(),
             'linkedin' => $this->views(),
-            'vimeo' => $this->views(),
         ];
     }
 

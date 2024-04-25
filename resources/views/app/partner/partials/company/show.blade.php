@@ -4,6 +4,7 @@
 <x-card.index
     :title="__('advert.company')"
     :can-open="false"
+    :actionable="true"
 >
     @include('app.partner.partials.company.edit')
 

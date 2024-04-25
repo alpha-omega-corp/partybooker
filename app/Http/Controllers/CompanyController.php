@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\Language;
 use App\Http\Requests\UpdateCompanyRequest;
+use App\Http\Requests\UpdateCompanyStatsRequest;
 use App\Interfaces\IFileService;
 use App\Models\Company;
 use App\Services\FileService;
@@ -22,6 +23,24 @@ class CompanyController extends Controller
         return view('app.listing.company', [
             'company' => $company,
         ]);
+    }
+
+    public function updateStatistics(Company $company, UpdateCompanyStatsRequest $request)
+    {
+        $data = $request->validated();
+
+        $company->statistics->update([
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'website' => $data['website'],
+            'instagram' => $data['instagram'],
+            'facebook' => $data['facebook'],
+            'youtube' => $data['youtube'],
+            'twitter' => $data['twitter'],
+            'linkedin' => $data['linkedin'],
+        ]);
+
+        return back()->with('success', 'Company statistics updated successfully');
     }
 
     public function update(Company $company, UpdateCompanyRequest $request)

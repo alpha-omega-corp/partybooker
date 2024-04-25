@@ -12,13 +12,11 @@ return new class extends Migration {
             $table->integer('email')->default(0);
             $table->integer('phone')->default(0);
             $table->integer('website')->default(0);
-            $table->integer('address')->default(0);
             $table->integer('instagram')->default(0);
             $table->integer('facebook')->default(0);
             $table->integer('youtube')->default(0);
             $table->integer('twitter')->default(0);
             $table->integer('linkedin')->default(0);
-            $table->integer('vimeo')->default(0);
             $table->timestamps();
         });
     }

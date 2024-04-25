@@ -11,6 +11,17 @@ class CompanyStatistic extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'email',
+        'phone',
+        'website',
+        'instagram',
+        'facebook',
+        'youtube',
+        'twitter',
+        'linkedin',
+    ];
+
     protected static function newFactory(): CompanyStatisticFactory
     {
         return CompanyStatisticFactory::new();
