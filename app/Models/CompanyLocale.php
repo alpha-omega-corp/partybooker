@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class CompanyLocale extends Model
 {
     use HasFactory;
-    use IsLocale;
 
     protected $fillable = [
         'lang',
