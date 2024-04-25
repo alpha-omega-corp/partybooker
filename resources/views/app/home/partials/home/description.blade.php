@@ -11,6 +11,7 @@
         <x-app.title
             :size="TitleSize::MEDIUM"
             :color="AppColor::BLUE"
+            :padding="false"
             :value="$content->title"
         />
 
