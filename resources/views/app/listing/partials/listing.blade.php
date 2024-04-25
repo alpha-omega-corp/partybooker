@@ -27,7 +27,9 @@
                         </p>
 
                         <div class="card-content-address">
-                            {{$advert->company->location->address}}
+                            @if($advert->company->location)
+                                {{$advert->company->location->address}}
+                            @endif
                         </div>
                     </div>
                 </div>
