@@ -43,7 +43,7 @@ class AppPlan extends Model implements ILocale
 
     public function payments(): HasMany
     {
-        return $this->hasMany(Payment::class, 'app_plan_id', 'id');
+        return $this->hasMany(PartnerPayment::class, 'app_plan_id', 'id');
     }
 
     public function locale(): HasOne

@@ -1,4 +1,4 @@
-<!-- Payment Index -->
+<!-- PartnerPayment Index -->
 <a data-bs-toggle="modal" data-bs-target="#paymentModalUpdate" class="d-none" id="update-card"></a>
 
 <div class="modal fade" id="paymentModalUpdate" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">

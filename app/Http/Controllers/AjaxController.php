@@ -8,7 +8,7 @@ use App\Enums\PlanType;
 use App\Models\Advert;
 use App\Models\AppPlan;
 use App\Models\Partner;
-use App\Models\Payment;
+use App\Models\PartnerPayment;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -21,7 +21,7 @@ class AjaxController extends Controller
                 ->ofType(PlanType::from($plan->code))
                 ->first()
                 ->payments
-                ->map(function (Payment $payment) {
+                ->map(function (PartnerPayment $payment) {
                     $partner = $payment->partner;
                     $hasAddress = $partner->company->address !== null;
 

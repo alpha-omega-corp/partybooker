@@ -8,8 +8,8 @@ use App\Models\AppPlan;
 use App\Models\Company;
 use App\Models\CompanyLocale;
 use App\Models\Partner;
+use App\Models\PartnerPayment;
 use App\Models\PartnerTop;
-use App\Models\Payment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Lottery;
 
@@ -36,7 +36,7 @@ class PartnerFactory extends Factory
             ->toArray();
 
         return [
-            'payment_id' => Payment::factory([
+            'partner_payment_id' => PartnerPayment::factory([
                 'app_plan_id' => $this->faker->randomElement($plans)
             ]),
             'company_id' => function (array $attributes) use ($adverts) {
@@ -44,7 +44,7 @@ class PartnerFactory extends Factory
                     ->has(CompanyLocale::factory()->english(), 'locale')
                     ->has(CompanyLocale::factory()->french(), 'locale');
 
-                $payment = Payment::find($attributes['payment_id']);
+                $payment = PartnerPayment::find($attributes['partner_payment_id']);
                 return match (PlanType::from($payment->plan->code)) {
                     PlanType::STANDARD => $company
                         ->has($this->faker->randomElement($adverts)->asMain(), 'adverts'),

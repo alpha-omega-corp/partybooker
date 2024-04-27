@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('partner_payments', function (Blueprint $table) {
             $table->id();
             $table->enum('type', PaymentType::values());
             $table->foreignIdFor(AppPlan::class);
@@ -20,6 +20,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('partner_payments');
     }
 };

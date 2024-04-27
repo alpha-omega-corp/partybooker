@@ -3,15 +3,15 @@
 namespace Database\Factories;
 
 use App\Enums\PaymentType;
-use App\Models\Payment;
+use App\Models\PartnerPayment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Payment>
+ * @extends Factory<PartnerPayment>
  */
-class PaymentFactory extends Factory
+class PartnerPaymentFactory extends Factory
 {
-    protected $model = Payment::class;
+    protected $model = PartnerPayment::class;
 
     public function definition(): array
     {

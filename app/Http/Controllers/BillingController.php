@@ -96,7 +96,7 @@ class BillingController extends Controller
         return redirect()
             ->route('profile-plan', Auth::user()->id_partner)
             ->with([
-                'success' => 'Payment details updated!'
+                'success' => 'PartnerPayment details updated!'
             ]);
     }
 

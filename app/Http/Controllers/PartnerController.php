@@ -6,7 +6,7 @@ use App\Enums\Language;
 use App\Enums\PaymentType;
 use App\Enums\PlanType;
 use App\Http\Requests\StorePartnerRequest;
-use App\Http\Requests\UpdatePlanRequest;
+use App\Http\Requests\UpdatePartnerPlanRequest;
 use App\Interfaces\IListingService;
 use App\Models\AppPlan;
 use App\Models\Company;
@@ -16,7 +16,7 @@ use App\Models\CompanyLocation;
 use App\Models\CompanySocial;
 use App\Models\CompanyStatistic;
 use App\Models\Partner;
-use App\Models\Payment;
+use App\Models\PartnerPayment;
 use App\Models\User;
 use App\Services\ListingService;
 use Illuminate\Contracts\View\View;
@@ -48,13 +48,13 @@ class PartnerController extends Controller
         ]);
     }
 
-    public function plan(Partner $partner, UpdatePlanRequest $request): RedirectResponse
+    public function plan(Company $company, UpdatePartnerPlanRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        $plan = AppPlan::where('name', $validated['plan'])->first();
+        $plan = AppPlan::where('code', $validated['plan'])->first();
 
-        $partner->payment->update([
-            'plan_id' => $plan->id
+        $company->partner->payment->update([
+            'app_plan_id' => $plan->id
         ]);
 
         return back()->with('success', 'AppPlan updated successfully');
@@ -83,7 +83,7 @@ class PartnerController extends Controller
             'lang' => Language::EN,
         ]);
 
-        $payment = Payment::create([
+        $payment = PartnerPayment::create([
             'type' => PaymentType::DEFAULT,
             'app_plan_id' => AppPlan::ofType(PlanType::from($data['plan']))->first()->id,
             'accepted_at' => now(),

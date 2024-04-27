@@ -24,7 +24,7 @@
             </div>
 
             <div class="col-xl-4 col-lg-5 col-md-12">
-                @include('app.partner.partials.plan')
+                @include('app.partner.partials.plan.show')
             </div>
         </div>
     </x-card.panel>

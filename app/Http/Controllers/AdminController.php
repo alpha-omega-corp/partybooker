@@ -76,7 +76,7 @@ class AdminController extends Controller
         ]);
     }
 
-    public function updateTopServices(StorePartnerTops $request)
+    public function updateTopServices(StorePartnerTops $request): RedirectResponse
     {
         $validated = $request->validated();
         if (!key_exists('top', $validated)) {
@@ -88,20 +88,25 @@ class AdminController extends Controller
         }
 
         $partners = $validated['top'];
-        $currentTops = PartnerTop::all()->map(fn($e) => $e->partner->id)->toArray();
-        $newTops = array_diff($partners, $currentTops);
-        $deleteTops = array_diff($currentTops, $partners);
+
+        if (PartnerTop::count() > 0) {
+            $currentTops = PartnerTop::all()->map(fn($e) => $e->partner->id)->toArray();
+            $deleteTops = array_diff($currentTops, $partners);
+            $newTops = array_diff($partners, $currentTops);
+
+            if (count($deleteTops) > 0) {
+                foreach (collect($deleteTops)->flatten() as $id) {
+                    PartnerTop::where('partner_id', $id)->delete();
+                }
+            }
+        } else {
+            $newTops = $partners;
+        }
 
         foreach ($newTops as $id) {
             $service = new PartnerTop();
             $service->partner_id = $id;
             $service->save();
-        }
-
-        if (count($deleteTops) > 0) {
-            foreach (collect($deleteTops)->flatten() as $id) {
-                PartnerTop::where('partner_id', $id)->delete();
-            }
         }
 
         return redirect()->back()->with('success', 'Top services updated');

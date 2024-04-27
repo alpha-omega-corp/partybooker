@@ -17,7 +17,7 @@ class Partner extends Model
 
     protected $fillable = [
         'company_id',
-        'payment_id',
+        'partner_payment_id',
     ];
 
     protected static function newFactory(): PartnerFactory
@@ -37,7 +37,7 @@ class Partner extends Model
 
     public function payment(): BelongsTo
     {
-        return $this->belongsTo(Payment::class);
+        return $this->belongsTo(PartnerPayment::class, 'partner_payment_id', 'id');
     }
 
     public function top(): HasOne

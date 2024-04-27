@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use Database\Factories\PaymentFactory;
+use Database\Factories\PartnerPaymentFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Payment extends Model
+class PartnerPayment extends Model
 {
     use HasFactory;
 
@@ -25,9 +25,9 @@ class Payment extends Model
         'expires_at' => 'datetime',
     ];
 
-    protected static function newFactory(): PaymentFactory
+    protected static function newFactory(): PartnerPaymentFactory
     {
-        return PaymentFactory::new();
+        return PartnerPaymentFactory::new();
     }
 
     public function partner(): HasOne
