@@ -14,6 +14,7 @@
             <x-icon.text :text="$companyLink" :icon="$linkIcon"/>
         </a>
         <x-accordion name="partnerCompanyDetails">
+
             <x-accordion.item
                 accordion="partnerCompanyDetails"
                 name="contacts"
@@ -29,7 +30,7 @@
                     <x-icon.text :text="$partner->company->contact->fax" :icon="$faxIcon"/>
                 </x-slot:content>
             </x-accordion.item>
-
+            
             <x-accordion.item
                 accordion="partnerCompanyDetails"
                 name="location"
@@ -44,10 +45,23 @@
                 </x-slot:content>
             </x-accordion.item>
 
+            <x-accordion.item
+                accordion="partnerCompanyDetails"
+                name="statistics"
+                :padding="false"
+            >
+                <x-slot:title>
+                    <h6>{{__('company.statistics')}}</h6>
+                </x-slot:title>
+
+                <x-slot:content>
+                    @include('app.partner.partials.company.statistics')
+                </x-slot:content>
+            </x-accordion.item>
+
         </x-accordion>
 
 
-        @include('app.partner.partials.company.statistics')
     </div>
 
 </x-card.index>

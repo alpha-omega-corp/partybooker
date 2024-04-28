@@ -18,7 +18,6 @@ class AppAbout extends Model implements ILocale
     use HasLangScope;
 
     protected $fillable = [
-        'name',
         'image',
     ];
 

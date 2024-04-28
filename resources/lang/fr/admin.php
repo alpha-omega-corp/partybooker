@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'service' => 'contenu de l\'application',
+    'contents' => 'contenu',
     'partners' => 'partenaires',
     'categories' => 'catégories',
     'comments' => 'commentaires',

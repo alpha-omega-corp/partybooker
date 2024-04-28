@@ -1,7 +1,15 @@
-@include('app.admin.content.comments.partials.create')
+<x-modal.open
+    :name="ModalName::APP_COMMENT"
+    :type="ModalType::CREATE"
+    :custom-color="AppColor::PRIMARY"
+    :icon="$createIcon"
+    :fit="true"
+    :radius="false"
+    :background="true"
+/>
 
 @foreach($comments as $comment)
-    <div class="d-flex justify-content-between align-items-center">
+    <div class="admin-content-item">
         {{$comment->name}}
 
         <div class="d-flex gap-2">
@@ -11,3 +19,5 @@
     </div>
 
 @endforeach
+
+@include('app.admin.content.comments.partials.create')

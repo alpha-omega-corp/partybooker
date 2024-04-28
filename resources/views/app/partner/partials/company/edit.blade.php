@@ -17,7 +17,6 @@
             id="editCompanyLogo"
             :file="$company->logo ? asset($company->logo) : null"/>
 
-
         <x-forms.input
             name="name"
             :label="__('form.name')"
@@ -31,31 +30,6 @@
             :value="$company->slug">
             @svg($linkIcon)
         </x-forms.input>
-
-        <div class="w-100">
-            <x-forms.input
-                name="email"
-                type="email"
-                :label="__('form.email')"
-                :value="$company->contact->email">
-                @svg($emailIcon)
-            </x-forms.input>
-
-            <x-forms.input
-                name="phone"
-                :label="__('form.phone')"
-                :value="$company->contact->phone">
-                @svg($phoneIcon)
-            </x-forms.input>
-
-            <x-forms.input
-                name="fax"
-                :label="__('form.fax')"
-                :value="$company->contact->fax">
-                @svg($companyIcon)
-            </x-forms.input>
-        </div>
-
     </x-slot:body>
 
     <x-tab.locale>

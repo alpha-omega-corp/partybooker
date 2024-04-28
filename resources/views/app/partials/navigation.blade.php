@@ -1,7 +1,7 @@
 <div class="app-navigation">
     <nav class="navbar">
         <div class="d-flex justify-content-between w-100">
-            <div class="d-flex gap-4 w-100">
+            <div class="app-navigation-content">
                 <x-logo class="app-navigation-logo"/>
 
                 <!-- Nav Toggler -->
@@ -19,12 +19,11 @@
                 </div>
             </div>
 
-            <div class="d-flex align-items-center w-100">
+            <div class="app-navigation-actions">
                 <!-- User -->
                 @include('app.partials.user')
                 <!-- Locale -->
                 @include('app.partials.language')
-
             </div>
         </div>
 

@@ -26,12 +26,26 @@ use Illuminate\Http\RedirectResponse;
 
 class AdminController extends Controller
 {
+    public function contacts()
+    {
+        return view('app.admin.contacts.index', [
+            'appContact' => AppContact::first(),
+        ]);
+    }
+
+    public function terms()
+    {
+        return view('app.admin.terms.index', [
+            'content' => [
+                AppContentType::USER_TERMS->name => AppContent::ofType(AppContentType::USER_TERMS)->first(),
+                AppContentType::SERVICE_TERMS->name => AppContent::ofType(AppContentType::SERVICE_TERMS)->first(),
+            ],
+        ]);
+    }
 
     public function content()
     {
         return view('app.admin.content.index', [
-            'appContacts' => AppContact::all()->first(),
-            'categories' => Category::all(),
             'comments' => AppComment::all(),
             'information' => AppInformation::all(),
             'posts' => AppPost::all(),
@@ -64,6 +78,20 @@ class AdminController extends Controller
             'partnerSorts' => PartnerSort::values(),
             'planFilters' => PlanType::values(),
             'categoryFilters' => CategoryType::names(),
+        ]);
+    }
+
+    public function categories()
+    {
+        return view('app.admin.categories.index', [
+            'categories' => Category::all(),
+        ]);
+    }
+
+    public function plans()
+    {
+        return view('app.admin.plans.index', [
+            'plans' => AppPlan::all(),
         ]);
     }
 

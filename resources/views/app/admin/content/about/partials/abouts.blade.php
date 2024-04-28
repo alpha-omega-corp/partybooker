@@ -1,10 +1,27 @@
+<x-modal.open
+    :name="ModalName::APP_ABOUT"
+    :type="ModalType::CREATE"
+    :custom-color="AppColor::PRIMARY"
+    :icon="$createIcon"
+    :fit="true"
+    :radius="false"
+    :background="true"
+/>
+
 <x-accordion name="adminAbouts">
-    @foreach($items as $about)
+    @foreach($abouts as $about)
         <div class="d-flex justify-content-between align-items-center">
             <x-accordion.item
                 accordion="adminAbouts"
                 :name="$about->id"
+                :padding="false"
             >
+                <x-slot:actions>
+                    @include('app.admin.content.about.partials.items.create', ['item' => $about])
+                    @include('app.admin.content.about.partials.edit', ['item' => $about])
+                    @include('app.admin.content.about.partials.delete', ['item' => $about])
+                </x-slot:actions>
+
                 <x-slot:title>
                     <div class="d-flex align-items-center gap-4">
                         <img class="admin-about-image" src="{{asset($about->image)}}" alt="about"/>
@@ -13,29 +30,20 @@
                 </x-slot:title>
 
                 <x-slot:content>
-                    <ul class="admin-about-content">
-                        @foreach($about->items as $item)
-                            <li>
-                                <div class="d-flex align-items-center gap-4 justify-content-between">
-                                    <p class="m-0">{{$item->locale->content}}</p>
+                    @foreach($about->items as $item)
+                        <div class="admin-content-item">
+                            {{$item->locale->content}}
 
-                                    <div class="d-flex">
-                                        @include('app.admin.content.about.partials.items.edit', ['item' => $item])
-                                        @include('app.admin.content.about.partials.items.delete', ['item' => $item])
-                                    </div>
-                                </div>
-                            </li>
-                        @endforeach
-                    </ul>
-
+                            <div class="d-flex">
+                                @include('app.admin.content.about.partials.items.edit', ['item' => $item])
+                                @include('app.admin.content.about.partials.items.delete', ['item' => $item])
+                            </div>
+                        </div>
+                    @endforeach
                 </x-slot:content>
-
-                <div class="d-flex">
-                    @include('app.admin.content.about.partials.items.create', ['item' => $about])
-                    @include('app.admin.content.about.partials.edit', ['item' => $about])
-                    @include('app.admin.content.about.partials.delete', ['item' => $about])
-                </div>
             </x-accordion.item>
         </div>
     @endforeach
 </x-accordion>
+
+@include('app.admin.content.about.partials.create')

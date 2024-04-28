@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <x-card.panel :title="__('admin.contents')" class="app-admin-content">
-        @include('app.admin.content.content.index')
+    <x-card.panel :title="__('admin.categories')" class="app-admin-listing">
+        @include('app.admin.content.categories.index')
     </x-card.panel>
 @endsection

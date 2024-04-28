@@ -15,4 +15,8 @@ return [
     'listing-search' => 'guest.ajax.fr.listing',
 
     'admin-content' => 'admin.fr.content',
+    'admin-categories' => 'admin.fr.categories',
+    'admin-plans' => 'admin.fr.plans',
+    'admin-contacts' => 'admin.fr.contacts',
+    'admin-terms' => 'admin.fr.terms',
 ];

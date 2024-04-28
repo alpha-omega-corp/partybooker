@@ -2,7 +2,7 @@
     <div class="app-navigation-user">
         <div class="btn-group dropstart">
             <button
-                class="btn btn-secondary dr-toggle"
+                class="btn btn-blue dr-toggle"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -34,8 +34,28 @@
                         </a>
                     </li>
                     <li>
+                        <a class="dropdown-item" href="{{url(route(__('route.admin-categories')))}}">
+                            Categories
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{url(route(__('route.admin-plans')))}}">
+                            Plans
+                        </a>
+                    </li>
+                    <li>
                         <a class="dropdown-item" href="{{url(route('admin.forms'))}}">
                             Forms
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{url(route(__('route.admin-terms')))}}">
+                            Terms
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{{url(route(__('route.admin-contacts')))}}">
+                            Contacts
                         </a>
                     </li>
                     <li>
@@ -62,7 +82,7 @@
         <x-modal.open
             :singleton="true"
             :name="ModalName::APP_LOGIN"
-            :custom-color="AppColor::SECONDARY"
+            :custom-color="AppColor::BLUE"
             :fit="true"
             :text="__('app.login')"
             :background="true"

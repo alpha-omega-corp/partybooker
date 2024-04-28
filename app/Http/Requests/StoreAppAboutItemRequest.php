@@ -5,16 +5,15 @@ namespace App\Http\Requests;
 use App\Traits\IsAdminRequest;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreAppAboutRequest extends FormRequest
+class StoreAppAboutItemRequest extends FormRequest
 {
     use IsAdminRequest;
 
     public function rules(): array
     {
         return [
-            'image' => 'file|required',
-            'title_fr' => 'string|required',
-            'title_en' => 'string|required',
+            'content_fr' => 'string|required',
+            'content_en' => 'string|required',
         ];
     }
 }

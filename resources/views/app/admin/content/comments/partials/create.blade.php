@@ -2,7 +2,7 @@
     :name="ModalName::APP_COMMENT"
     :type="ModalType::CREATE"
     :size="ModalSize::MD"
-    :absolute="true"
+    :hidden="true"
     :route="route('admin.comment.store')"
 >
     <x-slot:body>
@@ -13,7 +13,7 @@
             @svg('heroicon-o-user-circle')
         </x-forms.input>
     </x-slot:body>
-    
+
     <x-tab.locale>
         <x-slot:french>
             <x-forms.editor name="content_fr" label="Content"/>

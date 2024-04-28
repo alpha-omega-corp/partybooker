@@ -10,7 +10,6 @@ return new class extends Migration {
     {
         Schema::create('app_abouts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('image');
             $table->enum('type', AppAboutType::names());
             $table->timestamps();

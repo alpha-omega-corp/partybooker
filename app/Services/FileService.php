@@ -44,7 +44,7 @@ class FileService implements IFileService
 
     public function aboutImage(UploadedFile $file): string
     {
-        return $this->store($file, 'images/app/about', true);
+        return $this->store($file, 'images/app/about', true, 100);
     }
 
     public function delete(string $path): void

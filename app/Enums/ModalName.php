@@ -28,6 +28,8 @@ enum ModalName
     case PARTNER;
     case PARTNER_COMPANY;
     case PARTNER_COMPANY_STATS;
+    case PARTNER_COMPANY_CONTACTS;
+
     case PARTNER_PLAN;
     case PARTNER_SERVICE_IMAGE;
     case PARTNER_ADVERT;

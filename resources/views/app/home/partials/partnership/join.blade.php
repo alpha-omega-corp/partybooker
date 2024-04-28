@@ -30,7 +30,7 @@
         </x-forms.input>
 
 
-        <x-forms.select name="plan" :label="__('home.plans')">
+        <x-forms.select name="plan" :label="__('app.plan')">
             @svg($boxIcon)
 
             <x-slot:options>

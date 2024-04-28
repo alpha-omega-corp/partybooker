@@ -1,67 +1,30 @@
-<x-tab.index :items="[
-    'Home',
-    'About Description',
-    'About Concept',
-    'About Features',
-    'User Terms',
-    'Service Terms',
-]">
-    <x-tab.item>
-        @php($item = $content[AppContentType::APP_HOME->name])
-        <x-slot:information>
-            @include('app.admin.content.content.partials.edit')
-        </x-slot:information>
+@php($contents = [
+    'Home' => 'app.admin.content.partials.home',
+    'About' => 'app.admin.content.partials.about',
+    'Partnership' => 'app.admin.content.partials.partnership',
+    'Blog' => 'app.admin.content.partials.blog',
+    'Faq' => 'app.admin.content.partials.faq',
+])
 
-        <h6>{{$item->locale->title}}</h6>
-        {{$item->locale->content}}
-    </x-tab.item>
+<x-accordion
+    name="adminContents"
+>
+    @foreach($contents as $key => $item)
+        <x-accordion.item
+            accordion="adminContents"
+            :name="trim($key)"
+            :padding="!($key === 'About' || $key === 'Partnership' || $key === 'Home')"
+        >
+            <x-slot:title>
+                <div class="admin-content-header">
+                    <span class="fw-bold text-pink">{{$loop->index + 1}}.</span>
+                    <span>{{$key}}</span>
+                </div>
+            </x-slot:title>
 
-    <x-tab.item>
-        @php($item = $content[AppContentType::APP_ABOUT->name])
-        <x-slot:information>
-            @include('app.admin.content.content.partials.edit')
-        </x-slot:information>
-
-        {{$item->locale->title}}
-        {{$item->locale->content}}
-    </x-tab.item>
-
-    <x-tab.item>
-        @php($item = $content[AppContentType::APP_CONCEPT->name])
-        <x-slot:information>
-            @include('app.admin.content.content.partials.edit')
-        </x-slot:information>
-
-        {{$item->locale->title}}
-        {{$item->locale->content}}
-    </x-tab.item>
-
-
-    <x-tab.item :padding="false">
-        <x-slot:information>
-            @include('app.admin.content.about.partials.create')
-        </x-slot:information>
-
-        @include('app.admin.content.about.partials.abouts', ['items' => $abouts])
-    </x-tab.item>
-
-
-    <x-tab.item>
-        @php($item = $content[AppContentType::USER_TERMS->name])
-        <x-slot:information>
-            @include('app.admin.content.content.partials.edit')
-        </x-slot:information>
-
-        {{$item->locale->title}}
-        {{$item->locale->content}}
-    </x-tab.item>
-
-    <x-tab.item>
-        @php($item = $content[AppContentType::SERVICE_TERMS->name])
-        <x-slot:information>
-            @include('app.admin.content.content.partials.edit')
-        </x-slot:information>
-        {{$item->locale->title}}
-        {{$item->locale->content}}
-    </x-tab.item>
-</x-tab.index>
+            <x-slot:content>
+                @include($item)
+            </x-slot:content>
+        </x-accordion.item>
+    @endforeach
+</x-accordion>

@@ -39,31 +39,3 @@
         icon="heroicon-o-question-mark-circle"
     />
 </x-navigation.group>
-
-@if(Auth::check() && Auth::user()->isAdmin())
-    <div class="admin-navigation">
-        <x-navigation.group>
-
-            <x-navigation.item
-                :href="url(route(__('route.admin-content')))"
-                text="contents"
-                :icon="$boxIcon"
-            />
-            <x-navigation.item
-                :href="url(route('admin.partners'))"
-                text="partners"
-                :icon="$userIcon"
-            />
-            <x-navigation.item
-                :href="url(route('admin.forms'))"
-                text="forms"
-                icon="heroicon-o-film"
-            />
-            <x-navigation.item
-                :href="url(route('admin.messages'))"
-                text="messages"
-                :icon="$emailIcon"
-            />
-        </x-navigation.group>
-    </div>
-@endif

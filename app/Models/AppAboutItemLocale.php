@@ -13,6 +13,7 @@ class AppAboutItemLocale extends Model
 
     protected $fillable = [
         'content',
+        'app_about_item_id',
     ];
 
     protected static function newFactory(): AppAboutItemLocaleFactory

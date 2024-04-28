@@ -1,7 +1,7 @@
 <div
     x-data="modal('{{$id}}')"
     @class([
-    'w-100',
+    'w-100' => $fit,
     'h-100' => $fit,
     'modal-open-absolute' => $absolute,
 ])
@@ -10,9 +10,10 @@
     <button
         type="button"
         @class([
-            'btn text-white',
+            'btn',
+            'text-white' => $background,
             'tippy' => $type || $tooltip,
-            'btn-'.($customColor ? $customColor->value : $color) => true,
+            'btn-'.($customColor ? $customColor->value : $color) => $background,
             'text-'.$color => !$background && !$customColor,
             'w-100' => $fit,
             'rounded-0' => !$radius,

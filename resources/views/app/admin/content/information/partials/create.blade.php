@@ -2,7 +2,7 @@
     :name="ModalName::APP_INFORMATION"
     :type="ModalType::CREATE"
     :size="ModalSize::MD"
-    :absolute="true"
+    :hidden="true"
     :route="route('admin.information.store')"
 >
     <x-tab.locale>

@@ -30,5 +30,6 @@ class IconComposer
         $view->with('checkIcon', 'heroicon-o-question-mark-circle');
         $view->with('questionIcon', 'heroicon-o-question-mark-circle');
         $view->with('clickIcon', 'heroicon-o-cursor-arrow-rays');
+        $view->with('createIcon', 'heroicon-o-plus-circle');
     }
 }

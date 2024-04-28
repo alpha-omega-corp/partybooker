@@ -10,7 +10,19 @@
     }
 }
 
+.admin-content-item {
+    padding: 20px 10px 20px 20px;
+    border-bottom: 1px solid $light;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .app-admin-content {
+    .admin-content-header {
+        display: flex;
+        gap: 20px;
+    }
 
 }
 
@@ -32,7 +44,7 @@
 
 .admin-about-content {
     li::marker {
-        color: $primary;
+        color: $blue;
     }
 }
 
@@ -104,23 +116,34 @@
 }
 
 .admin-category {
+    .admin-category-container {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 20px;
+    }
+
     .admin-category-card {
         border: 1px solid $light;
         margin-bottom: 20px;
         position: relative;
         border-radius: 10px;
+        flex-grow: 1;
+        flex-basis: 300px;
+
+        .card-content-padded {
+            padding-top: 0 !important;
+            padding-right: 0 !important;
+        }
 
         .category-card-header {
             padding: 20px;
             border-bottom: 1px solid $light;
-
-            p {
-                margin: 20px 0 0;
-            }
         }
 
         .category-card-link {
             font-size: small;
+            padding: 20px;
+            border-bottom: 1px solid $light;
         }
 
         .category-card-title {

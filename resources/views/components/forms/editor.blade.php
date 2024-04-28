@@ -10,11 +10,11 @@
 @endphp
 
 <div class="app-editor">
-    <div class="app-editor-label">
-        <label for="{{$id}}">
-            {{$label}}
-        </label>
-    </div>
+
+    <label for="{{$id}}" class="d-none">
+        {{$label}}
+    </label>
+
 
     <textarea
         name="{{$name}}"

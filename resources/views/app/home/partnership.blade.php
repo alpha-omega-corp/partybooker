@@ -15,7 +15,6 @@
         :title="__('home.partnership')"
         class="home-partnership"
     >
-
         <x-slot:breadcrumbs>
             {{Breadcrumbs::render('partnership', Request::segments())}}
         </x-slot:breadcrumbs>
@@ -59,7 +58,6 @@
             :color="AppColor::BLUE"
             :border="true"
             :value="__('home.plans')"
-            class="plans-title"
         />
 
         <div class="plans-content-card">

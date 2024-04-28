@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'plan' => 'Plan',
+
     'login' => 'Login',
     'listing' => 'advertisements',
     'advert' => 'advertisement',

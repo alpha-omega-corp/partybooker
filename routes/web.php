@@ -213,10 +213,18 @@ Route::controller(AdminController::class)
 
         Route::name('fr.')->prefix('admin')->group(function () {
             Route::get('/contenu', 'content')->name('content');
+            Route::get('/categories', 'categories')->name('categories');
+            Route::get('/formules', 'plans')->name('plans');
+            Route::get('/contacts', 'contacts')->name('contacts');
+            Route::get('/conditions', 'terms')->name('terms');
         });
 
         Route::name('en.')->prefix('en/admin')->group(function () {
             Route::get('/content', 'content')->name('content');
+            Route::get('/categories', 'categories')->name('categories');
+            Route::get('/plans', 'plans')->name('plans');
+            Route::get('/contacts', 'contacts')->name('contacts');
+            Route::get('/terms', 'terms')->name('terms');
         });
     });
 

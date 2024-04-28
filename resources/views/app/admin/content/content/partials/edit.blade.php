@@ -1,9 +1,19 @@
+<x-modal.open
+    :iterator="$item->id"
+    :name="ModalName::APP_CONTENT"
+    :type="ModalType::UPDATE"
+    :icon="$editIcon"
+    :fit="true"
+    :radius="false"
+    :background="true"
+/>
+
 <x-modal.index
     :iterator="$item->id"
     :name="ModalName::APP_CONTENT"
     :type="ModalType::UPDATE"
     :size="ModalSize::MD"
-    :absolute="true"
+    :hidden="true"
     :route="route('admin.service.update', ['content' => $item])"
 >
 
