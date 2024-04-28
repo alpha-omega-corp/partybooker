@@ -14,6 +14,7 @@ class AppAboutItemLocale extends Model
 
     protected $fillable = [
         'content',
+        'lang',
         'app_about_item_id',
     ];
 
