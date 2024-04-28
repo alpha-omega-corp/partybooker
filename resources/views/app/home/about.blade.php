@@ -16,12 +16,20 @@
 
         <div class="about-card">
             <div class="about-description w-100">
-                <h6 class="about-card-title">{{$description->title}}</h6>
+                <x-app.title
+                    :size="TitleSize::SMALL"
+                    :color="AppColor::PINK"
+                    :value="$description->title"
+                />
                 <p>{{$description->content}}</p>
             </div>
 
             <div class="about-concept w-100">
-                <h6 class="about-card-title">{{$concept->title}}</h6>
+                <x-app.title
+                    :size="TitleSize::SMALL"
+                    :color="AppColor::PINK"
+                    :value="$concept->title"
+                />
                 <p>{{$concept->content}}</p>
             </div>
         </div>
@@ -31,6 +39,7 @@
                 :size="TitleSize::MEDIUM"
                 :color="AppColor::BLUE"
                 :border="true"
+                :background="true"
                 :value="__('home.features')"
             />
 

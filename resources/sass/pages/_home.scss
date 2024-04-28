@@ -44,22 +44,21 @@
                     width: 100%;
 
                     .feature-card-header {
-                        align-items: center;
                         color: #fff;
                         background-color: rgba(0, 0, 0, 0.8);
                         display: flex;
-                        justify-content: center;
-                        flex-direction: column;
-                        border-bottom: 1px solid $blue;
+                        justify-content: space-between;
+                        padding: 20px;
 
                         .feature-card-title {
                             margin: 0;
                             padding: 10px 20px 20px;
                             text-transform: uppercase;
+                            font-size: large;
                         }
 
+
                         img {
-                            margin: 20px;
                             width: 60px;
                             height: 60px;
                             object-fit: cover;
@@ -72,6 +71,7 @@
                         li {
                             padding: 20px;
                             border-bottom: 1px solid $light;
+                            list-style-type: decimal;
 
                             &::marker {
                                 color: $pink;
@@ -79,7 +79,6 @@
 
                             p {
                                 margin: 0;
-                                font-size: small;
                             }
                         }
                     }
@@ -189,6 +188,7 @@
 
 .plans-content-card {
     display: flex;
+    gap: 20px;
     padding: 20px;
 
     @media only screen and (max-width: 1000px) {
@@ -208,16 +208,20 @@
     .usp-card {
         border: 1px solid $light;
         border-radius: 20px;
-        padding: 20px;
         margin: 10px;
         flex-basis: 400px;
         flex-grow: 1;
         background-color: #fff;
 
+        .usp-card-header {
+            border-bottom: 1px solid $light;
+            padding: 20px;
+        }
+
         .usp-card-title {
             font-weight: bold;
             padding-bottom: 40px;
-            text-align: center;
+            text-align: end;
         }
 
         li {
@@ -263,7 +267,7 @@
         display: flex;
         flex-direction: column;
         border: 1px solid $light;
-        border-radius: 10px;
+        border-radius: 20px;
         width: 100%;
         background-color: #fff;
 
@@ -299,14 +303,22 @@
     background-image: url("/resources/images/app/background.jpg");
     background-size: cover;
     background-position: center;
-    height: 800px;
+    height: 500px;
     position: relative;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
 
     @media only screen and (max-width: 800px) {
-        height: 500px;
+        height: 400px;
+
+        span {
+            font-size: 70px !important;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        height: 300px;
 
         span {
             font-size: 70px !important;

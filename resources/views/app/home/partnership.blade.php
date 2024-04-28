@@ -57,14 +57,13 @@
             :size="TitleSize::MEDIUM"
             :color="AppColor::BLUE"
             :border="true"
+            :background="true"
             :value="__('home.plans')"
         />
 
         <div class="plans-content-card">
             @foreach($plans as $plan)
-                <div class="w-100">
-                    <x-plan.card :plan="$plan"></x-plan.card>
-                </div>
+                <x-plan.card :plan="$plan"></x-plan.card>
             @endforeach
         </div>
 
@@ -78,13 +77,15 @@
         <ul class="usp-content-card">
             @foreach($usps as $usp)
                 <div class="usp-card">
-                    <li>
-                        <h6 class="usp-card-title">
-                            {{$usp->locale->title}}
-                        </h6>
+                    <div class="usp-card-header">
+                        <li>
+                            <h6 class="usp-card-title">
+                                {{$usp->locale->title}}
+                            </h6>
+                        </li>
+                    </div>
 
-                        <p>{{$usp->locale->description}}</p>
-                    </li>
+                    <p>{{$usp->locale->description}}</p>
                 </div>
             @endforeach
         </ul>
@@ -95,6 +96,7 @@
                     :size="TitleSize::SMALL"
                     :color="AppColor::BLUE"
                     :value="__('home.help_title')"
+                    :background="true"
                     class="partnership-help-title"
                 />
 

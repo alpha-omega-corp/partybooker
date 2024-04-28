@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'content' => 'content',
+    'contents' => 'content',
     'partners' => 'partners',
     'categories' => 'categories',
     'comments' => 'comments',

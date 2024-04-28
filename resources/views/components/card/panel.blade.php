@@ -10,6 +10,7 @@
                 :color="AppColor::BLUE"
                 :value="$title"
                 :border="true"
+                :background="true"
                 class="card-panel-title"
             />
         @endif

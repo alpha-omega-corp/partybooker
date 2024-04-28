@@ -1,7 +1,8 @@
 <div
     @class([
         'app-title-container',
-        'title-border-bottom' => $border,
+        'title-border' => $border,
+        'bg-white' => $background,
     ])
 >
     @switch($size)
