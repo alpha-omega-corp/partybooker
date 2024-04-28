@@ -329,7 +329,7 @@ Route::middleware('admin')
                 Route::delete('/{about}', 'destroy')->name('destroy');
 
                 Route::post('/{about}/item', 'createItem')->name('item.store');
-                Route::put('/item/{item}', 'editItem')->name('item.update');
+                Route::put('/item/{item}', 'updateItem')->name('item.update');
                 Route::delete('/item/{item}', 'destroyItem')->name('item.destroy');
             });
     });

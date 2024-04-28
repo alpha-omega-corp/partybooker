@@ -87,12 +87,16 @@ class AboutController extends Controller
         return back()->with('success', 'About item created successfully');
     }
 
-    public function updateItem(AppAbout $about, UpdateAppAboutItemRequest $request): RedirectResponse
+    public function updateItem(AppAboutItem $item, UpdateAppAboutItemRequest $request): RedirectResponse
     {
         $data = $request->validated();
 
-        $about->update([
-            'service' => $data['service'],
+        $item->ofLang(Language::FR)->first()->locale->update([
+            'content' => $data['content_fr'],
+        ]);
+
+        $item->ofLang(Language::EN)->first()->locale->update([
+            'content' => $data['content_en'],
         ]);
 
         return back()->with('success', 'About item updated successfully');

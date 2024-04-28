@@ -12,7 +12,8 @@ class UpdateAppAboutItemRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'service' => 'string|required',
+            'content_fr' => 'string|required',
+            'content_en' => 'string|required',
         ];
     }
 }

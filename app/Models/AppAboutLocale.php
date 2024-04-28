@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\LocaleScope;
 use Database\Factories\AppAboutLocaleFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -20,6 +21,11 @@ class AppAboutLocale extends Model
     protected static function newFactory(): AppAboutLocaleFactory
     {
         return AppAboutLocaleFactory::new();
+    }
+
+    protected static function booted(): void
+    {
+        static::addGlobalScope(new LocaleScope());
     }
 
     public function about(): BelongsTo
