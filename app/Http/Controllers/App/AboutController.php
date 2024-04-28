@@ -58,6 +58,7 @@ class AboutController extends Controller
         }
 
         $about->locales()->delete();
+        $about->image->delete();
         $about->delete();
 
         return back()->with('success', 'About deleted successfully');

@@ -32,8 +32,6 @@ class HomeController extends Controller
 
     public function index()
     {
-
-
         return view('app.home.index', [
             'categories' => Category::all(),
             'comments' => AppComment::all(),
@@ -50,7 +48,7 @@ class HomeController extends Controller
         return view('app.home.about', [
             'description' => AppContent::ofType(AppContentType::APP_ABOUT)->first()->locale,
             'concept' => AppContent::ofType(AppContentType::APP_CONCEPT)->first()->locale,
-            'abouts' => AppAbout::all()
+            'abouts' => AppAbout::ofType(AppAboutType::FEATURES)->get(),
         ]);
     }
 
