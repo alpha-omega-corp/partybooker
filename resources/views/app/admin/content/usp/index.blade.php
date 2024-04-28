@@ -1,4 +1,12 @@
-@include('app.admin.content.usp.partials.create')
+<x-modal.open
+    :name="ModalName::APP_USP"
+    :type="ModalType::CREATE"
+    :custom-color="AppColor::PRIMARY"
+    :icon="$createIcon"
+    :fit="true"
+    :radius="false"
+    :background="true"
+/>
 
 <x-accordion name="adminUsp">
     @foreach($usp as $item)
@@ -8,6 +16,11 @@
                     accordion="adminUsp"
                     :name="$item->id"
                 >
+                    <x-slot:actions>
+                        @include('app.admin.content.usp.partials.edit', ['item' => $item])
+                        @include('app.admin.content.usp.partials.delete', ['item' => $item])
+                    </x-slot:actions>
+
                     <x-slot:title>
                         {{$item->locale->title}}
                     </x-slot:title>
@@ -16,10 +29,11 @@
                         {{$item->locale->description}}
                     </x-slot:content>
 
-                    @include('app.admin.content.usp.partials.edit', ['item' => $item])
-                    @include('app.admin.content.usp.partials.delete', ['item' => $item])
+
                 </x-accordion.item>
             </div>
         @endif
     @endforeach
 </x-accordion>
+
+@include('app.admin.content.usp.partials.create')

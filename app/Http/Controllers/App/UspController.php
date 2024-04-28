@@ -55,7 +55,9 @@ class UspController extends Controller
 
     public function destroy(AppUsp $usp)
     {
+        $usp->locales()->delete();
         $usp->delete();
+        
         return back()->with('success', 'USP deleted successfully!');
     }
 }

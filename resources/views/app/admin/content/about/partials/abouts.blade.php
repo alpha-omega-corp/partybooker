@@ -1,4 +1,5 @@
 <x-modal.open
+    :iterator="$aboutType->name"
     :name="ModalName::APP_ABOUT"
     :type="ModalType::CREATE"
     :custom-color="AppColor::PRIMARY"
@@ -9,7 +10,7 @@
 />
 
 <x-accordion name="adminAbouts">
-    @foreach($abouts as $about)
+    @foreach($aboutItems as $about)
         <div class="d-flex justify-content-between align-items-center">
             <x-accordion.item
                 accordion="adminAbouts"

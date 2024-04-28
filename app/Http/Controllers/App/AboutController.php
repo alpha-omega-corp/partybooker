@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\App;
 
-use App\Enums\AppAboutType;
 use App\Enums\Language;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAppAboutItemRequest;
@@ -32,7 +31,7 @@ class AboutController extends Controller
         $image = $this->fileService->aboutImage($data['image']);
 
         $about = AppAbout::create([
-            'type' => AppAboutType::ABOUT,
+            'type' => $data['type'],
             'image' => $image,
         ]);
 
@@ -53,7 +52,14 @@ class AboutController extends Controller
 
     public function destroy(AppAbout $about): RedirectResponse
     {
+        foreach ($about->items as $item) {
+            $item->locales()->delete();
+            $item->delete();
+        }
+
+        $about->locales()->delete();
         $about->delete();
+
         return back()->with('success', 'About deleted successfully');
     }
 
@@ -80,7 +86,7 @@ class AboutController extends Controller
         return back()->with('success', 'About item created successfully');
     }
 
-    public function editItem(AppAbout $about, UpdateAppAboutItemRequest $request): RedirectResponse
+    public function updateItem(AppAbout $about, UpdateAppAboutItemRequest $request): RedirectResponse
     {
         $data = $request->validated();
 
@@ -109,6 +115,7 @@ class AboutController extends Controller
 
     public function destroyItem(AppAboutItem $item): RedirectResponse
     {
+        $item->locales()->delete();
         $item->delete();
         return back()->with('success', 'About item deleted successfully');
     }

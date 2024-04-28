@@ -47,6 +47,7 @@ class CommentController extends Controller
 
     public function destroy(AppComment $comment): RedirectResponse
     {
+        $comment->locales()->delete();
         $comment->delete();
         return back()->with('success', 'Comment deleted successfully');
     }

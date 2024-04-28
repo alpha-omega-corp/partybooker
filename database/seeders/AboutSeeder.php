@@ -10,7 +10,7 @@ class AboutSeeder extends Seeder
     public function run(): void
     {
         AppAbout::factory()
-            ->about()
+            ->features()
             ->count(10)
             ->create();
 

@@ -43,7 +43,10 @@
         </x-slot:title>
 
         <x-slot:content>
-            @include('app.admin.content.about.partials.abouts')
+            @include('app.admin.content.about.partials.abouts', [
+                'aboutItems' => $features,
+                'aboutType' => AppAboutType::FEATURES
+            ])
         </x-slot:content>
     </x-accordion.item>
 </x-accordion>

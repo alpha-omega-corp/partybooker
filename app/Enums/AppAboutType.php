@@ -4,7 +4,7 @@ namespace App\Enums;
 
 enum AppAboutType
 {
-    case ABOUT;
+    case FEATURES;
     case BENEFITS;
 
     public static function names(): array

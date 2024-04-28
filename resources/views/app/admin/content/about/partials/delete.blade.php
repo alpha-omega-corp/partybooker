@@ -7,6 +7,6 @@
     :route="route('admin.about.destroy', ['about' => $item])"
 >
     <x-slot:body>
-        <p>Delete {{$item->name}} ?</p>
+        <p>Delete <b>{{$item->locale->title}}</b> ?</p>
     </x-slot:body>
 </x-modal.index>

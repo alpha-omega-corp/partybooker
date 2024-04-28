@@ -1,4 +1,5 @@
 <x-modal.index
+    :iterator="$aboutType->name"
     :name="ModalName::APP_ABOUT"
     :type="ModalType::CREATE"
     :size="ModalSize::MD"
@@ -6,6 +7,16 @@
     :multipart="true"
     :route="route('admin.about.store')"
 >
+    <input type="hidden" name="type" value="{{$aboutType->name}}">
+
+    <x-slot:body>
+        <x-forms.file
+            name="image"
+            label="Image"
+            id="createAboutImage{{$aboutType->name}}"
+        />
+    </x-slot:body>
+
     <x-tab.locale>
         <x-slot:french>
             <x-forms.input
@@ -26,11 +37,5 @@
         </x-slot:english>
     </x-tab.locale>
 
-    <x-slot:body>
-        <x-forms.file
-            name="image"
-            label="Image"
-            id="createAboutImage"
-        />
-    </x-slot:body>
+
 </x-modal.index>

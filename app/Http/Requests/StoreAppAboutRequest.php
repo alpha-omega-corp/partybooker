@@ -12,6 +12,7 @@ class StoreAppAboutRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'type' => 'string|required',
             'image' => 'file|required',
             'title_fr' => 'string|required',
             'title_en' => 'string|required',

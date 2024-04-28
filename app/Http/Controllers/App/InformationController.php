@@ -53,6 +53,7 @@ class InformationController extends Controller
 
     public function destroy(AppInformation $information): RedirectResponse
     {
+        $information->locales()->delete();
         $information->delete();
         return back()->with('success', 'Information deleted successfully');
     }

@@ -52,7 +52,7 @@ class AdminController extends Controller
             'faqs' => AppFaq::all(),
             'plans' => AppPlan::all(),
             'usp' => AppUsp::all(),
-            'abouts' => AppAbout::ofType(AppAboutType::ABOUT)->get(),
+            'features' => AppAbout::ofType(AppAboutType::FEATURES)->get(),
             'benefits' => AppAbout::ofType(AppAboutType::BENEFITS)->get(),
             'content' => [
                 AppContentType::USER_TERMS->name => AppContent::ofType(AppContentType::USER_TERMS)->first(),

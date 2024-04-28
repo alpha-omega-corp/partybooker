@@ -44,11 +44,11 @@ class AppAboutFactory extends Factory
         });
     }
 
-    public function about(): AppAboutFactory
+    public function features(): AppAboutFactory
     {
         return $this->state(function () {
             return [
-                'type' => AppAboutType::ABOUT->name,
+                'type' => AppAboutType::FEATURES->name,
             ];
         });
     }

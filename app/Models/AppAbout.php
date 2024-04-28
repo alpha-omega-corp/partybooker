@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\AppAboutType;
 use App\Interfaces\ILocale;
+use App\Models\Scopes\LocaleScope;
 use App\Traits\HasLangScope;
 use Database\Factories\AppAboutFactory;
 use Illuminate\Database\Eloquent\Builder;
@@ -19,6 +20,7 @@ class AppAbout extends Model implements ILocale
 
     protected $fillable = [
         'image',
+        'type',
     ];
 
     protected static function newFactory(): AppAboutFactory
@@ -29,6 +31,11 @@ class AppAbout extends Model implements ILocale
     public function locale(): HasOne
     {
         return $this->hasOne(AppAboutLocale::class, 'app_about_id', 'id');
+    }
+
+    public function locales(): HasMany
+    {
+        return $this->hasMany(AppAboutLocale::class)->withoutGlobalScopes([LocaleScope::class]);
     }
 
     public function items(): HasMany
