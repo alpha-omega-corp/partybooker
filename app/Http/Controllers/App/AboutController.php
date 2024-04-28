@@ -74,13 +74,13 @@ class AboutController extends Controller
 
         AppAboutItemLocale::create([
             'app_about_item_id' => $item->id,
-            'lang' => Language::FR,
+            'lang' => Language::FR->value,
             'content' => $data['content_fr'],
         ]);
 
         AppAboutItemLocale::create([
             'app_about_item_id' => $item->id,
-            'lang' => Language::EN,
+            'lang' => Language::EN->value,
             'content' => $data['content_en'],
         ]);
 
