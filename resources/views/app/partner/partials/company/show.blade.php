@@ -1,4 +1,5 @@
 @php($companyLink = route('guest.company.show', ['company' => $partner->company]))
+@php($company = $partner->company)
 
 
 <x-card.index
@@ -10,9 +11,6 @@
     @include('app.partner.partials.company.edit')
 
     <div class="partner-company">
-        <a href="{{$companyLink}}">
-            <x-icon.text :text="$companyLink" :icon="$linkIcon"/>
-        </a>
         <x-accordion name="partnerCompanyDetails">
 
             <x-accordion.item
@@ -20,8 +18,12 @@
                 name="contacts"
                 :padding="false"
             >
+                <x-slot:actions>
+                    @include('app.partner.partials.company.edit-contacts')
+                </x-slot:actions>
+
                 <x-slot:title>
-                    <h6>{{__('company.contacts')}}</h6>
+                    <h6>{{__('partner.company.contacts')}}</h6>
                 </x-slot:title>
 
                 <x-slot:content>
@@ -30,18 +32,29 @@
                     <x-icon.text :text="$partner->company->contact->fax" :icon="$faxIcon"/>
                 </x-slot:content>
             </x-accordion.item>
-            
+
+
             <x-accordion.item
                 accordion="partnerCompanyDetails"
-                name="location"
+                name="description"
                 :padding="false"
             >
+                <x-slot:actions>
+                    @include('app.partner.partials.company.edit-description')
+                </x-slot:actions>
+
                 <x-slot:title>
-                    <h6>{{__('company.location')}}</h6>
+                    <h6>{{__('partner.company.description')}}</h6>
                 </x-slot:title>
 
                 <x-slot:content>
-                    @include('app.partials.map')
+                    <div class="bg-white">
+                        <x-icon.text :text="$partner->company->locale->slogan" :icon="$sloganIcon"/>
+                    </div>
+
+                    <div class="partner-company-description">
+                        {!! $company->locale->description !!}
+                    </div>
                 </x-slot:content>
             </x-accordion.item>
 
@@ -50,8 +63,12 @@
                 name="statistics"
                 :padding="false"
             >
+                <x-slot:actions>
+                    @include('app.partner.partials.company.edit-statistics')
+                </x-slot:actions>
+
                 <x-slot:title>
-                    <h6>{{__('company.statistics')}}</h6>
+                    <h6>{{__('partner.company.statistics')}}</h6>
                 </x-slot:title>
 
                 <x-slot:content>
@@ -59,8 +76,24 @@
                 </x-slot:content>
             </x-accordion.item>
 
+            <x-accordion.item
+                accordion="partnerCompanyDetails"
+                name="location"
+                :padding="false"
+            >
+                <x-slot:title>
+                    <h6>{{__('partner.company.location')}}</h6>
+                </x-slot:title>
+
+                <x-slot:content>
+                    @include('app.partials.map')
+                </x-slot:content>
+            </x-accordion.item>
         </x-accordion>
 
+        <a href="{{$companyLink}}">
+            <x-icon.text :text="$companyLink" :icon="$linkIcon"/>
+        </a>
 
     </div>
 

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCompanyRequest extends FormRequest
+class UpdateCompanyContactRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -14,9 +14,9 @@ class UpdateCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'logo' => 'file',
-            'name' => 'required|string',
-            'slug' => 'required|string',
+            'email' => 'nullable|email',
+            'phone' => 'nullable|string',
+            'fax' => 'nullable|string',
         ];
     }
 }

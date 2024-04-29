@@ -167,7 +167,7 @@
 
 <div class="app-map">
     @php($location = $partner->company->location ? $partner->company->location : new CompanyLocation())
-    <form method="POST" action="{{route('partner.company.location', ['company' => $partner->company])}}">
+    <form method="POST" action="{{route('partner.company.update.location', ['company' => $partner->company])}}">
         @method('PUT')
         @csrf
         <div class="app-map-header">

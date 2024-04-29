@@ -164,9 +164,11 @@ Route::name('partner.')
                     ->name('company.')
                     ->prefix('company')
                     ->group(function () {
-                        Route::put('/', 'update')->name('update');
-                        Route::put('/statistics', 'updateStatistics')->name('statistics');
-                        Route::put('/location', 'updateLocation')->name('location');
+                        Route::put('/main', 'update')->name('update');
+                        Route::put('/description', 'updateDescription')->name('update.description');
+                        Route::put('/contact', 'updateContact')->name('update.contact');
+                        Route::put('/statistics', 'updateStatistics')->name('update.statistics');
+                        Route::put('/location', 'updateLocation')->name('update.location');
                     });
 
                 Route::controller(PartnerController::class)

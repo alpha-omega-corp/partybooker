@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Enums\Language;
+use App\Http\Requests\UpdateCompanyContactRequest;
+use App\Http\Requests\UpdateCompanyDescriptionRequest;
 use App\Http\Requests\UpdateCompanyLocationRequest;
 use App\Http\Requests\UpdateCompanyRequest;
 use App\Http\Requests\UpdateCompanyStatsRequest;
@@ -47,7 +49,7 @@ class CompanyController extends Controller
                 'zip' => $data['zip'],
                 'country' => $data['country'],
             ]);
-            
+
             $company->update([
                 'company_location_id' => $loc->id,
             ]);
@@ -71,11 +73,12 @@ class CompanyController extends Controller
             'slug' => $data['slug'],
         ]);
 
-        $company->contact->update([
-            'email' => $data['email'],
-            'phone' => $data['phone'],
-            'fax' => $data['fax'],
-        ]);
+        return back()->with('success', 'Company updated successfully');
+    }
+
+    public function updateDescription(Company $company, UpdateCompanyDescriptionRequest $request)
+    {
+        $data = $request->validated();
 
         $company->ofLang(Language::FR)->first()->locale->update([
             'slogan' => $data['slogan_fr'],
@@ -87,6 +90,19 @@ class CompanyController extends Controller
         ]);
 
         return back()->with('success', 'Company updated successfully');
+    }
+
+    public function updateContact(Company $company, UpdateCompanyContactRequest $request)
+    {
+        $data = $request->validated();
+
+        $company->contact->update([
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'fax' => $data['fax'],
+        ]);
+
+        return back()->with('success', 'Company contacts updated successfully');
     }
 
     public function updateStatistics(Company $company, UpdateCompanyStatsRequest $request)

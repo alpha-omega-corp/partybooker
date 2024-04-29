@@ -7,4 +7,12 @@ return [
     'email-views' => 'Vues courriel',
     'address-views' => 'Vues adresse',
     'advert-views' => 'Vues annonce',
+
+    'adverts' => 'Annonces',
+    'plan' => 'Formule',
+
+    'company.contacts' => 'Contacts',
+    'company.description' => 'Description',
+    'company.stats' => 'Statistics',
+    'company.location' => 'Address',
 ];
