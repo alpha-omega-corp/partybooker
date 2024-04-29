@@ -13,7 +13,7 @@
         <x-accordion.item
             accordion="adminContents"
             :name="trim($key)"
-            :padding="!($key === 'About' || $key === 'Partnership' || $key === 'Home')"
+            :padding="false"
         >
             <x-slot:title>
                 <div class="admin-content-header">

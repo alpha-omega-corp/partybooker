@@ -11,7 +11,7 @@ class FileService implements IFileService
 {
     public function blogThumbnail(UploadedFile $file): string
     {
-        return $this->store($file, 'images/blog/thumbnails', true);
+        return $this->store($file, 'images/app/blog', true);
     }
 
     private function store(UploadedFile $file, string $path, bool $resize, ?int $size = 500): string
@@ -49,6 +49,8 @@ class FileService implements IFileService
 
     public function delete(string $path): void
     {
-        Storage::delete($path);
+        if (Storage::exists($path)) {
+            Storage::delete($path);
+        }
     }
 }

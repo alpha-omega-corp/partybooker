@@ -15,7 +15,8 @@ class UpdatePostRequest extends FormRequest
     {
         return [
             'thumbnail' => 'file|nullable',
-            'slug' => 'required|string',
+            'slug_fr' => 'required|string',
+            'slug_en' => 'required|string',
             'title_fr' => 'required|string',
             'title_en' => 'required|string',
             'alt_fr' => 'required|string',

@@ -4,7 +4,7 @@
     :name="ModalName::APP_POST"
     :type="ModalType::CREATE"
     :size="ModalSize::MD"
-    :absolute="true"
+    :hidden="true"
     :multipart="true"
     :route="route('admin.post.store')"
 >

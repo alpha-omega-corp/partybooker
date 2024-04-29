@@ -2,7 +2,7 @@
     :name="ModalName::APP_FAQ"
     :type="ModalType::CREATE"
     :size="ModalSize::MD"
-    :absolute="true"
+    :hidden="true"
     :route="route('admin.faq.store')"
 >
 

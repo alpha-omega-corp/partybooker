@@ -18,7 +18,6 @@ class AppPostFactory extends Factory
     public function definition(): array
     {
         return [
-            'slug' => $this->faker->slug(2),
             'image' => $this->faker->imageUrl(500, 500),
             'status' => rand(true, false),
         ];

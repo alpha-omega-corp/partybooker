@@ -15,7 +15,8 @@ class StorePostRequest extends FormRequest
     {
         return [
             'thumbnail' => 'required|file',
-            'slug' => 'required|string',
+            'slug_fr' => 'required|string',
+            'slug_en' => 'required|string',
             'title_fr' => 'required|string',
             'title_en' => 'required|string',
             'alt_fr' => 'required|string',

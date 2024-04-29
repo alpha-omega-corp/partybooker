@@ -6,19 +6,20 @@
         :file="$item->image"/>
     <hr>
     <div class="d-flex flex-column gap-2">
-        <x-forms.input
-            name="slug"
-            label="Hyperlink"
-            :value="$item->slug"
-        >
-            @svg($linkIcon)
-        </x-forms.input>
+
     </div>
 </x-slot:body>
 
 <x-tab.locale>
     <x-slot:french>
         @php($locale = $item->locale ? $item->ofLang(Language::FR)->first()->locale : $item)
+        <x-forms.input
+            name="slug_fr"
+            label="Hyperlink"
+            :value="$locale->slug"
+        >
+            @svg($linkIcon)
+        </x-forms.input>
         <x-forms.input
             name="title_fr"
             label="Title"
@@ -41,6 +42,13 @@
 
     <x-slot:english>
         @php($locale = $item->locale ? $item->ofLang(Language::EN)->first()->locale : $item)
+        <x-forms.input
+            name="slug_en"
+            label="Hyperlink"
+            :value="$locale->slug"
+        >
+            @svg($linkIcon)
+        </x-forms.input>
         <x-forms.input
             name="title_en"
             label="Title"

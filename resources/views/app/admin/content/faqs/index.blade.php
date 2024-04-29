@@ -1,4 +1,13 @@
-@include('app.admin.content.faqs.partials.create')
+<x-modal.open
+    :name="ModalName::APP_FAQ"
+    :type="ModalType::CREATE"
+    :custom-color="AppColor::PRIMARY"
+    :icon="$createIcon"
+    :fit="true"
+    :radius="false"
+    :background="true"
+/>
+
 
 <x-accordion name="adminFaqs">
     @foreach($faqs as $item)
@@ -26,3 +35,4 @@
     @endforeach
 </x-accordion>
 
+@include('app.admin.content.faqs.partials.create')

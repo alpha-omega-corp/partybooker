@@ -9,7 +9,6 @@ return new class extends Migration {
     {
         Schema::create('app_posts', function (Blueprint $table) {
             $table->id();
-            $table->string('slug')->unique();
             $table->string('image');
             $table->boolean('status');
             $table->timestamps();

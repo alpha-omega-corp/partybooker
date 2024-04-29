@@ -48,14 +48,19 @@
     }
 }
 
+.admin-blog-container {
+}
+
 .admin-posts {
     .admin-post-card {
         border: 1px solid $light;
-        border-radius: 10px;
-        overflow: hidden;
-        margin-bottom: 20px;
         width: 100%;
         display: flex;
+        background-color: #fff;
+
+        p {
+            margin: 0;
+        }
 
         .admin-post-image {
             img {
@@ -77,6 +82,7 @@
                     font-weight: bold;
                     padding: 20px;
                     margin: 0;
+                    color: $blue;
                 }
             }
 

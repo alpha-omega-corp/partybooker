@@ -26,7 +26,6 @@ class PostController extends Controller
         $data = $request->validated();
 
         $post = AppPost::create([
-            'slug' => $data['slug'],
             'image' => $this->fileService->blogThumbnail($data['thumbnail']),
             'status' => false
         ]);
@@ -34,6 +33,7 @@ class PostController extends Controller
         AppPostLocale::create([
             'app_post_id' => $post->id,
             'lang' => Language::FR,
+            'slug' => $data['slug_fr'],
             'alt' => $data['alt_fr'],
             'title' => $data['title_fr'],
             'content' => $data['content_fr'],
@@ -42,6 +42,7 @@ class PostController extends Controller
         AppPostLocale::create([
             'app_post_id' => $post->id,
             'lang' => Language::EN,
+            'slug' => $data['slug_en'],
             'alt' => $data['alt_en'],
             'title' => $data['title_en'],
             'content' => $data['content_en'],
@@ -52,7 +53,10 @@ class PostController extends Controller
 
     public function destroy(AppPost $post): RedirectResponse
     {
+        $this->fileService->delete($post->image);
+        $post->locales()->delete();
         $post->delete();
+
         return redirect()->back()->with('success', 'Blog post deleted successfully');
     }
 
@@ -74,17 +78,18 @@ class PostController extends Controller
         }
 
         $post->update([
-            'slug' => $data['slug'],
             'image' => $image ?? $post->image,
         ]);
 
         $post->ofLang(Language::FR)->first()->locale->update([
+            'slug' => $data['slug_fr'],
             'alt' => $data['alt_fr'],
             'title' => $data['title_fr'],
             'content' => $data['content_fr'],
         ]);
 
         $post->ofLang(Language::EN)->first()->locale->update([
+            'slug' => $data['slug_en'],
             'alt' => $data['alt_en'],
             'title' => $data['title_en'],
             'content' => $data['content_en'],

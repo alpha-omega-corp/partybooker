@@ -54,6 +54,7 @@ class FaqController extends Controller
 
     public function destroy(AppFaq $faq): RedirectResponse
     {
+        $faq->locales()->delete();
         $faq->delete();
         return back()->with('success', 'Faq deleted successfully');
     }

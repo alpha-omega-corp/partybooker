@@ -15,9 +15,9 @@ class AppPostLocaleFactory extends Factory
     public function definition(): array
     {
         return [
+            'slug' => $this->faker->slug(2),
             'alt' => $this->faker->word,
             'title' => $this->faker->sentence,
-            'preview' => $this->faker->sentence(12),
             'content' => $this->faker->paragraph,
         ];
     }

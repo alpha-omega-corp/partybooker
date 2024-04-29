@@ -15,6 +15,7 @@ class AppPostLocale extends Model
     protected $fillable = [
         'app_post_id',
         'lang',
+        'slug',
         'alt',
         'title',
         'content',
