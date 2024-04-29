@@ -4,11 +4,14 @@
 
 @if($partner->company->adverts)
     @php
+        $image = null;
         $imagePool = $partner->company->adverts->map(function ($advert) {
             return $advert->images()->thumbnail()->first()->path;
         });
 
-        $image = $imagePool->random();
+        if(!$imagePool->isEmpty()) {
+            $image = $imagePool->random();
+        }
     @endphp
     <div class="top-card">
         <div class="top-card-image">
