@@ -12,8 +12,9 @@ class UpdateAppAboutRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string|required',
-            'image' => 'file|nullable',
+            'image' => 'file',
+            'title_fr' => 'string|required',
+            'title_en' => 'string|required',
         ];
     }
 }

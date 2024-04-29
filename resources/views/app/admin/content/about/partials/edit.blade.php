@@ -20,7 +20,7 @@
         <x-slot:french>
             @php($locale = $item->ofLang(Language::FR)->first()->locale)
             <x-forms.input
-                name="title"
+                name="title_fr"
                 label="Title"
                 :value="$locale->title"
             >
@@ -31,7 +31,7 @@
         <x-slot:english>
             @php($locale = $item->ofLang(Language::EN)->first()->locale)
             <x-forms.input
-                name="title"
+                name="title_en"
                 label="Title"
                 :value="$locale->title"
             >

@@ -89,59 +89,72 @@
 
 }
 
+.app-post {
+    .app-post-image {
+        img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+    }
+
+    .app-post-content {
+        padding: 20px;
+        background-color: #fff;
+    }
+}
+
 .home-blog {
     .blog-content-card {
         display: flex;
         flex-wrap: wrap;
 
-        a {
-            color: $gray;
-        }
 
         .post-card {
             overflow: hidden;
             flex-basis: 400px;
             flex-grow: 1;
             position: relative;
-            border: 1px solid $gray;
+            background-color: #fff;
+            border-bottom: 1px solid $light;
+
+            a {
+                color: $gray;
+            }
+
+            .post-card-logo {
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 20px;
+                background-color: #fff;
+                border-bottom-left-radius: 10px;
+            }
+
 
             .post-card-header {
                 .post-card-title {
                     padding: 20px;
-                    border-bottom: 1px solid $light;
                     font-weight: bold;
                     font-family: "Poppins", sans-serif;
                     text-align: center;
                     color: $blue;
+                    font-size: large;
                 }
 
                 img {
                     width: 100%;
-                    height: 200px;
+                    height: 250px;
                     object-fit: cover;
                 }
             }
 
             .post-card-content {
-                position: relative;
+                padding: 20px;
 
                 .post-card-date {
-                    position: absolute;
-                    bottom: 20px;
-                    right: 20px;
+                    text-align: center;
                     font-family: monospace;
-                }
-
-                .post-card-preview {
-                    padding: 20px;
-
-                    p {
-                        text-align: justify;
-                    }
-                }
-
-                .post-card-logo {
-                    padding: 20px;
                 }
             }
         }
@@ -213,6 +226,10 @@
         flex-grow: 1;
         background-color: #fff;
 
+        p {
+            padding: 10px;
+        }
+
         .usp-card-header {
             border-bottom: 1px solid $light;
             padding: 20px;
@@ -220,7 +237,7 @@
 
         .usp-card-title {
             font-weight: bold;
-            padding-bottom: 40px;
+            padding-bottom: 20px;
             text-align: end;
         }
 

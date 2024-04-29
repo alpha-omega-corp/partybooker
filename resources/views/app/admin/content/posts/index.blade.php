@@ -12,9 +12,6 @@
     @foreach($posts as $post)
         <div class="d-flex gap-2">
             <div class="admin-post-card">
-                <div class="admin-post-image">
-                    <img src="{{asset($post->image)}}" alt="{{$post->locale->alt}}"/>
-                </div>
 
                 <div class="admin-post">
                     <div class="admin-post-header">

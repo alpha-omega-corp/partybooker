@@ -9,11 +9,11 @@
     :background="true"
 />
 
-<x-accordion name="adminAbouts">
+<x-accordion name="adminAbouts{{$aboutType->name}}">
     @foreach($aboutItems as $about)
         <div class="d-flex justify-content-between align-items-center">
             <x-accordion.item
-                accordion="adminAbouts"
+                accordion="adminAbouts{{$aboutType->name}}"
                 :name="$about->id"
                 :padding="false"
             >

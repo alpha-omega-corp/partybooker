@@ -71,6 +71,7 @@
             :size="TitleSize::MEDIUM"
             :color="AppColor::BLUE"
             :border="true"
+            :background="true"
             :value="__('home.usp')"
         />
 
@@ -85,7 +86,9 @@
                         </li>
                     </div>
 
+
                     <p>{{$usp->locale->description}}</p>
+
                 </div>
             @endforeach
         </ul>

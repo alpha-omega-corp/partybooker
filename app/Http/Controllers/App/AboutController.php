@@ -111,8 +111,15 @@ class AboutController extends Controller
         }
 
         $about->update([
-            'name' => $data['name'],
             'image' => $image ?? $about->image,
+        ]);
+
+        $about->ofLang(Language::FR)->first()->locale->update([
+            'title' => $data['title_fr'],
+        ]);
+
+        $about->ofLang(Language::EN)->first()->locale->update([
+            'title' => $data['title_en'],
         ]);
 
         return back()->with('success', 'About updated successfully');

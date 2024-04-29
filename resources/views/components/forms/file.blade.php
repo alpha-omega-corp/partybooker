@@ -27,7 +27,7 @@
             @svg('heroicon-o-pencil')
         </a>
 
-        <img id="imagePreview-{{$id}}" src="#" alt="your image"/>
+        <img class="image-preview" id="imagePreview-{{$id}}" src="#" alt="your image"/>
     </div>
 
     <!-- File Input -->
