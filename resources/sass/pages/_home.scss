@@ -559,13 +559,11 @@
         border-radius: 10px;
         display: flex;
         flex-direction: column;
-        text-align: center;
-
         margin: 10px;
         overflow: hidden;
         position: relative;
 
-        .top-card-title {
+        .top-card-header {
             margin: 0;
             padding: 20px;
             font-weight: bold;
@@ -575,10 +573,15 @@
             background-color: rgba(0, 0, 0, 0.5);
             color: #fff;
             text-transform: uppercase;
+
+            .top-card-title {
+                font-weight: bold;
+            }
         }
 
         .top-card-location {
             padding: 10px;
+            text-align: center;
         }
 
         .top-card-content {

@@ -17,8 +17,8 @@
                  alt="placeholder">
         </div>
 
-        <div class="top-card-title">
-            <h6>{{$partner->company->name}}</h6>
+        <div class="top-card-header">
+            <h6 class="top-card-title">{{$partner->company->name}}</h6>
         </div>
 
         @if($partner->company->location)

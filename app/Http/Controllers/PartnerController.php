@@ -92,7 +92,7 @@ class PartnerController extends Controller
 
         $partner = Partner::create([
             'company_id' => $company->id,
-            'payment_id' => $payment->id
+            'partner_payment_id' => $payment->id
         ]);
 
         User::create([
