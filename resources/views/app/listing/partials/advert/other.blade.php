@@ -2,7 +2,7 @@
 
 @if($showAll || count($companyAdverts) !== 1)
     <x-card
-        :title="__('advert.others')"
+        :title="$otherTitle"
         :can-open="false"
         :center="true"
         class="company-adverts"

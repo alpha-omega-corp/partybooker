@@ -21,19 +21,15 @@
             <h6 class="top-card-title">{{$partner->company->name}}</h6>
         </div>
 
-        @if($partner->company->location)
-            <div class="top-card-location">
-                <span class="text-uppercase">{{$partner->company->location->state}}, </span>
-                <span>{{ucfirst($partner->company->location->city)}}</span>
-            </div>
-        @endif
-
         <div class="top-card-content">
             @if($image)
+
+                @php($location = $partner->company->location->state . ', ' . ucfirst($partner->company->location->city))
                 @include('app.listing.partials.advert.other', [
                     'advert' => $advertPool->first(),
                     'company' => $advertPool->first()->company,
-                    'showAll' => true
+                    'showAll' => true,
+                    'otherTitle' => $location
                 ])
             @endif
         </div>
