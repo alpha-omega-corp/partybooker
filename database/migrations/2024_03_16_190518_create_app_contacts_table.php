@@ -12,10 +12,10 @@ return new class extends Migration {
             $table->string('email');
             $table->string('phone');
             $table->string('address');
-            $table->string('facebook');
-            $table->string('linkedin');
-            $table->string('instagram');
-            $table->string('x');
+            $table->string('facebook')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('x')->nullable();
             $table->timestamps();
         });
     }

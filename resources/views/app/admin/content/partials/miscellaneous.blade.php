@@ -20,6 +20,7 @@
 
             <x-icon.text :text="$appContact->phone" :icon="$phoneIcon"/>
             <x-icon.text :text="$appContact->email" :icon="$emailIcon"/>
+            <x-icon.text :text="$appContact->address" :icon="$pinIcon"/>
 
             <x-icon.link :link="$appContact->instagram">
                 <img src="{{Vite::social('instagram')}}" alt="instagram">
@@ -32,14 +33,10 @@
             <x-icon.link :link="$appContact->x">
                 <img src="{{Vite::social('twitter')}}" alt="twitter">
             </x-icon.link>
-            
+
             <x-icon.link :link="$appContact->linkedin">
                 <img src="{{Vite::social('linkedin')}}" alt="linkedin">
             </x-icon.link>
-
-            <div class="p-4 text-center">
-                {{$appContact->address}}
-            </div>
 
             @include('app.admin.contacts.partials.edit', ['contacts' => $appContact])
         </x-slot:content>

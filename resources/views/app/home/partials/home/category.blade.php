@@ -1,4 +1,4 @@
-<div class="home-category-container">
+<x-app.section class="home-category-container">
     @foreach ($categories as $category)
         @php
             $icon = match ($category->service) {
@@ -25,4 +25,4 @@
             </div>
         </a>
     @endforeach
-</div>
+</x-app.section>

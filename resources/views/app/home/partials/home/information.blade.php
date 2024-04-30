@@ -30,10 +30,14 @@
         class="home-information-title"
     />
 
-    @foreach($information as $item)
-        @if($item->locale)
-            <x-utils.information :information="$item"/>
-        @endif
-    @endforeach
-    <x-app.mobile-more :route="route(__('route.home'))"/>
+    <x-app.section>
+        @foreach($information as $item)
+            @if($item->locale)
+                <x-utils.information :information="$item"/>
+            @endif
+        @endforeach
+        <x-app.mobile-more :route="route(__('route.home'))"/>
+    </x-app.section>
+
+
 </div>

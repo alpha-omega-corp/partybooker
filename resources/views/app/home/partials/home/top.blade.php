@@ -3,7 +3,7 @@
         <x-slot:title>
             <x-app.title
                 :size="TitleSize::MEDIUM"
-                :color="AppColor::PINK"
+                :color="AppColor::BLUE"
                 :value="__('home.tops')"
                 class="home-top-title"
             />
@@ -21,20 +21,22 @@
     <div class="carousel__mobile">
         <x-app.title
             :size="TitleSize::MEDIUM"
-            :color="AppColor::PINK"
+            :color="AppColor::BLUE"
             :value="__('home.tops')"
             class="home-top-title"
         />
 
-        <div class="carousel__mobile-content">
+        <x-app.section class="carousel__mobile-content">
             @foreach ($topRandom as $item)
                 <div class="mobile-top-card">
                     <x-utils.top :partner="$item"/>
                 </div>
             @endforeach
-        </div>
+            <x-app.mobile-more :route="route(__('route.home'))"></x-app.mobile-more>
 
-        <x-app.mobile-more :route="route(__('route.home'))"></x-app.mobile-more>
+        </x-app.section>
+
     </div>
-
 @endif
+
+

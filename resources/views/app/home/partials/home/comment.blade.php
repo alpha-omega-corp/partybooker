@@ -2,7 +2,7 @@
     <x-slot:title>
         <x-app.title
             :size="TitleSize::MEDIUM"
-            :color="AppColor::PINK"
+            :color="AppColor::BLUE"
             :value="__('home.comments')"
             class="home-comment-title"
         />
@@ -21,14 +21,18 @@
 <div class="carousel__mobile">
     <x-app.title
         :size="TitleSize::MEDIUM"
-        :color="AppColor::PINK"
+        :color="AppColor::BLUE"
         :value="__('home.comments')"
         class="home-comment-title"
     />
 
-    @foreach($commentsRandom as $comment)
-        <x-utils.comment :comment="$comment"/>
-    @endforeach
+    <x-app.section>
+        @foreach($commentsRandom as $comment)
+            <x-utils.comment :comment="$comment"/>
+        @endforeach
 
-    <x-app.mobile-more :route="route(__('route.home'))"/>
+        <x-app.mobile-more :route="route(__('route.home'))"/>
+    </x-app.section>
+
+
 </div>

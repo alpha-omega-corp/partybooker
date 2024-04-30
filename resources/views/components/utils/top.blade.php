@@ -5,26 +5,36 @@
 @if($partner->company->adverts)
     @php
         $image = null;
-        $imagePool = $partner->company->adverts->map(function ($advert) {
-            return $advert->images()->thumbnail()->first()->path;
-        });
+        $advertPool = $partner->company->adverts;
 
-        if(!$imagePool->isEmpty()) {
-            $image = $imagePool->random();
+        if(!$advertPool->isEmpty()) {
+            $image = $advertPool->random()->images()->thumbnail()->first()->path;
         }
     @endphp
     <div class="top-card">
         <div class="top-card-image">
             <img src="{{asset($image)}}"
                  alt="placeholder">
-
         </div>
 
-        <h6 class="top-card-title">{{$partner->company->name}}</h6>
+        <div class="top-card-title">
+            <h6>{{$partner->company->name}}</h6>
+        </div>
 
         <div class="top-card-content">
-            <span>{{$partner->company->location->address}}</span>
-            <span>{{$partner->company->loc}}</span>
+            @if($image)
+                @include('app.listing.partials.advert.other', [
+                    'advert' => $advertPool->first(),
+                    'company' => $advertPool->first()->company,
+                    'showAll' => true
+                ])
+            @endif
+
+            @if($partner->company->location)
+                <span>{{$partner->company->location->state}}</span>
+                <span>{{$partner->company->address}}</span>
+            @endif
+
         </div>
     </div>
 @endif

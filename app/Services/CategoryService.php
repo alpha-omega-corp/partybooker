@@ -32,7 +32,9 @@ class  CategoryService implements ICategoryService
             });
         }
 
-        return $adverts;
+        return $adverts->get()->sortBy(function (Advert $advert) {
+            return $advert->company->partner->payment->plan->code;
+        })->reverse();
     }
 
     public function getCategory(string $slug): Collection

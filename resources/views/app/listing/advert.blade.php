@@ -44,7 +44,9 @@
             ])
 
             @include('app.listing.partials.advert.contacts')
-            @include('app.listing.partials.advert.other')
+            @include('app.listing.partials.advert.other', [
+                'showAll' => false
+            ])
         </x-slot:right>
     </x-card.listing>
 @endsection

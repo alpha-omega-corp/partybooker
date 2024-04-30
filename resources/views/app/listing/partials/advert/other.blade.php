@@ -8,13 +8,13 @@
         class="company-adverts"
     >
         @foreach($companyAdverts as $companyAdvert)
-            @if($companyAdvert->id != $advert->id)
+            @if($showAll || $companyAdvert->id != $advert->id)
                 <a href="{{route(__('route.advert'), [
                     'advert' => $companyAdvert,
                     'company' => $company
                 ])}}">
                     <div class="company-adverts-item">
-                        <h6>{{ $companyAdvert->locale->title}}</h6>
+                        <h6 class="adverts-item-title">{{ $companyAdvert->locale->title}}</h6>
                         <div>
                             <x-advert.category :advert="$companyAdvert"/>
                         </div>

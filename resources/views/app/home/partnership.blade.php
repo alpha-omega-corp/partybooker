@@ -10,7 +10,6 @@
 @endsection
 
 @section('content')
-
     <x-card.panel
         :title="__('home.partnership')"
         class="home-partnership"

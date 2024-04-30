@@ -1,5 +1,10 @@
+.app-ll {
+
+}
+
 
 .app-listing {
+    height: 100%;
     @media only screen and (max-width: 1199px) {
         .row > * {
             padding: 0;
@@ -588,7 +593,11 @@
         padding: 20px;
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px dashed $orange;
+        border-bottom: 1px solid $light;
+
+        .adverts-item-title {
+            text-overflow: ellipsis;
+        }
     }
 
     .company-adverts-item:hover {

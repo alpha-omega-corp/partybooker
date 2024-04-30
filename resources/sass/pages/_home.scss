@@ -370,10 +370,9 @@
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        padding: 40px 0 40px;
 
         .description-content {
-            padding: 10px;
+            padding: 20px;
             font-size: larger;
             font-family: "Poppins", sans-serif;
             color: $blue;
@@ -389,35 +388,6 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 20px;
-
-        @media only screen and (min-width: 2200px) {
-            padding: 0 400px 120px;
-        }
-
-        @media only screen and (max-width: 2200px) {
-            padding: 0 300px 120px;
-        }
-
-        @media only screen and (max-width: 1700px) {
-            padding: 0 200px 120px;
-        }
-
-        @media only screen and (max-width: 1500px) {
-            padding: 0 150px 120px;
-        }
-
-        @media only screen and (max-width: 1000px) {
-            padding: 0 100px 120px;
-        }
-
-        @media only screen and (max-width: 900px) {
-            padding: 0 50px 50px;
-        }
-
-        @media only screen and (max-width: 600px) {
-            padding: 0 20px 50px;
-            border-bottom: 1px solid $gray;
-        }
     }
 
     a {
@@ -565,39 +535,6 @@
 }
 
 .home-top {
-    @media only screen and (min-width: 2200px) {
-        padding: 0 400px 120px;
-    }
-
-    @media only screen and (max-width: 2200px) {
-        padding: 0 300px 120px;
-    }
-
-    @media only screen and (max-width: 1700px) {
-        padding: 0 200px 120px;
-    }
-
-    @media only screen and (max-width: 1500px) {
-        padding: 0 150px 120px;
-    }
-
-    @media only screen and (max-width: 1000px) {
-        padding: 0 100px 120px;
-    }
-
-    @media only screen and (max-width: 900px) {
-        padding: 0 80px 50px;
-        border-bottom: 1px solid $gray;
-    }
-
-    @media only screen and (max-width: 800px) {
-        padding: 0 20px 50px;
-    }
-
-
-    @media only screen and (max-width: 700px) {
-        padding: 0 10px 50px;
-    }
 
     .mobile-top-card {
         border-radius: 10px;
@@ -620,34 +557,37 @@
         background-color: #fff;
         border: 1px solid $gray-300;
         border-radius: 10px;
-
-        height: 350px;
         display: flex;
         flex-direction: column;
         text-align: center;
         text-transform: uppercase;
         margin: 10px;
         overflow: hidden;
+        position: relative;
 
         .top-card-title {
-            color: #000;
             margin: 0;
             padding: 20px;
             font-weight: bold;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
         }
 
         .top-card-content {
             overflow: hidden;
             color: $gray;
             line-height: normal;
-            padding: 10px;
+            height: 260px;
         }
 
         .top-card-image {
             img {
                 height: 200px;
-                width: 400px;
-                object-fit: contain;
+                width: 100%;
+                object-fit: cover;
             }
         }
 
@@ -662,35 +602,7 @@
 }
 
 .home-information {
-    background-color: $home;
-    @media only screen and (min-width: 2200px) {
-        padding: 0 400px 120px;
-    }
-
-    @media only screen and (max-width: 2200px) {
-        padding: 0 300px 120px;
-    }
-
-    @media only screen and (max-width: 1700px) {
-        padding: 0 200px 120px;
-    }
-
-    @media only screen and (max-width: 1500px) {
-        padding: 0 150px 120px;
-    }
-
-    @media only screen and (max-width: 1000px) {
-        padding: 0 100px 120px;
-    }
-
-    @media only screen and (max-width: 900px) {
-        padding: 0 40px 120px;
-    }
-
-    @media only screen and (max-width: 600px) {
-        padding: 0 20px 120px;
-    }
-
+    background-color: #eeeeee;
 
     .home-information-title {
         margin: 80px 0;
@@ -698,9 +610,13 @@
 
     .information-card {
         margin: 20px;
+        padding: 20px;
+        border: 1px solid $light;
+        border-radius: 20px;
+        background-color: #fff;
 
         @media only screen and (max-width: 900px) {
-            margin: 20px 0 40px 0;
+            margin: 10px 0 20px 0;
 
             .information-card-title {
                 text-align: center;
@@ -737,29 +653,6 @@
 
 .home-comment {
     background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgb(197, 197, 255) 0%, rgba(186, 40, 209, 0.3) 0%, rgba(209, 239, 255, 0.81) 100%, rgba(0, 212, 255, 1) 100%);
-    @media only screen and (min-width: 2200px) {
-        padding: 0 400px 120px;
-    }
-
-    @media only screen and (max-width: 2200px) {
-        padding: 0 300px 120px;
-    }
-
-    @media only screen and (max-width: 1700px) {
-        padding: 0 200px 120px;
-    }
-
-    @media only screen and (max-width: 1500px) {
-        padding: 0 150px 120px;
-    }
-
-    @media only screen and (max-width: 1000px) {
-        padding: 0 100px 120px;
-    }
-
-    @media only screen and (max-width: 900px) {
-        padding: 0 20px 50px;
-    }
 
     .home-comment-title {
         margin: 80px 0;
@@ -767,32 +660,43 @@
 
     .comment-card {
         border-radius: 20px;
-        height: 550px;
+        height: 450px;
         position: relative;
         background-color: rgba(255, 255, 255, 0.2);
         margin: 40px;
+        overflow: hidden;
 
 
         @media only screen and (max-width: 900px) {
-            margin: 20px 0 40px 0;
+            margin: 20px 0 20px 0;
+        }
 
+        .comment-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid $gray;
+            padding: 20px;
+            background-color: #fff;
+
+            .card-header-name {
+                font-weight: bold;
+                margin: 0;
+
+            }
+
+            svg {
+                color: $pink;
+                width: 40px;
+                height: 40px;
+
+            }
         }
 
         .comment-card-content {
-            padding: 20px;
+            padding: 40px;
             text-align: justify;
 
-
-            .comment-card-icon {
-                margin: 20px 20px 20px;
-
-                svg {
-                    color: $blue;
-                    width: 40px;
-                    height: 40px;
-
-                }
-            }
 
             .comment-card-name {
                 position: absolute;
@@ -816,7 +720,6 @@
             p {
                 font-size: large;
                 font-family: 'IBM Plex Sans', sans-serif;
-                padding: 20px;
             }
 
         }
