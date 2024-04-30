@@ -21,6 +21,13 @@
             <h6>{{$partner->company->name}}</h6>
         </div>
 
+        @if($partner->company->location)
+            <div class="top-card-location">
+                <span class="text-uppercase">{{$partner->company->location->state}}, </span>
+                <span>{{ucfirst($partner->company->location->city)}}</span>
+            </div>
+        @endif
+
         <div class="top-card-content">
             @if($image)
                 @include('app.listing.partials.advert.other', [
@@ -29,12 +36,6 @@
                     'showAll' => true
                 ])
             @endif
-
-            @if($partner->company->location)
-                <span>{{$partner->company->location->state}}</span>
-                <span>{{$partner->company->address}}</span>
-            @endif
-
         </div>
     </div>
 @endif

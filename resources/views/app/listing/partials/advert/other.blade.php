@@ -1,6 +1,6 @@
 @php($companyAdverts = $advert->company->adverts()->get())
 
-@if(count($companyAdverts) !== 1)
+@if($showAll || count($companyAdverts) !== 1)
     <x-card
         :title="__('advert.others')"
         :can-open="false"
