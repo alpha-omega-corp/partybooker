@@ -15,8 +15,8 @@ class CategoryLocale extends Model
 
     public $timestamps = false;
     protected $fillable = [
-        'categorizable_id',
-        'categorizable_type',
+        'translatable_id',
+        'translatable_type',
         'lang',
         'slug',
         'title',

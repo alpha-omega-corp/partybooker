@@ -7,7 +7,7 @@
 
 
 @section('content')
-    <x-card.panel :title="__('admin.partners')" class="admin-listing">
+    <x-card.panel :title="__('admin.partners')" :color="AppColor::PINK" class="admin-listing">
 
         <div x-data="partners">
 
@@ -21,16 +21,15 @@
                 <div class="admin-listing-content">
                     <template x-for="item in filteredPartners()">
                         <div class="admin-listing-item shadow-lg">
+                            <h5 x-text="item.company" class="fw-bold text-center p-4"></h5>
                             <div class="listing-item-header">
-                                <div class="d-flex justify-content-between pb-2">
-                                    <h5 x-text="item.company" class="fw-bold"></h5>
-                                    <div>
-                                        <span x-text="item.plan"
-                                              x-bind:class="'badge text-white text-bg-' + item.plan"></span>
-                                    </div>
-                                </div>
+
 
                                 <small x-text="item.id"></small>
+                                <span x-text="item.plan"
+                                      x-bind:class="'badge text-white text-bg-' + item.plan"></span>
+
+
                             </div>
 
                             <x-app.action>

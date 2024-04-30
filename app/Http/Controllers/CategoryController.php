@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateCategoryRequest;
+use App\Http\Requests\CategoryTagRequest;
 use App\Interfaces\ICategoryService;
 use App\Models\Category;
 use App\Models\CategoryTag;
@@ -18,13 +18,27 @@ class CategoryController extends Controller
         $this->categoryService = $categoryService;
     }
 
-    public function updateTag(CategoryTag $tag, UpdateCategoryRequest $request)
+    public function destroyTag(CategoryTag $tag)
+    {
+        $tag->locales()->delete();
+        $tag->delete();
+
+        return back()->with('success', 'Category tag deleted');
+    }
+
+    public function storeTag(Category $category, CategoryTagRequest $request)
+    {
+        $this->categoryService->createCategoryTag($request, $category);
+        return back()->with('success', 'Category tag created');
+    }
+
+    public function updateTag(CategoryTag $tag, CategoryTagRequest $request)
     {
         $this->categoryService->updateCategory($request, $tag);
         return back()->with('success', 'Category tag updated');
     }
 
-    public function updateCategory(Category $category, UpdateCategoryRequest $request): RedirectResponse
+    public function updateCategory(Category $category, CategoryTagRequest $request): RedirectResponse
     {
         $this->categoryService->updateCategory($request, $category);
         return back()->with('success', 'Category updated');

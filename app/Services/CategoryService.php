@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Enums\Language;
-use App\Http\Requests\UpdateCategoryRequest;
+use App\Http\Requests\CategoryTagRequest;
 use App\Interfaces\ICategoryService;
 use App\Models\Advert;
 use App\Models\Category;
@@ -42,7 +42,39 @@ class  CategoryService implements ICategoryService
         return $locale->first()->translatable()->get();
     }
 
-    public function updateCategory(UpdateCategoryRequest $request, Category|CategoryTag $item): bool
+    public function createCategoryTag(CategoryTagRequest $request, Category $category): bool
+    {
+        $data = $request->validated();
+
+        $tag = CategoryTag::create([
+            'category_id' => $category->id,
+        ]);
+
+        CategoryLocale::create([
+            'translatable_id' => $tag->id,
+            'translatable_type' => CategoryTag::class,
+            'lang' => Language::FR,
+            'slug' => $data['slug_fr'],
+            'title' => $data['title_fr'],
+            'description' => $data['description_fr'],
+            'keywords' => array_key_exists('keywords_fr', $data) ? $data['keywords_fr'] : null,
+        ]);
+
+        CategoryLocale::create([
+            'translatable_id' => $tag->id,
+            'translatable_type' => CategoryTag::class,
+            'lang' => Language::EN,
+            'slug' => $data['slug_en'],
+            'title' => $data['title_en'],
+            'description' => $data['description_en'],
+            'keywords' => array_key_exists('keywords_en', $data) ? $data['keywords_en'] : null,
+        ]);
+
+
+        return true;
+    }
+
+    public function updateCategory(CategoryTagRequest $request, Category|CategoryTag $item): bool
     {
         $data = $request->validated();
 

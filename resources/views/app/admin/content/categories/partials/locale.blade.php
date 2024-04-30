@@ -2,23 +2,28 @@
     @foreach($categories as $category)
         @php($categoryLink = route(__('route.listing'), ['category' => $category->locale->slug]))
 
-        <x-card :title="$category->locale->title" class="admin-category-card">
+        <x-card :title="$category->locale->title" :can-open="false" :actionable="true" class="admin-category-card">
             <div class="category-card-link">
                 <a href="{{$categoryLink}}">
                     {{ $categoryLink }}
                 </a>
             </div>
 
-            <div class="category-card-header">
-                <p>{{$category->locale->description}}</p>
-
+            <x-slot:actions>
+                @include('app.admin.content.categories.partials.create')
                 <x-modal.open
                     :iterator="$category->id"
                     :name="ModalName::APP_CATEGORY"
                     :type="ModalType::UPDATE"
-                    :automatic="true"
-                    :absolute="true"
+                    :icon="$editIcon"
+                    :background="false"
                 />
+            </x-slot:actions>
+
+            <div class="category-card-header">
+                <p>{{$category->locale->description}}</p>
+
+
             </div>
             <x-slot:body>
                 <ul class="category-card-tags" x-show="show" x-bind:class="show ? 'border-start' : ''">
@@ -31,18 +36,28 @@
                                 ]))
 
                                 <li>
-                                    <span class="w-100">{{$tag->locale->title}}</span>
-                                    <x-modal.open
-                                        :iterator="$tag->id"
-                                        :name="ModalName::APP_CATEGORY_TAG"
-                                        :type="ModalType::UPDATE"
-                                        :automatic="true"
-                                        :background="false"
-                                        :absolute="true"
-                                    />
+                                    <div class="position-relative">
+                                        <span class="w-100">{{$tag->locale->title}}</span>
+
+                                        <div class="card-tag-actions">
+                                            <x-modal.open
+                                                :iterator="$tag->id"
+                                                :name="ModalName::APP_CATEGORY_TAG"
+                                                :type="ModalType::UPDATE"
+                                                :automatic="true"
+                                                :background="false"
+                                            />
+
+                                            <x-modal.open
+                                                :iterator="$tag->id"
+                                                :name="ModalName::APP_CATEGORY_TAG"
+                                                :type="ModalType::DELETE"
+                                                :automatic="true"
+                                                :background="false"
+                                            />
+                                        </div>
+                                    </div>
                                 </li>
-
-
                             </div>
                         @endif
                     @endforeach

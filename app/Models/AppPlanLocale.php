@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\LocaleScope;
 use Database\Factories\AppPlanLocaleFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,12 +13,18 @@ class AppPlanLocale extends Model
     use HasFactory;
 
     protected $fillable = [
-        'description'
+        'description',
+        'name'
     ];
 
     protected static function newFactory(): AppPlanLocaleFactory
     {
         return AppPlanLocaleFactory::new();
+    }
+
+    protected static function booted(): void
+    {
+        static::addGlobalScope(new LocaleScope());
     }
 
     public function plan(): BelongsTo

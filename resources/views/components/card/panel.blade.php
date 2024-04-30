@@ -1,5 +1,6 @@
 @props([
     'title' => null,
+    'color' => AppColor::BLUE,
 ])
 
 <div {{$attributes->merge(['class' => 'app-card-panel'])}}>
@@ -7,7 +8,7 @@
         @if($title)
             <x-app.title
                 :size="TitleSize::LARGE"
-                :color="AppColor::BLUE"
+                :color="$color"
                 :value="$title"
                 :border="true"
                 :background="true"

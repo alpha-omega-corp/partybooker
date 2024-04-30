@@ -12,8 +12,9 @@
         @class([
             'btn',
             'tippy' => $type || $tooltip,
-            'text-white btn-'.($customColor ? $customColor->value : $color),
+            'btn-'.($customColor ? $customColor->value : ($background ? $color : 'transparent')),
             'text-'.$color => !$background && !$customColor,
+            'text-white' => $background || $customColor,
             'w-100' => $fit,
             'rounded-0' => !$radius,
             'text-start' => !$center

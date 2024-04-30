@@ -16,12 +16,19 @@
 .app-input {
     width: 100%;
 
-    .input-group-text {
-        background-color: $blue;
+    img {
+        width: 20px;
+        height: 20px;
+    }
 
+    .input-group-text {
         svg {
             color: #fff;
         }
+    }
+
+    .input-group-bg {
+        background-color: $blue;
     }
 
     input:focus {

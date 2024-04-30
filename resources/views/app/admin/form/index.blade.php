@@ -6,13 +6,14 @@
 @endsection
 
 @section('content')
-    <x-card.panel :title="__('admin.form')">
-        @foreach(FormType::values() as $formType)
-            <div>
-                <x-card :title="$formType" class="app-admin-form" :can-open="false">
-                    <ul>
+    <x-card.panel :title="__('admin.form')" :color="AppColor::PINK">
+
+        <div class="admin-forms-container">
+            @foreach(FormType::values() as $formType)
+                <x-card :title="$formType" class="admin-form-card">
+                    <ul class="form-card-content">
                         @foreach(AppForm::ofType(FormType::from($formType))->get() as $form)
-                            <li>
+                            <li class="card-content-item">
                                 <div class="d-flex justify-content-between">
                                     <p>{{$form->locale->label}}</p>
                                     <div>
@@ -32,7 +33,7 @@
                     'formType' => $formType,
                     ])
                 </x-card>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </x-card.panel>
 @endsection

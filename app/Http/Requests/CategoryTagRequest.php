@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCategoryRequest extends FormRequest
+class CategoryTagRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -18,10 +18,10 @@ class UpdateCategoryRequest extends FormRequest
             'title_en' => 'required',
             'slug_fr' => 'required',
             'slug_en' => 'required',
-            'description_fr' => 'required',
-            'description_en' => 'required',
-            'keywords_fr' => 'required|array',
-            'keywords_en' => 'required|array',
+            'description_fr' => 'nullable|string',
+            'description_en' => 'nullable|string',
+            'keywords_fr' => 'nullable|array',
+            'keywords_en' => 'nullable|array',
         ];
     }
 }

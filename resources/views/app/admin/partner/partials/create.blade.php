@@ -2,7 +2,7 @@
     <x-modal.open
         :name="ModalName::PARTNER"
         :type="ModalType::CREATE"
-        :custom-color="AppColor::PINK"
+        :custom-color="AppColor::BLUE"
         :singleton="true"
         :fit="true"
         :radius="false"

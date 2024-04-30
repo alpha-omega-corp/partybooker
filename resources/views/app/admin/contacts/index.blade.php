@@ -7,7 +7,7 @@
 @section('content')
 
     <x-card.panel :title="__('admin.contacts')">
-        @include('app.admin.contacts.partials.edit', ['contacts' => $appContact])
+
 
         <div class="contacts-card">
             <div class="card-list">

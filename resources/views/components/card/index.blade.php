@@ -23,7 +23,9 @@
             </h2>
 
             @if(isset($actions) && $actionable)
-                {{$actions}}
+                <div class="app-card-actions">
+                    {{$actions}}
+                </div>
             @endif
         </div>
     @endif

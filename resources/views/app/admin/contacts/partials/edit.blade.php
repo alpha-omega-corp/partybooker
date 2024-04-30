@@ -2,7 +2,7 @@
     :name="ModalName::APP_CONTACT"
     :type="ModalType::UPDATE"
     :size="ModalSize::MD"
-    :absolute="true"
+    :hidden="true"
     :route="route('admin.contacts')"
 >
     <x-slot:body>
@@ -27,35 +27,30 @@
         <x-forms.input
             name="instagram"
             :value="$contacts->instagram"
+            :background="false"
         >
-            <x-slot:image>
-                <img src="{{Vite::social('instagram')}}" alt="instagram">
-            </x-slot:image>
+            <img src="{{Vite::social('instagram')}}" alt="instagram">
         </x-forms.input>
         <x-forms.input
             name="facebook"
             :value="$contacts->facebook"
+            :background="false"
         >
-            <x-slot:image>
-                <img src="{{Vite::social('facebook')}}" alt="facebook">
-            </x-slot:image>
+            <img src="{{Vite::social('facebook')}}" alt="facebook">
         </x-forms.input>
         <x-forms.input
             name="x"
-            label="Twitter"
             :value="$contacts->x"
+            :background="false"
         >
-            <x-slot:image>
-                <img src="{{Vite::social('twitter')}}" alt="twitter">
-            </x-slot:image>
+            <img src="{{Vite::social('twitter')}}" alt="twitter">
         </x-forms.input>
         <x-forms.input
             name="linkedin"
             :value="$contacts->linkedin"
+            :background="false"
         >
-            <x-slot:image>
-                <img src="{{Vite::social('linkedin')}}" alt="linkedin">
-            </x-slot:image>
+            <img src="{{Vite::social('linkedin')}}" alt="linkedin">
         </x-forms.input>
     </x-slot:body>
 </x-modal.index>

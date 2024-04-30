@@ -12,13 +12,13 @@ class UpdateAppContactsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email',
-            'phone' => 'required',
-            'address' => 'required',
-            'facebook' => 'required',
-            'linkedin' => 'required',
-            'instagram' => 'required',
-            'x' => 'required',
+            'email' => 'nullable|email',
+            'phone' => 'nullable|string',
+            'address' => 'nullable|string',
+            'facebook' => 'nullable|string',
+            'linkedin' => 'nullable|string',
+            'instagram' => 'nullable|string',
+            'x' => 'nullable|string',
         ];
     }
 }

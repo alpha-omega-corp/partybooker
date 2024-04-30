@@ -111,15 +111,24 @@
 
     .partner-company {
         background-color: #fff;
-
-        .text-icon {
-            border-bottom: 1px solid $light;
-            padding: 20px;
-        }
     }
 
 }
 
+.text-icon {
+    border-bottom: 1px solid $light;
+    padding: 20px;
+}
+
+.link-icon {
+    border-bottom: 1px solid $light;
+    padding: 20px;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}
 
 .advert-gallery-count {
     border-bottom: 1px solid $light;

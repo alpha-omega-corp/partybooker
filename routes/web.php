@@ -211,14 +211,13 @@ Route::controller(AdminController::class)
         Route::get('/messages', 'messages')->name('messages');
         Route::get('/partners', 'partners')->name('partners');
         Route::put('/update-tops', 'updateTopServices')->name('tops');
-        Route::put('/update-contacts', 'updateAppContacts')->name('contacts');
+        Route::put('/update-contacts', 'updateContacts')->name('contacts');
 
         Route::name('fr.')->prefix('admin')->group(function () {
             Route::get('/contenu', 'content')->name('content');
             Route::get('/categories', 'categories')->name('categories');
             Route::get('/formules', 'plans')->name('plans');
             Route::get('/contacts', 'contacts')->name('contacts');
-            Route::get('/conditions', 'terms')->name('terms');
         });
 
         Route::name('en.')->prefix('en/admin')->group(function () {
@@ -226,7 +225,6 @@ Route::controller(AdminController::class)
             Route::get('/categories', 'categories')->name('categories');
             Route::get('/plans', 'plans')->name('plans');
             Route::get('/contacts', 'contacts')->name('contacts');
-            Route::get('/terms', 'terms')->name('terms');
         });
     });
 
@@ -259,6 +257,8 @@ Route::middleware('admin')
             ->group(function () {
                 Route::put('/{categories}', 'updateCategory')->name('update');
                 Route::put('/tag/{tag}', 'updateTag')->name('tag.update');
+                Route::post('/tag/{category}', 'storeTag')->name('tag.store');
+                Route::delete('/tag/{tag}', 'destroyTag')->name('tag.destroy');
             });
 
 

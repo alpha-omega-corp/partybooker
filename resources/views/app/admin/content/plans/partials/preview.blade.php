@@ -4,6 +4,7 @@
     :type="ModalType::READ"
     :size="ModalSize::MD"
     :background="false"
+    :custom-color="AppColor::PINK"
     :route="route('admin.plan.update', [
         'plan' => $item
     ])"

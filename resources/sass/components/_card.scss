@@ -82,6 +82,13 @@
             margin: 0;
             font-family: "Poppins", sans-serif;
         }
+
+        .app-card-actions {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            display: flex;
+        }
     }
 
     .app-card-content-border {

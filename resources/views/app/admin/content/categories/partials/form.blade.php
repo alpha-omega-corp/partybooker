@@ -1,6 +1,6 @@
 <x-tab.locale>
     <x-slot:french>
-        @php($locale = $item->ofLang(Language::FR)->first()->locale)
+        @php($locale = $item->locale ? $item->ofLang(Language::FR)->first()->locale : $item)
 
         <x-forms.input
             name="title_fr"
@@ -34,7 +34,7 @@
     </x-slot:french>
 
     <x-slot:english>
-        @php($locale = $item->ofLang(Language::EN)->first()->locale)
+        @php($locale = $item->locale ? $item->ofLang(Language::EN)->first()->locale : $item)
 
         <x-forms.input
             name="title_en"

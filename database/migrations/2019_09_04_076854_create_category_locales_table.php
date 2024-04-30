@@ -13,7 +13,7 @@ return new class extends Migration {
             $table->string('lang');
             $table->string('slug');
             $table->string('title');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->json('keywords')->nullable();
         });
     }

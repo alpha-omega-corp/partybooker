@@ -49,16 +49,6 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{url(route(__('route.admin-terms')))}}">
-                            Terms
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="{{url(route(__('route.admin-contacts')))}}">
-                            Contacts
-                        </a>
-                    </li>
-                    <li>
                         <a class="dropdown-item" href="{{url(route('admin.messages'))}}">
                             Messages
                         </a>

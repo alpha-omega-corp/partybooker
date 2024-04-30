@@ -51,6 +51,7 @@ class FormController extends Controller
 
     public function destroy(AppForm $form)
     {
+        $form->locales()->delete();
         $form->delete();
 
         return redirect()->back()->with('success', 'Form deleted successfully.');

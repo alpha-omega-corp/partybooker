@@ -51,6 +51,59 @@
 .admin-blog-container {
 }
 
+.admin-forms-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+
+    .app-card-header {
+        text-align: start !important;
+    }
+
+    .admin-form-card {
+        border: 1px solid $light;
+        border-radius: 20px;
+        background-color: #fff;
+        flex-grow: 1;
+        flex-basis: 400px;
+
+        .form-card-content {
+            padding: 20px 10px 20px 40px;
+
+            .card-content-item {
+                list-style-type: decimal;
+                padding-left: 10px;
+
+                &::marker {
+                    color: $pink;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+.admin-plans-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+
+    .admin-plan-card {
+        padding: 20px;
+        border: 1px solid $light;
+        border-radius: 20px;
+        background-color: #fff;
+        flex-grow: 1;
+
+        .plan-card-title {
+            text-transform: uppercase;
+        }
+    }
+}
+
+
 .admin-posts {
     .admin-post-card {
         border: 1px solid $light;
@@ -122,23 +175,32 @@
 }
 
 .admin-category {
+
+    .app-card-header {
+        text-align: start !important;
+    }
+
     .admin-category-container {
         display: flex;
         flex-wrap: wrap;
         column-gap: 20px;
+        padding: 20px;
     }
 
     .admin-category-card {
         border: 1px solid $light;
+        border-bottom: 0;
         margin-bottom: 20px;
         position: relative;
         border-radius: 10px;
         flex-grow: 1;
         flex-basis: 300px;
+        background-color: #fff;
 
         .card-content-padded {
             padding-top: 0 !important;
             padding-right: 0 !important;
+            padding-bottom: 0 !important;
         }
 
         .category-card-header {
@@ -157,6 +219,7 @@
             font-size: large;
             text-transform: uppercase;
             font-weight: bold;
+            text-align: center;
         }
 
         .category-card-tags {
@@ -165,7 +228,7 @@
             margin: 0;
 
             li::marker {
-                color: $primary;
+                color: $pink;
             }
 
             li {
@@ -175,7 +238,15 @@
             .card-tag-content {
                 padding: 20px 10px 20px;
                 border-bottom: 1px solid $light;
-                position: relative;
+            }
+
+            .card-tag-actions {
+                display: flex;
+                align-items: center;
+                position: absolute;
+                top: -5px;
+                right: 10px;
+
             }
         }
     }
@@ -230,33 +301,41 @@
     .admin-listing-content {
         width: 100%;
         overflow: scroll;
-        padding: 20px 40px 40px;
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
-
-        @media only screen and (max-width: 800px) {
-            padding: 20px;
-            overflow: visible;
-        }
 
         @media only screen and (min-width: 1200px) {
             height: 600px;
+            padding: 20px 40px 40px;
+            gap: 20px;
+
+            .admin-listing-item {
+                border-radius: 10px;
+            }
         }
 
         .admin-listing-item {
             margin-bottom: 20px;
-            border-radius: 20px;
             position: relative;
-            border: 1px solid $gray;
+            border: 1px solid $light;
             flex-basis: 400px;
             flex-grow: 1;
             overflow: hidden;
+            background-color: #fff;
 
             .listing-item-header {
                 padding: 20px;
                 border-bottom: 1px solid $gray;
-                height: 120px;
+                border-top: 1px solid $gray;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+
+                .item-header-id {
+                    position: absolute;
+                    bottom: 10px;
+                    color: $gray;
+                }
             }
 
             .listing-item-content {

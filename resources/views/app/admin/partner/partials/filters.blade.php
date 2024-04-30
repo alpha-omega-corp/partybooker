@@ -49,7 +49,7 @@
         </x-accordion.item>
     </x-accordion.index>
 
-    <div class="p-4">
+    <div class="p-4 bg-white">
         <x-forms.input
             name="input"
             model="input"

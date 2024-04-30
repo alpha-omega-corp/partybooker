@@ -10,6 +10,7 @@
     'max' => 200,
     'model' => null,
     'id' => null,
+    'background' => true,
 ])
 <div class="d-flex gap-2 w-100">
     @if(isset($image))
@@ -18,7 +19,10 @@
 
     <div class="app-input mb-2">
         <div class="input-group">
-            <div class="input-group-text">
+            <div @class([
+                'input-group-text',
+                'input-group-bg' => $background,
+            ])>
                 {{$slot}}
             </div>
 

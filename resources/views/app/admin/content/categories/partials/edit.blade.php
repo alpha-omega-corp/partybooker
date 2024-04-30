@@ -30,6 +30,10 @@
                     'item' => $tag
                 ])
             </x-modal.index>
+
+            @include('app.admin.content.categories.partials.delete', [
+                'tag' => $tag
+            ])
         @endif
     @endforeach
 
