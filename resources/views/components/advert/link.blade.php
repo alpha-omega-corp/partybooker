@@ -1,6 +1,6 @@
 <a href="{{route(__('route.advert'), [
-    'advert' => $advert,
     'company' => $advert->company,
+    'category' => $advert->category->locale,
 ])}}"
     {{$blank ? 'target="_blank"' : ''}}>
     {{$slot}}

@@ -106,14 +106,14 @@ Route::name('guest.')
                 Route::name('fr.')
                     ->group(function () {
                         Route::get('/annonces/{category?}/{tag?}', 'index')->name('index');
-                        Route::get('/annonce/{company:slug}/{advert:slug}', 'advert')->name('advert');
+                        Route::get('/annonce/{company:slug}/{category:slug}', 'advert')->name('advert');
                     });
 
                 Route::name('en.')
                     ->prefix('en')
                     ->group(function () {
                         Route::get('/adverts/{category?}/{tag?}', 'index')->name('index');
-                        Route::get('/advert/{company:slug}/{advert:slug}', 'advert')->name('advert');
+                        Route::get('/advert/{company:slug}/{category:slug}', 'advert')->name('advert');
                     });
             });
 
@@ -184,6 +184,8 @@ Route::name('partner.')
                     ->prefix('advert')
                     ->group(function () {
                         Route::post('/{partner}', 'store')->name('store');
+                        Route::post('/tag/{advert}', 'tag')->name('tag');
+                        Route::delete('/tag/{advert}/{tag}', 'destroyTag')->name('tag.destroy');
                         Route::delete('/{advert}', 'destroy')->name('destroy');
 
                         Route::put('/status/{advert}', 'status')->name('status');

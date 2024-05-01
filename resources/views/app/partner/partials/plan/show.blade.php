@@ -1,8 +1,5 @@
-<x-card.index :title="__('partner.plan')" :actionable="true">
-
-    <x-slot:actions>
-        @include('app.partner.partials.plan.edit')
-    </x-slot:actions>
+<x-card.index :title="__('partner.plan')" :can-open="false">
+    @include('app.partner.partials.plan.edit')
 
     <x-slot:body>
         <x-plan.badge :plan="$payment->plan"/>

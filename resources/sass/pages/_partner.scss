@@ -1,4 +1,28 @@
+.advert-tags-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid $light;
+}
+
+.advert-tags-content {
+    padding: 10px 10px 20px 40px;
+
+    li {
+        list-style-type: decimal;
+
+        &::marker {
+            color: $blue;
+            font-weight: bold;
+        }
+    }
+}
+
 .partner-dashboard {
+    .app-card-header {
+        text-align: start !important;
+    }
 
     .row > * {
         padding: 0;
@@ -6,6 +30,12 @@
 
     .partner-company-description {
         padding: 20px;
+    }
+
+    .partner-advert-header {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 
     .partner-advert-title {
@@ -16,8 +46,6 @@
     }
 
     .partner-advert {
-        margin-bottom: 20px;
-
         .partner-advert-url {
             padding: 20px;
         }
@@ -51,6 +79,7 @@
             display: flex;
             flex-wrap: wrap;
             column-gap: 20px;
+            padding: 0 20px;
             row-gap: 10px;
 
             .advert-gallery-item {
@@ -94,9 +123,10 @@
 
                 .keyword-item {
                     padding: 10px;
-                    border: 1px solid $primary;
+                    border: 1px solid $blue;
+                    text-align: center;
                     border-radius: 5px;
-                    color: $gray;
+                    flex-grow: 1;
                 }
             }
 
@@ -138,6 +168,6 @@
         display: flex;
         justify-content: space-between;
         gap: 10px;
-        padding: 10px;
+        padding: 20px;
     }
 }

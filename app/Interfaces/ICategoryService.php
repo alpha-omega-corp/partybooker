@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Collection;
 
 interface ICategoryService
 {
+    public function getFromSlug(string $slug): Category;
+
     public function getCategory(string $slug): Collection;
 
     public function filterCategory(?string $requestCat, ?string $requestTag): Builder;

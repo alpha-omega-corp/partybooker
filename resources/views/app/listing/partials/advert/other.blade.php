@@ -10,8 +10,8 @@
         @foreach($companyAdverts as $companyAdvert)
             @if($showAll || $companyAdvert->id != $advert->id)
                 <a href="{{route(__('route.advert'), [
-                    'advert' => $companyAdvert,
-                    'company' => $company
+                    'company' => $company,
+                    'category' => $companyAdvert->category->locale,
                 ])}}">
                     <div class="company-adverts-item">
                         <h6 class="adverts-item-title d-inline-block text-truncate"

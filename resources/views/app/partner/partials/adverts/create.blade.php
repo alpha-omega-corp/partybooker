@@ -3,6 +3,7 @@
     :type="ModalType::CREATE"
     :size="ModalSize::MD"
     :absolute="true"
+    :background="false"
     :route="route('partner.advert.store', [
             'partner' => $partner
         ])"
@@ -28,13 +29,6 @@
     </x-tab.locale>
 
     <x-slot:body>
-        <x-forms.input
-            name="slug"
-            label="Hyperlink"
-            type="text">
-            @svg($linkIcon)
-        </x-forms.input>
-
         <x-forms.select label="Choose Category" name="category">
             @svg($boxIcon)
             <x-slot:options>

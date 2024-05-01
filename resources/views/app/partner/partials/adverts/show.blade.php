@@ -1,5 +1,5 @@
 @if($plan->advert_count > count($partner->company->adverts))
-    
+
     <!-- Create Advert -->
     @include('app.partner.partials.adverts.create')
 @endif
@@ -18,27 +18,27 @@
             </x-slot:actions>
 
             <x-slot:title>
-                <h6 class="partner-advert-title">
-                    {{$advert->locale->title}}
-                </h6>
+                <div class="partner-advert-header">
+                    <x-advert.category :advert="$advert"/>
+                    <h6 class="partner-advert-title">
+                        {{$advert->locale->title}}
+                    </h6>
+                </div>
             </x-slot:title>
 
             <x-slot:content>
                 <div class="partner-advert">
-                    @php($advertUrl = route(__('route.advert'), [
+                    @php($advertLink = route(__('route.advert'), [
                         'company' => $advert->company,
-                        'advert' => $advert,
+                        'category' => $advert->category->locale,
                     ]))
 
-                    <div class="partner-advert-url">
-                        <a href="{{$advertUrl}}">
-                            {{$advertUrl}}
-                        </a>
-                    </div>
-
                     @include('app.partner.partials.adverts.service')
-                    @include('app.listing.partials.advert.description')
-                    @include('app.listing.partials.advert.statistics')
+
+                    <a href="{{$advertLink}}">
+                        <x-icon.text :text="$advertLink" :icon="$linkIcon"/>
+                    </a>
+
                 </div>
             </x-slot:content>
         </x-accordion.item>

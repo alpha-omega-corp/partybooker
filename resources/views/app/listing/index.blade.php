@@ -5,11 +5,6 @@
 @endsection
 
 @section('content')
-
-    <div class="app-ll">
-        
-    </div>
-
     <x-card.listing
         :title="__('app.listing')"
         :title-color="AppColor::BLUE"

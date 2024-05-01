@@ -1,7 +1,12 @@
 <div class="advert-gallery-count">
     <div class="gallery-count">
         @svg('heroicon-o-photo')
-        {{count($advert->images()->get()). '/'. $plan->upload_count}}
+
+        <div class="d-flex gap-1">
+            <span>{{count($advert->images()->get())}}</span>/
+            <span class="fw-bold text-blue">{{$plan->upload_count}}</span>
+        </div>
+
     </div>
 </div>
 

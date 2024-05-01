@@ -8,6 +8,7 @@
 @section('content')
     <x-card.panel
         :title="$partner->company->name"
+        :color="AppColor::PINK"
         class="partner-dashboard"
     >
         <div class="row align-items-start">

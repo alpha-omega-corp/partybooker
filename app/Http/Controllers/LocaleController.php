@@ -4,16 +4,22 @@
 namespace App\Http\Controllers;
 
 
-use Illuminate\Http\Request;
+use App\Interfaces\ICategoryService;
+use App\Services\CategoryService;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 
 class LocaleController extends Controller
 {
+    private ICategoryService $categoryService;
 
+    public function __construct(CategoryService $categoryService)
+    {
+        $this->categoryService = $categoryService;
+    }
 
-    public function setLocale(string $lang, Request $request)
+    public function setLocale(string $lang)
     {
         App::setLocale($lang);
         $referer = Redirect::back()->getTargetUrl();
@@ -23,7 +29,7 @@ class LocaleController extends Controller
             Str::contains($referer, ['annonces', 'adverts']) => route(__('route.listing')),
             Str::contains($referer, ['annonce', 'advert']) => route(__('route.advert'), [
                 'company' => $segments[count($segments) - 2],
-                'advert' => $segments[count($segments) - 1]
+                'category' => $this->categoryService->getFromSlug($segments[count($segments) - 1])->locale->slug
             ]),
 
             Str::contains($referer, ['a-propos', 'about']) => route(__('route.about')),

@@ -16,7 +16,7 @@ class AdvertTag extends Model
 
     protected $fillable = [
         'advert_id',
-        'category_child_id',
+        'category_tag_id',
     ];
 
     protected static function newFactory(): AdvertTagFactory
@@ -27,6 +27,11 @@ class AdvertTag extends Model
     public function advert(): BelongsTo
     {
         return $this->belongsTo(Advert::class);
+    }
+
+    public function tag(): BelongsTo
+    {
+        return $this->belongsTo(CategoryTag::class, 'category_tag_id');
     }
 
     public function scopeOfTag(Builder $query, int $id): void

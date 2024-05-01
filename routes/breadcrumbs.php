@@ -51,7 +51,7 @@ Breadcrumbs::for('advert', function (Trail $trail, Advert $advert) {
 
     $trail->push($advert->locale->title, route(__('route.advert'), [
         'company' => $advert->company->slug,
-        'advert' => $advert->slug
+        'category' => $advert->category->locale
     ]));
 });
 

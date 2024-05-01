@@ -2,6 +2,8 @@
 
 
 return [
+    'tags' => 'Tags',
+    'optimization' => 'Optimization',
     'show' => 'Show',
     'close' => 'Close',
     'service' => 'Service',

@@ -122,8 +122,10 @@
 
 .app-card-information {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
+    width: 100%;
 
     .card-information-content {
         p {
@@ -224,7 +226,7 @@
             }
         }
     }
-    
+
     .card-panel-header {
         background-color: #fff;
 

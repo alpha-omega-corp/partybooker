@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Interfaces\ICategoryService;
-use App\Models\Advert;
 use App\Models\Category;
+use App\Models\CategoryLocale;
 use App\Models\Company;
 use App\Services\CategoryService;
 use App\Services\PartnerService;
@@ -40,8 +40,11 @@ class ListingController extends Controller
         ]);
     }
 
-    public function advert(Company $company, Advert $advert): View
+    public function advert(Company $company, string $category): View
     {
+        $locale = CategoryLocale::where('slug', $category)->first();
+        $advert = $company->adverts()->where('category_id', $locale->translatable_id)->firstOrFail();
+
         return view('app.listing.advert', [
             'advert' => $advert,
             'company' => $company

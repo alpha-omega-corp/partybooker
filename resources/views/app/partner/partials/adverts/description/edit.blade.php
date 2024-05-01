@@ -1,9 +1,19 @@
+<x-modal.open
+    :iterator="$advert->id"
+    :name="ModalName::PARTNER_ADVERT_DESCRIPTION"
+    :type="ModalType::UPDATE"
+    :icon="$editIcon"
+    :fit="true"
+    :radius="false"
+    :background="true"
+/>
+
 <x-modal.index
     :iterator="$advert->id"
     :name="ModalName::PARTNER_ADVERT_DESCRIPTION"
     :type="ModalType::UPDATE"
     :size="ModalSize::LG"
-    :absolute="true"
+    :hidden="true"
     :background="false"
     :route="route('partner.advert.description', [
         'advert' => $advert

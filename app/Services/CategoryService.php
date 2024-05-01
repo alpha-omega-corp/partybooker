@@ -14,6 +14,13 @@ use Illuminate\Database\Eloquent\Collection;
 
 class  CategoryService implements ICategoryService
 {
+    public function getFromSlug(string $slug): Category
+    {
+        return Category::find(CategoryLocale::withoutGlobalScopes()
+            ->where('slug', $slug)
+            ->first()->translatable_id);
+    }
+
     public function filterCategory(?string $requestCat, ?string $requestTag): Builder
     {
         if (!$requestCat) {
@@ -32,9 +39,7 @@ class  CategoryService implements ICategoryService
             });
         }
 
-        return $adverts->get()->sortBy(function (Advert $advert) {
-            return $advert->company->partner->payment->plan->code;
-        })->reverse();
+        return $adverts;
     }
 
     public function getCategory(string $slug): Collection

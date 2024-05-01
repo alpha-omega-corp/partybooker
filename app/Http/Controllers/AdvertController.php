@@ -7,6 +7,7 @@ use App\Enums\CategoryType;
 use App\Enums\Language;
 use App\Helpers\MetaHelper;
 use App\Http\Requests\StoreAdvertRequest;
+use App\Http\Requests\StoreAdvertTagRequest;
 use App\Http\Requests\UpdateAdvertAccessRequest;
 use App\Http\Requests\UpdateAdvertDescriptionRequest;
 use App\Http\Requests\UpdateAdvertMetaRequest;
@@ -18,7 +19,9 @@ use App\Models\AdvertRate;
 use App\Models\AdvertSchedule;
 use App\Models\AdvertService;
 use App\Models\AdvertStatistic;
+use App\Models\AdvertTag;
 use App\Models\Category;
+use App\Models\CategoryTag;
 use App\Models\Partner;
 use App\Models\ServiceCaterer;
 use App\Models\ServiceEntertainment;
@@ -38,6 +41,24 @@ class AdvertController extends Controller
     {
         $this->fileService = $fileService;
         $this->listingService = $listingService;
+    }
+
+    public function tag(Advert $advert, StoreAdvertTagRequest $request): RedirectResponse
+    {
+        $data = $request->validated();
+        AdvertTag::create([
+            'advert_id' => $advert->id,
+            'category_tag_id' => $data['tag'],
+        ]);
+
+        return back()->with('success', 'Advert tagged successfully');
+    }
+
+    public function destroyTag(Advert $advert, CategoryTag $tag)
+    {
+        AdvertTag::where('advert_id', $advert->id)->where('category_tag_id', $tag->id)->delete();
+
+        return back()->with('success', 'Advert tag deleted successfully');
     }
 
     public function store(Partner $partner, StoreAdvertRequest $request): RedirectResponse
