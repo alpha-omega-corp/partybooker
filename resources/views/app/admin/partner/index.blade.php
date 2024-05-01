@@ -23,13 +23,9 @@
                         <div class="admin-listing-item shadow-lg">
                             <h5 x-text="item.company" class="fw-bold text-center p-4"></h5>
                             <div class="listing-item-header">
-
-
-                                <small x-text="item.id"></small>
+                                <small>Created <span x-text="item.created"></span></small>
                                 <span x-text="item.plan"
                                       x-bind:class="'badge text-white text-bg-' + item.plan"></span>
-
-
                             </div>
 
                             <x-app.action>
@@ -82,8 +78,8 @@
                                 </x-card>
                             </div>
 
-                            <div class="listing-item-date">
-                                <small>Created <span x-text="item.created"></span></small>
+                            <div class="listing-item-id">
+                                <small x-text="item.id"></small>
                             </div>
                         </div>
 

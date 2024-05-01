@@ -13,9 +13,11 @@
         :value="$content->title"
     />
 
-    <p class="description-content">
-        {{$content->content}}
-    </p>
+    <div class="container">
+        <p class="description-content">
+            {{$content->content}}
+        </p>
+    </div>
 </div>
 
 

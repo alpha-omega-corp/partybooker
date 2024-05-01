@@ -10,15 +10,7 @@
                 @svg($userIcon)
             </button>
             <ul class="dropdown-menu">
-                @if(!Auth::user()->isAdmin() && Auth::user()->partner)
-                    <li>
-                        <a class="dropdown-item"
-                           href="{{route(__('route.profile'), Auth::user()->partner->company)}}">
-                            Dashboard
-                        </a>
-                    </li>
-                @else
-
+                @if(Auth::user()->isAdmin())
                     <li><h6 class="dropdown-header">Management</h6></li>
                     <li>
                         <hr class="dropdown-divider">
@@ -54,16 +46,27 @@
                         </a>
                     </li>
                 @endif
-
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><h6 class="dropdown-header">{{__('app.user')}}</h6></li>
 
                 <li>
                     <hr class="dropdown-divider">
                 </li>
                 <li>
                     <a class="dropdown-item" href="{{route('auth.logout')}}">
-                        Logout
+                        {{__('app.logout')}}
                     </a>
                 </li>
+                @if(!Auth::user()->isAdmin() && Auth::user()->partner)
+                    <li>
+                        <a class="dropdown-item"
+                           href="{{route(__('route.profile'), Auth::user()->partner->company)}}">
+                            {{__('app.profile')}}
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

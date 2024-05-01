@@ -14,25 +14,28 @@
             {{Breadcrumbs::render('about', Request::segments())}}
         </x-slot:breadcrumbs>
 
-        <div class="about-card">
-            <div class="about-description w-100">
+        <x-app.section class="about-cards-container">
+            <div>
                 <x-app.title
                     :size="TitleSize::SMALL"
                     :color="AppColor::PINK"
                     :value="$description->title"
+                    :border="false"
                 />
                 <p>{{$description->content}}</p>
             </div>
 
-            <div class="about-concept w-100">
+
+            <div>
                 <x-app.title
                     :size="TitleSize::SMALL"
                     :color="AppColor::PINK"
                     :value="$concept->title"
+                    :border="false"
                 />
                 <p>{{$concept->content}}</p>
             </div>
-        </div>
+        </x-app.section>
 
         <div class="about-features-card">
             <x-app.title

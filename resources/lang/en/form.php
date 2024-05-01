@@ -14,5 +14,5 @@ return [
     'price' => 'Price',
     'url' => 'Link',
     'title' => 'Title',
-
+    'password_confirm' => 'Confirm password',
 ];

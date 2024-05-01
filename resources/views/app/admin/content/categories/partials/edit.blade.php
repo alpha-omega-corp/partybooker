@@ -6,7 +6,7 @@
         :size="ModalSize::MD"
         :hidden="true"
         :route="route('admin.categories.update', [
-            'categories' => $category
+            'category' => $category
         ])"
     >
         @include('app.admin.content.categories.partials.form', [

@@ -96,16 +96,21 @@
                     @endif
                 </div>
                 <div class="modal-footer gap-2">
-                    <button type="button" class="btn btn-outline-secondary" id="{{$id . '-close'}}"
-                            data-bs-dismiss="modal">
-                        {{strtoupper('Close')}}
-                    </button>
-
-                    @if($type !== ModalType::READ)
-                        <button type="submit" class="btn text-white btn-{{$color}}" id="{{$id . '-save'}}">
-                            {{strtoupper('Submit')}}
+                    <div class="modal-footer-actions">
+                        @if(isset($actions))
+                            {{$actions}}
+                        @endif
+                        <button type="button" class="btn btn-outline-secondary" id="{{$id . '-close'}}"
+                                data-bs-dismiss="modal">
+                            {{strtoupper('Close')}}
                         </button>
-                    @endif
+
+                        @if($type !== ModalType::READ)
+                            <button type="submit" class="btn text-white btn-{{$color}}" id="{{$id . '-save'}}">
+                                {{strtoupper('Submit')}}
+                            </button>
+                        @endif
+                    </div>
 
                 </div>
             </div>

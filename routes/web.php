@@ -42,6 +42,7 @@ Route::get('/locale/{lang}', [LocaleController::class, 'setLocale'])->name('loca
 Route::controller(AuthController::class)
     ->name('auth.')
     ->group(function () {
+        Route::post('/register', 'register')->name('register');
         Route::post('/login', 'authenticate')->name('login');
         Route::get('/logout', 'logout')->name('logout');
     });
@@ -255,7 +256,7 @@ Route::middleware('admin')
             ->name('categories.')
             ->prefix('categories')
             ->group(function () {
-                Route::put('/{categories}', 'updateCategory')->name('update');
+                Route::put('/{category}', 'updateCategory')->name('update');
                 Route::put('/tag/{tag}', 'updateTag')->name('tag.update');
                 Route::post('/tag/{category}', 'storeTag')->name('tag.store');
                 Route::delete('/tag/{tag}', 'destroyTag')->name('tag.destroy');

@@ -1,5 +1,40 @@
 <x-layouts.app>
     @yield('content')
+
+    <x-modal.index
+        :name="ModalName::APP_REGISTER"
+        :type="ModalType::CREATE"
+        :size="ModalSize::MD"
+        :singleton="true"
+        :hidden="true"
+        :action="false"
+        :title="__('app.register')"
+        :route="route('auth.register')"
+    >
+        <x-slot:body>
+            <x-forms.input
+                name="email"
+                :label="__('form.email')">
+                @svg('heroicon-o-envelope')
+            </x-forms.input>
+
+            <x-forms.input
+                name="password"
+                :label="__('form.password')"
+                type="password">
+                @svg('heroicon-o-key')
+            </x-forms.input>
+
+            <x-forms.input
+                name="password_confirm"
+                :label="__('form.password')"
+                type="password">
+                @svg('heroicon-s-key')
+            </x-forms.input>
+        </x-slot:body>
+
+    </x-modal.index>
+
 </x-layouts.app>
 
 <script>

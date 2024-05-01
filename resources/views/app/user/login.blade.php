@@ -10,8 +10,10 @@
         :title="__('app.login')"
         :route="route('auth.login')"
     >
+        <x-slot:actions>
+            @include('app.user.register')
+        </x-slot:actions>
         <x-slot:body>
-
             <x-forms.input
                 name="email"
                 :label="__('auth.email')">
