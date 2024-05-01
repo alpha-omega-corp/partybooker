@@ -27,30 +27,10 @@
                 :text="strtoupper(__('form.join_title'))"
             />
         </x-app.action>
-        <div class="benefits-content-card">
-            <div class="benefits-content">
-                @foreach($benefits as $benefit)
-                    <div class="benefit-card">
-                        <div class="benefit-card-header">
-                            <h6 class="benefit-card-title">
-                                {{$benefit->locale->title}}
-                            </h6>
 
-                            <div>
-                                <img src="{{ $benefit->image }}" alt="{{ $benefit->name }}" class="shadow-lg">
-                            </div>
-                        </div>
-
-                        <div class="benefit-card-content">
-                            @foreach($benefit->items as $item)
-                                <p>{{ $item->locale->content }}</p>
-                            @endforeach
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-
+        <x-app.section>
+            @include('app.home.partials.partnership.benefits')
+        </x-app.section>
 
         <x-app.title
             :size="TitleSize::MEDIUM"
@@ -60,11 +40,9 @@
             :value="__('home.plans')"
         />
 
-        <div class="plans-content-card">
-            @foreach($plans as $plan)
-                <x-plan.card :plan="$plan"></x-plan.card>
-            @endforeach
-        </div>
+        <x-app.section>
+            @include('app.home.partials.partnership.plans')
+        </x-app.section>
 
         <x-app.title
             :size="TitleSize::MEDIUM"
@@ -74,41 +52,34 @@
             :value="__('home.usp')"
         />
 
-        <ul class="usp-content-card">
-            @foreach($usps as $usp)
-                <div class="usp-card">
-                    <div class="usp-card-header">
-                        <li>
-                            <h6 class="usp-card-title">
-                                {{$usp->locale->title}}
-                            </h6>
-                        </li>
-                    </div>
+        <x-app.section>
+            @include('app.home.partials.partnership.usp')
+        </x-app.section>
 
+        <x-app.title
+            :size="TitleSize::SMALL"
+            :color="AppColor::BLUE"
+            :value="__('home.help_title')"
+            :background="true"
+            class="partnership-help-title"
+        />
 
-                    <p>{{$usp->locale->description}}</p>
-
-                </div>
-            @endforeach
-        </ul>
-
-        <div class="partnership-help-card">
-            <div class="partnership-help">
-                <x-app.title
-                    :size="TitleSize::SMALL"
-                    :color="AppColor::BLUE"
-                    :value="__('home.help_title')"
-                    :background="true"
-                    class="partnership-help-title"
-                />
-
-                <div class="partnership-help-content">
-                    <p>{{__('home.help')}}</p>
-
-                    @include('app.home.partials.partnership.help')
-                </div>
+        <x-app.section>
+            <div class="container text-center p-2">
+                <p>{{__('home.help')}}</p>
+                <x-modal.open
+                    :name="ModalName::APP_HELP"
+                    :type="ModalType::CREATE"
+                    :custom-color="AppColor::PINK"
+                    :fit="true"
+                    :singleton="true"
+                    :icon="$checkIcon"
+                    :title="__('home.help_title')"
+                    class="app-help-button"/>
             </div>
-        </div>
+
+            @include('app.home.partials.partnership.help')
+        </x-app.section>
     </x-card.panel>
 
     @include('app.home.partials.partnership.join')

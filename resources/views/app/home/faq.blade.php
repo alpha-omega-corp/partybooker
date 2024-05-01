@@ -24,11 +24,12 @@
                     class="faq-card"
                 >
                     <x-slot:title>
-                        <div class="faq-title">
-                            <li class="text-center">
+                        <div class="faq-header">
+                            <li class="faq-title">
                                 <p>{{$faq->locale->question}}</p>
                             </li>
                         </div>
+
                     </x-slot:title>
 
                     <x-slot:content>

@@ -6,7 +6,7 @@
         class="home-comment-title"
     />
 
-    <x-app.section>
+    <x-app.section class="carousel__mobile-content">
         @foreach($commentsValue as $comment)
             <x-utils.comment :comment="$comment"/>
         @endforeach

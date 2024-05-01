@@ -204,7 +204,6 @@
 .plans-content-card {
     display: flex;
     gap: 20px;
-    padding: 20px;
 
     @media only screen and (max-width: 1000px) {
         flex-direction: column;
@@ -216,9 +215,9 @@
 }
 
 .usp-content-card {
-    padding: 20px;
     display: flex;
     flex-wrap: wrap;
+    padding: 0;
 
     .usp-card {
         border: 1px solid $light;
@@ -262,7 +261,6 @@
 }
 
 .benefits-content-card {
-    padding: 20px;
 
     .benefits-header {
         width: 100%;
@@ -374,7 +372,7 @@
         text-align: center;
 
         .description-content {
-            padding: 20px;
+            padding: 40px 20px 20px;
             font-size: larger;
             font-family: "Poppins", sans-serif;
             color: $blue;
@@ -626,7 +624,7 @@
         background-color: #fff;
 
         @media only screen and (max-width: 900px) {
-            margin: 10px 0 20px 0;
+            margin: 10px;
 
             .information-card-title {
                 text-align: center;
@@ -675,9 +673,8 @@
         margin: 40px;
         overflow: hidden;
 
-
         @media only screen and (max-width: 900px) {
-            margin: 20px 0 20px 0;
+            margin: 10px;
         }
 
         .comment-card-header {
@@ -745,19 +742,22 @@
         border-top: 1px solid $pink;
     }
 
+    .faq-header {
+        padding: 20px;
+    }
+
     .faq-title {
-        padding-left: 20px;
-        padding-right: 20px;
+        list-style-type: square;
 
-        li {
-            &::marker {
-                color: $pink;
-            }
+        &::marker {
+            color: $pink;
+            font-weight: bold;
+        }
 
-            p {
-                margin: 0;
-                font-size: small;
-            }
+        p {
+            margin: 0;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
         }
     }
 }

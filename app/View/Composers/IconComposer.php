@@ -32,5 +32,7 @@ class IconComposer
         $view->with('clickIcon', 'heroicon-o-cursor-arrow-rays');
         $view->with('createIcon', 'heroicon-o-plus-circle');
         $view->with('sloganIcon', 'heroicon-o-speaker-wave');
+        $view->with('tagIcon', 'heroicon-o-tag');
+        $view->with('backIcon', 'heroicon-o-backspace');
     }
 }

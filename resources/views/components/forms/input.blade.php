@@ -17,7 +17,7 @@
         <div class="app-input-image">{{$image}}</div>
     @endif
 
-    <div class="app-input mb-2">
+    <div class="app-input">
         <div class="input-group">
             <div @class([
                 'input-group-text',

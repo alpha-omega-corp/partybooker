@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'create' => 'New partner',
     'dashboard' => 'Dashboard',
     'phone-views' => 'Phone views',
     'website-views' => 'Website views',

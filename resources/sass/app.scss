@@ -46,6 +46,10 @@
     .carousel__mobile {
         display: block;
 
+        section {
+            padding: 5px !important;
+        }
+
         .carousel__mobile-content {
             display: flex;
             flex-wrap: wrap;

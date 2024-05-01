@@ -1,4 +1,4 @@
-<div class="app-plan">
+<div class="app-plan shadow-lg">
     <x-plan.title
         :plan="$plan"
         class="plan-title"

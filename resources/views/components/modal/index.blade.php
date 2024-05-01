@@ -54,7 +54,10 @@
 
         <div class="modal-dialog {{$size}} modal-dialog-centered {{$transparent ? 'modal-transparent' : ''}}">
             <div class="modal-content">
-                <div class="modal-header">
+                <div @class([
+                    'modal-header',
+                    'modal-header-padding' => $hasTitle,
+                ])>
                     <div class="d-flex flex-column gap-2">
                         @if(!$action)
                             @if($hasTitle)
@@ -76,8 +79,19 @@
 
                     </div>
 
-                    <button type="button" class="btn-close fw-bold" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                    <button
+                        type="button"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        @class([
+                            'btn',
+                            'btn-close' => $hasTitle,
+                            'btn-close-full btn-secondary' => !$hasTitle,
+                        ])>
+                        @if(!$hasTitle)
+                            @svg($backIcon)
+                        @endif
+                    </button>
                 </div>
 
                 <div class="modal-body">

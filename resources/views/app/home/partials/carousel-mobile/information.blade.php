@@ -6,7 +6,7 @@
         class="home-information-title"
     />
 
-    <x-app.section>
+    <x-app.section class="carousel__mobile-content">
         @foreach($informationValue as $item)
             @if($item->locale)
                 <x-utils.information :information="$item"/>
