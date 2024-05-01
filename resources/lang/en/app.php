@@ -9,4 +9,5 @@ return [
     'mobile-more' => 'view more',
     'save' => 'Save',
     'user' => 'Account',
+    'logout' => 'Logout',
 ];

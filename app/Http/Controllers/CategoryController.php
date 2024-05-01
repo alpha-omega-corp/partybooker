@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CategoryTagRequest;
 use App\Interfaces\ICategoryService;
+use App\Models\AdvertTag;
 use App\Models\Category;
 use App\Models\CategoryTag;
 use App\Services\CategoryService;
@@ -20,6 +21,8 @@ class CategoryController extends Controller
 
     public function destroyTag(CategoryTag $tag)
     {
+        AdvertTag::where('category_tag_id', $tag->id)->delete();
+        
         $tag->locales()->delete();
         $tag->delete();
 

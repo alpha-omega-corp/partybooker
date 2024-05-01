@@ -173,18 +173,16 @@
         .nav {
             margin-top: 0;
 
-
             .nav-item {
-                padding: 10px;
-                margin: 5px 20px;
-                border: 1px solid $light;
+                padding: 20px;
+                border-bottom: 1px solid $light;
                 color: $gray;
-                border-radius: 5px;
+                font-size: large;
 
                 .nav-item-content {
                     display: flex;
                     align-items: center;
-                    padding-left: 10px;
+                    gap: 10px;
                 }
             }
 
@@ -194,6 +192,9 @@
 
             svg {
                 margin-right: 10px;
+                width: 25px;
+                height: 25px;
+                color: $pink;
             }
         }
 

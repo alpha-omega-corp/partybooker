@@ -60,9 +60,9 @@
     </div>
 
     {{$slot}}
-    
-
 </div>
 </body>
+@include('app.partials.footer')
+
 
 </html>

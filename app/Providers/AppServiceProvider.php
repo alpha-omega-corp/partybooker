@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\User;
 use App\View\Composers\DashboardComposer;
+use App\View\Composers\FooterComposer;
 use App\View\Composers\IconComposer;
 use App\View\Composers\SettingComposer;
 use Illuminate\Pagination\Paginator;
@@ -23,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer("*", IconComposer::class);
         View::composer("*", SettingComposer::class);
+        View::composer('*', FooterComposer::class);
         View::composer([
             'app.admin.partner.index',
             'app.partner.dashboard',

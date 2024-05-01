@@ -1,0 +1,25 @@
+.app-footer {
+    background-color: $footer;
+
+    .footer-main {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $dark;
+
+        .footer-logo {
+            img {
+                width: 80px;
+            }
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+    }
+
+    .footer-contacts {
+    }
+}
