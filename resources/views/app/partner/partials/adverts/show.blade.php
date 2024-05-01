@@ -7,7 +7,7 @@
 <x-accordion.index name="partnerAdverts">
     @foreach($partner->company->adverts as $advert)
         <x-accordion.item
-            :name="$advert->slug"
+            :name="$advert->category->id"
             accordion="partnerAdverts"
             :padding="false"
         >
