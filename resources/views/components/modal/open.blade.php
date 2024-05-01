@@ -45,5 +45,6 @@
         @endif
 
         {{$text}}
+        {{$slot}}
     </button>
 </div>

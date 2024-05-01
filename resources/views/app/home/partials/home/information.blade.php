@@ -22,22 +22,7 @@
     </x-slot:items>
 </x-carousel>
 
-<div class="carousel__mobile">
-    <x-app.title
-        :size="TitleSize::MEDIUM"
-        :color="AppColor::BLUE"
-        :value="__('home.information')"
-        class="home-information-title"
-    />
-
-    <x-app.section>
-        @foreach($information as $item)
-            @if($item->locale)
-                <x-utils.information :information="$item"/>
-            @endif
-        @endforeach
-        <x-app.mobile-more :route="route(__('route.home'))"/>
-    </x-app.section>
-
-
-</div>
+@include('app.home.partials.carousel-mobile.information', [
+    'informationValue' => $information,
+])
+<x-app.mobile-more :modal="ModalName::MORE_INFORMATION" :items="$information"/>

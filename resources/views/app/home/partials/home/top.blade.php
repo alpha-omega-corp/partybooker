@@ -18,25 +18,10 @@
         </x-slot:items>
     </x-carousel>
 
-    <div class="carousel__mobile">
-        <x-app.title
-            :size="TitleSize::MEDIUM"
-            :color="AppColor::BLUE"
-            :value="__('home.tops')"
-            class="home-top-title"
-        />
-
-        <x-app.section class="carousel__mobile-content">
-            @foreach ($topRandom as $item)
-                <div class="mobile-top-card">
-                    <x-utils.top :partner="$item"/>
-                </div>
-            @endforeach
-            <x-app.mobile-more :route="route(__('route.home'))"></x-app.mobile-more>
-
-        </x-app.section>
-
-    </div>
+    @include('app.home.partials.carousel-mobile.top', [
+        'topValue' => $topRandom,
+    ])
+    <x-app.mobile-more :modal="ModalName::MORE_TOPS" :items="$top"/>
 @endif
 
 

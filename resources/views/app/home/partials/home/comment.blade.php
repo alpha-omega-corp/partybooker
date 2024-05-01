@@ -17,22 +17,10 @@
     </x-slot:items>
 </x-carousel>
 
+@include('app.home.partials.carousel-mobile.comment', [
+    'commentsValue' => $commentsRandom,
+])
 
-<div class="carousel__mobile">
-    <x-app.title
-        :size="TitleSize::MEDIUM"
-        :color="AppColor::BLUE"
-        :value="__('home.comments')"
-        class="home-comment-title"
-    />
-
-    <x-app.section>
-        @foreach($commentsRandom as $comment)
-            <x-utils.comment :comment="$comment"/>
-        @endforeach
-
-        <x-app.mobile-more :route="route(__('route.home'))"/>
-    </x-app.section>
+<x-app.mobile-more :modal="ModalName::MORE_COMMENTS" :items="$comments"/>
 
 
-</div>

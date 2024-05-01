@@ -4,6 +4,7 @@
     'background' => true,
     'transparent' => false,
     'tag' => null,
+    'hasTitle' => true,
 ])
 
 <a
@@ -56,9 +57,11 @@
                 <div class="modal-header">
                     <div class="d-flex flex-column gap-2">
                         @if(!$action)
-                            <h6 class="modal-title fs-5 fw-bold text-uppercase" id="{{$id . 'ModalLabel'}}">
-                                {{$title ? $title : ucfirst($type->name) . ' ' . $name->name}}
-                            </h6>
+                            @if($hasTitle)
+                                <h6 class="modal-title fs-5 fw-bold text-uppercase" id="{{$id . 'ModalLabel'}}">
+                                    {{$title ? $title : ucfirst($type->name) . ' ' . $name->name}}
+                                </h6>
+                            @endif
                         @else
                             <div class="modal-action">
                                 <div class="d-flex gap-2">

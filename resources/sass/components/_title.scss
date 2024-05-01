@@ -32,11 +32,8 @@
 }
 
 .title-border {
-    @media only screen and (max-width: 1200px) {
-        border-bottom: 1px solid #000;
-        border-top: 1px solid #000;
-
-    }
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
 }
 
 .app-title-padding {
