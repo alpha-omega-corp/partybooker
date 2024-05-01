@@ -8,7 +8,7 @@ use App\Livewire\CreateEvent;
 use App\Livewire\CreateWine;
 
 Route::name('partner.advert.service.')
-    ->prefix('/advert/{advert:slug}')
+    ->prefix('/advert/{advert}')
     ->group(function () {
         Route::get('/wine', CreateWine::class)->name('wine');
         Route::get('/event', CreateEvent::class)->name('event');
