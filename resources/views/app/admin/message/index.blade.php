@@ -6,24 +6,52 @@
 @endsection
 
 @section('content')
-    <x-card.panel :title="__('admin.messages')">
-        <x-tab :items="[
-            'Partnership',
-            'Help',
-            'Service',
-            ]"
+    <x-card.panel :title="__('admin.messages')" :color="AppColor::PINK">
+
+        <x-accordion
+            name="adminMessages"
         >
-            <x-tab.item :information="__('admin.message.partnership')" :padding="false">
-                @include('app.admin.message.partials.notifications', ['notifications' => $partnerships])
-            </x-tab.item>
+            <x-accordion.item
+                accordion="adminMessages"
+                name="help"
+                :padding="false"
+            >
+                <x-slot:title>
+                    {{__('admin.message.help')}}
+                </x-slot:title>
 
-            <x-tab.item :information="__('admin.message.help')" :padding="false">
-                @include('app.admin.message.partials.notifications', ['notifications' => $helps])
-            </x-tab.item>
+                <x-slot:content>
+                    @include('app.admin.message.partials.notifications', ['notifications' => $helps])
+                </x-slot:content>
+            </x-accordion.item>
 
-            <x-tab.item :information="__('admin.message.service')" :padding="false">
-                @include('app.admin.message.partials.notifications', ['notifications' => $services])
-            </x-tab.item>
-        </x-tab>
+            <x-accordion.item
+                accordion="adminMessages"
+                name="partnership"
+                :padding="false"
+            >
+                <x-slot:title>
+                    {{__('admin.message.partnership')}}
+                </x-slot:title>
+
+                <x-slot:content>
+                    @include('app.admin.message.partials.notifications', ['notifications' => $partnerships])
+                </x-slot:content>
+            </x-accordion.item>
+
+            <x-accordion.item
+                accordion="adminMessages"
+                name="service"
+                :padding="false"
+            >
+                <x-slot:title>
+                    {{__('admin.message.service')}}
+                </x-slot:title>
+
+                <x-slot:content>
+                    @include('app.admin.message.partials.notifications', ['notifications' => $services])
+                </x-slot:content>
+            </x-accordion.item>
+        </x-accordion>
     </x-card.panel>
 @endsection

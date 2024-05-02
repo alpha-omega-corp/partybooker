@@ -14,6 +14,7 @@ class StoreHelpRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'email' => 'email|required',
             'phone' => 'string|required',
             'message' => 'string|required',
             'g-recaptcha-response' => 'required'

@@ -14,6 +14,18 @@
 >
 
     <x-slot:body>
+        <x-forms.select name="plan" :label="__('app.plan')">
+            @svg($boxIcon)
+
+            <x-slot:options>
+                @foreach($plans as $plan)
+                    <option value="{{$plan->id}}">
+                        {{ucfirst($plan->locale->name)}}
+                    </option>
+                @endforeach
+            </x-slot:options>
+        </x-forms.select>
+
         <x-forms.input
             name="email"
             :label="__('form.email')"
@@ -29,18 +41,10 @@
             @svg($phoneIcon)
         </x-forms.input>
 
-
-        <x-forms.select name="plan" :label="__('app.plan')">
-            @svg($boxIcon)
-
-            <x-slot:options>
-                @foreach($plans as $plan)
-                    <option value="{{$plan->id}}">
-                        {{ucfirst($plan->locale->name)}}
-                    </option>
-                @endforeach
-            </x-slot:options>
-        </x-forms.select>
+        <x-forms.textarea
+            name="message"
+            :label="__('form.message')"
+        />
     </x-slot:body>
 
 

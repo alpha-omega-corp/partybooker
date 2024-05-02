@@ -82,8 +82,8 @@ class AdminController extends Controller
     public function messages()
     {
         return view('app.admin.message.index', [
-            'helps' => Notification::helps()->get(),
-            'partnerships' => Notification::partnerships()->get(),
+            'helps' => Notification::helps()->orderBy('created_at', 'desc')->get(),
+            'partnerships' => Notification::partnerships()->orderBy('created_at', 'desc')->get(),
             'services' => Notification::services()->get()
         ]);
     }

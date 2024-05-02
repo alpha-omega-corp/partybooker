@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\AppPlan;
 use App\Models\RequestPartner;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -15,7 +16,7 @@ class RequestPartnerFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'app_plan_id' => AppPlan::all()->random()->id,
         ];
     }
 }

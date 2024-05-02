@@ -19,6 +19,7 @@ class NotificationFactory extends Factory
     public function definition(): array
     {
         return [
+            'email' => $this->faker->email,
             'phone' => $this->faker->phoneNumber,
             'message' => $this->faker->text,
             'is_resolved' => false,

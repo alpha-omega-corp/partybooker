@@ -20,6 +20,7 @@ class Notification extends Model
         'notifiable_type',
         'notifiable_id',
         'phone',
+        'email',
         'message',
         'is_resolved'
     ];

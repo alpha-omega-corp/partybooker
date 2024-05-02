@@ -26,6 +26,8 @@
                 :radius="false"
                 :text="strtoupper(__('form.join_title'))"
             />
+
+
         </x-app.action>
 
         <x-app.section>
@@ -78,11 +80,12 @@
                     class="app-help-button"/>
             </div>
 
-            @include('app.home.partials.partnership.help')
         </x-app.section>
     </x-card.panel>
 
+    @include('app.home.partials.partnership.help')
     @include('app.home.partials.partnership.join')
+
 @endsection
 
 

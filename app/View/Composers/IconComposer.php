@@ -34,5 +34,6 @@ class IconComposer
         $view->with('sloganIcon', 'heroicon-o-speaker-wave');
         $view->with('tagIcon', 'heroicon-o-tag');
         $view->with('backIcon', 'heroicon-o-backspace');
+        $view->with('dateIcon', 'heroicon-o-calendar-days');
     }
 }

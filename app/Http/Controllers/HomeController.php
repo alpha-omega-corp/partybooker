@@ -85,12 +85,12 @@ class HomeController extends Controller
     public function requestHelp(StoreHelpRequest $request): RedirectResponse
     {
         $data = $request->validated();
-
-        $help = RequestHelp::create();
+        $notification = RequestHelp::create();
 
         Notification::create([
             'notifiable_type' => RequestHelp::class,
-            'notifiable_id' => $help->id,
+            'notifiable_id' => $notification->id,
+            'email' => $data['email'],
             'phone' => $data['phone'],
             'message' => $data['message'],
         ]);
@@ -101,15 +101,18 @@ class HomeController extends Controller
     public function requestPartnership(StorePartnershipRequest $request): RedirectResponse
     {
         $data = $request->validated();
-
-        $partnership = RequestPartner::create($data);
+        $notification = RequestPartner::create([
+            'app_plan_id' => $data['plan']
+        ]);
 
         Notification::create([
             'notifiable_type' => RequestPartner::class,
-            'notifiable_id' => $partnership->id,
+            'notifiable_id' => $notification->id,
             'phone' => $data['phone'],
+            'email' => $data['email'],
             'message' => $data['message'],
         ]);
 
+        return back()->with('success', __('request.partnership.success'));
     }
 }

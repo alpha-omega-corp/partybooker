@@ -14,11 +14,10 @@ class StorePartnershipRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string|required',
             'email' => 'email|required',
-            'password' => 'string|required',
-            'company' => 'string|required',
             'phone' => 'string|required',
+            'plan' => 'required',
+            'message' => 'nullable|string',
             'g-recaptcha-response' => 'required'
         ];
     }

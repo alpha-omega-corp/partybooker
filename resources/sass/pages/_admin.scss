@@ -411,6 +411,29 @@
 }
 
 .admin-messages {
-    border: 1px solid $light;
     overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+
+    .message-card {
+        overflow: hidden;
+        border-radius: 10px;
+        border: 1px solid $light;
+        flex-grow: 1;
+
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid $light;
+            padding: 20px;
+        }
+    }
+
+    .message-user {
+        display: flex;
+        justify-content: flex-end;
+    }
 }

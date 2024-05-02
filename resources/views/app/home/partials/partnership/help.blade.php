@@ -14,6 +14,14 @@
 >
     <x-slot:body>
         <x-forms.input
+            name="email"
+            :label="__('form.email')"
+            type="email"
+        >
+            @svg($emailIcon)
+        </x-forms.input>
+        
+        <x-forms.input
             name="phone"
             :label="__('form.phone')"
         >
