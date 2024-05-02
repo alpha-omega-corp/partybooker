@@ -86,7 +86,6 @@ class AdvertController extends Controller
         ]);
 
         $advert = $partner->company->adverts()->create([
-            'slug' => $data['slug'],
             'category_id' => $category->id,
             'company_id' => $partner->company->id,
             'advert_service_id' => $advertService->id,

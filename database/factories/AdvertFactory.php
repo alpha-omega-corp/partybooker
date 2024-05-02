@@ -22,7 +22,6 @@ class AdvertFactory extends Factory
     public function definition(): array
     {
         return [
-            'slug' => $this->faker->unique()->slug(2),
             'advert_statistic_id' => AdvertStatistic::factory(),
             'is_public' => true,
             'is_main' => false,
