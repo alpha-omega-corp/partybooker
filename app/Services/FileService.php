@@ -29,7 +29,7 @@ class FileService implements IFileService
 
     public function companyLogo(UploadedFile $file): string
     {
-        return $this->store($file, 'images/companies', false);
+        return $this->store($file, 'images/company_logos', false);
     }
 
     public function advertImage(UploadedFile $file): string
