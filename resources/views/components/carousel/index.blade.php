@@ -51,6 +51,10 @@
 
             </div>
         </div>
+
+        @if(isset($mobile))
+            {{$mobile}}
+        @endif
     </x-app.section>
 </div>
 

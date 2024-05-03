@@ -24,6 +24,7 @@
         'topValue' => $topRandom,
     ])
     <x-app.mobile-more :modal="ModalName::MORE_TOPS" :items="$top"/>
+
 @endif
 
 

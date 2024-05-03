@@ -24,7 +24,7 @@ class  CategoryService implements ICategoryService
     public function filterCategory(?string $requestCat, ?string $requestTag): Builder
     {
         if (!$requestCat) {
-            return Advert::listing();
+            return Advert::listing()->orderBy('id', 'desc');
         }
 
         $category = $this->getCategory($requestCat)->first();
