@@ -17,8 +17,8 @@ class Title extends Component
         public AppColor  $color,
         public string    $value,
         public bool      $padding = true,
-        public bool      $background = true,
-        public bool      $border = true,
+        public bool      $background = false,
+        public bool      $border = false,
     )
     {
         $this->style = 'app-title ' . ($padding ? 'app-title-padding ' : ' ') . 'text-' . $color->value;

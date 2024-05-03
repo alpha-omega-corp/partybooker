@@ -139,20 +139,6 @@
 
 .app-card-panel {
 
-    .app-listing-container {
-        width: 100%;
-
-        .row {
-            height: 100%;
-        }
-
-
-        @media only screen and (max-width: 1199px) {
-            .row > * {
-                padding: 0 !important;
-            }
-        }
-    }
 
     .listing-header {
         padding: 30px 20px;

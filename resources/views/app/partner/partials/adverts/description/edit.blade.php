@@ -5,7 +5,7 @@
     :icon="$editIcon"
     :fit="true"
     :radius="false"
-    :background="true"
+    :background="false"
 />
 
 <x-modal.index

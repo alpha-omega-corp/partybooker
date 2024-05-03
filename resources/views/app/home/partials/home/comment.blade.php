@@ -3,6 +3,8 @@
         <x-app.title
             :size="TitleSize::MEDIUM"
             :color="AppColor::BLUE"
+            :background="true"
+            :border="true"
             :value="__('home.comments')"
             class="home-comment-title"
         />

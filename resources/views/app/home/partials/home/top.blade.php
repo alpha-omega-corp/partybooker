@@ -6,6 +6,8 @@
                 :color="AppColor::BLUE"
                 :value="__('home.tops')"
                 class="home-top-title"
+                :border="false"
+                :background="false"
             />
         </x-slot:title>
 

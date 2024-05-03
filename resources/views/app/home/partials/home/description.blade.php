@@ -7,13 +7,14 @@
         :value="__('home.title')"
     />
 
-    <x-app.title
-        :size="TitleSize::MEDIUM"
-        :color="AppColor::BLUE"
-        :value="$content->title"
-    />
 
     <div class="container">
+        <x-app.title
+            :size="TitleSize::MEDIUM"
+            :color="AppColor::BLUE"
+            :value="$content->title"
+            :padding="false"
+        />
         <p class="description-content">
             {{$content->content}}
         </p>

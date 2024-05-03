@@ -5,7 +5,7 @@
         </div>
     @else
         <div class="content-pagination-none">
-            <span class="fw-semibold text-gray">{{count($adverts).'/'.count($adverts) }}</span>
+            <span>{{count($adverts).' / '.count($adverts) }}</span>
         </div>
     @endif
 </div>

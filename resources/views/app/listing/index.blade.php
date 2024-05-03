@@ -5,33 +5,25 @@
 @endsection
 
 @section('content')
-    <x-card.listing
-        :title="__('app.listing')"
-        :title-color="AppColor::BLUE"
-        class="app-listing"
-    >
+
+    <x-card.panel :title="__('app.listing')">
         <x-slot:breadcrumbs>
             {{Breadcrumbs::render('listing', Request::segments())}}
         </x-slot:breadcrumbs>
 
-        <x-slot:information>
-            @include('app.listing.partials.pagination')
-        </x-slot:information>
-
-        <x-slot:left>
-            <div class="app-filter-container">
+        <x-app.section class="app-listing-container">
+            <div class="app-listing-filters">
                 <!-- Search -->
                 @include('app.listing.partials.search')
 
                 <!-- Category -->
                 @include('app.listing.partials.category')
             </div>
-        </x-slot:left>
 
-        <x-slot:right>
             @include('app.listing.partials.listing')
-        </x-slot:right>
-    </x-card.listing>
+
+        </x-app.section>
+    </x-card.panel>
 
     <div class="home-top">
         @include('app.home.partials.home.top')

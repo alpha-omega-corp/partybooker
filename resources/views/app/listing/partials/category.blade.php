@@ -2,6 +2,7 @@
     :size="TitleSize::SMALL"
     :color="AppColor::PINK"
     :value="__('listing.categories')"
+    :border="false"
     class="listing-category-title"
 />
 
