@@ -11,6 +11,7 @@ use App\Models\Partner;
 use App\Models\PartnerPayment;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AjaxController extends Controller
 {
@@ -57,13 +58,13 @@ class AjaxController extends Controller
                 'id' => $advert->id,
                 'title' => $advert->ofLang($language)->first()->locale->title,
                 'category' => $advert->category->ofLang($language)->first()->locale->title,
-                'description' => $advert->ofLang($language)->first()->locale->description,
+                'description' => Str::words(strip_tags(html_entity_decode($advert->ofLang($language)->first()->locale->description)), 40),
                 'company' => $advert->company->name,
                 'address' => $advert->company->location ? $advert->company->location->address : null,
                 'thumbnail' => $advert->images()->thumbnail()->first()->path,
                 'url' => route(__('route.advert'), [
                     'company' => $advert->company,
-                    'advert' => $advert,
+                    'category' => $advert->category->locale,
                 ]),
             ]);
 

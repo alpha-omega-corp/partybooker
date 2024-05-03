@@ -121,15 +121,16 @@
             height: 500px;
             overflow: scroll;
             padding: 20px;
-            margin-right: 20px;
             background-color: #eeeeee;
 
             .listing-search-item {
                 display: flex;
                 border: 1px solid $light;
                 margin-bottom: 20px;
-                border-radius: 20px;
+                border-radius: 10px;
                 overflow: hidden;
+                background: #fff;
+                position: relative;
 
                 @media only screen and (max-width: 991px) {
                     flex-direction: column;
@@ -151,15 +152,25 @@
                     }
                 }
 
+                .search-item-company {
+                    display: flex;
+                    gap: 20px;
+                    color: $gray;
+                    font-size: small;
+                }
+
                 img {
                     width: 250px;
                     height: 250px;
                     object-fit: cover;
                 }
 
+                .search-item-title {
+                    padding: 20px 20px 0 0;
+                }
+
                 .search-item-content {
                     color: $gray;
-                    position: relative;
                     width: 100%;
 
                     h6 {
@@ -167,13 +178,6 @@
                         margin-bottom: 10px;
                         color: #000;
                         text-transform: uppercase;
-                    }
-
-                    .item-content-company {
-                        display: flex;
-                        gap: 10px;
-                        color: $gray;
-                        font-size: small;
                     }
 
                     .item-content-category {
@@ -193,11 +197,8 @@
                     }
 
                     .item-content-description {
-                        height: 70px;
-                        overflow: hidden;
-                        padding-top: 10px;
-                        padding-left: 20px;
-                        padding-right: 40px;
+                        padding: 20px;
+                        text-overflow: ellipsis;
 
                         p {
                             font-size: small;
@@ -337,18 +338,17 @@
 
 
             .advert-card-description {
-                max-height: 64px;
-                overflow: hidden;
                 position: relative;
                 text-align: justify;
-                padding-right: 30px;
                 font-size: small;
+                padding-bottom: 20px;
+                line-height: 20px;
+
 
                 span {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    font-weight: bold;
+                    text-overflow: ellipsis;
+                    font-weight: normal;
+
                 }
             }
 
@@ -360,19 +360,19 @@
                     border-bottom: 1px solid $light;
                     padding: 20px;
 
-                    h6 {
+                    .advert-card-title {
                         font-weight: bold;
-                        margin-bottom: 10px;
+                        margin: 0;
+                        padding: 20px 20px 0 0;
                         color: #000;
                         text-transform: uppercase;
                     }
 
                     .content-header-company {
                         display: flex;
-                        gap: 10px;
+                        gap: 20px;
                         color: $gray;
                         font-size: small;
-                        padding-top: 10px;
                     }
                 }
 

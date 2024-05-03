@@ -14,16 +14,17 @@
 
                 <div class="advert-card-content">
                     <div class="card-content-header">
-                        <h6>{{$advert->locale->title}}</h6>
                         <div class="content-header-company">
                             @svg('heroicon-o-home-modern', 'text-accent')
                             {{$advert->company->name}}
                         </div>
+
+                        <h6 class="advert-card-title">{{$advert->locale->title}}</h6>
                     </div>
                     <div class="card-content">
                         <div class="advert-card-description">
-                            {!! $advert->locale->description !!}
-                            <span>...</span>
+                            @php($description = strip_tags(html_entity_decode($advert->locale->description)))
+                            {{Str::words($description, 40)}}
                         </div>
 
                         <div class="card-content-address">

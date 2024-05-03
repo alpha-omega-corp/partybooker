@@ -152,7 +152,7 @@
     "src": "resources/images/socials/youtube.png"
   },
   "resources/js/app.css": {
-    "file": "assets/app-d5589fc6.css",
+    "file": "assets/app-cabce7e0.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
@@ -160,21 +160,21 @@
       "assets/background-468f2995.jpg"
     ],
     "css": [
-      "assets/app-d5589fc6.css"
+      "assets/app-cabce7e0.css"
     ],
-    "file": "assets/app-7729146c.js",
+    "file": "assets/app-c2538593.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
   "resources/js/service.css": {
-    "file": "assets/service-46b10aab.css",
+    "file": "assets/service-98468eff.css",
     "src": "resources/js/service.css"
   },
   "resources/js/service.js": {
     "css": [
-      "assets/service-46b10aab.css"
+      "assets/service-98468eff.css"
     ],
-    "file": "assets/service-b3fb5028.js",
+    "file": "assets/service-5757f01f.js",
     "isEntry": true,
     "src": "resources/js/service.js"
   }

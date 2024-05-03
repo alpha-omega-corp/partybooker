@@ -39,15 +39,16 @@
                     <a class="listing-search-item" :href="item.url">
                         <img src="#" :src="item.thumbnail" alt="alt">
 
-
                         <div class="search-item-content">
                             <div class="search-item-header">
-                                <h6 x-text="item.title"></h6>
 
-                                <div class="item-content-company">
+                                <div class="search-item-company">
                                     @svg('heroicon-o-home-modern', 'text-accent')
                                     <p x-text="item.company"></p>
                                 </div>
+
+                                <h6 class="search-item-title" x-text="item.title"></h6>
+
                             </div>
 
                             <div class="item-content-description">

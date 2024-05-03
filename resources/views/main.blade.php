@@ -263,7 +263,9 @@
                 console.log(this.adverts)
             },
             filterAdvert(item) {
-                return item.toLowerCase().includes(this.input.toLowerCase())
+                if (item) {
+                    return item.toLowerCase().includes(this.input.toLowerCase())
+                }
             },
             filterAdverts() {
                 this.displayedAdverts = this.adverts.filter(ad =>
