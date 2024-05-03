@@ -17,28 +17,25 @@
         <x-slot:breadcrumbs>
             {{Breadcrumbs::render('partnership', Request::segments())}}
         </x-slot:breadcrumbs>
-        <x-app.action>
+
+
+        <x-app.section>
             <x-modal.open
                 :name="ModalName::GUEST_PARTNERSHIP"
                 :custom-color="AppColor::HOME_GREEN"
                 :singleton="true"
                 :fit="true"
-                :radius="false"
                 :text="strtoupper(__('form.join_title'))"
             />
 
-
-        </x-app.action>
-
-        <x-app.section>
-            @include('app.home.partials.partnership.benefits')
+            <div class="mt-4">
+                @include('app.home.partials.partnership.benefits')
+            </div>
         </x-app.section>
 
         <x-app.title
             :size="TitleSize::MEDIUM"
             :color="AppColor::BLUE"
-            :border="true"
-            :background="true"
             :value="__('home.plans')"
         />
 
@@ -49,8 +46,6 @@
         <x-app.title
             :size="TitleSize::MEDIUM"
             :color="AppColor::BLUE"
-            :border="true"
-            :background="true"
             :value="__('home.usp')"
         />
 
@@ -59,25 +54,25 @@
         </x-app.section>
 
         <x-app.title
-            :size="TitleSize::SMALL"
+            :size="TitleSize::MEDIUM"
             :color="AppColor::BLUE"
             :value="__('home.help_title')"
-            :background="true"
             class="partnership-help-title"
         />
 
         <x-app.section>
-            <div class="container text-center p-2">
-                <p>{{__('home.help')}}</p>
+            <div class="container">
                 <x-modal.open
                     :name="ModalName::APP_HELP"
                     :type="ModalType::CREATE"
                     :custom-color="AppColor::PINK"
-                    :fit="true"
                     :singleton="true"
+                    :fit="true"
                     :icon="$checkIcon"
                     :title="__('home.help_title')"
                     class="app-help-button"/>
+                <p class="p-4 text-center">{{ucfirst(__('home.help'))}}</p>
+
             </div>
 
         </x-app.section>
@@ -85,7 +80,6 @@
 
     @include('app.home.partials.partnership.help')
     @include('app.home.partials.partnership.join')
-
 @endsection
 
 

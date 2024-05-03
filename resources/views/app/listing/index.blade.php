@@ -11,7 +11,7 @@
             {{Breadcrumbs::render('listing', Request::segments())}}
         </x-slot:breadcrumbs>
 
-        <x-app.section class="app-listing-container">
+        <x-app.section class="app-listing-container" :bg="AppColor::HOME_GRAY">
             <div class="app-listing-filters">
                 <!-- Search -->
                 @include('app.listing.partials.search')

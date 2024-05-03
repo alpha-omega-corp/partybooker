@@ -1,10 +1,8 @@
-<x-carousel name="comments" :per-view="4">
+<x-carousel name="comments" :per-view="4" :bg="null">
     <x-slot:title>
         <x-app.title
             :size="TitleSize::MEDIUM"
             :color="AppColor::BLUE"
-            :background="true"
-            :border="true"
             :value="__('home.comments')"
             class="home-comment-title"
         />

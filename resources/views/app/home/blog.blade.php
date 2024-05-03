@@ -10,12 +10,11 @@
         :title="__('home.blog')"
         class="home-blog"
     >
-
         <x-slot:breadcrumbs>
             {{Breadcrumbs::render('blog', Request::segments())}}
         </x-slot:breadcrumbs>
 
-        <div class="blog-content-card">
+        <x-app.section class="blog-content-card">
             @foreach($posts as $post)
                 <div class="post-card">
                     <div class="post-card-logo">
@@ -36,6 +35,6 @@
                     </a>
                 </div>
             @endforeach
-        </div>
+        </x-app.section>
     </x-card.panel>
 @endsection

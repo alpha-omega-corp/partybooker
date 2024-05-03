@@ -95,6 +95,7 @@ body, html {
     .app-content {
         padding-top: 82px;
         overflow-x: hidden;
+        background-color: $home-gray;
 
         @media only screen and (max-width: 1199px) {
             padding-top: 56px;

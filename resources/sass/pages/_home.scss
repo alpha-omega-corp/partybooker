@@ -1,14 +1,35 @@
 .home-about {
-    .about-cards-container {
-        padding: 40px 40px 80px;
-        border-bottom: 1px solid $light;
+    .about-description-container {
         display: flex;
+        row-gap: 20px;
+        align-items: center;
         justify-content: space-between;
-        column-gap: 60px;
+        column-gap: 40px;
 
         @media only screen and (max-width: 1200px) {
             flex-direction: column;
             text-align: center;
+        }
+
+        .about-description-card {
+            width: 100%;
+            border: 1px solid $light;
+            border-radius: 20px;
+            background-color: #fff;
+
+            .description-card-header {
+                padding: 10px;
+                border-bottom: 1px solid $light;
+            }
+
+            .description-card-title {
+                padding: 20px;
+            }
+
+            p {
+                text-align: center;
+                padding: 40px;
+            }
         }
 
         .about-card-title {
@@ -24,72 +45,69 @@
         }
     }
 
-    .about-features-card {
-        .about-features-content {
+    .about-features-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+
+        .about-feature-card {
+            border: 1px solid $light;
+            background-color: #fff;
+            border-radius: 20px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
-            gap: 20px;
+            overflow: hidden;
+            width: 400px;
 
-            .about-feature-card {
-                border: 1px solid $light;
-                border-radius: 20px;
+            .feature-card-content {
                 display: flex;
-                overflow: hidden;
-                width: 400px;
+                flex-direction: column;
+                width: 100%;
 
-                .feature-card-content {
+                .feature-card-header {
+                    color: #fff;
+                    background-color: rgba(0, 0, 0, 0.8);
                     display: flex;
-                    flex-direction: column;
-                    width: 100%;
+                    justify-content: space-between;
+                    padding: 20px;
 
-                    .feature-card-header {
-                        color: #fff;
-                        background-color: rgba(0, 0, 0, 0.8);
-                        display: flex;
-                        justify-content: space-between;
-                        padding: 20px;
-
-                        .feature-card-title {
-                            margin: 0;
-                            padding: 10px 20px 20px;
-                            text-transform: uppercase;
-                            font-size: larger;
-                            font-family: "Poppins", sans-serif;
-                        }
-
-
-                        img {
-                            width: 60px;
-                            height: 60px;
-                            object-fit: cover;
-                        }
+                    .feature-card-title {
+                        margin: 0;
+                        padding: 10px 20px 20px;
+                        text-transform: uppercase;
+                        font-size: larger;
+                        font-family: "Poppins", sans-serif;
                     }
 
-                    ul {
-                        padding: 0 0 0 40px;
 
-                        li {
-                            padding: 20px;
-                            border-bottom: 1px solid $light;
-                            list-style-type: decimal;
+                    img {
+                        width: 60px;
+                        height: 60px;
+                        object-fit: cover;
+                    }
+                }
 
-                            &::marker {
-                                color: $pink;
-                            }
+                ul {
+                    padding: 0 0 0 40px;
 
-                            p {
-                                margin: 0;
-                                font-size: large;
-                            }
+                    li {
+                        padding: 20px;
+                        border-bottom: 1px solid $light;
+                        list-style-type: decimal;
+
+                        &::marker {
+                            color: $pink;
+                        }
+
+                        p {
+                            margin: 0;
+                            font-size: large;
                         }
                     }
                 }
             }
         }
     }
-
 }
 
 .app-post {
@@ -111,12 +129,14 @@
     .blog-content-card {
         display: flex;
         flex-wrap: wrap;
+        gap: 20px;
 
 
         .post-card {
             overflow: hidden;
             flex-basis: 400px;
             flex-grow: 1;
+            border-radius: 10px;
             position: relative;
             background-color: #fff;
             border-bottom: 1px solid $light;

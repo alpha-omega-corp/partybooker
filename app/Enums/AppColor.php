@@ -20,6 +20,8 @@ enum AppColor: string
     case ORANGE = 'orange';
     case GRAY = 'gray';
     case LIGHT = 'light';
+    case HOME = 'home';
+    case HOME_GRAY = 'home-gray';
     case HOME_GREEN = 'home-green';
 
     public static function values(): array

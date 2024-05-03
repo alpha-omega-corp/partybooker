@@ -3,6 +3,7 @@
     :color="AppColor::PINK"
     :value="__('listing.categories')"
     :border="false"
+    :background="true"
     class="listing-category-title"
 />
 

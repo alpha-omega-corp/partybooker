@@ -2,7 +2,7 @@
     'name',
     'perView' => 3,
     'container' => false,
-    'background' => null
+    'bg' => null,
 ])
 
 
@@ -12,7 +12,7 @@
         {{$title}}
     @endif
 
-    <x-app.section>
+    <x-app.section class="carousel__section" :bg="$bg">
         <div id="{{$name}}" x-data="carousel('{{$name}}', '{{$perView}}')">
             <div class="{{$container ? 'container' : ''}} position-relative">
 
