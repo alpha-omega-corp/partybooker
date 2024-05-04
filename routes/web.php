@@ -82,6 +82,9 @@ Route::name('guest.')
                         Route::get('/blog', 'blog')->name('blog');
                         Route::get('/blog/{post}', 'showPost')->name('post');
                         Route::get('/faq', 'faq')->name('faq');
+                        Route::get('/conditions', 'terms')->name('terms');
+                        Route::get('/contact', 'contact')->name('contact');
+                        Route::get('/sitemap', 'sitemap')->name('sitemap');
                     });
 
                 Route::name('en.')
@@ -93,6 +96,9 @@ Route::name('guest.')
                         Route::get('/blog', 'blog')->name('blog');
                         Route::get('/blog/{post}', 'showPost')->name('post');
                         Route::get('/faq', 'faq')->name('faq');
+                        Route::get('/terms', 'terms')->name('terms');
+                        Route::get('/contact', 'contact')->name('contact');
+                        Route::get('/sitemap', 'sitemap')->name('sitemap');
                     });
 
                 Route::post('/help', 'requestHelp')->name('help');

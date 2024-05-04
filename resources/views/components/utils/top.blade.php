@@ -23,13 +23,14 @@
 
         <div class="top-card-content">
             @if($image)
-
                 @php($location = $partner->company->location->state . ', ' . ucfirst($partner->company->location->city))
                 @include('app.listing.partials.advert.other', [
                     'advert' => $advertPool->first(),
                     'company' => $advertPool->first()->company,
                     'showAll' => true,
-                    'otherTitle' => $location
+                    'center' => true,
+                    'otherTitle' => $location,
+                    'radius' => false
                 ])
             @endif
         </div>

@@ -1,5 +1,6 @@
 @props([
     'bg' => null,
+    'padding' => true
 ])
 
 <section class="{{$bg ? 'bg-'.$bg->value : ''}}">

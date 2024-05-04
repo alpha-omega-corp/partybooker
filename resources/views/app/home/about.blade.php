@@ -40,7 +40,7 @@
                         class="description-card-title"
                     />
                 </div>
-               
+
                 <p>{{$concept->content}}</p>
             </div>
         </x-app.section>
@@ -57,12 +57,10 @@
                 <div class="about-feature-card shadow-lg">
                     <div class="feature-card-content">
                         <div class="feature-card-header">
-
-                            <img src="{{$about->image}}" alt="{{$about->name}}">
-
                             <h6 class="feature-card-title">
                                 {{$about->locale->title}}
                             </h6>
+                            <img src="{{$about->image}}" alt="{{$about->name}}">
                         </div>
                         <ul>
                             @foreach($about->items as $item)

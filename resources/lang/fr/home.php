@@ -18,5 +18,9 @@ return [
     'help' => 'laissez-nous votre numéro de téléphone et nous vous contacterons dès que possible',
     'usp' => 'points de vente',
     'guest' => 'guest',
-
+    'advantages' => 'Avantages',
+    'mission' => 'notre mission',
+    'sitemap' => 'sitemap',
+    'categories' => 'catégories',
+    'footer' => 'informations'
 ];

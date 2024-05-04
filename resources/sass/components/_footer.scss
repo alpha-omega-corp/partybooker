@@ -1,25 +1,79 @@
 .app-footer {
-    background-color: $footer;
+    border: 1px solid $dark;
+    border-bottom: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-top: 80px;
 
-    .footer-main {
-        padding: 20px;
+    .app-footer-header {
+        padding: 40px;
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px solid $dark;
+        border-bottom: 1px solid $gray;
 
-        .footer-logo {
+        .app-footer-logo {
             img {
-                width: 80px;
+                width: 100px;
+            }
+        }
+    }
+
+    .app-footer-nav {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $light;
+    }
+
+    .app-footer-links {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        border-bottom: 1px solid $gray;
+
+        @media only screen and (max-width: 1199px) {
+            flex-direction: column;
+        }
+
+        .app-footer-link {
+            border: 1px solid $light;
+            border-bottom: 0;
+            width: 100%;
+            padding: 40px;
+
+            a {
+                color: $dark;
+                font-size: large;
+                font-family: "Poppins", sans-serif;
             }
         }
 
-        .footer-socials {
+        .app-footer-title {
+            text-align: center;
+            font-weight: bold;
+            color: $pink;
+            font-size: larger;
+            text-transform: uppercase;
+            padding-bottom: 20px;
+        }
+
+
+        .app-footer-list {
+            text-align: center;
             display: flex;
             gap: 10px;
-            align-items: flex-end;
+            flex-direction: column;
         }
     }
 
-    .footer-contacts {
+    .app-footer-contacts {
+        svg {
+            color: $blue !important;
+        }
+
+        p {
+            color: $dark;
+        }
     }
+
+
 }

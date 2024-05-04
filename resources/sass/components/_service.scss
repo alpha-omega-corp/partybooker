@@ -60,41 +60,6 @@
     }
 }
 
-
-.service-rates-card {
-    border: 1px solid $gray;
-    margin: 20px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    overflow: hidden;
-    background-color: #fff;
-    font-family: "Gotham", sans-serif;
-
-    .rates-card-tag {
-        padding: 10px;
-        background-color: $pink;
-        color: #fff;
-        font-weight: bold;
-        font-family: monospace;
-        width: 100px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .rates-card-content {
-        display: flex;
-        align-items: center;
-        padding: 20px;
-        width: 100%;
-
-        p {
-            margin: 0;
-        }
-    }
-}
-
 .service-socials {
     display: flex;
     justify-content: space-between;
@@ -104,9 +69,10 @@
 }
 
 .service-schedule-extension {
-    padding: 10px;
+    padding: 20px;
     border-top: 1px solid $gray;
     border-bottom: 1px solid $gray;
+    text-align: center;
 
     p {
         margin: 0;

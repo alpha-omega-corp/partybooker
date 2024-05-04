@@ -1,30 +1,32 @@
-<x-card :title="__('advert.contacts')" :center="true" class="advert-contacts">
-    <x-tab
-        justify="center"
-        :is-icon="true"
-        :tooltips="[
+<x-card :title="__('advert.contacts')" :can-open="false" :center="true" class="app-advert-contacts">
+
+    <div class="pt-4">
+        <x-tab
+            justify="center"
+            :is-icon="true"
+            :tooltips="[
             __('advert.phone'),
             __('advert.email'),
-             __('advert.website'),
+            __('advert.website'),
             __('advert.address')
         ]"
-        :items="[
+            :items="[
             $phoneIcon,
             $emailIcon,
             $linkIcon,
             $pinIcon
         ]">
 
-        <x-advert.contact type="tel" :value="$advert->company->contact->phone"/>
-        <x-advert.contact type="mailto" :value="$advert->company->contact->email"/>
-        <x-advert.contact :value="$advert->company->social->www"/>
+            <x-advert.contact type="tel" :value="$advert->company->contact->phone"/>
+            <x-advert.contact type="mailto" :value="$advert->company->contact->email"/>
+            <x-advert.contact :value="$advert->company->social->www"/>
 
-        @if($advert->company->location)
-            <x-advert.contact :link="false" :value="$advert->company->location->address"/>
-        @endif
-    </x-tab>
-
-    @include('app.listing.partials.advert.socials')
-
+            @if($advert->company->location)
+                <x-advert.contact :link="false" :value="$advert->company->location->address"/>
+            @endif
+        </x-tab>
+    </div>
 </x-card>
+
+
 

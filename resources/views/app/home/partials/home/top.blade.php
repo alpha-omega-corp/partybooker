@@ -1,14 +1,16 @@
 @if (count($top))
     <x-carousel name="tops" :per-view="4">
         <x-slot:title>
-            <x-app.title
-                :size="TitleSize::MEDIUM"
-                :color="AppColor::BLUE"
-                :value="__('home.tops')"
-                class="home-top-title"
-                :border="false"
-                :background="false"
-            />
+            @if($showTitle)
+                <x-app.title
+                    :size="TitleSize::MEDIUM"
+                    :color="AppColor::BLUE"
+                    :value="__('home.tops')"
+                    class="home-top-title"
+                    :border="false"
+                    :background="false"
+                />
+            @endif
         </x-slot:title>
 
         <x-slot:items>

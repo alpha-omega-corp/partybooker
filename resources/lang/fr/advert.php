@@ -2,6 +2,7 @@
 
 
 return [
+    'socials' => 'Réseaux',
     'tags' => 'Tags',
     'optimization' => 'Optimisation',
     'show' => 'Voir',

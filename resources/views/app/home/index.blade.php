@@ -22,7 +22,9 @@
 
         <!-- Tops -->
         <section class="home-top">
-            @include('app.home.partials.home.top')
+            @include('app.home.partials.home.top', [
+                'showTitle' => true,
+            ])
 
         </section>
 

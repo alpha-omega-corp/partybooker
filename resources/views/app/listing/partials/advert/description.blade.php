@@ -2,8 +2,9 @@
 <x-card
     :title="__('advert.description')"
     :actionable="(new ListingService())->grant($advert)"
-    :can-open="false"
     class="service-description"
+    :radius="true"
+    :can-open="false"
 >
     <x-slot:actions>
         @include('app.partner.partials.adverts.description.edit')

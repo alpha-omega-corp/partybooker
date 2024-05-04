@@ -49,15 +49,15 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 20px;
+        row-gap: 20px;
+        column-gap: 40px;
 
         .about-feature-card {
             border: 1px solid $light;
             background-color: #fff;
             border-radius: 20px;
-            display: flex;
             overflow: hidden;
-            width: 400px;
+            flex-grow: 1;
 
             .feature-card-content {
                 display: flex;
@@ -65,25 +65,21 @@
                 width: 100%;
 
                 .feature-card-header {
-                    color: #fff;
-                    background-color: rgba(0, 0, 0, 0.8);
                     display: flex;
                     justify-content: space-between;
+                    align-items: center;
                     padding: 20px;
 
                     .feature-card-title {
                         margin: 0;
-                        padding: 10px 20px 20px;
                         text-transform: uppercase;
-                        font-size: larger;
-                        font-family: "Poppins", sans-serif;
+                        font-weight: bold;
+                        color: $dark;
                     }
 
-
                     img {
-                        width: 60px;
-                        height: 60px;
-                        object-fit: cover;
+                        width: 40px;
+                        height: 40px;
                     }
                 }
 
@@ -96,7 +92,8 @@
                         list-style-type: decimal;
 
                         &::marker {
-                            color: $pink;
+                            color: $blue;
+                            font-weight: bold;
                         }
 
                         p {
@@ -341,11 +338,15 @@
     background-image: url("/resources/images/app/background.jpg");
     background-size: cover;
     background-position: center;
-    height: 500px;
+    height: 700px;
     position: relative;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
+
+    @media only screen and (max-width: 1400px) {
+        height: 500px;
+    }
 
     @media only screen and (max-width: 800px) {
         height: 400px;

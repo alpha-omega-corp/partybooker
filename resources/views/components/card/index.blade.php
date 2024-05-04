@@ -7,9 +7,10 @@
     'canOpen' => true,
     'center' => false,
     'actionable' => false,
+    'radius' => false,
 ])
 
-<div {{$attributes->merge(['class' => 'app-card'])}}
+<div {{$attributes->merge(['class' => 'app-card ' . ($radius ? 'app-card-radius' : '')])}}
      x-data="{show: '{{!$canOpen ? true : $open}}'}">
 
     @if($title)
@@ -38,7 +39,7 @@
         </div>
     @endif
 
-    <div x-show="show" class="app-card-content {{$canOpen ? 'app-card-content-border' : ''}}">
+    <div x-show="show" class="app-card-content bg-white {{$canOpen ? 'app-card-content-border' : ''}}">
         {{$slot}}
 
         @if(isset($body))

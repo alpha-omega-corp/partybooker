@@ -14,6 +14,11 @@
                 :background="true"
                 class="card-panel-title"
             />
+            @if(isset($breadcrumbs))
+                <div class="card-panel-breadcrumbs">
+                    {{$breadcrumbs}}
+                </div>
+            @endif
         @endif
 
         @if(isset($information))
@@ -23,11 +28,6 @@
         @endif
     </div>
 
-    @if(isset($breadcrumbs))
-        <div class="card-panel-breadcrumbs">
-            {{$breadcrumbs}}
-        </div>
-    @endif
 
     <section {{$attributes->merge(['class' => 'card-panel-body'])}}>
         {{$slot}}

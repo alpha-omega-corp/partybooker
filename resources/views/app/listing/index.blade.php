@@ -25,8 +25,10 @@
         </x-app.section>
     </x-card.panel>
 
-    <div class="home-top">
-        @include('app.home.partials.home.top')
+    <div class="home-top mt-4">
+        @include('app.home.partials.home.top', [
+            'showTitle' => false,
+        ])
     </div>
 
 @endsection

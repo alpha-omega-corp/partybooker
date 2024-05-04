@@ -7,47 +7,56 @@
 @extends('main')
 
 @section('content')
-    <x-card.listing
-        :title="$advert->category->locale->title"
-        :title-color="AppColor::BLUE"
-        class="app-advert">
+    <x-card.panel :title="$advert->locale->title" class="app-advert">
         <x-slot:breadcrumbs>
-            <div class="pt-4">
-                {{Breadcrumbs::render('advert', $advert)}}
-            </div>
+            {{Breadcrumbs::render('advert', $advert)}}
         </x-slot:breadcrumbs>
 
-        <x-slot:left>
-            @include('app.listing.partials.advert.actions')
+        <x-app.section>
+            <div class="app-advert-container">
+                <div class="app-advert-details">
 
-            <div class="app-advert-thumbnail">
-                <img src="{{asset($advert->images()->thumbnail()->first()->path)}}"
-                     alt="{{$advert->locale->title}}">
+                    <div class="app-advert-thumbnail">
+                        @include('app.listing.partials.advert.actions')
+
+                        <img src="{{asset($advert->images()->thumbnail()->first()->path)}}"
+                             alt="{{$advert->locale->title}}" class="thumbnail">
+
+                        @include('app.listing.partials.advert.contacts')
+                    </div>
+
+                    @include('app.listing.partials.advert.service')
+
+                    @include('app.listing.partials.service.partials.schedule', [
+                       'center' => true,
+                       'canOpen' => true,
+                    ])
+
+                    @include('app.listing.partials.service.partials.payments', [
+                        'center' => true,
+                        'canOpen' => true,
+                    ])
+                </div>
+
+                <div class="app-advert-content">
+                    <div class="advert-content-container">
+                        @include('app.listing.partials.advert.description')
+                        @include('app.listing.partials.service.partials.rates')
+                        @include('app.listing.partials.advert.gallery')
+
+                        @include('app.listing.partials.advert.other', [
+                           'showAll' => false,
+                           'otherTitle' => __('advert.others'),
+                           'center' => false,
+                           'radius' => true
+                       ])
+                        @include('app.listing.partials.advert.socials')
+
+                    </div>
+                </div>
             </div>
 
-        </x-slot:left>
 
-        <x-slot:right>
-            @include('app.listing.partials.advert.description')
-            @include('app.listing.partials.advert.service')
-            @include('app.listing.partials.advert.gallery')
-            @include('app.listing.partials.service.partials.rates')
-
-            @include('app.listing.partials.service.partials.schedule', [
-                'center' => true,
-                'canOpen' => true,
-            ])
-
-            @include('app.listing.partials.service.partials.payments', [
-                'center' => true,
-                'canOpen' => true,
-            ])
-
-            @include('app.listing.partials.advert.contacts')
-            @include('app.listing.partials.advert.other', [
-                'showAll' => false,
-                'otherTitle' => __('app.adverts')
-            ])
-        </x-slot:right>
-    </x-card.listing>
+        </x-app.section>
+    </x-card.panel>
 @endsection

@@ -17,5 +17,11 @@ return [
     'help_title' => 'do you have a question ?',
     'usp' => 'unique selling points',
     'guest' => 'guest',
-    'tops' => 'Top Services'
+    'tops' => 'Top Services',
+    'advantages' => 'advantages',
+    'mission' => 'our mission',
+    'sitemap' => 'sitemap',
+    'categories' => 'categories',
+    'footer' => 'informations',
+
 ];

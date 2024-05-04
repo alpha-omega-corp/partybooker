@@ -24,11 +24,13 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer("*", IconComposer::class);
         View::composer("*", SettingComposer::class);
-        View::composer('*', FooterComposer::class);
+        View::composer("*", FooterComposer::class);
+
         View::composer([
             'app.admin.partner.index',
             'app.partner.dashboard',
         ], DashboardComposer::class);
+
         Paginator::useBootstrapFive();
 
         Vite::macro('app', fn(string $img) => $this->asset(trim("resources/images/app/$img")));

@@ -4,7 +4,8 @@
     <x-card
         :title="$otherTitle"
         :can-open="false"
-        :center="true"
+        :center="$center"
+        :radius="$radius"
         class="company-adverts"
     >
         @foreach($companyAdverts as $companyAdvert)

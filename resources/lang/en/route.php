@@ -10,6 +10,9 @@ return [
     'blog' => 'guest.home.en.blog',
     'post' => 'guest.home.en.post',
     'faq' => 'guest.home.en.faq',
+    'contact' => 'guest.home.en.contact',
+    'terms' => 'guest.home.en.terms',
+    'sitemap' => 'guest.home.en.sitemap',
 
     'profile' => 'partner.en.dashboard',
     'listing-search' => 'guest.ajax.en.listing',
