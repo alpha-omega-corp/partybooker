@@ -66,7 +66,7 @@
 
     .app-navigation-content {
         display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
         width: 100%;
 
         .app-navigation-open {
@@ -75,10 +75,11 @@
 
         .app-navigation-logo {
             display: flex;
+            flex-grow: 1;
             align-items: center;
             justify-content: center;
             @media only screen and (max-width: 1199px) {
-                padding: 10px 20px 10px 10px;
+                padding: 20px;
 
                 img {
                     width: 60px;
@@ -103,7 +104,8 @@
 
         @media only screen and (max-width: 1199px) {
             width: 100%;
-            padding: 20px;
+            padding: 18px;
+            border-bottom: 1px solid $gray;
 
             svg {
                 width: 30px;
