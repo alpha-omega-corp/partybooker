@@ -11,12 +11,6 @@
     :route="route('partner.company.update', ['company' => $partner->company])"
 >
     <x-slot:body>
-        <x-forms.file
-            name="logo"
-            label="Company Logo"
-            id="editCompanyLogo"
-            :file="$company->logo ? asset($company->logo) : null"/>
-
         <x-forms.input
             name="name"
             :label="__('form.name')"

@@ -7,4 +7,7 @@ return [
     'partnership' => 'partnership',
     'blog' => 'blog',
     'faq' => 'faq',
+    'terms' => 'terms',
+    'sitemap' => 'sitemap',
+    'contact' => 'contact',
 ];

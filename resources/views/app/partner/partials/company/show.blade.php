@@ -6,12 +6,34 @@
     :title="__('advert.company')"
     :can-open="false"
     :actionable="true"
+    class="partner-dashboard-card"
 >
 
     @include('app.partner.partials.company.edit')
 
     <div class="partner-company">
         <x-accordion name="partnerCompanyDetails">
+
+            <x-accordion.item
+                accordion="partnerCompanyDetails"
+                name="logo"
+                :padding="false"
+            >
+                <x-slot:actions>
+                    @include('app.partner.partials.company.edit-logo')
+                </x-slot:actions>
+
+                <x-slot:title>
+                    <h6>Logo</h6>
+                </x-slot:title>
+
+                <x-slot:content>
+                    <div class="partner-company-logo">
+                        <img src="{{asset($company->logo)}}" alt="{{$company->name}}">
+                    </div>
+
+                </x-slot:content>
+            </x-accordion.item>
 
             <x-accordion.item
                 accordion="partnerCompanyDetails"
@@ -63,10 +85,6 @@
                 name="statistics"
                 :padding="false"
             >
-                <x-slot:actions>
-                    @include('app.partner.partials.company.edit-statistics')
-                </x-slot:actions>
-
                 <x-slot:title>
                     <h6>{{__('partner.company.statistics')}}</h6>
                 </x-slot:title>

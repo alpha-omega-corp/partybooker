@@ -14,7 +14,6 @@ class UpdateCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'logo' => 'file',
             'name' => 'required|string',
             'slug' => 'required|string',
         ];

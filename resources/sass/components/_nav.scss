@@ -7,8 +7,9 @@
     width: 100%;
 
     .navigation-user-icon {
-        width: 32px;
-        height: 32px;
+        width: 25px;
+        height: 25px;
+        color: $gray;
     }
 
     .btn-group {
@@ -46,11 +47,10 @@
     z-index: 10;
     position: fixed;
     top: 0;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid $gray;
 
     .app-navigation-content {
         display: flex;
-        gap: 10px;
         width: 100%;
 
         @media only screen and (min-width: 1200px) {
@@ -61,7 +61,6 @@
     .app-navigation-actions {
         display: flex;
         align-items: center;
-        background-color: $secondary;
 
         @media only screen and (max-width: 1199px) {
             width: 100%;
@@ -77,8 +76,13 @@
     .app-navigation-logo {
         display: flex;
         align-items: center;
+        justify-content: center;
         @media only screen and (max-width: 1199px) {
-            display: none;
+            padding: 10px;
+
+            img {
+                width: 50px;
+            }
         }
     }
 

@@ -1,4 +1,4 @@
-<x-card.index :title="__('partner.plan')" :can-open="false">
+<x-card.index :title="__('partner.plan')" :can-open="false" class="partner-dashboard-card">
     @include('app.partner.partials.plan.edit')
 
     <x-slot:body>

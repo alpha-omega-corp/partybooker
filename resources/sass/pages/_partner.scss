@@ -20,8 +20,15 @@
 }
 
 .partner-dashboard {
-    .app-card-header {
-        text-align: start !important;
+
+    .partner-dashboard-main {
+        display: flex;
+        flex-wrap: wrap;
+
+        .partner-dashboard-card {
+            flex-grow: 1;
+            flex-basis: 200px;
+        }
     }
 
     .row > * {
@@ -133,14 +140,16 @@
         }
     }
 
-    .company-logo {
-        object-fit: contain;
-        width: 200px;
-        height: 200px;
-    }
-
     .partner-company {
         background-color: #fff;
+
+        .partner-company-logo {
+            padding: 20px;
+
+            img {
+                width: 200px;
+            }
+        }
     }
 
 }

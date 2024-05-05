@@ -1,9 +1,9 @@
-<footer class="container bg-home-gray">
+<footer class="bg-home-gray container">
     <div class="app-footer shadow-lg">
 
         <div class="app-footer-header">
             <x-logo class="app-footer-logo"/>
-            <div>
+            <div class="app-footer-socials">
                 <a href="{{$footerContacts->instagram}}">
                     <img src="{{Vite::social('instagram')}}" alt="Instagram">
                 </a>
@@ -53,8 +53,8 @@
                 <div class="app-footer-link">
                     <h4 class="app-footer-title">{{__('home.footer')}}</h4>
                     <div class="app-footer-list">
-                        <a href="{{route(__('route.terms'))}}">{{__('nav.terms')}}</a>
                         <a href="{{route(__('route.sitemap'))}}">{{__('nav.sitemap')}}</a>
+                        <a href="{{route(__('route.terms'))}}">{{__('nav.terms')}}</a>
                         <a href="{{route(__('route.contact'))}}">{{__('nav.contact')}}</a>
                     </div>
                 </div>

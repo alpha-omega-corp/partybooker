@@ -20,7 +20,7 @@ return [
     'tops' => 'Top Services',
     'advantages' => 'advantages',
     'mission' => 'our mission',
-    'sitemap' => 'sitemap',
+    'sitemap' => 'plan',
     'categories' => 'categories',
     'footer' => 'informations',
 

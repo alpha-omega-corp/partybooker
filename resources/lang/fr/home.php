@@ -20,7 +20,7 @@ return [
     'guest' => 'guest',
     'advantages' => 'Avantages',
     'mission' => 'notre mission',
-    'sitemap' => 'sitemap',
+    'sitemap' => 'plan',
     'categories' => 'catégories',
     'footer' => 'informations'
 ];

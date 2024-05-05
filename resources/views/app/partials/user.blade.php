@@ -2,12 +2,12 @@
     <div class="app-navigation-user">
         <div class="btn-group dropstart">
             <button
-                class="btn btn-blue dr-toggle"
+                class="btn dr-toggle"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
             >
-                @svg($userIcon)
+                @svg($userIcon, 'navigation-user-icon')
             </button>
             <ul class="dropdown-menu">
                 @if(Auth::user()->isAdmin())
@@ -75,7 +75,7 @@
         <x-modal.open
             :singleton="true"
             :name="ModalName::APP_LOGIN"
-            :custom-color="AppColor::BLUE"
+            :custom-color="AppColor::SECONDARY"
             :fit="true"
             :text="__('app.login')"
             :background="true"

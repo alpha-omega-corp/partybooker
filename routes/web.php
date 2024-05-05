@@ -176,6 +176,8 @@ Route::name('partner.')
                         Route::put('/contact', 'updateContact')->name('update.contact');
                         Route::put('/statistics', 'updateStatistics')->name('update.statistics');
                         Route::put('/location', 'updateLocation')->name('update.location');
+                        Route::put('/socials', 'updateSocials')->name('update.socials');
+                        Route::put('/logo', 'updateLogo')->name('update.logo');
                     });
 
                 Route::controller(PartnerController::class)

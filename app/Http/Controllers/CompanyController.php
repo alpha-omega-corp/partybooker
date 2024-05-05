@@ -6,7 +6,9 @@ use App\Enums\Language;
 use App\Http\Requests\UpdateCompanyContactRequest;
 use App\Http\Requests\UpdateCompanyDescriptionRequest;
 use App\Http\Requests\UpdateCompanyLocationRequest;
+use App\Http\Requests\UpdateCompanyLogoRequest;
 use App\Http\Requests\UpdateCompanyRequest;
+use App\Http\Requests\UpdateCompanySocialsRequest;
 use App\Http\Requests\UpdateCompanyStatsRequest;
 use App\Interfaces\IFileService;
 use App\Models\Company;
@@ -63,17 +65,38 @@ class CompanyController extends Controller
     {
         $data = $request->validated();
 
-        if (isset($data['logo'])) {
-            $logo = $this->fileService->companyLogo($data['logo']);
-        }
-
         $company->update([
-            'logo' => $logo ?? $company->logo,
             'name' => $data['name'],
             'slug' => $data['slug'],
         ]);
 
         return back()->with('success', 'Company updated successfully');
+    }
+
+    public function updateLogo(Company $company, UpdateCompanyLogoRequest $request)
+    {
+        $data = $request->validated();
+        $company->update([
+            'logo' => $this->fileService->companyLogo($data['logo']),
+        ]);
+
+        return back()->with('success', 'Company logo updated successfully');
+    }
+
+    public function updateSocials(Company $company, UpdateCompanySocialsRequest $request)
+    {
+        $data = $request->validated();
+
+        $company->social->update([
+            'www' => $data['www'],
+            'instagram' => $data['instagram'],
+            'facebook' => $data['facebook'],
+            'youtube' => $data['youtube'],
+            'twitter' => $data['twitter'],
+            'linkedin' => $data['linkedin'],
+        ]);
+
+        return back()->with('success', 'Company socials updated successfully');
     }
 
     public function updateDescription(Company $company, UpdateCompanyDescriptionRequest $request)

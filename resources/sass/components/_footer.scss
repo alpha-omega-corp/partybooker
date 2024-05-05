@@ -4,9 +4,10 @@
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     margin-top: 80px;
+    background-color: #fff;
 
     .app-footer-header {
-        padding: 40px;
+        padding: 20px;
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid $gray;
@@ -16,6 +17,13 @@
                 width: 100px;
             }
         }
+
+        .app-footer-socials {
+            display: flex;
+            gap: 10px;
+            align-items: end;
+        }
+
     }
 
     .app-footer-nav {
