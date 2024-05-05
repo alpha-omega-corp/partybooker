@@ -25,6 +25,7 @@ class Index extends Component
         public bool      $absolute = false,
         public bool      $hidden = false,
         public bool      $validation = false,
+        public bool      $hideFooter = false,
         public bool      $action = true,
         public ?string   $route = null,
         public ?string   $icon = null,

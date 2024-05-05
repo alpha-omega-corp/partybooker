@@ -5,8 +5,8 @@
     <title>Partners | {{ __('partybooker-cp.www')}}</title>
 @endsection
 
-
 @section('content')
+
     <x-card.panel :title="__('admin.partners')" :color="AppColor::PINK" class="admin-listing">
 
         <div x-data="partners">
@@ -34,10 +34,13 @@
                                     <span>View</span>
                                 </a>
 
-                                <a @click="remove(item)" class="btn btn-danger d-flex align-items-center gap-2">
+                                <a x-data="openModal('{{ ModalName::PARTNER->name }}', '{{ModalType::DELETE}}', item.id)"
+                                   @click="open()"
+                                   class="btn btn-danger d-flex align-items-center gap-2">
                                     @svg('heroicon-o-trash')
                                     <span>Delete</span>
                                 </a>
+
                             </x-app.action>
 
 
@@ -89,5 +92,9 @@
         </div>
 
     </x-card.panel>
+    @foreach($partnerIds as $ajaxPartnerId)
+        @include('app.admin.partner.partials.delete', ['ajaxPartnerId' => $ajaxPartnerId])
+    @endforeach
+
 @endsection
 

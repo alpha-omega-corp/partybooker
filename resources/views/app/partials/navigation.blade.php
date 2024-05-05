@@ -2,10 +2,12 @@
     <nav class="navbar">
         <div class="d-flex justify-content-between w-100">
             <div class="app-navigation-content">
-                <x-logo class="app-navigation-logo"/>
+                <div class="app-navigation-logo">
+                    <x-logo/>
+                </div>
 
                 <!-- Nav Toggler -->
-                <button class="navbar-toggler"
+                <button class="navbar-toggler app-navigation-open"
                         type="button"
                         data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar"
@@ -17,13 +19,6 @@
                 <div class="navbar-desktop">
                     @include('app.partials.navbar')
                 </div>
-            </div>
-
-            <div class="app-navigation-actions">
-                <!-- User -->
-                @include('app.partials.user')
-                <!-- Locale -->
-                @include('app.partials.language')
             </div>
         </div>
 

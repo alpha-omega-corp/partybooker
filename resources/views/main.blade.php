@@ -40,6 +40,13 @@
 <script>
     document.addEventListener('alpine:init', () => {
 
+        Alpine.data('openModal', (name, action, iterator) => ({
+            open() {
+                console.log(`modalBtnOpen${action}_${name + iterator}`)
+                document.getElementById(`modalBtn${action}_${name + iterator}`).click()
+            },
+        }))
+
         Alpine.data('file', (id, current) => ({
             id: id,
             activeFile: current,
@@ -188,22 +195,6 @@
                     })
 
                     this.displayedPartners = this.partners
-                },
-                async remove(partner) {
-                    const data = {};
-                    data['_token'] = $('meta[name="csrf-token"]').attr('content');
-                    data['partner'] = partner;
-
-                    if (confirm('Are you sure?')) {
-                        const res = await $.ajax({
-                            url: '{{route('partner.destroy')}}',
-                            type: 'DELETE',
-                            data: data,
-                        })
-
-                        console.log(res)
-                    }
-
                 },
                 filteredPartners() {
 

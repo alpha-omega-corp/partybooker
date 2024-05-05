@@ -145,6 +145,10 @@
 
         .partner-company-logo {
             padding: 20px;
+            background-color: #000;
+            display: flex;
+            width: 100%;
+            justify-content: center;
 
             img {
                 width: 200px;

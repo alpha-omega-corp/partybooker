@@ -17,12 +17,11 @@ use App\Models\CompanySocial;
 use App\Models\CompanyStatistic;
 use App\Models\Partner;
 use App\Models\PartnerPayment;
+use App\Models\PartnerTop;
 use App\Models\User;
 use App\Services\ListingService;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -105,9 +104,8 @@ class PartnerController extends Controller
         return redirect()->route(__('route.profile'), $partner->company);
     }
 
-    public function destroy(Request $request): JsonResponse
+    public function destroy(string $id): RedirectResponse
     {
-        $id = $request->input('partner')['id'];
         $partner = Partner::find($id);
 
         $partner->payment()->delete();
@@ -119,9 +117,11 @@ class PartnerController extends Controller
 
         $partner->company->locales()->delete();
         $partner->company()->delete();
+        
+        PartnerTop::where('partner_id', $partner->id)->delete();
         $partner->delete();
 
-        return response()->json();
+        return back()->with('success', 'Partner deleted successfully');
     }
 
 }

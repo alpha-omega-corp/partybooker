@@ -21,6 +21,7 @@ use App\Models\AppPost;
 use App\Models\AppUsp;
 use App\Models\Category;
 use App\Models\Notification;
+use App\Models\Partner;
 use App\Models\PartnerTop;
 use Illuminate\Http\RedirectResponse;
 
@@ -58,6 +59,7 @@ class AdminController extends Controller
     public function partners()
     {
         return view('app.admin.partner.index', [
+            'partnerIds' => Partner::all()->map(fn(Partner $partner) => $partner->id),
             'plan' => AppPlan::all()->map(fn(AppPlan $plan) => $plan->code),
             'partnerSorts' => PartnerSort::values(),
             'planFilters' => PlanType::values(),

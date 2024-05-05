@@ -1,13 +1,13 @@
 @if(Auth::check())
     <div class="app-navigation-user">
-        <div class="btn-group dropstart">
+        <div class="btn-group dropdown">
             <button
-                class="btn dr-toggle"
+                class="btn btn-secondary navigation-user-btn dr-toggle"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
             >
-                @svg($userIcon, 'navigation-user-icon')
+                @svg($userIcon, 'text-white')
             </button>
             <ul class="dropdown-menu">
                 @if(Auth::user()->isAdmin())
@@ -16,9 +16,11 @@
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{url(route('admin.partners'))}}">
-                            Partners
-                        </a>
+                        <x-navigation.item
+                            :href="url(route('admin.partners'))"
+                            :text="__('nav.partners')"
+                            icon="heroicon-o-book-open"
+                        />
                     </li>
                     <li>
                         <a class="dropdown-item" href="{{url(route(__('route.admin-content')))}}">

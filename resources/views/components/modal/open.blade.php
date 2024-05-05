@@ -8,6 +8,7 @@
 >
 
     <button
+        id="modalBtnOpen{{$id}}"
         type="button"
         @class([
             'btn',

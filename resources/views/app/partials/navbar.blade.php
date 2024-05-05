@@ -1,7 +1,12 @@
 <x-navigation.group>
-    <x-slot:header>
-        <x-logo class="app-logo-offcanvas"/>
-    </x-slot:header>
+
+    <div class="app-navigation-actions">
+        <!-- User -->
+        @include('app.partials.user')
+
+        <!-- Locale -->
+        @include('app.partials.language')
+    </div>
 
     <x-navigation.item
         :href="url(route(__('route.home')))"
@@ -39,3 +44,5 @@
         icon="heroicon-o-question-mark-circle"
     />
 </x-navigation.group>
+
+
