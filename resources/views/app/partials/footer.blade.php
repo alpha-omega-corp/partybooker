@@ -1,26 +1,18 @@
 <footer class="bg-home-gray container-xl">
     <div class="app-footer shadow-lg">
         <div class="app-footer-contacts">
-            <div class="w-100">
-                <x-icon.text :text="$footerContacts->email" :icon="$emailIcon"/>
-                <x-icon.text :text="$footerContacts->phone" :icon="$phoneIcon"/>
-                <x-icon.text :text="$footerContacts->address" :icon="$pinIcon"/>
-            </div>
-            <div class="w-100">
-                <x-icon.link :link="$footerContacts->instagram">
-                    <img src="{{Vite::social('instagram')}}" alt="instagram">
-                </x-icon.link>
+            <a href="{{$footerContacts->instagram}}">
+                <img src="{{Vite::social('instagram')}}" alt="instagram">
+            </a>
 
-                <x-icon.link :link="$footerContacts->facebook">
-                    <img src="{{Vite::social('facebook')}}" alt="facebook">
-                </x-icon.link>
-
-                <x-icon.link :link="$footerContacts->linkedin">
-                    <img src="{{Vite::social('linkedin')}}" alt="linkedin">
-                </x-icon.link>
-            </div>
+            <a href="{{$footerContacts->facebook}}">
+                <img src="{{Vite::social('facebook')}}" alt="facebook">
+            </a>
+            <a href="{{$footerContacts->linkedin}}">
+                <img src="{{Vite::social('linkedin')}}" alt="linkedin">
+            </a>
         </div>
-        
+
         <div class="app-footer-nav">
             <div class="app-footer-links">
                 <div class="app-footer-link">
@@ -54,6 +46,16 @@
                                 {{strtolower($category->locale->title)}}
                             </a>
                         @endforeach
+                    </div>
+                </div>
+
+                <div class="app-footer-link">
+                    <h4 class="app-footer-title">{{__('home.contacts')}}</h4>
+
+                    <div class="app-footer-list">
+                        <p>{{$footerContacts->email}}</p>
+                        <p>{{$footerContacts->phone}}</p>
+                        <p>{{$footerContacts->address}}</p>
                     </div>
                 </div>
 

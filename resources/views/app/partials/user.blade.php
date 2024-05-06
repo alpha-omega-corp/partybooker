@@ -19,7 +19,7 @@
                         <a class="dropdown-item" href="{{url(route('admin.partners'))}}">
                             Partners
                         </a>
-                        
+
                     </li>
                     <li>
                         <a class="dropdown-item" href="{{url(route(__('route.admin-content')))}}">
@@ -76,11 +76,9 @@
         <x-modal.open
             :singleton="true"
             :name="ModalName::APP_LOGIN"
-            :custom-color="AppColor::BLUE"
             :radius="false"
             :fit="true"
             :text="__('app.login')"
-            :background="true"
         />
     </div>
 @endif

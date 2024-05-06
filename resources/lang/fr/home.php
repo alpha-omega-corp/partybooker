@@ -22,5 +22,7 @@ return [
     'mission' => 'notre mission',
     'sitemap' => 'plan',
     'categories' => 'catégories',
-    'footer' => 'informations'
+    'footer' => 'informations',
+    'contacts' => 'contacts',
+
 ];

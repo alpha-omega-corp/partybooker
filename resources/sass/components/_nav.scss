@@ -42,6 +42,9 @@
 
     button {
         height: 100%;
+        text-align: end;
+        padding: 15px;
+        color: $gray !important;
     }
 }
 
@@ -51,6 +54,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    background-color: $secondary;
 }
 
 .app-navigation {
@@ -100,7 +104,6 @@
         }
 
         @media only screen and (max-width: 1199px) {
-            background-color: $secondary;
             width: 100%;
             border-bottom: 1px solid $gray;
         }
@@ -172,6 +175,7 @@
         .nav-item {
             display: flex;
             align-items: center;
+            justify-content: flex-end;
         }
 
         .nav-item-content {
@@ -230,7 +234,7 @@
             margin-top: 0;
 
             .nav-item {
-                padding: 20px;
+                padding: 15px;
                 border-bottom: 1px solid $gray;
                 color: $dark;
                 font-size: large;
@@ -238,7 +242,7 @@
                 .nav-item-content {
                     display: flex;
                     align-items: center;
-                    justify-content: space-between;
+                    justify-content: flex-end;
                     gap: 20px;
 
                     .nav-item-icon {

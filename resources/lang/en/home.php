@@ -23,5 +23,6 @@ return [
     'sitemap' => 'plan',
     'categories' => 'categories',
     'footer' => 'informations',
+    'contacts' => 'contacts',
 
 ];
