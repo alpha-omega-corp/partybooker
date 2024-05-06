@@ -7,13 +7,10 @@
     <x-modal.open
         :name="$modal"
         :type="ModalType::READ"
-        :custom-color="AppColor::SECONDARY"
-        :background="true"
         :fit="true"
     >
-    <span class="d-flex justify-content-between align-items-center fs-6 p-1">
-        <span style="font-family: 'Poppins', sans-serif;">{{strtoupper(__('app.mobile-more'))}}</span>
-        @svg('heroicon-o-chevron-right', 'ms-2')
+    <span class="d-flex justify-content-center align-items-center">
+        <span>{{strtoupper(__('app.mobile-more'))}}</span>
     </span>
     </x-modal.open>
 </div>

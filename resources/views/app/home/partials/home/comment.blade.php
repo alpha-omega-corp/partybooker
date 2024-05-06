@@ -1,4 +1,4 @@
-<x-carousel name="comments" :per-view="4" :bg="null">
+<x-carousel name="comments" :per-view="3" :bg="null">
     <x-slot:title>
         <x-app.title
             :size="TitleSize::MEDIUM"

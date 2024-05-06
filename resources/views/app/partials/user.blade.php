@@ -2,7 +2,7 @@
     <div class="app-navigation-user">
         <div class="btn-group dropdown">
             <button
-                class="btn btn-secondary navigation-user-btn dr-toggle"
+                class="btn btn-blue navigation-user-btn dr-toggle"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -16,11 +16,10 @@
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <x-navigation.item
-                            :href="url(route('admin.partners'))"
-                            :text="__('nav.partners')"
-                            icon="heroicon-o-book-open"
-                        />
+                        <a class="dropdown-item" href="{{url(route('admin.partners'))}}">
+                            Partners
+                        </a>
+                        
                     </li>
                     <li>
                         <a class="dropdown-item" href="{{url(route(__('route.admin-content')))}}">
@@ -77,7 +76,9 @@
         <x-modal.open
             :singleton="true"
             :name="ModalName::APP_LOGIN"
-            :custom-color="AppColor::SECONDARY"
+            :custom-color="AppColor::BLUE"
+            :radius="false"
+            :fit="true"
             :text="__('app.login')"
             :background="true"
         />

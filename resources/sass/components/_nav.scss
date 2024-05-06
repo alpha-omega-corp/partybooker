@@ -2,20 +2,21 @@
     padding: 0;
 }
 
+.app-navigation-open {
+    width: 60px !important;
+    height: 60px;
+}
+
 .app-navigation-user {
     width: 100%;
     z-index: 100;
 
-    button:hover {
-        background-color: $secondary;
-        border-color: $secondary;
-        border-radius: 10px;
+    .dropdown-menu {
+        width: 100%;
     }
 
     .navigation-user-btn {
         svg {
-            display: flex;
-            justify-content: start;
             margin: 0 !important;
         }
     }
@@ -68,10 +69,6 @@
         justify-content: space-between;
         gap: 40px;
 
-        .app-navigation-open {
-            width: 60px !important;
-        }
-
         .app-navigation-logo {
             display: flex;
             align-items: center;
@@ -79,7 +76,7 @@
 
             @media only screen and (max-width: 1199px) {
                 flex-grow: 1;
-                padding: 15px;
+                padding-left: 10px;
 
                 img {
                     width: 60px;
@@ -96,20 +93,22 @@
     }
 
     .app-navigation-actions {
-        display: flex;
-        align-items: center;
-        gap: 20px;
+        @media only screen and (min-width: 1200px) {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
         @media only screen and (max-width: 1199px) {
             background-color: $secondary;
             width: 100%;
-            padding: 18px;
             border-bottom: 1px solid $gray;
+        }
 
-            svg {
-                width: 30px;
-                height: 30px;
-            }
+        .app-navigation-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #fff;
         }
     }
 
@@ -123,6 +122,10 @@
     .navbar-mobile {
         height: 100%;
         position: relative;
+
+        .app-navigation-close {
+            height: 60px;
+        }
 
         .admin-navigation {
             position: absolute;
@@ -143,6 +146,10 @@
             flex-direction: row-reverse;
             width: 100%;
             justify-content: space-between;
+
+            .app-navigation-close {
+                display: none;
+            }
         }
 
         .app-logo-offcanvas {
@@ -223,14 +230,15 @@
             margin-top: 0;
 
             .nav-item {
-                padding: 30px;
-                border-bottom: 1px solid $light;
+                padding: 20px;
+                border-bottom: 1px solid $gray;
                 color: $dark;
                 font-size: large;
 
                 .nav-item-content {
                     display: flex;
                     align-items: center;
+                    justify-content: space-between;
                     gap: 20px;
 
                     .nav-item-icon {

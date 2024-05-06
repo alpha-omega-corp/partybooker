@@ -43,9 +43,22 @@
 }
 
 .mobile-more-button {
-    padding: 0 30px 30px;
+    padding: 0 0 40px;
+    border-bottom: 1px solid $blue;
+
+    span {
+        font-weight: bold;
+        color: $dark;
+    }
 
     @media only screen and (min-width: 901px) {
         display: none;
+    }
+}
+
+
+.mobile-more-content {
+    .app-title-container {
+        border-bottom: 1px solid $gray;
     }
 }

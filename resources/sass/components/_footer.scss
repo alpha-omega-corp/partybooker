@@ -1,16 +1,23 @@
 .app-footer {
-    border: 1px solid $dark;
-    border-bottom: 0;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    margin-top: 80px;
-    background-color: #fff;
+    @media only screen and (min-width: 1200px) {
+        overflow: hidden;
+        border: 1px solid $gray;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        margin-top: 80px;
+    }
+
+    @media only screen and (max-width: 1199px) {
+        display: flex;
+        flex-direction: column-reverse;
+
+    }
 
     .app-footer-header {
         padding: 20px;
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px solid $gray;
+        border-bottom: 2px solid $gray;
 
         .app-footer-logo {
             img {
@@ -29,10 +36,11 @@
     .app-footer-nav {
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px solid $light;
+        border-bottom: 1px solid $gray;
     }
 
     .app-footer-links {
+        background-color: $footer;
         width: 100%;
         display: flex;
         justify-content: space-around;
@@ -43,25 +51,27 @@
         }
 
         .app-footer-link {
-            border: 1px solid $light;
             border-bottom: 0;
             width: 100%;
             padding: 40px;
 
             a {
-                color: $dark;
-                font-size: large;
-                font-family: "Poppins", sans-serif;
+                color: #fff;
+                font-size: larger;
+                font-family: monospace;
             }
         }
 
         .app-footer-title {
             text-align: center;
             font-weight: bold;
-            color: $pink;
+            color: #fff;
             font-size: larger;
+            font-family: "Poppins", sans-serif;
             text-transform: uppercase;
             padding-bottom: 20px;
+            margin-bottom: 20px !important;
+            border-bottom: 2px solid #ccc;
         }
 
 
@@ -75,6 +85,7 @@
 
     .app-footer-contacts {
         display: flex;
+        border-bottom: 1px solid $gray;
 
         @media only screen and (max-width: 1199px) {
             flex-direction: column;
@@ -88,6 +99,11 @@
             color: $dark;
         }
     }
-
-
 }
+
+@media only screen and (max-width: 1199px) {
+    .container-xl {
+        padding: 0 !important;
+    }
+}
+
