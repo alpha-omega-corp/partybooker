@@ -357,10 +357,8 @@
     }
 
     @media only screen and (max-width: 600px) {
-        height: 300px;
-
         span {
-            font-size: 3.5rem !important;
+            font-size: 3rem !important;
         }
     }
 
@@ -392,11 +390,16 @@
         justify-content: center;
         text-align: center;
 
+        .description-title {
+            padding: 15px;
+        }
+
         .description-content {
             padding: 40px 20px 20px;
             font-size: larger;
             font-family: "Poppins", sans-serif;
             color: $blue;
+            margin-bottom: 80px;
         }
     }
 }
@@ -409,6 +412,7 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 20px;
+        padding-bottom: 20px;
     }
 
     a {
@@ -640,9 +644,6 @@
     .information-card {
         margin: 20px;
         padding: 20px;
-        border: 1px solid $light;
-        border-radius: 20px;
-        background-color: #fff;
 
         @media only screen and (max-width: 900px) {
             margin: 10px;
@@ -702,9 +703,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid $gray;
             padding: 20px;
-            background-color: #fff;
 
             .card-header-name {
                 font-weight: bold;

@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <div class="offcanvas offcanvas-start"
+        <div class="offcanvas offcanvas-end"
              tabindex="-1"
              id="offcanvasNavbar"
              data-bs-scroll="true"

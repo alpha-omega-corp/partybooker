@@ -4,9 +4,10 @@
         :color="AppColor::PINK"
         :background="false"
         :border="false"
+        :padding="false"
         :value="__('home.title')"
+        class="description-title"
     />
-
 
     <div class="container">
         <x-app.title
