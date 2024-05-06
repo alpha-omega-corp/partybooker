@@ -18,19 +18,18 @@
             {{Breadcrumbs::render('partnership', Request::segments())}}
         </x-slot:breadcrumbs>
 
-
         <x-app.section>
-            <x-modal.open
-                :name="ModalName::GUEST_PARTNERSHIP"
-                :custom-color="AppColor::HOME_GREEN"
-                :singleton="true"
-                :fit="true"
-                :text="strtoupper(__('form.join_title'))"
-            />
-
-            <div class="mt-4">
-                @include('app.home.partials.partnership.benefits')
+            <div class="d-flex justify-content-center p-3">
+                <x-modal.open
+                    :name="ModalName::GUEST_PARTNERSHIP"
+                    :custom-color="AppColor::HOME_GREEN"
+                    :singleton="true"
+                    :fit="true"
+                    :text="strtoupper(__('form.join_title'))"
+                />
             </div>
+            @include('app.home.partials.partnership.benefits')
+
         </x-app.section>
 
         <x-app.title

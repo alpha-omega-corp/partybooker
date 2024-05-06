@@ -78,7 +78,6 @@
             :singleton="true"
             :name="ModalName::APP_LOGIN"
             :custom-color="AppColor::SECONDARY"
-            :fit="true"
             :text="__('app.login')"
             :background="true"
         />

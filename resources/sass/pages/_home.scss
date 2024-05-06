@@ -1,21 +1,19 @@
 .home-about {
     .about-description-container {
         display: flex;
-        row-gap: 20px;
-        align-items: center;
-        justify-content: space-between;
-        column-gap: 40px;
+        flex-wrap: wrap;
 
         @media only screen and (max-width: 1200px) {
-            flex-direction: column;
             text-align: center;
         }
 
         .about-description-card {
-            width: 100%;
+            flex-grow: 1;
+            flex-basis: 200px;
             border: 1px solid $light;
             border-radius: 20px;
             background-color: #fff;
+            margin: 10px;
 
             .description-card-header {
                 padding: 10px;
@@ -49,8 +47,6 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        row-gap: 20px;
-        column-gap: 40px;
 
         .about-feature-card {
             border: 1px solid $light;
@@ -58,11 +54,12 @@
             border-radius: 20px;
             overflow: hidden;
             flex-grow: 1;
+            margin: 10px;
+
 
             .feature-card-content {
                 display: flex;
                 flex-direction: column;
-                width: 100%;
 
                 .feature-card-header {
                     display: flex;
@@ -92,7 +89,7 @@
                         list-style-type: decimal;
 
                         &::marker {
-                            color: $blue;
+                            color: $pink;
                             font-weight: bold;
                         }
 
@@ -130,6 +127,7 @@
 
 
         .post-card {
+            margin: 10px;
             overflow: hidden;
             flex-basis: 400px;
             flex-grow: 1;
@@ -220,7 +218,6 @@
 
 .plans-content-card {
     display: flex;
-    gap: 20px;
 
     @media only screen and (max-width: 1000px) {
         flex-direction: column;
@@ -291,7 +288,6 @@
     .benefits-content {
         width: 100%;
         display: flex;
-        gap: 20px;
 
         @media only screen and (max-width: 1200px) {
             flex-direction: column;
@@ -303,8 +299,9 @@
         flex-direction: column;
         border: 1px solid $light;
         border-radius: 20px;
-        width: 100%;
         background-color: #fff;
+        margin: 10px;
+        flex-grow: 1;
 
         .benefit-card-header {
             display: flex;
@@ -344,15 +341,23 @@
     display: flex;
     justify-content: center;
 
+    span {
+        font-size: 5rem !important;
+    }
+
     @media only screen and (max-width: 1400px) {
         height: 500px;
+
+        span {
+            font-size: 4.5rem !important;
+        }
     }
 
     @media only screen and (max-width: 800px) {
         height: 400px;
 
         span {
-            font-size: 70px !important;
+            font-size: 4rem !important;
         }
     }
 
@@ -386,7 +391,11 @@
         text-align: center;
 
         .description-title {
-            padding: 15px;
+            padding: 20px;
+
+            @media only screen and (min-width: 1200px) {
+                padding: 40px;
+            }
         }
 
         .description-content {
@@ -394,7 +403,6 @@
             font-size: larger;
             font-family: "Poppins", sans-serif;
             color: $blue;
-            margin-bottom: 80px;
         }
     }
 }

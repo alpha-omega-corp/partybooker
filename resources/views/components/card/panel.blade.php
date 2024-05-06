@@ -1,6 +1,6 @@
 @props([
     'title' => null,
-    'color' => AppColor::BLUE,
+    'color' => AppColor::PINK,
 ])
 
 <div {{$attributes->merge(['class' => 'app-card-panel'])}}>
@@ -10,21 +10,16 @@
                 :size="TitleSize::LARGE"
                 :color="$color"
                 :value="$title"
+                :padding="false"
                 :border="true"
-                :background="true"
-                class="card-panel-title"
-            />
-            @if(isset($breadcrumbs))
-                <div class="card-panel-breadcrumbs">
-                    {{$breadcrumbs}}
-                </div>
-            @endif
-        @endif
+                class="card-panel-title">
+                @if(isset($breadcrumbs))
+                    <div class="card-panel-breadcrumbs">
+                        {{$breadcrumbs}}
+                    </div>
+                @endif
+            </x-app.title>
 
-        @if(isset($information))
-            <div class="card-panel-information">
-                {{$information}}
-            </div>
         @endif
     </div>
 

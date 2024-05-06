@@ -74,6 +74,12 @@
     }
 
     .app-footer-contacts {
+        display: flex;
+
+        @media only screen and (max-width: 1199px) {
+            flex-direction: column;
+        }
+
         svg {
             color: $blue !important;
         }

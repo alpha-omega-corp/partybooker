@@ -12,6 +12,4 @@
     @else
         @svg($xIcon, 'text-danger')
     @endif
-
-
 </div>
