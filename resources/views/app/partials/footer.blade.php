@@ -1,18 +1,5 @@
-<footer class="bg-home-gray container-xl">
+<footer class="bg-home-gray">
     <div class="app-footer shadow-lg">
-        <div class="app-footer-contacts">
-            <a href="{{$footerContacts->instagram}}">
-                <img src="{{Vite::social('instagram')}}" alt="instagram">
-            </a>
-
-            <a href="{{$footerContacts->facebook}}">
-                <img src="{{Vite::social('facebook')}}" alt="facebook">
-            </a>
-            <a href="{{$footerContacts->linkedin}}">
-                <img src="{{Vite::social('linkedin')}}" alt="linkedin">
-            </a>
-        </div>
-
         <div class="app-footer-nav">
             <div class="app-footer-links">
                 <div class="app-footer-link">
@@ -56,6 +43,19 @@
                         <p>{{$footerContacts->email}}</p>
                         <p>{{$footerContacts->phone}}</p>
                         <p>{{$footerContacts->address}}</p>
+
+                        <div class="border-top pt-4 pb-4 d-flex flex-column">
+                            <a href="{{$footerContacts->instagram}}">
+                                Instagram
+                            </a>
+                            <a href="{{$footerContacts->facebook}}">
+                                Facebook
+                            </a>
+                            <a href="{{$footerContacts->linkedin}}">
+                                Linkedin
+                            </a>
+                        </div>
+
                     </div>
                 </div>
 

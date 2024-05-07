@@ -54,7 +54,9 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    background-color: $secondary;
+    @media only screen and (max-width: 1199px) {
+        background-color: $secondary;
+    }
 }
 
 .app-navigation {
@@ -72,6 +74,7 @@
         width: 100%;
         justify-content: space-between;
         gap: 40px;
+        position: relative;
 
         .app-navigation-logo {
             display: flex;
@@ -162,6 +165,16 @@
         .nav-group {
             gap: 20px;
             flex-direction: row !important;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 600px;
+            display: flex;
+            justify-content: center;
         }
 
         a {
