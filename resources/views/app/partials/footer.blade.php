@@ -39,12 +39,10 @@
                 <div class="app-footer-link">
                     <h4 class="app-footer-title">{{__('home.contacts')}}</h4>
 
-                    <div class="app-footer-list">
+                    <div class="app-footer-list app-footer-contacts">
                         <p>{{$footerContacts->email}}</p>
                         <p>{{$footerContacts->phone}}</p>
-                        <p>{{$footerContacts->address}}</p>
-
-                        <div class="border-top pt-4 pb-4 d-flex flex-column">
+                        <div class="flex-column gap-2 d-flex justify-content-between mb-3">
                             <a href="{{$footerContacts->instagram}}">
                                 Instagram
                             </a>
@@ -54,7 +52,10 @@
                             <a href="{{$footerContacts->linkedin}}">
                                 Linkedin
                             </a>
+
                         </div>
+
+                        <p>{{$footerContacts->address}}</p>
 
                     </div>
                 </div>

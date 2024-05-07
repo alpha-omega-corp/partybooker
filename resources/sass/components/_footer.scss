@@ -89,11 +89,15 @@
 }
 
 .app-footer-contacts {
-    display: flex;
-    border-bottom: 1px solid $gray;
-    justify-content: space-around;
-    background-color: $secondary;
-    padding: 20px;
+    p {
+        font-size: large !important;
+        margin: 0;
+    }
+
+    a {
+        font-family: monospace;
+        font-size: large !important;
+    }
 
 }
 

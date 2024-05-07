@@ -10,7 +10,7 @@
         :fit="true"
     >
     <span class="d-flex justify-content-center align-items-center">
-        <span>{{strtoupper(__('app.mobile-more'))}}</span>
+        <span class="mobile-more-span">{{strtoupper(__('app.mobile-more'))}}</span>
     </span>
     </x-modal.open>
 </div>
