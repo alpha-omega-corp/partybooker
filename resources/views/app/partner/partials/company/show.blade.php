@@ -88,7 +88,7 @@
                 <x-slot:actions>
                     @include('app.partner.partials.socials.edit')
                 </x-slot:actions>
-                
+
                 <x-slot:title>
                     <h6>{{__('partner.company.socials')}}</h6>
                 </x-slot:title>
@@ -103,6 +103,10 @@
                 name="statistics"
                 :padding="false"
             >
+                <x-slot:actions>
+                    @include('app.partner.partials.company.edit-statistics')
+                </x-slot:actions>
+
                 <x-slot:title>
                     <h6>{{__('partner.company.statistics')}}</h6>
                 </x-slot:title>
