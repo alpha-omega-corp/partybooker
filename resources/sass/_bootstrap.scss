@@ -26,6 +26,10 @@ $home-green: #039499;
 $home-gray: #eeeeee;
 $footer: #dc5d9b;
 
+$basic: #495057FF;
+$commission: #039499;
+
+
 $theme-colors: (
     "primary": $primary,
     "secondary": $secondary,
@@ -47,6 +51,8 @@ $theme-colors: (
     "premium": $orange-500,
     "exclusive": $red-400,
     "footer": $footer,
+    "basic": $basic,
+    "commission": $commission,
 );
 
 $offcanvas-bg-color: #fff;

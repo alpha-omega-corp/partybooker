@@ -10,9 +10,7 @@
         <div x-data="partners">
 
             <x-app.section>
-
                 <div class="admin-listing-container">
-
                     @include('app.admin.partner.partials.filters')
 
                     <div class="admin-listing-content">

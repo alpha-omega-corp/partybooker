@@ -55,7 +55,7 @@ class HomeController extends Controller
     public function partnership(): View
     {
         return view('app.home.partnership', [
-            'plans' => AppPlan::all(),
+            'plans' => AppPlan::all()->where('price', '>', 0),
             'benefits' => AppAbout::ofType(AppAboutType::BENEFITS)->get(),
             'usps' => AppUsp::all(),
         ]);

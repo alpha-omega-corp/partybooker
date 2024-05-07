@@ -12,13 +12,21 @@ class PlanSeeder extends Seeder
         AppPlan::factory()
             ->standard()
             ->create();
-        
+
         AppPlan::factory()
             ->premium()
             ->create();
 
         AppPlan::factory()
             ->exclusive()
+            ->create();
+
+        AppPlan::factory()
+            ->basic()
+            ->create();
+
+        AppPlan::factory()
+            ->commission()
             ->create();
     }
 }

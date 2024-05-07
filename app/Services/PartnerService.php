@@ -16,6 +16,6 @@ class PartnerService
             return PartnerTop::all()->random(PartnerTop::all()->count() < $dCount ? $topCount : $dCount)->map(fn($item) => $item->partner);
         }
 
-        return PartnerTop::all()->map(fn($item) => $item->partner);
+        return PartnerTop::all()->map(fn($item) => $item->partner)->shuffle();
     }
 }

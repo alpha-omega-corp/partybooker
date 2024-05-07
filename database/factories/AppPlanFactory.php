@@ -89,4 +89,36 @@ class AppPlanFactory extends Factory
             ];
         });
     }
+
+    public function basic(): AppPlanFactory
+    {
+        return $this->state(function () {
+            return [
+                'color' => '#495057FF',
+                'code' => PlanType::BASIC->value,
+                'price' => 0,
+                'upload_count' => 1,
+                'advert_count' => 0,
+                'tag_count' => 0,
+                'has_requests' => false,
+                'has_videos' => false,
+            ];
+        });
+    }
+
+    public function commission(): AppPlanFactory
+    {
+        return $this->state(function () {
+            return [
+                'color' => '#039499',
+                'code' => PlanType::COMMISSION->value,
+                'price' => 0,
+                'upload_count' => 1,
+                'advert_count' => 0,
+                'tag_count' => 1,
+                'has_requests' => true,
+                'has_videos' => false,
+            ];
+        });
+    }
 }

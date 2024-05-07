@@ -27,17 +27,6 @@
                 @svg('heroicon-o-home-modern')
             </x-forms.input>
 
-            <hr>
-            <div class="d-flex justify-content-around">
-                <x-forms.radio
-                    :colorize="true"
-                    :items="$plans->map(fn($plan) => $plan->locale->name)"
-                    :inline="true"
-                    id="updatePlan"
-                    name="plan"/>
-            </div>
-            <hr>
-
             <x-forms.input
                 name="email"
                 label="Email"
@@ -52,12 +41,17 @@
                 @svg('heroicon-o-lock-closed')
             </x-forms.input>
 
-            <hr>
             <x-forms.checkbox
                 name="language"
-                title="Languages"
                 :items="Language::values()"
             />
+
+            <x-forms.radio
+                :colorize="true"
+                :items="$plans->map(fn($plan) => $plan->locale->name)"
+                id="updatePlan"
+                name="plan"/>
+
         </x-forms.list>
     </x-slot:body>
 </x-modal.index>
