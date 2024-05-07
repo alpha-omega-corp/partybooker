@@ -185,7 +185,7 @@
         .app-title-container {
             display: flex;
             flex-direction: column;
-            padding: 80px;
+            padding: 80px 10px;
             gap: 20px;
         }
     }
@@ -198,6 +198,8 @@
         .breadcrumb {
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
 
             .active {
                 color: $dark;
@@ -209,6 +211,10 @@
                 font-weight: bold;
                 font-family: "Poppins", sans-serif;
                 text-transform: uppercase;
+
+                a {
+                    color: $blue;
+                }
             }
         }
     }

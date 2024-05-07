@@ -1,10 +1,9 @@
 <x-app.title
     :size="TitleSize::SMALL"
-    :color="AppColor::PINK"
+    :color="AppColor::BLUE"
     :value="__('listing.categories')"
     :border="false"
-    :background="true"
-    class="listing-category-title"
+    .padding="true"
 />
 
 <div class="listing-category-content">

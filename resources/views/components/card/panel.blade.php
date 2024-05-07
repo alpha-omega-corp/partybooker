@@ -24,7 +24,7 @@
     </div>
 
 
-    <section {{$attributes->merge(['class' => 'card-panel-body'])}}>
+    <div {{$attributes->merge(['class' => 'card-panel-body'])}}>
         {{$slot}}
-    </section>
+    </div>
 </div>

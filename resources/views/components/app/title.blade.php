@@ -5,7 +5,6 @@
         'bg-white' => $background,
     ])
 >
-    {{$slot}}
     @switch($size)
         @case(TitleSize::SMALL)
             <h4 {{$attributes->merge(['class' => 'app-title-small '.$style])}}>
@@ -23,4 +22,5 @@
             </h1>
             @break
     @endswitch
+    {{$slot}}
 </div>

@@ -3,8 +3,7 @@
     'padding' => true
 ])
 
-<section class="{{$bg ? 'bg-'.$bg->value : ''}}">
-    <div {{$attributes->merge(['class' => 'responsive-section'])}}>
-        {{$slot}}
-    </div>
+<section {{$attributes->merge(['class' => 'responsive-section'])}} class="{{$bg ? 'bg-'. $bg->value : ''}}">
+    {{$slot}}
 </section>
+
