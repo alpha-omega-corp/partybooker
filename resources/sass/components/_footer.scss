@@ -53,8 +53,13 @@
 
             a {
                 color: #fff;
-                font-size: larger;
+                font-size: large;
                 font-family: monospace;
+            }
+
+            p {
+                font-size: large;
+                margin: 0;
             }
         }
 
@@ -80,22 +85,11 @@
             p {
                 color: #fff;
                 font-family: monospace;
-                font-size: larger;
+                font-size: large;
             }
         }
     }
 
-
-}
-
-.app-footer-contacts {
-    p {
-        margin: 0;
-    }
-
-    a {
-        font-family: monospace;
-    }
 
 }
 

@@ -414,7 +414,6 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 20px;
         padding: 40px 0 80px;
 
         a {
@@ -425,9 +424,10 @@
 
 
     .home-category-card {
+        margin: 10px;
         border-radius: 20px;
-        width: 250px;
-        margin-bottom: 10px;
+        width: 200px;
+        height: 180px;
         display: flex;
         align-items: center;
         border: 1px solid $light;
@@ -462,11 +462,11 @@
 
 
         .category-card-header {
-            padding: 20px;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding-top: 20px;
 
             .category-card-title {
                 color: $gray;
@@ -474,6 +474,7 @@
                 text-transform: uppercase;
                 font-size: medium;
                 margin: 0;
+                text-align: center;
             }
         }
     }
