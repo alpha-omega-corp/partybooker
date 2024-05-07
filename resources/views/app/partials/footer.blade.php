@@ -44,13 +44,13 @@
                         <p>{{$footerContacts->phone}}</p>
                         <div class="flex-column gap-2 d-flex justify-content-between mb-3">
                             <a href="{{$footerContacts->instagram}}">
-                                Instagram
+                                instagram
                             </a>
                             <a href="{{$footerContacts->facebook}}">
-                                Facebook
+                                facebook
                             </a>
                             <a href="{{$footerContacts->linkedin}}">
-                                Linkedin
+                                linkedin
                             </a>
 
                         </div>

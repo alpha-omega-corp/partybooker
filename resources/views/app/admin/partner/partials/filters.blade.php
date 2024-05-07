@@ -1,4 +1,8 @@
 <div class="admin-listing-filters">
+    <!-- Create Partner -->
+    @include('app.admin.partner.partials.create')
+
+    @include('app.admin.partner.partials.tops')
     <x-accordion.index name="adminListingFilters">
 
         <x-accordion.item

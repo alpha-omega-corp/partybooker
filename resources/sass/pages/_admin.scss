@@ -194,7 +194,7 @@
         position: relative;
         border-radius: 10px;
         flex-grow: 1;
-        flex-basis: 300px;
+        flex-basis: 400px;
         background-color: #fff;
 
         .card-content-padded {
@@ -277,11 +277,14 @@
     }
 
     .admin-listing-filters {
+        margin-top: 60px;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         width: 400px;
-        border-bottom: 1px solid $gray;
-        border-top: 1px solid $gray;
+        height: fit-content;
+        overflow: hidden;
+        border-radius: 10px;
 
         a {
             border-radius: 0;

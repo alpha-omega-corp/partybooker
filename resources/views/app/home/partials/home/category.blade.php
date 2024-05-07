@@ -1,4 +1,4 @@
-<x-app.section class="home-category-container">
+<div class="home-category-container">
     @foreach ($categories as $category)
         @php
             $icon = match ($category->service) {
@@ -20,9 +20,8 @@
                 </div>
                 <div class="category-card-header">
                     <h6 class="category-card-title">{{$category->locale->title}}</h6>
-                    @svg('heroicon-s-chevron-right')
                 </div>
             </div>
         </a>
     @endforeach
-</x-app.section>
+</div>

@@ -415,7 +415,7 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 20px;
-        padding-bottom: 20px;
+        padding: 40px 0 80px;
 
         a {
             flex-basis: 200px;
@@ -426,25 +426,24 @@
 
     .home-category-card {
         border-radius: 20px;
-        width: 400px;
+        width: 250px;
         margin-bottom: 10px;
         display: flex;
         align-items: center;
         border: 1px solid $light;
         background-color: $white;
+        flex-direction: column;
+        flex-grow: 1;
 
-        &:hover {
-            svg {
-                transform: scale(1.2);
-                transition: .1s;
-            }
+        @media only screen and (max-width: 520px) {
+            width: 400px;
         }
 
         .category-card-icon {
             background-color: $pink;
             padding: 20px;
-            border-top-left-radius: 20px;
-            border-bottom-left-radius: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
 
             svg {
                 color: #fff;
@@ -453,11 +452,20 @@
             }
         }
 
+
+        &:hover {
+            svg {
+                transform: scale(1.2);
+                transition: .1s;
+            }
+        }
+
+
         .category-card-header {
             padding: 20px;
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
 
             .category-card-title {

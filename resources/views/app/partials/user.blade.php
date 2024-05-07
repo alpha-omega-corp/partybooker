@@ -2,12 +2,12 @@
     <div class="app-navigation-user">
         <div class="btn-group dropdown">
             <button
-                class="btn btn-blue navigation-user-btn dr-toggle"
+                class="btn navigation-user-btn dr-toggle"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
             >
-                @svg($userIcon, 'text-white')
+                @svg($userIcon)
             </button>
             <ul class="dropdown-menu">
                 @if(Auth::user()->isAdmin())

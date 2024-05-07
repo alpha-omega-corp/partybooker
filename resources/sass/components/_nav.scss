@@ -16,7 +16,12 @@
     }
 
     .navigation-user-btn {
+        text-align: end;
+        padding: 15px;
+        font-weight: bold;
+
         svg {
+            color: $dark;
             margin: 0 !important;
         }
     }
@@ -54,6 +59,12 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+
+    img {
+        width: 25px;
+        height: 25px;
+    }
+
     @media only screen and (max-width: 1199px) {
         background-color: $secondary;
     }
@@ -103,6 +114,7 @@
         @media only screen and (min-width: 1200px) {
             display: flex;
             align-items: center;
+            flex-direction: row-reverse;
             gap: 20px;
         }
 
@@ -243,13 +255,14 @@
         padding: 0;
         width: 250px;
 
+
         .nav {
             margin-top: 0;
 
             .nav-item {
                 padding: 15px;
-                border-bottom: 1px solid $gray;
-                color: $dark;
+                border-bottom: 1px solid $light;
+                color: $gray;
                 font-size: large;
 
                 .nav-item-content {
