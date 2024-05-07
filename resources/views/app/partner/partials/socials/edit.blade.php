@@ -2,7 +2,6 @@
     :name="ModalName::PARTNER_COMPANY_SOCIALS"
     :type="ModalType::UPDATE"
     :size="ModalSize::MD"
-    :absolute="true"
     :background="false"
     :route="route('partner.company.update.socials', ['company' => $partner->company])"
 >

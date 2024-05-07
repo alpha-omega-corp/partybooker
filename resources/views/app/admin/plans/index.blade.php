@@ -7,6 +7,8 @@
 @section('content')
 
     <x-card.panel :title="__('admin.plans')" :color="AppColor::PINK" class="app-admin-plans">
-        @include('app.admin.content.plans.index')
+        <x-app.section>
+            @include('app.admin.content.plans.index')
+        </x-app.section>
     </x-card.panel>
 @endsection

@@ -15,4 +15,5 @@ return [
     'company.description' => 'Description',
     'company.statistics' => 'Statistics',
     'company.location' => 'Address',
+    'company.socials' => 'Socials',
 ];

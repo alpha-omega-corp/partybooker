@@ -82,6 +82,24 @@
 
             <x-accordion.item
                 accordion="partnerCompanyDetails"
+                name="socials"
+                :padding="false"
+            >
+                <x-slot:actions>
+                    @include('app.partner.partials.socials.edit')
+                </x-slot:actions>
+                
+                <x-slot:title>
+                    <h6>{{__('partner.company.socials')}}</h6>
+                </x-slot:title>
+
+                <x-slot:content>
+                    @include('app.partner.partials.socials.show')
+                </x-slot:content>
+            </x-accordion.item>
+
+            <x-accordion.item
+                accordion="partnerCompanyDetails"
                 name="statistics"
                 :padding="false"
             >
@@ -108,6 +126,7 @@
                 </x-slot:content>
             </x-accordion.item>
         </x-accordion>
+
 
         <a href="{{$companyLink}}">
             <x-icon.text :text="$companyLink" :icon="$linkIcon"/>

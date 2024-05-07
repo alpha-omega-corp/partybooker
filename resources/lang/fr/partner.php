@@ -13,6 +13,7 @@ return [
 
     'company.contacts' => 'Contacts',
     'company.description' => 'Description',
-    'company.stats' => 'Statistics',
-    'company.location' => 'Address',
+    'company.stats' => 'Statistiques',
+    'company.location' => 'Adresse',
+    'company.socials' => 'Réseaux',
 ];
