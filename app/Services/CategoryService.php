@@ -9,11 +9,17 @@ use App\Models\Advert;
 use App\Models\Category;
 use App\Models\CategoryLocale;
 use App\Models\CategoryTag;
+use Butschster\Head\Contracts\MetaTags\MetaInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
 class  CategoryService implements ICategoryService
 {
+    public function __construct(protected MetaInterface $meta)
+    {
+        //
+    }
+
     public function getFromSlug(string $slug): Category
     {
         return Category::find(CategoryLocale::withoutGlobalScopes()
@@ -24,6 +30,7 @@ class  CategoryService implements ICategoryService
     public function filterCategory(?string $requestCat, ?string $requestTag): Builder
     {
         if (!$requestCat) {
+            $this->meta->prependTitle(__('nav.listing'));
             return Advert::listing()->orderBy('id', 'desc');
         }
 
@@ -37,6 +44,16 @@ class  CategoryService implements ICategoryService
             $adverts->whereHas('tags', function (Builder $query) use ($tag) {
                 $query->where('category_tag_id', $tag->id);
             });
+        }
+
+        if ($requestTag) {
+            $this->meta->prependTitle($tag->locale->title);
+            $this->meta->setDescription($tag->locale->description);
+            $this->meta->setKeywords($tag->locale->keywords);
+        } else {
+            $this->meta->prependTitle($category->locale->title);
+            $this->meta->setDescription($category->locale->description);
+            $this->meta->setKeywords($category->locale->keywords);
         }
 
         return $adverts;

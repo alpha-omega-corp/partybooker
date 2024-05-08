@@ -6,9 +6,9 @@
 
 <a href="{{ $href }}" class="nav-item">
     <div class="nav-item-content">
-        
+
         <div class="nav-item-label">
-            <span>{{ ucfirst($text) }}</span>
+            <span>{{ $text }}</span>
         </div>
 
     </div>

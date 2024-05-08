@@ -17,6 +17,8 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
+use Intervention\Image\ImageServiceProvider;
+use Laravel\Socialite\SocialiteServiceProvider;
 
 return [
 
@@ -154,21 +156,14 @@ return [
 
 
     'providers' => ServiceProvider::defaultProviders()->merge([
-        /*
-         * Package AdvertService Providers...
-         */
-        Torann\LaravelMetaTags\MetaTagsServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
-
-        /*
-         * Application AdvertService Providers...
-         */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\MetaTagsServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
+        SocialiteServiceProvider::class,
+        ImageServiceProvider::class,
         CaptchaServiceProvider::class,
     ])->toArray(),
 
@@ -188,7 +183,6 @@ return [
         'Vite' => Vite::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Image' => Intervention\Image\Facades\Image::class,
-        'MetaTag' => Torann\LaravelMetaTags\Facades\MetaTag::class,
         'DateType' => DateType::class,
         'CategoryType' => CategoryType::class,
         'NetworkType' => App\Enums\NetworkType::class,

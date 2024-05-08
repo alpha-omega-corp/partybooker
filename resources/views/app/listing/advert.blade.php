@@ -7,7 +7,7 @@
 @extends('main')
 
 @section('content')
-    <x-card.panel :title="$advert->locale->title" class="app-advert">
+    <x-card.panel :title="__('listing.advert')" class="app-advert">
         <x-slot:breadcrumbs>
             {{Breadcrumbs::render('advert', $advert)}}
         </x-slot:breadcrumbs>

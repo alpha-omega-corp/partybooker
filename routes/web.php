@@ -218,9 +218,7 @@ Route::controller(AdminController::class)
     ->middleware('admin')
     ->name('admin.')
     ->group(function () {
-        Route::get('/forms', 'forms')->name('forms');
-        Route::get('/messages', 'messages')->name('messages');
-        Route::get('/partners', 'partners')->name('partners');
+
         Route::put('/update-tops', 'updateTopServices')->name('tops');
         Route::put('/update-contacts', 'updateContacts')->name('contacts');
 
@@ -228,14 +226,18 @@ Route::controller(AdminController::class)
             Route::get('/contenu', 'content')->name('content');
             Route::get('/categories', 'categories')->name('categories');
             Route::get('/formules', 'plans')->name('plans');
-            Route::get('/contacts', 'contacts')->name('contacts');
+            Route::get('/formulaires', 'forms')->name('forms');
+            Route::get('/messages', 'messages')->name('messages');
+            Route::get('/partenaires', 'partners')->name('partners');
         });
 
         Route::name('en.')->prefix('en/admin')->group(function () {
             Route::get('/content', 'content')->name('content');
             Route::get('/categories', 'categories')->name('categories');
             Route::get('/plans', 'plans')->name('plans');
-            Route::get('/contacts', 'contacts')->name('contacts');
+            Route::get('/forms', 'forms')->name('forms');
+            Route::get('/messages', 'messages')->name('messages');
+            Route::get('/partners', 'partners')->name('partners');
         });
     });
 

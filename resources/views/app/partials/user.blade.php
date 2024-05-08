@@ -16,7 +16,7 @@
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{url(route('admin.partners'))}}">
+                        <a class="dropdown-item" href="{{url(route(__('route.admin-partners')))}}">
                             Partners
                         </a>
 
@@ -37,12 +37,12 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{url(route('admin.forms'))}}">
+                        <a class="dropdown-item" href="{{url(route(__('route.admin-forms')))}}">
                             Forms
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="{{url(route('admin.messages'))}}">
+                        <a class="dropdown-item" href="{{url(route(__('route.admin-messages')))}}">
                             Messages
                         </a>
                     </li>

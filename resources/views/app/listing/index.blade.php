@@ -16,9 +16,9 @@
 
                 <!-- Category -->
                 @include('app.listing.partials.category')
+
                 <!-- Search -->
                 @include('app.listing.partials.search')
-
             </div>
 
             @include('app.listing.partials.listing')

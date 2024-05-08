@@ -1,4 +1,4 @@
-<div class="app-filter-search mb-4 p-4">
+<div class="app-filter-search p-3">
     <x-modal.open
         :singleton="true"
         :fit="true"
