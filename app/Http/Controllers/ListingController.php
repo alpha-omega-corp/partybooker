@@ -8,6 +8,7 @@ use App\Models\CategoryLocale;
 use App\Models\Company;
 use App\Services\CategoryService;
 use App\Services\PartnerService;
+use Butschster\Head\Contracts\MetaTags\MetaInterface;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 
@@ -16,7 +17,10 @@ class ListingController extends Controller
     private ICategoryService $categoryService;
     private Collection $categories;
 
-    public function __construct(CategoryService $categoryService)
+    public function __construct(
+        CategoryService         $categoryService,
+        protected MetaInterface $meta
+    )
     {
         $this->categoryService = $categoryService;
         $this->categories = Category::all();
@@ -44,6 +48,10 @@ class ListingController extends Controller
     {
         $locale = CategoryLocale::where('slug', $category)->first();
         $advert = $company->adverts()->where('category_id', $locale->translatable_id)->firstOrFail();
+
+        $this->meta->prependTitle($company->name);
+        $this->meta->setDescription($advert->locale->description);
+        $this->meta->setKeywords($advert->locale->keywords);
 
         return view('app.listing.advert', [
             'advert' => $advert,

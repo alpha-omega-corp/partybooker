@@ -19,19 +19,21 @@ use App\Models\Notification;
 use App\Models\RequestHelp;
 use App\Models\RequestPartner;
 use App\Services\PartnerService;
+use Butschster\Head\Contracts\MetaTags\MetaInterface;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
 class HomeController extends Controller
 {
-
-    public function __construct()
+    public function __construct(protected MetaInterface $meta)
     {
-
+        //
     }
 
     public function index()
     {
+        $this->meta->prependTitle(__('nav.home'));
+
         return view('app.home.index', [
             'categories' => Category::all(),
             'comments' => AppComment::all(),
@@ -45,6 +47,8 @@ class HomeController extends Controller
 
     public function about(): View
     {
+        $this->meta->prependTitle(__('nav.about'));
+
         return view('app.home.about', [
             'description' => AppContent::ofType(AppContentType::APP_ABOUT)->first()->locale,
             'concept' => AppContent::ofType(AppContentType::APP_CONCEPT)->first()->locale,
@@ -54,6 +58,8 @@ class HomeController extends Controller
 
     public function partnership(): View
     {
+        $this->meta->prependTitle(__('nav.partnership'));
+
         return view('app.home.partnership', [
             'plans' => AppPlan::all()->where('price', '>', 0),
             'benefits' => AppAbout::ofType(AppAboutType::BENEFITS)->get(),
@@ -63,6 +69,8 @@ class HomeController extends Controller
 
     public function faq(): View
     {
+        $this->meta->prependTitle(__('nav.faq'));
+
         return view('app.home.faq', [
             'faqs' => AppFaq::all(),
         ]);
@@ -70,6 +78,8 @@ class HomeController extends Controller
 
     public function blog(): View
     {
+        $this->meta->prependTitle(__('nav.blog'));
+
         return view('app.home.blog', [
             'posts' => AppPost::published()->get()
         ]);

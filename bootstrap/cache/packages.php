@@ -13,6 +13,18 @@
       0 => 'BladeUI\\Icons\\BladeIconsServiceProvider',
     ),
   ),
+  'butschster/meta-tags' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Butschster\\Head\\Providers\\MetaTagsServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Meta' => 'Butschster\\Head\\Facades\\Meta',
+      'PackageManager' => 'Butschster\\Head\\Facades\\PackageManager',
+    ),
+  ),
   'buzz/laravel-google-captcha' => 
   array (
     'providers' => 
@@ -199,15 +211,11 @@
       'Flare' => 'Spatie\\LaravelIgnition\\Facades\\Flare',
     ),
   ),
-  'torann/laravel-meta-tags' => 
+  'spatie/laravel-sitemap' => 
   array (
     'providers' => 
     array (
-      0 => 'Torann\\LaravelMetaTags\\MetaTagsServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'MetaTag' => 'Torann\\LaravelMetaTags\\Facades\\MetaTag',
+      0 => 'Spatie\\Sitemap\\SitemapServiceProvider',
     ),
   ),
 );
