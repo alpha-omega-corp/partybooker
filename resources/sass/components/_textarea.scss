@@ -1,0 +1,7 @@
+.app-textarea {
+    margin-bottom: 20px;
+
+    textarea:focus {
+        border-color: $accent;
+    }
+}

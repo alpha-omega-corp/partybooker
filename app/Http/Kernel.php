@@ -8,10 +8,10 @@ use App\Http\Middleware\EmailVerification;
 use App\Http\Middleware\EmailVerified;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\EnsureAdOwnership;
+use App\Http\Middleware\EnsureUserAdmin;
 use App\Http\Middleware\EnsureUserSubscribed;
 use App\Http\Middleware\LocaleMiddleware;
 use App\Http\Middleware\PartnerMiddleware;
-use App\Http\Middleware\PartybookerAdmin;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustHosts;
@@ -90,11 +90,11 @@ class Kernel extends HttpKernel
         'signed' => ValidateSignature::class,
         'throttle' => ThrottleRequests::class,
         'verified' => EnsureEmailIsVerified::class,
-        'admin' => PartybookerAdmin::class,
+        'admin' => EnsureUserAdmin::class,
         'email' => EmailVerification::class,
         'email-ok' => EmailVerified::class,
         'subscribed' => EnsureUserSubscribed::class,
-        'advertisement' => EnsureAdOwnership::class,
+        'service' => EnsureAdOwnership::class,
         'partner' => PartnerMiddleware::class,
     ];
 

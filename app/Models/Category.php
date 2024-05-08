@@ -2,16 +2,20 @@
 
 namespace App\Models;
 
+use App\Enums\CategoryType;
+use App\Traits\HasLangScope;
 use Database\Factories\CategoryFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 
 class Category extends Model
 {
     use HasFactory;
+    use HasLangScope;
 
     public $timestamps = false;
 
@@ -24,14 +28,18 @@ class Category extends Model
         return CategoryFactory::new();
     }
 
-    public function locale(): MorphMany
+    public function locale(): MorphOne
     {
-        return $this->morphMany(CategoryLocale::class, 'categorizable');
+        return $this->morphOne(CategoryLocale::class, 'translatable');
     }
 
-    public function children(): HasMany
+    public function tags(): HasMany
     {
-        return $this->hasMany(CategoryChild::class);
+        return $this->hasMany(CategoryTag::class, 'category_id', 'id');
     }
 
+    public function scopeOfType(Builder $query, CategoryType $type): void
+    {
+        $query->where('service', $type->value);
+    }
 }

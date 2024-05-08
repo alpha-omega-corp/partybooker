@@ -14,16 +14,13 @@ class ServiceEntertainment extends Model
     use HasFactory;
 
     protected $fillable = [
+        'min_guests',
+        'max_guests',
     ];
 
     protected static function newFactory(): ServiceEntertainmentFactory
     {
         return ServiceEntertainmentFactory::new();
-    }
-
-    public function category(): MorphOne
-    {
-        return $this->morphOne(Category::class, 'categorizable');
     }
 
     public function service(): MorphOne

@@ -1,68 +1,501 @@
-.listing-advert {
-    margin-top: 120px;
+.app-listing-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    position: relative;
 
-    .advert-header {
-        padding: 20px;
-        border: 1px solid $gray-300;
-        border-radius: 20px;
-        margin-bottom: 20px;
+
+    .row {
+        height: 100%;
     }
 
-    .advert-gallery {
-        img {
-            width: 400px;
-            height: 200px;
-            border-radius: 20px;
-            object-fit: cover;
-        }
-    }
 
-    .advert-logo {
-        img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-    }
-
-    .advert-contacts {
-        display: flex;
-        gap: 10px;
-    }
-
-    .advert-description {
-        margin-bottom: 60px;
-        display: flex;
-        gap: 20px;
-
-        .advert-text {
-            padding: 20px;
-            border: 1px solid $gray-300;
-            border-radius: 20px;
-            text-align: justify;
-        }
-
-        .advert-socials {
-            display: flex;
-            gap: 10px;
-            flex-direction: column;
-            padding: 10px;
-            align-items: center;
-            border: 1px solid $gray-300;
-            border-radius: 20px;
+    @media only screen and (max-width: 1199px) {
+        column-gap: 20px;
+        .row > * {
+            padding: 0 !important;
         }
     }
 }
 
+.app-listing-search {
+    .listing-search-input {
+        padding: 40px 20px 20px;
+        border-bottom: 1px solid $light;
+    }
+
+    .listing-search-container {
+        height: 500px;
+        overflow: scroll;
+        padding: 20px;
+        background-color: #eeeeee;
+
+        .listing-search-item {
+            display: flex;
+            border: 1px solid $light;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            position: relative;
+
+            @media only screen and (max-width: 991px) {
+                flex-direction: column;
+                img {
+                    width: 100% !important;
+                }
+            }
+
+            &:hover {
+                box-shadow: 0 0 2px 0 $accent;
+            }
+
+            .search-item-header {
+                border-bottom: 1px solid $light;
+                padding: 20px;
+
+                p {
+                    margin: 0;
+                }
+            }
+
+            .search-item-company {
+                display: flex;
+                gap: 10px;
+                padding-top: 20px;
+                color: $gray;
+                font-size: small;
+            }
+
+            .search-item-image {
+                img {
+                    width: 400px;
+                    height: 250px;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+            .search-item-title {
+            }
+
+            .search-item-content {
+                color: $gray;
+                width: 100%;
+
+                h6 {
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                    color: #000;
+                    text-transform: uppercase;
+                }
+
+                .item-content-category {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                }
+
+                .item-content-address {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 20px;
+
+                    p {
+                        margin: 0;
+                        font-size: small;
+                    }
+                }
+
+                .item-content-description {
+                    padding: 20px;
+                    height: 170px;
+                    text-overflow: ellipsis;
+
+                    p {
+                        font-size: small;
+                        text-align: justify;
+                    }
+                }
+            }
+        }
+
+        .search-result-item:hover {
+            h6 {
+                color: $accent;
+            }
+        }
+    }
+}
+
+.app-listing-filters {
+    flex-basis: 50px;
+    flex-grow: 1;
+    margin-bottom: 20px;
+    height: 100%;
+
+    .listing-category-content {
+        padding-bottom: 20px;
+
+        .category-tag {
+            text-align: center;
+            list-style-type: none;
+            padding-bottom: 20px;
+
+            .tag-link {
+                color: $gray;
+            }
+        }
+    }
+}
+
+.app-listing-content {
+    flex-basis: 800px;
+    flex-grow: 1;
+    position: relative;
+    border: 1px solid $light;
+    border-radius: 20px;
+    overflow: hidden;
+
+    .app-listing-items {
+        background-color: $home;
+        @media only screen and (min-width: 1200px) {
+            height: 100%;
+            width: 100%;
+            overflow: scroll;
+            padding: 20px 30px 70px 20px;
+        }
+
+        @media only screen and (min-width: 600px) and (max-width: 800px) {
+            padding: 40px;
+        }
+    }
+
+    .listing-content-pagination {
+
+        background-color: #fff;
+        @media only screen and (min-width: 1200px) {
+            padding: 20px;
+        }
+
+        .listing-pagination {
+            width: 100%;
+            position: relative;
+
+            @media only screen and (max-width: 1199px) {
+                position: fixed;
+                width: 100%;
+                bottom: 0;
+                left: 0;
+                padding: 0;
+                z-index: 10;
+
+                .pagination {
+                    width: 100%;
+
+                    .page-link {
+                        border-radius: 0;
+                        width: 100%;
+                        padding: 10px;
+                    }
+
+                    a {
+                        color: $blue;
+
+                    }
+                }
+
+                li {
+                    width: 100%;
+
+                    a {
+                        width: 100%;
+                    }
+
+                    a, span {
+                        text-align: center;
+                    }
+                }
+            }
+
+            nav {
+                width: 100%;
+
+
+                .page-item {
+                    display: flex;
+                    justify-content: center;
+                    font-weight: bold;
+                }
+
+                .active {
+                    span {
+                        background-color: $secondary;
+                    }
+                }
+            }
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .pagination {
+            margin: 0;
+        }
+
+        .content-pagination-none {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: $blue;
+            font-size: large;
+            font-weight: bold;
+        }
+    }
+
+
+    .advert-card {
+        margin: 10px;
+        @media only screen and (max-width: 800px) {
+            flex-direction: column;
+
+            .advert-card-image {
+                width: 100%;
+
+                img {
+                    width: 100% !important;
+                    height: 250px;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+            .card-content-address {
+                position: relative !important;
+            }
+        }
+
+        .advert-card-image {
+            img {
+                width: 400px;
+                height: 250px;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        .advert-card-company {
+            display: flex;
+            gap: 10px;
+            padding-top: 20px;
+            color: $gray;
+        }
+
+        .advert-card-details {
+            p {
+                color: $gray !important;
+            }
+
+            .advert-card-location {
+                font-size: small;
+                position: absolute;
+                bottom: 10px;
+                right: 20px;
+                margin: 0;
+            }
+        }
+
+        display: flex;
+        border-radius: 10px;
+        border: 1px solid $light;
+        position: relative;
+        overflow: hidden;
+
+
+        .advert-card-description {
+            position: relative;
+            text-align: justify;
+            font-size: small;
+            padding-bottom: 20px;
+            line-height: 20px;
+
+
+            span {
+                text-overflow: ellipsis;
+                font-weight: normal;
+
+            }
+        }
+
+        .advert-card-content {
+            width: 100%;
+            background-color: #fff;
+
+            .card-content-header {
+                border-bottom: 1px solid $light;
+                padding: 20px;
+
+                .advert-card-title {
+                    font-weight: bold;
+                    margin: 0;
+                    color: #000;
+                    text-transform: uppercase;
+                }
+
+                .content-header-company {
+                    display: flex;
+                    gap: 20px;
+                    color: $gray;
+                    font-size: small;
+                }
+            }
+
+            .card-content {
+                padding: 10px 20px 0;
+                color: $gray;
+
+                @media only screen and (max-width: 800px) {
+                    height: 170px;
+                }
+
+                .card-content-address {
+                    position: absolute;
+                    bottom: 10px;
+                }
+            }
+        }
+    }
+
+    .advert-category {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    .advert-card:hover {
+        box-shadow: 0 0 2px 0 $accent;
+    }
+}
+
+
+.app-listing {
+    height: 100%;
+    @media only screen and (max-width: 1199px) {
+        .row > * {
+            padding: 0;
+        }
+    }
+
+    .accordion-button {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        &::after {
+            margin: 0 !important;
+            position: absolute;
+            right: 40px;
+        }
+
+        .category-item-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            color: $gray;
+
+            font-size: large;
+        }
+    }
+
+    .pagination {
+        @media only screen and (max-width: 600px) {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .page-link {
+            border: 1px solid $light !important;
+        }
+    }
+
+    .listing-information {
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid $light;
+
+    }
+
+
+    .tag-link {
+        width: 100%;
+    }
+
+    .listing-search-card {
+        padding: 20px;
+    }
+
+
+    .listing-category-card {
+        border-left: 1px solid $light;
+        border-right: 1px solid $light;
+        position: relative;
+
+        .category-card-header {
+            padding: 20px;
+        }
+
+        .category-card-description {
+            border-top: 1px solid $light;
+            padding: 20px;
+
+            p {
+                color: $dark;
+                font-size: large;
+                margin: 0;
+            }
+        }
+
+        .breadcrumb {
+            margin: 0 !important;
+        }
+
+    }
+
+
+    .app-listing-header {
+        padding: 20px;
+        border: 1px solid $gray-300;
+        border-radius: 20px;
+        margin-bottom: 60px;
+
+        h1 {
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    }
+
+
+    .app-listing-pagination {
+        padding: 20px;
+    }
+}
+
 .company-adverts {
-    margin-bottom: 60px;
+    width: 100%;
 
     .company-adverts-item {
-        padding: 10px;
+        padding: 20px;
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px dashed $orange;
+        border-bottom: 1px solid $light;
+
+        .adverts-item-title {
+            text-overflow: ellipsis;
+            color: $dark;
+        }
     }
 
     .company-adverts-item:hover {

@@ -15,7 +15,15 @@ class ServiceCatererFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'min_guests' => $this->faker->numberBetween(1, 100),
+            'max_guests' => $this->faker->numberBetween(100, 200),
+            'delivery_services' => [
+                [
+                    'service' => $this->faker->company,
+                    'service_url' => $this->faker->url,
+                ]
+            ],
+            'specialty' => $this->faker->sentence,
         ];
     }
 }

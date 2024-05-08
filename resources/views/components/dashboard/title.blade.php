@@ -1,6 +1,6 @@
 @props([
     'user',
-    'plans'
+    'plan'
 ])
 @if (Auth::user()->type == 'admin')
 

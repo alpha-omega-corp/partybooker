@@ -9,7 +9,6 @@ enum NetworkType: string
     case TWITTER = 'twitter';
     case YOUTUBE = 'youtube';
     case LINKEDIN = 'linkedin';
-    case TIKTOK = 'tiktok';
 
     public static function values(): array
     {

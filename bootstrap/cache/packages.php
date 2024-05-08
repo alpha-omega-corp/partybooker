@@ -24,6 +24,17 @@
       'Captcha' => 'Buzz\\LaravelGoogleCaptcha\\CaptchaFacade',
     ),
   ),
+  'diglactic/laravel-breadcrumbs' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Diglactic\\Breadcrumbs\\ServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Breadcrumbs' => 'Diglactic\\Breadcrumbs\\Breadcrumbs',
+    ),
+  ),
   'filament/actions' => 
   array (
     'providers' => 
@@ -89,6 +100,13 @@
     'providers' => 
     array (
       0 => 'Laravel\\Sanctum\\SanctumServiceProvider',
+    ),
+  ),
+  'laravel/scout' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Laravel\\Scout\\ScoutServiceProvider',
     ),
   ),
   'laravel/socialite' => 

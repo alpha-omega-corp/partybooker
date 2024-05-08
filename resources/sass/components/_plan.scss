@@ -1,0 +1,74 @@
+.app-plan {
+    border: 1px solid $light;
+    border-radius: 20px;
+    position: relative;
+    height: 400px;
+    background-color: #fff;
+    margin: 10px;
+    flex-grow: 1;
+
+    .plan-title {
+        text-align: start;
+        font-weight: bold;
+        padding: 20px;
+        text-transform: uppercase;
+        border-bottom: 1px solid $pink;
+    }
+
+    .plan-description {
+        padding: 20px;
+        text-align: justify;
+    }
+
+    .plan-content {
+        width: 100%;
+        padding-top: 10px;
+        position: absolute;
+        bottom: 10px;
+        border-top: 1px solid $light;
+
+        .plan-adverts-container {
+            padding-left: 20px;
+        }
+
+        .plan-content-advert {
+            text-align: center;
+            padding: 10px;
+            color: $blue;
+            border-bottom: 1px solid $light;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .plan-adverts {
+            padding-top: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            margin: 0;
+
+            li {
+                list-style-type: decimal;
+                text-align: end;
+                font-family: monospace;
+
+                &::marker {
+                    color: $pink;
+                    font-weight: bold;
+                }
+            }
+        }
+
+    }
+
+    .plan-price {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-weight: bold;
+
+
+        .price {
+            font-size: 1.5em;
+            color: $pink;
+        }
+    }
+}

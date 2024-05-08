@@ -15,12 +15,17 @@ class CategoryLocale extends Model
 
     public $timestamps = false;
     protected $fillable = [
-        'categorizable_id',
-        'categorizable_type',
+        'translatable_id',
+        'translatable_type',
         'lang',
         'slug',
         'title',
         'description',
+        'keywords'
+    ];
+
+    protected $casts = [
+        'keywords' => 'array'
     ];
 
     protected static function newFactory(): CategoryLocaleFactory
@@ -33,7 +38,7 @@ class CategoryLocale extends Model
         static::addGlobalScope(new LocaleScope());
     }
 
-    public function categorizable(): MorphTo
+    public function translatable(): MorphTo
     {
         return $this->morphTo();
     }

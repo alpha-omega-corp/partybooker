@@ -2,15 +2,31 @@
 
 namespace Database\Seeders;
 
-use App\Models\Plan;
+use App\Models\AppPlan;
 use Illuminate\Database\Seeder;
 
 class PlanSeeder extends Seeder
 {
     public function run(): void
     {
-        Plan::factory()->standard()->create();
-        Plan::factory()->premium()->create();
-        Plan::factory()->exclusive()->create();
+        AppPlan::factory()
+            ->standard()
+            ->create();
+
+        AppPlan::factory()
+            ->premium()
+            ->create();
+
+        AppPlan::factory()
+            ->exclusive()
+            ->create();
+
+        AppPlan::factory()
+            ->basic()
+            ->create();
+
+        AppPlan::factory()
+            ->commission()
+            ->create();
     }
 }

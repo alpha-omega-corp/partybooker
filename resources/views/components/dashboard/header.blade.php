@@ -1,6 +1,6 @@
 @props([
     'user',
-    'plans'
+    'plan'
 ])
 <div class="dashboard-title">
     <div class="dashboard-title-box">

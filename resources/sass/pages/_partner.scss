@@ -1,4 +1,175 @@
-.dashboard-body {
-    border-top: 1px solid $accent;
+.advert-tags-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px;
+    border-bottom: 1px solid $light;
+}
+
+.advert-tags-content {
+    padding: 10px 10px 20px 40px;
+
+    li {
+        list-style-type: decimal;
+
+        &::marker {
+            color: $blue;
+            font-weight: bold;
+        }
+    }
+}
+
+.partner-dashboard {
+    .row > * {
+        padding: 0;
+    }
+
+    .partner-company-description {
+        padding: 20px;
+    }
+
+    .partner-advert-header {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .partner-advert-title {
+        color: #000;
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .partner-advert {
+        .partner-advert-url {
+            padding: 20px;
+        }
+
+        .partner-advert-actions {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+            border: 1px solid $gray;
+
+            a {
+                border-radius: 0 !important;
+            }
+        }
+
+
+        .partner-advert-content {
+            .app-card-header {
+                text-align: start;
+            }
+        }
+
+        .partner-advert-description {
+            h6 {
+                font-weight: bold;
+                margin: 10px 0 30px;
+            }
+        }
+
+        .partner-advert-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 20px;
+            padding: 0 20px;
+            row-gap: 10px;
+
+            .advert-gallery-item {
+                margin-bottom: 20px;
+                position: relative;
+                flex-basis: 100px;
+                flex-grow: 1;
+
+                img {
+                    width: 100%;
+                    border-radius: 10px;
+                    object-fit: contain;
+                }
+
+                .gallery-image-actions {
+                    display: none;
+                    top: 10px;
+                    right: 10px;
+                }
+            }
+
+            .advert-gallery-item:hover {
+                transform: scale(1.06);
+                transition: .2s;
+                cursor: pointer;
+
+                .gallery-image-actions {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    position: absolute;
+                }
+            }
+        }
+
+        .partner-advert-meta {
+            .meta-keywords {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+
+                .keyword-item {
+                    padding: 10px;
+                    border: 1px solid $blue;
+                    text-align: center;
+                    border-radius: 5px;
+                    flex-grow: 1;
+                }
+            }
+
+        }
+    }
+
+    .partner-company {
+        background-color: #fff;
+
+        .partner-company-logo {
+            padding: 20px;
+            background-color: #000;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+
+            img {
+                width: 200px;
+            }
+        }
+    }
+
+}
+
+.text-icon {
+    border-bottom: 1px solid $light;
+    padding: 20px;
+}
+
+.link-icon {
+    border-bottom: 1px solid $light;
+    padding: 20px;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.advert-gallery-count {
+    border-bottom: 1px solid $light;
+    margin-bottom: 20px;
+
+    .gallery-count {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 20px;
+    }
 }

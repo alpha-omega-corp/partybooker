@@ -1,4 +1,248 @@
-.navigation {
+.navbar {
+    padding: 0;
+}
+
+.app-navigation-open {
+    width: 60px !important;
+    height: 60px;
+}
+
+.app-navigation-user {
+    width: 100%;
+    z-index: 100;
+
+    .dropdown-menu {
+        width: 100%;
+    }
+
+    .navigation-user-btn {
+        text-align: end;
+        padding: 15px;
+        font-weight: bold;
+
+        svg {
+            color: $dark;
+            margin: 0 !important;
+        }
+    }
+
+    .dropdown-menu {
+        border-radius: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .btn-group {
+        width: 100%;
+        height: 100%;
+    }
+
+    button {
+        border-radius: 0;
+    }
+}
+
+.app-navigation-login {
+    height: 100%;
+
+    button {
+        height: 100%;
+        text-align: end;
+        padding: 15px;
+        color: $gray !important;
+    }
+}
+
+.app-navigation-locale {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    img {
+        width: 25px;
+        height: 25px;
+    }
+
+    @media only screen and (max-width: 1199px) {
+        background-color: $secondary;
+    }
+}
+
+.app-navigation {
+    background: #fff;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    border-bottom: 1px solid $gray;
+
+    .app-navigation-content {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-between;
+        gap: 40px;
+        position: relative;
+
+        .app-navigation-logo {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+
+            @media only screen and (max-width: 1199px) {
+                flex-grow: 1;
+                padding-left: 10px;
+
+                img {
+                    width: 60px;
+                }
+            }
+        }
+
+        @media only screen and (max-width: 1199px) {
+        }
+
+        @media only screen and (min-width: 1200px) {
+            padding: 20px;
+        }
+    }
+
+    .app-navigation-actions {
+        @media only screen and (min-width: 1200px) {
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            gap: 20px;
+        }
+
+        @media only screen and (max-width: 1199px) {
+            width: 100%;
+            border-bottom: 1px solid $gray;
+        }
+
+        .app-navigation-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #fff;
+        }
+    }
+
+
+    .navbar {
+        display: flex;
+        align-items: center;
+    }
+
+
+    .navbar-mobile {
+        height: 100%;
+        position: relative;
+
+        .app-navigation-close {
+            height: 60px;
+        }
+
+        .admin-navigation {
+            position: absolute;
+            bottom: 40px;
+            padding-top: 20px;
+            border-top: 1px solid $orange;
+            width: 100%;
+        }
+    }
+
+    .navbar-desktop {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+
+        .app-navigation-main {
+            display: flex;
+            flex-direction: row-reverse;
+            width: 100%;
+            justify-content: space-between;
+
+            .app-navigation-close {
+                display: none;
+            }
+        }
+
+        .app-logo-offcanvas {
+            display: none;
+        }
+
+        .nav-group {
+            gap: 20px;
+            flex-direction: row !important;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 600px;
+            display: flex;
+            justify-content: center;
+        }
+
+        a {
+            color: $dark;
+
+            &:hover {
+                color: $blue;
+            }
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .nav-item-content {
+            display: flex;
+            gap: 10px;
+
+            .nav-item-label {
+                padding-top: 2px;
+                font-family: "Poppins", sans-serif;
+            }
+        }
+
+        .admin-navigation {
+            display: none;
+        }
+
+    }
+
+    @media only screen and (min-width: 1200px) {
+        .navbar-toggler {
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width: 1199px) {
+        .navbar-desktop {
+            display: none;
+        }
+
+        .navbar-toggler {
+            color: #fff;
+            background-color: $pink;
+            width: 100%;
+            border-radius: 0;
+        }
+
+        .app-logo-offcanvas {
+            img {
+                width: 120px !important;
+            }
+        }
+    }
 
     .navbar-toggler:focus,
     .navbar-toggler:active,
@@ -7,40 +251,33 @@
         box-shadow: none;
     }
 
-    .auth {
-        margin-left: 30px;
-
-        .dropdown {
-            position: relative !important;
-        }
-    }
-
     .offcanvas-body {
         padding: 0;
+        width: 250px;
+
 
         .nav {
             margin-top: 0;
 
-            li {
-                display: flex;
-                border-bottom: 1px solid $accent;
-                font-weight: bold;
+            .nav-item {
+                padding: 15px;
+                border-bottom: 1px solid $light;
+                color: $gray;
+                font-size: large;
 
-                a {
-                    padding: 20px;
-                    color: $gray;
-                }
+                .nav-item-content {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    gap: 20px;
 
-                a:hover {
-                    color: $accent;
-                }
-
-                svg {
-                    margin-right: 10px;
+                    .nav-item-icon {
+                        width: 25px;
+                        height: 25px;
+                        color: $blue;
+                    }
                 }
             }
         }
     }
-
-
 }

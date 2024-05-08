@@ -1,0 +1,15 @@
+.table {
+    border: 1px solid $light;
+
+    thead {
+        border: 1px solid $gray;
+
+        th {
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            overflow: hidden;
+            background-color: $accent;
+            color: #fff !important;
+        }
+    }
+}

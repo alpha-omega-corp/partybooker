@@ -6,10 +6,8 @@ namespace App\Services;
 use App\Http\Requests\StorePaymentMethod;
 use App\Interfaces\ILocaleService;
 use App\Interfaces\IPlanService;
+use App\Models\AppPlan;
 use App\Models\Partner;
-use App\Models\PartnerPlanOption;
-use App\Models\Plan;
-use App\Models\PlanOption;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Carbon;
@@ -29,11 +27,11 @@ class PlanService implements IPlanService
 
     public function getPlans(): Collection
     {
-        $plans = Plan::with('planOptions')
+        $plans = AppPlan::with('planOptions')
             ->orderBy('price', 'ASC')
             ->get();
 
-        return $plans->map(function (Plan $plan) {
+        return $plans->map(function (AppPlan $plan) {
             $options = [];
             $plan->name = strtolower($plan->name);
 
@@ -43,7 +41,7 @@ class PlanService implements IPlanService
 
             $plan['options'] = $options;
             return $plan;
-        })->filter(function (Plan $plan) {
+        })->filter(function (AppPlan $plan) {
             return !in_array($plan->name, ['vip']);
         })->reverse();
     }
@@ -99,7 +97,7 @@ class PlanService implements IPlanService
 
     public function activatePlan(string $planName, Partner $partner): bool
     {
-        $plan = Plan::where('name', $planName)->firstOrFail();
+        $plan = AppPlan::where('name', $planName)->firstOrFail();
 
         $this->applyOptions(
             $partner->id,

@@ -1,44 +1,86 @@
 .tab {
-    margin: 0;
 
-    .tab-list {
-        padding: 0;
-        border-bottom: 0;
-        overflow-x: scroll;
-        position: relative;
-        margin: 0 0 0 20px;
+    .tab-list-item {
+        list-style-type: none;
+    }
+
+    .tab-list-vertical {
+        flex-direction: column;
+        height: 100%;
+        padding: 20px;
+        margin: 0 !important;
+        background-color: rgba(0, 0, 0, 0.05);
 
         li {
-            list-style-type: none;
+            margin-bottom: 20px;
+        }
 
-            .tab-button {
-                cursor: pointer;
-                padding: 20px;
-                border-top-left-radius: 20px;
-                border-top-right-radius: 20px;
-                background-color: transparent;
-                color: $gray;
+        .tab-button {
+            cursor: pointer;
+            border-radius: 50%;
+            border-bottom: 1px solid !important;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
 
-                .tab-icon {
-                    font-weight: bold;
-                    width: 25px;
-                    height: 25px;
-                }
+        .tab-button:hover {
+            border-bottom: 1px solid $blue !important;
+
+            svg {
+                color: $blue;
             }
+        }
+    }
 
-            .tab-button:hover {
-                .tab-icon {
-                    color: $accent;
-                }
+    .tab-list-horizontal {
+        padding: 0;
+        overflow-x: scroll;
+        position: relative;
+        margin: 0 20px 0 20px;
+        display: flex;
 
+        .tab-button {
+            cursor: pointer;
+            padding: 20px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            background-color: transparent;
+            color: $gray;
+
+            .tab-icon {
+                font-weight: bold;
             }
         }
 
+        .tab-button:hover {
+            .tab-icon {
+                color: $blue;
+            }
+        }
     }
 
     .tab-page {
-        padding: 20px;
-        border: 1px solid $gray-400;
-        border-radius: 20px;
+        .tab-page-header {
+            position: relative;
+            border-bottom: 1px solid $blue;
+            border-top: 1px solid $blue;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .tab-page-content {
+            position: relative;
+        }
     }
+}
+
+.tab-page-content-offset {
+    padding-left: 110px;
+    padding-right: 20px;
+    padding-top: 20px;
+    min-height: 250px;
+
 }

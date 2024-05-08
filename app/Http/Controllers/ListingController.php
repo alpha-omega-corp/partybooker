@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Interfaces\ICategoryService;
-use App\Models\Advert;
 use App\Models\Category;
+use App\Models\CategoryLocale;
 use App\Models\Company;
 use App\Services\CategoryService;
+use App\Services\PartnerService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 
@@ -21,19 +22,29 @@ class ListingController extends Controller
         $this->categories = Category::all();
     }
 
-    public function index(?string $category = null, ?string $child = null)
+    public function index(?string $category = null, ?string $tag = null)
     {
-        $adverts = $this->categoryService->filterCategory($category, $child);
+        $adverts = $this->categoryService
+            ->filterCategory($category, $tag)
+            ->paginate(10)
+            ->fragment('adverts');
+
+        $activeCategory = $category ? $this->categoryService->getCategory($category)->first() : null;
 
         return view('app.listing.index', [
+            'active' => $activeCategory,
             'categories' => $this->categories,
-            'adverts' => $adverts->paginate(6)
-                ->fragment('adverts'),
+            'adverts' => $adverts,
+            'top' => (new PartnerService())->topServices(),
+            'topRandom' => (new PartnerService())->topServices(true),
         ]);
     }
 
-    public function advert(Company $company, Advert $advert): View
+    public function advert(Company $company, string $category): View
     {
+        $locale = CategoryLocale::where('slug', $category)->first();
+        $advert = $company->adverts()->where('category_id', $locale->translatable_id)->firstOrFail();
+
         return view('app.listing.advert', [
             'advert' => $advert,
             'company' => $company

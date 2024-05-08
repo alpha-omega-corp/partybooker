@@ -23,7 +23,7 @@ class AdvertTagFactory extends Factory
     {
         return $this->state(function () {
             return [
-                'category_child_id' => $this->tag(CategoryType::EVENT),
+                'category_tag_id' => $this->tag(CategoryType::EVENT),
             ];
         });
     }
@@ -31,23 +31,14 @@ class AdvertTagFactory extends Factory
     private function tag(CategoryType $type): int
     {
         $category = Category::where('service', $type->value)->firstOrFail();
-        return $this->faker->randomElement($category->children()->pluck('id')->toArray());
+        return $this->faker->randomElement($category->tags()->pluck('id')->toArray());
     }
 
     public function wine(): self
     {
         return $this->state(function () {
             return [
-                'category_child_id' => $this->tag(CategoryType::WINE),
-            ];
-        });
-    }
-
-    public function business(): self
-    {
-        return $this->state(function () {
-            return [
-                'category_child_id' => $this->tag(CategoryType::BUSINESS),
+                'category_tag_id' => $this->tag(CategoryType::WINE),
             ];
         });
     }
@@ -56,7 +47,7 @@ class AdvertTagFactory extends Factory
     {
         return $this->state(function () {
             return [
-                'category_child_id' => $this->tag(CategoryType::CATERER),
+                'category_tag_id' => $this->tag(CategoryType::CATERER),
             ];
         });
     }
@@ -65,7 +56,7 @@ class AdvertTagFactory extends Factory
     {
         return $this->state(function () {
             return [
-                'category_child_id' => $this->tag(CategoryType::ENTERTAINMENT),
+                'category_tag_id' => $this->tag(CategoryType::ENTERTAINMENT),
             ];
         });
     }
@@ -74,7 +65,7 @@ class AdvertTagFactory extends Factory
     {
         return $this->state(function () {
             return [
-                'category_child_id' => $this->tag(CategoryType::EQUIPMENT),
+                'category_tag_id' => $this->tag(CategoryType::EQUIPMENT),
             ];
         });
     }

@@ -16,7 +16,7 @@ class EnsureUserSubscribed
     public function handle(Request $request, Closure $next): Response
     {
         if ($request->user() && !in_array(strtolower($request->user()->partnerInfo->plan), ['premium', 'exclusif', 'standart'])) {
-            return redirect('/partner-cp/' . $request->user()->id_partner . '/plans')->with('error', 'You must be subscribed to access this page.');
+            return redirect('/partner-cp/' . $request->user()->id_partner . '/plan')->with('error', 'You must be subscribed to access this page.');
         }
 
         return $next($request);

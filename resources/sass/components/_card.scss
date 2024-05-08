@@ -1,17 +1,281 @@
+.card-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 40px 0 20px 40px;
+    color: $blue;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+.app-card-rainbow {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    overflow: hidden;
+    color: $accent;
+
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: -20;
+        left: -50%;
+        top: -50%;
+        width: 200%;
+        height: 400%;
+        background-color: #399953;
+        background-repeat: no-repeat;
+        background-size: 50% 50%, 50% 50%;
+        background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+        background-image: linear-gradient($primary, $primary),
+        linear-gradient($accent, $accent),
+        linear-gradient($orange, $orange);
+        animation: rotate 8s linear infinite;
+    }
+
+
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 6px;
+        top: 6px;
+        width: calc(100% - 12px);
+        height: calc(100% - 12px);
+        background: #fff;
+        border-radius: 5px;
+    }
+}
+
+.app-card-radius {
+    border-radius: 20px;
+}
+
 .app-card {
     position: relative;
     border: 1px solid $gray-300;
-    border-radius: 20px;
-    padding: 20px;
+    overflow: hidden;
 
-    .app-card-title {
-        color: $standard;
-        font-size: 1.25rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin-bottom: 20px;
+    .app-card-header {
+        background-color: #fff;
+        border-bottom: 1px solid $pink;
+        padding: 20px;
+        position: relative;
+
+        @media only screen and (max-width: 1199px) {
+            text-align: center;
+
+            .app-card-title {
+                font-size: larger !important;
+                font-weight: bold;
+            }
+        }
+
+        .app-card-title {
+            color: $blue;
+            font-size: medium;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .app-card-actions {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            display: flex;
+        }
+    }
+
+    .app-card-content-border {
+        border-bottom: 1px solid $light;
     }
 
     .app-card-content {
+
+        .card-content-padded {
+            padding: 20px;
+        }
+    }
+
+    .modal-absolute {
+        border-radius: 50% !important;
+    }
+}
+
+
+.card-show {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.card-show:hover {
+    text-decoration: underline;
+    color: $accent;
+}
+
+.app-card-information {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+
+    .card-information-content {
+        p {
+            text-transform: uppercase;
+            font-family: monospace;
+            font-size: small;
+            margin: 0;
+        }
+    }
+}
+
+.app-card-panel {
+
+
+    .listing-header {
+        padding: 30px 20px;
+        border-bottom: 1px solid $light;
+        height: 95px;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .app-listing-breadcrumbs {
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid $gray;
+        background-color: $home;
+
+        .breadcrumb {
+            margin: 0;
+            padding: 0;
+
+            .active {
+                color: $pink;
+                border-radius: 10px;
+            }
+
+            .breadcrumb-item {
+                font-size: small;
+                font-weight: bold;
+                font-family: "Poppins", sans-serif;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .card-panel-body {
+        padding-bottom: 100px;
+    }
+
+    .card-panel-header {
+        background-color: $home;
+
+        .app-title-container {
+            display: flex;
+            flex-direction: column;
+            padding: 80px 10px;
+            gap: 20px;
+        }
+    }
+
+    .card-panel-breadcrumbs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .breadcrumb {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+
+            .active {
+                color: $dark;
+                border-radius: 10px;
+            }
+
+            .breadcrumb-item {
+                font-size: small;
+                font-weight: bold;
+                font-family: "Poppins", sans-serif;
+                text-transform: uppercase;
+
+                a {
+                    color: $blue;
+                }
+            }
+        }
+    }
+}
+
+.app-card-dashboard {
+    margin-top: 120px;
+    position: relative;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 100%;
+
+    .card-dashboard-header {
+        padding: 40px;
+        margin-bottom: 20px;
+
+        h1 {
+            font-weight: bold;
+            font-size: 30px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.app-card-listing {
+    overflow: hidden;
+
+    .listing-header {
+        padding: 20px 40px 40px;
+        border-bottom: 1px solid $light;
+
+        .listing-title {
+            margin-top: 40px;
+            text-align: start !important;
+        }
+    }
+
+    .listing-sidebar {
+        border-right: 1px solid $light;
+    }
+}
+
+.card-list {
+    li {
+        padding: 10px;
+        border-bottom: 1px solid $light;
+
+        &::marker {
+            color: $primary;
+        }
+    }
+}
+
+.service-card {
+    overflow: hidden;
+
+    .service-card-title {
+        padding: 20px;
+        font-size: large;
+        font-weight: bold;
+        margin: 0;
     }
 }

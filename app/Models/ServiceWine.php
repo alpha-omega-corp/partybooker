@@ -12,16 +12,13 @@ class ServiceWine extends Model
     use HasFactory;
 
     protected $fillable = [
+        'min_guests',
+        'max_guests',
     ];
 
     protected static function newFactory(): ServiceWineFactory
     {
         return ServiceWineFactory::new();
-    }
-
-    public function category(): MorphOne
-    {
-        return $this->morphOne(Category::class, 'categorizable');
     }
 
     public function service(): MorphOne

@@ -43,7 +43,7 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Index -->
 <div class="modal fade" id="editMainImageModel" tabindex="-1"
      aria-labelledby="editMainImageModelLabel"
      aria-hidden="true">

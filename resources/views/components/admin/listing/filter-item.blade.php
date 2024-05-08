@@ -1,13 +1,12 @@
 @props([
-    'plan',
-    'filterName',
-    'filterLabel'
+    'name',
+    'label'
 ])
 
 <div class="form-check">
-    <input class="form-check-input" type="radio" x-model="filter" value="{{$filterName}}"
-           id="{{$filterName . '-' . strtolower($plan)}}">
-    <label class="form-check-label" for="{{$filterName . '-' . strtolower($plan)}}">
-        {{$filterLabel}}
+    <input class="form-check-input" type="radio" x-model="filter" value="{{$name}}"
+           id="{{$name}}">
+    <label class="form-check-label" for="{{$name}}">
+        {{$label}}
     </label>
 </div>

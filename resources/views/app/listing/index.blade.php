@@ -5,39 +5,31 @@
 @endsection
 
 @section('content')
-    <div class="p-relative listing">
-        <div class="container">
-            <h1 class="display-1 fw-bold text-uppercase">
-                @if (isset($current))
-                    {{ __('categories.' . $current->code) }}
-                @else
-                    {{ __('service.listings') }}
-                @endif
-            </h1>
 
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    @if (!isset($current))
-                        <li class="breadcrumb-item">
-                            <a href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . 'home.blade.php/') }}">
-                                @svg('heroicon-o-home')
-                            </a>
-                        </li>
-                        @foreach(Request::segments() as $breadcrumb)
-                            <li class="breadcrumb-item active text-uppercase" aria-current="page">
-                                <a href="{{config('app.url') . 'home.blade.php/'}}">
-                                    {{str_replace('-', ' ', $breadcrumb)}}
-                                </a>
-                            </li>
-                        @endforeach
-                    @endif
-                </ol>
-            </nav>
+    <x-card.panel :title="__('app.listing')">
+        <x-slot:breadcrumbs>
+            {{Breadcrumbs::render('listing', Request::segments())}}
+        </x-slot:breadcrumbs>
 
-            <hr>
+        <x-app.section class="app-listing-container" :bg="AppColor::HOME_GRAY">
+            <div class="app-listing-filters">
+
+                <!-- Category -->
+                @include('app.listing.partials.category')
+                <!-- Search -->
+                @include('app.listing.partials.search')
+
+            </div>
 
             @include('app.listing.partials.listing')
-        </div>
 
+        </x-app.section>
+    </x-card.panel>
+
+    <div class="home-top mt-4">
+        @include('app.home.partials.home.top', [
+            'showTitle' => false,
+        ])
     </div>
+
 @endsection

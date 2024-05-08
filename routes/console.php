@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\AdvertImage;
-use App\Services\ImageService;
 use Illuminate\Foundation\Inspiring;
 
 /*
@@ -19,22 +17,3 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
 
-
-Artisan::command('resize-images', function () {
-    $images = AdvertImage::all();
-    Storage::makeDirectory('images/thumbnails');
-
-
-    $imageService = new ImageService();
-
-    $count = 0;
-    foreach ($images as $image) {
-        $count++;
-        if (!is_file(Storage::path('images/' . $image->image_name))) {
-            continue;
-        }
-
-        $imageService->createThumbnail('images/' . $image->image_name, 'images/thumbnails/' . $image->image_name);
-        $this->comment("{$count}/{$images->count()}");
-    }
-})->describe("Resize existing images for max width 500px");

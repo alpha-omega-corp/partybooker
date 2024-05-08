@@ -11,12 +11,10 @@ return new class extends Migration {
         Schema::create('company_locales', function (Blueprint $table) {
             $table->id();
             $table->string('lang');
-            $table->string('title');
-            $table->string('slogan');
-            $table->text('preview');
-            $table->text('description');
-            $table->json('keywords');
-            $table->foreignIdFor(Company::class, 'company_id')->nullable();
+            $table->string('slogan')->nullable();
+            $table->text('description')->nullable();
+            $table->json('keywords')->nullable();
+            $table->foreignIdFor(Company::class, 'company_id');
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@
 @endsection
 
 
-@section('content')
+@section('service')
 
     <script async
             src="https://js.stripe.com/v3/buy-button.js">

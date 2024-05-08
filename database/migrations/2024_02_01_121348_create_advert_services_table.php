@@ -1,8 +1,7 @@
 <?php
 
-use App\Models\ListingDetail;
-use App\Models\ListingPrice;
-use App\Models\ListingSchedule;
+use App\Models\AdvertRate;
+use App\Models\AdvertSchedule;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,9 +12,9 @@ return new class extends Migration {
         Schema::create('advert_services', function (Blueprint $table) {
             $table->id();
             $table->morphs('serviceable');
-            $table->foreignIdFor(ListingPrice::class);
-            $table->foreignIdFor(ListingSchedule::class);
-            $table->foreignIdFor(ListingDetail::class);
+            $table->foreignIdFor(AdvertSchedule::class)->nullable();
+            $table->foreignIdFor(AdvertRate::class)->nullable();
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

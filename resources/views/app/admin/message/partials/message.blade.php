@@ -1,0 +1,9 @@
+<x-modal.index
+    :iterator="$item->id"
+    :name="ModalName::ADMIN_MESSAGE"
+    :type="ModalType::READ"
+    :size="ModalSize::MD">
+    <x-slot:body>
+        {{$item->message}}
+    </x-slot:body>
+</x-modal.index>

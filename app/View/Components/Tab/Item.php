@@ -8,17 +8,14 @@ use Illuminate\View\Component;
 
 class Item extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public function __construct(
+        public ?string $information = null,
+        public bool    $padding = true,
+    )
     {
         //
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
     public function render(): View|Closure|string
     {
         return view('components.tab.item');

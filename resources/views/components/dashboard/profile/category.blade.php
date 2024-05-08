@@ -10,7 +10,7 @@
 ])
 
 <div>
-    @include('web.partner.popup.edit-category')
+    @include('web.partner.popup.edit-categories')
 
     @if(count($partnerCategories) === 0)
         <br>
@@ -29,7 +29,6 @@
                     @endphp
 
                     @if(!$advert)
-
                         <x-dashboard.card-info>
                             <br>
                             {{__('form.unknown_active_category')}}

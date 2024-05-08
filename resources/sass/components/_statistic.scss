@@ -1,0 +1,49 @@
+.app-statistics {
+    border-radius: 40px;
+    overflow: hidden;
+    margin: 10px;
+    cursor: pointer;
+    border: 1px solid $gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    flex-grow: 1;
+    flex-basis: 100px;
+
+    .statistic-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        svg {
+            color: $accent;
+        }
+
+        img {
+            width: 20px;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .statistic-value {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.statistics-advert {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.statistics-company {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}

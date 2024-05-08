@@ -8,7 +8,7 @@
     <title>{{strtoupper(__('main.user_terms'))}} | {{ __('partybooker-cp.www')}}</title>
 @endsection
 
-@section('content')
+@section('service')
     <section class="terms-section">
         <div class="container">
             <h1 class="display-6 fw-bold text-center text-uppercase mb-5">

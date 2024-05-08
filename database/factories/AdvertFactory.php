@@ -2,10 +2,16 @@
 
 namespace Database\Factories;
 
+use App\Enums\CategoryType;
+use App\Enums\PlanType;
 use App\Models\Advert;
 use App\Models\AdvertImage;
+use App\Models\AdvertLocale;
 use App\Models\AdvertService;
+use App\Models\AdvertStatistic;
 use App\Models\AdvertTag;
+use App\Models\AppPlan;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 
@@ -16,8 +22,7 @@ class AdvertFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(3),
-            'slug' => $this->faker->unique()->slug(2),
+            'advert_statistic_id' => AdvertStatistic::factory(),
             'is_public' => true,
             'is_main' => false,
         ];
@@ -27,13 +32,24 @@ class AdvertFactory extends Factory
     {
         return $this->afterCreating(function (Advert $advert) {
             AdvertImage::factory()
-                ->count(10)
+                ->count(AppPlan::ofType(PlanType::STANDARD)->first()->upload_count)
                 ->sequence(fn(Sequence $sequence) => [
                     'is_thumbnail' => $sequence->index == 0
                 ])
                 ->create([
                     'advert_id' => $advert->id
                 ]);
+
+            AdvertLocale::factory([
+                'translatable_id' => $advert->id,
+                'translatable_type' => Advert::class,
+                'description' => $this->faker->paragraph(10),
+            ])
+                ->count(2)
+                ->sequence(fn(Sequence $sequence) => [
+                    'lang' => $sequence->index == 0 ? 'en' : 'fr'
+                ])
+                ->create();
         });
     }
 
@@ -48,7 +64,9 @@ class AdvertFactory extends Factory
             return [
                 'advert_service_id' => AdvertService::factory()->event()
             ];
-        })->has(AdvertTag::factory()->event(), 'tags');
+        })
+            ->has(AdvertTag::factory()->event(), 'tags')
+            ->for(Category::ofType(CategoryType::EVENT)->first());
     }
 
     public function wine(): Factory
@@ -57,16 +75,10 @@ class AdvertFactory extends Factory
             return [
                 'advert_service_id' => AdvertService::factory()->wine()
             ];
-        })->has(AdvertTag::factory()->wine(), 'tags');
-    }
+        })
+            ->has(AdvertTag::factory()->wine(), 'tags')
+            ->for(Category::ofType(CategoryType::WINE)->first());
 
-    public function business(): Factory
-    {
-        return $this->state(function () {
-            return [
-                'advert_service_id' => AdvertService::factory()->business()
-            ];
-        })->has(AdvertTag::factory()->business(), 'tags');
     }
 
     public function caterer(): Factory
@@ -75,7 +87,9 @@ class AdvertFactory extends Factory
             return [
                 'advert_service_id' => AdvertService::factory()->caterer()
             ];
-        })->has(AdvertTag::factory()->caterer(), 'tags');
+        })->has(AdvertTag::factory()->caterer(), 'tags')
+            ->for(Category::ofType(CategoryType::CATERER)->first());
+
     }
 
     public function entertainment(): Factory
@@ -84,7 +98,9 @@ class AdvertFactory extends Factory
             return [
                 'advert_service_id' => AdvertService::factory()->entertainment()
             ];
-        })->has(AdvertTag::factory()->entertainment(), 'tags');
+        })->has(AdvertTag::factory()->entertainment(), 'tags')
+            ->for(Category::ofType(CategoryType::ENTERTAINMENT)->first());
+
     }
 
     public function equipment(): Factory
@@ -93,7 +109,9 @@ class AdvertFactory extends Factory
             return [
                 'advert_service_id' => AdvertService::factory()->equipment()
             ];
-        })->has(AdvertTag::factory()->equipment(), 'tags');
+        })->has(AdvertTag::factory()->equipment(), 'tags')
+            ->for(Category::ofType(CategoryType::EQUIPMENT)->first());
+
     }
 
 }

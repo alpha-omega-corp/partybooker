@@ -1,0 +1,27 @@
+.app-map {
+    button {
+        font-family: monospace !important;
+        text-transform: uppercase !important;
+    }
+
+    .app-map-header {
+        padding: 20px;
+        border-bottom: 1px solid $gray;
+    }
+
+    .app-map-container {
+        width: 100%;
+        display: flex;
+        height: 100%;
+
+        .panel {
+            padding: 0;
+            justify-content: start;
+
+            input {
+                border-bottom: 1px solid $light;
+                padding: 40px 20px;
+            }
+        }
+    }
+}

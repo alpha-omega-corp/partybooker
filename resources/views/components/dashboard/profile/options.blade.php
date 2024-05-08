@@ -35,7 +35,7 @@
                     <div class="option-description">
                         <small>
                             {{$indexOption->categories_count}}
-                            {{Str::plural(__('partner.category'), $indexOption->categories_count)}}
+                            {{Str::plural(__('partner.categories'), $indexOption->categories_count)}}
                         </small>
 
                         <small>

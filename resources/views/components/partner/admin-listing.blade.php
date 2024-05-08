@@ -107,7 +107,6 @@
 
 
             </x-slot:sort>
-
         </x-admin.listing.filters>
         <ul>
             <template x-for="partner in filteredPartners()" :key="partner.id">

@@ -14,11 +14,15 @@ class CompanyLocale extends Model
 
     protected $fillable = [
         'lang',
+        'name',
         'slogan',
         'description',
-        'preview',
-        'title',
         'keywords',
+        'company_id'
+    ];
+
+    protected $casts = [
+        'keywords' => 'array',
     ];
 
     protected static function newFactory(): CompanyLocaleFactory

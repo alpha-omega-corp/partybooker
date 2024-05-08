@@ -14,7 +14,7 @@
                 'heroicon-o-video-camera',
             ]">
 
-                <!-- Information -->
+                <!-- AppInformation -->
                 <x-tab.item>
                     <div class="position-relative">
                         @switch($advert->view_name)

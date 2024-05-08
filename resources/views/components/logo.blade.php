@@ -1,4 +1,8 @@
-<div class="pb-logo">
+@props([
+    'isLink' => true,
+])
+
+<a {{ $attributes->merge(['class' => 'app-logo']) }} href="{{$isLink ? route(__('route.home')) : '#'}}">
     <img src="{{Vite::app('logo.png')}}"
          alt="Partybooker sélectionne les meilleures idées d'événements, de lieux et de services de Suisse romande."/>
-</div>
+</a>

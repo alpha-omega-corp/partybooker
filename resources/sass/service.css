@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: "Rubik", sans-serif;
+}
+
+.fi-icon-btn {
+    @apply text-danger-500 !important;
+}
+
+.fi-fo-field-wrp-hint-icon {
+    @apply text-info-500 !important;
+}
+
+.fi-tabs-item-label {
+    @apply text-white;
+}

@@ -1,0 +1,43 @@
+.app-repeater {
+    border: 1px solid $light;
+    border-radius: 10px;
+
+    .repeater-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+
+        .repeater-button {
+            cursor: pointer;
+            background-color: $primary;
+            color: #fff;
+            border: 1px solid $light;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            padding: 10px;
+        }
+
+        h6 {
+            margin: 0;
+            color: $gray;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+
+    .repeater-content {
+        border-top: 1px solid $gray;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+
+        .repeater-item {
+            display: flex;
+            align-items: center;
+        }
+    }
+}

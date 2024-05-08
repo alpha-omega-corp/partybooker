@@ -4,6 +4,7 @@ namespace App\Enums;
 
 enum PlanType: string
 {
+    case ALL = 'all';
     case BASIC = 'basic';
     case COMMISSION = 'commission';
     case STANDARD = 'standard';

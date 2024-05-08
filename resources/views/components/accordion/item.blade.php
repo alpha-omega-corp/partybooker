@@ -1,44 +1,65 @@
 @props([
     'name',
-    'image',
     'accordion',
     'show' => false,
+    'padding' => true,
+    'center' => false,
 ])
 
-<div class="card mb-4 shadow-lg">
-    <div class="card-body" x-data="accordion('{{$name}}')"
-         @click="toggle()">
+@php($id = 'accordion-' . $accordion . $name)
+@php($target = 'collapse' . $id)
+<div {{$attributes->merge(['class' => 'card'])}}>
+    <div x-data="accordion('{{$id}}')">
+
         <div class="card-text">
             <div class="accordion-item">
+
                 <div class="accordion-item-flex">
-                    <button class="accordion-button text-uppercase"
-                            type="button" data-bs-toggle="collapse"
-                            id="accordion-{{$name}}"
-                            data-bs-target="{{'#collapse' . $name}}"
+                    <div class="d-flex justify-content-between w-100">
+                        <div
+                            @class([
+                                'accordion-button',
+                                'collapsed' => !$show,
+                            ])
+                            @click="toggle()"
+                            id="{{$id}}"
+                            data-bs-toggle="collapse"
+                            data-bs-target="{{'#' . $target}}"
                             aria-expanded="false"
-                            aria-controls="collapseTwo">
-                        <img src="{{ Vite::app($image) }}"
-                             class="d-block" alt="...">
+                            aria-controls="{{$target}}">
+                            <div
+                                @class([
+                                    'accordion-title',
+                                    'w-100',
+                                    'text-center' => $center,
+                                ])
+                                id="{{'heading' . $name}}">
+                                {{$title}}
+                            </div>
+                        </div>
 
-                    </button>
-
-                    <div class="card-title-container">
-                        <h3
-                            class="accordion-header text-uppercase fw-bold text-pink"
-                            id="{{'heading' . $name}}">
-                            {{$title}}
-                        </h3>
+                        @if(isset($actions))
+                            <div class="accordion-item-actions">
+                                {{$actions}}
+                            </div>
+                        @endif
                     </div>
-
-                </div>
-
-                <div id="{{'collapse' . $name}}" class="accordion-collapse collapse {{$show ? 'show' : ''}}"
-                     aria-labelledby="{{'heading' . $name}}"
-                     data-bs-parent="{{'#'. $accordion}}">
-                    <div class="accordion-body">
+                    <div class="d-flex align-items-center">
                         {{$slot}}
                     </div>
                 </div>
+
+                <div id="{{$target}}" class="accordion-collapse collapse {{$show ? 'show' : ''}}"
+                     aria-labelledby="{{'heading' . $name}}"
+                     data-bs-parent="{{'#'. $accordion}}">
+                    <div @class([
+                        'accordion-body',
+                        'accordion-body-padding' => $padding,
+                    ])>
+                        {{$content}}
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

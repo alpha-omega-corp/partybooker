@@ -27,12 +27,11 @@
             @svg('heroicon-o-pencil')
         </a>
 
-        <img id="imagePreview-{{$id}}" src="#" alt="your image"/>
+        <img class="image-preview" id="imagePreview-{{$id}}" src="#" alt="your image"/>
     </div>
 
-
     <!-- File Input -->
-    <input type="file" id="imageSelect-{{$id}}" class="d-none" name="{{$name}}" @error('image') is-invalid @enderror>
+    <input type="file" name="{{$name}}" value="{{$file}}" id="imageSelect-{{$id}}" class="d-none">
 
 </div>
 
@@ -42,6 +41,7 @@
         if (file) {
             document.getElementById('imageLabel-{{$id}}').style.display = 'block';
             document.getElementById('imagePreview-{{$id}}').src = URL.createObjectURL(file)
+            document.getElementById('imageUpload-{{$id}}').style.display = 'none';
         }
     }
 

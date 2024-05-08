@@ -1,105 +1,60 @@
-<footer>
-    <div class="container mt-5 pt-5">
-        @stack('footer')
-        <div class="footer-box shadow-lg">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="text-center">
-                        <h5 class="text-uppercase">{{ __('main.sitemap') }}</h5>
-                        <div class="socials">
+<footer class="bg-home-gray">
+    <div class="app-footer shadow-lg">
+        <div class="app-footer-nav">
+            <div class="app-footer-links">
+                <div class="app-footer-link">
+                    <h4 class="app-footer-title">{{__('home.contacts')}}</h4>
+
+                    <div class="app-footer-list">
+                        <p>{{$footerContacts->email}}</p>
+                        <p>{{$footerContacts->phone}}</p>
+                        <div class="flex-column gap-2 d-flex justify-content-between mb-3">
+                            <a href="{{$footerContacts->instagram}}" target="_blank">
+                                instagram
+                            </a>
+                            <a href="{{$footerContacts->facebook}}" target="_blank">
+                                facebook
+                            </a>
+                            <a href="{{$footerContacts->linkedin}}" target="_blank">
+                                linkedin
+                            </a>
                         </div>
 
-                        <ul>
-                            <li>
-                                <a
-                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . 'footer.blade.php/') }}">{{ __('main.home_page') }}</a>
-                            </li>
-                            <li><a
-                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . 'footer.blade.php/' . __('urls.aboutus')) }}">{{ __('main.aboutus_page') }}</a>
-                            </li>
-                            <li><a
-                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . 'footer.blade.php/' . __('urls.partner')) }}">{{ __('main.become_partner_page') }}</a>
-                            </li>
-                            <li><a
-                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/faq') }}">{{ __('main.faqs_page') }}</a>
-                            </li>
-                            <li><a
-                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/user-terms') }}">{{ __('main.user_terms') }}</a>
-                            </li>
-                            <li><a
-                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . '/contacts') }}">{{ __('main.contact_page') }}</a>
-                            </li>
-                            <li><a
-                                    href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . 'footer.blade.php/' . __('urls.sitemap')) }}">{{ __('main.sitemap') }}</a>
-                            </li>
+                        <p>{{$footerContacts->address}}</p>
+                    </div>
+                </div>
+                
+                <div class="app-footer-link">
+                    <h4 class="app-footer-title">{{__('home.categories')}}</h4>
 
-                        </ul>
+                    <div class="app-footer-list">
+                        @foreach($footerCategories as $category)
+                            <a href="{{route(__('route.listing'), $category->locale->slug)}}">
+                                {{strtolower($category->locale->title)}}
+                            </a>
+                        @endforeach
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="text-center">
-                        <h5 class="text-uppercase">{{ __('categories.cat') }}</h5>
-                        @if(isset($footerCategories))
-                            @foreach (array_chunk($footerCategories->toArray(), 3) as $k => $data)
-                                <ul>
-                                    @foreach ($data as $item)
-                                        <li><a
-                                                href="{{ url(App\Http\Middleware\LocaleMiddleware::getLocale() . 'footer.blade.php/' . __('urls.listings') . '/' . $item['lang']['slug']) }}">{{ $item['lang']['name'] }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            @endforeach
-                        @endif
+                <div class="app-footer-link">
+                    <h4 class="app-footer-title">{{__('home.sitemap')}}</h4>
 
-
+                    <div class="app-footer-list">
+                        <a href="{{route(__('route.sitemap'))}}">{{__('nav.sitemap')}}</a>
+                        <a href="{{route(__('route.terms'))}}">{{__('nav.terms')}}</a>
+                        <a href="{{route(__('route.contact'))}}">{{__('nav.contact')}}</a>
+                        <a href="{{route(__('route.home'))}}">{{__('nav.home')}}</a>
+                        <a href="{{route(__('route.listing'))}}">{{__('nav.listing')}}</a>
+                        <a href="{{route(__('route.about'))}}">{{__('nav.about')}}</a>
+                        <a href="{{route(__('route.partnership'))}}">{{__('nav.partnership')}}</a>
+                        <a href="{{route(__('route.blog'))}}">{{__('nav.blog')}}</a>
+                        <a href="{{route(__('route.faq'))}}">{{__('nav.faq')}}</a>
                     </div>
                 </div>
+
+
             </div>
-            <section class="subscribe shadow-lg">
-                <div class="container">
-                    <h6 class="fs-4 fw-bold text-white">{{ __('main.subscribe_offers') }}</h6>
-                    <p>{{ __('main.subscribe_text') }}</p>
-
-                    <div class="subscribe-form">
-                        <div class="d-flex m-2">
-                            <div class="input-group">
-                                <span class="input-group-text" id="offer">
-                                  @svg('heroicon-o-envelope')
-                                </span>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    required
-                                    class="form-control"
-                                    placeholder="{{ __('main.subscribe_email') }}"
-                                    aria-label="{{__('main.subscribe_email')}}"
-                                    aria-describedby="offer">
-                            </div>
-
-                            <button type="submit" class="btn btn-primary">{{ __('main.subscribe') }}</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="alphomega">
-                <div class="alphomega-card">
-
-                    <h6 class="text-center text-uppercase fw-bold">
-
-                        {{ __('main.made-by') }}
-
-                    </h6>
-                    <div class="d-flex justify-content-center">
-
-                        <a href="https://www.alphomega.org" target="_blank">
-                            <img src="{{Vite::app('alphomega.png')}}" alt="alphomega">
-                        </a>
-                    </div>
-                </div>
-
-            </section>
         </div>
     </div>
+
 </footer>

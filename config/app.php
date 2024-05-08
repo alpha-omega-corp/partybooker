@@ -1,11 +1,19 @@
 <?php
 
+use App\Enums\AppAboutType;
+use App\Enums\AppColor;
+use App\Enums\AppContentType;
 use App\Enums\CategoryType;
 use App\Enums\DateType;
 use App\Enums\EnvironmentType;
+use App\Enums\FormType;
+use App\Enums\ModalName;
 use App\Enums\ModalSize;
 use App\Enums\ModalType;
+use App\Enums\NotificationType;
+use Buzz\LaravelGoogleCaptcha\CaptchaFacade;
 use Buzz\LaravelGoogleCaptcha\CaptchaServiceProvider;
+use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
@@ -90,7 +98,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fr',
 
     /*
     |--------------------------------------------------------------------------
@@ -181,13 +189,26 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'MetaTag' => Torann\LaravelMetaTags\Facades\MetaTag::class,
-        'ModalType' => ModalType::class,
-        'ModalSize' => ModalSize::class,
         'DateType' => DateType::class,
         'CategoryType' => CategoryType::class,
         'NetworkType' => App\Enums\NetworkType::class,
-        'EnvironmentType' => App\Enums\EnvironmentType::class,
+        'EnvironmentType' => EnvironmentType::class,
         'ModalPosition' => App\Enums\ModalPosition::class,
+        'PlanType' => App\Enums\PlanType::class,
+        'PartnerFilter' => App\Enums\PartnerFilter::class,
+        'PartnerSort' => App\Enums\PartnerSort::class,
+        'Language' => App\Enums\Language::class,
+        'ModalType' => ModalType::class,
+        'ModalSize' => ModalSize::class,
+        'ModalName' => ModalName::class,
+        'NotificationType' => NotificationType::class,
+        'Breadcrumbs' => Breadcrumbs::class,
+        'AppContentType' => AppContentType::class,
+        'Captcha' => CaptchaFacade::class,
+        'FormType' => FormType::class,
+        'TitleSize' => App\Enums\TitleSize::class,
+        'AppColor' => AppColor::class,
+        'AppAboutType' => AppAboutType::class
     ])->toArray(),
 
     'tinymce' => env('TINYMCE_API_KEY'),

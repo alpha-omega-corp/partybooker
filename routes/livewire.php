@@ -1,15 +1,18 @@
 <?php
 
+
 use App\Livewire\CreateCaterer;
 use App\Livewire\CreateEntertainment;
 use App\Livewire\CreateEquipment;
-use App\Livewire\CreateEventPlace;
+use App\Livewire\CreateEvent;
 use App\Livewire\CreateWine;
 
-Route::middleware(['advertisement'])->group(function () {
-    Route::get('{partnerId}/{advertId}/event-place', CreateEventPlace::class)->name('create-event-place');
-    Route::get('{partnerId}/{advertId}/caterer', CreateCaterer::class)->name('create-caterer');
-    Route::get('{partnerId}/{advertId}/equipment', CreateEquipment::class)->name('create-equipment');
-    Route::get('{partnerId}/{advertId}/entertainment', CreateEntertainment::class)->name('create-entertainment');
-    Route::get('{partnerId}/{advertId}/wine', CreateWine::class)->name('create-wine');
-});
+Route::name('partner.advert.service.')
+    ->prefix('/advert/{advert}')
+    ->group(function () {
+        Route::get('/wine', CreateWine::class)->name('wine');
+        Route::get('/event', CreateEvent::class)->name('event');
+        Route::get('/caterer', CreateCaterer::class)->name('caterer');
+        Route::get('/equipment', CreateEquipment::class)->name('equipment');
+        Route::get('/entertainment', CreateEntertainment::class)->name('entertainment');
+    });

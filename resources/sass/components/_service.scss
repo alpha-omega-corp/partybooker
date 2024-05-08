@@ -1,40 +1,115 @@
-.service-list {
-    list-style: square;
 
-    .service-list-content {
-        padding-left: 20px;
-        border-bottom: 1px solid $gray-300;
+.service-advert-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: small;
+    border-bottom: 1px solid $gray;
+    border-top: 1px solid $gray;
+    margin: 0;
+    padding: 20px 10px 20px;
+}
+
+.service-advert-content {
+    padding: 20px;
+
+    p {
+        margin: 0;
+    }
+}
+
+.service-file {
+    a {
+        border-radius: 0;
+        width: 100%;
+    }
+
+    img {
+        object-fit: cover;
+        width: 100%;
+    }
+}
+
+.service-schedule-day {
+    text-transform: uppercase;
+    font-size: small;
+    margin: 0;
+    color: $gray;
+}
+
+.service-schedule-timetable {
+    li::marker {
+        color: $primary;
+    }
+}
+
+.service-schedule-holidays {
+    padding-top: 20px;
+
+    li {
+        list-style-type: decimal;
+        padding-left: 10px;
         padding-bottom: 10px;
+        padding-right: 20px;
+        text-align: start;
 
+        &::marker {
+            color: $accent;
+            font-weight: bold;
+        }
+    }
+}
+
+.service-socials {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    width: 100%;
+}
+
+.service-schedule-extension {
+    padding: 20px;
+    border-top: 1px solid $gray;
+    border-bottom: 1px solid $gray;
+    text-align: center;
+
+    p {
+        margin: 0;
+        font-size: small;
+        font-family: monospace;
+    }
+}
+
+.service-form {
+    .service-form-list {
         li {
-            font-size: small;
-
             &::marker {
-                color: $primary;
-                font-weight: bold;
+                color: $pink;
             }
         }
     }
 }
 
-.service-checkmark {
-    font-weight: bold;
-    padding-left: 32px;
 
-    .service-checkmark-content {
-        color: $accent;
-        padding-left: 20px;
-        margin: 0;
+.service-delivery {
+    margin: 0;
 
-        svg {
-            color: $danger;
+    li {
+        list-style-type: decimal;
+        padding: 20px;
+
+        &::marker {
+            color: $accent;
+            font-weight: bold;
         }
     }
+
 }
 
-.service-item {
-    h6 {
-        font-weight: bold;
-        text-transform: uppercase;
+
+.service-description {
+    p {
+        text-align: justify;
     }
 }

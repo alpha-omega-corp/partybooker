@@ -1,15 +1,47 @@
-.forms-input {
+.app-select {
+
+    select {
+        padding: 16px 12px;
+    }
+
     .input-group-text {
-        background-color: $accent;
+        background-color: $blue;
 
         svg {
             color: #fff;
         }
     }
+}
+
+.app-input {
+    width: 100%;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .input-group-text {
+        svg {
+            color: #fff;
+        }
+    }
+
+    .input-group-bg {
+        background-color: $blue;
+    }
 
     input:focus {
         border-color: $accent;
     }
+}
 
+.app-input-image {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
 
+.colorpick-eyedropper-input-trigger {
+    display: none;
 }

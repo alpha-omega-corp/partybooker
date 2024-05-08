@@ -4,7 +4,7 @@
     <title>Reset Password. | {{ __('partybooker-cp.www')}}</title>
 @endsection
 
-@section('content')
+@section('service')
     <section>
         <div class="container">
 

@@ -1,0 +1,101 @@
+.app-footer {
+    @media only screen and (min-width: 1200px) {
+        overflow: hidden;
+    }
+
+    @media only screen and (max-width: 1199px) {
+        display: flex;
+        flex-direction: column-reverse;
+
+    }
+
+    .app-footer-header {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 2px solid $gray;
+
+        .app-footer-logo {
+            img {
+                width: 100px;
+            }
+        }
+
+        .app-footer-socials {
+            display: flex;
+            gap: 10px;
+            align-items: end;
+        }
+
+    }
+
+    .app-footer-nav {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $gray;
+    }
+
+    .app-footer-links {
+        background-color: $footer;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        border-bottom: 1px solid $gray;
+
+        @media only screen and (max-width: 1199px) {
+            flex-direction: column;
+        }
+
+        .app-footer-link {
+            border-bottom: 0;
+            width: 100%;
+            padding: 40px;
+
+            a {
+                color: #fff;
+                font-size: large;
+                font-family: monospace;
+            }
+
+            p {
+                font-size: large;
+                margin: 0;
+            }
+        }
+
+        .app-footer-title {
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+            font-size: larger;
+            font-family: "Poppins", sans-serif;
+            text-transform: uppercase;
+            padding-bottom: 20px;
+            margin-bottom: 20px !important;
+            border-bottom: 2px solid #ccc;
+        }
+
+
+        .app-footer-list {
+            text-align: center;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+
+            p {
+                color: #fff;
+                font-family: monospace;
+                font-size: large;
+            }
+        }
+    }
+
+
+}
+
+@media only screen and (max-width: 1199px) {
+    .container-xl {
+        padding: 0 !important;
+    }
+}
+

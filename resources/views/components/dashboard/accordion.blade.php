@@ -7,10 +7,15 @@
 <div class="accordion" id="{{$name}}">
     <div class="accordion-item">
         <h2 class="accordion-header border-0">
-            <button class="accordion-button w-100 text-uppercase fw-bold" type="button" data-bs-toggle="collapse"
+            <button class="accordion-button text-uppercase fw-bold {{$open ? '' : 'collapsed'}}" type="button"
+                    data-bs-toggle="collapse"
                     data-bs-target="{{'#collapse' . $name}}"
-                    aria-expanded="false" aria-controls="collapseOne">
-                {{$title}}
+                    aria-expanded="{{$open ? 'true' : 'false'}}"
+                    aria-controls="{{'collapse' . $name}}">
+
+                <slot name="badges"></slot>
+                <span>{{$title}}</span>
+
             </button>
         </h2>
         <div id="{{'collapse' . $name}}" class="accordion-collapse collapse {{$open ? 'show' : ''}}"

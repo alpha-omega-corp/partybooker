@@ -1,64 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @import "../../node_modules/@glidejs/glide/src/assets/sass/glide.core";
 
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
-// ! Theme after default initialization !
 
-$home: rgba(180, 198, 255, 0.5);
+// Theme after default initialization important !
 $primary: $teal-500;
-$info: $blue-400;
-$secondary: $gray-900;
 $accent: $purple-500;
+$secondary: $gray-900;
 $danger: $red-500;
-$success: $green-400;
-$orange: $orange-500;
-$yellow: $yellow-400;
-$gray: $gray-700;
-
-$standard: $blue-500;
-$standart: $blue-500;
-
-$premium: $orange-500;
-$exclusive: $red-400;
-$exclusif: $red-400;
-$basic: $gray-600;
-$commission: $green-500;
-$pink: $pink-500;
 $warning: $yellow-400;
+$info: $blue-400;
+
+$pink: $pink-500;
+$blue: rgb(26, 67, 178);
+$orange: $orange-500;
+$gray: $gray-700;
+$light: $gray-300;
 
 $transparent: rgba(0, 0, 0, 0.4);
+$top: #eeeeee;
+$home: #ecf1ff;
+$home-green: #039499;
+$home-gray: #eeeeee;
+$footer: #dc5d9b;
+
+$basic: #495057FF;
+$commission: #039499;
+
 
 $theme-colors: (
-    "home": $home,
     "primary": $primary,
     "secondary": $secondary,
     "accent": $accent,
     "info": $info,
     "danger": $danger,
-    "success": $success,
+    "warning": $warning,
     "light": $light,
-    "dark": $dark,
-    "standard": $standard,
-    "premium": $premium,
-    "exclusive": $exclusive,
-    "opaque": $transparent,
     "orange": $orange,
     "yellow": $yellow,
     "gray": $gray,
-    "standart": $standart,
-    "exclusif": $exclusif,
+    "pink": $pink,
+    "blue": $blue,
+    "top": $top,
+    "home": $home,
+    "home-green": $home-green,
+    "home-gray": $home-gray,
+    "standard": $blue-500,
+    "premium": $orange-500,
+    "exclusive": $red-400,
+    "footer": $footer,
     "basic": $basic,
     "commission": $commission,
-    "pink": $pink,
-    "warning": $warning,
 );
 
 $offcanvas-bg-color: #fff;
 $offcanvas-horizontal-width: auto;
-$offcanvas-border-width: 0;
+$offcanvas-border-width: 10;
 
 $modal-content-bg: #fff;
 $modal-content-color: $gray;
+
+$accordion-button-active-bg: $white;
+$accordion-button-active-color: #fff;
+
 
 .tippy-box[data-theme~='tippy'] {
     color: #fff;
@@ -79,82 +85,6 @@ $modal-content-color: $gray;
         display: none;
     }
 }
-
-.tippy-box[data-theme~='top-services'] {
-    border-bottom: 1px solid $primary;
-}
-
-
-.tippy-box[data-theme~='partner-info-tippy'] {
-    border-bottom: 2px solid $primary;
-    color: #fff;
-    padding-bottom: 5px;
-    font-size: small;
-
-
-    @media only screen and (max-width: 767px) {
-        display: none;
-    }
-}
-
-.tippy-box[data-theme~='back-page'] {
-    color: $info;
-    text-transform: uppercase;
-}
-
-.tippy-box[data-theme~='tab-cat-tippy'] {
-    color: #fff;
-    border-bottom: 2px solid $primary;
-    font-size: smaller;
-    text-transform: uppercase;
-    @media only screen and (max-width: 767px) {
-        display: none;
-    }
-}
-
-.tippy-box[data-theme~='flag'] {
-    color: #fff;
-    border-bottom: 2px solid $primary;
-    font-size: small;
-}
-
-.tippy-box[data-theme~='partner-socials'] {
-    font-size: smaller;
-    color: #fff;
-    border-radius: 10px;
-    padding: 5px;
-    border: 1px solid #fff;
-    font-weight: bold;
-}
-
-.tippy-box[data-theme~='partner-advert'] {
-    font-size: smaller;
-    background-color: $primary;
-    color: #fff;
-    text-transform: uppercase;
-    border-radius: 10px;
-    padding: 10px;
-    border: 1px solid #fff;
-    font-weight: bold;
-}
-
-.tippy-box[data-theme~='stats'] {
-    color: #fff;
-    background-color: $accent;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: small;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.tippy-box[data-theme~='cp-nav-theme'] {
-    color: #fff;
-    font-size: small;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/bootstrap/scss/maps";

@@ -27,8 +27,6 @@ jobs:
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             nvm use 17
 
-            cd $INPUT_PATH && if [ -d "$INPUT_NAME" ]; then cd $INPUT_NAME && git reset --hard && git pull --rebase; else git clone $INPUT_REPO $INPUT_NAME && exit; fi
+            cd $INPUT_PATH && if [ -d "$INPUT_NAME" ]; then cd $INPUT_NAME && git reset --hard && git fetch && git checkout develop && git pull --rebase; else git clone $INPUT_REPO $INPUT_NAME && exit; fi
             composer install && npm install && npm run build
-
-
-
+            php artisan migrate:fresh --seed
