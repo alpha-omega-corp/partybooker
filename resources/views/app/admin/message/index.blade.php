@@ -6,7 +6,10 @@
 @endsection
 
 @section('content')
-    <x-card.panel :title="__('admin.messages')" :color="AppColor::PINK">
+    <x-card.panel :title="__('nav.admin.messages')">
+        <x-slot:breadcrumbs>
+            {{Breadcrumbs::render('admin.messages')}}
+        </x-slot:breadcrumbs>
         <x-app.section>
             <x-accordion
                 name="adminMessages"

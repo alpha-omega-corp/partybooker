@@ -15,7 +15,8 @@ class RequestServiceFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'guests' => $this->faker->numberBetween(1, 10),
+            'date' => $this->faker->date(),
         ];
     }
 }

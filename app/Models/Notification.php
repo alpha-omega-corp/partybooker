@@ -17,8 +17,8 @@ class Notification extends Model
     use HasFactory;
 
     protected $fillable = [
-        'notifiable_type',
-        'notifiable_id',
+        'requestable_id',
+        'requestable_type',
         'phone',
         'email',
         'message',
@@ -34,9 +34,9 @@ class Notification extends Model
         return NotificationFactory::new();
     }
 
-    public function notifiable(): MorphTo
+    public function requestable(): MorphTo
     {
-        return $this->morphTo();
+        return $this->morphTo('requestable');
     }
 
     public function user(): BelongsTo
@@ -46,16 +46,16 @@ class Notification extends Model
 
     public function scopePartnerships(Builder $query): void
     {
-        $query->where('notifiable_type', RequestPartner::class);
+        $query->where('requestable_type', RequestPartner::class);
     }
 
     public function scopeServices(Builder $query): void
     {
-        $query->where('notifiable_type', RequestService::class);
+        $query->where('requestable_type', RequestService::class);
     }
 
     public function scopeHelps(Builder $query): void
     {
-        $query->where('notifiable_type', RequestHelp::class);
+        $query->where('requestable_type', RequestHelp::class);
     }
 }

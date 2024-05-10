@@ -14,15 +14,11 @@ class StoreServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
             'email' => 'required|email',
-            'phone' => 'required|string|max:255',
-            'event' => 'required|string',
-            'event-date' => 'required|date',
-            'alternative-date' => 'required|date',
-            'participants' => 'required|integer',
-            'partner-info-id' => 'required|string',
-            'message' => 'required|string|max:255',
+            'phone' => 'required|string',
+            'guests' => 'required|integer',
+            'date' => 'required|date',
+            'message' => 'required|string',
             'g-recaptcha-response' => 'required',
         ];
     }

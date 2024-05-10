@@ -21,7 +21,7 @@
                         <x-logo :is-link="false" class="blog-logo-item"></x-logo>
                     </div>
 
-                    <a href="{{route(__('route.post'), ['post' => $post])}}">
+                    <a href="{{route(__('route.post'), ['post' => $post->locale])}}">
                         <div class="post-card-header">
                             <img src="{{$post->image}}" alt="{{$post->title}}"/>
                             <h6 class="post-card-title">{{$post->locale->title}}</h6>

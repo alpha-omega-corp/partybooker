@@ -1,11 +1,12 @@
 @extends('main')
 
-@section('title')
-    <title>Partners | {{ __('partybooker-cp.www')}}</title>
-@endsection
-
 @section('content')
-    <x-card.panel :title="__('admin.categories')" :color="AppColor::PINK" class="app-admin-listing">
+    <x-card.panel :title="__('nav.admin.categories')">
+
+        <x-slot:breadcrumbs>
+            {{Breadcrumbs::render('admin.categories')}}
+        </x-slot:breadcrumbs>
+
         <x-app.section>
             @include('app.admin.content.categories.index')
         </x-app.section>

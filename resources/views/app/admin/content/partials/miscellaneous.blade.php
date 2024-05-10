@@ -53,7 +53,7 @@
 
         <x-slot:content>
             @php($item = $content[AppContentType::USER_TERMS->name])
-            @include('app.admin.content.content.partials.edit')
+            @include('app.admin.content.edit')
 
             <x-admin.content :content="$item"/>
         </x-slot:content>
@@ -70,7 +70,7 @@
 
         <x-slot:content>
             @php($item = $content[AppContentType::SERVICE_TERMS->name])
-            @include('app.admin.content.content.partials.edit')
+            @include('app.admin.content.edit')
 
             <x-admin.content :content="$item"/>
         </x-slot:content>

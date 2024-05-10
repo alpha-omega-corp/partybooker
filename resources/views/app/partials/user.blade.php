@@ -15,6 +15,7 @@
                     <li>
                         <hr class="dropdown-divider">
                     </li>
+
                     <li>
                         <a class="dropdown-item" href="{{url(route(__('route.admin-partners')))}}">
                             Partners
@@ -55,19 +56,20 @@
                 <li>
                     <hr class="dropdown-divider">
                 </li>
+
+                @if(Auth::user()->partner)
+                    <li>
+                        <a class="dropdown-item"
+                           href="{{route(__('route.profile'), Auth::user()->partner->company)}}">
+                            {{__('partner.dashboard')}}
+                        </a>
+                    </li>
+                @endif
                 <li>
                     <a class="dropdown-item" href="{{route('auth.logout')}}">
                         {{__('app.logout')}}
                     </a>
                 </li>
-                @if(!Auth::user()->isAdmin() && Auth::user()->partner)
-                    <li>
-                        <a class="dropdown-item"
-                           href="{{route(__('route.profile'), Auth::user()->partner->company)}}">
-                            {{__('app.profile')}}
-                        </a>
-                    </li>
-                @endif
             </ul>
         </div>
     </div>

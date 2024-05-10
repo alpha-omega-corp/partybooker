@@ -15,7 +15,7 @@
 
                 <div class="admin-post">
                     <div class="admin-post-header">
-                        <a href="{{route(__('route.post'), ['post' => $post])}}" target="_blank">
+                        <a href="{{route(__('route.post'), ['post' => $post->locale])}}" target="_blank">
                             <h6 class="admin-post-title">{{$post->locale->slug}}</h6>
                         </a>
 

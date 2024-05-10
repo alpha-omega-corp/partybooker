@@ -15,4 +15,5 @@ return [
     'url' => 'Link',
     'title' => 'Title',
     'password_confirm' => 'Confirm password',
+    'advert' => 'Advert',
 ];

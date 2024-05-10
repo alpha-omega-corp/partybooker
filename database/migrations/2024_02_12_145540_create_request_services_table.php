@@ -11,6 +11,8 @@ return new class extends Migration {
         Schema::create('request_services', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Advert::class);
+            $table->integer('guests');
+            $table->date('date');
         });
     }
 

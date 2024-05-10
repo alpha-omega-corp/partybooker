@@ -20,8 +20,7 @@ class RequestHelp extends Model
 
     public function notification(): MorphOne
     {
-        return $this->morphOne(Notification::class, 'notifiable');
+        return $this->morphOne(Notification::class, 'requestable');
     }
-
 
 }

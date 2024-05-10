@@ -25,9 +25,9 @@
                 <x-icon.text :icon="$phoneIcon" :text="$message->phone"/>
 
 
-                @if ($message->notifiable->plan)
+                @if ($message->requestable->plan)
                     <x-icon.text icon="heroicon-o-shopping-cart">
-                        <x-plan.badge :plan="$message->notifiable->plan"/>
+                        <x-plan.badge :plan="$message->requestable->plan"/>
                     </x-icon.text>
                 @endif
 

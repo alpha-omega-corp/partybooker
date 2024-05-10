@@ -27,6 +27,11 @@ use Illuminate\Http\RedirectResponse;
 
 class AdminController extends Controller
 {
+    public function index()
+    {
+        return view('app.admin.index');
+    }
+
     public function content()
     {
         return view('app.admin.content.index', [
@@ -86,7 +91,7 @@ class AdminController extends Controller
         return view('app.admin.message.index', [
             'helps' => Notification::helps()->orderBy('created_at', 'desc')->get(),
             'partnerships' => Notification::partnerships()->orderBy('created_at', 'desc')->get(),
-            'services' => Notification::services()->get()
+            'services' => Notification::services()->orderBy('created_at', 'desc')->get()
         ]);
     }
 

@@ -15,7 +15,11 @@ class RequestService extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'advert_id',
+        'guests',
+        'date'
     ];
+
 
     protected static function newFactory(): RequestServiceFactory
     {
@@ -24,7 +28,7 @@ class RequestService extends Model
 
     public function notification(): MorphOne
     {
-        return $this->morphOne(Notification::class, 'notifiable');
+        return $this->morphOne(Notification::class, 'requestable');
     }
 
     public function advert(): BelongsTo

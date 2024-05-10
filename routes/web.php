@@ -80,7 +80,7 @@ Route::name('guest.')
                         Route::get('/a-propos', 'about')->name('about');
                         Route::get('/partenariat', 'partnership')->name('partnership');
                         Route::get('/blog', 'blog')->name('blog');
-                        Route::get('/blog/{post}', 'showPost')->name('post');
+                        Route::get('/blog/{post:slug}', 'showPost')->name('post');
                         Route::get('/faq', 'faq')->name('faq');
                         Route::get('/conditions', 'terms')->name('terms');
                         Route::get('/contact', 'contact')->name('contact');
@@ -129,7 +129,7 @@ Route::name('guest.')
             ->prefix('company')
             ->group(function () {
                 Route::get('/{company:slug}', 'show')->name('show');
-                Route::get('/{company:id}/request/', 'request')->name('request');
+                Route::post('/{advert}/request', 'request')->name('request');
             });
     });
 
@@ -219,10 +219,12 @@ Route::controller(AdminController::class)
     ->name('admin.')
     ->group(function () {
 
+
         Route::put('/update-tops', 'updateTopServices')->name('tops');
         Route::put('/update-contacts', 'updateContacts')->name('contacts');
 
         Route::name('fr.')->prefix('admin')->group(function () {
+            Route::get('/', 'index')->name('index');
             Route::get('/contenu', 'content')->name('content');
             Route::get('/categories', 'categories')->name('categories');
             Route::get('/formules', 'plans')->name('plans');
@@ -232,6 +234,7 @@ Route::controller(AdminController::class)
         });
 
         Route::name('en.')->prefix('en/admin')->group(function () {
+            Route::get('/', 'index')->name('index');
             Route::get('/content', 'content')->name('content');
             Route::get('/categories', 'categories')->name('categories');
             Route::get('/plans', 'plans')->name('plans');

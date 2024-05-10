@@ -6,17 +6,15 @@
     :action="false"
     :validation="true"
     :hidden="true"
-    :title="__('advert.request')"
-    :route="route('guest.company.request', ['company' => $advert->company])"
+    :title="__('advert.request') . ' ' . $advert->company->name"
+    :route="route('guest.company.request', ['advert' => $advert])"
 >
 
-    <x-slot:body>
-        <x-forms.input
-            name="name"
-            :label="__('form.name')">
-            @svg('heroicon-o-user-circle')
-        </x-forms.input>
+    <x-slot:information>
+        {{__('advert.request-info')}}
+    </x-slot:information>
 
+    <x-slot:body>
         <x-forms.input
             name="email"
             :label="__('form.email')">
@@ -29,19 +27,21 @@
             @svg('heroicon-m-device-phone-mobile')
         </x-forms.input>
 
-        <x-forms.input
-            name="participants"
-            type="number"
-            :label="__('form.participants')">
-            @svg('heroicon-o-user-group')
-        </x-forms.input>
+        <div class="d-flex gap-2">
+            <x-forms.input
+                name="guests"
+                type="number"
+                :label="__('form.participants')">
+                @svg('heroicon-o-user-group')
+            </x-forms.input>
 
-        <x-forms.input
-            name="date"
-            type="date"
-            :label="__('form.date')">
-            @svg('heroicon-o-calendar-days')
-        </x-forms.input>
+            <x-forms.input
+                name="date"
+                type="date"
+                :label="__('form.date')">
+                @svg('heroicon-o-calendar-days')
+            </x-forms.input>
+        </div>
 
         <x-forms.textarea
             name="message"

@@ -28,6 +28,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.4.9",
         "nesbot/carbon": "^2.19",
+        "saloonphp/xml-wrangler": "^1.2",
         "spatie/geocoder": "^3.15",
         "spatie/laravel-sitemap": "^7.2",
         "symfony/http-client": "^6.3",

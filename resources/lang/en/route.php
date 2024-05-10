@@ -17,6 +17,7 @@ return [
     'profile' => 'partner.en.dashboard',
     'listing-search' => 'guest.ajax.en.listing',
 
+    'admin' => 'admin.en.index',
     'admin-content' => 'admin.en.content',
     'admin-categories' => 'admin.en.categories',
     'admin-plans' => 'admin.en.plans',

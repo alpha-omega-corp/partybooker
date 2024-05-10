@@ -10,7 +10,7 @@
 
         <x-slot:content>
             @php($item = $content[AppContentType::APP_CONCEPT->name])
-            @include('app.admin.content.content.partials.edit', ['item' => $item])
+            @include('app.admin.content.edit')
 
             <x-admin.content :content="$item"/>
         </x-slot:content>
@@ -27,7 +27,7 @@
 
         <x-slot:content>
             @php($item = $content[AppContentType::APP_ABOUT->name])
-            @include('app.admin.content.content.partials.edit', ['content' => $item])
+            @include('app.admin.content.edit')
 
             <x-admin.content :content="$item"/>
         </x-slot:content>
