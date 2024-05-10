@@ -13,6 +13,7 @@ use App\Models\AppFaq;
 use App\Models\AppInformation;
 use App\Models\AppPlan;
 use App\Models\AppPost;
+use App\Models\AppPostLocale;
 use App\Models\AppUsp;
 use App\Models\Category;
 use App\Models\Notification;
@@ -85,10 +86,12 @@ class HomeController extends Controller
         ]);
     }
 
-    public function showPost(AppPost $post)
+    public function showPost(string $slug)
     {
+        $locale = AppPostLocale::where('slug', $slug)->first();
+
         return view('app.home.post', [
-            'post' => $post
+            'post' => $locale->post
         ]);
     }
 
@@ -98,8 +101,8 @@ class HomeController extends Controller
         $notification = RequestHelp::create();
 
         Notification::create([
-            'notifiable_type' => RequestHelp::class,
-            'notifiable_id' => $notification->id,
+            'requestable_type' => RequestHelp::class,
+            'requestable_id' => $notification->id,
             'email' => $data['email'],
             'phone' => $data['phone'],
             'message' => $data['message'],
@@ -116,8 +119,8 @@ class HomeController extends Controller
         ]);
 
         Notification::create([
-            'notifiable_type' => RequestPartner::class,
-            'notifiable_id' => $notification->id,
+            'requestable_type' => RequestPartner::class,
+            'requestable_id' => $notification->id,
             'phone' => $data['phone'],
             'email' => $data['email'],
             'message' => $data['message'],

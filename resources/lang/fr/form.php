@@ -17,4 +17,5 @@ return [
     'price' => 'Prix',
     'url' => 'Lien',
     'title' => 'Titre',
+    'advert' => 'Annonce',
 ];

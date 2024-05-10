@@ -33,6 +33,6 @@ class AppPostLocale extends Model
 
     public function post(): BelongsTo
     {
-        return $this->belongsTo(AppInformation::class, 'app_post_id', 'id');
+        return $this->belongsTo(AppPost::class, 'app_post_id', 'id');
     }
 }

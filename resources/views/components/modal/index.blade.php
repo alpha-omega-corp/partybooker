@@ -98,6 +98,14 @@
                     @method($type->value)
                     @csrf
 
+                    @if(isset($information))
+                        <div class="p-4">
+                            <x-card.information>
+                                {{$information}}
+                            </x-card.information>
+                        </div>
+                    @endif
+
                     @if(isset($body))
                         <div class="modal-body-padded">
                             {{$body}}

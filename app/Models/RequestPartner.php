@@ -23,15 +23,13 @@ class RequestPartner extends Model
         return RequestPartnerFactory::new();
     }
 
+    public function notification(): MorphOne
+    {
+        return $this->morphOne(Notification::class, 'requestable');
+    }
+
     public function plan(): BelongsTo
     {
         return $this->belongsTo(AppPlan::class, 'app_plan_id', 'id');
     }
-
-
-    public function notification(): MorphOne
-    {
-        return $this->morphOne(Notification::class, 'notifiable');
-    }
-
 }

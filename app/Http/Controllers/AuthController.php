@@ -44,7 +44,7 @@ class AuthController extends Controller
             return back()->with('success', 'Welcome back! ' . $credentials['email']);
         }
 
-        return back()->with('error', 'Invalid credentials');
+        return back()->with('success', 'Invalid credentials');
     }
 
     public function logout(Request $request): RedirectResponse

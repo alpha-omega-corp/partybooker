@@ -65,22 +65,13 @@ $modal-content-color: $gray;
 $accordion-button-active-bg: $white;
 $accordion-button-active-color: #fff;
 
-
 .tippy-box[data-theme~='tippy'] {
     color: #fff;
-    border-bottom: 2px solid $primary;
+    background-color: $dark;
+    border-radius: 10px;
+    padding: 10px;
     font-size: smaller;
     text-transform: uppercase;
-    @media only screen and (max-width: 767px) {
-        display: none;
-    }
-}
-
-.tippy-box[data-theme~='navigation'] {
-    padding: 8px;
-    border-bottom: 2px solid $primary;
-    color: #ffffff;
-
     @media only screen and (max-width: 767px) {
         display: none;
     }

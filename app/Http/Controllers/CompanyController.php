@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\Language;
+use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateCompanyContactRequest;
 use App\Http\Requests\UpdateCompanyDescriptionRequest;
 use App\Http\Requests\UpdateCompanyLocationRequest;
@@ -11,8 +12,13 @@ use App\Http\Requests\UpdateCompanyRequest;
 use App\Http\Requests\UpdateCompanySocialsRequest;
 use App\Http\Requests\UpdateCompanyStatsRequest;
 use App\Interfaces\IFileService;
+use App\Mails\Service;
+use App\Models\Advert;
 use App\Models\Company;
+use App\Models\Notification;
+use App\Models\RequestService;
 use App\Services\FileService;
+use Illuminate\Support\Facades\Mail;
 
 class CompanyController extends Controller
 {
@@ -147,8 +153,35 @@ class CompanyController extends Controller
         return back()->with('success', 'Company statistics updated successfully');
     }
 
-    public function request()
+    public function request(Advert $advert, StoreServiceRequest $request)
     {
+        $data = $request->validated();
+
+        $serviceRequest = RequestService::create([
+            'advert_id' => $advert->id,
+            'guests' => $data['guests'],
+            'date' => $data['date'],
+        ]);
+
+        $notification = Notification::create([
+            'requestable_type' => RequestService::class,
+            'requestable_id' => $serviceRequest->id,
+            'phone' => $data['phone'],
+            'email' => $data['email'],
+            'message' => $data['message'],
+            'is_resolved' => false,
+        ]);
+
+        Mail::to(app()->environment('local')
+            ? 'bleyo@alphomega.org'
+            : $advert->company->partner->user->email)
+            ->cc([
+                config('mail.from.address'),
+                $data['email'],
+            ])
+            ->send(new Service($advert, $notification));
+
+        return back()->with('success', 'Request sent successfully');
     }
 
 }

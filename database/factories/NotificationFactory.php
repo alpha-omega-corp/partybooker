@@ -30,8 +30,8 @@ class NotificationFactory extends Factory
     {
         return $this->state(function () {
             return [
-                'notifiable_id' => RequestPartner::factory(),
-                'notifiable_type' => RequestPartner::class,
+                'requestable_id' => RequestPartner::factory(),
+                'requestable_type' => RequestPartner::class,
             ];
         });
     }
@@ -40,8 +40,8 @@ class NotificationFactory extends Factory
     {
         return $this->state(function () {
             return [
-                'notifiable_id' => RequestHelp::factory(),
-                'notifiable_type' => RequestHelp::class,
+                'requestable_id' => RequestHelp::factory(),
+                'requestable_type' => RequestHelp::class,
             ];
         });
     }
@@ -50,8 +50,8 @@ class NotificationFactory extends Factory
     {
         return $this->state(function () use ($advert) {
             return [
-                'notifiable_id' => RequestService::factory()->for($advert),
-                'notifiable_type' => RequestService::class,
+                'requestable_id' => RequestService::factory()->for($advert),
+                'requestable_type' => RequestService::class,
             ];
         });
     }

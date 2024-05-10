@@ -10,4 +10,13 @@ return [
     'terms' => 'terms',
     'sitemap' => 'sitemap',
     'contact' => 'contact',
+    'misc' => 'miscellaneous',
+
+    'admin' => 'Dashboard',
+    'admin.partners' => 'Partners',
+    'admin.content' => 'Content',
+    'admin.categories' => 'Categories',
+    'admin.plans' => 'Plans',
+    'admin.forms' => 'Forms',
+    'admin.messages' => 'Messages',
 ];

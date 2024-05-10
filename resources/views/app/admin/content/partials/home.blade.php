@@ -11,7 +11,7 @@
 
         <x-slot:content>
             @php($item = $content[AppContentType::APP_HOME->name])
-            @include('app.admin.content.content.partials.edit', ['content' => $item])
+            @include('app.admin.content.edit')
 
             <x-admin.content :content="$item"/>
         </x-slot:content>

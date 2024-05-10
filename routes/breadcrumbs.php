@@ -34,7 +34,7 @@ Breadcrumbs::for('faq', function (Trail $trail) {
 
 Breadcrumbs::for('post', function (Trail $trail, AppPost $post) {
     $trail->parent('blog');
-    $trail->push($post->locale->title, route(__('route.post'), ['post' => $post]));
+    $trail->push($post->locale->title, route(__('route.post'), ['post' => $post->locale]));
 });
 
 Breadcrumbs::for('company', function (Trail $trail, Company $company) {
@@ -45,6 +45,39 @@ Breadcrumbs::for('company', function (Trail $trail, Company $company) {
     ]));
 });
 
+Breadcrumbs::for('admin', function (Trail $trail) {
+    $trail->push(__('nav.admin'), route(__('route.admin')));
+});
+
+Breadcrumbs::for('admin.partners', function (Trail $trail) {
+    $trail->parent('admin');
+    $trail->push(__('nav.admin.partners'), route(__('route.admin-partners')));
+});
+
+Breadcrumbs::for('admin.content', function (Trail $trail) {
+    $trail->parent('admin');
+    $trail->push(__('nav.admin.content'), route(__('route.admin-content')));
+});
+
+Breadcrumbs::for('admin.categories', function (Trail $trail) {
+    $trail->parent('admin');
+    $trail->push(__('nav.admin.categories'), route(__('route.admin-categories')));
+});
+
+Breadcrumbs::for('admin.plans', function (Trail $trail) {
+    $trail->parent('admin');
+    $trail->push(__('nav.admin.plans'), route(__('route.admin-plans')));
+});
+
+Breadcrumbs::for('admin.forms', function (Trail $trail) {
+    $trail->parent('admin');
+    $trail->push(__('nav.admin.forms'), route(__('route.admin-forms')));
+});
+
+Breadcrumbs::for('admin.messages', function (Trail $trail) {
+    $trail->parent('admin');
+    $trail->push(__('nav.admin.messages'), route(__('route.admin-messages')));
+});
 
 Breadcrumbs::for('advert', function (Trail $trail, Advert $advert) {
     $trail->parent('company', $advert->company);

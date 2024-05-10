@@ -7,13 +7,22 @@ use Spatie\Sitemap\SitemapGenerator;
 
 class CreateSitemap extends Command
 {
-    protected $signature = 'app:create-sitemap';
+    protected $signature = 'app:create-sitemap {segment}';
 
     protected $description = 'Generate sitemap file';
 
 
     public function handle(): void
     {
-        SitemapGenerator::create('https://partybooker.ch')->writeToFile('public/sitemap.xml');
+        $segment = $this->argument('segment');
+        switch ($segment) {
+            case 'all':
+                SitemapGenerator::create('https://partybooker.ch')->writeToFile('public/sitemap.xml');
+                break;
+            case 'listing':
+                SitemapGenerator::create('https://partybooker.ch')->getSitemap()->writeToFile('public/maps/listing.xml');
+                break;
+        }
+
     }
 }

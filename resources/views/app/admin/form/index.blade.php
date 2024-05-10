@@ -6,11 +6,12 @@
 @endsection
 
 @section('content')
-    <x-card.panel :title="__('admin.form')" :color="AppColor::PINK">
+    <x-card.panel :title="__('nav.admin.forms')">
+        <x-slot:breadcrumbs>
+            {{Breadcrumbs::render('admin.forms')}}
+        </x-slot:breadcrumbs>
 
         <x-app.section>
-
-
             <div class="admin-forms-container">
                 @foreach(FormType::values() as $formType)
                     <x-card :title="$formType" class="admin-form-card">
