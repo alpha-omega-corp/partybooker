@@ -14,7 +14,8 @@
         <div x-data="truncate('{{json_encode(str_replace("'", '', $advert->locale->description))}}')">
             <div x-html="truncated"></div>
             <button type="button" class="btn" x-show="canTruncate" @click="expand()">
-                {{ucfirst(__('app.mobile-more'))}}
+                <span x-show="expanded">{{__('advert.close')}}</span>
+                <span x-show="!expanded">{{ucfirst(__('app.mobile-more'))}}</span>
             </button>
         </div>
 

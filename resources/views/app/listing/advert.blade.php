@@ -57,7 +57,7 @@
                             <div class="d-flex gap-4 flex-column w-100">
                                 @include('app.listing.partials.service.partials.rates')
                                 @include('app.listing.partials.service.partials.payments', [
-                                    'center' => true,
+                                    'center' => false,
                                     'canOpen' => false,
                                 ])
                             </div>
