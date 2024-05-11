@@ -7,10 +7,15 @@
 
 @section('content')
     <x-card.panel
-        :title="$partner->company->name"
+        :title="__('nav.profile')"
         :color="AppColor::PINK"
         class="partner-dashboard"
     >
+        <x-slot:breadcrumbs>
+            @if(Auth::user()->isAdmin())
+                {{ Breadcrumbs::render('admin.profile', $partner->company) }}
+            @endif
+        </x-slot:breadcrumbs>
         <x-app.section>
             <div class="d-flex flex-column gap-4">
                 @include('app.partner.partials.company.show')

@@ -1,7 +1,7 @@
 @php use Illuminate\Support\Carbon; @endphp
 
 @if($advert->service->schedule->days)
-    <x-card :title="__('service.section.schedule')" :center="$center" :can-open="$canOpen" :radius="true">
+    <x-card :title="__('service.section.schedule')" class="w-100" :center="$center" :can-open="$canOpen" :radius="true">
 
 
         <x-accordion.index
@@ -28,14 +28,15 @@
 
                     <x-slot:content>
                         @if($item->is_open)
-                            <ul class="service-schedule-timetable">
-                                @foreach($item->timetable as $daySchedule)
-                                    <li>
-                                        {{$daySchedule['open']}} - {{$daySchedule['close']}}
-                                    </li>
-                                @endforeach
-                            </ul>
-
+                            @if($item->timetable)
+                                <ul class="service-schedule-timetable">
+                                    @foreach($item->timetable as $daySchedule)
+                                        <li>
+                                            {{$daySchedule['open']}} - {{$daySchedule['close']}}
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         @else
                             <p>{{__('advert.schedule.closed')}}</p>
                         @endif

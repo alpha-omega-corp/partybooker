@@ -6,7 +6,7 @@
 @section('content')
 
     <x-card.panel
-        :title="__('home.about')"
+        :title="__('nav.about')"
         class="home-about"
     >
         <x-slot:breadcrumbs>

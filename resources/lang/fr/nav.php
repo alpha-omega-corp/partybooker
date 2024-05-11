@@ -3,7 +3,7 @@
 return [
     'home' => 'accueil',
     'listing' => 'annonces',
-    'about' => 'à propos de nous',
+    'about' => 'a propos de nous',
     'partnership' => 'partenariat',
     'blog' => 'blog',
     'faq' => 'faq',
@@ -11,7 +11,7 @@ return [
     'sitemap' => 'plan du site',
     'contact' => 'contact',
     'misc' => 'divers',
-
+    'profile' => 'profile',
     'admin' => 'Tableau de bord',
     'admin.partners' => 'Partenaires',
     'admin.content' => 'Contenu',

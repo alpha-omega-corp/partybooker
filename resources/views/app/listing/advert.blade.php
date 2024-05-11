@@ -16,41 +16,55 @@
             <div class="app-advert-container">
                 <div class="app-advert-details">
 
+
                     <div class="app-advert-thumbnail">
-                        @include('app.listing.partials.advert.actions')
+                        @include('app.listing.partials.advert.socials')
 
                         <img src="{{asset($advert->images()->thumbnail()->first()->path)}}"
                              alt="{{$advert->locale->title}}" class="thumbnail">
 
                         @include('app.listing.partials.advert.contacts')
+                        @include('app.listing.partials.advert.other', [
+                            'advert' => $advert,
+                            'company' => $advert->company,
+                            'showAll' => false,
+                            'center' => true,
+                            'radius' => false,
+                            'otherTitle' => __('advert.others'),
+                        ])
+
+                        @include('app.listing.partials.advert.actions')
+
                     </div>
-
-                    @include('app.listing.partials.advert.service')
-
                     @include('app.listing.partials.service.partials.schedule', [
                        'center' => true,
-                       'canOpen' => true,
+                       'canOpen' => false,
                     ])
 
-                    @include('app.listing.partials.service.partials.payments', [
-                        'center' => true,
-                        'canOpen' => true,
-                    ])
                 </div>
 
                 <div class="app-advert-content">
                     <div class="advert-content-container">
-                        @include('app.listing.partials.advert.description')
-                        @include('app.listing.partials.service.partials.rates')
+
+                        <div class="advert-content-description">
+                            @include('app.listing.partials.advert.description')
+                        </div>
+
+
+                        <div class="advert-content-details">
+                            @include('app.listing.partials.advert.service')
+
+                            <div class="d-flex gap-4 flex-column w-100">
+                                @include('app.listing.partials.service.partials.rates')
+                                @include('app.listing.partials.service.partials.payments', [
+                                    'center' => false,
+                                    'canOpen' => false,
+                                ])
+                            </div>
+                        </div>
+
                         @include('app.listing.partials.advert.gallery')
 
-                        @include('app.listing.partials.advert.other', [
-                           'showAll' => false,
-                           'otherTitle' => __('advert.others'),
-                           'center' => false,
-                           'radius' => true
-                       ])
-                        @include('app.listing.partials.advert.socials')
 
                     </div>
                 </div>

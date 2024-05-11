@@ -11,7 +11,7 @@ return [
     'sitemap' => 'sitemap',
     'contact' => 'contact',
     'misc' => 'miscellaneous',
-
+    'profile' => 'profile',
     'admin' => 'Dashboard',
     'admin.partners' => 'Partners',
     'admin.content' => 'Content',

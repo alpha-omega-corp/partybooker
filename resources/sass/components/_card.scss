@@ -51,7 +51,9 @@
 }
 
 .app-card-radius {
-    border-radius: 20px;
+    @media only screen and (min-width: 577px) {
+        border-radius: 20px;
+    }
 }
 
 .app-card {

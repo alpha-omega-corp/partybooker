@@ -3,6 +3,13 @@
     .app-advert-contacts {
         text-align: center;
 
+        .tab-page {
+            border-top: 1px solid $gray;
+
+            .tab-page-content {
+                padding: 40px !important;
+            }
+        }
     }
 
     .app-advert-service {
@@ -18,8 +25,10 @@
 
     .app-advert-socials {
         display: flex;
-        gap: 10px;
+        background-color: #fff;
         padding: 20px;
+        justify-content: center;
+        gap: 10px;
 
         img {
             width: 20px;
@@ -34,7 +43,7 @@
         padding: 20px;
 
         .service-rate-card {
-            flex-basis: 200px;
+            flex-basis: 400px;
             flex-grow: 1;
             border: 1px solid $light;
             border-radius: 10px;
@@ -46,7 +55,7 @@
 
             .rates-card-tag {
                 padding: 10px;
-                background-color: $pink;
+                background-color: $blue;
                 color: #fff;
                 font-weight: bold;
                 font-family: monospace;
@@ -74,11 +83,12 @@
             display: flex;
             flex-wrap: wrap;
             padding: 20px;
-            gap: 20px;
+            gap: 10px;
 
             .gallery-image {
                 flex-grow: 1;
-                flex-basis: 300px;
+                flex-basis: 250px;
+                max-width: 500px;
 
                 img {
                     width: 100%;
@@ -97,16 +107,38 @@
         gap: 40px;
 
         .app-advert-details {
-            flex-grow: 1;
-            flex-basis: 200px;
             display: flex;
-            flex-direction: column;
+            flex-grow: 1;
+            flex-basis: 100px;
             gap: 20px;
 
+            @media only screen and (min-width: 982px) {
+            }
+
+
+            @media only screen and (min-width: 983px) {
+                width: 100%;
+                flex-direction: column;
+                max-width: 500px;
+            }
+
+            @media only screen and (max-width: 767px) {
+                width: 100%;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+
             .app-advert-thumbnail {
-                border-radius: 20px;
                 height: fit-content;
                 overflow: hidden;
+                max-width: 500px;
+                width: 100%;
+
+                @media only screen and (min-width: 501px) {
+                    border-radius: 20px;
+                }
 
                 .thumbnail {
                     width: 100%;
@@ -118,13 +150,30 @@
         }
 
         .app-advert-content {
-            flex-basis: 600px;
+            flex-basis: 500px;
             flex-grow: 1;
 
             .advert-content-container {
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
+
+                .advert-content-details {
+                    display: flex;
+                    gap: 20px;
+                    @media only screen and (max-width: 1500px) {
+                        flex-direction: column-reverse;
+                    }
+                }
+
+                .advert-content-description {
+                    display: flex;
+                    gap: 20px;
+
+                    @media only screen and (max-width: 1500px) {
+                        flex-direction: column-reverse;
+                    }
+                }
 
             }
         }

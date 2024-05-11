@@ -36,10 +36,13 @@ class LocaleController extends Controller
             Str::contains($referer, ['partenariat', 'partnership']) => route(__('route.partnership')),
             Str::contains($referer, ['blog']) => route(__('route.blog')),
             Str::contains($referer, ['faq']) => route(__('route.faq')),
-
             Str::contains($referer, ['partenaires', 'partners']) => route(__('route.admin-partners')),
             Str::contains($referer, ['contenu', 'content']) => route(__('route.admin-content')),
-
+            Str::contains($referer, ['categories']) => route(__('route.admin-categories')),
+            Str::contains($referer, ['formules', 'plans']) => route(__('route.admin-plans')),
+            Str::contains($referer, ['formulaires', 'forms']) => route(__('route.admin-forms')),
+            Str::contains($referer, ['messages']) => route(__('route.admin-messages')),
+            
             Str::contains($referer, ['profile']) => route(__('route.profile'), [
                 'company' => $segments[count($segments) - 1]
             ]),

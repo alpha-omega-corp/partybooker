@@ -4,12 +4,14 @@
 namespace App\Services;
 
 use App\Enums\CategoryType;
+use App\Enums\Days;
 use App\Enums\FormType;
 use App\Interfaces\IAdvertService;
 use App\Interfaces\IFileService;
 use App\Models\Advert;
 use App\Models\AdvertFile;
 use App\Models\AdvertForm;
+use App\Models\AdvertScheduleDay;
 use Illuminate\Database\Eloquent\Collection;
 
 class AdvertService implements IAdvertService
@@ -261,6 +263,15 @@ class AdvertService implements IAdvertService
     private function updateSchedule(): void
     {
         $schedule = $this->advert->service->schedule;
+        if ($schedule->days->isEmpty()) {
+            foreach (Days::values() as $day) {
+                AdvertScheduleDay::create([
+                    'advert_schedule_id' => $schedule->id,
+                    'day' => $day,
+                ]);
+            }
+        }
+        
         foreach ($schedule->days as $item) {
             $isOpen = $this->data['is_open_' . $item->day];
             $timetable = $this->data['timetable_' . $item->day];
