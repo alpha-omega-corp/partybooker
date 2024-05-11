@@ -40,6 +40,29 @@
 <script>
     document.addEventListener('alpine:init', () => {
 
+        Alpine.data('truncate', (data) => ({
+            content: data,
+            count: 500,
+            truncated: '',
+            expanded: false,
+
+            init() {
+                this.truncate()
+            },
+
+            truncate() {
+                this.truncated = data.length > this.count ? data.substring(0, this.count) + '...' : data
+            },
+
+            expand() {
+                this.expanded = !this.expanded
+
+                this.expanded
+                    ? this.truncated = this.content
+                    : this.truncate()
+            }
+        }));
+
         Alpine.data('openModal', (name, action, iterator) => ({
             open() {
                 console.log(`modalBtnOpen${action}_${name + iterator}`)

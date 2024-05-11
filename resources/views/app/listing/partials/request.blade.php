@@ -9,11 +9,6 @@
     :title="__('advert.request') . ' ' . $advert->company->name"
     :route="route('guest.company.request', ['advert' => $advert])"
 >
-
-    <x-slot:information>
-        {{__('advert.request-info')}}
-    </x-slot:information>
-
     <x-slot:body>
         <x-forms.input
             name="email"

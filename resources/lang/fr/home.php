@@ -11,7 +11,7 @@ return [
     'blog' => 'blog',
     'benefits' => 'avantages',
     'features' => 'fonctionnalités',
-    'about' => 'à propos',
+    'about' => 'a propos de nous',
     'faq' => 'questions fréquentes',
     'plans' => 'formules',
     'help_title' => 'vous avez une question ?',

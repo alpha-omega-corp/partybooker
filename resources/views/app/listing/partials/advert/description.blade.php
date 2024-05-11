@@ -11,7 +11,13 @@
     </x-slot:actions>
 
     <x-slot:body>
-        {!! $advert->locale->description !!}
+        <div x-data="truncate('{{json_encode($advert->locale->description)}}')">
+            <div x-html="truncated"></div>
+            <button type="button" class="btn" @click="expand()">
+                {{ucfirst(__('app.mobile-more'))}}
+            </button>
+        </div>
+
     </x-slot:body>
 </x-card>
 

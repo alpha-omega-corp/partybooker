@@ -24,7 +24,7 @@ return [
     'section.description' => 'Description',
     'section.description.info' => 'Description de votre service en français et anglais',
 
-    'section.schedule' => 'Horraires',
+    'section.schedule' => 'Horaires',
     'section.schedule.days' => 'Jours de travail',
     'section.schedule.day' => 'Ouvert',
     'section.schedule.description' => 'Horraires de travail',

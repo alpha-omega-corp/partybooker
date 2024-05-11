@@ -2,6 +2,7 @@
     :title="__('service.section.price.payment')"
     :center="$center" :can-open="$canOpen"
     :radius="true"
+    class="w-100"
 >
     <x-accordion.index name="payment-accordion">
         <x-accordion.item

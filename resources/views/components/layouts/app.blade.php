@@ -35,6 +35,7 @@
         </script>
     @endif
 
+    @filamentStyles
     @vite(['resources/js/app.js'])
 </head>
 

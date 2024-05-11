@@ -1,5 +1,5 @@
 @php use App\Services\ListingService; @endphp
-<x-card :title="$title" :can-open="false" :center="true" :radius="true">
+<x-card :title="$title" :can-open="false" class="w-100 bg-white" :center="false" :radius="true">
     {{$slot}}
 
     <x-accordion.index :name="$accordion">

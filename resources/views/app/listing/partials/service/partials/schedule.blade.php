@@ -1,7 +1,7 @@
 @php use Illuminate\Support\Carbon; @endphp
 
 @if($advert->service->schedule->days)
-    <x-card :title="__('service.section.schedule')" :center="$center" :can-open="$canOpen" :radius="true">
+    <x-card :title="__('service.section.schedule')" class="w-100" :center="$center" :can-open="$canOpen" :radius="true">
 
 
         <x-accordion.index
