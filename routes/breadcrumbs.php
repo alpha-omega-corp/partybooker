@@ -54,6 +54,11 @@ Breadcrumbs::for('admin.partners', function (Trail $trail) {
     $trail->push(__('nav.admin.partners'), route(__('route.admin-partners')));
 });
 
+Breadcrumbs::for('admin.profile', function (Trail $trail, Company $company) {
+    $trail->parent('admin.partners');
+    $trail->push($company->name);
+});
+
 Breadcrumbs::for('admin.content', function (Trail $trail) {
     $trail->parent('admin');
     $trail->push(__('nav.admin.content'), route(__('route.admin-content')));

@@ -28,14 +28,15 @@
 
                     <x-slot:content>
                         @if($item->is_open)
-                            <ul class="service-schedule-timetable">
-                                @foreach($item->timetable as $daySchedule)
-                                    <li>
-                                        {{$daySchedule['open']}} - {{$daySchedule['close']}}
-                                    </li>
-                                @endforeach
-                            </ul>
-
+                            @if($item->timetable)
+                                <ul class="service-schedule-timetable">
+                                    @foreach($item->timetable as $daySchedule)
+                                        <li>
+                                            {{$daySchedule['open']}} - {{$daySchedule['close']}}
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
                         @else
                             <p>{{__('advert.schedule.closed')}}</p>
                         @endif
