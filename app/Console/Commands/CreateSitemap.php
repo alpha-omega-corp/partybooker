@@ -17,10 +17,10 @@ class CreateSitemap extends Command
         $segment = $this->argument('segment');
         switch ($segment) {
             case 'all':
-                SitemapGenerator::create('https://partybooker.ch')->writeToFile('public/sitemap.xml');
+                SitemapGenerator::create('https://www.partybooker.ch')->writeToFile('public/sitemap.xml');
                 break;
             case 'listing':
-                SitemapGenerator::create('https://partybooker.ch')->getSitemap()->writeToFile('public/maps/listing.xml');
+                SitemapGenerator::create('https://www.partybooker.ch')->getSitemap()->writeToFile('public/maps/listing.xml');
                 break;
         }
 
