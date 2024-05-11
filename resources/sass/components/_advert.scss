@@ -83,19 +83,12 @@
             display: flex;
             flex-wrap: wrap;
             padding: 20px;
-            gap: 20px;
+            gap: 10px;
 
             .gallery-image {
                 flex-grow: 1;
-                flex-basis: 150px;
-
-                @media only screen and (max-width: 1600px) {
-                    flex-basis: 300px;
-                }
-
-                @media only screen and (max-width: 1200px) {
-                    flex-basis: 200px;
-                }
+                flex-basis: 250px;
+                max-width: 400px;
 
                 img {
                     width: 100%;

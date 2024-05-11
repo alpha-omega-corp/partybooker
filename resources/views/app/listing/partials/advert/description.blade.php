@@ -13,7 +13,7 @@
     <x-slot:body>
         <div x-data="truncate('{{json_encode(str_replace("'", '', $advert->locale->description))}}')">
             <div x-html="truncated"></div>
-            <button type="button" class="btn" @click="expand()">
+            <button type="button" class="btn" x-show="canTruncate" @click="expand()">
                 {{ucfirst(__('app.mobile-more'))}}
             </button>
         </div>

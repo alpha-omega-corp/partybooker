@@ -45,9 +45,11 @@
             count: 500,
             truncated: '',
             expanded: false,
+            canTruncate: false,
 
             init() {
                 this.truncate()
+                this.canTruncate = !(data.length <= this.count)
             },
 
             truncate() {

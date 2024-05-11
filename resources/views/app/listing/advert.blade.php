@@ -50,12 +50,11 @@
                             @include('app.listing.partials.advert.description')
                         </div>
 
-                        @include('app.listing.partials.advert.gallery')
 
                         <div class="advert-content-details">
                             @include('app.listing.partials.advert.service')
 
-                            <div class="d-flex gap-4 flex-column">
+                            <div class="d-flex gap-4 flex-column w-100">
                                 @include('app.listing.partials.service.partials.rates')
                                 @include('app.listing.partials.service.partials.payments', [
                                     'center' => true,
@@ -63,6 +62,8 @@
                                 ])
                             </div>
                         </div>
+
+                        @include('app.listing.partials.advert.gallery')
 
 
                     </div>
