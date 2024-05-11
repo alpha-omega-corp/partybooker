@@ -11,7 +11,7 @@
     </x-slot:actions>
 
     <x-slot:body>
-        <div x-data="truncate('{{json_encode($advert->locale->description)}}')">
+        <div x-data="truncate('{{json_encode(str_replace("'", '', $advert->locale->description))}}')">
             <div x-html="truncated"></div>
             <button type="button" class="btn" @click="expand()">
                 {{ucfirst(__('app.mobile-more'))}}
