@@ -13,6 +13,5 @@ sitemap:
 htaccess_listing:
 	php artisan app:create-sitemap listing
 
-
 stripe_hook:
 	stripe listen --forward-to localhost:8000/stripe/webhook
