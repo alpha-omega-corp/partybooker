@@ -67,7 +67,6 @@
 
         Alpine.data('openModal', (name, action, iterator) => ({
             open() {
-                console.log(`modalBtnOpen${action}_${name + iterator}`)
                 document.getElementById(`modalBtn${action}_${name + iterator}`).click()
             },
         }))
@@ -275,8 +274,6 @@
                     url: '{{route(__('route.listing-search'))}}',
                     type: 'GET',
                 })
-
-                console.log(this.adverts)
             },
             filterAdvert(item) {
                 if (item) {

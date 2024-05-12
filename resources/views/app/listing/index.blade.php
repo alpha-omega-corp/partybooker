@@ -1,11 +1,6 @@
 @extends('main')
 
-@section('title')
-    <title>{{ strtoupper(__('service.listings')) }} | {{ __('partybooker-cp.www') }}</title>
-@endsection
-
 @section('content')
-
     <x-card.panel :title="__('app.listing')">
         <x-slot:breadcrumbs>
             {{Breadcrumbs::render('listing', Request::segments())}}
@@ -31,5 +26,4 @@
             'showTitle' => false,
         ])
     </div>
-
 @endsection

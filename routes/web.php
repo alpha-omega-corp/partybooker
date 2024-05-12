@@ -112,6 +112,7 @@ Route::name('guest.')
                 Route::name('fr.')
                     ->group(function () {
                         Route::get('/annonces/{category?}/{tag?}', 'index')->name('index');
+                        Route::get('/annonce/{company:slug}', 'company')->name('company');
                         Route::get('/annonce/{company:slug}/{category:slug}', 'advert')->name('advert');
                     });
 
@@ -119,6 +120,7 @@ Route::name('guest.')
                     ->prefix('en')
                     ->group(function () {
                         Route::get('/adverts/{category?}/{tag?}', 'index')->name('index');
+                        Route::get('/advert/{company:slug}', 'company')->name('company');
                         Route::get('/advert/{company:slug}/{category:slug}', 'advert')->name('advert');
                     });
             });
@@ -128,7 +130,6 @@ Route::name('guest.')
             ->name('company.')
             ->prefix('company')
             ->group(function () {
-                Route::get('/{company:slug}', 'show')->name('show');
                 Route::post('/{advert}/request', 'request')->name('request');
             });
     });

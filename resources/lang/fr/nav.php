@@ -19,4 +19,5 @@ return [
     'admin.plans' => 'Formules',
     'admin.forms' => 'Formulaires',
     'admin.messages' => 'Messages',
+    'company' => 'Entreprise'
 ];

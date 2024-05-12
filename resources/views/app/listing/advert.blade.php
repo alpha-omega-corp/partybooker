@@ -1,9 +1,3 @@
-@php
-    use App\Models\Category;
-    use App\Models\AppPost;
-    use Illuminate\Support\Facades\Auth;
-@endphp
-
 @extends('main')
 
 @section('content')
@@ -15,8 +9,6 @@
         <x-app.section>
             <div class="app-advert-container">
                 <div class="app-advert-details">
-
-
                     <div class="app-advert-thumbnail">
                         @include('app.listing.partials.advert.socials')
 
@@ -40,16 +32,16 @@
                        'center' => true,
                        'canOpen' => false,
                     ])
-
                 </div>
 
                 <div class="app-advert-content">
                     <div class="advert-content-container">
-
                         <div class="advert-content-description">
-                            @include('app.listing.partials.advert.description')
+                            @include('app.listing.partials.advert.description', [
+                                'content' => $advert->locale->description,
+                                'center' => false,
+                            ])
                         </div>
-
 
                         <div class="advert-content-details">
                             @include('app.listing.partials.advert.service')
@@ -64,13 +56,9 @@
                         </div>
 
                         @include('app.listing.partials.advert.gallery')
-
-
                     </div>
                 </div>
             </div>
-
-
         </x-app.section>
     </x-card.panel>
 @endsection

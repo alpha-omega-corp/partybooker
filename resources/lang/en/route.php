@@ -3,6 +3,7 @@
 return [
     'listing' => 'guest.listing.en.index',
     'advert' => 'guest.listing.en.advert',
+    'company' => 'guest.listing.en.company',
 
     'home' => 'guest.home.en.index',
     'about' => 'guest.home.en.about',

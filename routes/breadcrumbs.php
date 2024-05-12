@@ -31,18 +31,9 @@ Breadcrumbs::for('faq', function (Trail $trail) {
     $trail->push(__('nav.faq'), route(__('route.faq')));
 });
 
-
 Breadcrumbs::for('post', function (Trail $trail, AppPost $post) {
     $trail->parent('blog');
     $trail->push($post->locale->title, route(__('route.post'), ['post' => $post->locale]));
-});
-
-Breadcrumbs::for('company', function (Trail $trail, Company $company) {
-    $trail->parent('home');
-
-    $trail->push($company->name, route('guest.company.show', [
-        'company' => $company->slug
-    ]));
 });
 
 Breadcrumbs::for('admin', function (Trail $trail) {
@@ -84,20 +75,11 @@ Breadcrumbs::for('admin.messages', function (Trail $trail) {
     $trail->push(__('nav.admin.messages'), route(__('route.admin-messages')));
 });
 
-Breadcrumbs::for('advert', function (Trail $trail, Advert $advert) {
-    $trail->parent('company', $advert->company);
-
-    $trail->push($advert->locale->title, route(__('route.advert'), [
-        'company' => $advert->company->slug,
-        'category' => $advert->category->locale
-    ]));
-});
 
 Breadcrumbs::for('listing', function (Trail $trail, array $segments) {
     $trail->parent('home');
 
     $slugs = [];
-
     foreach ($segments as $key => $segment) {
         if ($key === 0) {
             $trail->push($segment, route(__('route.listing')));
@@ -115,3 +97,19 @@ Breadcrumbs::for('listing', function (Trail $trail, array $segments) {
     }
 });
 
+Breadcrumbs::for('company', function (Trail $trail, Company $company) {
+    $trail->parent('home');
+    $trail->push(__('nav.listing'), route(__('route.listing')));
+    $trail->push($company->name, route(__('route.company'), [
+        'company' => $company
+    ]));
+});
+
+Breadcrumbs::for('advert', function (Trail $trail, Advert $advert) {
+    $trail->parent('company', $advert->company);
+
+    $trail->push($advert->locale->title, route(__('route.advert'), [
+        'company' => $advert->company->slug,
+        'category' => $advert->category->locale
+    ]));
+});

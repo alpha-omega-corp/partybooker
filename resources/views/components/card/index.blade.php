@@ -57,8 +57,8 @@
     'd-flex justify-content-center' => $center,
 ])  @click="show = !show">
         <div>
-            <a x-show="!show">{{__('card.show')}}</a>
-            <a x-show="show">{{__('card.close')}}</a>
+            <span x-show="!show">{{__('card.show')}}</span>
+            <span x-show="show">{{__('card.close')}}</span>
         </div>
     </div>
 
