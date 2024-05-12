@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Models\User;
-use App\View\Composers\DashboardComposer;
 use App\View\Composers\FooterComposer;
 use App\View\Composers\IconComposer;
 use App\View\Composers\SettingComposer;
@@ -22,23 +21,14 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        Vite::macro('app', fn(string $img) => $this->asset(trim("resources/images/$img")));
+        Vite::macro('social', fn(string $name) => $this->asset(trim("resources/images/socials/$name.png")));
+
         View::composer("*", IconComposer::class);
         View::composer("*", SettingComposer::class);
         View::composer("*", FooterComposer::class);
 
-        View::composer([
-            'app.admin.partner.index',
-            'app.partner.dashboard',
-        ], DashboardComposer::class);
-
         Paginator::useBootstrapFive();
-
-        Vite::macro('app', fn(string $img) => $this->asset(trim("resources/images/app/$img")));
-        Vite::macro('categories', fn(string $img) => $this->asset(trim("resources/images/categories/$img")));
-        Vite::macro('flag', fn(string $name) => $this->asset(trim("resources/images/flags/$name")));
-        Vite::macro('payment', fn(string $name) => $this->asset(trim("resources/images/payments/$name")));
-        Vite::macro('social', fn(string $name) => $this->asset(trim("resources/images/socials/$name.png")));
-
         Cashier::useCustomerModel(User::class);
     }
 

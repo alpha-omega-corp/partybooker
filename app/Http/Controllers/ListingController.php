@@ -44,18 +44,27 @@ class ListingController extends Controller
         ]);
     }
 
-    public function advert(Company $company, string $category): View
+    public function advert(Company $company, ?string $category): View
     {
         $locale = CategoryLocale::where('slug', $category)->first();
         $advert = $company->adverts()->where('category_id', $locale->translatable_id)->firstOrFail();
 
-        $this->meta->prependTitle($company->name);
-        $this->meta->setDescription($advert->locale->description);
-        $this->meta->setKeywords($advert->locale->keywords);
+        $this->meta
+            ->prependTitle($company->name)
+            ->setDescription($advert->locale->description)
+            ->setKeywords($advert->locale->keywords)
+            ->setCanonical(route(__('route.company'), $company));
 
         return view('app.listing.advert', [
             'advert' => $advert,
             'company' => $company
+        ]);
+    }
+
+    public function company(Company $company)
+    {
+        return view('app.listing.company', [
+            'company' => $company,
         ]);
     }
 

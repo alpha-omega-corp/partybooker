@@ -1,4 +1,4 @@
-@php($companyLink = route('guest.company.show', ['company' => $partner->company]))
+@php($companyLink = route(__('route.company'), ['company' => $partner->company]))
 @php($company = $partner->company)
 
 

@@ -44,6 +44,7 @@ class PartnerController extends Controller
             'plan' => $partner->payment->plan,
             'statistic' => $company->statistics,
             'social' => $company->social,
+            'plans' => AppPlan::all()
         ]);
     }
 
@@ -117,7 +118,7 @@ class PartnerController extends Controller
 
         $partner->company->locales()->delete();
         $partner->company()->delete();
-        
+
         PartnerTop::where('partner_id', $partner->id)->delete();
         $partner->delete();
 

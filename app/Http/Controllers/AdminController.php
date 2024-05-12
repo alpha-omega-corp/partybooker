@@ -69,6 +69,7 @@ class AdminController extends Controller
             'partnerSorts' => PartnerSort::values(),
             'planFilters' => PlanType::values(),
             'categoryFilters' => CategoryType::names(),
+            'plans' => AppPlan::all(),
         ]);
     }
 

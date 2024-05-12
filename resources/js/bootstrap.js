@@ -7,6 +7,7 @@ import Alpine from 'alpinejs';
 import focus from '@alpinejs/focus';
 import Glide, {Autoplay, Breakpoints, Controls} from '@glidejs/glide/dist/glide.modular.esm'
 import tinymce from 'tinymce';
+import $ from 'jquery';
 
 import 'tinymce/icons/default/icons.min.js';
 import 'tinymce/models/dom/model.min.js';
@@ -19,6 +20,8 @@ import 'tinymce/plugins/emoticons/js/emojis';
 import 'tinymce/plugins/link';
 import 'tinymce/plugins/lists';
 import 'tinymce/plugins/table';
+
+window.$ = $;
 
 window.tinyPlugins = 'advlist code emoticons link lists table'
 window.tinyOptions = 'bold italic | bullist numlist | link emoticons'
@@ -37,6 +40,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.Popper = Popper
 window.tinymce = tinymce;
+
 
 window.dataLayer = window.dataLayer || [];
 

@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 @import "../../node_modules/@glidejs/glide/src/assets/sass/glide.core";
-
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
+
+@font-face {
+    font-family: 'Poppins';
+    src: url("../fonts/Poppins.ttf") format("truetype");
+}
 
 // Theme after default initialization important !
 $primary: $teal-500;
@@ -28,6 +30,8 @@ $footer: #dc5d9b;
 
 $basic: #495057FF;
 $commission: #039499;
+
+$font-poppins: 'Poppins', sans-serif;
 
 
 $theme-colors: (
@@ -89,14 +93,11 @@ $accordion-button-active-color: #fff;
 @import "../../node_modules/bootstrap/scss/tables";
 @import "../../node_modules/bootstrap/scss/forms";
 @import "../../node_modules/bootstrap/scss/forms/floating-labels";
-
 @import "../../node_modules/bootstrap/scss/pagination";
 @import "../../node_modules/bootstrap/scss/tooltip";
 @import "../../node_modules/bootstrap/scss/popover";
-
 @import "../../node_modules/bootstrap/scss/carousel";
 @import "../../node_modules/bootstrap/scss/modal";
-
 @import "../../node_modules/bootstrap/scss/card";
 @import "../../node_modules/bootstrap/scss/offcanvas";
 @import "../../node_modules/bootstrap/scss/helpers";

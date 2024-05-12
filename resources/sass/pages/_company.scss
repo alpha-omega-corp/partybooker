@@ -1,0 +1,43 @@
+.app-company {
+
+    .app-company-slogan {
+        text-align: center;
+        font-size: large;
+        font-family: "Poppins", sans-serif;
+        color: $gray;
+        margin-bottom: 60px;
+    }
+
+    .app-company-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        gap: 20px;
+
+        .app-company-adverts {
+        }
+
+        .app-company-description {
+        }
+    }
+
+    .app-company-logo {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+        border: 1px solid $light;
+        border-radius: 20px;
+        width: 280px;
+        overflow: hidden;
+        padding: 10px 0;
+        background-color: $secondary;
+
+        img {
+            border-radius: 10px;
+            width: 250px;
+
+        }
+    }
+
+
+}
