@@ -9,35 +9,26 @@
     <link rel="alternate" hreflang="en" href="https://www.partybooker.ch/en">
     <link rel="alternate" hreflang="fr" href="https://www.partybooker.ch">
 
-    <title>PartyBooker</title>
     {!! Meta::toHtml() !!}
-
     @stack('head')
 
     @if(config('app.env') === EnvironmentType::PROD->value)
         <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-09C5215HQL"></script>
-        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GN53R9B1EP"></script>
         <script>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            window.dataLayer = window.dataLayer || [];
 
-            ga('create', 'UA-54557878-1', 'auto');
-            ga('send', 'pageview');
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+
+            gtag('config', 'G-GN53R9B1EP');
         </script>
     @endif
 
     @vite(['resources/js/app.js'])
-
 </head>
 
 <body>
