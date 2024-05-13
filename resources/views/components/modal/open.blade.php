@@ -25,27 +25,29 @@
         data-tippy-content="{{$tooltip ?: ($type ? $type->name : '')}}"
         @click="open"
     >
+        <div class="modal-open-content">
+            <span>{{$text}}</span>
+            @if($icon)
+                @svg($icon, 'modal-open-icon')
+            @elseif($automatic)
+                @switch($type)
+                    @case(ModalType::CREATE)
+                        @svg('heroicon-o-plus-circle')
+                        @break
+                    @case(ModalType::UPDATE)
+                        @svg('heroicon-o-pencil')
+                        @break
+                    @case(ModalType::DELETE)
+                        @svg('heroicon-o-trash')
+                        @break
+                    @default
+                        @svg('heroicon-o-eye')
+                        @break
+                @endswitch
+            @endif
+        </div>
 
-        @if($icon)
-            @svg($icon, 'modal-open-icon')
-        @elseif($automatic)
-            @switch($type)
-                @case(ModalType::CREATE)
-                    @svg('heroicon-o-plus-circle')
-                    @break
-                @case(ModalType::UPDATE)
-                    @svg('heroicon-o-pencil')
-                    @break
-                @case(ModalType::DELETE)
-                    @svg('heroicon-o-trash')
-                    @break
-                @default
-                    @svg('heroicon-o-eye')
-                    @break
-            @endswitch
-        @endif
 
-        {{$text}}
         {{$slot}}
     </button>
 </div>

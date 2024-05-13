@@ -36,5 +36,6 @@ class IconComposer
         $view->with('backIcon', 'heroicon-o-backspace');
         $view->with('dateIcon', 'heroicon-o-calendar-days');
         $view->with('xIcon', 'heroicon-o-x-circle');
+        $view->with('requestIcon', 'heroicon-o-paper-airplane');
     }
 }

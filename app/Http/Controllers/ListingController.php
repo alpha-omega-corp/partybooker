@@ -11,6 +11,7 @@ use App\Services\PartnerService;
 use Butschster\Head\Contracts\MetaTags\MetaInterface;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 class ListingController extends Controller
 {
@@ -34,6 +35,11 @@ class ListingController extends Controller
             ->fragment('adverts');
 
         $activeCategory = $category ? $this->categoryService->getCategory($category)->first() : null;
+        
+        $this->meta->setCanonical(route(__('route.listing'), [
+            'category' => $category,
+            'tag' => $tag
+        ]));
 
         return view('app.listing.index', [
             'active' => $activeCategory,
@@ -50,8 +56,8 @@ class ListingController extends Controller
         $advert = $company->adverts()->where('category_id', $locale->translatable_id)->firstOrFail();
 
         $this->meta
-            ->prependTitle($company->name)
-            ->setDescription($advert->locale->description)
+            ->prependTitle($advert->locale->title)
+            ->setDescription(Str::words($advert->locale->description, 60))
             ->setKeywords($advert->locale->keywords)
             ->setCanonical(route(__('route.company'), $company));
 
@@ -63,6 +69,8 @@ class ListingController extends Controller
 
     public function company(Company $company)
     {
+        $this->meta->setCanonical(route(__('route.listing')));
+
         return view('app.listing.company', [
             'company' => $company,
         ]);

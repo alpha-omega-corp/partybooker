@@ -6,21 +6,9 @@
             Profile
         </a>
     @endif
-    <x-modal.open
-        :background="true"
-        :name="ModalName::PARTNER_ADVERT_REQUEST"
-        :custom-color="AppColor::PINK"
-        :singleton="true"
-        :fit="true"
-        :radius="false"
-        :text="__('advert.request')"
-    />
 
 </x-app.action>
 
-@include('app.listing.partials.request', [
-    'advert' => $advert,
-])
 
 
 

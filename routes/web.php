@@ -32,9 +32,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PartnerController;
+use Butschster\Head\Facades\Meta;
 
 Route::fallback(function () {
-    return response()->view('404');
+    Meta::setCanonical(route(__('route.home')));
+
+    return redirect()->route(__('route.home'));
 });
 
 Route::get('/locale/{lang}', [LocaleController::class, 'setLocale'])->name('locale');
@@ -112,6 +115,7 @@ Route::name('guest.')
                 Route::name('fr.')
                     ->group(function () {
                         Route::get('/annonces/{category?}/{tag?}', 'index')->name('index');
+                        Route::get('/annonces/recherche', 'search')->name('search');
                         Route::get('/annonce/{company:slug}', 'company')->name('company');
                         Route::get('/annonce/{company:slug}/{category:slug}', 'advert')->name('advert');
                     });
@@ -120,6 +124,8 @@ Route::name('guest.')
                     ->prefix('en')
                     ->group(function () {
                         Route::get('/adverts/{category?}/{tag?}', 'index')->name('index');
+                        Route::get('/adverts/search', 'search')->name('search');
+
                         Route::get('/advert/{company:slug}', 'company')->name('company');
                         Route::get('/advert/{company:slug}/{category:slug}', 'advert')->name('advert');
                     });

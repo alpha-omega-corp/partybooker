@@ -3,6 +3,7 @@
     :color="AppColor::BLUE"
     :value="__('listing.categories')"
     :border="false"
+    :background="true"
     .padding="true"
 />
 

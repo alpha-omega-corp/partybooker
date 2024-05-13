@@ -18,7 +18,7 @@ return [
     'description' => 'Description',
     'meta' => 'Optimisations',
     'statistics' => 'Statistiques',
-    'request' => 'Contact',
+    'request' => 'Demande De Devis',
     'contacts' => 'Contacts',
     'others' => 'Annonces',
 

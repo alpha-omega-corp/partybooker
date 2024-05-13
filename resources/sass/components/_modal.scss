@@ -13,6 +13,19 @@
     }
 }
 
+.modal-open-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+
+    span {
+        font-family: $font-poppins;
+    }
+
+
+}
+
 .btn-close-full {
     width: 100%;
     background-color: $secondary;

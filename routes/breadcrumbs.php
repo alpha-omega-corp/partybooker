@@ -74,10 +74,12 @@ Breadcrumbs::for('admin.messages', function (Trail $trail) {
     $trail->parent('admin');
     $trail->push(__('nav.admin.messages'), route(__('route.admin-messages')));
 });
-
-
 Breadcrumbs::for('listing', function (Trail $trail, array $segments) {
     $trail->parent('home');
+
+    if (in_array(\App\Enums\Language::EN->value, $segments)) {
+        array_splice($segments, 0, 1);
+    }
 
     $slugs = [];
     foreach ($segments as $key => $segment) {

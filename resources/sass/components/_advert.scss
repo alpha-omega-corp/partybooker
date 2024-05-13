@@ -26,7 +26,6 @@
     .app-advert-socials {
         display: flex;
         background-color: #fff;
-        padding: 20px;
         justify-content: center;
         gap: 10px;
 
@@ -129,6 +128,20 @@
                 align-items: center;
             }
 
+            .app-advert-request {
+                padding: 10px 0 5px;
+
+                button {
+                    border-radius: 20px !important;
+                    padding: 10px 20px;
+                    border: 1px solid $gray;
+
+                    svg {
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+            }
 
             .app-advert-thumbnail {
                 height: fit-content;

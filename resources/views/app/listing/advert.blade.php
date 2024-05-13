@@ -9,8 +9,23 @@
         <x-app.section>
             <div class="app-advert-container">
                 <div class="app-advert-details">
+                    <div class="app-advert-request">
+                        <x-modal.open
+                            :background="true"
+                            :name="ModalName::PARTNER_ADVERT_REQUEST"
+                            :custom-color="AppColor::BLUE"
+                            :singleton="true"
+                            :fit="true"
+                            :icon="$requestIcon"
+                            :text="__('advert.request')"
+                        />
+
+                        @include('app.listing.partials.request', [
+                            'advert' => $advert,
+                        ])
+                    </div>
                     <div class="app-advert-thumbnail">
-                        @include('app.listing.partials.advert.socials')
+
 
                         <img src="{{asset($advert->images()->thumbnail()->first()->path)}}"
                              alt="{{$advert->locale->title}}" class="thumbnail">

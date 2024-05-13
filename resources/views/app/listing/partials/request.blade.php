@@ -6,7 +6,7 @@
     :action="false"
     :validation="true"
     :hidden="true"
-    :title="__('advert.request') . ' ' . $advert->company->name"
+    :title="__('advert.request')"
     :route="route('guest.company.request', ['advert' => $advert])"
 >
     <x-slot:body>

@@ -73,9 +73,9 @@
 .app-navigation {
     background: #fff;
     width: 100%;
-    font-family: $font-poppins;
     z-index: 10;
     position: fixed;
+    font-family: $font-poppins;
     top: 0;
     border-bottom: 1px solid $gray;
 
@@ -209,7 +209,6 @@
 
             .nav-item-label {
                 padding-top: 2px;
-                font-family: "Poppins", sans-serif;
                 text-transform: capitalize;
             }
         }
@@ -281,4 +280,8 @@
             }
         }
     }
+}
+
+.card-panel-title {
+    font-family: $font-poppins;
 }

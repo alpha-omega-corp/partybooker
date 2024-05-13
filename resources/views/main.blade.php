@@ -274,6 +274,8 @@
                     url: '{{route(__('route.listing-search'))}}',
                     type: 'GET',
                 })
+
+                console.log(this.adverts)
             },
             filterAdvert(item) {
                 if (item) {
@@ -289,7 +291,6 @@
             },
             search() {
                 this.filterAdverts();
-
                 return this.displayedAdverts;
             },
         }))

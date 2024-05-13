@@ -8,12 +8,8 @@
 
         <x-app.section class="app-listing-container" :bg="AppColor::HOME_GRAY">
             <div class="app-listing-filters">
-
                 <!-- Category -->
                 @include('app.listing.partials.category')
-
-                <!-- Search -->
-                @include('app.listing.partials.search')
             </div>
 
             @include('app.listing.partials.listing')

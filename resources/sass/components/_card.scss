@@ -63,7 +63,7 @@
 
     .app-card-header {
         background-color: #fff;
-        border-bottom: 1px solid $pink;
+        border-bottom: 1px solid $gray;
         padding: 20px;
         position: relative;
 
@@ -171,7 +171,6 @@
             .breadcrumb-item {
                 font-size: small;
                 font-weight: bold;
-                font-family: "Poppins", sans-serif;
                 text-transform: uppercase;
             }
         }
@@ -211,12 +210,7 @@
             .breadcrumb-item {
                 font-size: small;
                 font-weight: bold;
-                font-family: "Poppins", sans-serif;
                 text-transform: uppercase;
-
-                a {
-                    color: $blue;
-                }
             }
         }
     }

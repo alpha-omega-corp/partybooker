@@ -5,7 +5,6 @@
         :background="false"
         :custom-color="AppColor::SECONDARY"
         :name="ModalName::APP_LISTING_SEARCH"
-        :tooltip="__('listing.search')"
         :icon="$searchIcon"
     />
 </div>

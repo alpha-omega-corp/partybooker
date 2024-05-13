@@ -18,7 +18,7 @@ return [
     'access' => 'Access',
     'meta' => 'Optimisations',
     'statistics' => 'Statistics',
-    'request' => 'Contact',
+    'request' => 'Request A Quote',
     'contacts' => 'Contacts',
     'others' => 'Adverts',
 

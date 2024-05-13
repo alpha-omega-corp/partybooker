@@ -72,6 +72,8 @@ $accordion-button-active-color: #fff;
 .tippy-box[data-theme~='tippy'] {
     color: #fff;
     border-radius: 10px;
+    background-color: $secondary;
+    padding: 10px;
     border: 2px solid $pink;
     font-size: smaller;
     text-transform: uppercase;

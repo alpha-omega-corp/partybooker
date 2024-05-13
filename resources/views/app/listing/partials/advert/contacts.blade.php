@@ -5,26 +5,28 @@
             justify="center"
             :is-icon="true"
             :tooltips="[
-            __('advert.phone'),
-            __('advert.email'),
             __('advert.website'),
-            __('advert.address')
+            __('advert.address'),
+            'socials'
         ]"
             :items="[
-            $phoneIcon,
-            $emailIcon,
             $linkIcon,
-            $pinIcon
+            $pinIcon,
+            $linkIcon
         ]">
 
-            <x-advert.contact type="tel" :value="$advert->company->contact->phone"/>
-            <x-advert.contact type="mailto" :value="$advert->company->contact->email"/>
             <x-advert.contact :value="$advert->company->social->www"/>
 
             @if($advert->company->location)
                 <x-advert.contact :link="false" :value="$advert->company->location->address"/>
             @endif
+
+            <x-tab.item>
+                @include('app.listing.partials.advert.socials')
+            </x-tab.item>
+
         </x-tab>
+
     </div>
 </x-card>
 
