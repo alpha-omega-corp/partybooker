@@ -13,11 +13,11 @@
         <x-app.title
             :size="TitleSize::MEDIUM"
             :color="AppColor::BLUE"
-            :value="$content->title"
+            :value="$description->title"
             :padding="false"
         />
         <p class="description-content">
-            {{$content->content}}
+            {{$description->content}}
         </p>
     </div>
 </div>

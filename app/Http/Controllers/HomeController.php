@@ -33,18 +33,18 @@ class HomeController extends Controller
 
     public function index()
     {
-        $content = AppContent::ofType(AppContentType::APP_HOME)->first()->locale;
+        $description = AppContent::ofType(AppContentType::APP_HOME)->first()->locale;
 
         $this->meta
             ->prependTitle(__('nav.home'))
-            ->setDescription($content);
+            ->setDescription($description->content);
 
         return view('app.home.index', [
             'categories' => Category::all(),
             'comments' => AppComment::all(),
             'commentsRandom' => AppComment::all()->random(3),
             'information' => AppInformation::all(),
-            'content' => $content,
+            'description' => $description,
             'top' => (new PartnerService())->topServices(),
             'topRandom' => (new PartnerService())->topServices(true),
         ]);

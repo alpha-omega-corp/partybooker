@@ -35,7 +35,7 @@ class ListingController extends Controller
             ->fragment('adverts');
 
         $activeCategory = $category ? $this->categoryService->getCategory($category)->first() : null;
-        
+
         $this->meta->setCanonical(route(__('route.listing'), [
             'category' => $category,
             'tag' => $tag
@@ -57,7 +57,7 @@ class ListingController extends Controller
 
         $this->meta
             ->prependTitle($advert->locale->title)
-            ->setDescription(Str::words($advert->locale->description, 60))
+            ->setDescription(Str::words(html_entity_decode(strip_tags($advert->locale->description)), 40))
             ->setKeywords($advert->locale->keywords)
             ->setCanonical(route(__('route.company'), $company));
 

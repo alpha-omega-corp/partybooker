@@ -201,6 +201,7 @@
             padding: 0;
             display: flex;
             justify-content: center;
+            font-weight: bold;
 
             .active {
                 color: $dark;
@@ -211,6 +212,10 @@
                 font-size: small;
                 font-weight: bold;
                 text-transform: uppercase;
+            }
+
+            a {
+                color: $blue;
             }
         }
     }

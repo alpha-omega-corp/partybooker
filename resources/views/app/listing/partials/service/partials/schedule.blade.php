@@ -22,7 +22,7 @@
                                 @svg('heroicon-o-lock-closed', 'text-danger')
                             @endif
 
-                            <h6 class="service-schedule-day">{{__('service.day.' .$item->day)}}</h6>
+                            <div class="service-schedule-day">{{__('service.day.' .$item->day)}}</div>
                         </div>
                     </x-slot:title>
 

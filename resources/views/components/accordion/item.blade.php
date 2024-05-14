@@ -25,6 +25,7 @@
                             id="{{$id}}"
                             data-bs-toggle="collapse"
                             data-bs-target="{{'#' . $target}}"
+                            role="button"
                             aria-expanded="false"
                             aria-controls="{{$target}}">
                             <div

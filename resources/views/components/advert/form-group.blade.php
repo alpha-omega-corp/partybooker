@@ -10,9 +10,9 @@
                 :accordion="$accordion"
             >
                 <x-slot:title>
-                    <h6>
+                    <div>
                         {{__('service.section.capacity')}}
-                    </h6>
+                    </div>
                 </x-slot:title>
 
                 <x-slot:content>
@@ -28,9 +28,9 @@
                 :padding="!(new ListingService())->isService($type)"
             >
                 <x-slot:title>
-                    <h6>
+                    <div>
                         {{__('service.checklist.'.strtolower($type->name))}}
-                    </h6>
+                    </div>
                 </x-slot:title>
 
                 <x-slot:content>
