@@ -3,5 +3,4 @@ import '../sass/app.scss';
 
 import.meta.glob([
     '../images/**',
-    '../../public/storage/**',
 ]);
