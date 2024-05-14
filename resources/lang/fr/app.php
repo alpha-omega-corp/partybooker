@@ -10,4 +10,5 @@ return [
     'save' => 'Enregistrer',
     'user' => 'Compte',
     'logout' => 'Déconnexion',
+    'catch-phrase' => 'Partybooker sélectionne les meilleures idées d\'événements, de lieux et de services de Suisse romande.'
 ];

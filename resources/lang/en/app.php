@@ -10,4 +10,6 @@ return [
     'save' => 'Save',
     'user' => 'Account',
     'logout' => 'Logout',
+    'catch-phrase' => 'Partybooker selects the best ideas for events, places and services in French-speaking Switzerland.'
+
 ];

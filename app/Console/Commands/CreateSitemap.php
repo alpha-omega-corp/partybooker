@@ -21,11 +21,13 @@ class CreateSitemap extends Command
 
         switch ($segment) {
             case 'all':
-                SitemapGenerator::create($url)
-                    ->writeToFile('public/sitemap.xml');
+                //SitemapGenerator::create($url)->writeToFile('public/sitemap.xml');
+
 
                 Sitemap::create()
-                    ->add(Url::create($url)->addImage("$url/images/background.jpg", 'Home Image'));
+                    ->add(Url::create($url)
+                        ->addImage("$url/images/background.jpg", 'Home Image'))
+                    ->writeToFile('public/images.xml');
                 break;
             case 'listing':
                 SitemapGenerator::create('https://www.partybooker.ch')->getSitemap()->writeToFile('public/maps/listing.xml');
