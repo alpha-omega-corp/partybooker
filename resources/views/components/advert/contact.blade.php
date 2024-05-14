@@ -7,7 +7,7 @@
 <x-tab.item>
     <div class="contact-item">
         @if($link)
-            <a href="{{$type ? $type . ':' . $value : $value}}">{{$value}}</a>
+            <a target="_blank" href="{{$type ? $type . ':' . $value : $value}}">{{$value}}</a>
         @else
             <p>{{$value}}</p>
         @endif
