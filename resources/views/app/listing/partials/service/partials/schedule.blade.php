@@ -61,9 +61,9 @@
                 accordion="scheduleHolidaysAccordion"
             >
                 <x-slot:title>
-                    <h6>
+                    <div>
                         {{__('service.section.schedule.holidays')}}
-                    </h6>
+                    </div>
                 </x-slot:title>
 
                 <x-slot:content>

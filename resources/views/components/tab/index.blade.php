@@ -42,7 +42,7 @@
 
         @foreach($items as $key => $page)
             <li>
-                <div
+                <button
                     :id="$id('tab', whichChild($el.parentElement, $refs.list))"
                     @click="select($el.id)"
                     @mousedown.prevent
@@ -59,7 +59,7 @@
                     @else
                         {{$page}}
                     @endif
-                </div>
+                </button>
             </li>
         @endforeach
     </ul>

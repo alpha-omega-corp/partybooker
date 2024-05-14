@@ -25,8 +25,6 @@
                         ])
                     </div>
                     <div class="app-advert-thumbnail">
-
-
                         <img src="{{asset($advert->images()->thumbnail()->first()->path)}}"
                              alt="{{$advert->locale->title}}" class="thumbnail">
 

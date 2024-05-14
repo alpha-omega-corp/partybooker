@@ -15,8 +15,9 @@
                     'category' => $companyAdvert->category->locale,
                 ])}}">
                     <div class="company-adverts-item">
-                        <h6 class="adverts-item-title d-inline-block text-truncate">
-                            {{ $companyAdvert->locale->title}}</h6>
+                        <div class="adverts-item-title d-inline-block text-truncate">
+                            {{ $companyAdvert->locale->title}}
+                        </div>
                         <div>
                             <x-advert.category :advert="$companyAdvert"/>
                         </div>
