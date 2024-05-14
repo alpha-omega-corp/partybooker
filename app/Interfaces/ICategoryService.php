@@ -20,5 +20,6 @@ interface ICategoryService
 
     public function updateCategory(CategoryTagRequest $request, Category|CategoryTag $item): bool;
 
+    public function getCategories(): array;
 
 }

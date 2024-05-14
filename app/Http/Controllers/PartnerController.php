@@ -7,6 +7,7 @@ use App\Enums\PaymentType;
 use App\Enums\PlanType;
 use App\Http\Requests\StorePartnerRequest;
 use App\Http\Requests\UpdatePartnerPlanRequest;
+use App\Interfaces\ICategoryService;
 use App\Interfaces\IListingService;
 use App\Models\AppPlan;
 use App\Models\Company;
@@ -19,6 +20,7 @@ use App\Models\Partner;
 use App\Models\PartnerPayment;
 use App\Models\PartnerTop;
 use App\Models\User;
+use App\Services\CategoryService;
 use App\Services\ListingService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -28,10 +30,12 @@ use Illuminate\Support\Str;
 class PartnerController extends Controller
 {
     private IListingService $listingService;
+    private ICategoryService $categoryService;
 
-    public function __construct(ListingService $listingService)
+    public function __construct(ListingService $listingService, CategoryService $categoryService)
     {
         $this->listingService = $listingService;
+        $this->categoryService = $categoryService;
     }
 
     public function dashboard(Company $company): View
@@ -44,7 +48,8 @@ class PartnerController extends Controller
             'plan' => $partner->payment->plan,
             'statistic' => $company->statistics,
             'social' => $company->social,
-            'plans' => AppPlan::all()
+            'plans' => AppPlan::all(),
+            'categories' => $this->categoryService->getCategories(),
         ]);
     }
 

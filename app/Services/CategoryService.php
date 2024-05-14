@@ -118,4 +118,14 @@ class  CategoryService implements ICategoryService
 
         return true;
     }
+
+    public function getCategories(): array
+    {
+        $categories = [];
+        Category::all()->each(function (Category $category) use (&$categories) {
+            $categories[$category->id] = ucfirst($category->locale->title);
+        });
+
+        return $categories;
+    }
 }

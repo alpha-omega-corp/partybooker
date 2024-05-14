@@ -10,6 +10,7 @@ return [
 
     'adverts' => 'Adverts',
     'plan' => 'Plans',
+    'choose-category' => 'Choose category',
 
     'company.contacts' => 'Contacts',
     'company.description' => 'Description',

@@ -29,7 +29,7 @@
     </x-tab.locale>
 
     <x-slot:body>
-        <x-forms.select label="Choose Category" name="category">
+        <x-forms.select :label="__('partner.choose-category')" name="category">
             @svg($boxIcon)
             <x-slot:options>
                 @foreach($categories as $id => $category)
