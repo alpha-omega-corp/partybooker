@@ -8,7 +8,7 @@
         @foreach($advert->images()->get() as $image)
             @if(!$image->is_thumbnail)
                 <div class="gallery-image">
-                    <img src="{{asset($image->path)}}" alt="{{$image->locale->description}}">
+                    <img src="{{Vite::advert($image->path)}}" alt="{{$image->locale->description}}">
                 </div>
             @endif
         @endforeach

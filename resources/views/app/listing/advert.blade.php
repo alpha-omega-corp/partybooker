@@ -25,7 +25,7 @@
                         ])
                     </div>
                     <div class="app-advert-thumbnail">
-                        <img src="{{asset($advert->images()->thumbnail()->first()->path)}}"
+                        <img src="{{Vite::advert($advert->images()->thumbnail()->first()->path)}}"
                              alt="{{$advert->locale->title}}" class="thumbnail">
 
                         @include('app.listing.partials.advert.contacts')

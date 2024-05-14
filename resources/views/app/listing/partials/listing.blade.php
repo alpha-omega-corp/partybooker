@@ -11,8 +11,9 @@
                     <x-advert.category :advert="$advert"/>
 
                     <div class="advert-card-image">
-                        <img src="{{asset($advert->images()->thumbnail()->first()->path)}}"
-                             alt="placeholder">
+                        @php($thumbnail = $advert->images()->thumbnail()->first())
+                        <img src="{{Vite::advert($advert->images()->thumbnail()->first()->path)}}"
+                             alt="{{$thumbnail->locale->title}}">
                     </div>
 
                     <div class="advert-card-content">

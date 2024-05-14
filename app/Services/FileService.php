@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Interfaces\IFileService;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image;
+use Intervention\Image\ImageManager;
 
 class FileService implements IFileService
 {
@@ -18,13 +18,15 @@ class FileService implements IFileService
     {
         $filename = time() . '_' . $file->getClientOriginalName();
         $destination = "storage/$path/$filename";
-        $intervention = Image::make($file);
+        $intervention = ImageManager::imagick()->read($file);
 
         if ($resize) {
-            return $intervention->resize($size, $size)->save($destination)->basePath();
+            $intervention = $intervention->resize($size, $size);
         }
 
-        return $intervention->save($destination)->basePath();
+        $intervention->save($destination);
+
+        return $destination;
     }
 
     public function companyLogo(UploadedFile $file): string

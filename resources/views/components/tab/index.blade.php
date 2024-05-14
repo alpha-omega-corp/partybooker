@@ -42,16 +42,16 @@
 
         @foreach($items as $key => $page)
             <li>
-                <button
-                    :id="$id('tab', whichChild($el.parentElement, $refs.list))"
-                    @click="select($el.id)"
-                    @mousedown.prevent
-                    @focus="select($el.id)"
-                    :tabindex="isSelected($el.id) ? 0 : -1"
-                    :aria-selected="isSelected($el.id)"
-                    role="button"
-                    :class="isSelected($el.id) ? 'border-blue text-pink fw-bold shadow-lg' : ''"
-                    class="{{$isIcon ? 'tippy' : ''}} tab-button h-100 border border-bottom-0"
+                <button type="button"
+                        :id="$id('tab', whichChild($el.parentElement, $refs.list))"
+                        @click="select($el.id)"
+                        @mousedown.prevent
+                        @focus="select($el.id)"
+                        :tabindex="isSelected($el.id) ? 0 : -1"
+                        :aria-selected="isSelected($el.id)"
+                        role="button"
+                        :class="isSelected($el.id) ? 'border-blue text-pink fw-bold shadow-lg' : ''"
+                        class="{{$isIcon ? 'tippy' : ''}} tab-button h-100 border border-bottom-0"
                     {{$isIcon ? 'data-tippy-content='.$tooltips[$key] : ''}}
                 >
                     @if($isIcon)

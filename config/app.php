@@ -163,7 +163,6 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         SocialiteServiceProvider::class,
-        ImageServiceProvider::class,
         CaptchaServiceProvider::class,
     ])->toArray(),
 
@@ -182,7 +181,6 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'Vite' => Vite::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'Image' => Intervention\Image\Facades\Image::class,
         'DateType' => DateType::class,
         'CategoryType' => CategoryType::class,
         'NetworkType' => App\Enums\NetworkType::class,
