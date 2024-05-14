@@ -16,7 +16,7 @@
                             :custom-color="AppColor::BLUE"
                             :singleton="true"
                             :fit="true"
-                            :icon="$requestIcon"
+                            :center="true"
                             :text="__('advert.request')"
                         />
 

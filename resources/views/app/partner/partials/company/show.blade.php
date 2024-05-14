@@ -104,7 +104,9 @@
                 :padding="false"
             >
                 <x-slot:actions>
-                    @include('app.partner.partials.company.edit-statistics')
+                    @if(Auth::user()->isAdmin())
+                        @include('app.partner.partials.company.edit-statistics')
+                    @endif
                 </x-slot:actions>
 
                 <x-slot:title>

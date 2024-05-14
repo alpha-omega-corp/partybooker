@@ -1,11 +1,6 @@
 @php use App\Models\Company; @endphp
 @extends('main')
 
-@push('head')
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-@endpush
-
 @section('content')
     <x-card.panel :title="__('nav.admin.partners')" :color="AppColor::PINK" class="admin-listing">
         <x-slot:breadcrumbs>

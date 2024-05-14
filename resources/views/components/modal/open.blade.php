@@ -26,7 +26,7 @@
         @click="open"
     >
         <div class="modal-open-content">
-            <span>{{$text}}</span>
+            <span @class(['text-center w-100' => !$icon])>{{$text}}</span>
             @if($icon)
                 @svg($icon, 'modal-open-icon')
             @elseif($automatic)

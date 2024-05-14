@@ -1,4 +1,4 @@
-<x-card :title="__('advert.contacts')" :can-open="false" :center="true" class="app-advert-contacts">
+<div class="app-advert-contacts">
 
     <div class="pt-4">
         <x-tab
@@ -28,7 +28,7 @@
         </x-tab>
 
     </div>
-</x-card>
+</div>
 
 
 

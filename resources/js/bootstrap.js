@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as Popper from '@popperjs/core'
 import 'bootstrap'
 import './tooltip.js';
-
+import select2 from 'select2';
 import Alpine from 'alpinejs';
 import focus from '@alpinejs/focus';
 import Glide, {Autoplay, Breakpoints, Controls} from '@glidejs/glide/dist/glide.modular.esm'
@@ -34,6 +34,7 @@ window.Alpine = Alpine;
 
 Alpine.plugin(focus);
 Alpine.start();
+select2();
 
 window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

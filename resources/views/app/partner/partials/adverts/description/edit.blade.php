@@ -2,10 +2,11 @@
     :iterator="$advert->id"
     :name="ModalName::PARTNER_ADVERT_DESCRIPTION"
     :type="ModalType::UPDATE"
+    :custom-color="AppColor::INFO"
     :icon="$editIcon"
     :fit="true"
+    :center="true"
     :radius="false"
-    :background="false"
 />
 
 <x-modal.index
@@ -14,7 +15,6 @@
     :type="ModalType::UPDATE"
     :size="ModalSize::LG"
     :hidden="true"
-    :background="false"
     :route="route('partner.advert.description', [
         'advert' => $advert
     ])"
