@@ -12,7 +12,7 @@
 
                     <div class="advert-card-image">
                         @php($thumbnail = $advert->images()->thumbnail()->first())
-                        <img src="{{Vite::advert($advert->images()->thumbnail()->first()->path)}}"
+                        <img src="{{asset($thumbnail->path)}}"
                              alt="{{$thumbnail->locale->title}}">
                     </div>
 
