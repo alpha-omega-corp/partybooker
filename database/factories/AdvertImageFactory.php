@@ -15,7 +15,7 @@ class AdvertImageFactory extends Factory
     {
         return [
             'is_thumbnail' => false,
-            'path' => $this->faker->imageUrl(500, 500),
+            'path' => '/storage/images/adverts/placeholder.jpg',
         ];
     }
 

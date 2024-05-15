@@ -1,13 +1,4 @@
-@php use App\Http\Middleware\LocaleMiddleware; @endphp
 @extends('main')
-
-@section('page')
-    page="partner"
-@endsection
-
-@section('title')
-    <title>{{ __('become_partner.title') }} | {{ __('partybooker-cp.www') }}</title>
-@endsection
 
 @section('content')
     <x-card.panel

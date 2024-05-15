@@ -1,9 +1,5 @@
 @extends('main')
 
-@section('title')
-    <title>FAQ | {{ __('partybooker-cp.www') }}</title>
-@endsection
-
 @section('content')
 
     <x-card.panel

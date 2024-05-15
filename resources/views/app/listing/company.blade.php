@@ -1,15 +1,12 @@
 @extends('main')
 
 @section('content')
-
     <x-card.panel :title="$company->name">
         <x-slot:breadcrumbs>
             {{Breadcrumbs::render('company', $company)}}
         </x-slot:breadcrumbs>
 
         <x-app.section>
-
-
             <div class="app-company">
                 <div class="d-flex justify-content-center">
                     <div class="app-company-logo">

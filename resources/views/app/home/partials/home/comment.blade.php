@@ -18,7 +18,7 @@
 </x-carousel>
 
 @include('app.home.partials.carousel-mobile.comment', [
-    'commentsValue' => $commentsRandom,
+    'commentsValue' => $comments,
 ])
 
 <x-app.mobile-more :modal="ModalName::MORE_COMMENTS" :items="$comments"/>

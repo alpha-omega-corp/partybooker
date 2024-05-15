@@ -4,7 +4,7 @@ return [
     'plan' => 'Plan',
     'register' => 'New Account',
     'login' => 'Login',
-    'listing' => 'advertisements',
+    'listing' => 'our partners',
     'advert' => 'advertisement',
     'mobile-more' => 'view more',
     'save' => 'Save',

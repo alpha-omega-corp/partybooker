@@ -1,11 +1,6 @@
 @extends('main')
 
-@section('title')
-    <title>BLOG | {{ __('partybooker-cp.www') }}</title>
-@endsection
-
 @section('content')
-
     <x-card.panel :title="__('home.post')">
         <x-slot:breadcrumbs>
             {{Breadcrumbs::render('post', $post)}}
@@ -20,7 +15,5 @@
                 {!! $post->locale->content !!}
             </div>
         </div>
-
     </x-card.panel>
-
 @endsection

@@ -1,8 +1,5 @@
 @extends('main')
 
-@section('title')
-@endsection
-
 @section('content')
 
     <x-card.panel

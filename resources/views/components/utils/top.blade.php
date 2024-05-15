@@ -18,7 +18,7 @@
         </div>
 
         <div class="top-card-header">
-            <h6 class="top-card-title">{{$partner->company->name}}</h6>
+            <div class="top-card-title">{{$partner->company->name}}</div>
         </div>
 
         <div class="top-card-content">

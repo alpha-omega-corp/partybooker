@@ -40,11 +40,12 @@ class PartnerFactory extends Factory
                 'app_plan_id' => $this->faker->randomElement($plans)
             ]),
             'company_id' => function (array $attributes) use ($adverts) {
+                $payment = PartnerPayment::find($attributes['partner_payment_id']);
+
                 $company = Company::factory()
                     ->has(CompanyLocale::factory()->english(), 'locale')
                     ->has(CompanyLocale::factory()->french(), 'locale');
 
-                $payment = PartnerPayment::find($attributes['partner_payment_id']);
                 return match (PlanType::from($payment->plan->code)) {
                     PlanType::STANDARD => $company
                         ->has($this->faker->randomElement($adverts)->asMain(), 'adverts'),

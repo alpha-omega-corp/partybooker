@@ -332,25 +332,49 @@
     }
 }
 
-
 .home-welcome {
-    background-image: url("/resources/images/background.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 700px;
     position: relative;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
 
-    span {
+
+    .home-welcome-bg {
+        width: 100%;
+        height: 700px;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        img {
+            position: absolute;
+            top: 0;
+            object-fit: cover;
+            width: 100%;
+            height: 700px;
+            z-index: 1;
+        }
+    }
+
+    .home-welcome-header {
+        width: 100%;
+        z-index: 2;
+
+        .home-welcome-title {
+            color: #fff;
+            text-shadow: $dark 5px 5px 5px;
+            font-style: italic;
+            text-align: center;
+
+        }
+    }
+
+    h1 {
         font-size: 5rem !important;
     }
 
     @media only screen and (max-width: 1400px) {
         height: 500px;
 
-        span {
+        h1 {
             font-size: 4.5rem !important;
         }
     }
@@ -358,28 +382,17 @@
     @media only screen and (max-width: 800px) {
         height: 400px;
 
-        span {
+        h1 {
             font-size: 4rem !important;
         }
     }
 
     @media only screen and (max-width: 600px) {
-        span {
+        h1 {
             font-size: 3rem !important;
         }
     }
 
-    .home-welcome-header {
-        display: flex;
-        align-items: center;
-        text-align: center;
-
-        .home-welcome-title {
-            color: #fff;
-            text-shadow: $dark 5px 5px 5px;
-            font-style: italic;
-        }
-    }
 }
 
 .home-description {

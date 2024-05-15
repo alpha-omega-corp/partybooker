@@ -40,13 +40,11 @@ class HomeController extends Controller
             ->setDescription($description->content);
 
         return view('app.home.index', [
+            'description' => $description,
             'categories' => Category::all(),
             'comments' => AppComment::all(),
-            'commentsRandom' => AppComment::all()->random(3),
             'information' => AppInformation::all(),
-            'description' => $description,
             'top' => (new PartnerService())->topServices(),
-            'topRandom' => (new PartnerService())->topServices(true),
         ]);
     }
 

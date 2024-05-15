@@ -23,7 +23,7 @@
     </x-carousel>
 
     @include('app.home.partials.carousel-mobile.top', [
-        'topValue' => $topRandom,
+        'topValue' => $top,
     ])
     <x-app.mobile-more :modal="ModalName::MORE_TOPS" :items="$top"/>
 

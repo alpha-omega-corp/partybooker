@@ -24,7 +24,9 @@ class FileService implements IFileService
             $intervention = $intervention->resize($size, $size);
         }
 
-        $intervention->save($destination);
+        $intervention
+            ->toWebp(90)
+            ->save($destination);
 
         return $destination;
     }

@@ -1,8 +1,5 @@
 @extends('main')
 
-@section('title')
-@endsection
-
 @section('content')
     <div class="home">
         <!-- Heading -->
