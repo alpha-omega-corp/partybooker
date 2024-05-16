@@ -132,8 +132,13 @@
 .app-listing-filters {
     flex-basis: 50px;
     flex-grow: 1;
-    margin-bottom: 20px;
     height: 100%;
+    overflow: hidden;
+    background-color: #fff;
+
+    @media only screen and (min-width: 1200px) {
+        border-radius: 20px;
+    }
 
     .listing-category-content {
         padding-bottom: 20px;
@@ -159,12 +164,16 @@
     overflow: hidden;
 
     .app-listing-items {
-        background-color: $home;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
         @media only screen and (min-width: 1200px) {
             height: 100%;
             width: 100%;
             overflow: scroll;
-            padding: 20px 30px 70px 20px;
+            padding: 20px;
         }
 
         @media only screen and (min-width: 600px) and (max-width: 800px) {
@@ -258,7 +267,6 @@
 
 
     .advert-card {
-        margin: 10px;
         @media only screen and (max-width: 800px) {
             flex-direction: column;
 
@@ -376,7 +384,8 @@
     }
 
     .advert-card:hover {
-        box-shadow: 0 0 2px 0 $accent;
+        border: 1px solid $blue;
+        transition: .02s;
     }
 }
 

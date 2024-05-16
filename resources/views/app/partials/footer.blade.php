@@ -6,24 +6,22 @@
                     <h4 class="app-footer-title">{{__('home.contacts')}}</h4>
 
                     <div class="app-footer-list">
-                        <p>{{$footerContacts->email}}</p>
-                        <p>{{$footerContacts->phone}}</p>
-                        <div class="flex-column gap-2 d-flex justify-content-between mb-3">
-                            <a href="{{$footerContacts->instagram}}" target="_blank">
-                                instagram
-                            </a>
-                            <a href="{{$footerContacts->facebook}}" target="_blank">
-                                facebook
-                            </a>
-                            <a href="{{$footerContacts->linkedin}}" target="_blank">
-                                linkedin
-                            </a>
-                        </div>
-
-                        <p>{{$footerContacts->address}}</p>
+                        <a href="mailto:{{$footerContacts->email}}">{{$footerContacts->email}}</a>
+                        <a href="tel:{{$footerContacts->phone}}">{{$footerContacts->phone}}</a>
+                        <a href="{{$footerContacts->instagram}}" target="_blank">
+                            instagram
+                        </a>
+                        <a href="{{$footerContacts->facebook}}" target="_blank">
+                            facebook
+                        </a>
+                        <a href="{{$footerContacts->linkedin}}" target="_blank">
+                            linkedin
+                        </a>
+                        
+                        <span>{{$footerContacts->address}}</span>
                     </div>
                 </div>
-                
+
                 <div class="app-footer-link">
                     <h4 class="app-footer-title">{{__('home.categories')}}</h4>
 

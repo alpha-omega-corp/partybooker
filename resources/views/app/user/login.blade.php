@@ -26,7 +26,6 @@
                 type="password">
                 @svg('heroicon-o-key')
             </x-forms.input>
-
         </x-slot:body>
     </x-modal.index>
 @endif

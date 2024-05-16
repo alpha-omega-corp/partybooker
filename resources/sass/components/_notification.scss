@@ -1,27 +1,35 @@
+.app-notification-container {
+    position: relative;
+    z-index: 4;
+}
+
+
 .app-notification {
     border-radius: 10px;
-    border: 1px solid $light;
+    border: 1px solid $gray;
     overflow: hidden;
     width: 400px;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 30px;
+    right: 30px;
+    background-color: #fff;
 
-    .app-notification-title {
+    .app-notification-header {
         border-bottom: 1px solid $light;
         text-transform: uppercase;
-        font-size: small;
+        font-size: smaller;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
 
-        svg {
-            width: 20px;
-            height: 20px;
+        .app-notification-title {
+
         }
     }
 
     .app-notification-content {
-        color: $gray;
         padding: 20px;
-        margin-bottom: 0.5rem;
-        background-color: #fff;
+        font-family: $font-poppins;
     }
 }

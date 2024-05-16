@@ -4,7 +4,7 @@ return [
     'home' => 'accueil',
     'listing' => 'annonces',
     'about' => 'a propos de nous',
-    'partnership' => 'partenariat',
+    'partnership' => 'partenariats',
     'blog' => 'blog',
     'faq' => 'faq',
     'terms' => 'conditions',
@@ -12,12 +12,12 @@ return [
     'contact' => 'contact',
     'misc' => 'divers',
     'profile' => 'profile',
-    'admin' => 'Tableau de bord',
+    'admin' => 'tableau de bord',
     'admin.partners' => 'Partenaires',
     'admin.content' => 'Contenu',
     'admin.categories' => 'Catégories',
-    'admin.plans' => 'Formules',
-    'admin.forms' => 'Formulaires',
-    'admin.messages' => 'Messages',
-    'company' => 'Entreprise'
+    'admin.plans' => 'formules',
+    'admin.forms' => 'formulaires',
+    'admin.messages' => 'messages',
+    'company' => 'entreprise'
 ];

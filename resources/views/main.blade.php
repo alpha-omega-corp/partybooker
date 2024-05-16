@@ -10,6 +10,7 @@
         :action="false"
         :title="__('app.register')"
         :route="route('auth.register')"
+        :validation="true"
     >
         <x-slot:body>
             <x-forms.input
@@ -54,6 +55,7 @@
 
             truncate() {
                 this.truncated = data.length > this.count ? data.substring(0, this.count) + '...' : data
+                this.truncated = this.truncated.replaceAll('"', '')
             },
 
             expand() {

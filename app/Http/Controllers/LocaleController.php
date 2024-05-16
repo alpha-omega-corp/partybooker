@@ -42,13 +42,13 @@ class LocaleController extends Controller
             Str::contains($referer, ['formules', 'plans']) => route(__('route.admin-plans')),
             Str::contains($referer, ['formulaires', 'forms']) => route(__('route.admin-forms')),
             Str::contains($referer, ['messages']) => route(__('route.admin-messages')),
-            
+
             Str::contains($referer, ['profile']) => route(__('route.profile'), [
                 'company' => $segments[count($segments) - 1]
             ]),
             default => route(__('route.home')),
         };
 
-        return redirect($route)->with('success', __('locale.success'));
+        return redirect($route)->with('success', __('notification.locale'));
     }
 }

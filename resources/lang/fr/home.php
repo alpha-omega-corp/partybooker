@@ -13,7 +13,7 @@ return [
     'features' => 'fonctionnalités',
     'about' => 'a propos de nous',
     'faq' => 'questions fréquentes',
-    'plans' => 'formules',
+    'plans' => 'nos options de formules',
     'help_title' => 'vous avez une question ?',
     'help' => 'laissez-nous votre numéro de téléphone et nous vous contacterons dès que possible',
     'usp' => 'points de vente',

@@ -1,14 +1,20 @@
 <div class="app-notification shadow">
-    <div class="app-notification-title {{$type === NotificationType::SUCCESS ? 'border-primary' : 'border-danger'}}">
-        <div class="d-flex align-items-center gap-2 p-2">
-            @if($type === NotificationType::SUCCESS)
-                @svg('heroicon-o-check-circle', 'text-success')
-            @else
-                @svg('heroicon-o-x-circle')
-            @endif
+    <div class="app-notification-header">
+        @php
+            $color = '';
+            $type === NotificationType::SUCCESS
+                ? $color = 'text-primary'
+                : $color = 'text-danger';
+        @endphp
+        @if($type === NotificationType::SUCCESS)
+            @svg('heroicon-o-check-circle', $color)
+        @else
+            @svg('heroicon-o-x-circle', $color)
+        @endif
 
-            <p class="m-0">{{ucfirst(strtolower($type->name))}}</p>
-        </div>
+        <span class="app-notification-title">
+            {{ucfirst(strtolower($type->name))}}
+        </span>
     </div>
 
     <div class="app-notification-content">
@@ -20,5 +26,5 @@
 <script type="module">
     setTimeout(function () {
         $(".app-notification").fadeOut();
-    }, 4000);
+    }, 3000);
 </script>

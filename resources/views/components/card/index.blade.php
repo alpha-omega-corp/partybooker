@@ -15,13 +15,13 @@
 
     @if($title)
         <div class="app-card-header">
-            <h3 @class([
+            <div @class([
             'app-card-title',
             'text-center' => $center,
             'text-'.$color->value
             ])>
                 {{$title}}
-            </h3>
+            </div>
 
             @if(isset($actions) && $actionable)
                 <div class="app-card-actions">

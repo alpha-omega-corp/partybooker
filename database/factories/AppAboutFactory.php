@@ -20,7 +20,7 @@ class AppAboutFactory extends Factory
     public function definition(): array
     {
         return [
-            'image' => $this->faker->imageUrl
+            'image' => '/storage/images/adverts/placeholder.jpg'
         ];
     }
 

@@ -4,7 +4,7 @@ return [
     'home' => 'home',
     'listing' => 'advertisements',
     'about' => 'about us',
-    'partnership' => 'partnership',
+    'partnership' => 'partnerships',
     'blog' => 'blog',
     'faq' => 'faq',
     'terms' => 'terms',

@@ -7,7 +7,7 @@
     <div class="app-listing-items">
         @foreach($adverts as $advert)
             <x-advert.link :advert="$advert">
-                <div class="advert-card">
+                <div class="advert-card shadow-lg">
                     <x-advert.category :advert="$advert"/>
 
                     <div class="advert-card-image">

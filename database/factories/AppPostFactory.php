@@ -18,7 +18,7 @@ class AppPostFactory extends Factory
     public function definition(): array
     {
         return [
-            'image' => $this->faker->imageUrl(500, 500),
+            'image' => '/storage/images/adverts/placeholder.jpg',
             'status' => rand(true, false),
         ];
     }

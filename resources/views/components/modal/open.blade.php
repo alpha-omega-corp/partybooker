@@ -12,7 +12,6 @@
         type="button"
         @class([
             'btn',
-            'tippy' => $type || $tooltip,
             'btn-'.($customColor ? $customColor->value : ($background ? $color : 'transparent')),
             'text-'.$color => !$background && !$customColor,
             'text-white' => $background || $customColor,
@@ -21,12 +20,12 @@
             'text-start' => !$center
         ])
         {{$attributes->merge(['class' => 'd-flex justify-content-center align-items-center'])}}
-        {{$type ? 'data-tippy-content='. $type->name : ''}}
-        data-tippy-content="{{$tooltip ?: ($type ? $type->name : '')}}"
         @click="open"
     >
         <div class="modal-open-content">
-            <span @class(['text-center w-100' => !$icon])>{{$text}}</span>
+            @if($text)
+                <span @class(['text-center w-100' => !$icon])>{{$text}}</span>
+            @endif
             @if($icon)
                 @svg($icon, 'modal-open-icon')
             @elseif($automatic)
