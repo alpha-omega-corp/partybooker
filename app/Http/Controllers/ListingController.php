@@ -36,10 +36,12 @@ class ListingController extends Controller
 
         $activeCategory = $category ? $this->categoryService->getCategory($category)->first() : null;
 
-        $this->meta->setCanonical(route(__('route.listing'), [
-            'category' => $category,
-            'tag' => $tag
-        ]));
+        $this->meta
+            ->setDescription(__('meta.listing'))
+            ->setCanonical(route(__('route.listing'), [
+                'category' => $category,
+                'tag' => $tag
+            ]));
 
         return view('app.listing.index', [
             'active' => $activeCategory,

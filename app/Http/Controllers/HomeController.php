@@ -23,6 +23,7 @@ use App\Services\PartnerService;
 use Butschster\Head\Contracts\MetaTags\MetaInterface;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -50,12 +51,18 @@ class HomeController extends Controller
 
     public function about(): View
     {
-        $this->meta->prependTitle(__('nav.about'));
+        $description = AppContent::ofType(AppContentType::APP_ABOUT)->first()->locale;
+        $concept = AppContent::ofType(AppContentType::APP_CONCEPT)->first()->locale;
+        $features = AppAbout::ofType(AppAboutType::FEATURES)->get();
+
+        $this->meta
+            ->prependTitle(__('nav.about'))
+            ->setDescription(Str::words($description->content, 30));
 
         return view('app.home.about', [
-            'description' => AppContent::ofType(AppContentType::APP_ABOUT)->first()->locale,
-            'concept' => AppContent::ofType(AppContentType::APP_CONCEPT)->first()->locale,
-            'abouts' => AppAbout::ofType(AppAboutType::FEATURES)->get(),
+            'description' => $description,
+            'concept' => $concept,
+            'features' => $features,
         ]);
     }
 

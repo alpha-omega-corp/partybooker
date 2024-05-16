@@ -1,9 +1,4 @@
-@php use App\Http\Middleware\LocaleMiddleware; @endphp
-@extends('main')
-
-@section('title')
-    <title>Advert | {{ __('partybooker-cp.www')}}</title>
-@endsection
+@extends('management')
 
 @section('content')
     <x-card.panel
@@ -22,8 +17,6 @@
                 @include('app.partner.partials.adverts.show')
                 @include('app.partner.partials.plan.show')
             </div>
-
         </x-app.section>
-
     </x-card.panel>
 @endsection

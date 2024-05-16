@@ -1,4 +1,4 @@
-@extends('main')
+@extends('management')
 
 @section('content')
     <x-card.panel :title="__('nav.admin.categories')">

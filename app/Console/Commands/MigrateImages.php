@@ -3,9 +3,9 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Imagick\Driver;
 use Intervention\Image\ImageManager;
+use Storage;
 
 class MigrateImages extends Command
 {
@@ -15,6 +15,12 @@ class MigrateImages extends Command
 
     public function handle(): void
     {
+
+        $manager = new ImageManager(new Driver());
+        $image = Storage::disk('public')->get('images/background.jpg');
+        $manager->read($image)->toWebp(90)->save('public/storage/images/background.webp');
+        
+        /*
         $manager = new ImageManager(new Driver());
         $files = Storage::disk('public')->files('images/adverts');
 
@@ -26,5 +32,6 @@ class MigrateImages extends Command
             $image->toWebp(90)
                 ->save($newPath);
         }
+         */
     }
 }

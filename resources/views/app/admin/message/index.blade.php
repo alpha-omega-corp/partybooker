@@ -1,9 +1,5 @@
 @php use App\Http\Middleware\LocaleMiddleware; @endphp
-@extends('main')
-
-@section('title')
-    <title>Advert | {{ __('partybooker-cp.www')}}</title>
-@endsection
+@extends('management')
 
 @section('content')
     <x-card.panel :title="__('nav.admin.messages')">

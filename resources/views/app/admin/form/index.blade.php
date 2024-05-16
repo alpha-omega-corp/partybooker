@@ -1,9 +1,5 @@
 @php use App\Enums\FormType;use App\Models\AppForm; @endphp
-@extends('main')
-
-@section('title')
-    <title>Partners | {{ __('partybooker-cp.www')}}</title>
-@endsection
+@extends('management')
 
 @section('content')
     <x-card.panel :title="__('nav.admin.forms')">

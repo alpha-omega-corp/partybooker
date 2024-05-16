@@ -8,11 +8,13 @@ export default defineConfig({
         inject({
             $: 'jquery',
             jQuery: 'jquery',
-            include: ['./resources/js/app.js'],
+            include: ['./resources/js/app.js', './resources/js/management.js'],
         }),
         laravel({
             input: [
                 './resources/js/app.js',
+                './resources/js/management.js',
+                './resources/js/service.js'
             ],
             refresh: [
                 ...refreshPaths,

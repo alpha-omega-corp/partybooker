@@ -48,17 +48,17 @@
             :value="__('home.advantages')"
         />
         <x-app.section class="about-features-container" :bg="AppColor::HOME_GRAY">
-            @foreach($abouts as $about)
+            @foreach($features as $feature)
                 <div class="about-feature-card shadow-lg">
                     <div class="feature-card-content">
                         <div class="feature-card-header">
-                            <img src="{{$about->image}}" alt="{{$about->name}}">
+                            <img src="{{$feature->image}}" alt="{{$feature->name}}">
                             <h6 class="feature-card-title">
-                                {{$about->locale->title}}
+                                {{$feature->locale->title}}
                             </h6>
                         </div>
                         <ul>
-                            @foreach($about->items as $item)
+                            @foreach($feature->items as $item)
                                 <li>
                                     <p>
                                         {{$item->locale->content}}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" @yield('page')>
+<html lang="{{ app()->getLocale() }}">
 
 <head>
     <meta charset="utf-8">
@@ -31,14 +31,6 @@
     @vite(['resources/js/app.js'])
 </head>
 
-<body>
-@include('app.partials.navigation')
+@include('app.partials.layout')
 
-<div class="app-content">
-    @include('app.partials.notification')
-    {{$slot}}
-</div>
-</body>
-
-@include('app.partials.footer')
 </html>

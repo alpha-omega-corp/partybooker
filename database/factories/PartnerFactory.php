@@ -65,10 +65,11 @@ class PartnerFactory extends Factory
     public function configure(): PartnerFactory
     {
         return $this->afterCreating(function (Partner $partner) {
-            Lottery::odds(1, 5)
-                ->winner(function () use ($partner) {
-                    PartnerTop::factory()->for($partner)->create();
-                })->choose();
+            if (in_array($partner->payment->plan->code, [PlanType::PREMIUM->value, PlanType::EXCLUSIVE->value]))
+                Lottery::odds(1, 2)
+                    ->winner(function () use ($partner) {
+                        PartnerTop::factory()->for($partner)->create();
+                    })->choose();
 
         });
     }

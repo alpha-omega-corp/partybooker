@@ -8,7 +8,7 @@
     <div class="nav-item-content">
 
         <div class="nav-item-label">
-            <span>{{ $text }}</span>
+            <span>{{ ucfirst($text) }}</span>
         </div>
 
     </div>

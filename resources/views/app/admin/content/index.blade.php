@@ -1,10 +1,8 @@
-@extends('main')
+@extends('management')
 
 @section('title')
     <title>Partners | {{ __('partybooker-cp.www')}}</title>
 @endsection
-
-
 
 @section('content')
 
