@@ -56,10 +56,11 @@ class ListingController extends Controller
     {
         $locale = CategoryLocale::where('slug', $category)->first();
         $advert = $company->adverts()->where('category_id', $locale->translatable_id)->firstOrFail();
+        $meta = Str::words(html_entity_decode(strip_tags($advert->locale->description)), 20);
 
         $this->meta
             ->prependTitle($advert->locale->title)
-            ->setDescription(Str::words(html_entity_decode(strip_tags($advert->locale->description)), 40))
+            ->setDescription($meta)
             ->setKeywords($advert->locale->keywords)
             ->setCanonical(route(__('route.company'), $company));
 
@@ -71,7 +72,12 @@ class ListingController extends Controller
 
     public function company(Company $company)
     {
-        $this->meta->setCanonical(route(__('route.listing')));
+        $meta = Str::words(html_entity_decode(strip_tags($company->locale->description)), 20);
+
+        $this->meta
+            ->prependTitle($company->name)
+            ->setDescription($meta)
+            ->setCanonical(route(__('route.listing')));
 
         return view('app.listing.company', [
             'company' => $company,

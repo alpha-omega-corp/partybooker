@@ -7,9 +7,9 @@
 >
     @switch($size)
         @case(TitleSize::SMALL)
-            <h4 {{$attributes->merge(['class' => 'app-title-small '.$style])}}>
+            <h3 {{$attributes->merge(['class' => 'app-title-small '.$style])}}>
                 {{$value}}
-            </h4>
+            </h3>
             @break
         @case(TitleSize::MEDIUM)
             <h2 {{$attributes->merge(['class' => 'app-title-medium '.$style])}}>
