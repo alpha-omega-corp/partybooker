@@ -1,5 +1,5 @@
 @php use App\Models\Company; @endphp
-@extends('main')
+@extends('management')
 
 @section('content')
     <x-card.panel :title="__('nav.admin.partners')" :color="AppColor::PINK" class="admin-listing">

@@ -18,10 +18,8 @@ import focus from "@alpinejs/focus";
 
 window.$ = $;
 window.tinymce = tinymce;
-window.tinyPlugins = 'advlist code emoticons link lists table'
-window.tinyOptions = 'bold italic | bullist numlist | link emoticons'
-window.tinySkin = 'default'
-window.tinyCss = 'default'
+
+
 window.Alpine = Alpine;
 Alpine.plugin(focus);
 Alpine.start();

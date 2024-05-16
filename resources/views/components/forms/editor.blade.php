@@ -28,7 +28,5 @@
 <script type="module">
     tinymce.init({
         selector: 'textarea#{{$id}}',
-        plugins: window.tinyPlugins,
-        toolbar: window.tinyOptions,
     });
 </script>

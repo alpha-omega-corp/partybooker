@@ -1,8 +1,9 @@
 import axios from 'axios';
 import * as Popper from '@popperjs/core'
 import 'bootstrap'
-import './tooltip.js';
 import '../sass/app.scss';
+
+import './tooltip.js';
 import select2 from 'select2';
 
 select2()
