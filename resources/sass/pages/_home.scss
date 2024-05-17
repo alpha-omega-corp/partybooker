@@ -351,20 +351,14 @@
 
 .home-welcome {
     position: relative;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-
+    background-color: $home-blue;
 
     .home-welcome-bg {
         width: 100%;
-        height: 500px;
+        height: 50vh;
         position: relative;
         display: flex;
         align-items: center;
-
-        @media only screen and (max-width: 1400px) {
-            height: 400px;
-        }
-
 
         img {
             position: absolute;
@@ -426,16 +420,17 @@
         }
 
         .description-content {
-            padding: 40px 20px 20px;
+            padding: 20px;
             font-size: larger;
             font-family: "Poppins", sans-serif;
             color: $blue;
+            margin: 0;
         }
     }
 }
 
 .home-category {
-    background-color: $home;
+    background-color: $home-gray;
 
     .home-category-container {
         display: flex;
@@ -615,9 +610,6 @@
 
 
     }
-
-
-    background-color: $top;
 
     .top-card {
         background-color: #fff;

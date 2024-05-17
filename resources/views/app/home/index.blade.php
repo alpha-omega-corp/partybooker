@@ -2,28 +2,14 @@
 
 @section('content')
     <div class="home">
-        <!-- Heading -->
-        <section class="home-welcome">
-            @include('app.home.partials.home.welcome')
-        </section>
 
-        <!-- Description -->
-        <section class="home-description">
-            @include('app.home.partials.home.description')
-        </section>
+        @include('app.home.partials.home.welcome')
+        @include('app.home.partials.home.category')
 
-        <!-- Category -->
-        <section class="home-category">
-            @include('app.home.partials.home.category')
-        </section>
 
-        <!-- Tops -->
-        <section class="home-top">
-            @include('app.home.partials.home.top', [
-                'showTitle' => true,
-            ])
 
-        </section>
+
+
 
         <!-- AppInformation -->
         <section class="home-information">
