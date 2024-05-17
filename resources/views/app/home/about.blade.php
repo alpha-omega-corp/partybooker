@@ -15,7 +15,7 @@
                 <div class="description-card-header">
                     <x-app.title
                         :size="TitleSize::SMALL"
-                        :color="AppColor::SECONDARY"
+                        :color="AppColor::BLUE"
                         :value="$description->title"
                         :border="false"
                         :padding="false"
@@ -30,7 +30,7 @@
                 <div class="description-card-header">
                     <x-app.title
                         :size="TitleSize::SMALL"
-                        :color="AppColor::SECONDARY"
+                        :color="AppColor::BLUE"
                         :value="$concept->title"
                         :padding="false"
                         :background="false"

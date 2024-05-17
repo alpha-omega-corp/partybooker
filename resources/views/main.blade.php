@@ -41,26 +41,27 @@
         document.addEventListener('alpine:init', () => {
 
             Alpine.data('truncate', (data) => ({
-                content: data,
+                truncated: null,
+                content: data.replaceAll('"', ''),
                 count: 500,
-                truncated: '',
-                expanded: false,
+                isOpen: false,
                 canTruncate: false,
 
                 init() {
                     this.truncate()
-                    this.canTruncate = !(data.length <= this.count)
+                    this.canTruncate = !(this.content.length <= this.count)
                 },
 
                 truncate() {
-                    this.truncated = data.length > this.count ? data.substring(0, this.count) + '...' : data
-                    this.truncated = this.truncated.replaceAll('"', '')
+                    this.truncated = this.content.length > this.count
+                        ? this.content.substring(0, this.count) + '...'
+                        : this.content
                 },
 
                 expand() {
-                    this.expanded = !this.expanded
+                    this.isOpen = !this.isOpen
 
-                    this.expanded
+                    this.isOpen
                         ? this.truncated = this.content
                         : this.truncate()
                 }
