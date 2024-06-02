@@ -352,6 +352,8 @@
 .home-welcome {
     position: relative;
     background-color: $home-blue;
+    min-height: 100vh;
+    padding-bottom: 20px;
 
     .home-welcome-bg {
         width: 100%;
@@ -404,6 +406,10 @@
 .home-description {
     color: $blue;
     background-color: $home;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .description {
         display: flex;
@@ -413,10 +419,6 @@
 
         .description-title {
             padding: 20px;
-
-            @media only screen and (min-width: 1200px) {
-                padding: 40px;
-            }
         }
 
         .description-content {
@@ -430,7 +432,7 @@
 }
 
 .home-category {
-    background-color: $home-gray;
+    background-color: $home-blue;
 
     .home-category-container {
         display: flex;
@@ -595,81 +597,80 @@
     }
 }
 
-.home-top {
 
-    .mobile-top-card {
-        border-radius: 10px;
-        margin-bottom: 20px;
-        overflow: hidden;
+.mobile-top-card {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
 
-        img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-
+    img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
     }
 
-    .top-card {
-        background-color: #fff;
-        border: 1px solid $gray-300;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        margin: 10px;
-        overflow: hidden;
-        position: relative;
 
-        .top-card-header {
-            margin: 0;
-            padding: 20px;
-            font-weight: bold;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            text-transform: uppercase;
-
-            .top-card-title {
-                font-weight: bold;
-            }
-        }
-
-        .top-card-location {
-            padding: 10px;
-            text-align: center;
-        }
-
-        .top-card-content {
-            text-transform: uppercase;
-            overflow: hidden;
-            color: $gray;
-            line-height: normal;
-        }
-
-        .top-card-image {
-            img {
-                height: 250px;
-                width: 100%;
-                object-fit: cover;
-                object-position: center;
-            }
-        }
-
-
-    }
-
-    .top-card:hover {
-        transform: scale(1.02);
-        transition: .2s;
-        border-color: $accent;
-    }
 }
 
+.top-card {
+    background-color: #fff;
+    border: 1px solid $gray-300;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+
+    .top-card-header {
+        margin: 0;
+        padding: 20px;
+        font-weight: bold;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        text-transform: uppercase;
+
+        .top-card-title {
+            font-weight: bold;
+        }
+    }
+
+    .top-card-location {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .top-card-content {
+        text-transform: uppercase;
+        overflow: hidden;
+        color: $gray;
+        line-height: normal;
+    }
+
+    .top-card-image {
+        img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+
+}
+
+.top-card:hover {
+    transform: scale(1.02);
+    transition: .2s;
+    border-color: $accent;
+}
+
+
 .home-information {
-    background-color: #eeeeee;
+    background-color: #fff;
 
     .home-information-title {
         margin: 80px 0;
@@ -729,7 +730,7 @@
         border-radius: 20px;
         position: relative;
         background-color: rgba(255, 255, 255, 0.2);
-        margin: 40px;
+        margin: 20px;
         overflow: hidden;
 
         @media only screen and (max-width: 900px) {

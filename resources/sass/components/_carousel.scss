@@ -1,14 +1,23 @@
+.app-carousel {
+    height: 100% !important;
+}
+
 .carousel__frame {
-    position: relative;
+    height: 100vh;
+
+    .carousel__controls {
+        position: relative;
+        height: 100% !important;
+    }
 
     .glide__arrows-container {
         width: 100%;
+        height: 100%;
         padding-left: 20px;
         padding-right: 20px;
 
         .glide__arrows {
-            display: flex;
-            justify-content: center;
+
 
             .arrow-content {
                 background-color: $light;

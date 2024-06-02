@@ -1,7 +1,5 @@
 //https://getbootstrap.com/docs/5.3/layout/breakpoints/
 .responsive-section {
-    padding-bottom: 40px !important;
-
     @media only screen and (min-width: 2000px) {
         padding: 0 400px;
     }
