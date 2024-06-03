@@ -2,9 +2,9 @@
 
 return [
     'home' => 'home',
-    'listing' => 'advertisements',
+    'listing' => 'our partners',
     'about' => 'about us',
-    'partnership' => 'partnerships',
+    'partnership' => 'become a partner',
     'blog' => 'blog',
     'faq' => 'faq',
     'terms' => 'terms',
