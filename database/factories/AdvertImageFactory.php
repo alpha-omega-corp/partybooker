@@ -15,7 +15,7 @@ class AdvertImageFactory extends Factory
     {
         return [
             'is_thumbnail' => false,
-            'path' => '/storage/images/adverts/placeholder.webp',
+            'path' => '/storage/images/adverts/placeholder.jpg',
         ];
     }
 

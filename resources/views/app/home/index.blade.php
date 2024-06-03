@@ -2,13 +2,23 @@
 
 @section('content')
     <div class="home">
+
         @include('app.home.partials.home.welcome')
         @include('app.home.partials.home.category')
-        @include('app.home.partials.home.top', [
-            'showTitle' => true,
-        ])
 
-        @include('app.home.partials.home.information')
-        @include('app.home.partials.home.comment')
+
+
+
+
+
+        <!-- AppInformation -->
+        <section class="home-information">
+            @include('app.home.partials.home.information')
+        </section>
+
+        <!-- Comments -->
+        <section class="home-comment">
+            @include('app.home.partials.home.comment')
+        </section>
     </div>
 @endsection

@@ -17,6 +17,7 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
+use Intervention\Image\ImageServiceProvider;
 use Laravel\Socialite\SocialiteServiceProvider;
 
 return [
@@ -45,7 +46,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'local'),
+    'env' => env('APP_ENV', EnvironmentType::LOCAL),
 
     /*
     |--------------------------------------------------------------------------

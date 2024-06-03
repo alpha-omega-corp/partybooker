@@ -1,8 +1,9 @@
-<div class="home-category">
-
+<section class="home-category">
+    
     <div class="animation-side">
         <div class="home-category-container">
             @foreach ($categories as $category)
+
                 @php
                     $icon = match ($category->service) {
                         CategoryType::EVENT->value => 'heroicon-s-map-pin',
@@ -29,4 +30,8 @@
             @endforeach
         </div>
     </div>
-</div>
+
+    @include('app.home.partials.home.top', [
+            'showTitle' => true,
+        ])
+</section>
