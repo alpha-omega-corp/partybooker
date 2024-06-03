@@ -56,6 +56,8 @@
                             ])
                         </div>
 
+                        @include('app.listing.partials.advert.gallery')
+
                         <div class="advert-content-details">
                             @include('app.listing.partials.advert.service')
 
@@ -68,7 +70,7 @@
                             </div>
                         </div>
 
-                        @include('app.listing.partials.advert.gallery')
+
                     </div>
                 </div>
             </div>

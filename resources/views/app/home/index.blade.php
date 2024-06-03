@@ -4,11 +4,6 @@
     <div class="home">
 
         @include('app.home.partials.home.welcome')
-        @include('app.home.partials.home.category')
-
-
-
-
 
 
         <!-- AppInformation -->

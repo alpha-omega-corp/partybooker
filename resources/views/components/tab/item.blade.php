@@ -1,4 +1,4 @@
-<section
+<div
     x-show="isSelected($id('tab', whichChild($el, $el.parentElement)))"
     :aria-labelledby="$id('tab', whichChild($el, $el.parentElement))"
     role="tabpanel">
@@ -19,4 +19,4 @@
     <div class="tab-page-content {{$padding ? 'p-3' : ''}}">
         {{$slot}}
     </div>
-</section>
+</div>

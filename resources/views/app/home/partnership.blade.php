@@ -10,9 +10,7 @@
         </x-slot:breadcrumbs>
 
         <x-app.section>
-
             @include('app.home.partials.partnership.benefits')
-
         </x-app.section>
 
         <x-app.title

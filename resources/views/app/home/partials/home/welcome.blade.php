@@ -37,4 +37,6 @@
             </div>
         </div>
     </div>
+    @include('app.home.partials.home.category')
+
 </section>

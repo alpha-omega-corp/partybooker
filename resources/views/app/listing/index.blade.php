@@ -13,7 +13,6 @@
             </div>
 
             @include('app.listing.partials.listing')
-
         </x-app.section>
     </x-card.panel>
 

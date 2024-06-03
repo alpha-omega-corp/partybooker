@@ -130,7 +130,7 @@
 }
 
 .app-listing-filters {
-    flex-basis: 50px;
+    flex-basis: 200px;
     flex-grow: 1;
     height: 100%;
     overflow: hidden;
@@ -297,9 +297,14 @@
 
         .advert-card-company {
             display: flex;
+            align-items: center;
             gap: 10px;
-            padding-top: 20px;
-            color: $gray;
+            font-size: large;
+
+            span {
+                color: $dark;
+                font-size: larger;
+            }
         }
 
         .advert-card-details {
