@@ -81,7 +81,7 @@ class  CategoryService implements ICategoryService
             'slug' => $data['slug_fr'],
             'title' => $data['title_fr'],
             'description' => $data['description_fr'],
-            'keywords' => array_key_exists('keywords_fr', $data) ? $data['keywords_fr'] : null,
+            'keywords' => array_key_exists('keywords_fr', $data) ? $this->parseKeywords($data['keywords_fr']) : null,
         ]);
 
         CategoryLocale::create([
@@ -91,11 +91,18 @@ class  CategoryService implements ICategoryService
             'slug' => $data['slug_en'],
             'title' => $data['title_en'],
             'description' => $data['description_en'],
-            'keywords' => array_key_exists('keywords_en', $data) ? $data['keywords_en'] : null,
+            'keywords' => array_key_exists('keywords_en', $data) ? $this->parseKeywords($data['keywords_en']) : null,
         ]);
 
 
         return true;
+    }
+
+    private function parseKeywords(array $keywords): array
+    {
+        return array_map(function ($keyword) {
+            return str_replace("'", '', $keyword);
+        }, $keywords);
     }
 
     public function updateCategory(CategoryTagRequest $request, Category|CategoryTag $item): bool
@@ -106,14 +113,14 @@ class  CategoryService implements ICategoryService
             'slug' => $data['slug_fr'],
             'title' => $data['title_fr'],
             'description' => $data['description_fr'],
-            'keywords' => $data['keywords_fr'],
+            'keywords' => $this->parseKeywords($data['keywords_fr']),
         ]);
 
         $item->ofLang(Language::EN)->first()->locale->update([
             'slug' => $data['slug_en'],
             'title' => $data['title_en'],
             'description' => $data['description_en'],
-            'keywords' => $data['keywords_en'],
+            'keywords' => $this->parseKeywords($data['keywords_en']),
         ]);
 
         return true;
