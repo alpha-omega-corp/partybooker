@@ -11,11 +11,13 @@
                     @include('app.admin.message.partials.message', ['item' => $message])
                 </div>
                 <div class="message-user">
-                    @if($message->user)
-                        <span class="badge text-bg-blue text-white">{{$message->user->name}}</span>
-                    @else
-                        <span class="badge text-bg-secondary">{{__('home.guest')}}</span>
+
+                    @if($message->requestable->advert)
+                        <span class="badge text-bg-blue text-white">
+                            {{$message->requestable->advert->company->name}}
+                        </span>
                     @endif
+
                 </div>
             </div>
 
