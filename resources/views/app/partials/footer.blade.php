@@ -17,7 +17,7 @@
                         <a href="{{$footerContacts->linkedin}}" target="_blank">
                             linkedin
                         </a>
-                        
+
                         <span>{{$footerContacts->address}}</span>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                     <div class="app-footer-list">
                         <a href="{{route(__('route.sitemap'))}}">{{__('nav.sitemap')}}</a>
                         <a href="{{route(__('route.terms'))}}">{{__('nav.terms')}}</a>
-                        <a href="{{route(__('route.contact'))}}">{{__('nav.contact')}}</a>
+                        <a href="{{route(__('route.partnership')) . '#contact'}}">{{__('nav.contact')}}</a>
                         <a href="{{route(__('route.home'))}}">{{__('nav.home')}}</a>
                         <a href="{{route(__('route.listing'))}}">{{__('nav.listing')}}</a>
                         <a href="{{route(__('route.about'))}}">{{__('nav.about')}}</a>

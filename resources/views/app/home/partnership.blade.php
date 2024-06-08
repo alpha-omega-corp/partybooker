@@ -57,13 +57,16 @@
                 <p class="app-help-text">{{ucfirst(__('home.help'))}}</p>
 
                 <div class="d-flex justify-content-center">
-                    <x-modal.open
-                        :name="ModalName::APP_HELP"
-                        :type="ModalType::CREATE"
-                        :custom-color="AppColor::PINK"
-                        :singleton="true"
-                        :text="__('form.question')"
-                        class="app-help-button"/>
+                    <a id="contact">
+                        <x-modal.open
+                            :name="ModalName::APP_HELP"
+                            :type="ModalType::CREATE"
+                            :custom-color="AppColor::PINK"
+                            :singleton="true"
+                            :text="__('form.question')"
+                            class="app-help-button"/>
+                    </a>
+
                 </div>
 
             </div>
