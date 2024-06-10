@@ -55,7 +55,7 @@
             @php($item = $content[AppContentType::USER_TERMS->name])
             @include('app.admin.content.edit')
 
-            <x-admin.content :content="$item"/>
+            <x-admin.content :is-html="true" :content="$item"/>
         </x-slot:content>
     </x-accordion.item>
 
@@ -72,7 +72,7 @@
             @php($item = $content[AppContentType::SERVICE_TERMS->name])
             @include('app.admin.content.edit')
 
-            <x-admin.content :content="$item"/>
+            <x-admin.content :is-html="true" :content="$item"/>
         </x-slot:content>
     </x-accordion.item>
 

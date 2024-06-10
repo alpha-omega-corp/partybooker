@@ -49,6 +49,14 @@ class HomeController extends Controller
         ]);
     }
 
+    public function terms(): View
+    {
+        return view('app.home.terms', [
+            'userTerms' => AppContent::ofType(AppContentType::USER_TERMS)->first(),
+            'serviceTerms' => AppContent::ofType(AppContentType::SERVICE_TERMS)->first()
+        ]);
+    }
+
     public function about(): View
     {
         $description = AppContent::ofType(AppContentType::APP_ABOUT)->first()->locale;

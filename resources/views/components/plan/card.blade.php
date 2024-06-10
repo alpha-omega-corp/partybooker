@@ -21,7 +21,7 @@
     </div>
 
     <div class="plan-price">
-        <span class="price">{{$plan->price}}</span>
+        <span class="price">{{$plan->price}}</span> CHF
         {{__('plan.yearly')}}
     </div>
 </div>

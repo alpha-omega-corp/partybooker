@@ -29,11 +29,10 @@
                 @svg($titleIcon)
             </x-forms.input>
 
-            <x-forms.textarea
+            <x-forms.editor
                 name="content_fr"
                 label="Content"
-                :value="$locale->content"
-            />
+                :value="$locale->content"/>
         </x-slot:french>
 
         <x-slot:english>
@@ -47,11 +46,11 @@
                 @svg($titleIcon)
             </x-forms.input>
 
-            <x-forms.textarea
+            <x-forms.editor
                 name="content_en"
                 label="Content"
-                :value="$locale->content"
-            />
+                :value="$locale->content"/>
+
         </x-slot:english>
     </x-tab.locale>
 </x-modal.index>
