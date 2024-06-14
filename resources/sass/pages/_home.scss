@@ -420,11 +420,13 @@
         }
 
         .description-content {
-            padding: 20px;
-            font-size: larger;
-            font-family: "Poppins", sans-serif;
-            color: $blue;
-            margin: 0;
+            p {
+                padding: 20px;
+                font-size: larger;
+                font-family: "Poppins", sans-serif;
+                color: $blue;
+                margin: 0;
+            }
         }
     }
 }

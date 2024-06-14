@@ -31,9 +31,9 @@
                     :value="$description->title"
                     :padding="false"
                 />
-                <p class="description-content">
+                <div class="description-content">
                     {!! $description->content !!}
-                </p>
+                </div>
             </div>
         </div>
     </div>
