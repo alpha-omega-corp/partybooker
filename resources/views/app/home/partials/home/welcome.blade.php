@@ -32,7 +32,7 @@
                     :padding="false"
                 />
                 <p class="description-content">
-                    {{$description->content}}
+                    {!! $description->content !!}
                 </p>
             </div>
         </div>
