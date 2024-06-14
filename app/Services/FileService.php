@@ -25,7 +25,6 @@ class FileService implements IFileService
         }
 
         $intervention
-            ->toWebp(90)
             ->save($destination);
 
         return $destination;
