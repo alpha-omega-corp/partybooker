@@ -4,8 +4,6 @@
     gap: 20px;
     width: 100%;
     position: relative;
-    padding: 0 40px;
-
 
     .row {
         height: 100%;
@@ -177,9 +175,9 @@
     flex-basis: 700px;
     flex-grow: 1;
     position: relative;
-    border: 1px solid $light;
     border-radius: 20px;
     overflow: hidden;
+    padding: 10px;
 
     .app-listing-items {
         display: flex;
@@ -214,7 +212,7 @@
                 bottom: 0;
                 left: 0;
                 padding: 0;
-                z-index: 10;
+                z-index: 20;
 
                 .pagination {
                     width: 100%;
