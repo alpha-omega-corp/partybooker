@@ -1,7 +1,7 @@
 @extends('main')
 
 @section('content')
-    <x-card.panel :title="__('listing.advert')" class="app-advert">
+    <x-card.panel :title="__('nav.partner')" class="app-advert">
         <x-slot:breadcrumbs>
             {{Breadcrumbs::render('advert', $advert)}}
         </x-slot:breadcrumbs>
@@ -11,6 +11,7 @@
                 <div class="app-advert-details">
                     <div class="app-advert-request">
                         <x-modal.open
+                            :rounded="true"
                             :background="true"
                             :name="ModalName::PARTNER_ADVERT_REQUEST"
                             :custom-color="AppColor::BLUE"

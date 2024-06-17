@@ -4,6 +4,7 @@
     gap: 20px;
     width: 100%;
     position: relative;
+    padding: 0 40px;
 
 
     .row {
@@ -130,11 +131,24 @@
 }
 
 .app-listing-filters {
-    flex-basis: 200px;
+    flex-basis: 300px;
     flex-grow: 1;
     height: 100%;
     overflow: hidden;
     background-color: #fff;
+    position: relative;
+
+    @media only screen and (max-width: 1099px) {
+        .app-listing-filters-lg {
+            display: none;
+        }
+    }
+
+    @media only screen and (min-width: 1100px) {
+        .app-listing-filters-sm {
+            display: none;
+        }
+    }
 
     @media only screen and (min-width: 1200px) {
         border-radius: 20px;
@@ -151,12 +165,16 @@
             .tag-link {
                 color: $gray;
             }
+
+            .tag-link-active {
+                text-decoration: underline;
+            }
         }
     }
 }
 
 .app-listing-content {
-    flex-basis: 800px;
+    flex-basis: 700px;
     flex-grow: 1;
     position: relative;
     border: 1px solid $light;
@@ -164,7 +182,6 @@
     overflow: hidden;
 
     .app-listing-items {
-        background-color: #fff;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -182,7 +199,6 @@
     }
 
     .listing-content-pagination {
-
         background-color: #fff;
         @media only screen and (min-width: 1200px) {
             padding: 20px;

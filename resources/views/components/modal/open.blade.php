@@ -17,9 +17,9 @@
             'text-white' => $background || $customColor,
             'w-100' => $fit,
             'rounded-0' => !$radius,
-            'text-start' => !$center
+            'text-start' => !$center,
+            'btn-rounded' => $rounded
         ])
-        {{$attributes->merge(['class' => 'd-flex justify-content-center align-items-center'])}}
         @click="open"
     >
         <div class="modal-open-content">

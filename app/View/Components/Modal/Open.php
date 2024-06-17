@@ -30,6 +30,7 @@ class Open extends Component
         public bool       $fit = false,
         public bool       $radius = true,
         public bool       $center = true,
+        public bool       $rounded = false,
 
     )
     {

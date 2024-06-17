@@ -20,4 +20,5 @@ return [
     'admin.forms' => 'Forms',
     'admin.messages' => 'Messages',
     'company' => 'Company',
+    'partner' => 'partner'
 ];

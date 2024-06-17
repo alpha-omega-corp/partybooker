@@ -19,5 +19,6 @@ return [
     'admin.plans' => 'formules',
     'admin.forms' => 'formulaires',
     'admin.messages' => 'messages',
-    'company' => 'entreprise'
+    'company' => 'entreprise',
+    'partner' => 'partenaire'
 ];

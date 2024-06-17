@@ -106,6 +106,12 @@
         flex-wrap: wrap;
         gap: 40px;
 
+        .app-advert-content {
+            .app-card {
+                width: 100%;
+            }
+        }
+
         .app-advert-details {
             display: flex;
             flex-grow: 1;
@@ -131,17 +137,6 @@
 
             .app-advert-request {
                 padding: 10px 0 5px;
-
-                button {
-                    border-radius: 20px !important;
-                    padding: 10px 20px;
-                    border: 1px solid $gray;
-
-                    svg {
-                        width: 25px;
-                        height: 25px;
-                    }
-                }
             }
 
             .app-advert-thumbnail {

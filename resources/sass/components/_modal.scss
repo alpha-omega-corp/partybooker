@@ -13,6 +13,17 @@
     }
 }
 
+.btn-rounded {
+    border-radius: 20px !important;
+    padding: 10px 20px;
+    border: 1px solid $gray;
+
+    svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+
 .modal-open-content {
     display: flex;
     justify-content: space-between;

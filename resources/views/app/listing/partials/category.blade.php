@@ -1,12 +1,3 @@
-<x-app.title
-    :size="TitleSize::SMALL"
-    :color="AppColor::BLUE"
-    :value="__('listing.categories')"
-    :border="false"
-    :background="true"
-    .padding="true"
-/>
-
 <div class="listing-category-content">
     <x-accordion name="listing">
         @foreach ($categories as $key => $category)
@@ -32,6 +23,7 @@
                         @foreach ($category->tags as $tag)
                             @if($tag->locale)
                                 <x-advert.tag
+                                    :is-active="$tag->locale->slug === Request::segment(3)"
                                     :category="$category"
                                     :tag="$tag"
                                 />
@@ -43,3 +35,4 @@
         @endforeach
     </x-accordion>
 </div>
+

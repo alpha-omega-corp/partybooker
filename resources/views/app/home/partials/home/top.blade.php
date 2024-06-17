@@ -2,16 +2,16 @@
     <x-carousel name="tops" :per-view="4">
         <x-slot:title>
             @if($showTitle)
-                <div class="animation-down">
-                    <x-app.title
-                        :size="TitleSize::MEDIUM"
-                        :color="AppColor::BLUE"
-                        :value="__('home.tops')"
-                        class="home-top-title"
-                        :border="false"
-                        :background="false"
-                    />
-                </div>
+
+                <x-app.title
+                    :size="TitleSize::MEDIUM"
+                    :color="AppColor::BLUE"
+                    :value="__('home.tops')"
+                    class="home-top-title"
+                    :border="false"
+                    :background="false"
+                />
+
             @endif
         </x-slot:title>
 

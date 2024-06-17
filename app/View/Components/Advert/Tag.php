@@ -12,7 +12,8 @@ class Tag extends Component
 {
     public function __construct(
         public Category     $category,
-        public ?CategoryTag $tag = null
+        public ?CategoryTag $tag = null,
+        public bool         $isActive = false
     )
     {
         //

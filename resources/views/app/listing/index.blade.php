@@ -6,19 +6,55 @@
             {{Breadcrumbs::render('listing', Request::segments())}}
         </x-slot:breadcrumbs>
 
-        <x-app.section class="app-listing-container" :bg="AppColor::HOME_GRAY">
+        <div class="app-listing-container">
             <div class="app-listing-filters">
                 <!-- Category -->
-                @include('app.listing.partials.category')
+                <div class="app-listing-filters-lg">
+                    <div class="sticky-listing-filters">
+                        <x-app.title
+                            :size="TitleSize::SMALL"
+                            :color="AppColor::BLUE"
+                            :value="__('listing.categories')"
+                            :border="false"
+                            :background="true"
+                        />
+                        @include('app.listing.partials.category')
+                    </div>
+                </div>
+
+                <div class="app-listing-filters-sm">
+                    <div class="sticky-listing-filters">
+
+                        <x-accordion.index
+                            name="listingFilterSM"
+                        >
+                            <x-accordion.item
+                                name="content"
+                                accordion="listingFilterSM"
+                            >
+                                <x-slot:title>
+                                    <x-app.title
+                                        :size="TitleSize::SMALL"
+                                        :color="AppColor::BLUE"
+                                        :value="__('listing.categories')"
+                                        :border="false"
+                                        :background="true"
+                                        :padding="false"
+                                    />
+                                </x-slot:title>
+
+                                <x-slot:content>
+                                    @include('app.listing.partials.category')
+
+                                </x-slot:content>
+                            </x-accordion.item>
+                        </x-accordion.index>
+                    </div>
+                </div>
             </div>
 
             @include('app.listing.partials.listing')
-        </x-app.section>
+        </div>
     </x-card.panel>
 
-    <div class="home-top mt-4">
-        @include('app.home.partials.home.top', [
-            'showTitle' => false,
-        ])
-    </div>
 @endsection

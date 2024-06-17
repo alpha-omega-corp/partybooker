@@ -26,19 +26,6 @@ const sideObserver = new IntersectionObserver((entries) => {
 const sideAnimations = document.querySelectorAll('.animation-side')
 sideAnimations.forEach((element) => sideObserver.observe(element));
 
-const downObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animation-down-active');
-        } else {
-            entry.target.classList.remove('animation-down-active');
-        }
-    });
-});
-
-const downAnimations = document.querySelectorAll('.animation-down')
-downAnimations.forEach((element) => downObserver.observe(element));
-
 const growObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -52,6 +39,37 @@ const growObserver = new IntersectionObserver((entries) => {
 const growAnimations = document.querySelectorAll('.animation-grow')
 growAnimations.forEach((element) => growObserver.observe(element));
 
+function stickyScroll(relative, name, stop) {
+    $(document).ready(function () {
+        let item = $(`.sticky-${name}`)
+        let stickyTop = item.offset().top;
+
+        $(window).scroll(function () {
+            let windowTop = $(window).scrollTop();
+            let content = $(".app-card-panel")
+
+            if (stickyTop < windowTop && content.height() + content.offset().top - item.height() > windowTop) {
+                let topHeight = window.innerWidth > 1100 ? '82px' : '61px'
+
+                console.log(window.screen.width)
+                item.css('position', 'fixed')
+                    .css('top', topHeight)
+                    .css('z-index', 10)
+                    .css('width', `${relative.width()}px`);
+            } else {
+                item.css('position', 'relative')
+                    .css('top', 0)
+                    .css('z-index', 0)
+            }
+        });
+    });
+}
+
+let listingContent = $(".app-listing-content")
+let listingFilter = $(".app-listing-filters")
+
+stickyScroll(listingFilter, 'listing-filters', listingContent)
+stickyScroll(listingContent, 'listing-pagination')
 
 import.meta.glob([
     '../images/**',

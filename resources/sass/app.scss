@@ -38,6 +38,10 @@
     width: 100% !important;
 }
 
+.app-sticky {
+    z-index: 10;
+}
+
 @media only screen and (max-width: 900px) {
     .carousel__frame {
         display: none;
