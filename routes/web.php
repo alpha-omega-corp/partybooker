@@ -97,7 +97,7 @@ Route::name('guest.')
                         Route::get('/about', 'about')->name('about');
                         Route::get('/partnership', 'partnership')->name('partnership');
                         Route::get('/blog', 'blog')->name('blog');
-                        Route::get('/blog/{post}', 'showPost')->name('post');
+                        Route::get('/blog/{post:slug}', 'showPost')->name('post');
                         Route::get('/faq', 'faq')->name('faq');
                         Route::get('/terms', 'terms')->name('terms');
                         Route::get('/contact', 'contact')->name('contact');
