@@ -8,7 +8,9 @@
         }
 
         .about-description-card {
+            text-align: center;
             flex-basis: 400px;
+            flex-grow: 1;
             border: 1px solid $light;
             border-radius: 20px;
             background-color: #fff;
@@ -23,9 +25,11 @@
                 padding: 20px;
             }
 
-            p {
-                padding: 20px;
+            span {
+                text-transform: uppercase;
+                font-weight: bold;
             }
+
         }
 
         .about-card-title {

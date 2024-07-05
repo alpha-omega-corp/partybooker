@@ -37,6 +37,7 @@
                                 @include('app.listing.partials.advert.description', [
                                     'content' => $advert->locale->description,
                                     'center' => false,
+
                                     'title' => $advert->company->name
                                 ])
                             </div>
