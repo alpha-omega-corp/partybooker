@@ -43,7 +43,7 @@
             Alpine.data('truncate', (data) => ({
                 truncated: null,
                 content: data.replaceAll('"', ''),
-                count: 500,
+                count: 200,
                 isOpen: false,
                 canTruncate: false,
 

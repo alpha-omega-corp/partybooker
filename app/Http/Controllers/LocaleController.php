@@ -26,7 +26,7 @@ class LocaleController extends Controller
         $segments = explode('/', $referer);
 
         $route = match (true) {
-            Str::contains($referer, ['annonces', 'adverts']) => route(__('route.listing')),
+            Str::contains($referer, ['partenaires', 'partners']) => route(__('route.listing')),
             Str::contains($referer, ['annonce', 'advert']) => route(__('route.advert'), [
                 'company' => $segments[count($segments) - 2],
                 'category' => $this->categoryService->getFromSlug($segments[count($segments) - 1])->locale->slug

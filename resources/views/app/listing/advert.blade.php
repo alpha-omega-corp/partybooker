@@ -2,79 +2,54 @@
 
 @section('content')
     <x-card.panel :title="__('nav.partner')" class="app-advert">
-        <x-slot:breadcrumbs>
-            {{Breadcrumbs::render('advert', $advert)}}
-        </x-slot:breadcrumbs>
 
-        <x-app.section>
-            <div class="app-advert-container">
-                <div class="app-advert-details">
-                    <div class="app-advert-request">
-                        <x-modal.open
-                            :rounded="true"
-                            :background="true"
-                            :name="ModalName::PARTNER_ADVERT_REQUEST"
-                            :custom-color="AppColor::BLUE"
-                            :singleton="true"
-                            :fit="true"
-                            :center="true"
-                            :text="__('advert.request')"
-                        />
+        <div class="app-advert-container">
 
-                        @include('app.listing.partials.request', [
-                            'advert' => $advert,
-                        ])
+            <div class="row">
+                <div class="col-xl-4 col-lg-12">
+                    <div class="app-advert-details">
+                        <div class="app-advert-request">
+                            @include('app.listing.partials.advert.actions')
+
+
+                        </div>
+                        <div class="app-advert-thumbnail">
+
+                            @include('app.listing.partials.advert.contacts')
+                            @include('app.listing.partials.advert.other', [
+                                'advert' => $advert,
+                                'company' => $advert->company,
+                                'showAll' => false,
+                                'center' => true,
+                                'radius' => false,
+                                'otherTitle' => 'services',
+                            ])
+
+
+                        </div>
                     </div>
-                    <div class="app-advert-thumbnail">
-                        <img src="{{asset($advert->images()->thumbnail()->first()->path)}}"
-                             alt="{{$advert->locale->title}}" class="thumbnail">
-
-                        @include('app.listing.partials.advert.contacts')
-                        @include('app.listing.partials.advert.other', [
-                            'advert' => $advert,
-                            'company' => $advert->company,
-                            'showAll' => false,
-                            'center' => true,
-                            'radius' => false,
-                            'otherTitle' => __('advert.others'),
-                        ])
-
-                        @include('app.listing.partials.advert.actions')
-
-                    </div>
-                    @include('app.listing.partials.service.partials.schedule', [
-                       'center' => true,
-                       'canOpen' => false,
-                    ])
                 </div>
 
-                <div class="app-advert-content">
-                    <div class="advert-content-container">
-                        <div class="advert-content-description">
-                            @include('app.listing.partials.advert.description', [
-                                'content' => $advert->locale->description,
-                                'center' => false,
-                            ])
-                        </div>
-
-                        @include('app.listing.partials.advert.gallery')
-
-                        <div class="advert-content-details">
-                            @include('app.listing.partials.advert.service')
-
-                            <div class="d-flex gap-4 flex-column w-100">
-                                @include('app.listing.partials.service.partials.rates')
-                                @include('app.listing.partials.service.partials.payments', [
+                <div class="col-xl-8 col-lg-12">
+                    <div class="app-advert-content">
+                        <div class="advert-content-container">
+                            <div class="advert-content-description">
+                                @include('app.listing.partials.advert.description', [
+                                    'content' => $advert->locale->description,
                                     'center' => false,
-                                    'canOpen' => false,
+                                    'title' => $advert->company->name
                                 ])
                             </div>
+
+                            @include('app.listing.partials.advert.gallery')
                         </div>
-
-
                     </div>
                 </div>
+
             </div>
-        </x-app.section>
+
+
+        </div>
+
     </x-card.panel>
 @endsection

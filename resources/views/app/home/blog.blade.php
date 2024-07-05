@@ -6,10 +6,6 @@
         :title="__('nav.blog')"
         class="home-blog"
     >
-        <x-slot:breadcrumbs>
-            {{Breadcrumbs::render('blog', Request::segments())}}
-        </x-slot:breadcrumbs>
-
         <x-app.section>
             <div class="blog-content-card">
                 @foreach($posts as $post)

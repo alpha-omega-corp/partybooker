@@ -13,31 +13,22 @@ window.Alpine = Alpine;
 Alpine.plugin(focus);
 Alpine.start();
 
-const sideObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animation-side-active');
-        } else {
-            entry.target.classList.remove('animation-side-active');
-        }
+animation('animation-side');
+animation('animation-grow');
+
+function animation(name) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add(`${name}-active`);
+            } else {
+                entry.target.classList.remove(`${name}-active`);
+            }
+        });
     });
-});
 
-const sideAnimations = document.querySelectorAll('.animation-side')
-sideAnimations.forEach((element) => sideObserver.observe(element));
-
-const growObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animation-grow-active');
-        } else {
-            entry.target.classList.remove('animation-grow-active');
-        }
-    });
-});
-
-const growAnimations = document.querySelectorAll('.animation-grow')
-growAnimations.forEach((element) => growObserver.observe(element));
+    document.querySelectorAll(`.${name}`).forEach((element) => observer.observe(element));
+}
 
 function stickyScroll(relative, name, stop) {
     $(document).ready(function () {
@@ -49,16 +40,17 @@ function stickyScroll(relative, name, stop) {
             let content = $(".app-card-panel")
 
             if (stickyTop < windowTop && content.height() + content.offset().top - item.height() > windowTop) {
-                let topHeight = window.innerWidth > 1100 ? '82px' : '61px'
+                let topHeight = window.innerWidth > 1100 ? 130 : 130
 
-                console.log(window.screen.width)
                 item.css('position', 'fixed')
-                    .css('top', topHeight)
+                    .css('padding-top', `${topHeight}px`)
+                    .css('padding-bottom', '40px')
+                    .css('top', 0)
                     .css('z-index', 10)
                     .css('width', `${relative.width()}px`);
             } else {
                 item.css('position', 'relative')
-                    .css('top', 0)
+                    .css('padding-top', '20px')
                     .css('z-index', 0)
             }
         });

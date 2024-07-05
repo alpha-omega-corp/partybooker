@@ -1,159 +1,33 @@
 .app-listing-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 100%;
-    position: relative;
+    padding: 80px;
 
-    .row {
-        height: 100%;
-    }
-
-
-    @media only screen and (max-width: 1199px) {
-        column-gap: 20px;
-        .row > * {
-            padding: 0 !important;
-        }
-    }
-}
-
-.app-listing-search {
-    .listing-search-input {
-        padding: 40px 20px 20px;
-        border-bottom: 1px solid $light;
-    }
-
-    .listing-search-container {
-        height: 500px;
-        overflow: scroll;
+    @include media-breakpoint-down(sm) {
         padding: 20px;
-        background-color: #eeeeee;
-
-        .listing-search-item {
-            display: flex;
-            border: 1px solid $light;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-            background: #fff;
-            position: relative;
-
-            @media only screen and (max-width: 991px) {
-                flex-direction: column;
-                img {
-                    width: 100% !important;
-                }
-            }
-
-            &:hover {
-                box-shadow: 0 0 2px 0 $accent;
-            }
-
-            .search-item-header {
-                border-bottom: 1px solid $light;
-                padding: 20px;
-
-                p {
-                    margin: 0;
-                }
-            }
-
-            .search-item-company {
-                display: flex;
-                gap: 10px;
-                padding-top: 20px;
-                color: $gray;
-                font-size: small;
-            }
-
-            .search-item-image {
-                img {
-                    width: 400px;
-                    height: 250px;
-                    object-fit: cover;
-                    object-position: center;
-                }
-            }
-
-            .search-item-title {
-            }
-
-            .search-item-content {
-                color: $gray;
-                width: 100%;
-
-                h6 {
-                    font-weight: bold;
-                    margin-bottom: 10px;
-                    color: #000;
-                    text-transform: uppercase;
-                }
-
-                .item-content-category {
-                    position: absolute;
-                    top: 10px;
-                    right: 10px;
-                }
-
-                .item-content-address {
-                    position: absolute;
-                    bottom: 10px;
-                    right: 20px;
-
-                    p {
-                        margin: 0;
-                        font-size: small;
-                    }
-                }
-
-                .item-content-description {
-                    padding: 20px;
-                    height: 170px;
-                    text-overflow: ellipsis;
-
-                    p {
-                        font-size: small;
-                        text-align: justify;
-                    }
-                }
-            }
-        }
-
-        .search-result-item:hover {
-            h6 {
-                color: $accent;
-            }
-        }
     }
 }
 
 .app-listing-filters {
-    flex-basis: 300px;
-    flex-grow: 1;
     height: 100%;
+    width: 100%;
     overflow: hidden;
     background-color: #fff;
     position: relative;
+    border-radius: 20px;
 
-    @media only screen and (max-width: 1099px) {
-        .app-listing-filters-lg {
-            display: none;
-        }
-    }
-
-    @media only screen and (min-width: 1100px) {
+    @include media-breakpoint-up(xl) {
         .app-listing-filters-sm {
             display: none;
         }
     }
 
-    @media only screen and (min-width: 1200px) {
-        border-radius: 20px;
+    @include media-breakpoint-down(xl) {
+        .app-listing-filters-lg {
+            display: none;
+        }
     }
 
+
     .listing-category-content {
-        padding-bottom: 20px;
 
         .category-tag {
             text-align: center;
@@ -177,12 +51,16 @@
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    padding: 10px;
 
     .app-listing-items {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         gap: 20px;
+        background-color: #fff;
+
+        a {
+            width: 100%;
+        }
 
         @media only screen and (min-width: 1200px) {
             height: 100%;
@@ -198,49 +76,13 @@
 
     .listing-content-pagination {
         background-color: #fff;
-        @media only screen and (min-width: 1200px) {
-            padding: 20px;
-        }
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        padding: 20px;
 
         .listing-pagination {
             width: 100%;
             position: relative;
-
-            @media only screen and (max-width: 1199px) {
-                position: fixed;
-                width: 100%;
-                bottom: 0;
-                left: 0;
-                padding: 0;
-                z-index: 20;
-
-                .pagination {
-                    width: 100%;
-
-                    .page-link {
-                        border-radius: 0;
-                        width: 100%;
-                        padding: 10px;
-                    }
-
-                    a {
-                        color: $blue;
-
-                    }
-                }
-
-                li {
-                    width: 100%;
-
-                    a {
-                        width: 100%;
-                    }
-
-                    a, span {
-                        text-align: center;
-                    }
-                }
-            }
 
             nav {
                 width: 100%;
@@ -250,6 +92,12 @@
                     display: flex;
                     justify-content: center;
                     font-weight: bold;
+                }
+
+                .pagination {
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
                 }
 
                 .active {
@@ -281,6 +129,13 @@
 
 
     .advert-card {
+        width: 100%;
+
+        &:hover {
+            border: 1px solid $blue;
+            transition: .02s;
+        }
+
         @media only screen and (max-width: 800px) {
             flex-direction: column;
 
@@ -401,11 +256,6 @@
         top: 10px;
         left: 10px;
     }
-
-    .advert-card:hover {
-        border: 1px solid $blue;
-        transition: .02s;
-    }
 }
 
 
@@ -525,9 +375,5 @@
             color: $dark;
             max-width: 80%;
         }
-    }
-
-    .company-adverts-item:hover {
-
     }
 }

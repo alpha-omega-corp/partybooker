@@ -5,10 +5,6 @@
         :title="__('nav.partnership')"
         class="home-partnership"
     >
-        <x-slot:breadcrumbs>
-            {{Breadcrumbs::render('partnership', Request::segments())}}
-        </x-slot:breadcrumbs>
-
         <x-app.section>
             @include('app.home.partials.partnership.benefits')
         </x-app.section>
@@ -21,7 +17,9 @@
 
         <x-app.section>
 
-            <div class="d-flex justify-content-center mb-3">
+
+            @include('app.home.partials.partnership.plans')
+            <div class="d-flex justify-content-center m-4">
                 <x-modal.open
                     :name="ModalName::GUEST_PARTNERSHIP"
                     :custom-color="AppColor::PINK"
@@ -29,8 +27,6 @@
                     :text="strtoupper(__('form.join_title'))"
                 />
             </div>
-            @include('app.home.partials.partnership.plans')
-
         </x-app.section>
 
         <x-app.title

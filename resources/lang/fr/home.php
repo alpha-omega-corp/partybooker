@@ -22,6 +22,7 @@ return [
     'mission' => 'notre mission',
     'sitemap' => 'plan',
     'categories' => 'catégories',
+    'tops' => 'partenaires privilégiés',
     'footer' => 'informations',
     'contacts' => 'contacts',
 

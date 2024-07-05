@@ -18,7 +18,7 @@ return [
     'help' => 'leave us your telephone number and we will contact you as soon as possible',
     'usp' => 'unique selling points',
     'guest' => 'guest',
-    'tops' => 'Top Services',
+    'tops' => 'premier partners',
     'advantages' => 'advantages',
     'mission' => 'our mission',
     'sitemap' => 'plan',

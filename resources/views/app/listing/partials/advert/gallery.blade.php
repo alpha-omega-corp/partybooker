@@ -6,11 +6,9 @@
 >
     <div class="advert-gallery-content">
         @foreach($advert->images()->get() as $image)
-            @if(!$image->is_thumbnail)
-                <div class="gallery-image">
-                    <img src="{{asset($image->path)}}" alt="{{$image->locale->description}}">
-                </div>
-            @endif
+            <div class="gallery-image">
+                <img src="{{asset($image->path)}}" alt="{{$image->locale->description}}">
+            </div>
         @endforeach
     </div>
 </x-card>

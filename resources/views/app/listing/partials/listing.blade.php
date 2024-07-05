@@ -2,9 +2,16 @@
 
 
 <div class="app-listing-content">
+    
     @include('app.listing.partials.pagination')
 
+
     <div class="app-listing-items">
+
+        @if(count($adverts) === 0)
+            <img src=""/>
+        @endif
+
         @foreach($adverts as $advert)
             <x-advert.link :advert="$advert">
                 <div class="advert-card shadow-lg">
@@ -32,6 +39,7 @@
                     </div>
                 </div>
             </x-advert.link>
+
         @endforeach
     </div>
 </div>

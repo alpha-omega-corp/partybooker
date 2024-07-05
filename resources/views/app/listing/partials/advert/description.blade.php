@@ -1,5 +1,5 @@
 <x-card
-    :title="__('advert.description')"
+    :title="$title"
     :radius="true"
     :can-open="false"
     :center="$center"

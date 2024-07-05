@@ -6,10 +6,6 @@
         :title="__('home.faq')"
         class="home-faq"
     >
-        <x-slot:breadcrumbs>
-            {{Breadcrumbs::render('faq', Request::segments())}}
-        </x-slot:breadcrumbs>
-
         <div class="container">
             <x-accordion.index
                 name="faqAccordion"

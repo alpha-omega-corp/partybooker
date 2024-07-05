@@ -6,9 +6,7 @@
         :title="__('nav.about')"
         class="home-about"
     >
-        <x-slot:breadcrumbs>
-            {{Breadcrumbs::render('about', Request::segments())}}
-        </x-slot:breadcrumbs>
+       
 
         <x-app.section class="about-description-container">
             <div class="about-description-card">

@@ -4,7 +4,7 @@ return [
     'home' => 'accueil',
     'listing' => 'nos partenaires',
     'about' => 'a propos de nous',
-    'partnership' => 'devenir partenaire',
+    'partnership' => 'devenir un partenaire',
     'blog' => 'blog',
     'faq' => 'faq',
     'terms' => 'conditions',

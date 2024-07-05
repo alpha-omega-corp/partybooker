@@ -132,38 +132,7 @@ body, html {
             border: 2px solid #fff;
         }
     }
-
-    .app-action {
-        @media only screen and (max-width: 1200px) {
-            width: 100%;
-        }
-
-        .app-action-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            .app-action-icon {
-                color: #fff;
-                margin: 0 20px;
-            }
-        }
-
-
-        a {
-            width: 100%;
-        }
-
-        a, button {
-            padding: 10px;
-            border-radius: 0;
-            text-transform: uppercase;
-            font-family: monospace;
-            font-weight: bold;
-        }
-    }
 }
-
 
 .btn-primary:hover {
     color: #fff;

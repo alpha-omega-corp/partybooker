@@ -114,20 +114,19 @@ Route::name('guest.')
             ->group(function () {
                 Route::name('fr.')
                     ->group(function () {
-                        Route::get('/annonces/{category?}/{tag?}', 'index')->name('index');
-                        Route::get('/annonces/recherche', 'search')->name('search');
-                        Route::get('/annonce/{company:slug}', 'company')->name('company');
-                        Route::get('/annonce/{company:slug}/{category:slug}', 'advert')->name('advert');
+                        Route::get('/partenaires/{category?}/{tag?}', 'index')->name('index');
+                        Route::get('/partenaires/recherche', 'search')->name('search');
+                        Route::get('/partenaire/{company:slug}', 'company')->name('company');
+                        Route::get('/partenaire/{company:slug}/{category:slug}', 'advert')->name('advert');
                     });
 
                 Route::name('en.')
                     ->prefix('en')
                     ->group(function () {
-                        Route::get('/adverts/{category?}/{tag?}', 'index')->name('index');
-                        Route::get('/adverts/search', 'search')->name('search');
-
-                        Route::get('/advert/{company:slug}', 'company')->name('company');
-                        Route::get('/advert/{company:slug}/{category:slug}', 'advert')->name('advert');
+                        Route::get('/partners/{category?}/{tag?}', 'index')->name('index');
+                        Route::get('/partners/search', 'search')->name('search');
+                        Route::get('/partner/{company:slug}', 'company')->name('company');
+                        Route::get('/partner/{company:slug}/{category:slug}', 'advert')->name('advert');
                     });
             });
 

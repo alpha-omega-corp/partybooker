@@ -23,7 +23,7 @@
                         @foreach ($category->tags as $tag)
                             @if($tag->locale)
                                 <x-advert.tag
-                                    :is-active="$tag->locale->slug === Request::segment(3)"
+                                    :is-active="$tag->locale->slug === (app()->getLocale() === Language::FR->value ? Request::segment(3) : Request::segment(4))"
                                     :category="$category"
                                     :tag="$tag"
                                 />
