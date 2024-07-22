@@ -35,9 +35,7 @@ class  CategoryService implements ICategoryService
         }
 
         $category = $this->getCategory($requestCat)->first();
-        $adverts = Advert::listing()->whereHas('service', function (Builder $query) use ($category) {
-            $query->where('serviceable_type', $category->service);
-        });
+        $adverts = Advert::listing()->where('category_id', $category->id);
 
         if ($requestTag) {
             $tag = $this->getCategory($requestTag)->first();
