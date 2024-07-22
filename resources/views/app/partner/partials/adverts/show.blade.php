@@ -21,6 +21,8 @@
                     @include('app.partner.partials.adverts.status')
                     @include('app.partner.partials.adverts.delete')
                     @include('app.partner.partials.adverts.edit')
+                    @include('app.partner.partials.adverts.edit-category')
+
                 </x-slot:actions>
 
                 <x-slot:title>

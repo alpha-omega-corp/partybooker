@@ -8,6 +8,18 @@
         'advert' => $advert
     ])"
 >
+
+    <x-slot:body>
+        <x-forms.select :label="__('partner.choose-category')" name="category">
+            @svg($boxIcon)
+            <x-slot:options>
+                @foreach($categories as $id => $category)
+                    <option value="{{$id}}">{{$category}}</option>
+                @endforeach
+            </x-slot:options>
+        </x-forms.select>
+    </x-slot:body>
+
     <x-tab.locale>
         <x-slot:french>
             @php($locale = $advert->ofLang(Language::FR)->first()->locale)

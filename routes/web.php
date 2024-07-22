@@ -201,7 +201,7 @@ Route::name('partner.')
                         Route::post('/tag/{advert}', 'tag')->name('tag');
                         Route::delete('/tag/{advert}/{tag}', 'destroyTag')->name('tag.destroy');
                         Route::delete('/{advert}', 'destroy')->name('destroy');
-
+                        Route::put('/category/{advert}', 'updateCategory')->name('update.category');
                         Route::put('/status/{advert}', 'status')->name('status');
                         Route::put('/access/{advert}', 'access')->name('access');
                         Route::put('/description/{advert}', 'description')->name('description');

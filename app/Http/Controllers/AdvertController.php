@@ -9,6 +9,7 @@ use App\Helpers\MetaHelper;
 use App\Http\Requests\StoreAdvertRequest;
 use App\Http\Requests\StoreAdvertTagRequest;
 use App\Http\Requests\UpdateAdvertAccessRequest;
+use App\Http\Requests\UpdateAdvertCategoryRequest;
 use App\Http\Requests\UpdateAdvertDescriptionRequest;
 use App\Http\Requests\UpdateAdvertMetaRequest;
 use App\Interfaces\IFileService;
@@ -115,6 +116,20 @@ class AdvertController extends Controller
         $advert->update(['is_public' => !$advert->is_public]);
 
         return back()->with('success', 'Advert status updated successfully');
+    }
+
+    public function updateCategory(Advert $advert, UpdateAdvertCategoryRequest $request): RedirectResponse
+    {
+        $data = $request->validated();
+        $category = Category::find($data['category']);
+
+        $advert->update([
+            'category_id' => $category->id
+        ]);
+
+        AdvertTag::where('advert_id', $advert->id)->delete();
+
+        return back()->with('success', 'Advert category updated successfully');
     }
 
     public function description(Advert $advert, UpdateAdvertDescriptionRequest $request): RedirectResponse

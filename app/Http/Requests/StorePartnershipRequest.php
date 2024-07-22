@@ -18,7 +18,7 @@ class StorePartnershipRequest extends FormRequest
             'phone' => 'string|required',
             'plan' => 'required',
             'message' => 'nullable|string',
-            'g-recaptcha-response' => 'required'
+            'g-recaptcha-response' => 'required',
         ];
     }
 }

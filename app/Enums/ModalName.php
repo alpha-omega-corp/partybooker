@@ -45,6 +45,7 @@ enum ModalName
     case PARTNER_ADVERT_SEO;
     case PARTNER_ADVERT_IMAGE;
     case PARTNER_ADVERT_REQUEST;
+    case PARTNER_ADVERT_CATEGORY;
 
     case MORE_TOPS;
     case MORE_INFORMATION;
