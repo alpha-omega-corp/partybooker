@@ -38,12 +38,6 @@
             </div>
         </x-app.section>
 
-        <x-app.title
-            :size="TitleSize::MEDIUM"
-            :color="AppColor::BLUE"
-            :background="false"
-            :value="__('home.advantages')"
-        />
         <x-app.section class="about-features-container" :bg="AppColor::HOME_GRAY">
             @foreach($features as $feature)
                 @if($feature->locale)
