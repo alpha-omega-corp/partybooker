@@ -22,7 +22,7 @@
             <x-forms.input
                 name="title_fr"
                 label="Title"
-                :value="$locale->title"
+                :value="$locale ?? $locale->title"
             >
                 @svg($titleIcon)
             </x-forms.input>
@@ -33,7 +33,7 @@
             <x-forms.input
                 name="title_en"
                 label="Title"
-                :value="$locale->title"
+                :value="$locale ?? $locale->title"
             >
                 @svg($titleIcon)
             </x-forms.input>
