@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Interfaces\ICategoryService;
+use App\Interfaces\IListingService;
+use App\Interfaces\IPartnerService;
 use App\Models\Category;
 use App\Models\CategoryLocale;
 use App\Models\Company;
 use App\Services\CategoryService;
+use App\Services\ListingService;
 use App\Services\PartnerService;
 use Butschster\Head\Contracts\MetaTags\MetaInterface;
 use Illuminate\Contracts\View\View;
@@ -16,14 +19,20 @@ use Illuminate\Support\Str;
 class ListingController extends Controller
 {
     private ICategoryService $categoryService;
+    private IPartnerService $partnerService;
+    private IListingService $listingService;
     private Collection $categories;
 
     public function __construct(
         CategoryService         $categoryService,
+        PartnerService          $partnerService,
+        ListingService          $listingService,
         protected MetaInterface $meta
     )
     {
         $this->categoryService = $categoryService;
+        $this->partnerService = $partnerService;
+        $this->listingService = $listingService;
         $this->categories = Category::all();
     }
 
@@ -47,8 +56,9 @@ class ListingController extends Controller
             'active' => $activeCategory,
             'categories' => $this->categories,
             'adverts' => $adverts,
-            'top' => (new PartnerService())->topServices(),
-            'topRandom' => (new PartnerService())->topServices(true),
+            'top' => $this->partnerService->topServices(),
+            'topRandom' => $this->partnerService->topServices(true),
+            'locations' => $this->listingService->getLocations()
         ]);
     }
 

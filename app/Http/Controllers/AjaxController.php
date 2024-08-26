@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Enums\CategoryType;
-use App\Enums\Language;
 use App\Enums\PlanType;
 use App\Models\Advert;
 use App\Models\AppPlan;
@@ -11,7 +10,7 @@ use App\Models\Partner;
 use App\Models\PartnerPayment;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Throwable;
 
 class AjaxController extends Controller
 {
@@ -48,11 +47,21 @@ class AjaxController extends Controller
         return response()->json($viewPartners);
     }
 
+    /**
+     * @throws Throwable
+     */
     public function listing(Request $request): JsonResponse
     {
-        $language = Language::from($request->getLocale());
+        $adverts = Advert::listing()->paginate(3);
 
-        $viewPartners = Advert::listing()
+        return response()->json([
+            'adverts' => view('app.listing.partials.listing-ajax', compact('adverts'))->render(),
+            'next_page' => $adverts->currentPage() + 1,
+            'last_page' => $adverts->lastPage(),
+        ]);
+
+        /*
+         $adverts = Advert::listing()
             ->get()
             ->map(fn(Advert $advert) => [
                 'id' => $advert->id,
@@ -67,9 +76,7 @@ class AjaxController extends Controller
                     'category' => $advert->category->locale,
                 ]),
             ]);
-
-        return response()->json($viewPartners);
-
+         */
     }
 
     public function tops(): JsonResponse

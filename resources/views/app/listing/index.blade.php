@@ -5,60 +5,54 @@
 
         <div class="app-listing-container">
 
-            <div class="row">
+            <div class="row app-listing-search" x-data="list">
                 <div class="col-xl-4 col-lg-12">
                     <div class="app-listing-filters">
-                        <!-- Category -->
-                        <div class="app-listing-filters-lg">
-                            <div class="sticky-listing-filters">
-                                <x-app.title
-                                    :size="TitleSize::SMALL"
-                                    :color="AppColor::BLUE"
-                                    :value="__('listing.categories')"
-                                    :border="false"
-                                    :background="true"
-                                />
-                                @include('app.listing.partials.category')
-                            </div>
-                        </div>
 
-                        <div class="app-listing-filters-sm">
-                            <div class="">
+                        <div class="sticky-listing-search listing-search-container">
+                            <x-forms.input
+                                name="search"
+                                model="searchInput"
+                                label="Search"
+                                type="text">
+                                @svg($searchIcon)
+                            </x-forms.input>
 
-                                <x-accordion.index
-                                    name="listingFilterSM"
-                                >
-                                    <x-accordion.item
-                                        name="content"
-                                        accordion="listingFilterSM"
-                                    >
-                                        <x-slot:title>
-                                            <x-app.title
-                                                :size="TitleSize::SMALL"
-                                                :color="AppColor::BLUE"
-                                                :value="__('listing.categories')"
-                                                :border="false"
-                                                :background="true"
-                                                :padding="false"
-                                            />
-                                        </x-slot:title>
+                            <x-forms.select name="state" :label="__('listing.state')" model="locationInput">
+                                @svg($pinIcon)
 
-                                        <x-slot:content>
-                                            @include('app.listing.partials.category')
+                                <x-slot:options>
+                                    @foreach($locations as $location)
+                                        <option value="{{$location}}">
+                                            {{strtoupper($location)}}
+                                        </option>
+                                    @endforeach
+                                </x-slot:options>
+                            </x-forms.select>
 
-                                        </x-slot:content>
-                                    </x-accordion.item>
-                                </x-accordion.index>
-                            </div>
+                            <x-forms.select color="pink" name="category" :label="__('listing.categories')">
+                                @svg($boxIcon)
+
+                                <x-slot:options>
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}">
+                                            {{$category->locale->title}}
+                                        </option>
+                                    @endforeach
+                                </x-slot:options>
+                            </x-forms.select>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-xl-8 col-lg-12">
-                    @include('app.listing.partials.listing')
+                    <div class="app-listing-content">
+                        @include('app.listing.partials.listing-ajax')
+                    </div>
+                    <div x-intersect="next()"></div>
+
                 </div>
             </div>
         </div>
     </x-card.panel>
-
 @endsection

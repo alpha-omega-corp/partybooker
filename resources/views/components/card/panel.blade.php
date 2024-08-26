@@ -1,6 +1,6 @@
 @props([
     'title' => null,
-    'color' => AppColor::PINK,
+    'color' => AppColor::BLUE,
 ])
 
 <div {{$attributes->merge(['class' => 'app-card-panel'])}}>

@@ -10,9 +10,10 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background-color: #fff;
     position: relative;
-    border-radius: 20px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
 
     @include media-breakpoint-up(xl) {
         .app-listing-filters-sm {
@@ -127,129 +128,6 @@
         }
     }
 
-
-    .advert-card {
-        width: 100%;
-
-        &:hover {
-            border: 1px solid $blue;
-            transition: .02s;
-        }
-
-        @media only screen and (max-width: 800px) {
-            flex-direction: column;
-
-            .advert-card-image {
-                width: 100%;
-
-                img {
-                    width: 100% !important;
-                    height: 250px;
-                    object-fit: cover;
-                    object-position: center;
-                }
-            }
-
-            .card-content-address {
-                position: relative !important;
-            }
-        }
-
-        .advert-card-image {
-            img {
-                width: 400px;
-                height: 250px;
-                object-fit: cover;
-                object-position: center;
-            }
-        }
-
-        .advert-card-company {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: large;
-
-            span {
-                color: $dark;
-                font-size: larger;
-            }
-        }
-
-        .advert-card-details {
-            p {
-                color: $gray !important;
-            }
-
-            .advert-card-location {
-                font-size: small;
-                position: absolute;
-                bottom: 10px;
-                right: 20px;
-                margin: 0;
-            }
-        }
-
-        display: flex;
-        border-radius: 10px;
-        border: 1px solid $light;
-        position: relative;
-        overflow: hidden;
-
-
-        .advert-card-description {
-            position: relative;
-            text-align: justify;
-            font-size: small;
-            padding-bottom: 20px;
-            line-height: 20px;
-
-
-            span {
-                text-overflow: ellipsis;
-                font-weight: normal;
-
-            }
-        }
-
-        .advert-card-content {
-            width: 100%;
-            background-color: #fff;
-
-            .card-content-header {
-                border-bottom: 1px solid $light;
-                padding: 20px 20px 40px;
-
-                .advert-card-title {
-                    font-weight: bold;
-                    margin: 0;
-                    color: #000;
-                    text-transform: uppercase;
-                }
-
-                .content-header-company {
-                    display: flex;
-                    gap: 20px;
-                    color: $gray;
-                    font-size: small;
-                }
-            }
-
-            .card-content {
-                padding: 10px 20px 0;
-                color: $gray;
-
-                @media only screen and (max-width: 800px) {
-                    height: 170px;
-                }
-
-                .card-content-address {
-                    position: absolute;
-                    bottom: 10px;
-                }
-            }
-        }
-    }
 
     .advert-category {
         position: absolute;
@@ -377,3 +255,116 @@
         }
     }
 }
+
+
+.advert-card {
+    width: 100%;
+    display: flex;
+    column-gap: 30px;
+    padding-bottom: 20px;
+    max-height: 500px;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+        transition: .02s;
+    }
+
+    .advert-card-thumbnail {
+        height: 100%;
+
+        img {
+            border-radius: 20px;
+            width: 400px;
+            height: 250px;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    .advert-card-title {
+        font-size: large;
+        font-weight: bold;
+        color: $dark;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+
+    @media only screen and (max-width: 800px) {
+        flex-direction: column;
+
+        .advert-card-image {
+            width: 100%;
+
+            img {
+                width: 100% !important;
+                height: 250px;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        .card-content-address {
+            position: relative !important;
+        }
+    }
+
+    .advert-card-content {
+        color: $gray !important;
+        padding-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        p {
+            max-height: 200px;
+        }
+    }
+
+    .advert-card-company {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: large;
+
+        span {
+            color: $dark;
+            font-size: larger;
+        }
+    }
+
+    .advert-card-details {
+        p {
+            color: $gray !important;
+        }
+
+        .advert-card-location {
+            font-size: small;
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            margin: 0;
+        }
+    }
+
+    .advert-card-description {
+        position: relative;
+        text-align: justify;
+        font-size: small;
+        padding-bottom: 20px;
+        line-height: 20px;
+
+
+        span {
+            text-overflow: ellipsis;
+            font-weight: normal;
+
+        }
+    }
+}
+
+.listing-search-container {
+    background-color: #fff;
+}
+

@@ -5,11 +5,17 @@
     }
 
     .input-group-text {
-        background-color: $blue;
-
         svg {
             color: #fff;
         }
+    }
+
+    .input-group-text-pink {
+        background-color: $pink;
+    }
+
+    .input-group-text-blue {
+        background-color: $blue;
     }
 }
 

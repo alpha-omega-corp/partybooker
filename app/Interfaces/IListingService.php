@@ -14,5 +14,7 @@ interface IListingService
     public function grant(Advert $advert): bool;
 
     public function deleteAdvert(Advert $advert): bool;
+
+    public function getLocations(): array;
 }
 

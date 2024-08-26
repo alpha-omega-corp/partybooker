@@ -4,4 +4,5 @@ return [
     'category.all' => 'all',
     'search' => 'search',
     'categories' => 'categories',
+    'state' => 'state',
 ];

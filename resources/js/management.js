@@ -18,8 +18,6 @@ import focus from "@alpinejs/focus";
 
 window.$ = $;
 window.tinymce = tinymce;
-
-
 window.Alpine = Alpine;
 Alpine.plugin(focus);
 Alpine.start();

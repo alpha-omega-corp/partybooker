@@ -2,10 +2,11 @@
 
 namespace App\Services;
 
+use App\Interfaces\IPartnerService;
 use App\Models\PartnerTop;
 use Illuminate\Support\Collection;
 
-class PartnerService
+class PartnerService implements IPartnerService
 {
     public function topServices(?bool $random = false): Collection
     {

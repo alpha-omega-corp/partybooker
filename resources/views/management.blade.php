@@ -91,7 +91,6 @@
 
                         $(this.$refs.select).on('change', () => {
                             let currentSelection = $(this.$refs.select).select2('data')
-
                             this.value = currentSelection.map(i => i.id).reverse()
                         })
 
@@ -145,8 +144,8 @@
                         } else {
                             this.displayedPartners = this.filterPartner(this.displayedPartners)
                         }
-                    }
-                    ,
+                    },
+
                     sortPartners() {
                         this.displayedPartners.sort((a, b) => {
                             switch (this.sort) {

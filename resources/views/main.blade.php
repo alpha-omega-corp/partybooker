@@ -95,21 +95,50 @@
             Alpine.data('list', () => ({
                 adverts: [],
                 displayedAdverts: [],
-                input: '',
+                searchInput: null,
+                locationInput: null,
+                categoryInput: null,
+                page: 1,
+                el: $('.app-listing-container'),
+
 
                 async init() {
                     this.adverts = await $.ajax({
                         url: '{{route(__('route.listing-search'))}}',
                         type: 'GET',
+                        data: {
+                            page: this.page,
+                        },
                     })
 
                     console.log(this.adverts)
                 },
+
+                async next() {
+                    await $.ajax({
+                        url: '{{route(__('route.listing-search'))}}',
+                        type: 'GET',
+                        data: {
+                            page: this.page,
+                        },
+                    }).done(data => {
+                        console.log(data.adverts)
+                        console.log(this.page, data.next_page, data.last_page)
+                        this.page = data.next_page
+
+                        $(".app-listing-content").append(data.adverts);
+
+                    })
+
+                },
+
                 filterAdvert(item) {
                     if (item) {
-                        return item.toLowerCase().includes(this.input.toLowerCase())
+                        return item.toLowerCase().includes(this.searchInput.toLowerCase())
                     }
                 },
+
+
                 filterAdverts() {
                     this.displayedAdverts = this.adverts.filter(ad =>
                         this.filterAdvert(ad.title) ||
@@ -117,9 +146,22 @@
                         this.filterAdvert(ad.address)
                     )
                 },
+
+
+                filterLocation() {
+                    this.displayedAdverts = this.displayedAdverts.filter(ad => ad.address.toLowerCase().includes(this.locationInput.toLowerCase()))
+                },
+
+
                 search() {
-                    this.filterAdverts();
-                    return this.displayedAdverts;
+                    if (this.searchInput) {
+                        //this.filterLocation()
+                        this.filterAdverts()
+
+                        return this.displayedAdverts
+                    }
+
+                    return this.adverts
                 },
             }))
         })

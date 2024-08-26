@@ -45,4 +45,36 @@ class ListingService implements IListingService
         $advert->locales()->delete();
         return $advert->delete();
     }
+
+    public function getLocations(): array
+    {
+        return [
+            'ag' => "AG",
+            'ai' => "AI",
+            'ar' => "AR",
+            'bs' => "BS",
+            'bl' => "BL",
+            'be' => "BE",
+            'fr' => "FR",
+            'ge' => "GE",
+            'gl' => "GL",
+            'gr' => "GR",
+            'ju' => "JU",
+            'lu' => "LU",
+            'ne' => "NE",
+            'nw' => "NW",
+            'ow' => "OW",
+            'sh' => "SH",
+            'sz' => "SZ",
+            'so' => "SO",
+            'sg' => "SG",
+            'tg' => "TG",
+            'ti' => "TI",
+            'ur' => "UR",
+            'vs' => "VS",
+            'vd' => "VD",
+            'zg' => "ZG",
+            'zh' => "ZH",
+        ];
+    }
 }
