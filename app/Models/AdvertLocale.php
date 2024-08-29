@@ -42,6 +42,7 @@ class AdvertLocale extends Model
         return $this->morphTo();
     }
 
+
     public function scopeOfLang(Builder $query, Language $lang): void
     {
         $query->where('lang', $lang->value);

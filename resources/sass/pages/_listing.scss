@@ -368,3 +368,18 @@
     background-color: #fff;
 }
 
+.app-listing-empty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    span {
+        font-size: large;
+    }
+}
+

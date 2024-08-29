@@ -50,55 +50,56 @@
             }))
 
             Alpine.data('top', () => ({
-                    values: [],
-                    options: [],
+                values: [],
+                options: [],
 
-                    async init() {
-                        this.values = await $.ajax({
-                            url: '{{route('guest.ajax.tops')}}',
-                            type: 'GET',
+                async init() {
+                    this.values = await $.ajax({
+                        url: '{{route('guest.ajax.tops')}}',
+                        type: 'GET',
+                    })
+
+                    for (let i = 0; i < this.values.length; i++) {
+                        this.options.push({
+                            value: this.values[i].id,
+                            label: this.values[i].company,
+                            top: this.values[i].top
                         })
+                    }
 
-                        for (let i = 0; i < this.values.length; i++) {
-                            this.options.push({
-                                value: this.values[i].id,
-                                label: this.values[i].company,
-                                top: this.values[i].top
-                            })
-                        }
+                    this.bootstrap()
+                },
 
-                        this.bootstrap()
-                    },
-                    bootstrap() {
-                        let bootSelect2 = () => {
-                            $(this.$refs.select).select2({
-                                multiple: true,
-                                data: this.options.map(partner => ({
-                                    id: partner.value,
-                                    text: partner.label,
-                                    selected: partner.top,
-                                })),
-                            })
-                        }
 
-                        let refreshSelect2 = () => {
-                            $(this.$refs.select).select2('destroy')
-                            this.$refs.select.innerHTML = ''
-                            bootSelect2()
-                        }
+                bootstrap() {
+                    let bootSelect2 = () => {
+                        $(this.$refs.select).select2({
+                            multiple: true,
+                            data: this.options.map(partner => ({
+                                id: partner.value,
+                                text: partner.label,
+                                selected: partner.top,
+                            })),
+                        })
+                    }
 
+                    let refreshSelect2 = () => {
+                        $(this.$refs.select).select2('destroy')
+                        this.$refs.select.innerHTML = ''
                         bootSelect2()
+                    }
 
-                        $(this.$refs.select).on('change', () => {
-                            let currentSelection = $(this.$refs.select).select2('data')
-                            this.value = currentSelection.map(i => i.id).reverse()
-                        })
+                    bootSelect2()
 
-                        this.$watch('values', () => refreshSelect2())
-                        this.$watch('options', () => refreshSelect2())
-                    },
-                }),
-            )
+                    $(this.$refs.select).on('change', () => {
+                        let currentSelection = $(this.$refs.select).select2('data')
+                        this.value = currentSelection.map(i => i.id).reverse()
+                    })
+
+                    this.$watch('values', () => refreshSelect2())
+                    this.$watch('options', () => refreshSelect2())
+                },
+            }))
 
             Alpine.data('partners', () => ({
                     partners: [],

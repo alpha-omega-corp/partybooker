@@ -11,7 +11,7 @@
             {{$slot}}
         </label>
         <select class="form-select" x-model="{{$model}}" aria-label="{{$label}}" name="{{$name}}" id="{{$name}}">
-            <option selected disabled>{{ucfirst($label)}}</option>
+            <option selected value="">{{ucfirst($label)}}</option>
             {{$options}}
         </select>
     </div>

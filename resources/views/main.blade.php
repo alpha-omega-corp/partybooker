@@ -43,18 +43,18 @@
             Alpine.data('truncate', (data) => ({
                 truncated: null,
                 content: data.replaceAll('"', ''),
-                count: 200,
+                maxCount: 200,
                 isOpen: false,
                 canTruncate: false,
 
                 init() {
                     this.truncate()
-                    this.canTruncate = !(this.content.length <= this.count)
+                    this.canTruncate = !(this.content.length <= this.maxCount)
                 },
 
                 truncate() {
-                    this.truncated = this.content.length > this.count
-                        ? this.content.substring(0, this.count) + '...'
+                    this.truncated = this.content.length > this.maxCount
+                        ? this.content.substring(0, this.maxCount) + '...'
                         : this.content
                 },
 
@@ -93,75 +93,61 @@
 
 
             Alpine.data('list', () => ({
-                adverts: [],
-                displayedAdverts: [],
-                searchInput: null,
-                locationInput: null,
-                categoryInput: null,
+                input: null,
+                location: null,
+                category: null,
+                searchContent: $('.listing-search-content'),
+                content: $('.app-listing-content'),
                 page: 1,
-                el: $('.app-listing-container'),
+                lastPage: 2,
 
-
-                async init() {
-                    this.adverts = await $.ajax({
-                        url: '{{route(__('route.listing-search'))}}',
-                        type: 'GET',
-                        data: {
-                            page: this.page,
-                        },
-                    })
-
-                    console.log(this.adverts)
+                init() {
+                    this.$watch('input', () => this.search())
+                    this.$watch('location', () => this.filter())
+                    this.$watch('category', () => this.filter())
                 },
+
 
                 async next() {
+                    if (this.page <= this.lastPage) {
+                        await $.ajax({
+                            url: '{{route('guest.ajax.listing')}}',
+                            type: 'GET',
+                            data: {
+                                page: this.page,
+                            },
+                        }).done(data => {
+                            this.lastPage = data.last
+                            this.page = data.next
+                            this.content.append(data.adverts);
+                        })
+                    }
+                },
+
+
+                async search() {
+                    if (this.input) {
+                        await $.ajax({
+                            url: '{{route('guest.ajax.listing.search')}}',
+                            type: 'GET',
+                            data: {
+                                filter: this.input,
+                            },
+                        }).done(data => this.searchContent.html(data.adverts))
+                    }
+                },
+
+                async filter() {
                     await $.ajax({
-                        url: '{{route(__('route.listing-search'))}}',
+                        url: '{{route('guest.ajax.listing.filter')}}',
                         type: 'GET',
                         data: {
-                            page: this.page,
+                            location: this.location,
+                            category: this.category,
                         },
                     }).done(data => {
-                        console.log(data.adverts)
-                        console.log(this.page, data.next_page, data.last_page)
-                        this.page = data.next_page
-
-                        $(".app-listing-content").append(data.adverts);
-
+                        this.searchContent.html(data.adverts)
                     })
-
-                },
-
-                filterAdvert(item) {
-                    if (item) {
-                        return item.toLowerCase().includes(this.searchInput.toLowerCase())
-                    }
-                },
-
-
-                filterAdverts() {
-                    this.displayedAdverts = this.adverts.filter(ad =>
-                        this.filterAdvert(ad.title) ||
-                        this.filterAdvert(ad.company) ||
-                        this.filterAdvert(ad.address)
-                    )
-                },
-
-
-                filterLocation() {
-                    this.displayedAdverts = this.displayedAdverts.filter(ad => ad.address.toLowerCase().includes(this.locationInput.toLowerCase()))
-                },
-
-
-                search() {
-                    if (this.searchInput) {
-                        //this.filterLocation()
-                        this.filterAdverts()
-
-                        return this.displayedAdverts
-                    }
-
-                    return this.adverts
                 },
             }))
         })

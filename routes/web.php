@@ -60,17 +60,9 @@ Route::name('guest.')
             ->group(function () {
                 Route::get('/partners', 'partners')->name('partners');
                 Route::get('/partners/top', 'tops')->name('tops');
-
-                Route::name('fr.')
-                    ->group(function () {
-                        Route::get('/partners/listing', 'listing')->name('listing');
-                    });
-
-                Route::name('en.')
-                    ->prefix('en')
-                    ->group(function () {
-                        Route::get('/partners/listing', 'listing')->name('listing');
-                    });
+                Route::get('/partners/listing', 'listing')->name('listing');
+                Route::get('/partners/listing/search', 'listingSearch')->name('listing.search');
+                Route::get('/partners/listing/filter', 'listingFilter')->name('listing.filter');
             });
 
         // HomeController

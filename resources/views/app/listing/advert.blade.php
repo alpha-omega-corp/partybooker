@@ -4,17 +4,14 @@
     <x-card.panel :title="__('nav.partner')" class="app-advert">
 
         <div class="app-advert-container">
-
             <div class="row">
                 <div class="col-xl-4 col-lg-12">
                     <div class="app-advert-details">
                         <div class="app-advert-request">
                             @include('app.listing.partials.advert.actions')
-
-
                         </div>
-                        <div class="app-advert-thumbnail">
 
+                        <div class="app-advert-thumbnail">
                             @include('app.listing.partials.advert.contacts')
                             @include('app.listing.partials.advert.other', [
                                 'advert' => $advert,
@@ -24,8 +21,6 @@
                                 'radius' => false,
                                 'otherTitle' => 'services',
                             ])
-
-
                         </div>
                     </div>
                 </div>
@@ -37,7 +32,6 @@
                                 @include('app.listing.partials.advert.description', [
                                     'content' => $advert->locale->description,
                                     'center' => false,
-
                                     'title' => $advert->company->name
                                 ])
                             </div>
@@ -46,11 +40,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
-
+        
     </x-card.panel>
 @endsection

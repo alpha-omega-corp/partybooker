@@ -21,6 +21,7 @@ $blue: rgb(26, 67, 178);
 $orange: $orange-500;
 $gray: $gray-700;
 $light: $gray-300;
+$indigo: $indigo-400;
 
 $transparent: rgba(0, 0, 0, 0.4);
 $top: #eeeeee;
@@ -60,6 +61,7 @@ $theme-colors: (
     "footer": $footer,
     "basic": $basic,
     "commission": $commission,
+    "indigo": $indigo,
 );
 
 $offcanvas-bg-color: #fff;

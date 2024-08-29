@@ -9,6 +9,7 @@ resources/sass/bootstrap.scss
 enum AppColor: string
 {
     case WHITE = 'white';
+    case INDIGO = 'indigo';
     case PRIMARY = 'primary';
     case ACCENT = 'accent';
     case SECONDARY = 'secondary';
@@ -21,6 +22,7 @@ enum AppColor: string
     case GRAY = 'gray';
     case LIGHT = 'light';
     case HOME = 'home';
+    case DARK = 'dark';
     case HOME_GRAY = 'home-gray';
     case HOME_GREEN = 'home-green';
 

@@ -36,9 +36,9 @@
                         <div class="app-company-description">
                             <div class="d-flex align-items-end">
                                 @include('app.listing.partials.advert.description', [
-                                        'content' => $company->locale->description,
-                                        'center' => true,
-                                        'title' => 'description'
+                                    'content' => $company->locale->description,
+                                    'center' => true,
+                                    'title' => 'description'
                                 ])
                             </div>
                         </div>

@@ -10,15 +10,21 @@
                     <div class="app-listing-filters">
 
                         <div class="sticky-listing-search listing-search-container">
+
                             <x-forms.input
                                 name="search"
-                                model="searchInput"
-                                label="Search"
-                                type="text">
+                                :label="ucfirst(__('listing.search'))"
+                                model="input"
+                            >
                                 @svg($searchIcon)
                             </x-forms.input>
 
-                            <x-forms.select name="state" :label="__('listing.state')" model="locationInput">
+
+                            <x-forms.select
+                                name="state"
+                                :label="__('listing.states')"
+                                model="location"
+                            >
                                 @svg($pinIcon)
 
                                 <x-slot:options>
@@ -30,7 +36,13 @@
                                 </x-slot:options>
                             </x-forms.select>
 
-                            <x-forms.select color="pink" name="category" :label="__('listing.categories')">
+
+                            <x-forms.select
+                                name="category"
+                                model="category"
+                                :color="AppColor::INDIGO"
+                                :label="__('listing.categories')"
+                            >
                                 @svg($boxIcon)
 
                                 <x-slot:options>
@@ -46,10 +58,23 @@
                 </div>
 
                 <div class="col-xl-8 col-lg-12">
-                    <div class="app-listing-content">
-                        @include('app.listing.partials.listing-ajax')
+
+                    <!-- main.blade.php x-data="list" injected content -->
+
+                    <div x-show="input || location || category">
+                        <div class="listing-search-content"></div>
+                        <hr>
                     </div>
-                    <div x-intersect="next()"></div>
+
+
+                    <div class="app-listing-content-container">
+
+                        <div class="app-listing-content"></div>
+
+                        <div x-intersect="next()"></div>
+
+                    </div>
+
 
                 </div>
             </div>

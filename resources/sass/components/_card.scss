@@ -158,7 +158,11 @@
     }
 
     .card-panel-header {
-        background-color: $home;
+        background-color: #fff;
+
+        h1 {
+            font-family: $font-poppins;
+        }
 
         .app-title-container {
             display: flex;

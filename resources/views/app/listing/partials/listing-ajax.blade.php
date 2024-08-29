@@ -1,5 +1,8 @@
 @foreach($adverts as $advert)
-    <a href="#">
+    <a href="{{route(__('route.advert'), [
+    'company' => $advert->company,
+    'category' => $advert->category->locale,
+])}}">
         <div class="advert-card">
             <div class="advert-card-thumbnail">
                 <img src="{{asset($advert->images()->thumbnail()->first()->path)}}" alt="alt">
@@ -15,21 +18,29 @@
                     </div>
                 </div>
                 <div>
-                        <span class="badge text-bg-pink text-white">
-                            {{$advert->category->locale->title}}
-                        </span>
+                    <span class="badge text-bg-indigo text-white">
+                        {{$advert->category->locale->title}}
+                    </span>
+
+                    <br>
+
+                    @foreach($advert->tags as $tag)
+                        @if($tag->tag->locale)
+                            <span class="badge text-bg-primary text-white">
+                                {{$tag->tag->locale->title}}
+                            </span>
+                        @endif
+                    @endforeach
                 </div>
 
                 <div class="item-content-address">
-                    <p>{{$advert->company->location->address}}</p>
+                    @php($location = $advert->company->location)
+                    <p>{{$location->state}}, {{ $location->city }}, {{ $location->address }}</p>
                 </div>
-
             </div>
         </div>
     </a>
 @endforeach
-
-
 
 
 

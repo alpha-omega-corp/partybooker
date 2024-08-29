@@ -5,5 +5,7 @@ return [
     'category.all' => 'tout',
     'search' => 'rechercher',
     'categories' => 'catégories',
-    'state' => 'canton'
+    'states' => 'cantons ',
+    'empty' => 'aucun resultat',
+
 ];

@@ -16,8 +16,6 @@
         />
 
         <x-app.section>
-
-
             @include('app.home.partials.partnership.plans')
             <div class="d-flex justify-content-center m-4">
                 <x-modal.open
@@ -62,9 +60,7 @@
                             :text="__('form.question')"
                             class="app-help-button"/>
                     </a>
-
                 </div>
-
             </div>
 
         </x-app.section>

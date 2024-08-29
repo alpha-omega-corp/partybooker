@@ -5,7 +5,6 @@
 
         @include('app.home.partials.home.welcome')
 
-
         <!-- AppInformation -->
         <section class="home-information">
             @include('app.home.partials.home.information')
