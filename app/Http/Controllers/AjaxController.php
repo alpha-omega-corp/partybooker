@@ -88,7 +88,7 @@ class AjaxController extends Controller
             $adverts = $adverts->where('category_id', $category);
         }
 
-        $adverts = $adverts->get();
+        $adverts = $adverts->get()->reverse();
         $url = Category::find($category)->locale->slug;
 
         return response()->json([

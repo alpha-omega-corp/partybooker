@@ -96,6 +96,7 @@
                 input: null,
                 location: null,
                 category: null,
+                title: $('.app-listing-title'),
                 searchContent: $('.listing-search-content'),
                 content: $('.app-listing-content'),
                 page: 1,
