@@ -45,17 +45,18 @@ function stickyScroll(relative, name, stop) {
             let content = $(".app-card-panel")
 
             if (stickyTop < windowTop && content.height() + content.offset().top - item.height() > windowTop) {
-                let topHeight = window.innerWidth > 1100 ? 130 : 100
+                let topHeight = window.innerWidth > 1200 ? 130 : 80
 
                 item.css('position', 'fixed')
                     .css('padding-top', `${topHeight}px`)
-                    .css('padding-bottom', '40px')
+                    .css('padding-bottom', '20px')
                     .css('top', 0)
                     .css('z-index', 10)
                     .css('width', `${relative.width()}px`);
             } else {
                 item.css('position', 'relative')
                     .css('padding-top', 0)
+                    .css('padding-bottom', 0)
                     .css('z-index', 0)
             }
         });

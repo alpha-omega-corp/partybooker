@@ -6,7 +6,6 @@ use App\Enums\CategoryType;
 use App\Enums\PlanType;
 use App\Models\Advert;
 use App\Models\AppPlan;
-use App\Models\Category;
 use App\Models\Partner;
 use App\Models\PartnerPayment;
 use Illuminate\Database\Eloquent\Builder;
@@ -88,14 +87,12 @@ class AjaxController extends Controller
             $adverts = $adverts->where('category_id', $category);
         }
 
-        $adverts = $adverts->get()->reverse();
-        $url = Category::find($category)->locale->slug;
+        $adverts = $adverts->get();
 
         return response()->json([
             'adverts' => $adverts->count() != 0
                 ? view('app.listing.partials.listing-ajax', compact('adverts'))->render()
                 : view('app.listing.partials.listing-empty')->render(),
-            'url' => $url,
         ]);
     }
 

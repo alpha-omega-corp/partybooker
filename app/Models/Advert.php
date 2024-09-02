@@ -90,7 +90,7 @@ class Advert extends Model
 
     public function scopeListing(Builder $query): void
     {
-        $query->where('is_public', true);
+        $query->where('is_public', true)->orderBy('created_at', 'desc');
     }
 
     public function scopeMain(Builder $query): void

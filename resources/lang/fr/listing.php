@@ -7,5 +7,5 @@ return [
     'categories' => 'catégories',
     'states' => 'cantons ',
     'empty' => 'aucun resultat',
-
+    'filters' => 'filtres',
 ];

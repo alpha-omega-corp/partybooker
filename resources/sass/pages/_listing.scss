@@ -1,30 +1,29 @@
 .app-listing-container {
-    padding: 80px;
+    @include media-breakpoint-up(xl) {
+        padding: 80px;
+    }
 
-    @include media-breakpoint-down(sm) {
-        padding: 20px;
+
+    @include media-breakpoint-down(xl) {
+        padding: 0;
     }
 }
 
 .app-listing-filters {
     height: 100%;
-    width: 100%;
+    max-width: 100%;
     overflow: hidden;
     position: relative;
     border-radius: 10px;
-    padding: 20px;
+
     background-color: #fff;
 
-    @include media-breakpoint-up(xl) {
-        .app-listing-filters-sm {
-            display: none;
-        }
+    @include media-breakpoint-up(lg) {
+        padding: 20px;
     }
 
-    @include media-breakpoint-down(xl) {
-        .app-listing-filters-lg {
-            display: none;
-        }
+    @include media-breakpoint-down(lg) {
+        padding: 20px 0;
     }
 
 
@@ -72,59 +71,6 @@
 
         @media only screen and (min-width: 600px) and (max-width: 800px) {
             padding: 40px;
-        }
-    }
-
-    .listing-content-pagination {
-        background-color: #fff;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        padding: 20px;
-
-        .listing-pagination {
-            width: 100%;
-            position: relative;
-
-            nav {
-                width: 100%;
-
-
-                .page-item {
-                    display: flex;
-                    justify-content: center;
-                    font-weight: bold;
-                }
-
-                .pagination {
-                    display: flex;
-                    justify-content: center;
-                    width: 100%;
-                }
-
-                .active {
-                    span {
-                        background-color: $secondary;
-                    }
-                }
-            }
-        }
-
-        p {
-            margin: 0;
-        }
-
-        .pagination {
-            margin: 0;
-        }
-
-        .content-pagination-none {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            color: $blue;
-            font-size: large;
-            font-weight: bold;
         }
     }
 
@@ -266,6 +212,11 @@
     position: relative;
     overflow: hidden;
 
+    @include media-breakpoint-down(md) {
+        flex-direction: column;
+        align-items: center;
+    }
+
     &:hover {
         transition: .02s;
     }
@@ -290,35 +241,26 @@
         width: 100%;
     }
 
-    @media only screen and (max-width: 800px) {
-        flex-direction: column;
-
-        .advert-card-image {
-            width: 100%;
-
-            img {
-                width: 100% !important;
-                height: 250px;
-                object-fit: cover;
-                object-position: center;
-            }
-        }
-
-        .card-content-address {
-            position: relative !important;
-        }
-    }
 
     .advert-card-content {
         color: $gray !important;
         padding-top: 20px;
-        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
 
+        @include media-breakpoint-down(md) {
+            padding: 20px;
+        }
+
         p {
             max-height: 200px;
+        }
+
+        @include media-breakpoint-down(md) {
+            p {
+                max-height: 100px;
+            }
         }
     }
 
@@ -366,20 +308,57 @@
 
 .listing-search-container {
     background-color: #fff;
+    padding: 0 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .app-listing-empty {
     display: flex;
-    align-items: center;
     gap: 10px;
+    align-items: center;
+
+    @include media-breakpoint-down(lg) {
+        align-items: center;
+        flex-direction: column;
+        padding-top: 40px;
+    }
 
     svg {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
     }
 
     span {
+        text-transform: uppercase;
+        font-family: monospace;
         font-size: large;
     }
 }
 
+
+.desktop-listing-filters {
+    @media only screen and (max-width: 1200px) {
+        display: none;
+    }
+}
+
+.mobile-listing-filters {
+
+    .mobile-filter-title {
+        font-size: small;
+    }
+
+    @media only screen and (min-width: 1200px) {
+        display: none;
+    }
+}
+
+
+.app-listing-content-container {
+    padding-top: 20px;
+}
+
+.listing-search-content {
+    padding-top: 20px;
+}

@@ -18,11 +18,10 @@
                     </div>
                 </div>
                 <div>
+                    <br>
                     <span class="badge text-bg-indigo text-white">
                         {{$advert->category->locale->title}}
                     </span>
-
-                    <br>
 
                     @foreach($advert->tags as $tag)
                         @if($tag->tag->locale)
@@ -31,6 +30,8 @@
                             </span>
                         @endif
                     @endforeach
+
+                    <hr>
                 </div>
 
                 <div class="item-content-address">

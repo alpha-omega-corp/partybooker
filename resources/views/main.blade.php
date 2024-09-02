@@ -99,6 +99,7 @@
                 title: $('.app-listing-title'),
                 searchContent: $('.listing-search-content'),
                 content: $('.app-listing-content'),
+                contentContainer: $('.app-listing-content-container'),
                 page: 1,
                 lastPage: 2,
 
@@ -128,6 +129,8 @@
 
                 async search() {
                     if (this.input) {
+                        window.scrollTo(0, 0);
+
                         await $.ajax({
                             url: '{{route('guest.ajax.listing.search')}}',
                             type: 'GET',
@@ -135,10 +138,15 @@
                                 filter: this.input,
                             },
                         }).done(data => this.searchContent.html(data.adverts))
+                        this.content.hide()
+                    } else {
+                        this.content.show()
                     }
                 },
 
                 async filter() {
+                    window.scrollTo(0, 0);
+
                     await $.ajax({
                         url: '{{route('guest.ajax.listing.filter')}}',
                         type: 'GET',
@@ -148,6 +156,12 @@
                         },
                     }).done(data => {
                         this.searchContent.html(data.adverts)
+
+                        if (this.location || this.category) {
+                            this.content.hide()
+                        } else {
+                            this.content.show()
+                        }
                     })
                 },
             }))

@@ -6,4 +6,5 @@ return [
     'categories' => 'categories',
     'states' => 'states',
     'empty' => 'no results',
+    'filters' => 'filters',
 ];
