@@ -14,12 +14,12 @@
 
     <div class="home-description">
         <div class="description">
-            <div class="container">
+            <div class="container mt-5">
                 <x-app.title
                     :size="TitleSize::MEDIUM"
                     :color="AppColor::BLUE"
                     :value="$description->title"
-                    :padding="true"
+                    :padding="false"
                 />
                 <div class="description-content">
                     {!! $description->content !!}
