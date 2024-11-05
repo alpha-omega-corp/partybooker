@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Request;
 
 class LocaleMiddleware
 {
-    public static $mainLanguage = "fr";
-    public static $languages = ['fr', 'en'];
+    public static string $mainLanguage = "fr";
+    public static array $languages = ['fr', 'en'];
 
     public function handle($request, Closure $next)
     {
@@ -19,7 +19,7 @@ class LocaleMiddleware
         return $next($request);
     }
 
-    public static function getLocale()
+    public static function getLocale(): ?string
     {
         $uri = Request::path();
         $segmentsURI = explode('/', $uri);

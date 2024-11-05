@@ -5,6 +5,7 @@ namespace App\Models;
 
 use App\Enums\Language;
 use App\Models\Scopes\LocaleScope;
+use App\Traits\HasLangScope;
 use Database\Factories\AdvertFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,6 +18,7 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 class Advert extends Model
 {
     use HasFactory;
+    use HasLangScope;
 
     protected $fillable = [
         'slug',

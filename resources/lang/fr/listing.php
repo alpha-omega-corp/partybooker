@@ -8,4 +8,9 @@ return [
     'states' => 'cantons ',
     'empty' => 'aucun resultat',
     'filters' => 'filtres',
+
+    'filter.search' => 'rechercher',
+    'filter.category' => 'catégorie',
+    'filter.location' => 'location',
+    'filter' => 'filtre',
 ];

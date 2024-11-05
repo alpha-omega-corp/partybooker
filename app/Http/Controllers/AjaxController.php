@@ -101,6 +101,7 @@ class AjaxController extends Controller
      */
     public function listing(Request $request): JsonResponse
     {
+        app()->setLocale($request->input('lang'));
         $adverts = Advert::listing()->paginate(5);
 
         return response()->json([

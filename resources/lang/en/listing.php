@@ -7,4 +7,10 @@ return [
     'states' => 'states',
     'empty' => 'no results',
     'filters' => 'filters',
+
+    'filter.search' => 'search',
+    'filter.category' => 'category',
+    'filter.location' => 'location',
+    'filter' => 'filter',
+
 ];

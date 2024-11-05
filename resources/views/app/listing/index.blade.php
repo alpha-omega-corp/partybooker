@@ -5,9 +5,9 @@
 
         <div class="app-listing-container">
 
-            <div class="row app-listing-search" x-data="list">
+            <div class="row app-listing-search" x-data="listing">
 
-                <div class="col-xl-4 col-lg-12 listing-filters-col">
+                <div class="col-xl-4 col-lg-12 listing-filters-col p-0">
                     @include('app.listing.partials.listing-filters')
                 </div>
 

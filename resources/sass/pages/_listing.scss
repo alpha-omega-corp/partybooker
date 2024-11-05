@@ -14,18 +14,10 @@
     max-width: 100%;
     overflow: hidden;
     position: relative;
-    border-radius: 10px;
 
-    background-color: #fff;
-
-    @include media-breakpoint-up(lg) {
-        padding: 20px;
+    @media only screen and (min-width: 1199px) {
+        border-radius: 10px;
     }
-
-    @include media-breakpoint-down(lg) {
-        padding: 20px 0;
-    }
-
 
     .listing-category-content {
 
@@ -307,10 +299,9 @@
 }
 
 .listing-search-container {
-    background-color: #fff;
-    padding: 0 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    @media only screen and (min-width: 1199px) {
+        background-color: #fff;
+    }
 }
 
 .app-listing-empty {
@@ -338,25 +329,92 @@
 
 
 .desktop-listing-filters {
-    @media only screen and (max-width: 1200px) {
+    padding: 20px;
+
+    @media only screen and (max-width: 1199px) {
         display: none;
     }
 }
 
 .mobile-listing-filters {
+    border-bottom: 1px solid $light;
+    background-color: #ffffff;
 
-    .mobile-filter-title {
-        font-size: small;
-    }
-
-    @media only screen and (min-width: 1200px) {
-        display: none;
-    }
 }
 
 
+.mobile-listing-filters__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid $gray;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+
+    &--title {
+        text-transform: uppercase;
+        font-family: monospace;
+        font-weight: bold;
+    }
+
+    &--close {
+        display: flex;
+        justify-content: flex-end;
+
+        svg {
+            cursor: pointer;
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
+
+.mobile-listing-filters__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    padding: 20px;
+
+    &--item {
+        flex-grow: 1;
+
+        button {
+            width: 100%;
+            font-family: monospace;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-overflow: ellipsis !important;
+        }
+    }
+}
+
+.mobile-listing-filters__content {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+
+    @media only screen and (max-width: 700px) {
+        flex-direction: column;
+    }
+
+    .mobile-listing-filters__buttons-col {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+    .mobile-listing-filters__active {
+        width: 100%;
+    }
+}
+
 .app-listing-content-container {
-    padding-top: 20px;
+    @media only screen and (max-width: 1199px) {
+        padding-top: 20px;
+    }
+
 }
 
 .listing-search-content {

@@ -27,7 +27,7 @@ class LocaleController extends Controller
 
         $route = match (true) {
             Str::contains($referer, ['partenaires', 'partners']) => route(__('route.listing')),
-            Str::contains($referer, ['annonce', 'advert']) => route(__('route.advert'), [
+            Str::contains($referer, ['partenaire', 'partner']) => route(__('route.advert'), [
                 'company' => $segments[count($segments) - 2],
                 'category' => $this->categoryService->getFromSlug($segments[count($segments) - 1])->locale->slug
             ]),
@@ -36,7 +36,6 @@ class LocaleController extends Controller
             Str::contains($referer, ['partenariat', 'partnership']) => route(__('route.partnership')),
             Str::contains($referer, ['blog']) => route(__('route.blog')),
             Str::contains($referer, ['faq']) => route(__('route.faq')),
-            Str::contains($referer, ['partenaires', 'partners']) => route(__('route.admin-partners')),
             Str::contains($referer, ['contenu', 'content']) => route(__('route.admin-content')),
             Str::contains($referer, ['categories']) => route(__('route.admin-categories')),
             Str::contains($referer, ['formules', 'plans']) => route(__('route.admin-plans')),

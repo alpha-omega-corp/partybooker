@@ -40,6 +40,7 @@
     <script>
         document.addEventListener('alpine:init', () => {
 
+
             Alpine.data('truncate', (data) => ({
                 truncated: null,
                 content: data.replaceAll('"', ''),
@@ -91,8 +92,66 @@
                 },
             }))
 
+            Alpine.store('listingFilters', {
+                filters: [],
+                selected: null,
 
-            Alpine.data('list', () => ({
+                reset() {
+                    this.selected = null
+                },
+
+                select(filter) {
+                    this.selected = filter
+                },
+
+                active(state) {
+                    this.filters.find(filter => filter.name === this.selected.name).active = state
+                },
+            })
+
+            Alpine.data('listingFilters', (filters) => ({
+                init() {
+                    for (const key in filters) {
+                        const name = filters[key]
+
+                        this.$store.listingFilters.filters.push({
+                            name: name,
+                            open: false,
+                            active: false,
+                        })
+                    }
+                },
+
+                close() {
+                    this.$store.listingFilters.selected = null
+                },
+
+                open(filter) {
+                    this.$store.listingFilters.selected = filter
+                },
+
+                isOpen(name) {
+                    if (this.selected()) {
+                        return this.$store.listingFilters.selected.name === name
+                    }
+
+                    return false
+                },
+
+                selected() {
+                    return this.$store.listingFilters.selected
+                },
+
+                getFilters() {
+                    return this.$store.listingFilters.filters
+                },
+
+                getFilter(name) {
+                    return this.$store.listingFilters.filters.find(filter => filter.name === name)
+                }
+            }));
+
+            Alpine.data('listing', () => ({
                 input: null,
                 location: null,
                 category: null,
@@ -113,7 +172,7 @@
                 async next() {
                     if (this.page <= this.lastPage) {
                         await $.ajax({
-                            url: '{{route('guest.ajax.listing')}}',
+                            url: '{{route('guest.ajax.listing', ['lang' => app()->getLocale()])}}',
                             type: 'GET',
                             data: {
                                 page: this.page,
@@ -142,6 +201,7 @@
                     } else {
                         this.content.show()
                     }
+
                 },
 
                 async filter() {
@@ -159,9 +219,13 @@
 
                         if (this.location || this.category) {
                             this.content.hide()
+                            this.$store.listingFilters.active(true)
                         } else {
                             this.content.show()
+                            this.$store.listingFilters.active(false)
                         }
+
+                        console.log(this.$store.listingFilters.filters)
                     })
                 },
             }))
